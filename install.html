@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install Mitra Home</title>
+<meta name="description" content="Step-by-step install of Mitra Home on Windows or Mac, connecting phones, choosing an AI helper and updating.">
+<link rel="icon" href="assets/logo/icon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo/icon-192.png">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/logo/icon.svg" alt=""> Mitra Home</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="index.html#how">How it works</a>
+      <a href="install.html" aria-current="page">Install</a>
+      <a href="faq.html">FAQ</a>
+      <button class="theme-btn" type="button" aria-label="Switch light or dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Install</div>
+      <h1>Set up Mitra Home in about 15 minutes</h1>
+      <p class="muted">No typing commands. You download one folder, double-click one file, and answer a few questions in your browser.</p>
+    </div>
+
+    <p class="note">Mitra Home is in a private beta with a small group of families. The public download opens once testing is complete. A one-click installer is planned; these steps are for the beta.</p>
+
+    <h2 style="margin-top:36px">Before you start</h2>
+    <div class="grid">
+      <div class="card">
+        <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>A home computer</h3>
+        <p>Windows 10 or 11, or a Mac. One that is usually switched on, because it is where reminders are made and phones connect.</p>
+      </div>
+      <div class="card">
+        <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg></span>Python (free)</h3>
+        <p>The free program Mitra Home is written in. Version 3.12 or newer. The starter tells you if it is missing and opens the download page.</p>
+      </div>
+      <div class="card">
+        <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>An AI helper (optional)</h3>
+        <p>Helps read messy papers. Use a plan you already have, a cheap key, or a free model on your PC. You can add it later. <a href="#ai">Which one?</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>Install on your computer</h2>
+    <div class="tabs" role="tablist" aria-label="Choose your computer">
+      <button role="tab" id="tab-win" aria-controls="panel-win" aria-selected="true">Windows</button>
+      <button role="tab" id="tab-mac" aria-controls="panel-mac" aria-selected="false">Mac</button>
+    </div>
+
+    <div role="tabpanel" id="panel-win" aria-labelledby="tab-win">
+      <ol class="steps">
+        <li>
+          <h3>Install Python</h3>
+          <p>Go to <a href="https://www.python.org/downloads/" rel="noopener">python.org/downloads</a> and click the yellow <strong>Download Python</strong> button. Run the file you downloaded.</p>
+          <div class="screen">
+            <div class="bar"><i></i><i></i><i></i> Python setup</div>
+            <div class="body">
+              <div class="check-row"><span class="box on"></span> <strong>Add python.exe to PATH</strong> &larr; tick this first</div>
+              <div class="check-row"><span class="box"></span> Use admin privileges when installing py.exe</div>
+              <div style="margin-top:8px"><span class="btn btn-accent" style="padding:6px 12px;font-size:.85rem">Install Now</span></div>
+            </div>
+          </div>
+          <p class="small muted">Important: tick <strong>Add python.exe to PATH</strong> at the bottom of the first screen, then click <strong>Install Now</strong>.</p>
+        </li>
+        <li>
+          <h3>Unzip Mitra Home into its own folder</h3>
+          <p>Save the zip you were sent, right-click it, choose <strong>Extract All</strong> and pick a simple place, for example <code>D:\FamilyAgent</code> or <code>Documents\FamilyAgent</code>.</p>
+          <p class="small muted">Your family's own files will live in a second folder next to it, called <code>FamilyAgent_home</code>. Updates never touch that folder.</p>
+        </li>
+        <li>
+          <h3>Double-click <code>Start FamilyAgent.bat</code></h3>
+          <p>A black window opens. The first time, it prepares everything it needs (a few minutes). Then your web browser opens on the setup page by itself.</p>
+          <div class="screen term">
+            <div class="bar"><i></i><i></i><i></i> Start FamilyAgent</div>
+            <div class="body">  Preparing a private Python environment (one time, about a minute)...
+  Installing what the app needs (one time, a few minutes)...
+  Starting on http://127.0.0.1:8601 ...
+
+  FamilyAgent is running. Keep this window open: closing it stops it.</div>
+          </div>
+          <p class="small muted">If Windows asks whether to run a file you downloaded, choose <strong>Run</strong>. Keep the black window open; closing it stops Mitra Home. Starting it again simply reopens the same one.</p>
+        </li>
+        <li>
+          <h3>Answer the setup chat</h3>
+          <p>A short conversation in your browser: your family's name, who lives with you, whether you own or rent, your cars, an AI helper (you can skip it) and a PIN for each adult.</p>
+          <div class="screen">
+            <div class="bar"><i></i><i></i><i></i> 127.0.0.1:8601/setup</div>
+            <div class="body">
+              <div class="bubble">Who lives in the household? Type everyone, with their role and birthday if you like. Pets are welcome.</div>
+              <div class="bubble me">Alex, adult<br>Jordan, adult<br>Sam, child<br>Biscuit, dog</div>
+              <div class="bubble">Do you own or rent your home?</div>
+            </div>
+          </div>
+          <p class="small muted">You can stop any time and come back; it remembers where you were.</p>
+        </li>
+        <li>
+          <h3>Drop in a few papers</h3>
+          <p>Open <strong>Add documents</strong> and drag in a recent bill, a bank statement and your car insurance. Watch them appear in <strong>Today</strong> and <strong>Records</strong>.</p>
+        </li>
+        <li>
+          <h3>Let it run on its own</h3>
+          <p>At the end of setup, press <strong>Make it run on its own</strong>. This sets up the daily brief, the weekly family digest and the weekly backup.</p>
+        </li>
+      </ol>
+    </div>
+
+    <div role="tabpanel" id="panel-mac" aria-labelledby="tab-mac" hidden>
+      <ol class="steps">
+        <li>
+          <h3>Install Python</h3>
+          <p>Go to <a href="https://www.python.org/downloads/" rel="noopener">python.org/downloads</a>, download the macOS installer and run it (version 3.12 or newer).</p>
+        </li>
+        <li>
+          <h3>Unzip Mitra Home into its own folder</h3>
+          <p>Double-click the zip you were sent and move the folder somewhere simple, for example your home folder: <code>~/FamilyAgent</code>.</p>
+        </li>
+        <li>
+          <h3>Open <code>Start FamilyAgent.command</code></h3>
+          <p>The first time only: <strong>right-click</strong> it, choose <strong>Open</strong>, then <strong>Open</strong> again (macOS asks once). It prepares everything and opens your browser on the setup page.</p>
+          <p class="small muted">Keep the Terminal window open while you use Mitra Home.</p>
+        </li>
+        <li>
+          <h3>Answer the setup chat</h3>
+          <p>Same as on Windows: family, people, home, cars, an optional AI helper, and a PIN for each adult.</p>
+        </li>
+        <li>
+          <h3>Drop in a few papers and let it run on its own</h3>
+          <p>Use <strong>Add documents</strong>, then <strong>Make it run on its own</strong>. If the scheduled tasks never run, allow <code>cron</code> under System Settings &gt; Privacy &amp; Security &gt; Full Disk Access.</p>
+        </li>
+      </ol>
+      <p class="note small">Mac works but is tested less than Windows. Linux is not tested yet.</p>
+    </div>
+  </div>
+</section>
+
+<section id="phones">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Connect your phones</h2>
+      <p class="muted">Phones talk only to your PC, over your home Wi-Fi, with an encrypted link. Nothing goes through the internet.</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <h3>Give each adult a PIN</h3>
+        <p>The setup asks for this. Phones are refused until at least one PIN exists.</p>
+      </li>
+      <li>
+        <h3>Start the phone version</h3>
+        <p>Double-click <code>Start FamilyAgent for phones.bat</code> (Mac: <code>.command</code>) instead of the normal starter.</p>
+      </li>
+      <li>
+        <h3>Pair the phone</h3>
+        <p>On the PC open <strong>Settings &gt; Phones &gt; Add a phone</strong>. A QR code appears for 5 minutes. Open the Mitra Home app on the phone (Android or iPhone) and scan it.</p>
+        <p class="small muted">Android app: coming to Google Play soon. iPhone app: coming to the App Store after that. Until then, or without the app: open the address the PC shows (like <code>https://192.168.1.20:8701</code>) in the phone's browser, check the fingerprint matches Settings &gt; Phones, sign in with your PIN and choose "Add to Home Screen".</p>
+      </li>
+      <li>
+        <h3>Phone cannot connect?</h3>
+        <p>Windows Firewall may block it the first time. The black window prints one line to allow it on your private home network only. Run that line once in PowerShell as administrator.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="alt" id="ai">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Which AI helper should we use?</h2>
+      <p class="muted">Pick in the setup chat or later in Settings &gt; Connections. You can change it any time. Names, account numbers and other identifiers are hidden before any text is sent.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>You already have</th><th>Choose</th><th>Cost</th><th>Good to know</th></tr></thead>
+        <tbody>
+          <tr><td>Claude Pro or Max</td><td>Claude Code</td><td>Your plan</td><td>Everything works, including the Gmail morning brief and insurance review</td></tr>
+          <tr><td>ChatGPT plan</td><td>Codex CLI</td><td>Your plan</td><td>Reads papers and answers chat</td></tr>
+          <tr><td>Nothing yet, want cheap</td><td>An API key (OpenAI, Gemini, Anthropic or OpenRouter)</td><td>About $0.20 to $1 a month</td><td>Best for automatic daily runs</td></tr>
+          <tr><td>Nothing, want free and private</td><td>Ollama (a model on your own PC)</td><td>Free</td><td>Nothing leaves the PC; a bit less accurate</td></tr>
+          <tr><td>Google account</td><td>Gemini CLI</td><td>Free or plan</td><td>Avoid the free tier for family papers: it may be used for training</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small muted" style="margin-top:12px">Sign in to each AI service yourself, one account per person. Mitra Home never asks for or stores your AI login.</p>
+  </div>
+</section>
+
+<section id="updates">
+  <div class="wrap">
+    <div class="grid">
+      <div class="card">
+        <h3>Updating</h3>
+        <p>Open <strong>Settings &gt; Data</strong> and press <strong>Check for updates</strong>. Your database is backed up first, and your family's files are never replaced. Every release is signed and checked before it is installed.</p>
+      </div>
+      <div class="card">
+        <h3>Health check</h3>
+        <p><strong>Settings &gt; Data &gt; Health check</strong> lists anything that needs attention (backups, AI helper, scheduled tasks) and how to fix it.</p>
+      </div>
+      <div class="card">
+        <h3>Leaving</h3>
+        <p><strong>Settings &gt; Data &gt; Export all my data</strong> writes every table as spreadsheet files. Your original papers are already plain files in the <code>archive</code> folder.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="trouble">
+  <div class="wrap">
+    <h2>If something goes wrong</h2>
+    <details>
+      <summary>"Python was not found" or the black window closes at once</summary>
+      <p>Install Python 3.12 or newer from python.org and make sure <strong>Add python.exe to PATH</strong> is ticked. If you already installed it without that box, run the installer again, choose <strong>Modify</strong>, and tick it. Then double-click the starter again.</p>
+    </details>
+    <details>
+      <summary>The browser did not open</summary>
+      <p>Open your browser yourself and go to <code>http://127.0.0.1:8601</code>. If another program uses that port, Mitra Home picks the next free one (8602 to 8610) and prints it in the black window.</p>
+    </details>
+    <details>
+      <summary>The phone shows a certificate warning</summary>
+      <p>That is expected the first time: the certificate belongs to your own PC. Continue only if the fingerprint shown matches the one in Settings &gt; Phones on the PC.</p>
+    </details>
+    <details>
+      <summary>A document stayed in the Inbox</summary>
+      <p>When Mitra Home is not sure what a paper is, it asks you instead of guessing. Open <strong>Inbox</strong>, pick the type, vendor and date, and it is filed.</p>
+    </details>
+    <details>
+      <summary>Need help?</summary>
+      <p>Describe what you saw without personal details (no account numbers, no names), and include the message from <strong>Settings &gt; Data &gt; Health check</strong>. We never ask for access to your data.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><strong>Mitra Home</strong> (formerly FamilyAgent) &middot; <a href="index.html">Home</a> &middot; <a href="faq.html">FAQ</a></div>
+    <div>Records and reminders only. Nothing here is financial, tax, legal, insurance or medical advice.</div>
+    <div>Not affiliated with or endorsed by Anthropic, OpenAI or Google. Product names belong to their owners.</div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mitra Home FAQ</title>
+<meta name="description" content="Plain answers about Mitra Home: cost, privacy, AI, phones, banks and what happens to your data.">
+<link rel="icon" href="assets/logo/icon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo/icon-192.png">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/logo/icon.svg" alt=""> Mitra Home</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="index.html#how">How it works</a>
+      <a href="install.html">Install</a>
+      <a href="faq.html" aria-current="page">FAQ</a>
+      <button class="theme-btn" type="button" aria-label="Switch light or dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="wrap" style="max-width:820px">
+    <div class="section-head">
+      <div class="eyebrow">Questions</div>
+      <h1>Plain answers</h1>
+    </div>
+
+    <h2>Cost</h2>
+    <details open>
+      <summary>Is Mitra Home free?</summary>
+      <p>Yes. No subscription and no account with us. Everything described on this site is free today.</p>
+    </details>
+    <details>
+      <summary>Will it stay free?</summary>
+      <p>The everyday features (Simple and Advanced) stay free. If paid extras ever arrive, they will be new things, never features taken away from you.</p>
+    </details>
+    <details>
+      <summary>What could cost money?</summary>
+      <p>Only things you choose, paid directly to that company: an AI helper (often a few cents to a dollar a month on an API key, or a plan you already have), or the optional bank-sync bridge (SimpleFIN, about $1.50 a month).</p>
+    </details>
+
+    <h2 style="margin-top:32px">Privacy and safety</h2>
+    <details>
+      <summary>Where is my data stored?</summary>
+      <p>On your own computer, in a folder called <code>FamilyAgent_home</code>. We do not run a server that stores your data, and we never see it.</p>
+    </details>
+    <details>
+      <summary>Does anything leave my PC?</summary>
+      <p>Only if you choose an online AI helper: the text of a paper it reads is sent to that provider, with names, account numbers, phone numbers and other identifiers hidden first. Choose a local model (Ollama) and nothing leaves the PC. Optional Google Drive briefs carry vendor names and amounts, never the original papers.</p>
+    </details>
+    <details>
+      <summary>Does it log in to my bank?</summary>
+      <p>No. It never asks for or stores bank or tax-site passwords. You download statements yourself and drop them in. Advanced users can turn on read-only bank sync through SimpleFIN Bridge, which uses a one-time token you create there, not your bank password.</p>
+    </details>
+    <details>
+      <summary>What if a document contains strange instructions?</summary>
+      <p>Mitra Home treats every document as data, never as instructions. A paper that tries to tell the AI what to do is set aside for you to look at.</p>
+    </details>
+    <details>
+      <summary>Can my children use it?</summary>
+      <p>Yes, with their own simple page: their own items, family lists and birthdays. They never see money, and children do not use the AI.</p>
+    </details>
+    <details>
+      <summary>How do I back up, or leave?</summary>
+      <p>A weekly backup runs automatically (encrypted if you choose). <strong>Settings &gt; Data &gt; Export all my data</strong> gives you every table as spreadsheet files, and your papers are plain files in the <code>archive</code> folder.</p>
+    </details>
+
+    <h2 style="margin-top:32px">Using it</h2>
+    <details>
+      <summary>Do I need an AI subscription?</summary>
+      <p>No. AI is optional. Reminders, lists, calendar, backups, bank CSV files and many statement PDFs work without it. AI mainly helps read unusual papers and answers questions like "how much did we spend on groceries?"</p>
+    </details>
+    <details>
+      <summary>Does the PC need to stay on?</summary>
+      <p>Mostly, yes. The daily brief, reminders and phone syncing happen on the PC. The phone app keeps the last copy, so you can still read it when the PC is off or you are away, and your changes are sent when you are back home.</p>
+    </details>
+    <details>
+      <summary>Does it work on a Mac, Linux or iPhone?</summary>
+      <p>Mac: yes, tested less than Windows. Linux: not tested yet. Phones: free companion apps for Android and iPhone. Android comes first on Google Play, the iPhone app follows on the App Store; until then any phone can use its browser on your home Wi-Fi.</p>
+    </details>
+    <details>
+      <summary>Can I use it away from home?</summary>
+      <p>The phone app shows your last copy anywhere. For a live link away from home, advanced users can set up a private network such as Tailscale. Mitra Home never opens your PC to the internet.</p>
+    </details>
+    <details>
+      <summary>Which countries does it support?</summary>
+      <p>Amounts are in your currency. Tax papers, ID types and seasonal reminders come from a country profile; the United States is the most complete today.</p>
+    </details>
+    <details>
+      <summary>What is the difference between Simple and Advanced?</summary>
+      <p>Simple shows the everyday things: today, bills, papers, calendar, lists, briefs and phones. Advanced adds money tools, insurance reviews, taxes, work hours, AI choices, Google links and chat bots. Same app, one switch, both free. <a href="index.html#modes">See the full list</a>.</p>
+    </details>
+
+    <h2 style="margin-top:32px">About the project</h2>
+    <details>
+      <summary>Is it open source?</summary>
+      <p>Yes, under the GNU AGPL. The source code goes public once testing with our first families is complete. The name "Mitra Home" and the logo are reserved for the official, signed releases.</p>
+    </details>
+    <details>
+      <summary>Is this financial or legal advice?</summary>
+      <p>No. Mitra Home keeps records and checklists. For tax, insurance, legal or medical decisions, confirm with a licensed professional.</p>
+    </details>
+    <details>
+      <summary>Who makes it?</summary>
+      <p>An independent project, not affiliated with or endorsed by Anthropic, OpenAI or Google.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><strong>Mitra Home</strong> (formerly FamilyAgent) &middot; <a href="index.html">Home</a> &middot; <a href="install.html">Install</a></div>
+    <div>Records and reminders only. Nothing here is financial, tax, legal, insurance or medical advice.</div>
+    <div>Not affiliated with or endorsed by Anthropic, OpenAI or Google. Product names belong to their owners.</div>
+  </div>
+</footer>
+</body>
+</html>
