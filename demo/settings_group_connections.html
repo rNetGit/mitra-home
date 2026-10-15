@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon-192.png">
+  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>Settings · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <span class="brand">Mitra Home</span>
+    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    
+    
+    
+      
+        <span class="grp">Every day</span>
+        <a href="index.html">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+      
+        <span class="grp">Money</span>
+        
+        <a href="month.html">This month</a><a href="finance.html">Finance</a>
+      
+        <span class="grp">Everything else</span>
+        
+        <a href="records.html">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+      
+    
+    <span class="grow"></span>
+    <a class="btn addscan" href="inbox.html">Add or scan</a>
+    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+    <a href="settings_group_household.html" class="on" aria-current="page">Settings</a>
+    <small class="ver">v0.108.2</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>Settings</h1><p class="sub">Profile, agent, connections, phones and data</p></div></header>
+<nav class="pills" aria-label="Settings group"><a href="settings_group_household.html">Household profile</a><a href="settings_group_agent.html">Agent</a><a href="settings_group_connections.html" class="on" aria-current="true">Connections</a><a href="#" data-demo="1">Phones</a><a href="settings_group_data.html">Data</a></nav>
+
+
+
+<p class="muted small">Your documents go only to the AI you choose, under your own account, with account numbers and names masked
+  first. Keys and tokens stay on this PC, are never shown again, and can be typed only on this PC.</p>
+
+<section class="card" id="conn-ai">
+  <h2>AI provider <span class="chip info">Not set up</span></h2>
+  <p class="muted">Choose an AI to read your papers and answer questions. Everything else works without one.</p>
+  <form class="nform" data-hx-post="/settings/ai" data-hx-vals="{&quot;from&quot;: &quot;settings&quot;}" data-hx-disabled-elt="find button[type=submit]">
+  <label>Provider<select name="provider"><option value="claude_code">Claude Code (your own Claude login)</option><option value="gemini">Google Gemini (API key, paid tier)</option><option value="openai">OpenAI (API key)</option><option value="anthropic">Anthropic Claude (API key)</option><option value="openrouter">OpenRouter (one API key, many models)</option><option value="ollama">Ollama (a model on this PC)</option><option value="none" selected="">No AI</option></select></label>
+  <label>Model (blank = the default)<input name="model" maxlength="80" value="" autocomplete="off"></label>
+  
+  <label>API key<input name="key" type="password" maxlength="300" autocomplete="off" spellcheck="false"></label>
+  
+  <label class="check wide"><input type="checkbox" name="consent" value="1"> I understand the text of my documents (identifiers and names masked) goes to this provider under my own account.</label>
+  <label class="check wide"><input type="checkbox" name="paid" value="1"> Gemini only: this key's Google project has billing on (paid tier: prompts are not used for training).</label>
+  <label class="check wide"><input type="checkbox" name="photos" value="1"> Let the AI read receipt photos (a photo cannot be masked first).</label>
+  <div class="optrow wide">
+    <button class="btn" type="submit">Save</button>
+    
+  </div>
+</form>
+<details class="more-form"><summary class="btn alt">What each choice costs and does</summary>
+  <ul><li><b>Claude Code (your own Claude login)</b>: Best for statements. Runs only when you open Claude Code.</li><li><b>Google Gemini (API key, paid tier)</b>: About $0.40 a month for a family. Use a key with billing enabled. <span class="muted">Default model: gemini-2.5-flash.</span></li><li><b>OpenAI (API key)</b>: About $0.20 a month: the cheapest hosted option. <span class="muted">Default model: gpt-4o-mini.</span></li><li><b>Anthropic Claude (API key)</b>: About $1 a month for a family. <span class="muted">Default model: claude-haiku-4-5-20251001.</span></li><li><b>OpenRouter (one API key, many models)</b>: Cents a month; pick any model, e.g. google/gemini-2.5-flash. Only hosts that keep no data are used. <span class="muted">Default model: google/gemini-2.5-flash.</span></li><li><b>Ollama (a model on this PC)</b>: Free, nothing leaves this PC, lower accuracy. <span class="muted">Default model: llama3.1.</span></li><li><b>No AI</b>: Files wait for you; digests and the dashboard still work.</li></ul>
+</details>
+</section>
+
+<section class="card" id="conn-tg">
+  <h2>Phone bot (Telegram) <span class="chip info">Not set up</span></h2>
+  <p class="muted">Family members can ask what is due, search documents and send papers from their phones. In Telegram,
+    message @BotFather, send /newbot, pick a name, and paste the token it gives you here.</p>
+  
+  <form class="nform" data-hx-post="/settings/telegram" data-hx-vals="{&quot;op&quot;: &quot;token&quot;}" data-hx-disabled-elt="find button">
+    <label>Bot token<input name="token" type="password" maxlength="200" required="" autocomplete="off" spellcheck="false"></label>
+    <button class="btn" type="submit">Save token</button>
+  </form>
+  
+  
+</section>
+
+<section class="card" id="conn-google">
+  <h2>Google (Calendar, Gmail) <span class="chip info">Not set up</span></h2>
+  <p class="muted">Shows your Google Calendar on Calendar (your own events are only read, never changed). Full steps, with
+    every click: docs/GOOGLE_CALENDAR.md and docs/GOOGLE_GMAIL.md in the app folder.</p>
+  
+    
+    <p>Step 1: the OAuth client file (.json) downloaded from your Google Cloud project (Desktop app).</p>
+    <div class="optrow"><input type="file" accept=".json,application/json" id="gclient" aria-label="Google client file">
+      <button type="button" class="btn" data-upload="#gclient" data-upload-to="/settings/google/client">Save the client file</button></div>
+    <p class="muted small" id="gclient-said" role="status"></p>
+    
+  
+</section>
+
+
+
+</main>
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html">Finance</a>
+        
+        <a role="menuitem" href="records.html">Records</a>
+        
+        <a role="menuitem" href="notes.html">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings_group_household.html" class="on" aria-current="page">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>

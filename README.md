@@ -7,4 +7,7 @@ Static HTML and CSS, served by GitHub Pages from the `main` branch. No build ste
 
 The source of these pages lives in the app repository under `site/`; this repository is the published copy.
 
+`demo/` is a read-only copy of the app's pages for an invented family (the Riveras), saved from a test install.
+Nothing in it is real, and nothing a visitor clicks is sent anywhere.
+
 The name "Mitra Home" and the logo identify the official project.

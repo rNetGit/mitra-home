@@ -1,0 +1,363 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon-192.png">
+  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>Today · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <span class="brand">Mitra Home</span>
+    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    
+    
+    
+      
+        <span class="grp">Every day</span>
+        <a href="index.html" class="on" aria-current="page">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+      
+        <span class="grp">Money</span>
+        
+        <a href="month.html">This month</a><a href="finance.html">Finance</a>
+      
+        <span class="grp">Everything else</span>
+        
+        <a href="records.html">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+      
+    
+    <span class="grow"></span>
+    <a class="btn addscan" href="inbox.html">Add or scan</a>
+    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+    <a href="settings_group_household.html">Settings</a>
+    <small class="ver">v0.108.2</small>
+  </nav>
+
+  <main>
+
+<header class="head hero"><div><h1>Today</h1>
+  <p class="sub">Good afternoon, Marcus · Thursday, October 15</p>
+  <p class="lead">9 need you</p></div>
+  <a class="btn" href="inbox.html">Add or scan</a>
+</header>
+
+<nav class="pchips" aria-label="Show one person">
+  
+  <a href="#" data-demo="1" class="pchip on" aria-current="true">
+    Everyone</a>
+  
+  <a href="#" data-demo="1" class="pchip">
+    <span class="av sm av0" aria-hidden="true">M</span>Marcus</a>
+  
+  <a href="#" data-demo="1" class="pchip">
+    <span class="av sm av1" aria-hidden="true">E</span>Elena</a>
+  
+  <a href="#" data-demo="1" class="pchip">
+    <span class="av sm av2" aria-hidden="true">S</span>Sofia</a>
+  
+  <a href="#" data-demo="1" class="pchip">
+    <span class="av sm av3" aria-hidden="true">M</span>Mateo</a>
+  
+  <a href="#" data-demo="1" class="pchip">
+    <span class="av sm av4" aria-hidden="true">P</span>Pancho</a>
+  
+  <a href="#" data-demo="1" class="pchip">
+    <span class="av sm avh" aria-hidden="true">H</span>House</a>
+  
+</nav>
+
+
+<div class="today">
+  <section class="col" aria-labelledby="h-needs">
+    <h2 class="sec row-h" id="h-needs"><span>Needs you <span class="cnt">9</span></span>
+      <a href="brief.html">See all 9</a></h2>
+    
+<div class="card rows">
+  
+
+<div class="trow act">
+  <span class="av avh" aria-hidden="true">H</span>
+  <div class="tmain">
+    <span class="ttl">2017 Toyota Tacoma inspection expires</span>
+    <small class="muted"><b class="pt danger">Overdue 14d</b> · Renewal</small>
+  </div>
+  
+  <button type="button" class="btn alt sm" data-hx-post="/today/act" data-hx-swap="none" data-hx-vals="{&quot;key&quot;: &quot;vehicles:2:2026-10-01&quot;, &quot;who&quot;: &quot;&quot;}" aria-label="Done: 2017 Toyota Tacoma inspection expires">Done</button>
+  
+</div>
+
+
+<div class="trow act">
+  <span class="av av2" aria-hidden="true">S</span>
+  <div class="tmain">
+    <span class="ttl">Band fundraiser form</span>
+    <small class="muted"><b class="pt danger">Overdue 8d</b> · School · Sofia</small>
+  </div>
+  
+  <button type="button" class="btn alt sm" data-hx-post="/today/act" data-hx-swap="none" data-hx-vals="{&quot;key&quot;: &quot;life_items:11:2026-10-07&quot;, &quot;who&quot;: &quot;&quot;}" aria-label="Done: Band fundraiser form">Done</button>
+  
+</div>
+
+
+<div class="trow act">
+  <span class="av avh" aria-hidden="true">H</span>
+  <div class="tmain">
+    <span class="ttl">Flu shots</span>
+    <small class="muted"><b class="pt warn">Today</b> · Seasonal</small>
+  </div>
+  
+  <button type="button" class="btn alt sm" data-hx-post="/today/act" data-hx-swap="none" data-hx-vals="{&quot;key&quot;: &quot;alert:seasonal:Flu shots:2026&quot;, &quot;who&quot;: &quot;&quot;}" aria-label="Done: Flu shots">Done</button>
+  
+</div>
+
+</div>
+
+    <h2 class="sec row-h"><span>This week <span class="cnt">8</span></span>
+      <a href="#" data-demo="1">See all 8</a></h2>
+    
+<div class="card rows">
+  
+
+<div class="trow">
+  <span class="av av3" aria-hidden="true">M</span>
+  <div class="tmain">
+    <span class="ttl">Flu shot</span>
+    <small class="muted">9:15 AM · Appointment · Mateo</small>
+  </div>
+  <span class="pill ">Tomorrow</span>
+</div>
+
+
+<div class="trow">
+  <span class="av av2" aria-hidden="true">S</span>
+  <div class="tmain">
+    <span class="ttl">Wash the car</span>
+    <small class="muted">Chore · Sofia</small>
+  </div>
+  <span class="pill ">Tomorrow</span>
+</div>
+
+
+<div class="trow">
+  <span class="av avn" aria-hidden="true"></span>
+  <div class="tmain">
+    <span class="ttl">CANCEL before next charge: Disney Plus</span>
+    <small class="muted">Cancel · $13.99</small>
+  </div>
+  <span class="pill ">in 2d</span>
+</div>
+
+
+<div class="trow">
+  <span class="av av1" aria-hidden="true">E</span>
+  <div class="tmain">
+    <span class="ttl">Allergy prescription refill</span>
+    <small class="muted">Medical · Elena</small>
+  </div>
+  <span class="pill ">in 3d</span>
+</div>
+
+
+<div class="trow">
+  <span class="av av2" aria-hidden="true">S</span>
+  <div class="tmain">
+    <span class="ttl">Braces adjustment</span>
+    <small class="muted">3:30 PM · Appointment · Medical · Sofia</small>
+  </div>
+  <span class="pill ">in 5d</span>
+</div>
+
+</div>
+
+  </section>
+  <section class="col" aria-labelledby="h-today">
+    <h2 class="sec" id="h-today">On today</h2>
+    
+<div class="card rows">
+  <p class="muted quiet">Nothing on the calendar today.</p>
+</div>
+
+    <h2 class="sec">Next 7 days</h2>
+    <div class="strip" role="list">
+      
+      <a role="listitem" class="sday now" href="calendar_view_week.html" aria-label="Thursday 15: 7 items">
+        <small>Thu</small><b>15</b>
+        <span class="dots"><i class="dot av2"></i><i class="dot avh"></i></span>
+      </a>
+      
+      <a role="listitem" class="sday" href="calendar_view_week.html" aria-label="Friday 16: 2 items">
+        <small>Fri</small><b>16</b>
+        <span class="dots"><i class="dot av2"></i><i class="dot av3"></i></span>
+      </a>
+      
+      <a role="listitem" class="sday" href="calendar_view_week.html" aria-label="Saturday 17: 1 item">
+        <small>Sat</small><b>17</b>
+        <span class="dots"></span>
+      </a>
+      
+      <a role="listitem" class="sday" href="calendar_view_week.html" aria-label="Sunday 18: 1 item">
+        <small>Sun</small><b>18</b>
+        <span class="dots"><i class="dot av1"></i></span>
+      </a>
+      
+      <a role="listitem" class="sday" href="calendar_view_week.html" aria-label="Monday 19: 0 items">
+        <small>Mon</small><b>19</b>
+        <span class="dots"></span>
+      </a>
+      
+      <a role="listitem" class="sday" href="calendar_view_week.html" aria-label="Tuesday 20: 2 items">
+        <small>Tue</small><b>20</b>
+        <span class="dots"><i class="dot av2"></i></span>
+      </a>
+      
+      <a role="listitem" class="sday" href="calendar_view_week.html" aria-label="Wednesday 21: 1 item">
+        <small>Wed</small><b>21</b>
+        <span class="dots"><i class="dot av4"></i></span>
+      </a>
+      
+    </div>
+  </section>
+  <aside class="col" aria-label="Money, house and renewals">
+    
+    <h2 class="sec row-h">Money <a href="month.html">This month</a></h2>
+    <div class="card money">
+      
+      
+      <span class="muted">Bills in the next 30 days</span>
+      <b class="big">$4,126</b>
+      <span class="muted">6 bills</span>
+      <p>Next: <b>Verizon</b> $191.50 <span class="pill ">Oct 24</span></p>
+      
+    </div>
+    
+    <h2 class="sec row-h">House and car <a href="#" data-demo="1">All</a></h2>
+<div class="card rows">
+  
+
+<div class="trow">
+  <span class="av avh" aria-hidden="true">H</span>
+  <div class="tmain">
+    <span class="ttl">Replace HVAC filter</span>
+    <small class="muted">Home</small>
+  </div>
+  <span class="pill ">Oct 25</span>
+</div>
+
+
+<div class="trow">
+  <span class="av avh" aria-hidden="true">H</span>
+  <div class="tmain">
+    <span class="ttl">Smoke + CO detector batteries/test</span>
+    <small class="muted">Seasonal</small>
+  </div>
+  <span class="pill ">Oct 25</span>
+</div>
+
+
+<div class="trow">
+  <span class="av avh" aria-hidden="true">H</span>
+  <div class="tmain">
+    <span class="ttl">Clean gutters after leaf fall</span>
+    <small class="muted">Seasonal</small>
+  </div>
+  <span class="pill ">Nov 1</span>
+</div>
+
+
+<div class="trow">
+  <span class="av avh" aria-hidden="true">H</span>
+  <div class="tmain">
+    <span class="ttl">2021 Honda CR-V inspection expires</span>
+    <small class="muted">Renewal</small>
+  </div>
+  <span class="pill ">Nov 7</span>
+</div>
+
+</div>
+
+    <h2 class="sec">Renewals and papers</h2>
+<div class="card rows">
+  
+
+<div class="trow">
+  <span class="av avn" aria-hidden="true"></span>
+  <div class="tmain">
+    <span class="ttl">State Farm auto policy x5521 term ends</span>
+    <small class="muted">Renewal · $1,342.00</small>
+  </div>
+  <span class="pill ">Nov 12</span>
+</div>
+
+</div>
+
+  </aside>
+</div>
+</main>
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html" class="on" aria-current="page"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html">Finance</a>
+        
+        <a role="menuitem" href="records.html">Records</a>
+        
+        <a role="menuitem" href="notes.html">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>

@@ -1,0 +1,723 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon-192.png">
+  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>To do · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <span class="brand">Mitra Home</span>
+    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    
+    
+    
+      
+        <span class="grp">Every day</span>
+        <a href="index.html">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html" class="on" aria-current="page">To do</a>
+      
+        <span class="grp">Money</span>
+        
+        <a href="month.html">This month</a><a href="finance.html">Finance</a>
+      
+        <span class="grp">Everything else</span>
+        
+        <a href="records.html">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+      
+    
+    <span class="grow"></span>
+    <a class="btn addscan" href="inbox.html">Add or scan</a>
+    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+    <a href="settings_group_household.html">Settings</a>
+    <small class="ver">v0.108.2</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>To do</h1><p class="sub">What needs you, and what is coming up.</p></div></header>
+<section id="brief">
+<div class="seg" role="group" aria-label="View">
+  
+  <button type="button" data-hx-get="/brief/body?view=today" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-push-url="/brief?view=today" class="on">Today</button>
+  
+  <button type="button" data-hx-get="/brief/body?view=week" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-push-url="/brief?view=week" class="">Week</button>
+  
+  <button type="button" data-hx-get="/brief/body?view=month" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-push-url="/brief?view=month" class="">Month</button>
+  
+</div>
+
+<nav class="pchips" aria-label="Show one person">
+  
+  <a href="#" data-demo="1" class="pchip on" aria-current="true">
+    Everyone</a>
+  
+  <a href="#" data-demo="1" class="pchip">
+    <span class="av sm av0" aria-hidden="true">M</span>Marcus</a>
+  
+  <a href="#" data-demo="1" class="pchip">
+    <span class="av sm av1" aria-hidden="true">E</span>Elena</a>
+  
+  <a href="#" data-demo="1" class="pchip">
+    <span class="av sm av2" aria-hidden="true">S</span>Sofia</a>
+  
+  <a href="#" data-demo="1" class="pchip">
+    <span class="av sm av3" aria-hidden="true">M</span>Mateo</a>
+  
+  <a href="#" data-demo="1" class="pchip">
+    <span class="av sm av4" aria-hidden="true">P</span>Pancho</a>
+  
+  <a href="#" data-demo="1" class="pchip">
+    <span class="av sm avh" aria-hidden="true">H</span>House</a>
+  
+</nav>
+
+
+
+<div class="kpis">
+  
+  <div class="kpi"><span>Overdue</span><b class="bad">2</b></div>
+  
+  <div class="kpi"><span>Next 7 days</span><b class="">13</b></div>
+  
+  <div class="kpi"><span>Bills due in 30 days</span><b class="">$4,125.51</b></div>
+  
+</div>
+
+
+<h2 class="sec">Needs you</h2>
+<div class="card rows">
+  
+  <div class="brow">
+    <span class="av avh" aria-hidden="true">H</span>
+    <div class="bmain">
+      <b class="bad">OVERDUE 14d</b> · 2017 Toyota Tacoma inspection expires
+      <small class="muted">Renewal</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;vehicles:2:2026-10-01&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>2017 Toyota Tacoma inspection expires</b><br><small class="muted">Renewal · Thu Oct 01, 2026</small></p>
+          
+          <p><a href="#" data-demo="1">Open record</a></p>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;vehicles:2:2026-10-01&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;vehicles:2:2026-10-01&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;vehicles:2:2026-10-01&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;vehicles:2:2026-10-01&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av av2" aria-hidden="true">S</span>
+    <div class="bmain">
+      <b class="bad">OVERDUE 8d</b> · Band fundraiser form (Sofia)
+      <small class="muted">School</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;life_items:11:2026-10-07&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>Band fundraiser form (Sofia)</b><br><small class="muted">School · Wed Oct 07, 2026</small></p>
+          <p>Hillside Middle</p>
+          <p><a href="#" data-demo="1">Open record</a></p>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;life_items:11:2026-10-07&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;life_items:11:2026-10-07&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;life_items:11:2026-10-07&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;life_items:11:2026-10-07&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av av2" aria-hidden="true">S</span>
+    <div class="bmain">
+      <b class="">Today</b> · Gaming laptop (Sofia): needs a receipt · $899.00
+      <small class="muted">Warranty</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;home_assets:6:2026-10-15&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>Gaming laptop (Sofia): needs a receipt</b><br><small class="muted">Warranty · Thu Oct 15, 2026 · $899.00</small></p>
+          <p>Over $200 with no receipt attached (assets.py attach)</p>
+          <p><a href="#" data-demo="1">Open record</a></p>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;home_assets:6:2026-10-15&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;home_assets:6:2026-10-15&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;home_assets:6:2026-10-15&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;home_assets:6:2026-10-15&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av avh" aria-hidden="true">H</span>
+    <div class="bmain">
+      <b class="">Today</b> · HVAC system: needs a receipt · $7,800.00
+      <small class="muted">Warranty</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;home_assets:4:2026-10-15&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>HVAC system: needs a receipt</b><br><small class="muted">Warranty · Thu Oct 15, 2026 · $7,800.00</small></p>
+          <p>Over $200 with no receipt attached (assets.py attach)</p>
+          <p><a href="#" data-demo="1">Open record</a></p>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;home_assets:4:2026-10-15&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;home_assets:4:2026-10-15&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;home_assets:4:2026-10-15&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;home_assets:4:2026-10-15&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av avh" aria-hidden="true">H</span>
+    <div class="bmain">
+      <b class="">Today</b> · Washer: needs a receipt · $899.00
+      <small class="muted">Warranty</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;home_assets:3:2026-10-15&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>Washer: needs a receipt</b><br><small class="muted">Warranty · Thu Oct 15, 2026 · $899.00</small></p>
+          <p>Over $200 with no receipt attached (assets.py attach)</p>
+          <p><a href="#" data-demo="1">Open record</a></p>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;home_assets:3:2026-10-15&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;home_assets:3:2026-10-15&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;home_assets:3:2026-10-15&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;home_assets:3:2026-10-15&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av avh" aria-hidden="true">H</span>
+    <div class="bmain">
+      <b class="">Today</b> · Water heater: needs a receipt · $1,150.00
+      <small class="muted">Warranty</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;home_assets:5:2026-10-15&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>Water heater: needs a receipt</b><br><small class="muted">Warranty · Thu Oct 15, 2026 · $1,150.00</small></p>
+          <p>Over $200 with no receipt attached (assets.py attach)</p>
+          <p><a href="#" data-demo="1">Open record</a></p>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;home_assets:5:2026-10-15&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;home_assets:5:2026-10-15&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;home_assets:5:2026-10-15&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;home_assets:5:2026-10-15&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av avh" aria-hidden="true">H</span>
+    <div class="bmain">
+      <b class="">Now</b> · Flu shots
+      <small class="muted">Seasonal</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;alert:seasonal:Flu shots:2026&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>Flu shots</b><br><small class="muted">Seasonal · Thu Oct 15, 2026</small></p>
+          <p>Window open Sep 08 to Oct 31. Usually Sept-Oct. Pharmacies carry vaccine from late Aug.</p>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;alert:seasonal:Flu shots:2026&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;alert:seasonal:Flu shots:2026&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;alert:seasonal:Flu shots:2026&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;alert:seasonal:Flu shots:2026&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av avh" aria-hidden="true">H</span>
+    <div class="bmain">
+      <b class="">Now</b> · Lawn: fall feed / overseed (cool-season grass only)
+      <small class="muted">Seasonal</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;alert:seasonal:Lawn: fall feed / overseed (cool-season grass only):2026&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>Lawn: fall feed / overseed (cool-season grass only)</b><br><small class="muted">Seasonal · Thu Oct 15, 2026</small></p>
+          <p>Window open Sep 15 to Oct 31. Skip if your lawn is warm-season grass.</p>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;alert:seasonal:Lawn: fall feed / overseed (cool-season grass only):2026&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;alert:seasonal:Lawn: fall feed / overseed (cool-season grass only):2026&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;alert:seasonal:Lawn: fall feed / overseed (cool-season grass only):2026&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;alert:seasonal:Lawn: fall feed / overseed (cool-season grass only):2026&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av avh" aria-hidden="true">H</span>
+    <div class="bmain">
+      <b class="">Now</b> · Heating system check + new filter
+      <small class="muted">Seasonal</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;alert:seasonal:Heating system check + new filter:2026&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>Heating system check + new filter</b><br><small class="muted">Seasonal · Thu Oct 15, 2026</small></p>
+          <p>Window open Oct 01 to Nov 15. Service before the first cold nights.</p>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;alert:seasonal:Heating system check + new filter:2026&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;alert:seasonal:Heating system check + new filter:2026&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;alert:seasonal:Heating system check + new filter:2026&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;alert:seasonal:Heating system check + new filter:2026&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+</div>
+
+<h2 class="sec">Coming up</h2>
+<div class="card rows">
+  
+  <div class="brow">
+    <span class="av av3" aria-hidden="true">M</span>
+    <div class="bmain">
+      <b class="">Tomorrow</b> · Flu shot (Mateo)
+      <small class="muted">Appointment</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;appointments:2:2026-10-16&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>Flu shot (Mateo)</b><br><small class="muted">Appointment · Fri Oct 16, 2026</small></p>
+          <p>Triangle Pediatrics 09:15</p>
+          <p><a href="#" data-demo="1">Open record</a></p>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;appointments:2:2026-10-16&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;appointments:2:2026-10-16&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;appointments:2:2026-10-16&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;appointments:2:2026-10-16&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av av2" aria-hidden="true">S</span>
+    <div class="bmain">
+      <b class="">Tomorrow</b> · Wash the car (Sofia)
+      <small class="muted">Chore</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;life_items:29:2026-10-16&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>Wash the car (Sofia)</b><br><small class="muted">Chore · Fri Oct 16, 2026</small></p>
+          
+          <p><a href="#" data-demo="1">Open record</a></p>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;life_items:29:2026-10-16&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;life_items:29:2026-10-16&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;life_items:29:2026-10-16&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;life_items:29:2026-10-16&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av avn" aria-hidden="true"></span>
+    <div class="bmain">
+      <b class="">in 2d</b> · CANCEL before next charge: Disney Plus · $13.99
+      <small class="muted">Cancel</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;subscriptions:2:2026-10-17&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>CANCEL before next charge: Disney Plus</b><br><small class="muted">Cancel · Sat Oct 17, 2026 · $13.99</small></p>
+          <p>Summit Rewards Visa x9026 - you marked this to cancel</p>
+          <p><a href="#" data-demo="1">Open record</a></p>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;subscriptions:2:2026-10-17&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;subscriptions:2:2026-10-17&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;subscriptions:2:2026-10-17&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;subscriptions:2:2026-10-17&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av av1" aria-hidden="true">E</span>
+    <div class="bmain">
+      <b class="">in 3d</b> · Allergy prescription refill (Elena)
+      <small class="muted">Medical</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;life_items:19:2026-10-18&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>Allergy prescription refill (Elena)</b><br><small class="muted">Medical · Sun Oct 18, 2026</small></p>
+          <p>CVS</p>
+          <p><a href="#" data-demo="1">Open record</a></p>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;life_items:19:2026-10-18&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;life_items:19:2026-10-18&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;life_items:19:2026-10-18&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;life_items:19:2026-10-18&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av av2" aria-hidden="true">S</span>
+    <div class="bmain">
+      <b class="">in 5d</b> · Braces adjustment (Sofia)
+      <small class="muted">Appointment · Medical</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;appointments:1:2026-10-20&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>Braces adjustment (Sofia)</b><br><small class="muted">Appointment · Tue Oct 20, 2026</small></p>
+          <p>Smile Ortho 15:30</p>
+          <p><a href="#" data-demo="1">Open record</a></p>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;appointments:1:2026-10-20&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;appointments:1:2026-10-20&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;appointments:1:2026-10-20&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;appointments:1:2026-10-20&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av avn" aria-hidden="true"></span>
+    <div class="bmain">
+      <b class="">in 5d</b> · Subscription: Apple iCloud · $2.99
+      <small class="muted">Renewal</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;subscriptions:5:2026-10-20&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>Subscription: Apple iCloud</b><br><small class="muted">Renewal · Tue Oct 20, 2026 · $2.99</small></p>
+          <p>Summit Rewards Visa x9026</p>
+          <p><a href="#" data-demo="1">Open record</a></p>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;subscriptions:5:2026-10-20&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;subscriptions:5:2026-10-20&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;subscriptions:5:2026-10-20&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;subscriptions:5:2026-10-20&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av av4" aria-hidden="true">P</span>
+    <div class="bmain">
+      <b class="">in 6d</b> · Heartworm pill (Pancho)
+      <small class="muted">Pet</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;life_items:23:2026-10-21&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>Heartworm pill (Pancho)</b><br><small class="muted">Pet · Wed Oct 21, 2026</small></p>
+          
+          <p><a href="#" data-demo="1">Open record</a></p>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;life_items:23:2026-10-21&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;life_items:23:2026-10-21&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;life_items:23:2026-10-21&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;life_items:23:2026-10-21&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+  <div class="brow">
+    <span class="av av2" aria-hidden="true">S</span>
+    <div class="bmain">
+      <b class="">in 7d</b> · Science fair project due (Sofia)
+      <small class="muted">School</small>
+    </div>
+    <div class="bact">
+      
+        <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;life_items:10:2026-10-22&quot;, &quot;op&quot;: &quot;done&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Done</button>
+      
+      
+      <details class="more"><summary aria-label="Details, snooze, hide">⋯</summary>
+        <div class="menu">
+          <p><b>Science fair project due (Sofia)</b><br><small class="muted">School · Thu Oct 22, 2026</small></p>
+          <p>Hillside Middle</p>
+          <p><a href="#" data-demo="1">Open record</a></p>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;1&quot;, &quot;key&quot;: &quot;life_items:10:2026-10-22&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 1 day</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;7&quot;, &quot;key&quot;: &quot;life_items:10:2026-10-22&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 7 days</button>
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;days&quot;: &quot;30&quot;, &quot;key&quot;: &quot;life_items:10:2026-10-22&quot;, &quot;op&quot;: &quot;snooze&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Snooze 30 days</button>
+          
+          
+          <button type="button" class="btn alt" data-hx-post="/brief/act" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;key&quot;: &quot;life_items:10:2026-10-22&quot;, &quot;op&quot;: &quot;hide&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Hide</button>
+          
+        </div>
+      </details>
+      
+    </div>
+  </div>
+  
+</div>
+
+
+<h2 class="sec">Documents</h2>
+<div class="docs">
+  
+  <button type="button" class="btn alt" data-hx-post="/brief/doc" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;kind&quot;: &quot;this_week&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">This week</button>
+  
+  <button type="button" class="btn alt" data-hx-post="/brief/doc" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;kind&quot;: &quot;weekly_digest&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Weekly digest</button>
+  
+  <button type="button" class="btn alt" data-hx-post="/brief/doc" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;kind&quot;: &quot;family_meeting&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Family meeting</button>
+  
+  <button type="button" class="btn alt" data-hx-post="/brief/doc" data-hx-target="#brief" data-hx-swap="innerHTML" data-hx-vals="{&quot;kind&quot;: &quot;emergency&quot;, &quot;view&quot;: &quot;today&quot;, &quot;who&quot;: &quot;&quot;}">Emergency sheet</button>
+  
+</div>
+</section>
+</main>
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html" class="on" aria-current="page"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html">Finance</a>
+        
+        <a role="menuitem" href="records.html">Records</a>
+        
+        <a role="menuitem" href="notes.html">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>

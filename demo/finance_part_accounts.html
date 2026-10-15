@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon-192.png">
+  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>Finance · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <span class="brand">Mitra Home</span>
+    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    
+    
+    
+      
+        <span class="grp">Every day</span>
+        <a href="index.html">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+      
+        <span class="grp">Money</span>
+        
+        <a href="month.html">This month</a><a href="finance.html" class="on" aria-current="page">Finance</a>
+      
+        <span class="grp">Everything else</span>
+        
+        <a href="records.html">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+      
+    
+    <span class="grow"></span>
+    <a class="btn addscan" href="inbox.html">Add or scan</a>
+    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+    <a href="settings_group_household.html">Settings</a>
+    <small class="ver">v0.108.2</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>Finance</h1><p class="sub">Keep · Accounts</p></div></header>
+<nav class="pills" aria-label="Group"><a href="finance_part_bills.html">Pay</a><a href="finance_part_accounts.html" class="on" aria-current="true">Keep</a><a href="finance_part_cashflow.html">Look back</a></nav>
+
+<nav class="pills sm" aria-label="Part"><a href="finance_part_accounts.html" class="on" aria-current="true">Accounts</a><a href="#" data-demo="1">Deposits</a><a href="finance_part_budget.html">Budget and loans</a><a href="#" data-demo="1">Card benefits</a></nav>
+
+
+
+
+
+
+
+<div class="kpis rk"><div class="kpi"><span>Cash and investments</span><b>$15,361</b></div><div class="kpi"><span>Cards and loans owed</span><b>$1,388</b></div><div class="kpi"><span>Net position</span><b>$13,972</b></div><div class="kpi"><span>Latest balance</span><b>2026-10-13</b></div></div>
+
+
+<details class="card addnote">
+  <summary><h2>Add an account</h2></summary>
+  <div id="radd-accounts">
+
+<form class="nform" data-hx-post="/records/add" data-hx-target="#radd-accounts" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;money/accounts&quot;, &quot;table&quot;: &quot;accounts&quot;}">
+
+  <label>Name<input name="name" maxlength="60" required="" value=""></label>
+  <label>Type<select name="kind"><option value="checking">checking</option><option value="savings">savings</option><option value="credit">credit</option><option value="loan">loan</option><option value="investment">investment</option></select></label>
+  <label>Last 4 digits (optional)<input name="last4" maxlength="4" pattern="[0-9]{4}" inputmode="numeric" value=""></label>
+  <label>Owner (optional)<input name="owner" maxlength="40" value=""></label>
+  <p class="muted small">Only the last four digits, never the whole account number.</p>
+
+  <button class="btn" type="submit">Add</button>
+</form></div>
+</details>
+
+
+
+
+
+
+
+<section class="card rblock">
+  <h2>Latest statement balances</h2>
+  
+  <div class="tablewrap"><table class="cards">
+    <thead><tr><th>Account</th><th>Type</th><th>Owner</th><th>As of</th><th>Reported</th></tr></thead>
+    <tbody><tr><td data-label="Account"><a href="#" data-demo="1">Harbor Checking x4417</a></td><td data-label="Type">checking</td><td data-label="Owner">Marcus</td><td data-label="As of">2026-10-13</td><td data-label="Reported">$6,240.18</td></tr><tr><td data-label="Account"><a href="#" data-demo="1">Summit Rewards Visa x9026</a></td><td data-label="Type">credit</td><td data-label="Owner">Marcus</td><td data-label="As of">2026-10-13</td><td data-label="Reported">$1,388.26</td></tr><tr><td data-label="Account"><a href="#" data-demo="1">Harbor Savings x4420</a></td><td data-label="Type">savings</td><td data-label="Owner">Elena</td><td data-label="As of">2026-10-13</td><td data-label="Reported">$9,120.55</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+<section class="card rblock">
+  <h2>Accounts and statement coverage</h2>
+  
+  <div class="tablewrap"><table class="cards">
+    <thead><tr><th>Account</th><th>Type</th><th>Last 4</th><th>Owner</th><th>Transactions</th><th>Last txn</th><th>Latest statement</th><th>Note</th></tr></thead>
+    <tbody><tr><td data-label="Account"><a href="#" data-demo="1">Harbor Checking</a></td><td data-label="Type">checking</td><td data-label="Last 4">4417</td><td data-label="Owner">Marcus</td><td data-label="Transactions">118</td><td data-label="Last txn">2026-10-12</td><td data-label="Latest statement"></td><td data-label="Note"></td></tr><tr><td data-label="Account"><a href="#" data-demo="1">Summit Rewards Visa</a></td><td data-label="Type">credit</td><td data-label="Last 4">9026</td><td data-label="Owner">Marcus</td><td data-label="Transactions">122</td><td data-label="Last txn">2026-10-13</td><td data-label="Latest statement"></td><td data-label="Note"></td></tr><tr><td data-label="Account"><a href="#" data-demo="1">Harbor Savings</a></td><td data-label="Type">savings</td><td data-label="Last 4">4420</td><td data-label="Owner">Elena</td><td data-label="Transactions">13</td><td data-label="Last txn">2026-10-02</td><td data-label="Latest statement"></td><td data-label="Note"></td></tr></tbody>
+  </table></div>
+  
+</section>
+
+<section class="card rblock">
+  <h2>Investments (maturity ladder)</h2>
+  
+  <div class="tablewrap"><table class="cards">
+    <thead><tr><th>Name</th><th>Kind</th><th>Invested</th><th>Value now</th><th>As of</th><th>Matures</th></tr></thead>
+    <tbody><tr><td data-label="Name"><a href="#" data-demo="1">Fidelity brokerage</a></td><td data-label="Kind">brokerage</td><td data-label="Invested">$41,000.00</td><td data-label="Value now">$48,200.00</td><td data-label="As of">2026-10-03</td><td data-label="Matures"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">401k Elena (Acme)</a></td><td data-label="Kind">retirement</td><td data-label="Invested">$88,000.00</td><td data-label="Value now">$112,340.00</td><td data-label="As of">2026-10-03</td><td data-label="Matures"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Savings bond</a></td><td data-label="Kind">other</td><td data-label="Invested">$4,000.00</td><td data-label="Value now">$5,000.00</td><td data-label="As of">2026-10-03</td><td data-label="Matures">2027-11-17</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+<section class="card rblock">
+  <h2>Money moved to investments (from bank statements)</h2>
+  
+  <div class="tablewrap"><table>
+    <thead><tr><th>Month</th><th>Payee</th><th>Invested</th><th>Cumulative total</th></tr></thead>
+    <tbody><tr><td>2026-10</td><td>Fidelity</td><td>$500.00</td><td>$3,500.00</td></tr><tr><td>2026-09</td><td>Fidelity</td><td>$500.00</td><td>$3,000.00</td></tr><tr><td>2026-08</td><td>Fidelity</td><td>$500.00</td><td>$2,500.00</td></tr><tr><td>2026-07</td><td>Fidelity</td><td>$500.00</td><td>$2,000.00</td></tr><tr><td>2026-06</td><td>Fidelity</td><td>$500.00</td><td>$1,500.00</td></tr><tr><td>2026-05</td><td>Fidelity</td><td>$500.00</td><td>$1,000.00</td></tr><tr><td>2026-04</td><td>Fidelity</td><td>$500.00</td><td>$500.00</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+<p class="muted small">Open a row to change it here, or tell Chat.</p>
+
+
+</main>
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html" class="on" aria-current="page">Finance</a>
+        
+        <a role="menuitem" href="records.html">Records</a>
+        
+        <a role="menuitem" href="notes.html">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon-192.png">
+  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>Calendar · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <span class="brand">Mitra Home</span>
+    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    
+    
+    
+      
+        <span class="grp">Every day</span>
+        <a href="index.html">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html" class="on" aria-current="page">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+      
+        <span class="grp">Money</span>
+        
+        <a href="month.html">This month</a><a href="finance.html">Finance</a>
+      
+        <span class="grp">Everything else</span>
+        
+        <a href="records.html">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+      
+    
+    <span class="grow"></span>
+    <a class="btn addscan" href="inbox.html">Add or scan</a>
+    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+    <a href="settings_group_household.html">Settings</a>
+    <small class="ver">v0.108.2</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>Calendar</h1><p class="sub">Every due date, appointment and birthday from your records.</p></div></header>
+<section id="calendar"><div class="calbar">
+  <div class="calnav">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=month&amp;ref=2026-09-01" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=month&amp;ref=2026-09-01" class="btn alt">◀ Prev</a>
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=month&amp;ref=2026-10-15" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=month&amp;ref=2026-10-15" class="btn alt">Today</a>
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=month&amp;ref=2026-11-01" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=month&amp;ref=2026-11-01" class="btn alt">Next ▶</a>
+    <h2>October 2026</h2>
+  </div>
+  <div class="seg" role="group" aria-label="View">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-15" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-15">Week</a><a href="#" data-demo="1" data-hx-get="/calendar/body?view=month&amp;ref=2026-10-15" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=month&amp;ref=2026-10-15" class="on">Month</a><a href="#" data-demo="1" data-hx-get="/calendar/body?view=year&amp;ref=2026-10-15" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=year&amp;ref=2026-10-15">Year</a>
+  </div>
+</div>
+
+<div class="cal month">
+  <div class="dow">Mon</div><div class="dow">Tue</div><div class="dow">Wed</div><div class="dow">Thu</div><div class="dow">Fri</div><div class="dow">Sat</div><div class="dow">Sun</div>
+  
+  <div class="day other">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-09-28" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-09-28" class="dnum">28</a>
+    
+  </div>
+  
+  <div class="day other">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-09-29" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-09-29" class="dnum">29</a>
+    
+  </div>
+  
+  <div class="day other">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-09-30" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-09-30" class="dnum">30</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-01" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-01" class="dnum">1</a>
+    <span class="kchip k-bill"><span class="vh">Bill: </span>Oak Dental $186.00 ✓</span><span class="kchip k-vehicle"><span class="vh">Vehicle: </span>Tacoma inspection expires</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-02" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-02" class="dnum">2</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-03" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-03" class="dnum">3</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-04" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-04" class="dnum">4</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-05" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-05" class="dnum">5</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-06" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-06" class="dnum">6</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-07" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-07" class="dnum">7</a>
+    <span class="kchip k-school"><span class="vh">School: </span>Band fundraiser form (Sofia)</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-08" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-08" class="dnum">8</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-09" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-09" class="dnum">9</a>
+    <span class="kchip k-chore"><span class="vh">Chore: </span>Tdap booster (Sofia)</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-10" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-10" class="dnum">10</a>
+    <span class="kchip k-appointment"><span class="vh">Appointment: </span>Cleaning – Oak Dental 16:00</span><span class="kchip k-subscription"><span class="vh">Subscription: </span>NYT Cooking $5.00</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-11" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-11" class="dnum">11</a>
+    <span class="kchip k-bill"><span class="vh">Bill: </span>Comcast Xfinity $89.99 ✓</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-12" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-12" class="dnum">12</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-13" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-13" class="dnum">13</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-14" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-14" class="dnum">14</a>
+    
+  </div>
+  
+  <div class="day today">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-15" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-15" class="dnum">15</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-16" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-16" class="dnum">16</a>
+    <span class="kchip k-bill"><span class="vh">Bill: </span>Verizon $180.00 ✓</span><span class="kchip k-appointment"><span class="vh">Appointment: </span>Flu shot – Triangle Pediatrics 09:15</span><span class="kchip k-chore"><span class="vh">Chore: </span>Wash the car (Sofia)</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-17" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-17" class="dnum">17</a>
+    <span class="kchip k-subscription"><span class="vh">Subscription: </span>Disney Plus $13.99</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-18" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-18" class="dnum">18</a>
+    <span class="kchip k-chore"><span class="vh">Chore: </span>Allergy prescription refill (Elena)</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-19" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-19" class="dnum">19</a>
+    <span class="kchip k-bill"><span class="vh">Bill: </span>Duke Energy $182.02 ✓</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-20" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-20" class="dnum">20</a>
+    <span class="kchip k-appointment"><span class="vh">Appointment: </span>Braces adjustment – Smile Ortho 15:30</span><span class="kchip k-subscription"><span class="vh">Subscription: </span>Apple iCloud $2.99</span><span class="kchip k-medical"><span class="vh">Medical: </span>Braces adjustment (Sofia)</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-21" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-21" class="dnum">21</a>
+    <span class="kchip k-pet"><span class="vh">Pet: </span>Heartworm pill (Pancho)</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-22" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-22" class="dnum">22</a>
+    <span class="kchip k-subscription"><span class="vh">Subscription: </span>Xbox Game Pass $16.99</span><span class="kchip k-school"><span class="vh">School: </span>Science fair project due (Sofia)</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-23" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-23" class="dnum">23</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-24" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-24" class="dnum">24</a>
+    <span class="kchip k-bill"><span class="vh">Bill: </span>Verizon $191.50</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-25" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-25" class="dnum">25</a>
+    <span class="kchip k-appointment"><span class="vh">Appointment: </span>Dental cleaning – VCA Animal Hospital 08:30</span><span class="kchip k-school"><span class="vh">School: </span>Parent-teacher conference sign-up</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-26" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-26" class="dnum">26</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-27" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-27" class="dnum">27</a>
+    <span class="kchip k-bill"><span class="vh">Bill: </span>Verizon $170.00</span><span class="kchip k-event"><span class="vh">Event: </span>Hillside Elementary talent show</span>
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-28" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-28" class="dnum">28</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-29" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-29" class="dnum">29</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-30" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-30" class="dnum">30</a>
+    
+  </div>
+  
+  <div class="day">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-31" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-31" class="dnum">31</a>
+    <span class="kchip k-chore"><span class="vh">Chore: </span>Flu shot (Mateo)</span>
+  </div>
+  
+  <div class="day other">
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-11-01" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-11-01" class="dnum">1</a>
+    <span class="kchip k-festival"><span class="vh">Festival: </span>Dia de los Muertos</span>
+  </div>
+  
+</div>
+
+<div class="legend"><span class="kchip k-bill"><span class="vh">Bill: </span>Bill</span><span class="kchip k-appointment"><span class="vh">Appointment: </span>Appointment</span><span class="kchip k-event"><span class="vh">Event: </span>Event</span><span class="kchip k-insurance"><span class="vh">Insurance: </span>Insurance</span><span class="kchip k-vehicle"><span class="vh">Vehicle: </span>Vehicle</span><span class="kchip k-subscription"><span class="vh">Subscription: </span>Subscription</span><span class="kchip k-investment"><span class="vh">Investment: </span>Investment</span><span class="kchip k-festival"><span class="vh">Festival: </span>Festival</span><span class="kchip k-contract"><span class="vh">Contract: </span>Contract</span><span class="kchip k-shopping"><span class="vh">Shopping: </span>Shopping</span><span class="kchip k-birthday"><span class="vh">Birthday: </span>Birthday</span><span class="kchip k-school"><span class="vh">School: </span>School</span><span class="kchip k-activity"><span class="vh">Activity: </span>Activity</span><span class="kchip k-medical"><span class="vh">Medical: </span>Medical</span><span class="kchip k-pet"><span class="vh">Pet: </span>Pet</span><span class="kchip k-legal"><span class="vh">Legal: </span>Legal</span><span class="kchip k-travel"><span class="vh">Travel: </span>Travel</span><span class="kchip k-gift"><span class="vh">Gift: </span>Gift</span><span class="kchip k-chore"><span class="vh">Chore: </span>Chore</span><span class="kchip k-loan"><span class="vh">Loan: </span>Loan</span><span class="kchip k-tax"><span class="vh">Tax: </span>Tax</span></div></section>
+<h2 class="sec">Google Calendar</h2>
+<section id="gcal" class="card" data-hx-get="/calendar/google?days=14" data-hx-trigger="load" data-hx-swap="innerHTML">
+<p class="muted">Not connected. To show your Google Calendar here (read-only, no AI):
+  <a href="settings_group_connections.html">Settings › Connections › Google</a>.</p>
+</section>
+</main>
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html" class="on" aria-current="page">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html">Finance</a>
+        
+        <a role="menuitem" href="records.html">Records</a>
+        
+        <a role="menuitem" href="notes.html">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>

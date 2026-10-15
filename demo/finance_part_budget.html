@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon-192.png">
+  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>Finance · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <span class="brand">Mitra Home</span>
+    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    
+    
+    
+      
+        <span class="grp">Every day</span>
+        <a href="index.html">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+      
+        <span class="grp">Money</span>
+        
+        <a href="month.html">This month</a><a href="finance.html" class="on" aria-current="page">Finance</a>
+      
+        <span class="grp">Everything else</span>
+        
+        <a href="records.html">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+      
+    
+    <span class="grow"></span>
+    <a class="btn addscan" href="inbox.html">Add or scan</a>
+    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+    <a href="settings_group_household.html">Settings</a>
+    <small class="ver">v0.108.2</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>Finance</h1><p class="sub">Keep · Budget and loans</p></div></header>
+<nav class="pills" aria-label="Group"><a href="finance_part_bills.html">Pay</a><a href="finance_part_accounts.html" class="on" aria-current="true">Keep</a><a href="finance_part_cashflow.html">Look back</a></nav>
+
+<nav class="pills sm" aria-label="Part"><a href="finance_part_accounts.html">Accounts</a><a href="#" data-demo="1">Deposits</a><a href="finance_part_budget.html" class="on" aria-current="true">Budget and loans</a><a href="#" data-demo="1">Card benefits</a></nav>
+
+
+
+
+
+
+
+<div class="kpis rk"><div class="kpi"><span>Over</span><b>0</b></div><div class="kpi"><span>On course to pass</span><b>4</b></div><div class="kpi"><span>On track</span><b>7</b></div></div>
+
+
+<details class="card addnote">
+  <summary><h2>Set or remove a budget line</h2></summary>
+  <div id="radd-budget">
+
+<form class="nform" data-hx-post="/records/add" data-hx-target="#radd-budget" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;money/budget&quot;, &quot;table&quot;: &quot;budget&quot;}">
+
+  <label>Category<input name="category" maxlength="60" required="" list="budget-lines" value=""></label>
+  <datalist id="budget-lines"><option value="allowance:Mateo"></option><option value="allowance:Sofia"></option><option value="dining"></option><option value="entertainment"></option><option value="fuel"></option><option value="groceries"></option><option value="health"></option><option value="pets"></option><option value="shopping"></option><option value="subscriptions"></option><option value="utilities"></option><option value="housing"></option><option value="auto loan"></option><option value="tax"></option><option value="insurance"></option><option value="student loan"></option><option value="auto"></option><option value="cash withdrawal"></option><option value="travel"></option><option value="personal care"></option><option value="home"></option></datalist>
+  <label>Monthly limit<input name="limit" type="number" min="0" max="10000000" step="0.01" value=""></label>
+  <label class="check"><input type="checkbox" name="remove" value="1"> Remove this budget line instead</label>
+  <p class="muted small">A category that already has a line gets the new limit.</p>
+
+  <button class="btn" type="submit">Add</button>
+</form></div>
+</details>
+
+<details class="card addnote">
+  <summary><h2>Add a loan</h2></summary>
+  <div id="radd-loans">
+
+<form class="nform" data-hx-post="/records/add" data-hx-target="#radd-loans" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;money/budget&quot;, &quot;table&quot;: &quot;loans&quot;}">
+
+  <label>Name<input name="name" maxlength="80" required="" value=""></label>
+  <label>Kind<select name="kind"><option value="mortgage">mortgage</option><option value="auto">auto</option><option value="student">student</option><option value="personal">personal</option><option value="heloc">heloc</option><option value="other" selected="">other</option></select></label>
+  <label>Lender (optional)<input name="lender" maxlength="80" value=""></label>
+  <label>Balance today (optional)<input name="balance" type="number" min="0" max="1000000000" step="0.01" value=""></label>
+  <label>Rate % (optional)<input name="rate" type="number" min="0" max="100" step="0.001" value=""></label>
+  <label>Monthly payment (optional)<input name="payment" type="number" min="0" max="10000000" step="0.01" value=""></label>
+  <label>Payoff date (optional)<input name="payoff" type="date" min="2000-01-01" max="2100-12-31" value=""></label>
+
+  <button class="btn" type="submit">Add</button>
+</form></div>
+</details>
+
+
+
+
+
+
+
+<section class="card rblock">
+  <h2>This month so far, through Oct 13</h2>
+  
+  <div class="tablewrap"><table class="cards">
+    <thead><tr><th>Line</th><th>Status</th><th>Spent</th><th>Limit</th><th>Expected by now</th><th>Projected</th><th>Used</th></tr></thead>
+    <tbody><tr><td data-label="Line">utilities</td><td data-label="Status">on course to pass</td><td data-label="Spent">$272.01</td><td data-label="Limit">$380.00</td><td data-label="Expected by now">$159.35</td><td data-label="Projected">$648.64</td><td data-label="Used">72%</td></tr><tr><td data-label="Line">fuel</td><td data-label="Status">on course to pass</td><td data-label="Spent">$104.30</td><td data-label="Limit">$220.00</td><td data-label="Expected by now">$92.26</td><td data-label="Projected">$248.72</td><td data-label="Used">47%</td></tr><tr><td data-label="Line">dining</td><td data-label="Status">on course to pass</td><td data-label="Spent">$87.94</td><td data-label="Limit">$180.00</td><td data-label="Expected by now">$75.48</td><td data-label="Projected">$209.70</td><td data-label="Used">49%</td></tr><tr><td data-label="Line">subscriptions</td><td data-label="Status">on course to pass</td><td data-label="Spent">$54.97</td><td data-label="Limit">$90.00</td><td data-label="Expected by now">$37.74</td><td data-label="Projected">$131.08</td><td data-label="Used">61%</td></tr><tr><td data-label="Line">groceries</td><td data-label="Status">on track</td><td data-label="Spent">$169.23</td><td data-label="Limit">$650.00</td><td data-label="Expected by now">$272.58</td><td data-label="Projected">$403.55</td><td data-label="Used">26%</td></tr><tr><td data-label="Line">entertainment</td><td data-label="Status">on track</td><td data-label="Spent">$0.00</td><td data-label="Limit">$80.00</td><td data-label="Expected by now">$33.55</td><td data-label="Projected">$0.00</td><td data-label="Used">0%</td></tr><tr><td data-label="Line">health</td><td data-label="Status">on track</td><td data-label="Spent">$0.00</td><td data-label="Limit">$120.00</td><td data-label="Expected by now">$50.32</td><td data-label="Projected">$0.00</td><td data-label="Used">0%</td></tr><tr><td data-label="Line">pets</td><td data-label="Status">on track</td><td data-label="Spent">$0.00</td><td data-label="Limit">$100.00</td><td data-label="Expected by now">$41.94</td><td data-label="Projected">$0.00</td><td data-label="Used">0%</td></tr><tr><td data-label="Line">shopping</td><td data-label="Status">on track</td><td data-label="Spent">$0.00</td><td data-label="Limit">$250.00</td><td data-label="Expected by now">$104.84</td><td data-label="Projected">$0.00</td><td data-label="Used">0%</td></tr><tr><td data-label="Line">Mateo's allowance</td><td data-label="Status">on track</td><td data-label="Spent">$0.00</td><td data-label="Limit">$8.00</td><td data-label="Expected by now">$3.35</td><td data-label="Projected">$0.00</td><td data-label="Used">0%</td></tr><tr><td data-label="Line">Sofia's allowance</td><td data-label="Status">on track</td><td data-label="Spent">$0.00</td><td data-label="Limit">$20.00</td><td data-label="Expected by now">$8.39</td><td data-label="Projected">$0.00</td><td data-label="Used">0%</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+<section class="card rblock">
+  <h2>Budget against actual, 2026-09</h2>
+  
+  <div class="tablewrap"><table>
+    <thead><tr><th>Category</th><th>Limit</th><th>Actual</th><th>Result</th></tr></thead>
+    <tbody><tr><td>allowance:Mateo</td><td>$8.00</td><td>$0.00</td><td>under $8.00</td></tr><tr><td>allowance:Sofia</td><td>$20.00</td><td>$0.00</td><td>under $20.00</td></tr><tr><td>dining</td><td>$180.00</td><td>$73.92</td><td>under $106.08</td></tr><tr><td>entertainment</td><td>$80.00</td><td>$0.00</td><td>under $80.00</td></tr><tr><td>fuel</td><td>$220.00</td><td>$151.71</td><td>under $68.29</td></tr><tr><td>groceries</td><td>$650.00</td><td>$717.96</td><td>over $67.96</td></tr><tr><td>health</td><td>$120.00</td><td>$24.91</td><td>under $95.09</td></tr><tr><td>pets</td><td>$100.00</td><td>$34.01</td><td>under $65.99</td></tr><tr><td>shopping</td><td>$250.00</td><td>$154.26</td><td>under $95.74</td></tr><tr><td>subscriptions</td><td>$90.00</td><td>$71.95</td><td>under $18.05</td></tr><tr><td>utilities</td><td>$380.00</td><td>$548.85</td><td>over $168.85</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+<section class="card rblock">
+  <h2>Suggested limits from the last six full months</h2>
+  
+  <div class="tablewrap"><table class="cards">
+    <thead><tr><th>Category</th><th>Months with spend</th><th>Average a month</th><th>Suggested</th><th>Current limit</th></tr></thead>
+    <tbody><tr><td data-label="Category">housing</td><td data-label="Months with spend">6</td><td data-label="Average a month">$2,150.00</td><td data-label="Suggested">$2,150.00</td><td data-label="Current limit"></td></tr><tr><td data-label="Category">groceries</td><td data-label="Months with spend">6</td><td data-label="Average a month">$646.12</td><td data-label="Suggested">$650.00</td><td data-label="Current limit">$650.00</td></tr><tr><td data-label="Category">utilities</td><td data-label="Months with spend">6</td><td data-label="Average a month">$524.87</td><td data-label="Suggested">$530.00</td><td data-label="Current limit">$380.00</td></tr><tr><td data-label="Category">auto loan</td><td data-label="Months with spend">6</td><td data-label="Average a month">$389.00</td><td data-label="Suggested">$390.00</td><td data-label="Current limit"></td></tr><tr><td data-label="Category">tax</td><td data-label="Months with spend">1</td><td data-label="Average a month">$366.67</td><td data-label="Suggested">$370.00</td><td data-label="Current limit"></td></tr><tr><td data-label="Category">insurance</td><td data-label="Months with spend">6</td><td data-label="Average a month">$223.67</td><td data-label="Suggested">$230.00</td><td data-label="Current limit"></td></tr><tr><td data-label="Category">student loan</td><td data-label="Months with spend">6</td><td data-label="Average a month">$215.00</td><td data-label="Suggested">$220.00</td><td data-label="Current limit"></td></tr><tr><td data-label="Category">auto</td><td data-label="Months with spend">1</td><td data-label="Average a month">$140.36</td><td data-label="Suggested">$150.00</td><td data-label="Current limit"></td></tr><tr><td data-label="Category">shopping</td><td data-label="Months with spend">6</td><td data-label="Average a month">$133.32</td><td data-label="Suggested">$140.00</td><td data-label="Current limit">$250.00</td></tr><tr><td data-label="Category">fuel</td><td data-label="Months with spend">6</td><td data-label="Average a month">$130.74</td><td data-label="Suggested">$140.00</td><td data-label="Current limit">$220.00</td></tr><tr><td data-label="Category">cash withdrawal</td><td data-label="Months with spend">6</td><td data-label="Average a month">$100.00</td><td data-label="Suggested">$100.00</td><td data-label="Current limit"></td></tr><tr><td data-label="Category">subscriptions</td><td data-label="Months with spend">6</td><td data-label="Average a month">$82.28</td><td data-label="Suggested">$90.00</td><td data-label="Current limit">$90.00</td></tr><tr><td data-label="Category">pets</td><td data-label="Months with spend">6</td><td data-label="Average a month">$81.97</td><td data-label="Suggested">$90.00</td><td data-label="Current limit">$100.00</td></tr><tr><td data-label="Category">travel</td><td data-label="Months with spend">1</td><td data-label="Average a month">$81.07</td><td data-label="Suggested">$90.00</td><td data-label="Current limit"></td></tr><tr><td data-label="Category">dining</td><td data-label="Months with spend">6</td><td data-label="Average a month">$72.73</td><td data-label="Suggested">$80.00</td><td data-label="Current limit">$180.00</td></tr><tr><td data-label="Category">personal care</td><td data-label="Months with spend">6</td><td data-label="Average a month">$30.73</td><td data-label="Suggested">$40.00</td><td data-label="Current limit"></td></tr><tr><td data-label="Category">health</td><td data-label="Months with spend">6</td><td data-label="Average a month">$28.93</td><td data-label="Suggested">$30.00</td><td data-label="Current limit">$120.00</td></tr><tr><td data-label="Category">home</td><td data-label="Months with spend">1</td><td data-label="Average a month">$26.00</td><td data-label="Suggested">$30.00</td><td data-label="Current limit"></td></tr></tbody>
+  </table></div>
+  
+</section>
+
+<section class="card rblock">
+  <h2>Loans</h2>
+  
+  <div class="tablewrap"><table class="cards">
+    <thead><tr><th>Loan</th><th>Kind</th><th>Lender</th><th>Balance</th><th>Rate</th><th>Payment</th><th>Months left</th></tr></thead>
+    <tbody><tr><td data-label="Loan"><a href="#" data-demo="1">CR-V auto loan</a></td><td data-label="Kind">auto</td><td data-label="Lender">First CU</td><td data-label="Balance">$9,800.00</td><td data-label="Rate">5.4%</td><td data-label="Payment">$389.00</td><td data-label="Months left">27</td></tr><tr><td data-label="Loan"><a href="#" data-demo="1">Home mortgage</a></td><td data-label="Kind">mortgage</td><td data-label="Lender">LoanServ</td><td data-label="Balance">$271,400.00</td><td data-label="Rate">3.75%</td><td data-label="Payment">$2,150.00</td><td data-label="Months left">161</td></tr><tr><td data-label="Loan"><a href="#" data-demo="1">Student loan (Elena)</a></td><td data-label="Kind">student</td><td data-label="Lender">Servicer</td><td data-label="Balance">$18,250.00</td><td data-label="Rate">4.5%</td><td data-label="Payment">$215.00</td><td data-label="Months left">103</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+<p class="muted small">Open a row to change it here, or tell Chat.</p>
+
+
+</main>
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html" class="on" aria-current="page">Finance</a>
+        
+        <a role="menuitem" href="records.html">Records</a>
+        
+        <a role="menuitem" href="notes.html">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon-192.png">
+  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>Records · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <span class="brand">Mitra Home</span>
+    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    
+    
+    
+      
+        <span class="grp">Every day</span>
+        <a href="index.html">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+      
+        <span class="grp">Money</span>
+        
+        <a href="month.html">This month</a><a href="finance.html">Finance</a>
+      
+        <span class="grp">Everything else</span>
+        
+        <a href="records.html" class="on" aria-current="page">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+      
+    
+    <span class="grow"></span>
+    <a class="btn addscan" href="inbox.html">Add or scan</a>
+    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+    <a href="settings_group_household.html">Settings</a>
+    <small class="ver">v0.108.2</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>Records</h1><p class="sub">Home · Meals</p></div></header>
+
+<form class="rsearch card" action="records.html" method="get" role="search">
+  <label class="vh" for="rq">Search the records</label>
+  <input id="rq" type="search" name="q" value="" maxlength="200" placeholder="water bill, passport, furnace...">
+  <button class="btn" type="submit">Search</button>
+</form>
+
+
+
+
+
+
+<nav class="pills" aria-label="Area"><a href="#" data-demo="1">People</a><a href="#" data-demo="1" class="on" aria-current="true">Home</a><a href="#" data-demo="1">Vehicles</a><a href="#" data-demo="1">Papers &amp; IDs</a></nav>
+
+<nav class="pills sm" aria-label="Part"><a href="records_domain_home_section_lists.html">Lists</a><a href="records_domain_home_section_meals.html" class="on" aria-current="true">Meals</a><a href="records_domain_home_section_saved.html">Saved</a><a href="records_domain_home_section_upkeep.html">Upkeep</a><a href="records_domain_home_section_inventory.html">Inventory</a><a href="#" data-demo="1">Shopping</a></nav>
+
+
+
+<div class="kpis rk"><div class="kpi"><span>Upkeep jobs</span><b>13</b></div><div class="kpi"><span>Things at home</span><b>7</b></div><div class="kpi"><span>Recipes</span><b>6</b></div></div>
+
+
+
+
+<details class="card addnote">
+  <summary><h2>Plan a meal</h2></summary>
+  <div id="radd-meal_plan">
+
+<form class="nform" data-hx-post="/records/add" data-hx-target="#radd-meal_plan" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;home/meals&quot;, &quot;table&quot;: &quot;meal_plan&quot;}">
+
+  <label>Day<input name="day" type="date" min="2000-01-01" max="2100-12-31" required="" value="2026-10-15"></label>
+  <label>Meal<select name="slot"><option value="breakfast">breakfast</option><option value="lunch">lunch</option><option value="dinner" selected="">dinner</option><option value="snack">snack</option></select></label>
+  <label>What (a recipe name or any text)<input name="what" maxlength="80" required="" value=""></label>
+  <label>Note (optional)<input name="note" maxlength="200" value=""></label>
+
+  <button class="btn" type="submit">Add</button>
+</form></div>
+</details>
+
+<details class="card addnote">
+  <summary><h2>Save a recipe</h2></summary>
+  <div id="radd-recipes">
+
+<form class="nform" data-hx-post="/records/add" data-hx-target="#radd-recipes" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;home/meals&quot;, &quot;table&quot;: &quot;recipes&quot;}">
+
+  <label>Name<input name="name" maxlength="80" required="" value=""></label>
+  <label>Ingredients, one per line<textarea name="ingredients" rows="6" maxlength="6000"></textarea></label>
+  <label>Servings (optional)<input name="servings" type="number" min="1" max="50" step="1" value=""></label>
+  <label>Tags, comma separated (optional)<input name="tags" maxlength="120" value=""></label>
+  <label>Link (optional)<input name="url" type="url" maxlength="500" value=""></label>
+  <label>Notes (optional)<textarea name="notes" rows="3" maxlength="5000"></textarea></label>
+  <p class="muted small">A recipe with the same name is replaced.</p>
+
+  <button class="btn" type="submit">Add</button>
+</form></div>
+</details>
+
+<details class="card addnote">
+  <summary><h2>Put the planned meals on a shopping list</h2></summary>
+  <div id="radd-meal_shop">
+
+<form class="nform" data-hx-post="/records/add" data-hx-target="#radd-meal_shop" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;home/meals&quot;, &quot;table&quot;: &quot;meal_shop&quot;}">
+
+  <label>From<input name="start" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-15"></label>
+  <label>To<input name="end" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-21"></label>
+  <label>Shopping list<input name="list_name" maxlength="60" value="Groceries"></label>
+  <p class="muted small">Ingredients of the planned recipes, staples left out; a meal is only added once.</p>
+
+  <button class="btn" type="submit">Put them on the list</button>
+</form></div>
+</details>
+
+
+<section class="card rblock">
+  <h2>Planned meals</h2>
+  
+  <div class="tablewrap"><table>
+    <thead><tr><th>Day</th><th>Slot</th><th>Meal</th></tr></thead>
+    <tbody><tr><td><a href="#" data-demo="1">2026-10-15</a></td><td>breakfast</td><td>Pancakes</td></tr><tr><td><a href="#" data-demo="1">2026-10-15</a></td><td>dinner</td><td>Sheet-pan salmon</td></tr><tr><td><a href="#" data-demo="1">2026-10-16</a></td><td>dinner</td><td>Pizza night (takeout)</td></tr><tr><td><a href="#" data-demo="1">2026-10-17</a></td><td>breakfast</td><td>Pancakes</td></tr><tr><td><a href="#" data-demo="1">2026-10-18</a></td><td>dinner</td><td>Black bean soup</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+<section class="card rblock">
+  <h2>Recipes</h2>
+  
+  <div class="tablewrap"><table>
+    <thead><tr><th>Name</th><th>Servings</th><th>Tags</th></tr></thead>
+    <tbody><tr><td><a href="#" data-demo="1">Arroz con pollo</a></td><td>4</td><td>family</td></tr><tr><td><a href="#" data-demo="1">Black bean soup</a></td><td>4</td><td>veg</td></tr><tr><td><a href="#" data-demo="1">Chicken tinga tacos</a></td><td>4</td><td>family,quick</td></tr><tr><td><a href="#" data-demo="1">Pancakes</a></td><td>4</td><td>breakfast</td></tr><tr><td><a href="#" data-demo="1">Sheet-pan salmon</a></td><td>4</td><td>quick</td></tr><tr><td><a href="#" data-demo="1">Veggie pasta</a></td><td>4</td><td>quick,veg</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+<p class="muted small">Open a row to change it here, or tell Chat.</p>
+
+
+</main>
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html">Finance</a>
+        
+        <a role="menuitem" href="records.html" class="on" aria-current="page">Records</a>
+        
+        <a role="menuitem" href="notes.html">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>

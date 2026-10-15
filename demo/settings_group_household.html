@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon-192.png">
+  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>Settings · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <span class="brand">Mitra Home</span>
+    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    
+    
+    
+      
+        <span class="grp">Every day</span>
+        <a href="index.html">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+      
+        <span class="grp">Money</span>
+        
+        <a href="month.html">This month</a><a href="finance.html">Finance</a>
+      
+        <span class="grp">Everything else</span>
+        
+        <a href="records.html">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+      
+    
+    <span class="grow"></span>
+    <a class="btn addscan" href="inbox.html">Add or scan</a>
+    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+    <a href="settings_group_household.html" class="on" aria-current="page">Settings</a>
+    <small class="ver">v0.108.2</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>Settings</h1><p class="sub">Profile, agent, connections, phones and data</p></div></header>
+<nav class="pills" aria-label="Settings group"><a href="settings_group_household.html" class="on" aria-current="true">Household profile</a><a href="settings_group_agent.html">Agent</a><a href="settings_group_connections.html">Connections</a><a href="#" data-demo="1">Phones</a><a href="settings_group_data.html">Data</a></nav>
+
+
+
+<section class="card">
+  <h2>How complete is your profile</h2>
+  <p><b>92%</b> filled in</p>
+  
+  <div class="tablewrap"><table>
+    <thead><tr><th>Area</th><th>Filled in</th><th></th></tr></thead>
+    <tbody><tr><td>People</td><td>4 of 4</td><td>100%</td></tr><tr><td>Home</td><td>1 of 2</td><td>50%</td></tr><tr><td>Vehicles</td><td>1 of 1</td><td>100%</td></tr><tr><td>Finance</td><td>2 of 2</td><td>100%</td></tr><tr><td>Papers</td><td>2 of 2</td><td>100%</td></tr><tr><td>Subscriptions</td><td>1 of 1</td><td>100%</td></tr></tbody>
+  </table></div>
+  
+  <p class="muted small">The rest fills in over the coming weeks: a couple of questions a day arrive in the Inbox.</p>
+  
+  <button type="button" class="btn" data-hx-post="/settings/next">Answer next (Home)</button>
+  
+</section>
+<section class="card">
+  <h2>Names on your papers</h2>
+  <p class="muted small">Bills, policies and statements often print full legal names, not the short names you use here. Write them
+    one per line, so they are hidden before anything is sent to the AI. They stay on this PC.</p>
+  <form class="nform" data-hx-post="/settings/papers">
+    <label class="wide">Full names as printed<textarea name="names" rows="4" maxlength="4000" placeholder="Alexander Q Patel
+Samantha Patel">Marcus Rivera
+Elena Rivera</textarea></label>
+    <button class="btn" type="submit">Save the names</button>
+  </form>
+</section>
+<section class="card">
+  <h2>Optional features</h2>
+  <p class="muted small">Switch on only what you will use. Turning one on never removes anything.</p>
+  <form class="nform" data-hx-post="/settings/packs">
+    <label class="check wide"><input type="checkbox" name="pack" value="festivals" checked=""> <span><b>Festival calendar</b>: Festival dates on the Brief. A starter list is added for you to edit.</span></label><label class="check wide"><input type="checkbox" name="pack" value="contracts" checked=""> <span><b>Work contracts</b>: End-date alerts, timesheet hours, hybrid schedule and monthly invoices.</span></label><label class="check wide"><input type="checkbox" name="pack" value="amazon" checked=""> <span><b>Amazon orders</b>: Match Amazon order history to card charges.</span></label><label class="check wide"><input type="checkbox" name="pack" value="shopping" checked=""> <span><b>Shopping lists</b>: Things to buy by a target date.</span></label>
+    <button class="btn" type="submit">Save</button>
+  </form>
+</section>
+<section class="card">
+  <h2>Tax papers</h2>
+  <p class="muted small">Names only, separated by commas. No account numbers. All three are optional and stay on this PC.</p>
+  <form class="nform" data-hx-post="/settings/tax">
+    <label class="wide">Banks, brokers or credit unions that send you interest forms<input name="payers" maxlength="2000" value=""></label>
+    <label class="wide">Words on your state tax payments (for example the state tax agency's name)<input name="state" maxlength="2000" value=""></label>
+    <label class="wide">Tuition payee as it appears on statements (% is a wildcard)<input name="tuition" maxlength="2000" value=""></label>
+    <button class="btn" type="submit">Save</button>
+  </form>
+</section>
+<section class="card">
+  <h2>How early to remind</h2>
+  <p class="muted small">Days before an expiry date that its reminder starts.</p>
+  
+  <div class="tablewrap"><table>
+    <thead><tr><th>Type</th><th>Days before</th><th>Default</th><th></th></tr></thead>
+    <tbody><tr><td>passport</td><td>120</td><td>274</td><td>changed</td></tr><tr><td>drivers license</td><td>120</td><td>120</td><td></td></tr><tr><td>permit</td><td>120</td><td>120</td><td></td></tr><tr><td>state id</td><td>120</td><td>120</td><td></td></tr><tr><td>green card</td><td>120</td><td>120</td><td></td></tr><tr><td>insurance card</td><td>120</td><td>120</td><td></td></tr><tr><td>other</td><td>120</td><td>120</td><td></td></tr><tr><td>vehicle registration</td><td>60</td><td>60</td><td></td></tr><tr><td>vehicle inspection</td><td>45</td><td>45</td><td></td></tr><tr><td>warranty</td><td>90</td><td>90</td><td></td></tr><tr><td>vaccination</td><td>30</td><td>30</td><td></td></tr><tr><td>insurance</td><td>30</td><td>30</td><td></td></tr><tr><td>deal</td><td>3</td><td>3</td><td></td></tr></tbody>
+  </table></div>
+  <form class="nform" data-hx-post="/settings/lead">
+    <label>Type<select name="type"><option value="passport">passport</option><option value="drivers_license">drivers license</option><option value="permit">permit</option><option value="state_id">state id</option><option value="green_card">green card</option><option value="insurance_card">insurance card</option><option value="other">other</option><option value="vehicle_registration">vehicle registration</option><option value="vehicle_inspection">vehicle inspection</option><option value="warranty">warranty</option><option value="vaccination">vaccination</option><option value="insurance">insurance</option><option value="deal">deal</option></select></label>
+    <label>Days before the date<input name="days" type="number" min="0" max="730" step="1"></label>
+    <label class="check"><input type="checkbox" name="reset" value="1"> Back to the default</label>
+    <button class="btn alt" type="submit">Save</button>
+  </form>
+  
+</section>
+<p><a class="btn alt" href="#" data-demo="1">Run the setup interview again</a></p>
+
+
+</main>
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html">Finance</a>
+        
+        <a role="menuitem" href="records.html">Records</a>
+        
+        <a role="menuitem" href="notes.html">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings_group_household.html" class="on" aria-current="page">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>

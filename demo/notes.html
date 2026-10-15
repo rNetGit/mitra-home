@@ -1,0 +1,434 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon-192.png">
+  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>Notes · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <span class="brand">Mitra Home</span>
+    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    
+    
+    
+      
+        <span class="grp">Every day</span>
+        <a href="index.html">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+      
+        <span class="grp">Money</span>
+        
+        <a href="month.html">This month</a><a href="finance.html">Finance</a>
+      
+        <span class="grp">Everything else</span>
+        
+        <a href="records.html">Records</a><a href="notes.html" class="on" aria-current="page">Notes</a><a href="chat.html">Chat</a>
+      
+    
+    <span class="grow"></span>
+    <a class="btn addscan" href="inbox.html">Add or scan</a>
+    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+    <a href="settings_group_household.html">Settings</a>
+    <small class="ver">v0.108.2</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>Notes</h1><p class="sub">Links, notes, places and deals to find again. Pinned first; deals with an end date show in the Brief.</p></div></header>
+<form id="notes-filter" class="nform card" action="notes.html" method="get" data-hx-get="/notes/body" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-trigger="input changed delay:300ms, change, submit">
+  <label class="wide">Search<input type="search" name="q" value="" maxlength="200" placeholder="pizza near the station, voice cloning, goa..."></label>
+  <label>Kind<select name="kind"><option value="">(any)</option><option value="link">Link</option><option value="note">Note</option><option value="place">Place</option><option value="deal">Deal</option><option value="video">Video</option><option value="repo">Repo</option><option value="article">Article</option><option value="social">Social</option></select></label>
+  <label>Tag<select name="tag"><option value="">(any)</option><option value="deal">deal</option><option value="diy">diy</option><option value="food">food</option><option value="home">home</option><option value="kids">kids</option><option value="outing">outing</option><option value="recipe">recipe</option><option value="safety">safety</option><option value="school">school</option><option value="tech">tech</option></select></label>
+  <label>Added by<select name="who"><option value="">(anyone)</option><option value="Marcus">Marcus</option><option value="Elena">Elena</option><option value="Sofia">Sofia</option><option value="Mateo">Mateo</option><option value="Pancho">Pancho</option></select></label>
+  <label class="check"><input type="checkbox" name="all" value="1"> Show archived and ended deals</label>
+</form>
+<details class="card addnote">
+  <summary><h2>Save a link, note, place or deal</h2></summary>
+  <form class="nform" data-hx-post="/notes/add" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-reset-on-save="">
+    <label>Title (you type it; links are never opened)<input name="title" maxlength="200" required=""></label>
+    <label>Link (optional)<input name="url" type="url" maxlength="2000" placeholder="https://..."></label>
+    <label>Kind<select name="new_kind"><option value="">(guess from the link)</option><option value="link">Link</option><option value="note">Note</option><option value="place">Place</option><option value="deal">Deal</option><option value="video">Video</option><option value="repo">Repo</option><option value="article">Article</option><option value="social">Social</option></select></label>
+    <label class="wide">Note: why it was saved (optional)<textarea name="note" maxlength="5000" rows="3"></textarea></label>
+    <label>Tags (comma separated)<input name="new_tags" maxlength="500" placeholder="restaurants, goa"></label>
+    <label>Address (places)<input name="where" maxlength="200"></label>
+    <label>Deal end date<input name="until" type="date" min="2000-01-01" max="2100-12-31"></label>
+    <label>Who sees it<select name="audience"><option value="family">everyone (kids too)</option><option value="adults">adults only</option><option value="private">only me</option></select></label>
+    <button class="btn" type="submit">Save</button>
+  </form>
+  <p class="muted small">Nothing is fetched from the internet: titles are typed, links open in a new tab only when clicked. Tracking
+    parts of a link (utm_..., fbclid) are removed; links carrying a login token are refused. "Only me" hides an item from
+    everyone else here, but anyone with access to this PC's files can still read the database.</p>
+</details>
+<section id="notes">
+
+<p class="muted">13 items.</p>
+
+<article class="card ncard">
+  <div class="nhead">
+    <h2><span title="Pinned" aria-label="Pinned">★</span> Pullen Park</h2>
+    <span class="ntag">place</span>
+  </div>
+  <p class="muted small">520 Ashe Ave, Raleigh NC · everyone</p>
+  <div class="nnote">Carousel and train</div>
+  <p class="ntags"><span class="ntag">#kids</span><span class="ntag">#outing</span></p>
+  
+  <div class="optrow">
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;3&quot;, &quot;op&quot;: &quot;unpin&quot;}">Unpin</button>
+    <details class="more-form"><summary class="btn alt">Tags</summary>
+      <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
+        <input type="hidden" name="id" value="3"><input type="hidden" name="op" value="tags">
+        <label>Tags (comma separated)<input name="tags" maxlength="500" value="kids, outing"></label>
+        <button class="btn" type="submit">Save tags</button>
+      </form>
+    </details>
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;3&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
+  </div>
+  
+</article>
+
+<article class="card ncard">
+  <div class="nhead">
+    <h2><span title="Pinned" aria-label="Pinned">★</span> <a href="https://example.com/pizza-dough" target="_blank" rel="noopener noreferrer nofollow">Best pizza dough recipe</a></h2>
+    <span class="ntag">article</span>
+  </div>
+  <p class="muted small">example.com · everyone</p>
+  <div class="nnote">72 hour cold ferment</div>
+  <p class="ntags"><span class="ntag">#food</span><span class="ntag">#recipe</span></p>
+  
+  <div class="optrow">
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;1&quot;, &quot;op&quot;: &quot;unpin&quot;}">Unpin</button>
+    <details class="more-form"><summary class="btn alt">Tags</summary>
+      <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
+        <input type="hidden" name="id" value="1"><input type="hidden" name="op" value="tags">
+        <label>Tags (comma separated)<input name="tags" maxlength="500" value="food, recipe"></label>
+        <button class="btn" type="submit">Save tags</button>
+      </form>
+    </details>
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;1&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
+  </div>
+  
+</article>
+
+<article class="card ncard">
+  <div class="nhead">
+    <h2>Mock note: ladder is in the garage</h2>
+    <span class="ntag">note</span>
+  </div>
+  <p class="muted small">added by Marcus · everyone</p>
+  
+  
+  
+  <div class="optrow">
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;15&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
+    <details class="more-form"><summary class="btn alt">Tags</summary>
+      <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
+        <input type="hidden" name="id" value="15"><input type="hidden" name="op" value="tags">
+        <label>Tags (comma separated)<input name="tags" maxlength="500" value=""></label>
+        <button class="btn" type="submit">Save tags</button>
+      </form>
+    </details>
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;15&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
+  </div>
+  
+</article>
+
+<article class="card ncard">
+  <div class="nhead">
+    <h2>Mock note: ladder is in the garage</h2>
+    <span class="ntag">note</span>
+  </div>
+  <p class="muted small">added by Marcus · everyone</p>
+  
+  
+  
+  <div class="optrow">
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;14&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
+    <details class="more-form"><summary class="btn alt">Tags</summary>
+      <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
+        <input type="hidden" name="id" value="14"><input type="hidden" name="op" value="tags">
+        <label>Tags (comma separated)<input name="tags" maxlength="500" value=""></label>
+        <button class="btn" type="submit">Save tags</button>
+      </form>
+    </details>
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;14&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
+  </div>
+  
+</article>
+
+<article class="card ncard">
+  <div class="nhead">
+    <h2>Mock note: ladder is in the garage</h2>
+    <span class="ntag">note</span>
+  </div>
+  <p class="muted small">added by Marcus · everyone</p>
+  
+  
+  
+  <div class="optrow">
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;13&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
+    <details class="more-form"><summary class="btn alt">Tags</summary>
+      <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
+        <input type="hidden" name="id" value="13"><input type="hidden" name="op" value="tags">
+        <label>Tags (comma separated)<input name="tags" maxlength="500" value=""></label>
+        <button class="btn" type="submit">Save tags</button>
+      </form>
+    </details>
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;13&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
+  </div>
+  
+</article>
+
+<article class="card ncard">
+  <div class="nhead">
+    <h2>Mock note: ladder is in the garage</h2>
+    <span class="ntag">note</span>
+  </div>
+  <p class="muted small">added by Marcus · everyone</p>
+  
+  
+  
+  <div class="optrow">
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;12&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
+    <details class="more-form"><summary class="btn alt">Tags</summary>
+      <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
+        <input type="hidden" name="id" value="12"><input type="hidden" name="op" value="tags">
+        <label>Tags (comma separated)<input name="tags" maxlength="500" value=""></label>
+        <button class="btn" type="submit">Save tags</button>
+      </form>
+    </details>
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;12&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
+  </div>
+  
+</article>
+
+<article class="card ncard">
+  <div class="nhead">
+    <h2>Mock note: ladder is in the garage</h2>
+    <span class="ntag">note</span>
+  </div>
+  <p class="muted small">added by Marcus · everyone</p>
+  
+  
+  
+  <div class="optrow">
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;11&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
+    <details class="more-form"><summary class="btn alt">Tags</summary>
+      <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
+        <input type="hidden" name="id" value="11"><input type="hidden" name="op" value="tags">
+        <label>Tags (comma separated)<input name="tags" maxlength="500" value=""></label>
+        <button class="btn" type="submit">Save tags</button>
+      </form>
+    </details>
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;11&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
+  </div>
+  
+</article>
+
+<article class="card ncard">
+  <div class="nhead">
+    <h2>Mock note: ladder is in the garage</h2>
+    <span class="ntag">note</span>
+  </div>
+  <p class="muted small">added by Marcus · everyone</p>
+  
+  
+  
+  <div class="optrow">
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;10&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
+    <details class="more-form"><summary class="btn alt">Tags</summary>
+      <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
+        <input type="hidden" name="id" value="10"><input type="hidden" name="op" value="tags">
+        <label>Tags (comma separated)<input name="tags" maxlength="500" value=""></label>
+        <button class="btn" type="submit">Save tags</button>
+      </form>
+    </details>
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;10&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
+  </div>
+  
+</article>
+
+<article class="card ncard">
+  <div class="nhead">
+    <h2><a href="https://example.com/hurricane" target="_blank" rel="noopener noreferrer nofollow">Hurricane prep checklist</a></h2>
+    <span class="ntag">article</span>
+  </div>
+  <p class="muted small">example.com · everyone</p>
+  
+  <p class="ntags"><span class="ntag">#home</span><span class="ntag">#safety</span></p>
+  
+  <div class="optrow">
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;9&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
+    <details class="more-form"><summary class="btn alt">Tags</summary>
+      <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
+        <input type="hidden" name="id" value="9"><input type="hidden" name="op" value="tags">
+        <label>Tags (comma separated)<input name="tags" maxlength="500" value="home, safety"></label>
+        <button class="btn" type="submit">Save tags</button>
+      </form>
+    </details>
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;9&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
+  </div>
+  
+</article>
+
+<article class="card ncard">
+  <div class="nhead">
+    <h2><a href="https://github.com/example/homeassistant-config" target="_blank" rel="noopener noreferrer nofollow">homeassistant-config</a></h2>
+    <span class="ntag">repo</span>
+  </div>
+  <p class="muted small">github.com · adults only</p>
+  
+  <p class="ntags"><span class="ntag">#tech</span></p>
+  
+  <div class="optrow">
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;6&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
+    <details class="more-form"><summary class="btn alt">Tags</summary>
+      <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
+        <input type="hidden" name="id" value="6"><input type="hidden" name="op" value="tags">
+        <label>Tags (comma separated)<input name="tags" maxlength="500" value="tech"></label>
+        <button class="btn" type="submit">Save tags</button>
+      </form>
+    </details>
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;6&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
+  </div>
+  
+</article>
+
+<article class="card ncard">
+  <div class="nhead">
+    <h2><a href="https://www.youtube.com/watch?v=abc123" target="_blank" rel="noopener noreferrer nofollow">Planet Money: how to fix a leaky faucet</a></h2>
+    <span class="ntag">video</span>
+  </div>
+  <p class="muted small">youtube.com · everyone</p>
+  
+  <p class="ntags"><span class="ntag">#home</span><span class="ntag">#diy</span></p>
+  
+  <div class="optrow">
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;5&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
+    <details class="more-form"><summary class="btn alt">Tags</summary>
+      <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
+        <input type="hidden" name="id" value="5"><input type="hidden" name="op" value="tags">
+        <label>Tags (comma separated)<input name="tags" maxlength="500" value="home, diy"></label>
+        <button class="btn" type="submit">Save tags</button>
+      </form>
+    </details>
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;5&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
+  </div>
+  
+</article>
+
+<article class="card ncard">
+  <div class="nhead">
+    <h2><a href="https://example.com/aquarium-deal" target="_blank" rel="noopener noreferrer nofollow">Aquarium family pass 20% off</a></h2>
+    <span class="ntag">deal</span>
+  </div>
+  <p class="muted small">example.com · until 2026-11-01 · everyone</p>
+  
+  <p class="ntags"><span class="ntag">#kids</span><span class="ntag">#deal</span></p>
+  
+  <div class="optrow">
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;4&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
+    <details class="more-form"><summary class="btn alt">Tags</summary>
+      <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
+        <input type="hidden" name="id" value="4"><input type="hidden" name="op" value="tags">
+        <label>Tags (comma separated)<input name="tags" maxlength="500" value="kids, deal"></label>
+        <button class="btn" type="submit">Save tags</button>
+      </form>
+    </details>
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;4&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
+  </div>
+  
+</article>
+
+<article class="card ncard">
+  <div class="nhead">
+    <h2>Wifi password is on the router sticker</h2>
+    <span class="ntag">note</span>
+  </div>
+  <p class="muted small">everyone</p>
+  <div class="nnote">Guest network is on the fridge door</div>
+  <p class="ntags"><span class="ntag">#home</span></p>
+  
+  <div class="optrow">
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;2&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
+    <details class="more-form"><summary class="btn alt">Tags</summary>
+      <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
+        <input type="hidden" name="id" value="2"><input type="hidden" name="op" value="tags">
+        <label>Tags (comma separated)<input name="tags" maxlength="500" value="home"></label>
+        <button class="btn" type="submit">Save tags</button>
+      </form>
+    </details>
+    <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;2&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
+  </div>
+  
+</article>
+
+</section>
+</main>
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html">Finance</a>
+        
+        <a role="menuitem" href="records.html">Records</a>
+        
+        <a role="menuitem" href="notes.html" class="on" aria-current="page">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>

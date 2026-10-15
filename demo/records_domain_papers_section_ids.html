@@ -1,0 +1,160 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon-192.png">
+  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>Records · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <span class="brand">Mitra Home</span>
+    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    
+    
+    
+      
+        <span class="grp">Every day</span>
+        <a href="index.html">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+      
+        <span class="grp">Money</span>
+        
+        <a href="month.html">This month</a><a href="finance.html">Finance</a>
+      
+        <span class="grp">Everything else</span>
+        
+        <a href="records.html" class="on" aria-current="page">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+      
+    
+    <span class="grow"></span>
+    <a class="btn addscan" href="inbox.html">Add or scan</a>
+    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+    <a href="settings_group_household.html">Settings</a>
+    <small class="ver">v0.108.2</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>Records</h1><p class="sub">Papers &amp; IDs · Expiries and IDs</p></div></header>
+
+<form class="rsearch card" action="records.html" method="get" role="search">
+  <label class="vh" for="rq">Search the records</label>
+  <input id="rq" type="search" name="q" value="" maxlength="200" placeholder="water bill, passport, furnace...">
+  <button class="btn" type="submit">Search</button>
+</form>
+
+
+
+
+
+
+<nav class="pills" aria-label="Area"><a href="#" data-demo="1">People</a><a href="#" data-demo="1">Home</a><a href="#" data-demo="1">Vehicles</a><a href="#" data-demo="1" class="on" aria-current="true">Papers &amp; IDs</a></nav>
+
+<nav class="pills sm" aria-label="Part"><a href="records_domain_papers_section_papers.html">Papers</a><a href="records_domain_papers_section_ids.html" class="on" aria-current="true">Expiries and IDs</a><a href="records_domain_papers_section_policies.html">Insurance</a><a href="records_domain_papers_section_emergency.html">Emergency sheet</a></nav>
+
+
+
+<div class="kpis rk"><div class="kpi"><span>Papers filed</span><b>30</b></div><div class="kpi"><span>IDs and expiries</span><b>6</b></div><div class="kpi"><span>Policies</span><b>4</b></div></div>
+
+
+
+
+<details class="card addnote">
+  <summary><h2>Add an ID document</h2></summary>
+  <div id="radd-id_documents">
+
+<form class="nform" data-hx-post="/records/add" data-hx-target="#radd-id_documents" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;papers/ids&quot;, &quot;table&quot;: &quot;id_documents&quot;}">
+
+  <label>Whose<select name="person" required=""><option value="Marcus">Marcus</option><option value="Elena">Elena</option><option value="Sofia">Sofia</option><option value="Mateo">Mateo</option><option value="Pancho">Pancho</option></select></label>
+  <label>Document<select name="doc_type"><option value="passport">passport</option><option value="drivers_license">drivers license</option><option value="permit">permit</option><option value="state_id">state id</option><option value="green_card">green card</option><option value="insurance_card">insurance card</option><option value="other">other</option></select></label>
+  <label>Expires<input name="expires" type="date" min="1990-01-01" max="2100-12-31" required="" value=""></label>
+  <label>Number, last 4 (optional)<input name="last4" maxlength="4" pattern="[A-Za-z0-9]{1,4}" value=""></label>
+  <p class="muted small">Already recorded for this person? Its expiry is updated. Only the last four characters, never the whole number.</p>
+
+  <button class="btn" type="submit">Add</button>
+</form></div>
+</details>
+
+
+<section class="card rblock">
+  <h2>ID documents</h2>
+  
+  <div class="tablewrap"><table class="cards">
+    <thead><tr><th>Person</th><th>Document</th><th>Expires</th><th>Last 4</th><th>Issuing authority</th></tr></thead>
+    <tbody><tr><td data-label="Person"><a href="#" data-demo="1">Mateo</a></td><td data-label="Document">passport</td><td data-label="Expires">2026-09-23</td><td data-label="Last 4">6402</td><td data-label="Issuing authority">US Dept of State</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Marcus</a></td><td data-label="Document">passport</td><td data-label="Expires">2026-12-10</td><td data-label="Last 4">7741</td><td data-label="Issuing authority">US Dept of State</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Marcus</a></td><td data-label="Document">drivers license</td><td data-label="Expires">2027-05-11</td><td data-label="Last 4">3329</td><td data-label="Issuing authority">State DMV</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Elena</a></td><td data-label="Document">drivers license</td><td data-label="Expires">2027-11-17</td><td data-label="Last 4">5503</td><td data-label="Issuing authority">State DMV</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Elena</a></td><td data-label="Document">passport</td><td data-label="Expires">2029-03-31</td><td data-label="Last 4">1186</td><td data-label="Issuing authority">US Dept of State</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Sofia</a></td><td data-label="Document">passport</td><td data-label="Expires">2029-10-17</td><td data-label="Last 4">9921</td><td data-label="Issuing authority">US Dept of State</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+<p class="muted small">Open a row to change it here, or tell Chat.</p>
+
+
+</main>
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html">Finance</a>
+        
+        <a role="menuitem" href="records.html" class="on" aria-current="page">Records</a>
+        
+        <a role="menuitem" href="notes.html">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>
