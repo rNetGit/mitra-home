@@ -20,8 +20,9 @@
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
-  <link rel="icon" href="static/icon-192.png">
-  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
   <link rel="stylesheet" href="static/app.css">
   <script src="static/vendor/htmx.min.js" defer=""></script>
@@ -40,31 +41,40 @@
 <div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
   <nav class="rail" aria-label="Main">
-    <span class="brand">Mitra Home</span>
-    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
     
     
       
+        
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
         <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
-      
-        <span class="grp">Money</span>
         
-        <a href="month.html">This month</a><a href="finance.html" class="on" aria-current="page">Finance</a>
       
-        <span class="grp">Everything else</span>
         
-        <a href="records.html">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+        <details class="rg" data-rg="Money" open="">
+          <summary>Money</summary>
+          <a href="month.html">This month</a><a href="finance.html" class="on" aria-current="page">Finance</a>
+        </details>
+        
+      
+        
+        <details class="rg" data-rg="Everything else" open="">
+          <summary>Everything else</summary>
+          <a href="records.html">Records</a><a href="notes.html">Notes</a>
+        </details>
+        
       
     
     <span class="grow"></span>
-    <a class="btn addscan" href="inbox.html">Add or scan</a>
-    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
     <a href="settings_group_household.html">Settings</a>
-    <small class="ver">v0.108.2</small>
+    <div class="railfoot">
+      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.109.1</small>
   </nav>
 
   <main>
@@ -118,7 +128,7 @@
   
   <div class="tablewrap"><table class="cards">
     <thead><tr><th>Subscription</th><th>Decision</th><th>Status</th><th>Per month</th><th>Per year</th><th>Category</th><th>Paid with</th><th>Last charge</th><th>Next est</th><th>Used by</th></tr></thead>
-    <tbody><tr><td data-label="Subscription"><a href="#" data-demo="1">Hulu</a></td><td data-label="Decision">cancelled</td><td data-label="Status">cancelled</td><td data-label="Per month">$17.99</td><td data-label="Per year">$215.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">2026-07-23</td><td data-label="Next est"></td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Netflix</a></td><td data-label="Decision">keep</td><td data-label="Status">active</td><td data-label="Per month">$17.99</td><td data-label="Per year">$215.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">2026-10-07</td><td data-label="Next est">2026-11-06</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Disney Plus</a></td><td data-label="Decision">cancel</td><td data-label="Status">active</td><td data-label="Per month">$13.99</td><td data-label="Per year">$167.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">2026-09-17</td><td data-label="Next est">2026-10-17</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Spotify</a></td><td data-label="Decision">keep</td><td data-label="Status">active</td><td data-label="Per month">$11.99</td><td data-label="Per year">$143.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">2026-10-11</td><td data-label="Next est">2026-11-10</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Mock Audible</a></td><td data-label="Decision">unreviewed</td><td data-label="Status">no charges found</td><td data-label="Per month">$0.00</td><td data-label="Per year">$0.00</td><td data-label="Category"></td><td data-label="Paid with"></td><td data-label="Last charge"></td><td data-label="Next est"></td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">NYT Cooking</a></td><td data-label="Decision">unreviewed</td><td data-label="Status">no charges found</td><td data-label="Per month">$0.00</td><td data-label="Per year">$0.00</td><td data-label="Category"></td><td data-label="Paid with"></td><td data-label="Last charge"></td><td data-label="Next est"></td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Xbox Game Pass</a></td><td data-label="Decision">unreviewed</td><td data-label="Status">no charges found</td><td data-label="Per month">$0.00</td><td data-label="Per year">$0.00</td><td data-label="Category"></td><td data-label="Paid with"></td><td data-label="Last charge"></td><td data-label="Next est"></td><td data-label="Used by"></td></tr></tbody>
+    <tbody><tr><td data-label="Subscription"><a href="#" data-demo="1">Hulu</a></td><td data-label="Decision">cancelled</td><td data-label="Status">cancelled</td><td data-label="Per month">$17.99</td><td data-label="Per year">$215.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">2026-07-23</td><td data-label="Next est"></td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Netflix</a></td><td data-label="Decision">keep</td><td data-label="Status">active</td><td data-label="Per month">$17.99</td><td data-label="Per year">$215.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">2026-10-07</td><td data-label="Next est">2026-11-06</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Disney Plus</a></td><td data-label="Decision">cancel</td><td data-label="Status">active</td><td data-label="Per month">$13.99</td><td data-label="Per year">$167.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">2026-09-17</td><td data-label="Next est">2026-10-17</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Spotify</a></td><td data-label="Decision">keep</td><td data-label="Status">active</td><td data-label="Per month">$11.99</td><td data-label="Per year">$143.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">2026-10-11</td><td data-label="Next est">2026-11-10</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">NYT Cooking</a></td><td data-label="Decision">unreviewed</td><td data-label="Status">no charges found</td><td data-label="Per month">$0.00</td><td data-label="Per year">$0.00</td><td data-label="Category"></td><td data-label="Paid with"></td><td data-label="Last charge"></td><td data-label="Next est"></td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Xbox Game Pass</a></td><td data-label="Decision">unreviewed</td><td data-label="Status">no charges found</td><td data-label="Per month">$0.00</td><td data-label="Per year">$0.00</td><td data-label="Category"></td><td data-label="Paid with"></td><td data-label="Last charge"></td><td data-label="Next est"></td><td data-label="Used by"></td></tr></tbody>
   </table></div>
   
 </section>

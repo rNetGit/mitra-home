@@ -15,12 +15,12 @@
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="index.html"><img src="assets/logo/icon.svg" alt=""> Mitra Home</a>
+    <a class="brand" href="index.html"><img src="assets/logo/icon.svg" alt=""> Mitra Home <span>AI Agent</span></a>
     <nav class="nav" aria-label="Main">
       <a href="index.html">Home</a>
       <a href="index.html#how">How it works</a>
       <a href="demo/index.html">Demo</a>
-      <a href="install.html" aria-current="page">Install</a>
+      <a class="nav-cta" href="install.html" aria-current="page">Get Mitra Home</a>
       <a href="faq.html">FAQ</a>
       <button class="theme-btn" type="button" aria-label="Switch light or dark">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -83,7 +83,7 @@
         <li>
           <h3>Unzip Mitra Home into its own folder</h3>
           <p>Save the zip you were sent, right-click it, choose <strong>Extract All</strong> and pick a simple place, for example <code>D:\MitraHome</code> or <code>Documents\MitraHome</code>.</p>
-          <p class="small muted">Your family's own files will live in a second folder next to it, called <code>MitraHome_home</code>. Updates never touch that folder.</p>
+          <p class="small muted">Your family's own files will live in a second folder next to it, called <code>Mitra-Home-Data</code>. Updates never touch that folder.</p>
         </li>
         <li>
           <h3>Double-click <code>Start Mitra Home.bat</code></h3>
@@ -117,7 +117,7 @@
         </li>
         <li>
           <h3>Let it run on its own</h3>
-          <p>At the end of setup, press <strong>Make it run on its own</strong>. This sets up the daily brief, the weekly family digest and the weekly backup.</p>
+          <p>At the end of setup, open <strong>Settings &gt; Data &gt; Runs on its own</strong> and switch them on. This sets up the daily brief, the weekly family digest and the weekly backup.</p>
         </li>
       </ol>
     </div>
@@ -143,7 +143,7 @@
         </li>
         <li>
           <h3>Drop in a few papers and let it run on its own</h3>
-          <p>Use <strong>Add documents</strong>, then <strong>Make it run on its own</strong>. If the scheduled tasks never run, allow <code>cron</code> under System Settings &gt; Privacy &amp; Security &gt; Full Disk Access.</p>
+          <p>Use <strong>Add documents</strong>, then <strong>Settings &gt; Data &gt; Runs on its own</strong>. If the scheduled tasks never run, allow <code>cron</code> under System Settings &gt; Privacy &amp; Security &gt; Full Disk Access.</p>
         </li>
       </ol>
       <p class="note small">Mac works but is tested less than Windows. Linux is not tested yet.</p>
@@ -248,9 +248,24 @@
 
 <footer>
   <div class="wrap">
-    <div><strong>Mitra Home</strong> (formerly FamilyAgent) &middot; <a href="index.html">Home</a> &middot; <a href="faq.html">FAQ</a></div>
-    <div>Records and reminders only. Nothing here is financial, tax, legal, insurance or medical advice.</div>
-    <div>Not affiliated with or endorsed by Anthropic, OpenAI or Google. Product names belong to their owners.</div>
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/logo/icon.svg" alt=""> Mitra Home <span>AI Agent</span></a>
+        <p style="margin:12px 0 0;max-width:28em">A household assistant that lives on your own computer. Bills, papers, dates and lists for the whole family.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul><li><a href="index.html#what">Features</a></li><li><a href="index.html#how">How it works</a></li><li><a href="demo/index.html">Demo</a></li><li><a href="install.html">Install</a></li></ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul><li><a href="faq.html">FAQ</a></li><li><a href="index.html#privacy">Privacy</a></li><li><a href="install.html#trouble">Troubleshooting</a></li></ul>
+      </div>
+    </div>
+    <div class="fine">
+      <div>Records and reminders only. Nothing here is financial, tax, legal, insurance or medical advice.</div>
+      <div>Not affiliated with or endorsed by Anthropic, OpenAI or Google. Product names belong to their owners.</div>
+    </div>
   </div>
 </footer>
 </body>

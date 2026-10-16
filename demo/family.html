@@ -20,8 +20,9 @@
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
-  <link rel="icon" href="static/icon-192.png">
-  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
   <link rel="stylesheet" href="static/app.css">
   <script src="static/vendor/htmx.min.js" defer=""></script>
@@ -40,78 +41,105 @@
 <div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
   <nav class="rail" aria-label="Main">
-    <span class="brand">Mitra Home</span>
-    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
     
     
       
+        
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
         <a href="family.html" class="on" aria-current="page">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
-      
-        <span class="grp">Money</span>
         
-        <a href="month.html">This month</a><a href="finance.html">Finance</a>
       
-        <span class="grp">Everything else</span>
         
-        <a href="records.html">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+        <details class="rg" data-rg="Money">
+          <summary>Money</summary>
+          <a href="month.html">This month</a><a href="finance.html">Finance</a>
+        </details>
+        
+      
+        
+        <details class="rg" data-rg="Everything else">
+          <summary>Everything else</summary>
+          <a href="records.html">Records</a><a href="notes.html">Notes</a>
+        </details>
+        
       
     
     <span class="grow"></span>
-    <a class="btn addscan" href="inbox.html">Add or scan</a>
-    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
     <a href="settings_group_household.html">Settings</a>
-    <small class="ver">v0.108.2</small>
+    <div class="railfoot">
+      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.109.1</small>
   </nav>
 
   <main>
 <header class="head"><div><h1>Family</h1><p class="sub">Everyone's next 30 days, one person at a time.</p></div></header>
 <div class="tiles">
   
-  <a class="tile" href="#" data-demo="1">
-    <span class="av lg av0" aria-hidden="true">M</span>
-    <span class="tmain"><b>Marcus</b>
-      <small class="muted">2 items · next: Dental cleaning</small></span>
-    <span class="pill">Oct 26</span>
+  <div class="tilewrap">
+  <a class="tile ptile gav0" href="#" data-demo="1">
+    <span class="ptop"><span class="av lg av0" aria-hidden="true">M</span><b>Marcus</b></span>
+    <span class="pcount"><b>2</b><small> items in 30 days</small></span>
+    <small class="pnext">Next: Dental cleaning · Oct 28</small>
+    
+  </a>
+  <a class="tile-edit" href="#" data-demo="1" title="Edit Marcus: name, birthday, school, IDs" aria-label="Edit Marcus">✎</a>
+  </div>
+  
+  <div class="tilewrap">
+  <a class="tile ptile gav1" href="#" data-demo="1">
+    <span class="ptop"><span class="av lg av1" aria-hidden="true">E</span><b>Elena</b></span>
+    <span class="pcount"><b>2</b><small> items in 30 days</small></span>
+    <small class="pnext">Next: Allergy prescription refill · in 4d</small>
+    
+  </a>
+  <a class="tile-edit" href="#" data-demo="1" title="Edit Elena: name, birthday, school, IDs" aria-label="Edit Elena">✎</a>
+  </div>
+  
+  <div class="tilewrap">
+  <a class="tile ptile gav2" href="#" data-demo="1">
+    <span class="ptop"><span class="av lg av2" aria-hidden="true">S</span><b>Sofia</b></span>
+    <span class="pcount"><b>8</b><small> items in 30 days</small></span>
+    <small class="pnext">Next: Band fundraiser form · Overdue 7d</small>
+    <span class="dpill pover">2 overdue</span>
+  </a>
+  <a class="tile-edit" href="#" data-demo="1" title="Edit Sofia: name, birthday, school, IDs" aria-label="Edit Sofia">✎</a>
+  </div>
+  
+  <div class="tilewrap">
+  <a class="tile ptile gav3" href="#" data-demo="1">
+    <span class="ptop"><span class="av lg av3" aria-hidden="true">M</span><b>Mateo</b></span>
+    <span class="pcount"><b>9</b><small> items in 30 days</small></span>
+    <small class="pnext">Next: Passport EXPIRED · Overdue 21d</small>
+    <span class="dpill pover">1 overdue</span>
+  </a>
+  <a class="tile-edit" href="#" data-demo="1" title="Edit Mateo: name, birthday, school, IDs" aria-label="Edit Mateo">✎</a>
+  </div>
+  
+  <div class="tilewrap">
+  <a class="tile ptile gav4" href="#" data-demo="1">
+    <span class="ptop"><span class="av lg av4" aria-hidden="true">P</span><b>Pancho</b></span>
+    <span class="pcount"><b>2</b><small> items in 30 days</small></span>
+    <small class="pnext">Next: Heartworm pill · in 7d</small>
+    
+  </a>
+  <a class="tile-edit" href="#" data-demo="1" title="Edit Pancho: name, birthday, school, IDs" aria-label="Edit Pancho">✎</a>
+  </div>
+  
+  <div class="tilewrap">
+  <a class="tile ptile gavh" href="#" data-demo="1">
+    <span class="ptop"><span class="av lg avh" aria-hidden="true">H</span><b>House</b></span>
+    <span class="pcount"><b>13</b><small> items in 30 days</small></span>
+    <small class="pnext">Next: 2017 Toyota Tacoma inspection expires · Overdue 13d</small>
+    <span class="dpill pover">1 overdue</span>
   </a>
   
-  <a class="tile" href="#" data-demo="1">
-    <span class="av lg av1" aria-hidden="true">E</span>
-    <span class="tmain"><b>Elena</b>
-      <small class="muted">2 items · next: Allergy prescription refill</small></span>
-    <span class="pill">in 3d</span>
-  </a>
-  
-  <a class="tile" href="#" data-demo="1">
-    <span class="av lg av2" aria-hidden="true">S</span>
-    <span class="tmain"><b>Sofia</b>
-      <small class="muted">6 items · next: Band fundraiser form</small></span>
-    <span class="pill danger">1 overdue</span>
-  </a>
-  
-  <a class="tile" href="#" data-demo="1">
-    <span class="av lg av3" aria-hidden="true">M</span>
-    <span class="tmain"><b>Mateo</b>
-      <small class="muted">3 items · next: Flu shot</small></span>
-    <span class="pill">Tomorrow</span>
-  </a>
-  
-  <a class="tile" href="#" data-demo="1">
-    <span class="av lg av4" aria-hidden="true">P</span>
-    <span class="tmain"><b>Pancho</b>
-      <small class="muted">2 items · next: Heartworm pill</small></span>
-    <span class="pill">in 6d</span>
-  </a>
-  
-  <a class="tile" href="#" data-demo="1">
-    <span class="av lg avh" aria-hidden="true">H</span>
-    <span class="tmain"><b>House</b>
-      <small class="muted">12 items · next: 2017 Toyota Tacoma inspection expires</small></span>
-    <span class="pill danger">1 overdue</span>
-  </a>
+  </div>
   
 </div>
 

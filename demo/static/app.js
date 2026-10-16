@@ -20,6 +20,20 @@
     if (open && e.key === 'Escape') { open.removeAttribute('open'); open.querySelector('summary').focus(); }
   });
 
+  // Rail groups fold: the choice is remembered in this browser (the group holding the open page always shows open).
+  (function () {
+    var k = 'rail-groups', saved = {};
+    try { saved = JSON.parse(localStorage.getItem(k) || '{}') || {}; } catch (e) { saved = {}; }
+    document.querySelectorAll('.rail details.rg').forEach(function (d) {
+      var n = d.dataset.rg;
+      if (saved[n] === true) d.open = true;
+      d.addEventListener('toggle', function () {
+        saved[n] = d.open;
+        try { localStorage.setItem(k, JSON.stringify(saved)); } catch (e) { /* private window */ }
+      });
+    });
+  })();
+
   // Light / dark: change the page now, remember it for this person on the server.
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-theme-toggle]');
@@ -28,7 +42,8 @@
     document.documentElement.dataset.theme = mode;
     document.querySelectorAll('[data-theme-toggle]').forEach(function (t) {
       t.dataset.mode = mode;
-      t.textContent = mode === 'dark' ? 'Light mode' : 'Dark mode';
+      var label = mode === 'dark' ? 'Light mode' : 'Dark mode';
+      if (t.classList.contains('ibtn')) { t.title = label; t.setAttribute('aria-label', label); } else t.textContent = label;
     });
     var m = document.querySelector('meta[name="csrf-token"]');
     fetch('/theme', {method: 'POST', credentials: 'same-origin',
@@ -75,6 +90,18 @@
   window.addEventListener('load', render);
   document.addEventListener('htmx:afterSettle', render);
   window.addEventListener('resize', function () { charts.forEach(function (c) { c.resize(); }); });
+
+  // Setup > Where: the currency follows the country until the person picks one themselves.
+  document.addEventListener('change', function (e) {
+    var t = e.target;
+    if (t.matches && t.matches('select[data-currency]')) { t.dataset.picked = '1'; return; }
+    if (!(t.matches && t.matches('select[data-currency-map]'))) return;
+    var cur = t.form && t.form.querySelector('select[data-currency]');
+    if (!cur || cur.dataset.picked) return;
+    var map = {}; try { map = JSON.parse(t.getAttribute('data-currency-map')); } catch (err) { return; }
+    var code = map[t.value];
+    if (code && cur.querySelector('option[value="' + code + '"]')) cur.value = code;
+  });
 
   // Inbox: each chosen file is sent as its own request (raw bytes, name in a header); the server checks every one.
   function meta() { var m = document.querySelector('meta[name="csrf-token"]'); return m ? m.content : ''; }
@@ -166,6 +193,70 @@
   }
   document.addEventListener('DOMContentLoaded', function () { cardTables(); });
   document.addEventListener('htmx:afterSettle', function (e) { cardTables(e.target); });
+
+  // Story cards (Today, This month): one slide at a time; tap the right side / swipe left = next, left side / swipe right = back,
+  // arrow keys when it has focus. Without this script every slide shows, one under another.
+  function story(root) {
+    (root || document).querySelectorAll('[data-story]').forEach(function (box) {
+      if (box.dataset.ready) return;
+      box.dataset.ready = '1';
+      box.classList.add('js');
+      var slides = box.querySelectorAll('.slide'), at = 0, x0 = null, y0 = 0;
+      var strip = document.createElement('div');
+      strip.className = 'sbars';
+      strip.setAttribute('aria-hidden', 'true');
+      slides.forEach(function () { strip.appendChild(document.createElement('i')); });
+      if (slides.length > 1) box.insertBefore(strip, box.firstChild);
+      if (slides.length < 2) box.classList.add('one');
+      var bars = strip.querySelectorAll('i');
+      function show(i, back) {
+        at = Math.max(0, Math.min(slides.length - 1, i));
+        slides.forEach(function (s, k) { s.classList.toggle('on', k === at); s.classList.toggle('back', !!back && k !== at); s.setAttribute('aria-hidden', k === at ? 'false' : 'true'); });
+        bars.forEach(function (b, k) { b.classList.toggle('on', k <= at); });
+      }
+      function interactive(t) { return t.closest && t.closest('a,button,select,input,label,form'); }
+      box.addEventListener('click', function (e) {
+        if (interactive(e.target)) return;
+        var r = box.getBoundingClientRect();
+        if (e.clientX - r.left < r.width * 0.33) show(at - 1, true); else show(at + 1);
+      });
+      box.addEventListener('pointerdown', function (e) { if (!interactive(e.target)) { x0 = e.clientX; y0 = e.clientY; } });
+      box.addEventListener('pointerup', function (e) {
+        if (x0 === null) return;
+        var dx = e.clientX - x0, dy = e.clientY - y0;
+        x0 = null;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+          box.dataset.swiped = '1';
+          if (dx < 0) show(at + 1); else show(at - 1, true);
+        }
+      });
+      box.addEventListener('click', function (e) { if (box.dataset.swiped) { delete box.dataset.swiped; e.stopImmediatePropagation(); } }, true);
+      box.addEventListener('keydown', function (e) {
+        if (interactive(e.target)) return;
+        if (e.key === 'ArrowRight') { show(at + 1); e.preventDefault(); }
+        if (e.key === 'ArrowLeft') { show(at - 1, true); e.preventDefault(); }
+      });
+      show(0);
+    });
+    // Charges in the category list: biggest first or by date.
+    (root || document).querySelectorAll('.msort').forEach(function (g) {
+      if (g.dataset.ready) return;
+      g.dataset.ready = '1';
+      g.addEventListener('click', function (e) {
+        var b = e.target.closest('button[data-sort]');
+        if (!b) return;
+        g.querySelectorAll('button').forEach(function (x) { x.classList.toggle('on', x === b); });
+        var byDate = b.dataset.sort === 'd';
+        g.parentNode.querySelectorAll('.mrowsx').forEach(function (list) {
+          Array.prototype.slice.call(list.children).sort(function (p, q) {
+            return byDate ? q.dataset.d.localeCompare(p.dataset.d) : parseFloat(q.dataset.a) - parseFloat(p.dataset.a);
+          }).forEach(function (row) { list.appendChild(row); });
+        });
+      });
+    });
+  }
+  document.addEventListener('DOMContentLoaded', function () { story(); });
+  document.addEventListener('htmx:afterSettle', function () { story(); });
 
   // Installable app: the service worker only keeps the app's own files (never a signed-in page).
   if ('serviceWorker' in navigator && window.isSecureContext) {

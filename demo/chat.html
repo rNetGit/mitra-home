@@ -20,8 +20,9 @@
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
-  <link rel="icon" href="static/icon-192.png">
-  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
   <link rel="stylesheet" href="static/app.css">
   <script src="static/vendor/htmx.min.js" defer=""></script>
@@ -40,36 +41,45 @@
 <div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
   <nav class="rail" aria-label="Main">
-    <span class="brand">Mitra Home</span>
-    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
     
     
       
+        
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="20 waiting">20</span></a><a href="brief.html">To do</a>
-      
-        <span class="grp">Money</span>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="26 waiting">26</span></a><a href="brief.html">To do</a>
         
-        <a href="month.html">This month</a><a href="finance.html">Finance</a>
       
-        <span class="grp">Everything else</span>
         
-        <a href="records.html">Records</a><a href="notes.html">Notes</a><a href="chat.html" class="on" aria-current="page">Chat</a>
+        <details class="rg" data-rg="Money">
+          <summary>Money</summary>
+          <a href="month.html">This month</a><a href="finance.html">Finance</a>
+        </details>
+        
+      
+        
+        <details class="rg" data-rg="Everything else">
+          <summary>Everything else</summary>
+          <a href="records.html">Records</a><a href="notes.html">Notes</a>
+        </details>
+        
       
     
     <span class="grow"></span>
-    <a class="btn addscan" href="inbox.html">Add or scan</a>
-    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
     <a href="settings_group_household.html">Settings</a>
-    <small class="ver">v0.108.2</small>
+    <div class="railfoot">
+      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.109.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Good afternoon, Marcus.</h1><p class="sub">Thursday, October 15</p></div>
-  <a class="btn alt" href="inbox.html">20 things need you in the Inbox</a>
+<header class="head"><div><h1>Good morning, Marcus.</h1><p class="sub">Friday, October 16</p></div>
+  <a class="btn alt" href="inbox.html">26 things need you in the Inbox</a>
 </header>
 <section id="chat"><div class="chatlog" id="chatlog" aria-live="polite">
   
@@ -105,7 +115,7 @@
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
     <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
-    <a href="inbox.html" class="scan" aria-label="Add or scan, 20 in the Inbox"><b aria-hidden="true">+</b><span class="badge">20</span></a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 26 in the Inbox"><b aria-hidden="true">+</b><span class="badge">26</span></a>
     <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
     <details class="bmore">
       <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
@@ -113,7 +123,7 @@
         
         <a role="menuitem" href="calendar_view_week.html">Calendar</a>
         
-        <a role="menuitem" href="inbox.html">Inbox <span class="badge">20</span></a>
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">26</span></a>
         
         <a role="menuitem" href="month.html">This month</a>
         

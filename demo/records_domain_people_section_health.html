@@ -20,8 +20,9 @@
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
-  <link rel="icon" href="static/icon-192.png">
-  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
   <link rel="stylesheet" href="static/app.css">
   <script src="static/vendor/htmx.min.js" defer=""></script>
@@ -40,31 +41,40 @@
 <div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
   <nav class="rail" aria-label="Main">
-    <span class="brand">Mitra Home</span>
-    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
     
     
       
+        
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
         <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
-      
-        <span class="grp">Money</span>
         
-        <a href="month.html">This month</a><a href="finance.html">Finance</a>
       
-        <span class="grp">Everything else</span>
         
-        <a href="records.html" class="on" aria-current="page">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+        <details class="rg" data-rg="Money" open="">
+          <summary>Money</summary>
+          <a href="month.html">This month</a><a href="finance.html">Finance</a>
+        </details>
+        
+      
+        
+        <details class="rg" data-rg="Everything else" open="">
+          <summary>Everything else</summary>
+          <a href="records.html" class="on" aria-current="page">Records</a><a href="notes.html">Notes</a>
+        </details>
+        
       
     
     <span class="grow"></span>
-    <a class="btn addscan" href="inbox.html">Add or scan</a>
-    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
     <a href="settings_group_household.html">Settings</a>
-    <small class="ver">v0.108.2</small>
+    <div class="railfoot">
+      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.109.1</small>
   </nav>
 
   <main>
@@ -83,11 +93,11 @@
 
 <nav class="pills" aria-label="Area"><a href="#" data-demo="1" class="on" aria-current="true">People</a><a href="#" data-demo="1">Home</a><a href="#" data-demo="1">Vehicles</a><a href="#" data-demo="1">Papers &amp; IDs</a></nav>
 
-<nav class="pills sm" aria-label="Part"><a href="records_domain_people_section_people.html">People</a><a href="records_domain_people_section_life.html">Life items</a><a href="records_domain_people_section_health.html" class="on" aria-current="true">Checkups and appointments</a><a href="records_domain_people_section_school.html">School</a><a href="records_domain_people_section_dates.html">Dates and festivals</a></nav>
+<nav class="pills sm" aria-label="Part"><a href="records_domain_people_section_people.html">People</a><a href="records_domain_people_section_life.html">Life items</a><a href="records_domain_people_section_health.html" class="on" aria-current="true">Checkups and appointments</a><a href="records_domain_people_section_school.html">School</a><a href="#" data-demo="1">Classes and activities</a><a href="records_domain_people_section_dates.html">Holidays and dates</a><a href="#" data-demo="1">Critical info</a></nav>
 
 
 
-<div class="kpis rk"><div class="kpi"><span>People</span><b>5</b></div><div class="kpi"><span>Open items</span><b>26</b></div><div class="kpi"><span>Appointments ahead</span><b>5</b></div></div>
+<div class="kpis rk"><div class="kpi"><span>People</span><b>5</b></div><div class="kpi"><span>Open items</span><b>29</b></div><div class="kpi"><span>Appointments ahead</span><b>5</b></div></div>
 
 
 
@@ -98,7 +108,7 @@
   
   <div class="tablewrap"><table class="cards">
     <thead><tr><th>Name</th><th>Who</th><th>Every (months)</th><th>Last done</th><th>Provider</th></tr></thead>
-    <tbody><tr><td data-label="Name"><a href="#" data-demo="1">Annual physical</a></td><td data-label="Who">Elena</td><td data-label="Every (months)">12</td><td data-label="Last done"></td><td data-label="Provider"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Dental cleaning</a></td><td data-label="Who">Elena</td><td data-label="Every (months)">6</td><td data-label="Last done">2026-08-14</td><td data-label="Provider">Oak Dental</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Annual physical</a></td><td data-label="Who">Marcus</td><td data-label="Every (months)">12</td><td data-label="Last done">2025-12-17</td><td data-label="Provider"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Dental cleaning</a></td><td data-label="Who">Marcus</td><td data-label="Every (months)">6</td><td data-label="Last done">2026-04-26</td><td data-label="Provider">Oak Dental</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Dental cleaning</a></td><td data-label="Who">Mateo</td><td data-label="Every (months)">6</td><td data-label="Last done">2026-09-23</td><td data-label="Provider"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Vet checkup</a></td><td data-label="Who">Pancho</td><td data-label="Every (months)">12</td><td data-label="Last done"></td><td data-label="Provider"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Dental cleaning</a></td><td data-label="Who">Sofia</td><td data-label="Every (months)">6</td><td data-label="Last done">2026-09-23</td><td data-label="Provider"></td></tr></tbody>
+    <tbody><tr><td data-label="Name"><a href="#" data-demo="1">Annual physical</a></td><td data-label="Who">Elena</td><td data-label="Every (months)">12</td><td data-label="Last done"></td><td data-label="Provider"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Dental cleaning</a></td><td data-label="Who">Elena</td><td data-label="Every (months)">6</td><td data-label="Last done">2026-08-16</td><td data-label="Provider">Oak Dental</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Annual physical</a></td><td data-label="Who">Marcus</td><td data-label="Every (months)">12</td><td data-label="Last done">2025-12-19</td><td data-label="Provider"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Dental cleaning</a></td><td data-label="Who">Marcus</td><td data-label="Every (months)">6</td><td data-label="Last done">2026-04-28</td><td data-label="Provider">Oak Dental</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Dental cleaning</a></td><td data-label="Who">Mateo</td><td data-label="Every (months)">6</td><td data-label="Last done">2026-09-25</td><td data-label="Provider"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Vet checkup</a></td><td data-label="Who">Pancho</td><td data-label="Every (months)">12</td><td data-label="Last done"></td><td data-label="Provider"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Dental cleaning</a></td><td data-label="Who">Sofia</td><td data-label="Every (months)">6</td><td data-label="Last done">2026-09-25</td><td data-label="Provider"></td></tr></tbody>
   </table></div>
   
 </section>
@@ -108,7 +118,7 @@
   
   <div class="tablewrap"><table class="cards">
     <thead><tr><th>Person</th><th>Purpose</th><th>Provider</th><th>When</th><th>Follow-up due</th></tr></thead>
-    <tbody><tr><td data-label="Person"><a href="#" data-demo="1">Elena</a></td><td data-label="Purpose">Cleaning</td><td data-label="Provider">Oak Dental</td><td data-label="When">2026-12-07 13:00</td><td data-label="Follow-up due"></td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Marcus</a></td><td data-label="Purpose">Eye exam</td><td data-label="Provider">Vision Works</td><td data-label="When">2026-11-02 11:00</td><td data-label="Follow-up due"></td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Pancho</a></td><td data-label="Purpose">Dental cleaning</td><td data-label="Provider">VCA Animal Hospital</td><td data-label="When">2026-10-25 08:30</td><td data-label="Follow-up due"></td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Sofia</a></td><td data-label="Purpose">Braces adjustment</td><td data-label="Provider">Smile Ortho</td><td data-label="When">2026-10-20 15:30</td><td data-label="Follow-up due"></td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Mateo</a></td><td data-label="Purpose">Flu shot</td><td data-label="Provider">Triangle Pediatrics</td><td data-label="When">2026-10-16 09:15</td><td data-label="Follow-up due"></td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Mateo</a></td><td data-label="Purpose">Cleaning</td><td data-label="Provider">Oak Dental</td><td data-label="When">2026-10-10 16:00</td><td data-label="Follow-up due"></td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Elena</a></td><td data-label="Purpose">Annual physical</td><td data-label="Provider">Dr. Patel Family Medicine</td><td data-label="When">2026-09-13 10:00</td><td data-label="Follow-up due">2026-12-12</td></tr></tbody>
+    <tbody><tr><td data-label="Person"><a href="#" data-demo="1">Elena</a></td><td data-label="Purpose">Cleaning</td><td data-label="Provider">Oak Dental</td><td data-label="When">2026-12-09 13:00</td><td data-label="Follow-up due"></td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Marcus</a></td><td data-label="Purpose">Eye exam</td><td data-label="Provider">Vision Works</td><td data-label="When">2026-11-04 11:00</td><td data-label="Follow-up due"></td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Pancho</a></td><td data-label="Purpose">Dental cleaning</td><td data-label="Provider">VCA Animal Hospital</td><td data-label="When">2026-10-27 08:30</td><td data-label="Follow-up due"></td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Sofia</a></td><td data-label="Purpose">Braces adjustment</td><td data-label="Provider">Smile Ortho</td><td data-label="When">2026-10-22 15:30</td><td data-label="Follow-up due"></td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Mateo</a></td><td data-label="Purpose">Flu shot</td><td data-label="Provider">Triangle Pediatrics</td><td data-label="When">2026-10-18 09:15</td><td data-label="Follow-up due"></td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Mateo</a></td><td data-label="Purpose">Cleaning</td><td data-label="Provider">Oak Dental</td><td data-label="When">2026-10-12 16:00</td><td data-label="Follow-up due"></td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Elena</a></td><td data-label="Purpose">Annual physical</td><td data-label="Provider">Dr. Patel Family Medicine</td><td data-label="When">2026-09-15 10:00</td><td data-label="Follow-up due">2026-12-14</td></tr></tbody>
   </table></div>
   
 </section>

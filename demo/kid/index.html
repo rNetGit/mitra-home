@@ -20,8 +20,9 @@
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
-  <link rel="icon" href="../static/icon-192.png">
-  <link rel="apple-touch-icon" href="../static/icon-192.png">
+  <link rel="icon" href="../static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="../static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="../static/icon-180.png">
   <link rel="stylesheet" href="../static/tokens.css">
   <link rel="stylesheet" href="../static/app.css">
   <script src="../static/vendor/htmx.min.js" defer=""></script>
@@ -40,8 +41,7 @@
 <div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
   <nav class="rail" aria-label="Main">
-    <span class="brand">Mitra Home</span>
-    <span class="me"><span class="av sm av2" aria-hidden="true">S</span>Sofia</span>
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="../static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
     
     
@@ -49,14 +49,16 @@
     
     <span class="grow"></span>
     
-    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-    <button type="button" class="ghost" data-hx-post="/logout">Log out (Sofia)</button>
-    
-    <small class="ver">v0.108.2</small>
+    <div class="railfoot">
+      <span class="me" title="Sofia"><span class="av sm av2" aria-hidden="true">S</span><span class="mename">Sofia</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Sofia)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.109.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Hi Sofia</h1><p class="sub">Thursday, October 15</p></div></header>
+<header class="head"><div><h1>Hi Sofia</h1><p class="sub">Friday, October 16</p></div></header>
 
 
 <section class="card rbox">
@@ -65,27 +67,27 @@
   <ul class="checklist">
   
     <li>
-      <span class="ctext">Band fundraiser form <span class="muted">· school · 2026-10-07 · Hillside Middle</span></span>
+      <span class="ctext">Band fundraiser form <span class="muted">· school · 2026-10-09 · Hillside Middle</span></span>
       <button type="button" class="btn alt sm" aria-label="I finished Band fundraiser form" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;11&quot;, &quot;op&quot;: &quot;done&quot;}">Done</button>
     </li>
   
     <li>
-      <span class="ctext">Wash the car <span class="muted">· chore · 2026-10-16</span></span>
+      <span class="ctext">Wash the car <span class="muted">· chore · 2026-10-18</span></span>
       <button type="button" class="btn alt sm" aria-label="I finished Wash the car" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;29&quot;, &quot;op&quot;: &quot;done&quot;}">Done</button>
     </li>
   
     <li>
-      <span class="ctext">Braces adjustment <span class="muted">· medical · 2026-10-20 · Smile Ortho</span></span>
+      <span class="ctext">Braces adjustment <span class="muted">· medical · 2026-10-22 · Smile Ortho</span></span>
       <button type="button" class="btn alt sm" aria-label="I finished Braces adjustment" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;17&quot;, &quot;op&quot;: &quot;done&quot;}">Done</button>
     </li>
   
     <li>
-      <span class="ctext">Science fair project due <span class="muted">· school · 2026-10-22 · Hillside Middle</span></span>
+      <span class="ctext">Science fair project due <span class="muted">· school · 2026-10-24 · Hillside Middle</span></span>
       <button type="button" class="btn alt sm" aria-label="I finished Science fair project due" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;10&quot;, &quot;op&quot;: &quot;done&quot;}">Done</button>
     </li>
   
     <li>
-      <span class="ctext">Soccer registration fee <span class="muted">· activity · 2026-11-03</span></span>
+      <span class="ctext">Soccer registration fee <span class="muted">· activity · 2026-11-05</span></span>
       <button type="button" class="btn alt sm" aria-label="I finished Soccer registration fee" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;15&quot;, &quot;op&quot;: &quot;done&quot;}">Done</button>
     </li>
   
@@ -107,38 +109,33 @@
   <h2>Our lists</h2>
   
   
-  <h3>Beach trip packing <span class="muted small">0 to do</span></h3>
+  <h3>Beach trip packing <span class="muted small">5 to do</span></h3>
   
   <ul class="checklist">
   
-    <li class="done">
-      <button type="button" class="btn alt sm" aria-label="Untick Sunscreen" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;11&quot;, &quot;op&quot;: &quot;untick&quot;}">↺</button>
-      <span class="ctext"><s>Sunscreen</s> <span class="muted">· ticked by Mateo</span></span>
+    <li class="">
+      <button type="button" class="btn alt sm" aria-label="Tick Sunscreen" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;11&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
+      <span class="ctext">Sunscreen</span>
     </li>
   
-    <li class="done">
-      <button type="button" class="btn alt sm" aria-label="Untick Towels" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;12&quot;, &quot;op&quot;: &quot;untick&quot;}">↺</button>
-      <span class="ctext"><s>Towels</s> <span class="muted">· ticked by Mateo</span></span>
+    <li class="">
+      <button type="button" class="btn alt sm" aria-label="Tick Towels" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;12&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
+      <span class="ctext">Towels</span>
     </li>
   
-    <li class="done">
-      <button type="button" class="btn alt sm" aria-label="Untick Cooler" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;13&quot;, &quot;op&quot;: &quot;untick&quot;}">↺</button>
-      <span class="ctext"><s>Cooler</s> <span class="muted">· ticked by Mateo</span></span>
+    <li class="">
+      <button type="button" class="btn alt sm" aria-label="Tick Cooler" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;13&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
+      <span class="ctext">Cooler</span>
     </li>
   
-    <li class="done">
-      <button type="button" class="btn alt sm" aria-label="Untick Beach umbrella" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;14&quot;, &quot;op&quot;: &quot;untick&quot;}">↺</button>
-      <span class="ctext"><s>Beach umbrella</s> <span class="muted">· ticked by Mateo</span></span>
+    <li class="">
+      <button type="button" class="btn alt sm" aria-label="Tick Beach umbrella" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;14&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
+      <span class="ctext">Beach umbrella</span>
     </li>
   
-    <li class="done">
-      <button type="button" class="btn alt sm" aria-label="Untick Sandals" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;15&quot;, &quot;op&quot;: &quot;untick&quot;}">↺</button>
-      <span class="ctext"><s>Sandals</s> <span class="muted">· ticked by Mateo</span></span>
-    </li>
-  
-    <li class="done">
-      <button type="button" class="btn alt sm" aria-label="Untick Mock sunhat" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;32&quot;, &quot;op&quot;: &quot;untick&quot;}">↺</button>
-      <span class="ctext"><s>Mock sunhat</s> <span class="muted">· ticked by Mateo</span></span>
+    <li class="">
+      <button type="button" class="btn alt sm" aria-label="Tick Sandals" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;15&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
+      <span class="ctext">Sandals</span>
     </li>
   
   </ul>
@@ -147,8 +144,6 @@
     <label>Add to Beach trip packing<input name="text" maxlength="120" required="" placeholder="milk, sun cream..."></label>
     <button class="btn" type="submit">Add</button>
   </form>
-  
-  <div class="optrow"><button type="button" class="btn alt" data-hx-post="/me" data-hx-vals="{&quot;list&quot;: &quot;3&quot;, &quot;op&quot;: &quot;clear&quot;}">Clear ticked items</button></div>
   
   
   <h3>Groceries <span class="muted small">19 to do</span></h3>
@@ -314,24 +309,6 @@
     <li><a href="https://example.com/pizza-dough" target="_blank" rel="noopener noreferrer nofollow">Best pizza dough recipe</a>
       <span class="muted"> · 72 hour cold ferment</span></li>
   
-    <li>Mock note: ladder is in the garage
-      <span class="muted small"> · added by Marcus</span></li>
-  
-    <li>Mock note: ladder is in the garage
-      <span class="muted small"> · added by Marcus</span></li>
-  
-    <li>Mock note: ladder is in the garage
-      <span class="muted small"> · added by Marcus</span></li>
-  
-    <li>Mock note: ladder is in the garage
-      <span class="muted small"> · added by Marcus</span></li>
-  
-    <li>Mock note: ladder is in the garage
-      <span class="muted small"> · added by Marcus</span></li>
-  
-    <li>Mock note: ladder is in the garage
-      <span class="muted small"> · added by Marcus</span></li>
-  
     <li><a href="https://example.com/hurricane" target="_blank" rel="noopener noreferrer nofollow">Hurricane prep checklist</a>
       </li>
   
@@ -359,11 +336,19 @@
 <section class="card rbox">
   <h2>Coming up in the next two weeks</h2>
   
-  <ul class="hits"><li>2026-10-16: Wash the car (Sofia)</li><li>2026-10-20: Braces adjustment (Sofia)</li><li>2026-10-22: Science fair project due (Sofia)</li><li>2026-10-25: Parent-teacher conference sign-up</li></ul>
+  <ul class="hits"><li>2026-10-18: Wash the car (Sofia)</li><li>2026-10-22: Braces adjustment (Sofia)</li><li>2026-10-24: Science fair project due (Sofia)</li><li>2026-10-27: Parent-teacher conference sign-up</li></ul>
+  
+  
+  <h3>My classes this week</h3>
+  <ul class="hits"><li>Sat Oct 17: Piano lesson 10:00 at Music studio</li><li>Mon Oct 19: Swimming 17:00 at YMCA</li><li>Wed Oct 21: Swimming 17:00 at YMCA</li></ul>
+  
+  
+  <h3>Holidays and days off</h3>
+  <ul class="hits"><li>Oct 21: Teacher work day (no school)</li><li>Nov 01 to Nov 02: Dia de los Muertos</li><li>Nov 11: Veterans Day</li></ul>
   
   <h3>Birthdays</h3>
   
-  <ul class="hits"><li>Nov 02: Elena's birthday (turns 42)</li><li>Mar 09: Sofia's birthday (turns 15)</li><li>May 21: Marcus's birthday (turns 45)</li><li>Jul 23: Mateo's birthday (turns 9)</li><li>Sep 14: Pancho's birthday</li></ul>
+  <ul class="hits"><li>Nov 02: Elena's birthday (turns 42)</li><li>Mar 09: Sofia's birthday (turns 15)</li><li>May 21: Marcus's birthday (turns 45)</li><li>Jul 23: Mateo's birthday (turns 8)</li><li>Sep 14: Pancho's birthday</li></ul>
   
 </section>
 </main>

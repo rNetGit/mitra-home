@@ -20,8 +20,9 @@
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
-  <link rel="icon" href="static/icon-192.png">
-  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
   <link rel="stylesheet" href="static/app.css">
   <script src="static/vendor/htmx.min.js" defer=""></script>
@@ -40,31 +41,40 @@
 <div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
   <nav class="rail" aria-label="Main">
-    <span class="brand">Mitra Home</span>
-    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
     
     
       
+        
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
         <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
-      
-        <span class="grp">Money</span>
         
-        <a href="month.html">This month</a><a href="finance.html" class="on" aria-current="page">Finance</a>
       
-        <span class="grp">Everything else</span>
         
-        <a href="records.html">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+        <details class="rg" data-rg="Money" open="">
+          <summary>Money</summary>
+          <a href="month.html">This month</a><a href="finance.html" class="on" aria-current="page">Finance</a>
+        </details>
+        
+      
+        
+        <details class="rg" data-rg="Everything else" open="">
+          <summary>Everything else</summary>
+          <a href="records.html">Records</a><a href="notes.html">Notes</a>
+        </details>
+        
       
     
     <span class="grow"></span>
-    <a class="btn addscan" href="inbox.html">Add or scan</a>
-    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
     <a href="settings_group_household.html">Settings</a>
-    <small class="ver">v0.108.2</small>
+    <div class="railfoot">
+      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.109.1</small>
   </nav>
 
   <main>
@@ -87,7 +97,7 @@
 
 <p><a class="btn alt" href="#" data-demo="1" download="">Download it (.md)</a></p>
 <section class="card doc"><h1>2026 year-end summary (year to date)</h1>
-<p><em>Generated 2026-10-15. Transactions in the data run to 2026-10-13. Source: family.db. Aggregates only; card/account numbers are last4.</em></p>
+<p><em>Generated 2026-10-16. Transactions in the data run to 2026-10-15. Source: family.db. Aggregates only; card/account numbers are last4.</em></p>
 <p>&gt; 2026 is not over: every figure is year to date, and months before the first loaded statement are missing.</p>
 <h2>Income vs spend vs invested</h2>
 <table>
@@ -152,23 +162,23 @@
 </tr>
 <tr>
 <td>2026-10</td>
-<td>$10,131</td>
-<td>$3,260</td>
+<td>$13,031</td>
+<td>$3,483</td>
 <td>$0</td>
 <td>$500</td>
-<td>$6,371</td>
+<td>$9,048</td>
 </tr>
 <tr>
 <td><strong>Total</strong></td>
-<td><strong>$89,360</strong></td>
-<td><strong>$33,560</strong></td>
+<td><strong>$92,260</strong></td>
+<td><strong>$33,784</strong></td>
 <td><strong>$2,200</strong></td>
 <td><strong>$3,500</strong></td>
-<td><strong>$50,100</strong></td>
+<td><strong>$52,776</strong></td>
 </tr>
 </tbody>
 </table>
-<p>Income $89,360; spend $33,560; net taxes $2,200; invested $3,500. Income minus spend and taxes: $53,600 (60% of income).
+<p>Income $92,260; spend $33,784; net taxes $2,200; invested $3,500. Income minus spend and taxes: $56,276 (61% of income).
 Spend includes insurance, utilities, loan payments and untyped checks. Card payments and account-to-account transfers are excluded (card purchases are counted once, on the card). One-off lumps (e.g. a life-insurance payment) are included; see the payee list.</p>
 <h2>Top spend categories</h2>
 <table>
@@ -202,8 +212,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 <tr>
 <td>insurance</td>
-<td>$1,342</td>
-<td>6</td>
+<td>$1,566</td>
+<td>7</td>
 </tr>
 <tr>
 <td>student loan</td>
@@ -269,8 +279,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 <tr>
 <td>State Farm</td>
-<td>$1,342</td>
-<td>6</td>
+<td>$1,566</td>
+<td>7</td>
 </tr>
 <tr>
 <td>Student loan servicer</td>
@@ -432,25 +442,25 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <tbody>
 <tr>
 <td>Allstate home x9033</td>
-<td>2025-02-10 to 2026-02-10</td>
+<td>2025-02-12 to 2026-02-12</td>
 <td>$1,604</td>
 <td>n/a</td>
 </tr>
 <tr>
 <td>State Farm auto x5521</td>
-<td>2025-11-15 to 2026-05-16</td>
+<td>2025-11-17 to 2026-05-18</td>
 <td>$1,180</td>
 <td>n/a</td>
 </tr>
 <tr>
 <td>Allstate home x9033</td>
-<td>2026-02-10 to 2027-02-10</td>
+<td>2026-02-12 to 2027-02-12</td>
 <td>$1,722</td>
 <td>+7.4%</td>
 </tr>
 <tr>
 <td>State Farm auto x5521</td>
-<td>2026-05-16 to 2026-11-12</td>
+<td>2026-05-18 to 2026-11-14</td>
 <td>$1,342</td>
 <td>+13.7%</td>
 </tr>
@@ -468,8 +478,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <tbody>
 <tr>
 <td>State Farm</td>
-<td>$1,342</td>
-<td>6</td>
+<td>$1,566</td>
+<td>7</td>
 </tr>
 </tbody>
 </table>
@@ -560,39 +570,39 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <li>2026-06-24_verizon_bill.txt</li>
 <li>2026-07-24_verizon_bill.txt</li>
 <li>2026-08-24_verizon_bill.txt</li>
-<li>2026-09-13_wake_county_tax_office_bill.txt</li>
+<li>2026-09-15_wake_county_tax_office_bill.txt</li>
 <li>2026-09-24_verizon_bill.txt</li>
-<li>2026-09-29_comcast_xfinity_bill.txt</li>
-<li>2026-10-04_duke_energy_bill.txt</li>
+<li>2026-10-01_comcast_xfinity_bill.txt</li>
 <li>2026-10-05_verizon_bill.txt</li>
+<li>2026-10-06_duke_energy_bill.txt</li>
 </ul>
 <h3>insurance (2)</h3>
 <ul>
-<li>2026-02-10_allstate_policy.txt</li>
-<li>2026-05-16_state_farm_policy.txt</li>
+<li>2026-02-12_allstate_policy.txt</li>
+<li>2026-05-18_state_farm_policy.txt</li>
 </ul>
 <h3>investments (3)</h3>
 <ul>
-<li>2026-10-03_401k_investment.txt</li>
-<li>2026-10-03_fidelity_investment.txt</li>
-<li>2026-10-03_savings_investment.txt</li>
+<li>2026-10-05_401k_investment.txt</li>
+<li>2026-10-05_fidelity_investment.txt</li>
+<li>2026-10-05_savings_investment.txt</li>
 </ul>
 <h3>manuals (1)</h3>
 <ul>
-<li>2026-08-04_lg_manual.txt</li>
+<li>2026-08-06_lg_manual.txt</li>
 </ul>
 <h3>medical (1)</h3>
 <ul>
-<li>2026-06-15_triangle_pediatrics_medical.txt</li>
+<li>2026-06-17_triangle_pediatrics_medical.txt</li>
 </ul>
 <h3>other (1)</h3>
 <ul>
-<li>2026-09-03_hillside_elementary_other.txt</li>
+<li>2026-09-05_hillside_elementary_other.txt</li>
 </ul>
 <h3>receipts (2)</h3>
 <ul>
-<li>2026-08-04_best_buy_receipt.txt</li>
-<li>2026-09-17_lowes_receipt.txt</li>
+<li>2026-08-06_best_buy_receipt.txt</li>
+<li>2026-09-19_lowes_receipt.txt</li>
 </ul>
 <h3>statements (4)</h3>
 <ul>
@@ -603,8 +613,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </ul>
 <h3>vehicles (2)</h3>
 <ul>
-<li>2026-03-27_nc_dmv_vehicle.txt</li>
-<li>2026-03-27_nc_dmv_vehicle_2.txt</li>
+<li>2026-03-29_nc_dmv_vehicle.txt</li>
+<li>2026-03-29_nc_dmv_vehicle_2.txt</li>
 </ul></section>
 
 

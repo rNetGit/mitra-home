@@ -20,8 +20,9 @@
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
-  <link rel="icon" href="static/icon-192.png">
-  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
   <link rel="stylesheet" href="static/app.css">
   <script src="static/vendor/htmx.min.js" defer=""></script>
@@ -40,31 +41,40 @@
 <div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
   <nav class="rail" aria-label="Main">
-    <span class="brand">Mitra Home</span>
-    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
     
     
       
+        
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
         <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
-      
-        <span class="grp">Money</span>
         
-        <a href="month.html">This month</a><a href="finance.html" class="on" aria-current="page">Finance</a>
       
-        <span class="grp">Everything else</span>
         
-        <a href="records.html">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+        <details class="rg" data-rg="Money" open="">
+          <summary>Money</summary>
+          <a href="month.html">This month</a><a href="finance.html" class="on" aria-current="page">Finance</a>
+        </details>
+        
+      
+        
+        <details class="rg" data-rg="Everything else" open="">
+          <summary>Everything else</summary>
+          <a href="records.html">Records</a><a href="notes.html">Notes</a>
+        </details>
+        
       
     
     <span class="grow"></span>
-    <a class="btn addscan" href="inbox.html">Add or scan</a>
-    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
     <a href="settings_group_household.html">Settings</a>
-    <small class="ver">v0.108.2</small>
+    <div class="railfoot">
+      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.109.1</small>
   </nav>
 
   <main>
@@ -97,26 +107,26 @@
   <select id="wmonth" name="month"><option value="2026-10" selected="">2026-10</option><option value="2026-09">2026-09</option><option value="2026-08">2026-08</option><option value="2026-07">2026-07</option><option value="2026-06">2026-06</option><option value="2026-05">2026-05</option><option value="2026-04">2026-04</option><option value="2026-03">2026-03</option><option value="2026-02">2026-02</option><option value="2026-01">2026-01</option><option value="2025-12">2025-12</option><option value="2025-11">2025-11</option><option value="2025-10">2025-10</option></select>
   <button class="btn" type="submit">Show</button></form>
 <div class="kpis rk">
-  <div class="kpi"><span>Hours</span><b>64</b></div>
-  <div class="kpi"><span>Amount</span><b>$5,440.00</b></div>
-  <div class="kpi"><span>On site / off site</span><b>4 / 4</b></div>
+  <div class="kpi"><span>Hours</span><b>80</b></div>
+  <div class="kpi"><span>Amount</span><b>$6,800.00</b></div>
+  <div class="kpi"><span>On site / off site</span><b>6 / 4</b></div>
   <div class="kpi"><span>Planned hours</span><b>168</b></div>
 </div>
-<p class="alert">2 scheduled day(s) with no hours entered: 10/13, 10/14</p><p class="alert">hours on a holiday: 10/12</p>
+<p class="alert">1 scheduled day(s) with no hours entered: 10/15</p><p class="alert">hours on a holiday: 10/12</p>
 <section class="card rblock"><h2>Weeks</h2>
   <div class="tablewrap"><table><thead><tr><th>Week of</th><th>Days</th><th>Hours</th></tr></thead>
-  <tbody><tr><td>2026-09-28</td><td>10/01 - 10/04</td><td>16.0</td></tr><tr><td>2026-10-05</td><td>10/05 - 10/11</td><td>40.0</td></tr><tr><td>2026-10-12</td><td>10/12 - 10/18</td><td>8.0</td></tr><tr><td>2026-10-19</td><td>10/19 - 10/25</td><td>0.0</td></tr><tr><td>2026-10-26</td><td>10/26 - 10/31</td><td>0.0</td></tr></tbody></table></div>
-  <p class="muted small">Pay days this month: Oct 05, Oct 19</p>
+  <tbody><tr><td>2026-09-28</td><td>10/01 - 10/04</td><td>16.0</td></tr><tr><td>2026-10-05</td><td>10/05 - 10/11</td><td>40.0</td></tr><tr><td>2026-10-12</td><td>10/12 - 10/18</td><td>24.0</td></tr><tr><td>2026-10-19</td><td>10/19 - 10/25</td><td>0.0</td></tr><tr><td>2026-10-26</td><td>10/26 - 10/31</td><td>0.0</td></tr></tbody></table></div>
+  <p class="muted small">Pay days this month: Oct 07, Oct 21</p>
   <button type="button" class="btn alt" data-hx-post="/work" data-hx-vals="{&quot;c&quot;: &quot;1&quot;, &quot;end&quot;: &quot;2026-10-31&quot;, &quot;op&quot;: &quot;invoice_make&quot;, &quot;start&quot;: &quot;2026-10-01&quot;, &quot;tab&quot;: &quot;billing&quot;}">Record invoice for 2026-10</button>
 </section>
 <section class="card rblock"><h2>Invoices</h2>
   
   <div class="tablewrap"><table class="cards"><thead><tr><th>Invoice</th><th>Period</th><th>Hours</th><th>Amount</th><th>Status</th><th>Sent</th><th>Paid</th></tr></thead>
-  <tbody><tr><td data-label="Invoice">2</td><td data-label="Period">2026-09-01 to 2026-09-30</td><td data-label="Hours">173.0</td><td data-label="Amount">$14,705.00</td><td data-label="Status">sent</td><td data-label="Sent">2026-10-05</td><td data-label="Paid"></td></tr><tr><td data-label="Invoice">1</td><td data-label="Period">2026-08-01 to 2026-08-31</td><td data-label="Hours">166.5</td><td data-label="Amount">$14,152.50</td><td data-label="Status">paid</td><td data-label="Sent">2026-09-08</td><td data-label="Paid">2026-09-23</td></tr></tbody></table></div>
+  <tbody><tr><td data-label="Invoice">2</td><td data-label="Period">2026-09-01 to 2026-09-30</td><td data-label="Hours">173.0</td><td data-label="Amount">$14,705.00</td><td data-label="Status">sent</td><td data-label="Sent">2026-10-07</td><td data-label="Paid"></td></tr><tr><td data-label="Invoice">1</td><td data-label="Period">2026-08-01 to 2026-08-31</td><td data-label="Hours">166.5</td><td data-label="Amount">$14,152.50</td><td data-label="Status">paid</td><td data-label="Sent">2026-09-10</td><td data-label="Paid">2026-09-25</td></tr></tbody></table></div>
   <form class="nform" data-hx-post="/work" data-hx-vals="{&quot;c&quot;: &quot;1&quot;, &quot;op&quot;: &quot;invoice_set&quot;, &quot;tab&quot;: &quot;billing&quot;}">
     <label>Invoice<select name="invoice"><option value="2">2 · 2026-09-01</option><option value="1">1 · 2026-08-01</option></select></label>
     <label>Mark as<select name="status"><option>sent</option><option>paid</option><option>draft</option></select></label>
-    <label>On<input name="on" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-15"></label>
+    <label>On<input name="on" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-16"></label>
     <button class="btn alt" type="submit">Save</button>
   </form>
   

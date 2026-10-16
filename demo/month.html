@@ -20,8 +20,9 @@
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
-  <link rel="icon" href="static/icon-192.png">
-  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
   <link rel="stylesheet" href="static/app.css">
   <script src="static/vendor/htmx.min.js" defer=""></script>
@@ -40,49 +41,298 @@
 <div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
   <nav class="rail" aria-label="Main">
-    <span class="brand">Mitra Home</span>
-    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
     
     
       
+        
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
         <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
-      
-        <span class="grp">Money</span>
         
-        <a href="month.html" class="on" aria-current="page">This month</a><a href="finance.html">Finance</a>
       
-        <span class="grp">Everything else</span>
         
-        <a href="records.html">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+        <details class="rg" data-rg="Money" open="">
+          <summary>Money</summary>
+          <a href="month.html" class="on" aria-current="page">This month</a><a href="finance.html">Finance</a>
+        </details>
+        
+      
+        
+        <details class="rg" data-rg="Everything else">
+          <summary>Everything else</summary>
+          <a href="records.html">Records</a><a href="notes.html">Notes</a>
+        </details>
+        
       
     
     <span class="grow"></span>
-    <a class="btn addscan" href="inbox.html">Add or scan</a>
-    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
     <a href="settings_group_household.html">Settings</a>
-    <small class="ver">v0.108.2</small>
+    <div class="railfoot">
+      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.109.1</small>
   </nav>
 
   <main>
 <header class="head"><div><h1>This month</h1><p class="sub">October 2026: spending, bills, subscriptions and upkeep.</p></div></header>
+
+
+
+
+<section class="msum" id="msum" aria-label="Monthly summary">
+  <div class="story tall has-top js" data-story="" tabindex="0" aria-roledescription="carousel" aria-label="October 2026 summary" data-ready="1"><div class="sbars" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+    <header class="stop">
+      <a class="mnav snav" href="#" data-demo="1" data-hx-get="/month?ym=2026-09" data-hx-target="#msum" data-hx-select="#msum" data-hx-swap="outerHTML" data-hx-push-url="true" aria-label="Month before">‹</a>
+      <form class="mpick" method="get" action="month.html" data-hx-get="/month" data-hx-trigger="change" data-hx-target="#msum" data-hx-select="#msum" data-hx-swap="outerHTML" data-hx-push-url="true">
+        <label for="ym" class="vh">Month</label>
+        <select id="ym" name="ym"><option value="2026-10" selected="">Oct 2026</option><option value="2026-09">Sep 2026</option><option value="2026-08">Aug 2026</option><option value="2026-07">Jul 2026</option><option value="2026-06">Jun 2026</option><option value="2026-05">May 2026</option><option value="2026-04">Apr 2026</option></select>
+        <noscript><button class="btn alt" type="submit">Show</button></noscript>
+      </form>
+      <a class="mnav snav" aria-disabled="true" aria-label="Month after">›</a>
+      <span class="mchip">so far</span>
+    </header>
+
+    <article class="slide g-over on" aria-label="Overview" aria-hidden="false">
+      <p class="kick">October 2026</p>
+      <div class="mdonut">
+        
+<svg viewBox="0 0 120 120" role="img" aria-label="Spending by category">
+  <circle class="ring" cx="60" cy="60" r="46" fill="none" stroke-width="14"></circle>
+  
+  
+  <circle class="dseg s0" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100" stroke-dasharray="61.1 38.9" stroke-dashoffset="0" transform="rotate(-90 60 60)"><title>Housing $2,150</title></circle>
+  
+  <circle class="dseg s1" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100" stroke-dasharray="10.6 89.4" stroke-dashoffset="-61.7" transform="rotate(-90 60 60)"><title>Auto loan $389</title></circle>
+  
+  <circle class="dseg s2" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100" stroke-dasharray="7.2 92.8" stroke-dashoffset="-72.9" transform="rotate(-90 60 60)"><title>Utilities $272</title></circle>
+  
+  <circle class="dseg s3" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100" stroke-dasharray="5.800000000000001 94.2" stroke-dashoffset="-80.7" transform="rotate(-90 60 60)"><title>Insurance $224</title></circle>
+  
+  <circle class="dseg s4" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100" stroke-dasharray="4.300000000000001 95.7" stroke-dashoffset="-87.10000000000001" transform="rotate(-90 60 60)"><title>Groceries $169</title></circle>
+  
+  <circle class="dseg s5" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100" stroke-dasharray="2.4 97.6" stroke-dashoffset="-92.00000000000001" transform="rotate(-90 60 60)"><title>Fuel $104</title></circle>
+  
+  <circle class="dseg s6" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100" stroke-dasharray="4.4 95.6" stroke-dashoffset="-95.00000000000001" transform="rotate(-90 60 60)"><title>Other $175</title></circle>
+  
+</svg>
+
+        <div class="mmid"><small>Spent</small><b>$3,483</b><small>73% of income kept</small></div>
+      </div>
+      <ul class="mlegend"><li><i class="dot s0" aria-hidden="true"></i>Housing <b>62%</b></li><li><i class="dot s1" aria-hidden="true"></i>Auto loan <b>11%</b></li><li><i class="dot s2" aria-hidden="true"></i>Utilities <b>8%</b></li><li><i class="dot s3" aria-hidden="true"></i>Insurance <b>6%</b></li><li><i class="dot s4" aria-hidden="true"></i>Groceries <b>5%</b></li><li><i class="dot s5" aria-hidden="true"></i>Fuel <b>3%</b></li><li><i class="dot s6" aria-hidden="true"></i>Other <b>5%</b></li></ul>
+      <dl class="mtiles">
+        <div><dt>Income</dt><dd>$13,031</dd></div>
+        <div><dt>Spent</dt><dd>$3,483</dd></div>
+        <div><dt>Saved</dt><dd>$900</dd></div>
+        <div class=""><dt>Left</dt><dd>$8,648</dd></div>
+      </dl>
+    </article>
+
+    <article class="slide g-flow" aria-label="Cash flow" aria-hidden="true">
+      <p class="kick">Cash flow</p>
+      
+      <h3 class="mbig">73%<small> of income kept</small></h3>
+      
+      <svg class="mflow" viewBox="0 0 100 10" preserveAspectRatio="none" role="img" aria-label="Income: fixed $3,090, everyday $394, saved $900, left $8,648">
+        <rect class="f1" x="0" y="0" width="23.71" height="10"></rect><rect class="f2" x="23.71" y="0" width="3.02" height="10"></rect><rect class="f3" x="26.73" y="0" width="6.91" height="10"></rect><rect class="f4" x="33.64" y="0" width="66.36" height="10"></rect>
+      </svg>
+      <ul class="mrows">
+        <li><i class="dot f1" aria-hidden="true"></i><span>Fixed costs <small>housing, loans, bills</small></span><b>$3,090</b></li>
+        <li><i class="dot f2" aria-hidden="true"></i><span>Everyday spending</span><b>$394</b></li>
+        <li><i class="dot f3" aria-hidden="true"></i><span>Saved <small>invested $500, to savings $400</small></span><b>$900</b></li>
+        <li class=""><i class="dot f4" aria-hidden="true"></i><span>Left</span><b>$8,648</b></li>
+      </ul>
+      <p class="kick sm">Income came from</p>
+      <ul class="mrows"><li><span>Northwind (Apex)</span><b>$7,231</b></li><li><span>Payroll</span><b>$5,800</b></li>
+        </ul>
+      
+    </article>
+
+    <article class="slide g-cat" aria-label="Where it went" aria-hidden="true">
+      <p class="kick">Where it went</p>
+      <ul class="mcats">
+        
+        <li><i class="dot s0" aria-hidden="true"></i><span>Housing</span><b>$2,150</b>
+          
+          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="s0" width="100.0" height="8"></rect></svg>
+          <small>same</small></li>
+        
+        <li><i class="dot s1" aria-hidden="true"></i><span>Auto loan</span><b>$389</b>
+          
+          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="s1" width="18.09" height="8"></rect></svg>
+          <small>same</small></li>
+        
+        <li><i class="dot s2" aria-hidden="true"></i><span>Utilities</span><b>$272</b>
+          
+          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="s2" width="12.65" height="8"></rect><rect class="tick" x="16.87" width="1.6" height="8"><title>Budget $380</title></rect></svg>
+          <small><span class="down">▼50%</span></small></li>
+        
+        <li><i class="dot s3" aria-hidden="true"></i><span>Insurance</span><b>$224</b>
+          
+          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="s3" width="10.4" height="8"></rect></svg>
+          <small>same</small></li>
+        
+        <li><i class="dot s4" aria-hidden="true"></i><span>Groceries</span><b>$169</b>
+          
+          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="s4" width="7.87" height="8"></rect><rect class="tick" x="29.43" width="1.6" height="8"><title>Budget $650</title></rect></svg>
+          <small><span class="down">▼76%</span></small></li>
+        
+        <li><i class="dot s5" aria-hidden="true"></i><span>Fuel</span><b>$104</b>
+          
+          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="s5" width="4.85" height="8"></rect><rect class="tick" x="9.43" width="1.6" height="8"><title>Budget $220</title></rect></svg>
+          <small><span class="down">▼31%</span></small></li>
+        
+        <li><i class="dot s6" aria-hidden="true"></i><span>Dining</span><b>$88</b>
+          
+          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="s6" width="4.09" height="8"></rect><rect class="tick" x="7.57" width="1.6" height="8"><title>Budget $180</title></rect></svg>
+          <small><span class="up">▲19%</span></small></li>
+        
+        <li><i class="dot s6" aria-hidden="true"></i><span>Subscriptions</span><b>$55</b>
+          
+          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="s6" width="2.56" height="8"></rect><rect class="tick" x="3.39" width="1.6" height="8"><title>Budget $90</title></rect></svg>
+          <small><span class="down">▼24%</span></small></li>
+        
+      </ul>
+      <p class="dim">1 more below the card.</p>
+      <p class="dim sm">▲▼ against Sep 2026 · tick = budget</p>
+    </article>
+
+    <article class="slide g-trend" aria-label="Trend" aria-hidden="true">
+      <p class="kick">Six months</p>
+      
+      <svg class="mchart" viewBox="0 0 300 150" role="img" aria-label="Income and spending, last six months">
+        
+        <g class="">
+          <rect class="inc" x="12" y="21.189563765022584" width="15" height="106.81043623497742" rx="3"><title>May income $12,881</title></rect>
+          <rect class="spd" x="29" y="77.64764935956237" width="15" height="50.35235064043763" rx="3"><title>May spent $6,072</title></rect>
+          <text x="28" y="144" text-anchor="middle">May</text>
+        </g>
+        <g class="">
+          <rect class="inc" x="60" y="16.92064881096485" width="15" height="111.07935118903515" rx="3"><title>Jun income $13,396</title></rect>
+          <rect class="spd" x="77" y="88.3754509641916" width="15" height="39.62454903580839" rx="3"><title>Jun spent $4,779</title></rect>
+          <text x="76" y="144" text-anchor="middle">Jun</text>
+        </g>
+        <g class="">
+          <rect class="inc" x="108" y="20.66626243691313" width="15" height="107.33373756308687" rx="3"><title>Jul income $12,944</title></rect>
+          <rect class="spd" x="125" y="86.55347345150761" width="15" height="41.44652654849239" rx="3"><title>Jul spent $4,998</title></rect>
+          <text x="124" y="144" text-anchor="middle">Jul</text>
+        </g>
+        <g class="">
+          <rect class="inc" x="156" y="19.15945975359753" width="15" height="108.84054024640247" rx="3"><title>Aug income $13,126</title></rect>
+          <rect class="spd" x="173" y="87.00596201869081" width="15" height="40.994037981309184" rx="3"><title>Aug spent $4,944</title></rect>
+          <text x="172" y="144" text-anchor="middle">Aug</text>
+        </g>
+        <g class="">
+          <rect class="inc" x="204" y="16.0" width="15" height="112.0" rx="3"><title>Sep income $13,507</title></rect>
+          <rect class="spd" x="221" y="69.26637037958358" width="15" height="58.733629620416416" rx="3"><title>Sep spent $7,083</title></rect>
+          <text x="220" y="144" text-anchor="middle">Sep</text>
+        </g>
+        <g class="on">
+          <rect class="inc" x="252" y="19.948350394642247" width="15" height="108.05164960535775" rx="3"><title>Oct income $13,031</title></rect>
+          <rect class="spd" x="269" y="99.11701711017184" width="15" height="28.88298288982815" rx="3"><title>Oct spent $3,483</title></rect>
+          <text x="268" y="144" text-anchor="middle">Oct</text>
+        </g>
+      </svg>
+      <p class="mkey"><i class="inc"></i>Income <i class="spd"></i>Spent</p>
+      <ul class="mfacts">
+        <li><span>On pace for</span><b>$6,749</b></li>
+        <li><span>That pace against Sep</span><b class="down">-5%</b></li>
+        
+        <li><span>Against Oct last year</span><b class="">n/a</b></li>
+        <li><span>Average a day</span><b>$218</b></li>
+      </ul>
+    </article>
+
+    <article class="slide g-high" aria-label="Highlights" aria-hidden="true">
+      <p class="kick">Highlights</p>
+      <p class="dim sm">Everyday spending, not housing, loans or bills.</p>
+      <div class="mhigh">
+        <div><small>Biggest buy</small><b>$95</b><span>Kroger</span></div>
+        <div><small>Top place</small><b>Kroger</b><span>2× · $169</span></div>
+        <div><small>Busiest day</small><b>10/13</b><span>$102</span></div>
+        <div><small>Charges</small><b>15</b><span>9 categories</span></div>
+        <div><small>Subscriptions</small><b>$72</b><span>a month, 5 tracked</span></div>
+        <div><small>Bills ahead</small><b>8</b><span>in the next 30 days</span></div>
+      </div>
+    </article>
+    <p class="shint" aria-hidden="true">Tap or swipe</p>
+  </div>
+
+  <div class="card mlist">
+    <h2 class="row-h">All categories, Oct 2026 <span class="mtot muted">$3,483 · 15 charges</span></h2>
+    <div class="msort" role="group" aria-label="Sort charges" data-ready="1"><button type="button" class="on" data-sort="a">Biggest first</button><button type="button" data-sort="d">By date</button></div>
+    
+    <details class="mcat">
+      <summary><i class="dot s0" aria-hidden="true"></i><span>Housing</span><small class="muted">1 · 62%</small><b>$2,150</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-10-03" data-a="2150.0"><span class="muted">10-03</span><span>LoanServ</span><span class="n">$2,150.00</span></div></div>
+      <p class="muted sm"><a href="#" data-demo="1">Open in Records</a></p>
+    </details>
+    
+    <details class="mcat">
+      <summary><i class="dot s1" aria-hidden="true"></i><span>Auto loan</span><small class="muted">1 · 11%</small><b>$389</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-10-08" data-a="389.0"><span class="muted">10-08</span><span>First CU</span><span class="n">$389.00</span></div></div>
+      <p class="muted sm"><a href="#" data-demo="1">Open in Records</a></p>
+    </details>
+    
+    <details class="mcat">
+      <summary><i class="dot s2" aria-hidden="true"></i><span>Utilities</span><small class="muted">2 · 8%</small><b>$272</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-10-12" data-a="182.02"><span class="muted">10-12</span><span>Duke Energy</span><span class="n">$182.02</span></div><div class="mrow" data-d="2026-10-09" data-a="89.99"><span class="muted">10-09</span><span>Comcast</span><span class="n">$89.99</span></div></div>
+      <p class="muted sm"><a href="#" data-demo="1">Open in Records</a></p>
+    </details>
+    
+    <details class="mcat">
+      <summary><i class="dot s3" aria-hidden="true"></i><span>Insurance</span><small class="muted">1 · 6%</small><b>$224</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-10-14" data-a="223.67"><span class="muted">10-14</span><span>State Farm</span><span class="n">$223.67</span></div></div>
+      <p class="muted sm"><a href="#" data-demo="1">Open in Records</a></p>
+    </details>
+    
+    <details class="mcat">
+      <summary><i class="dot s4" aria-hidden="true"></i><span>Groceries</span><small class="muted">2 · 5%</small><b>$169</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-10-02" data-a="94.6"><span class="muted">10-02</span><span>Kroger</span><span class="n">$94.60</span></div><div class="mrow" data-d="2026-10-09" data-a="74.63"><span class="muted">10-09</span><span>Kroger</span><span class="n">$74.63</span></div></div>
+      <p class="muted sm"><a href="#" data-demo="1">Open in Records</a></p>
+    </details>
+    
+    <details class="mcat">
+      <summary><i class="dot s5" aria-hidden="true"></i><span>Fuel</span><small class="muted">2 · 3%</small><b>$104</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-10-04" data-a="54.73"><span class="muted">10-04</span><span>Wawa</span><span class="n">$54.73</span></div><div class="mrow" data-d="2026-10-13" data-a="49.57"><span class="muted">10-13</span><span>Shell</span><span class="n">$49.57</span></div></div>
+      <p class="muted sm"><a href="#" data-demo="1">Open in Records</a></p>
+    </details>
+    
+    <details class="mcat">
+      <summary><i class="dot s6" aria-hidden="true"></i><span>Dining</span><small class="muted">2 · 2%</small><b>$88</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-10-13" data-a="52.52"><span class="muted">10-13</span><span>Uber Eats</span><span class="n">$52.52</span></div><div class="mrow" data-d="2026-10-05" data-a="35.42"><span class="muted">10-05</span><span>Chipotle</span><span class="n">$35.42</span></div></div>
+      <p class="muted sm"><a href="#" data-demo="1">Open in Records</a></p>
+    </details>
+    
+    <details class="mcat">
+      <summary><i class="dot s6" aria-hidden="true"></i><span>Subscriptions</span><small class="muted">3 · 2%</small><b>$55</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-10-06" data-a="24.99"><span class="muted">10-06</span><span>Planet Fitness</span><span class="n">$24.99</span></div><div class="mrow" data-d="2026-10-07" data-a="17.99"><span class="muted">10-07</span><span>Netflix</span><span class="n">$17.99</span></div><div class="mrow" data-d="2026-10-11" data-a="11.99"><span class="muted">10-11</span><span>Spotify</span><span class="n">$11.99</span></div></div>
+      <p class="muted sm"><a href="#" data-demo="1">Open in Records</a></p>
+    </details>
+    
+    <details class="mcat">
+      <summary><i class="dot s6" aria-hidden="true"></i><span>Personal care</span><small class="muted">1 · 1%</small><b>$32</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-10-11" data-a="32.16"><span class="muted">10-11</span><span>Sports Clips</span><span class="n">$32.16</span></div></div>
+      <p class="muted sm"><a href="#" data-demo="1">Open in Records</a></p>
+    </details>
+    
+  </div>
+</section>
+
 <div class="mgrid">
+  
   <section class="card">
     <h2 class="row-h">Spending against the plan <a href="finance_part_budget.html">Budget</a></h2>
     
-    <p><b class="big">$688</b> <span class="muted">of $2,070 so far (through Oct 13)</span></p>
+    <p><b class="big">$688</b> <span class="muted">of $2,070 so far (through Oct 15)</span></p>
     <ul class="bars">
       
       <li><span>Utilities</span>
         <progress class="amber" max="380.0" value="272.01" aria-label="utilities: $272 of $380"></progress>
         <small class="muted">$272 / $380 · on course to pass</small></li>
-      
-      <li><span>Fuel</span>
-        <progress class="amber" max="220.0" value="104.3" aria-label="fuel: $104 of $220"></progress>
-        <small class="muted">$104 / $220 · on course to pass</small></li>
       
       <li><span>Dining</span>
         <progress class="amber" max="180.0" value="87.94" aria-label="dining: $88 of $180"></progress>
@@ -96,6 +346,10 @@
         <progress class="green" max="650.0" value="169.23" aria-label="groceries: $169 of $650"></progress>
         <small class="muted">$169 / $650</small></li>
       
+      <li><span>Fuel</span>
+        <progress class="green" max="220.0" value="104.3" aria-label="fuel: $104 of $220"></progress>
+        <small class="muted">$104 / $220</small></li>
+      
       <li><span>Entertainment</span>
         <progress class="green" max="80.0" value="0.0" aria-label="entertainment: $0 of $80"></progress>
         <small class="muted">$0 / $80</small></li>
@@ -104,6 +358,7 @@
     <p class="muted">3 more lines in Budget.</p>
     
   </section>
+  
   <section>
     <h2 class="sec row-h">Bills, next 30 days <a href="finance_part_bills.html">Bills</a></h2>
     
@@ -113,10 +368,30 @@
 <div class="trow">
   <span class="av avn" aria-hidden="true"></span>
   <div class="tmain">
+    <span class="ttl">Comcast Xfinity</span>
+    <small class="muted">Bill · $89.99</small>
+  </div>
+  <span class="pill danger">Overdue 3d</span>
+</div>
+
+
+<div class="trow">
+  <span class="av avn" aria-hidden="true"></span>
+  <div class="tmain">
+    <span class="ttl">Verizon</span>
+    <small class="muted">Bill · $180.00</small>
+  </div>
+  <span class="pill warn">Today</span>
+</div>
+
+
+<div class="trow">
+  <span class="av avn" aria-hidden="true"></span>
+  <div class="tmain">
     <span class="ttl">Verizon</span>
     <small class="muted">Bill · $191.50</small>
   </div>
-  <span class="pill ">Oct 24</span>
+  <span class="pill ">Oct 26</span>
 </div>
 
 
@@ -136,7 +411,7 @@
     <span class="ttl">LoanServ</span>
     <small class="muted">Bill · $2,150.00</small>
   </div>
-  <span class="pill ">Nov 3</span>
+  <span class="pill ">Nov 5</span>
 </div>
 
 
@@ -153,8 +428,8 @@
 <div class="trow">
   <span class="av avn" aria-hidden="true"></span>
   <div class="tmain">
-    <span class="ttl">State Farm</span>
-    <small class="muted">Bill · $1,342.00</small>
+    <span class="ttl">Duke Energy</span>
+    <small class="muted">Bill · $182.02</small>
   </div>
   <span class="pill ">Nov 12</span>
 </div>
@@ -163,10 +438,10 @@
 <div class="trow">
   <span class="av avn" aria-hidden="true"></span>
   <div class="tmain">
-    <span class="ttl">Duke Energy</span>
-    <small class="muted">Bill · $182.02</small>
+    <span class="ttl">State Farm</span>
+    <small class="muted">Bill · $1,342.00</small>
   </div>
-  <span class="pill ">Nov 12</span>
+  <span class="pill ">Nov 14</span>
 </div>
 
 </div>
@@ -183,7 +458,7 @@
     <span class="ttl">CANCEL before next charge: Disney Plus</span>
     <small class="muted">Cancel · $13.99</small>
   </div>
-  <span class="pill ">in 2d</span>
+  <span class="pill ">Tomorrow</span>
 </div>
 
       
@@ -222,7 +497,7 @@
     <span class="ttl">2017 Toyota Tacoma inspection expires</span>
     <small class="muted">Renewal</small>
   </div>
-  <span class="pill danger">Overdue 14d</span>
+  <span class="pill danger">Overdue 13d</span>
 </div>
 
 
@@ -289,8 +564,8 @@
 <div class="trow">
   <span class="av avh" aria-hidden="true">H</span>
   <div class="tmain">
-    <span class="ttl">Replace HVAC filter</span>
-    <small class="muted">Home</small>
+    <span class="ttl">Smoke + CO detector batteries/test</span>
+    <small class="muted">Seasonal</small>
   </div>
   <span class="pill ">Oct 25</span>
 </div>
@@ -299,10 +574,10 @@
 <div class="trow">
   <span class="av avh" aria-hidden="true">H</span>
   <div class="tmain">
-    <span class="ttl">Smoke + CO detector batteries/test</span>
-    <small class="muted">Seasonal</small>
+    <span class="ttl">Replace HVAC filter</span>
+    <small class="muted">Home</small>
   </div>
-  <span class="pill ">Oct 25</span>
+  <span class="pill ">Oct 27</span>
 </div>
 
 
@@ -322,7 +597,7 @@
     <span class="ttl">2021 Honda CR-V inspection expires</span>
     <small class="muted">Renewal</small>
   </div>
-  <span class="pill ">Nov 7</span>
+  <span class="pill ">Nov 9</span>
 </div>
 
 
@@ -332,7 +607,17 @@
     <span class="ttl">2021 Honda CR-V registration expires</span>
     <small class="muted">Renewal</small>
   </div>
-  <span class="pill ">Nov 7</span>
+  <span class="pill ">Nov 9</span>
+</div>
+
+
+<div class="trow">
+  <span class="av avh" aria-hidden="true">H</span>
+  <div class="tmain">
+    <span class="ttl">Check outdoor faucets and insulate for rare freezes</span>
+    <small class="muted">Seasonal</small>
+  </div>
+  <span class="pill ">Nov 15</span>
 </div>
 
 </div>
@@ -343,12 +628,22 @@
   
 
 <div class="trow">
+  <span class="av av3" aria-hidden="true">M</span>
+  <div class="tmain">
+    <span class="ttl">Passport EXPIRED</span>
+    <small class="muted">ID · Mateo</small>
+  </div>
+  <span class="pill danger">Overdue 21d</span>
+</div>
+
+
+<div class="trow">
   <span class="av avn" aria-hidden="true"></span>
   <div class="tmain">
     <span class="ttl">State Farm auto policy x5521 term ends</span>
     <small class="muted">Renewal · $1,342.00</small>
   </div>
-  <span class="pill ">Nov 12</span>
+  <span class="pill ">Nov 14</span>
 </div>
 
 </div>

@@ -20,8 +20,9 @@
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
-  <link rel="icon" href="../static/icon-192.png">
-  <link rel="apple-touch-icon" href="../static/icon-192.png">
+  <link rel="icon" href="../static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="../static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="../static/icon-180.png">
   <link rel="stylesheet" href="../static/tokens.css">
   <link rel="stylesheet" href="../static/app.css">
   <script src="../static/vendor/htmx.min.js" defer=""></script>
@@ -40,8 +41,7 @@
 <div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
   <nav class="rail" aria-label="Main">
-    <span class="brand">Mitra Home</span>
-    <span class="me"><span class="av sm av2" aria-hidden="true">S</span>Sofia</span>
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="../static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
     
     
@@ -49,10 +49,12 @@
     
     <span class="grow"></span>
     
-    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-    <button type="button" class="ghost" data-hx-post="/logout">Log out (Sofia)</button>
-    
-    <small class="ver">v0.108.2</small>
+    <div class="railfoot">
+      <span class="me" title="Sofia"><span class="av sm av2" aria-hidden="true">S</span><span class="mename">Sofia</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Sofia)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.109.1</small>
   </nav>
 
   <main>

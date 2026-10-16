@@ -20,8 +20,9 @@
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
-  <link rel="icon" href="static/icon-192.png">
-  <link rel="apple-touch-icon" href="static/icon-192.png">
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
   <link rel="stylesheet" href="static/app.css">
   <script src="static/vendor/htmx.min.js" defer=""></script>
@@ -40,31 +41,40 @@
 <div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
   <nav class="rail" aria-label="Main">
-    <span class="brand">Mitra Home</span>
-    <span class="me"><span class="av sm av0" aria-hidden="true">M</span>Marcus</span>
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
     
     
       
+        
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
         <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
-      
-        <span class="grp">Money</span>
         
-        <a href="month.html">This month</a><a href="finance.html">Finance</a>
       
-        <span class="grp">Everything else</span>
         
-        <a href="records.html">Records</a><a href="notes.html">Notes</a><a href="chat.html">Chat</a>
+        <details class="rg" data-rg="Money">
+          <summary>Money</summary>
+          <a href="month.html">This month</a><a href="finance.html">Finance</a>
+        </details>
+        
+      
+        
+        <details class="rg" data-rg="Everything else" open="">
+          <summary>Everything else</summary>
+          <a href="records.html">Records</a><a href="notes.html">Notes</a>
+        </details>
+        
       
     
     <span class="grow"></span>
-    <a class="btn addscan" href="inbox.html">Add or scan</a>
-    <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-    <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
     <a href="settings_group_household.html" class="on" aria-current="page">Settings</a>
-    <small class="ver">v0.108.2</small>
+    <div class="railfoot">
+      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.109.1</small>
   </nav>
 
   <main>
@@ -75,13 +85,13 @@
 
 <section class="card">
   <h2>Health check</h2>
-  <p class="alert"><b>Scheduled tasks</b>: not registered, so nothing runs by itself<br>Fix it in: Settings &gt; Data &gt; Make it run on its own</p><p class="alert"><b>Review queue</b>: 2 file(s) need you to say what they are<br>Fix it in: the Inbox page</p>
+  <p class="alert"><b>Scheduled tasks</b>: not registered, so nothing runs by itself<br>Fix it in: Settings &gt; Data &gt; Runs on its own</p><p class="alert"><b>Review queue</b>: 2 file(s) need you to say what they are<br>Fix it in: the Inbox page</p>
   <p class="muted">2 thing(s) to fix.</p>
   
   <details><summary>All checks (10)</summary>
   <div class="tablewrap"><table>
     <thead><tr><th></th><th>Check</th><th>What</th><th>Where to fix it</th></tr></thead>
-    <tbody><tr><td>OK</td><td>Database</td><td>integrity ok</td><td></td></tr><tr><td>OK</td><td>Database updates</td><td>all applied</td><td></td></tr><tr><td>Fix</td><td>Scheduled tasks</td><td>not registered, so nothing runs by itself</td><td>Settings &gt; Data &gt; Make it run on its own</td></tr><tr><td>OK</td><td>Backup (same-drive)</td><td>newest 2026-10-13</td><td></td></tr><tr><td>Note</td><td>Backup encryption</td><td>backups are not encrypted</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>Second backup place</td><td>none: backups sit next to the project folder</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>AI provider</td><td>none: files wait for you or Claude Code</td><td>Settings &gt; Connections &gt; AI provider</td></tr><tr><td>Note</td><td>Update token</td><td>not set: fine while the releases are public; a private project needs one to check for updates</td><td>set FAMILYAGENT_TOKEN to a read-only GitHub token</td></tr><tr><td>Note</td><td>Inbox</td><td>10 file(s) waiting to be filed</td><td>Inbox &gt; File them now</td></tr><tr><td>Fix</td><td>Review queue</td><td>2 file(s) need you to say what they are</td><td>the Inbox page</td></tr></tbody>
+    <tbody><tr><td>OK</td><td>Database</td><td>integrity ok</td><td></td></tr><tr><td>OK</td><td>Database updates</td><td>all applied</td><td></td></tr><tr><td>Fix</td><td>Scheduled tasks</td><td>not registered, so nothing runs by itself</td><td>Settings &gt; Data &gt; Runs on its own</td></tr><tr><td>OK</td><td>Backup (same-drive)</td><td>newest 2026-10-13</td><td></td></tr><tr><td>Note</td><td>Backup encryption</td><td>backups are not encrypted</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>Second backup place</td><td>none: backups sit next to the project folder</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>AI provider</td><td>none: files wait for you or Claude Code</td><td>Settings &gt; Connections &gt; AI provider</td></tr><tr><td>Note</td><td>Update token</td><td>not set: fine while the releases are public; a private project needs one to check for updates</td><td>set MITRAHOME_TOKEN to a read-only GitHub token</td></tr><tr><td>Note</td><td>Inbox</td><td>4 file(s) waiting to be filed</td><td>Inbox &gt; File them now</td></tr><tr><td>Fix</td><td>Review queue</td><td>2 file(s) need you to say what they are</td><td>the Inbox page</td></tr></tbody>
   </table></div>
   </details>
   
@@ -106,7 +116,7 @@
 
 <section class="card" id="data-restore">
   <h2>Restore from backup</h2>
-  <p class="notice">2026-10-13 21:31: Restored the backup from 2026-10-13 21:29. A copy of the data from just before is kept with your backups.</p>
+  
   
   <p class="muted">Puts the household's records back as they were at the time of a backup. Everything entered since then is
     replaced; a copy of today's data is kept first. Filed papers and settings are not overwritten, only ones that went
@@ -125,20 +135,113 @@
 </section>
 
 <section class="card" id="data-run">
-  <h2>Make it run on its own</h2>
-  <p class="muted">Without this the Brief, the weekly digest and the backups only update when you open the app. This PC will run them for you at set times, with nothing to keep open.</p>
+  <h2>Runs on its own</h2>
+  <p class="muted">This PC makes the Brief, the weekly digest and the backups at set times, with nothing to keep open.
+    Switch each one on or off, change when it runs, and see when it last ran. The PC must be on and you signed in.</p>
+  
+  <div class="job" id="job-daily_digest">
+    <div class="job-head">
+      <h3>Daily brief <span class="chip warn">Used by another copy of the app</span></h3>
+      <form data-hx-post="/settings/tasks/job" data-hx-trigger="change" data-hx-vals="{&quot;job&quot;: &quot;daily_digest&quot;}" data-hx-disabled-elt="find input">
+        <label class="switch"><input type="checkbox" role="switch" name="on" value="1" aria-label="Daily brief runs on its own"><span aria-hidden="true"></span></label>
+      </form>
+    </div>
+    <p class="muted small">Every day at 07:00 · Last run:
+      not yet</p>
+    <p class="alert small">This task runs another copy of the app: <span class="fp">C:\Users\you\AppData\Local\Temp\pytest-of-you\pytest-785\popen-gw3\fam5\t\tasks\daily_digest.bat</span>.
+      Switching it on here moves it to this copy.</p>
+    
+    <details class="more-form"><summary class="btn alt sm">Change time</summary>
+      <form class="nform" data-hx-post="/settings/tasks/time" data-hx-vals="{&quot;job&quot;: &quot;daily_digest&quot;}" data-hx-disabled-elt="find button">
+        
+        <label>Time<input type="time" name="time" value="07:00" required=""></label>
+        <button class="btn" type="submit">Save</button>
+      </form>
+    </details>
+    
+  </div>
+  
+  <div class="job" id="job-weekly_digest">
+    <div class="job-head">
+      <h3>Weekly digest and family meeting <span class="chip warn">Used by another copy of the app</span></h3>
+      <form data-hx-post="/settings/tasks/job" data-hx-trigger="change" data-hx-vals="{&quot;job&quot;: &quot;weekly_digest&quot;}" data-hx-disabled-elt="find input">
+        <label class="switch"><input type="checkbox" role="switch" name="on" value="1" aria-label="Weekly digest and family meeting runs on its own"><span aria-hidden="true"></span></label>
+      </form>
+    </div>
+    <p class="muted small">Sundays at 18:00 · Last run:
+      not yet</p>
+    <p class="alert small">This task runs another copy of the app: <span class="fp">C:\Users\you\AppData\Local\Temp\pytest-of-you\pytest-785\popen-gw3\fam5\t\tasks\weekly_digest.bat</span>.
+      Switching it on here moves it to this copy.</p>
+    
+    <details class="more-form"><summary class="btn alt sm">Change time</summary>
+      <form class="nform" data-hx-post="/settings/tasks/time" data-hx-vals="{&quot;job&quot;: &quot;weekly_digest&quot;}" data-hx-disabled-elt="find button">
+        <label>Day<select name="day"><option value="MON">Monday</option><option value="TUE">Tuesday</option><option value="WED">Wednesday</option><option value="THU">Thursday</option><option value="FRI">Friday</option><option value="SAT">Saturday</option><option value="SUN" selected="">Sunday</option></select></label>
+        <label>Time<input type="time" name="time" value="18:00" required=""></label>
+        <button class="btn" type="submit">Save</button>
+      </form>
+    </details>
+    
+  </div>
+  
+  <div class="job" id="job-weekly_backup">
+    <div class="job-head">
+      <h3>Weekly backup <span class="chip warn">Used by another copy of the app</span></h3>
+      <form data-hx-post="/settings/tasks/job" data-hx-trigger="change" data-hx-vals="{&quot;job&quot;: &quot;weekly_backup&quot;}" data-hx-disabled-elt="find input">
+        <label class="switch"><input type="checkbox" role="switch" name="on" value="1" aria-label="Weekly backup runs on its own"><span aria-hidden="true"></span></label>
+      </form>
+    </div>
+    <p class="muted small">Sundays at 09:00 · Last run:
+      not yet</p>
+    <p class="alert small">This task runs another copy of the app: <span class="fp">C:\Users\you\AppData\Local\Temp\pytest-of-you\pytest-731\popen-gw3\test_upgrade_from_an_older_rel0\old\tasks\weekly_backup.bat</span>.
+      Switching it on here moves it to this copy.</p>
+    
+    <details class="more-form"><summary class="btn alt sm">Change time</summary>
+      <form class="nform" data-hx-post="/settings/tasks/time" data-hx-vals="{&quot;job&quot;: &quot;weekly_backup&quot;}" data-hx-disabled-elt="find button">
+        <label>Day<select name="day"><option value="MON">Monday</option><option value="TUE">Tuesday</option><option value="WED">Wednesday</option><option value="THU">Thursday</option><option value="FRI">Friday</option><option value="SAT">Saturday</option><option value="SUN" selected="">Sunday</option></select></label>
+        <label>Time<input type="time" name="time" value="09:00" required=""></label>
+        <button class="btn" type="submit">Save</button>
+      </form>
+    </details>
+    
+  </div>
+  
+  <div class="job" id="job-inbox_cycle">
+    <div class="job-head">
+      <h3>Inbox check <span class="chip warn">Used by another copy of the app</span></h3>
+      <form data-hx-post="/settings/tasks/job" data-hx-trigger="change" data-hx-vals="{&quot;job&quot;: &quot;inbox_cycle&quot;}" data-hx-disabled-elt="find input">
+        <label class="switch"><input type="checkbox" role="switch" name="on" value="1" aria-label="Inbox check runs on its own"><span aria-hidden="true"></span></label>
+      </form>
+    </div>
+    <p class="muted small">Every two hours · Last run:
+      not yet</p>
+    <p class="alert small">This task runs another copy of the app: <span class="fp">C:\Users\you\AppData\Local\Temp\pytest-of-you\pytest-731\popen-gw3\test_upgrade_from_an_older_rel0\old\tasks\inbox_cycle.bat</span>.
+      Switching it on here moves it to this copy.</p>
+    
+  </div>
+  
+  
   <form class="nform" data-hx-post="/settings/tasks" data-hx-disabled-elt="find button">
     <label class="check wide"><input type="checkbox" name="inbox" value="1"> Also check the inbox every two hours (the AI is used only when files are waiting)</label>
-    <button class="btn alt" type="submit">Make it run on its own</button>
+    <button class="btn alt" type="submit">Switch them all on</button>
   </form>
+  
 </section>
 
 <section class="card" id="data-update">
   <h2>Updates</h2>
-  <p class="muted">This is Mitra Home 0.108.2.</p>
+  <p class="muted">This is Mitra Home 0.109.1.</p>
   <div class="optrow">
     <button type="button" class="btn alt" data-hx-post="/settings/update" data-hx-vals="{&quot;op&quot;: &quot;check&quot;}" data-hx-disabled-elt="this">Check for updates</button>
     
+  </div>
+  <div class="job" id="upd-daily">
+    <div class="job-head">
+      <h3>Check for new versions every day</h3>
+      <form data-hx-post="/settings/update" data-hx-trigger="change" data-hx-vals="{&quot;op&quot;: &quot;daily&quot;}" data-hx-disabled-elt="find input">
+        <label class="switch"><input type="checkbox" role="switch" name="on" value="1" checked="" aria-label="Check for new versions every day"><span aria-hidden="true"></span></label>
+      </form>
+    </div>
+    <p class="muted small">Once a day the morning task asks api.github.com for the latest release number and its notes. Only that address is contacted and nothing about your family is sent. A new version shows up in the Inbox; it is never installed without you. Off: no network call at all.</p>
   </div>
 </section>
 
@@ -154,17 +257,14 @@
   <h2>Changes made here</h2>
   <div class="tablewrap"><table>
     <thead><tr><th>When</th><th>Who</th><th>What</th><th>Detail</th></tr></thead>
-    <tbody><tr><td>2026-10-15T09:31:04</td><td>Marcus</td><td>phone_paired</td><td>device 16: Marcus emulator</td></tr><tr><td>2026-10-15T09:07:21</td><td>Marcus</td><td>phone_paired</td><td>device 15: Marcus emulator</td></tr><tr><td>2026-10-15T02:14:23</td><td>Marcus</td><td>bank_pull</td><td>inserted=149 skipped=0</td></tr><tr><td>2026-10-15T02:14:18</td><td>Marcus</td><td>bank_pick</td><td>chosen=2</td></tr><tr><td>2026-10-15T02:14:06</td><td>Marcus</td><td>bank_setup</td><td>accounts=2</td></tr><tr><td>2026-10-14T23:36:01</td><td>Marcus</td><td>phone_paired</td><td>device 14: Marcus emulator</td></tr><tr><td>2026-10-14T23:33:37</td><td>Marcus</td><td>phone_paired</td><td>device 13: Marcus emulator</td></tr><tr><td>2026-10-14T23:32:08</td><td>Marcus</td><td>phone_paired</td><td>device 13: Marcus emulator</td></tr><tr><td>2026-10-14T23:31:52</td><td>Marcus</td><td>phone_paired</td><td>device 13: Marcus emulator</td></tr><tr><td>2026-10-14T23:27:54</td><td>Marcus</td><td>phone_paired</td><td>device 13: Marcus emulator</td></tr><tr><td>2026-10-14T18:18:04</td><td>Marcus</td><td>phone_pair_code</td><td>Marcus: marcus</td></tr><tr><td>2026-10-14T17:36:46</td><td>Marcus</td><td>phone_paired</td><td>device 12: Marcus Phone</td></tr><tr><td>2026-10-14T17:36:41</td><td>Marcus</td><td>phone_pair_code</td><td>Marcus: Marcus Phone</td></tr><tr><td>2026-10-14T14:31:15</td><td>Marcus</td><td>phone_paired</td><td>device 12: Marcus emulator</td></tr><tr><td>2026-10-14T13:16:50</td><td>Sofia</td><td>phone_paired</td><td>device 12: Sofia emulator</td></tr><tr><td>2026-10-14T13:13:07</td><td>Marcus</td><td>phone_paired</td><td>device 11: Marcus emulator</td></tr><tr><td>2026-10-14T12:50:46</td><td>Sofia</td><td>phone_paired</td><td>device 12: Sofia emulator</td></tr><tr><td>2026-10-14T12:49:00</td><td>Marcus</td><td>phone_paired</td><td>device 11: Marcus emulator</td></tr><tr><td>2026-10-14T12:28:08</td><td>Sofia</td><td>phone_paired</td><td>device 10: Sofia emulator</td></tr><tr><td>2026-10-14T12:26:08</td><td>Marcus</td><td>phone_paired</td><td>device 9: Marcus emulator</td></tr><tr><td>2026-10-14T10:42:16</td><td>Sofia</td><td>phone_paired</td><td>device 8: Sofia emulator</td></tr><tr><td>2026-10-14T10:42:09</td><td>Elena</td><td>phone_paired</td><td>device 7: Elena emulator</td></tr><tr><td>2026-10-14T10:34:39</td><td>Marcus</td><td>phone_paired</td><td>device 6: Marcus emulator</td></tr><tr><td>2026-10-14T08:13:38</td><td>Elena</td><td>phone_paired</td><td>device 5: Elena upload test</td></tr><tr><td>2026-10-14T08:13:33</td><td>Elena</td><td>phone_paired</td><td>device 4: Elena upload test</td></tr><tr><td>2026-10-14T08:13:22</td><td>Elena</td><td>phone_paired</td><td>device 3: Elena upload test</td></tr><tr><td>2026-10-14T07:29:03</td><td>Marcus</td><td>phone_revoke</td><td>device 2</td></tr><tr><td>2026-10-14T07:28:54</td><td>Marcus</td><td>phone_scopes</td><td>device 2: own,calendar</td></tr><tr><td>2026-10-14T07:28:30</td><td>Elena</td><td>phone_paired</td><td>device 1: Elena script phone</td></tr><tr><td>2026-10-14T07:28:03</td><td>Marcus</td><td>phone_pair_code</td><td>Marcus: Marcus Pixel</td></tr></tbody>
+    <tbody><tr><td>2026-10-16T01:26:32</td><td>Marcus</td><td>view_mode_set</td><td>advanced</td></tr><tr><td>2026-10-16T01:19:55</td><td>Marcus</td><td>view_mode_set</td><td>simple</td></tr><tr><td>2026-10-16T00:46:49</td><td>Marcus</td><td>view_mode_set</td><td>simple</td></tr><tr><td>2026-10-15T22:44:15</td><td>Marcus</td><td>task_time</td><td>job=weekly_backup</td></tr><tr><td>2026-10-15T22:43:58</td><td>Marcus</td><td>task_time</td><td>job=weekly_backup</td></tr><tr><td>2026-10-15T19:27:28</td><td>Marcus</td><td>view_mode_set</td><td>advanced</td></tr><tr><td>2026-10-15T19:27:25</td><td>Marcus</td><td>view_mode_set</td><td>simple</td></tr><tr><td>2026-10-15T19:27:23</td><td>Marcus</td><td>view_mode_set</td><td>advanced</td></tr><tr><td>2026-10-15T19:27:20</td><td>Marcus</td><td>view_mode_set</td><td>advanced</td></tr><tr><td>2026-10-15T19:23:12</td><td>Marcus</td><td>view_mode_set</td><td>simple</td></tr><tr><td>2026-10-15T18:58:35</td><td>Marcus</td><td>phone_pair_code</td><td>Marcus: sss</td></tr></tbody>
   </table></div>
   <p class="muted small">Settings changes only; no keys, tokens or questions are recorded.</p>
 </section>
 
+
 <details class="card more-form"><summary><h2>Advanced</h2></summary>
-  <div class="tablewrap"><table><tbody><tr><th>AI provider</th><td>claude_code</td></tr><tr><th>Your folder (papers, settings, database)</th><td>C:\Users\you\MitraHome\home</td></tr><tr><th>App folder (code)</th><td>C:\Users\you\MitraHome\app</td></tr><tr><th>Backups on this drive</th><td>C:\Users\you\MitraHome\FamilyAgent_backups</td></tr><tr><th>Google Drive folder</th><td>not set up (python onboard.py add drive)</td></tr><tr><th>Second backup location</th><td>none (python onboard.py add backup)</td></tr><tr><th>Version</th><td>0.108.2</td></tr></tbody></table></div>
-  
-  <h3>Last run of each task</h3>
-  <div class="tablewrap"><table><thead><tr><th>Task</th><th>Result</th><th>Last run</th><th>Note</th></tr></thead>
-    <tbody><tr><td>weekly_backup</td><td>ok</td><td>2026-10-13T21:29:57</td><td></td></tr></tbody></table></div>
+  <div class="tablewrap"><table><tbody><tr><th>AI provider</th><td>claude_code</td></tr><tr><th>Your folder (papers, settings, database)</th><td>C:\Users\you\MitraHome\home</td></tr><tr><th>App folder (code)</th><td>C:\Users\you\MitraHome\app</td></tr><tr><th>Backups on this drive</th><td>C:\Users\you\MitraHome\Mitra-Home-Backup</td></tr><tr><th>Google Drive folder</th><td>not set up (python onboard.py add drive)</td></tr><tr><th>Second backup location</th><td>none (python onboard.py add backup)</td></tr><tr><th>Version</th><td>0.109.1</td></tr></tbody></table></div>
   
   
   <h3>Commands for the checks above</h3>
@@ -177,7 +277,8 @@
     Encrypted backups and a second backup place: python onboard.py add backup. Emergency contacts for the emergency sheet:
     config/contacts.json (copy contacts.example.json).</p>
 </details>
-<p class="muted small">Version 0.108.2 · stored on this PC.</p>
+
+<p class="muted small">Version 0.109.1 · stored on this PC.</p>
 
 </main>
 
