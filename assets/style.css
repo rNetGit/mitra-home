@@ -288,3 +288,16 @@ footer a:hover { color: var(--text); }
 footer .fine { border-top: 1px solid var(--line); padding-top: 20px; display: grid; gap: 6px; font-size: .84rem; color: var(--text-3); }
 footer .wrap > div:not(.fgrid):not(.fine) { margin-bottom: 6px; }
 @media (max-width: 680px) { footer .fgrid { grid-template-columns: 1fr 1fr; } footer .fgrid > :first-child { grid-column: 1 / -1; } }
+
+/* Install: four choice cards */
+.choices { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.choice { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 22px; border-radius: var(--radius);
+  background: var(--surface); border: 1px solid var(--line); color: var(--text); text-decoration: none; box-shadow: var(--shadow-sm);
+  transition: border-color .15s, transform .15s; }
+.choice:hover { border-color: var(--accent); transform: translateY(-2px); }
+.choice svg { width: 30px; height: 30px; color: var(--accent); margin-bottom: 6px; }
+.choice strong { font-size: 1.08rem; }
+.choice span:not(.ctag) { color: var(--text-2); font-size: .94rem; }
+.ctag { position: absolute; top: 16px; right: 16px; font-size: .74rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; }
+.ctag.beta { background: var(--accent-soft); color: var(--accent); }
+.ctag.soon { background: var(--neutral-soft); color: var(--text-2); }

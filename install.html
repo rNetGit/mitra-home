@@ -34,10 +34,38 @@
     <div class="section-head">
       <div class="eyebrow">Install</div>
       <h1>Set up Mitra Home in about 15 minutes</h1>
-      <p class="muted">No typing commands. You download one folder, double-click one file, and answer a few questions in your browser.</p>
+      <p class="muted">Mitra Home lives on one computer at home, the PC or the Mac. The phone apps connect to it over your home Wi-Fi. No typing commands.</p>
     </div>
 
-    <p class="note">Mitra Home is in a private beta with a small group of families. The public download opens once testing is complete. A one-click installer is planned; these steps are for the beta.</p>
+    <p class="note">Mitra Home is in a private beta with a small group of families. The public downloads open once testing is complete; beta families get the files from us.</p>
+
+    <h2 style="margin-top:36px">Choose what to install</h2>
+    <div class="choices">
+      <a class="choice" href="#computer" data-os="tab-win">
+        <span class="ctag beta">Beta</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <strong>Windows PC</strong>
+        <span>One installer (.exe). No Python or admin rights needed.</span>
+      </a>
+      <a class="choice" href="#computer" data-os="tab-mac">
+        <span class="ctag beta">Beta</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg>
+        <strong>Mac</strong>
+        <span>A folder and a starter today. A Mac app (.dmg) is on the way.</span>
+      </a>
+      <a class="choice" href="#phones">
+        <span class="ctag beta">Beta</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
+        <strong>Android phone</strong>
+        <span>The family's companion app: what is due, scan papers, tick lists.</span>
+      </a>
+      <a class="choice" href="#phones">
+        <span class="ctag soon">Coming soon</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4"/></svg>
+        <strong>iPhone</strong>
+        <span>The same companion app for iPhone, after the Android one.</span>
+      </a>
+    </div>
 
     <h2 style="margin-top:36px">Before you start</h2>
     <div class="grid">
@@ -46,8 +74,8 @@
         <p>Windows 10 or 11, or a Mac. One that is usually switched on, because it is where reminders are made and phones connect.</p>
       </div>
       <div class="card">
-        <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg></span>Python (free)</h3>
-        <p>The free program Mitra Home is written in. Version 3.12 or newer. The starter tells you if it is missing and opens the download page.</p>
+        <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg></span>Python, only on a Mac</h3>
+        <p>The Windows installer brings everything with it. On a Mac, install the free Python 3.12 or newer first; the starter tells you if it is missing.</p>
       </div>
       <div class="card">
         <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>An AI helper (optional)</h3>
@@ -57,7 +85,7 @@
   </div>
 </section>
 
-<section class="alt">
+<section class="alt" id="computer">
   <div class="wrap">
     <h2>Install on your computer</h2>
     <div class="tabs" role="tablist" aria-label="Choose your computer">
@@ -67,6 +95,44 @@
 
     <div role="tabpanel" id="panel-win" aria-labelledby="tab-win">
       <ol class="steps">
+        <li>
+          <h3>Run <code>MitraHome-Setup.exe</code></h3>
+          <p>Double-click the installer you were sent. It installs for you only, so it does not ask for an administrator password, and it brings its own copy of Python.</p>
+          <p class="small muted">The beta installer is not signed yet, so Windows may show "Windows protected your PC". Click <strong>More info</strong>, then <strong>Run anyway</strong>.</p>
+        </li>
+        <li>
+          <h3>Pick the family's folder</h3>
+          <p>The installer suggests <code>Documents\Mitra-Home-Data</code> (or your user folder when Documents syncs to OneDrive). Your family's papers, settings and database live there. Updates and uninstalling never touch it.</p>
+        </li>
+        <li>
+          <h3>Open Mitra Home from the Start menu</h3>
+          <p>The first start prepares everything (a minute or two), then your web browser opens on the setup page by itself. Keep the small window that opens: closing it stops Mitra Home.</p>
+        </li>
+        <li>
+          <h3>Answer the setup chat</h3>
+          <p>A short conversation in your browser: your family's name, who lives with you, whether you own or rent, your cars, an AI helper (you can skip it) and a PIN for each adult.</p>
+          <div class="screen">
+            <div class="bar"><i></i><i></i><i></i> 127.0.0.1:8601/setup</div>
+            <div class="body">
+              <div class="bubble">Who lives in the household? Type everyone, with their role and birthday if you like. Pets are welcome.</div>
+              <div class="bubble me">Alex, adult<br>Jordan, adult<br>Sam, child<br>Biscuit, dog</div>
+              <div class="bubble">Do you own or rent your home?</div>
+            </div>
+          </div>
+          <p class="small muted">You can stop any time and come back; it remembers where you were.</p>
+        </li>
+        <li>
+          <h3>Drop in a few papers</h3>
+          <p>Open <strong>Add documents</strong> and drag in a recent bill, a bank statement and your car insurance. Watch them appear in <strong>Today</strong> and <strong>Records</strong>.</p>
+        </li>
+        <li>
+          <h3>Let it run on its own</h3>
+          <p>At the end of setup, open <strong>Settings &gt; Data &gt; Runs on its own</strong> and switch them on. This sets up the daily brief, the weekly family digest and the weekly backup.</p>
+        </li>
+      </ol>
+      <details>
+        <summary>Installing from the zip instead</summary>
+        <ol class="steps" style="margin-top:12px">
         <li>
           <h3>Install Python</h3>
           <p>Go to <a href="https://www.python.org/downloads/" rel="noopener">python.org/downloads</a> and click the yellow <strong>Download Python</strong> button. Run the file you downloaded.</p>
@@ -98,28 +164,9 @@
           </div>
           <p class="small muted">If Windows asks whether to run a file you downloaded, choose <strong>Run</strong>. Keep the black window open; closing it stops Mitra Home. Starting it again simply reopens the same one.</p>
         </li>
-        <li>
-          <h3>Answer the setup chat</h3>
-          <p>A short conversation in your browser: your family's name, who lives with you, whether you own or rent, your cars, an AI helper (you can skip it) and a PIN for each adult.</p>
-          <div class="screen">
-            <div class="bar"><i></i><i></i><i></i> 127.0.0.1:8601/setup</div>
-            <div class="body">
-              <div class="bubble">Who lives in the household? Type everyone, with their role and birthday if you like. Pets are welcome.</div>
-              <div class="bubble me">Alex, adult<br>Jordan, adult<br>Sam, child<br>Biscuit, dog</div>
-              <div class="bubble">Do you own or rent your home?</div>
-            </div>
-          </div>
-          <p class="small muted">You can stop any time and come back; it remembers where you were.</p>
-        </li>
-        <li>
-          <h3>Drop in a few papers</h3>
-          <p>Open <strong>Add documents</strong> and drag in a recent bill, a bank statement and your car insurance. Watch them appear in <strong>Today</strong> and <strong>Records</strong>.</p>
-        </li>
-        <li>
-          <h3>Let it run on its own</h3>
-          <p>At the end of setup, open <strong>Settings &gt; Data &gt; Runs on its own</strong> and switch them on. This sets up the daily brief, the weekly family digest and the weekly backup.</p>
-        </li>
-      </ol>
+        </ol>
+        <p class="small muted">Then continue with the setup chat above.</p>
+      </details>
     </div>
 
     <div role="tabpanel" id="panel-mac" aria-labelledby="tab-mac" hidden>
@@ -143,10 +190,10 @@
         </li>
         <li>
           <h3>Drop in a few papers and let it run on its own</h3>
-          <p>Use <strong>Add documents</strong>, then <strong>Settings &gt; Data &gt; Runs on its own</strong>. If the scheduled tasks never run, allow <code>cron</code> under System Settings &gt; Privacy &amp; Security &gt; Full Disk Access.</p>
+          <p>Use <strong>Add documents</strong>, then <strong>Settings &gt; Data &gt; Runs on its own</strong>. On a Mac these become login items (LaunchAgents), so no extra permission is needed.</p>
         </li>
       </ol>
-      <p class="note small">Mac works but is tested less than Windows. Linux is not tested yet.</p>
+      <p class="note small">Mac works but is tested less than Windows. A Mac app you drag into Applications (.dmg, no Python needed) is being built. Linux is not tested yet.</p>
     </div>
   </div>
 </section>
@@ -154,8 +201,12 @@
 <section id="phones">
   <div class="wrap">
     <div class="section-head">
-      <h2>Connect your phones</h2>
-      <p class="muted">Phones talk only to your PC, over your home Wi-Fi, with an encrypted link. Nothing goes through the internet.</p>
+      <h2>Install the phone apps</h2>
+      <p class="muted">The companion app shows what is due, scans papers into the inbox and ticks off lists. Phones talk only to your PC or Mac, over your home Wi-Fi, with an encrypted link. Nothing goes through the internet.</p>
+      <div class="grid" style="margin-top:20px">
+        <div class="card"><h3>Android</h3><p>Beta families get the app from us now; Google Play testing comes next.</p></div>
+        <div class="card"><h3>iPhone</h3><p>Coming after the Android app, first through TestFlight, then the App Store. Until then an iPhone can use the browser version (below).</p></div>
+      </div>
     </div>
     <ol class="steps">
       <li>

@@ -28,6 +28,9 @@
         set("mitra-os", tab.id);
       }
       tabs.forEach(function (t) { t.addEventListener("click", function () { show(t); }); });
+      document.querySelectorAll("[data-os]").forEach(function (a) {
+        a.addEventListener("click", function () { var t = document.getElementById(a.getAttribute("data-os")); if (t && list.contains(t)) show(t); });
+      });
       var want = document.getElementById(get("mitra-os") || "");
       if (!want && /Mac/i.test(navigator.platform || "")) want = document.getElementById("tab-mac");
       if (want && list.contains(want)) show(want);
