@@ -74,17 +74,26 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.114.0</small>
+    <small class="ver">v0.115.0</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Wallet</h1><p class="sub">Your cards in one place: where each number is, plates, policies and memberships.</p></div></header>
+<header class="head"><div><h1>Wallet</h1><p class="sub">Your cards in one place: where each number is, plates, policies and memberships.</p></div>
+  <a class="btn wparkbtn" href="#" data-demo="1">Parking</a></header>
+<form class="rsearch wsearch" action="wallet.html" method="get" role="search">
+  <input type="hidden" name="g" value="members">
+  <label class="vh" for="wq">Search the wallet</label>
+  <input id="wq" type="search" name="q" value="" maxlength="100" placeholder="plate? wifi? library? Mia's passport?">
+  <button class="btn" type="submit">Find</button>
+</form>
+
 
 <nav class="fchips wchips" aria-label="Show">
   <a href="wallet.html" class="">All <small>14</small></a>
   <a href="wallet_g_car.html" class="">Car <small>3</small></a><a href="wallet_g_people.html" class="">People <small>7</small></a><a href="wallet_g_home.html" class="">Home <small>2</small></a><a href="wallet_g_members.html" class="on" aria-current="page">Memberships <small>2</small></a>
   <span class="wsoon">4 expiring soon</span>
 </nav>
+
 
 
 <section class="wgroup" aria-labelledby="wg-members">
@@ -102,6 +111,7 @@
         </summary>
         <div class="wback">
           <p class="whint"><b>Where's the number?</b> Card number: back of the card, under the barcode.</p>
+          
           <p class="small"><a href="#" data-demo="1">Open in Records</a></p>
         </div>
       </details>
@@ -138,6 +148,7 @@
         </summary>
         <div class="wback">
           <p class="whint"><b>Where's the number?</b> Member number: back of the card, under the barcode.</p>
+          
           <p class="small"><a href="#" data-demo="1">Open in Records</a></p>
         </div>
       </details>
@@ -166,6 +177,16 @@
   </div>
 </section>
 
+<details class="card sfold" id="wphoto">
+  <summary><h2>Add a card from a photo</h2></summary>
+  <div class="nform">
+    <label>Photo of the card (front or back)<input type="file" id="wallet-photo" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" capture="environment"></label>
+    <p class="muted small wide">The AI does not read photos here (turn it on in Settings &gt; Connections &gt; AI helper), so you fill in the card yourself.</p>
+    <p class="muted small wide" id="wallet-photo-msg" role="status"></p>
+  </div>
+  <p class="muted small">Membership, store, library, travel and health cards. Driver licences and passports come in through the Inbox.
+    The photo stays on this PC and is shown on the back of the card.</p>
+</details>
 <details class="card sfold" id="wadd">
   <summary><h2>Add a card</h2></summary>
   <form class="nform" data-hx-post="/wallet/card" data-hx-vals="{&quot;op&quot;: &quot;add&quot;}" data-reset-on-save="">

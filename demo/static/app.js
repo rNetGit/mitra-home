@@ -340,6 +340,44 @@
   });
   document.addEventListener('htmx:afterSwap', function (e) { if (e.target && e.target.id === 'helpp') helpOpen(true); });
   document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('[data-help-close]')) helpOpen(false); });
+  // Wallet > Add a card from a photo: the photo goes up as the raw body (like the Inbox), then the page shows Check the card
+  document.addEventListener('change', function (e) {
+    var input = e.target.closest && e.target.closest('#wallet-photo');
+    if (!input || !input.files.length) return;
+    var f = input.files[0], ai = document.getElementById('wallet-photo-ai'), msg = document.getElementById('wallet-photo-msg');
+    input.value = '';
+    if (msg) msg.textContent = ai && ai.checked ? 'Sending the photo and reading it...' : 'Sending the photo...';
+    var x = new XMLHttpRequest();
+    x.open('POST', '/wallet/photo' + (ai && ai.checked ? '?ai=1' : ''));
+    var m = document.querySelector('meta[name="csrf-token"]');
+    if (m) x.setRequestHeader('X-CSRF-Token', m.content);
+    x.setRequestHeader('X-Filename', encodeURIComponent(f.name));
+    x.setRequestHeader('Content-Type', 'application/octet-stream');
+    x.onload = function () {
+      var j; try { j = JSON.parse(x.responseText); } catch (err) { j = {ok: false, message: 'Not sent (' + x.status + ').'}; }
+      if (!j.ok) { if (msg) msg.textContent = j.message || 'Not sent.'; return; }
+      if (window.location.pathname + window.location.search === '/wallet') { window.location.hash = 'wcheck'; window.location.reload(); }
+      else window.location.href = j.redirect;
+    };
+    x.onerror = function () { if (msg) msg.textContent = 'Could not be sent.'; };
+    x.send(f);
+  });
+  // [data-copy] puts its text on the clipboard (Wallet parking: the plate)
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-copy]');
+    if (!b || !navigator.clipboard) return;
+    var was = b.textContent;
+    navigator.clipboard.writeText(b.getAttribute('data-copy')).then(function () {
+      b.textContent = 'Copied'; setTimeout(function () { b.textContent = was; }, 1500);
+    }, function () {});
+  });
+  // [data-wake] on a page keeps the screen on while it is shown (Wallet parking); browsers without it just skip
+  function wake() {
+    if (!document.querySelector('[data-wake]') || !navigator.wakeLock || document.visibilityState !== 'visible') return;
+    navigator.wakeLock.request('screen').catch(function () {});
+  }
+  document.addEventListener('visibilitychange', wake);
+  wake();
   // [data-check-all="1|0"] ticks or unticks every box in its fieldset (Settings > Connections > Bank sync accounts)
   document.addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('[data-check-all]');
