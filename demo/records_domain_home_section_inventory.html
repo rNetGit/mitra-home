@@ -68,37 +68,27 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Records</h1><p class="sub">Home · Inventory</p></div></header>
 
-<form class="rsearch card" action="records.html" method="get" role="search">
-  <label class="vh" for="rq">Search the records</label>
-  <input id="rq" type="search" name="q" value="" maxlength="200" placeholder="water bill, passport, furnace...">
-  <button class="btn" type="submit">Search</button>
-</form>
+<header class="head fhead"><div><a class="fback" href="records.html">Records</a><h1>Home</h1><p class="sub">Inventory</p></div><a class="btn alt rsgo" href="#" data-demo="1">Search</a></header>
+
+<nav class="fchips" aria-label="Home"><a href="records_domain_home_section_lists.html">Lists</a><a href="records_domain_home_section_meals.html">Meals</a><a href="records_domain_home_section_saved.html">Saved</a><a href="records_domain_home_section_upkeep.html">Upkeep</a><a href="records_domain_home_section_contacts.html">Service contacts</a><a href="records_domain_home_section_inventory.html" class="on" aria-current="true">Inventory</a><a href="records_domain_home_section_shopping.html">Shopping</a></nav>
 
 
 
-
-
-
-<nav class="pills" aria-label="Area"><a href="#" data-demo="1">People</a><a href="#" data-demo="1" class="on" aria-current="true">Home</a><a href="#" data-demo="1">Vehicles</a><a href="#" data-demo="1">Papers &amp; IDs</a></nav>
-
-<nav class="pills sm" aria-label="Part"><a href="records_domain_home_section_lists.html">Lists</a><a href="records_domain_home_section_meals.html">Meals</a><a href="records_domain_home_section_saved.html">Saved</a><a href="records_domain_home_section_upkeep.html">Upkeep</a><a href="#" data-demo="1">Service contacts</a><a href="records_domain_home_section_inventory.html" class="on" aria-current="true">Inventory</a><a href="#" data-demo="1">Shopping</a></nav>
 
 
 
 <div class="kpis rk"><div class="kpi"><span>Upkeep jobs</span><b>13</b></div><div class="kpi"><span>Things at home</span><b>7</b></div><div class="kpi"><span>Service contacts</span><b>1</b></div><div class="kpi"><span>Recipes</span><b>6</b></div></div>
-
 
 
 
@@ -125,21 +115,77 @@
 </details>
 
 
-<section class="card rblock">
-  <h2>Things at home</h2>
+
+<section class="card rblock"><h2>Things at home <span class="muted rcount">7</span></h2>
   
-  <div class="tablewrap"><table class="cards">
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">I</span>
+      <span class="rl-main"><span class="rl-t">27in monitor</span><span class="rl-m">electronics · Marcus office · LG 27UL500 · Bought Aug 6</span></span>
+      <span class="rl-r"><span class="chip-s t-n">in use</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">G</span>
+      <span class="rl-main"><span class="rl-t">Gaming laptop (Sofia)</span><span class="rl-m">electronics · Sofia's room · ASUS TUF · Bought Dec 19, 2025</span></span>
+      <span class="rl-r"><span class="chip-s t-n">in use</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">H</span>
+      <span class="rl-main"><span class="rl-t">HVAC system</span><span class="rl-m">system · Garage and attic · Trane XR15 · Bought Mar 20, 2020</span></span>
+      <span class="rl-r"><b>Apr 2, 2029</b><span class="chip-s t-n">in use</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">R</span>
+      <span class="rl-main"><span class="rl-t">Refrigerator</span><span class="rl-m">appliance · Kitchen · Whirlpool WRF535 · Bought Apr 28, 2024</span></span>
+      <span class="rl-r"><span class="chip-s t-n">in use</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-bad" aria-hidden="true">W</span>
+      <span class="rl-main"><span class="rl-t">Washer</span><span class="rl-m">appliance · Laundry room · Samsung WF45 · Bought Sep 6, 2022</span></span>
+      <span class="rl-r"><b>Sep 10, 2025</b><span class="chip-s t-bad">ended</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">W</span>
+      <span class="rl-main"><span class="rl-t">Water heater</span><span class="rl-m">system · Garage · Bought Jan 19, 2024 · $1,150.00</span></span>
+      <span class="rl-r"><b>Feb 27, 2028</b><span class="chip-s t-n">in use</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">O</span>
+      <span class="rl-main"><span class="rl-t">Old dishwasher</span><span class="rl-m">appliance · Kitchen · Bought Jul 29, 2018 · $500.00</span></span>
+      <span class="rl-r"><span class="chip-s t-n">sold</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table class="cards">
     <thead><tr><th>Name</th><th>Category</th><th>Place</th><th>Brand and model</th><th>Bought</th><th>Price</th><th>Warranty ends</th><th>Status</th></tr></thead>
-    <tbody><tr><td data-label="Name"><a href="#" data-demo="1">27in monitor</a></td><td data-label="Category">electronics</td><td data-label="Place">Marcus office</td><td data-label="Brand and model">LG 27UL500</td><td data-label="Bought">2026-08-06</td><td data-label="Price">$289.99</td><td data-label="Warranty ends"></td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Gaming laptop (Sofia)</a></td><td data-label="Category">electronics</td><td data-label="Place">Sofia's room</td><td data-label="Brand and model">ASUS TUF</td><td data-label="Bought">2025-12-19</td><td data-label="Price">$899.00</td><td data-label="Warranty ends"></td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">HVAC system</a></td><td data-label="Category">system</td><td data-label="Place">Garage and attic</td><td data-label="Brand and model">Trane XR15</td><td data-label="Bought">2020-03-20</td><td data-label="Price">$7,800.00</td><td data-label="Warranty ends">2029-04-02</td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Refrigerator</a></td><td data-label="Category">appliance</td><td data-label="Place">Kitchen</td><td data-label="Brand and model">Whirlpool WRF535</td><td data-label="Bought">2024-04-28</td><td data-label="Price">$1,349.00</td><td data-label="Warranty ends"></td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Washer</a></td><td data-label="Category">appliance</td><td data-label="Place">Laundry room</td><td data-label="Brand and model">Samsung WF45</td><td data-label="Bought">2022-09-06</td><td data-label="Price">$899.00</td><td data-label="Warranty ends">2025-09-10</td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Water heater</a></td><td data-label="Category">system</td><td data-label="Place">Garage</td><td data-label="Brand and model"></td><td data-label="Bought">2024-01-19</td><td data-label="Price">$1,150.00</td><td data-label="Warranty ends">2028-02-27</td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Old dishwasher</a></td><td data-label="Category">appliance</td><td data-label="Place">Kitchen</td><td data-label="Brand and model"></td><td data-label="Bought">2018-07-29</td><td data-label="Price">$500.00</td><td data-label="Warranty ends"></td><td data-label="Status">sold</td></tr></tbody>
+    <tbody><tr><td data-label="Name"><a href="#" data-demo="1">27in monitor</a></td><td data-label="Category">electronics</td><td data-label="Place">Marcus office</td><td data-label="Brand and model">LG 27UL500</td><td data-label="Bought">Aug 6</td><td data-label="Price">$289.99</td><td data-label="Warranty ends"></td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Gaming laptop (Sofia)</a></td><td data-label="Category">electronics</td><td data-label="Place">Sofia's room</td><td data-label="Brand and model">ASUS TUF</td><td data-label="Bought">Dec 19, 2025</td><td data-label="Price">$899.00</td><td data-label="Warranty ends"></td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">HVAC system</a></td><td data-label="Category">system</td><td data-label="Place">Garage and attic</td><td data-label="Brand and model">Trane XR15</td><td data-label="Bought">Mar 20, 2020</td><td data-label="Price">$7,800.00</td><td data-label="Warranty ends">Apr 2, 2029</td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Refrigerator</a></td><td data-label="Category">appliance</td><td data-label="Place">Kitchen</td><td data-label="Brand and model">Whirlpool WRF535</td><td data-label="Bought">Apr 28, 2024</td><td data-label="Price">$1,349.00</td><td data-label="Warranty ends"></td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Washer</a> <span class="chip-s t-bad">ended</span></td><td data-label="Category">appliance</td><td data-label="Place">Laundry room</td><td data-label="Brand and model">Samsung WF45</td><td data-label="Bought">Sep 6, 2022</td><td data-label="Price">$899.00</td><td data-label="Warranty ends">Sep 10, 2025</td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Water heater</a></td><td data-label="Category">system</td><td data-label="Place">Garage</td><td data-label="Brand and model"></td><td data-label="Bought">Jan 19, 2024</td><td data-label="Price">$1,150.00</td><td data-label="Warranty ends">Feb 27, 2028</td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Old dishwasher</a></td><td data-label="Category">appliance</td><td data-label="Place">Kitchen</td><td data-label="Brand and model"></td><td data-label="Bought">Jul 29, 2018</td><td data-label="Price">$500.00</td><td data-label="Warranty ends"></td><td data-label="Status">sold</td></tr></tbody>
   </table></div>
   
 </section>
+
 
 
 <p class="muted small">Open a row to change it here, or tell Chat.</p>
 
 
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=records:home:inventory" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="records" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -164,7 +210,7 @@
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

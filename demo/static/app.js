@@ -103,31 +103,95 @@
     if (code && cur.querySelector('option[value="' + code + '"]')) cur.value = code;
   });
 
-  // Inbox: each chosen file is sent as its own request (raw bytes, name in a header); the server checks every one.
+  // Inbox: each file is sent as its own request (raw bytes, name in a header), one at a time with a progress bar; the
+  // server checks every one. Files come from the picker, a drop anywhere on the Inbox page, or a paste. When the batch
+  // is in, the cards reload and, when this household's AI (or the no-AI readers) can file now, filing starts and the
+  // progress panel (#iprog, polled by htmx) shows each file's step.
   function meta() { var m = document.querySelector('meta[name="csrf-token"]'); return m ? m.content : ''; }
+  function inboxView() { var on = document.querySelector('#inbox .icat.on'); return on ? (on.getAttribute('hx-get') || '').split('view=')[1] || 'all' : 'all'; }
+  function inboxReload() {
+    if (window.htmx && document.getElementById('inbox')) htmx.ajax('GET', '/inbox/body?view=' + encodeURIComponent(inboxView()), {target: '#inbox', swap: 'innerHTML'});
+  }
+  function kb(n) { return n < 1048576 ? Math.max(1, Math.round(n / 1024)) + ' KB' : (n / 1048576).toFixed(1) + ' MB'; }
+  function uploadFiles(files) {
+    var list = document.getElementById('upload-result'), zone = document.getElementById('upload');
+    if (!list || !files.length) return;
+    list.textContent = '';
+    var rows = files.map(function (f) {
+      var li = document.createElement('li'); li.className = 'pfile t-wait';
+      var top = document.createElement('div'); top.className = 'pf-top';
+      var nm = document.createElement('span'); nm.className = 'pf-name'; nm.textContent = f.name;
+      var st = document.createElement('span'); st.className = 'chip-s'; st.textContent = 'In line';
+      var bar = document.createElement('progress'); bar.max = 100; bar.value = 0; bar.setAttribute('aria-label', f.name);
+      var ln = document.createElement('p'); ln.className = 'muted pf-line'; ln.textContent = kb(f.size);
+      top.appendChild(nm); top.appendChild(st);
+      var main = document.createElement('div'); main.className = 'pf-main'; main.appendChild(top); main.appendChild(bar); main.appendChild(ln);
+      li.appendChild(main); list.appendChild(li);
+      return {li: li, st: st, bar: bar, ln: ln};
+    });
+    var saved = 0;
+    function one(i) {
+      if (i >= files.length) {
+        if (saved && zone && zone.dataset.autofile && window.htmx) {
+          htmx.ajax('POST', '/inbox/filenow', {target: '#inbox', swap: 'innerHTML', values: {view: inboxView()}});
+        } else { inboxReload(); }
+        setTimeout(function () { list.querySelectorAll('.t-ok').forEach(function (li) { li.remove(); }); }, 6000);
+        return;
+      }
+      var f = files[i], r = rows[i], x = new XMLHttpRequest();
+      r.li.className = 'pfile t-work'; r.st.textContent = 'Sending';
+      x.open('POST', '/inbox/upload');
+      x.setRequestHeader('X-CSRF-Token', meta());
+      x.setRequestHeader('X-Filename', encodeURIComponent(f.name));
+      x.setRequestHeader('Content-Type', 'application/octet-stream');
+      x.upload.onprogress = function (e) { if (e.lengthComputable) r.bar.value = Math.round(e.loaded * 100 / e.total); };
+      function end(ok, msg) {
+        r.bar.value = 100; r.li.className = 'pfile ' + (ok ? 't-ok' : 't-bad');
+        r.st.textContent = ok ? 'Received' : 'Not added'; r.ln.textContent = msg;
+        if (ok) saved++;
+        one(i + 1);
+      }
+      x.onload = function () {
+        var j; try { j = JSON.parse(x.responseText); } catch (err) { j = {ok: false, message: 'Not saved (' + x.status + ').'}; }
+        end(!!j.ok, j.message || '');
+      };
+      x.onerror = function () { end(false, 'Could not be sent.'); };
+      x.send(f);
+    }
+    one(0);
+  }
   document.addEventListener('change', function (e) {
     var input = e.target.closest('#inbox-files');
     if (!input || !input.files.length) return;
-    var list = document.getElementById('upload-result'), files = Array.prototype.slice.call(input.files), left = files.length;
-    function line(text, bad) {
-      var li = document.createElement('li'); li.textContent = text; if (bad) li.className = 'bad'; list.appendChild(li);
-    }
-    function finish() {
-      if (--left > 0) return;
-      input.value = '';
-      var on = document.querySelector('#inbox .seg button.on'), v = on ? on.textContent.trim().toLowerCase() : 'all';
-      if (window.htmx) htmx.ajax('GET', '/inbox/body?view=' + encodeURIComponent(v), {target: '#inbox', swap: 'innerHTML'});
-    }
-    list.textContent = '';
-    files.forEach(function (f) {
-      fetch('/inbox/upload', {method: 'POST', credentials: 'same-origin', body: f,
-        headers: {'X-CSRF-Token': meta(), 'X-Filename': encodeURIComponent(f.name), 'Content-Type': 'application/octet-stream'}})
-        .then(function (r) { return r.json().catch(function () { return {ok: false, message: 'Not saved (' + r.status + ').'}; }); })
-        .then(function (j) { line(f.name + ': ' + j.message, !j.ok); })
-        .catch(function () { line(f.name + ': could not be sent.', true); })
-        .then(finish);
-    });
+    var files = Array.prototype.slice.call(input.files);
+    input.value = '';
+    uploadFiles(files);
   });
+  (function () {
+    var depth = 0;
+    function onInbox() { return !!document.getElementById('upload'); }
+    function hasFiles(e) { return e.dataTransfer && Array.prototype.indexOf.call(e.dataTransfer.types || [], 'Files') >= 0; }
+    document.addEventListener('dragenter', function (e) { if (!onInbox() || !hasFiles(e)) return; depth++; document.body.classList.add('dragging'); });
+    document.addEventListener('dragleave', function () { if (!onInbox()) return; depth = Math.max(0, depth - 1); if (!depth) document.body.classList.remove('dragging'); });
+    document.addEventListener('dragover', function (e) { if (onInbox() && hasFiles(e)) { e.preventDefault(); e.dataTransfer.dropEffect = 'copy'; } });
+    document.addEventListener('drop', function (e) {
+      if (!onInbox() || !hasFiles(e)) return;
+      e.preventDefault(); depth = 0; document.body.classList.remove('dragging');
+      uploadFiles(Array.prototype.slice.call(e.dataTransfer.files));
+    });
+    document.addEventListener('paste', function (e) {
+      if (!onInbox() || !e.clipboardData || e.target.closest('input,textarea,[contenteditable]')) return;
+      var files = Array.prototype.slice.call(e.clipboardData.files || []);
+      if (!files.length) return;
+      e.preventDefault();
+      uploadFiles(files.map(function (f, i) {
+        if (f.name && f.name !== 'image.png') return f;
+        var ext = (f.type.split('/')[1] || 'png').replace('jpeg', 'jpg');
+        return new File([f], 'pasted_' + new Date().toISOString().slice(0, 19).replace(/[-:T]/g, '') + (i ? '_' + i : '') + '.' + ext, {type: f.type});
+      }));
+    });
+    document.addEventListener('inbox-done', function () { if (document.getElementById('inbox')) setTimeout(inboxReload, 50); });
+  })();
 
   // A single file sent as the raw body (the Google client file, a timesheet, a work calendar); reload on success.
   document.addEventListener('click', function (e) {
@@ -257,6 +321,68 @@
   }
   document.addEventListener('DOMContentLoaded', function () { story(); });
   document.addEventListener('htmx:afterSettle', function () { story(); });
+
+  // Help panel: the "?" button loads the page's help into #helpp (htmx); close with the x, Esc or the button again.
+  function helpOpen(open) {
+    var p = document.getElementById('helpp'), b = document.querySelector('.helpbtn');
+    if (!p || !b) return;
+    p.hidden = !open;
+    p.classList.toggle('open', open);
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) p.focus(); else b.focus();
+  }
+  document.addEventListener('htmx:beforeRequest', function (e) {
+    var p = document.getElementById('helpp');
+    if (e.detail.elt && e.detail.elt.classList && e.detail.elt.classList.contains('helpbtn') && p && !p.hidden) {
+      e.preventDefault();
+      helpOpen(false);
+    }
+  });
+  document.addEventListener('htmx:afterSwap', function (e) { if (e.target && e.target.id === 'helpp') helpOpen(true); });
+  document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('[data-help-close]')) helpOpen(false); });
+  document.addEventListener('keydown', function (e) {
+    var p = document.getElementById('helpp');
+    if (e.key === 'Escape' && p && !p.hidden) helpOpen(false);
+  });
+
+  // First visit to a page: a one-line tip next to the "?" button, until "Got it" or the panel is opened (this browser).
+  function seenTips() { try { return JSON.parse(localStorage.getItem('help-tips') || '[]'); } catch (e) { return []; } }
+  function tipSeen(key) {
+    var seen = seenTips();
+    if (seen.indexOf(key) < 0) seen.push(key);
+    try { localStorage.setItem('help-tips', JSON.stringify(seen)); } catch (e) { /* private window: shows again */ }
+    var t = document.querySelector('.helptip');
+    if (t) t.hidden = true;
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    var t = document.querySelector('.helptip');
+    if (t && seenTips().indexOf(t.dataset.helpTip) < 0) t.hidden = false;
+  });
+  document.addEventListener('click', function (e) {
+    var t = document.querySelector('.helptip');
+    if (!t || !e.target.closest) return;
+    if (e.target.closest('[data-help-tip-close]') || e.target.closest('.helpbtn')) tipSeen(t.dataset.helpTip);
+  });
+
+  // Folded Settings cards: a link to #id inside one opens it, and the card a form was sent from stays open after the
+  // page loads again (HX-Redirect). Only the card's heading is remembered, for this tab.
+  function openFold(el) {
+    var d = el && el.closest ? el.closest('details.sfold') : null;
+    if (d) d.open = true;
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    if (location.hash.length > 1) openFold(document.getElementById(location.hash.slice(1)));
+    var keep = null;
+    try { keep = sessionStorage.getItem('sfold'); sessionStorage.removeItem('sfold'); } catch (e) {}
+    if (keep) document.querySelectorAll('details.sfold > summary h2').forEach(function (h) {
+      if (h.textContent === keep) h.closest('details').open = true;
+    });
+  });
+  document.addEventListener('htmx:beforeRequest', function (e) {
+    var d = e.target && e.target.closest ? e.target.closest('details.sfold') : null;
+    var h = d && d.querySelector('summary h2');
+    if (h) try { sessionStorage.setItem('sfold', h.textContent); } catch (err) {}
+  });
 
   // Installable app: the service worker only keeps the app's own files (never a signed-in page).
   if ('serviceWorker' in navigator && window.isSecureContext) {

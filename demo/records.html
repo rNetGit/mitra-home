@@ -68,71 +68,105 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Records</h1><p class="sub">People · People</p></div></header>
 
-<form class="rsearch card" action="records.html" method="get" role="search">
+<header class="head"><div><h1>Records</h1><p class="sub">Everything the household keeps, in one place.</p></div></header>
+
+
+
+
+
+<form class="rsearch card rs-hero" action="records.html" method="get" role="search">
   <label class="vh" for="rq">Search the records</label>
-  <input id="rq" type="search" name="q" value="" maxlength="200" placeholder="water bill, passport, furnace...">
+  <input id="rq" type="search" name="q" value="" maxlength="200" placeholder="Search everything: water bill, passport, furnace...">
   <button class="btn" type="submit">Search</button>
 </form>
 
+<div class="flanes rlanes">
 
+  <a class="flane" href="records_domain_people.html">
+    <span class="flane-ico g-rose"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"></circle><path d="M3 20a6 6 0 0 1 12 0"></path><circle cx="17" cy="9" r="2.4"></circle><path d="M15.5 14.2A4.8 4.8 0 0 1 21 19"></path>
+</svg></span>
+    <span class="flane-t"><b>People</b><span class="muted">5 people, 2 overdue, 5 appointments ahead</span></span>
+    <span class="flane-n"><b class="bad">29</b><small class="muted">open items</small></span>
+    <span class="flane-go" aria-hidden="true">›</span>
+  </a>
 
+  <a class="flane" href="records_domain_home.html">
+    <span class="flane-ico g-flow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-6h4v6"></path>
+</svg></span>
+    <span class="flane-t"><b>Home</b><span class="muted">4 lists, 7 things in the inventory, 1 service contact</span></span>
+    <span class="flane-n"><b class="">4</b><small class="muted">lists</small></span>
+    <span class="flane-go" aria-hidden="true">›</span>
+  </a>
 
+  <a class="flane" href="records_domain_vehicles.html">
+    <span class="flane-ico g-high"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16V11l2-5h10l2 5v5"></path><path d="M3 16h18v3H3z"></path><circle cx="7.5" cy="16" r="1.2"></circle><circle cx="16.5" cy="16" r="1.2"></circle><path d="M5 11h14"></path>
+</svg></span>
+    <span class="flane-t"><b>Vehicles</b><span class="muted">2 renewals in 30 days</span></span>
+    <span class="flane-n"><b class="warn">2</b><small class="muted">vehicles</small></span>
+    <span class="flane-go" aria-hidden="true">›</span>
+  </a>
 
+  <a class="flane" href="records_domain_papers.html">
+    <span class="flane-ico g-cat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"></path><path d="M14 3v5h5"></path><path d="M10 13h6M10 17h6"></path></svg></span>
+    <span class="flane-t"><b>Papers &amp; IDs</b><span class="muted">6 IDs, 2 policies, 1 expiring</span></span>
+    <span class="flane-n"><b class="warn">30</b><small class="muted">papers filed</small></span>
+    <span class="flane-go" aria-hidden="true">›</span>
+  </a>
 
-<nav class="pills" aria-label="Area"><a href="#" data-demo="1" class="on" aria-current="true">People</a><a href="#" data-demo="1">Home</a><a href="#" data-demo="1">Vehicles</a><a href="#" data-demo="1">Papers &amp; IDs</a></nav>
+</div>
 
-<nav class="pills sm" aria-label="Part"><a href="records_domain_people_section_people.html" class="on" aria-current="true">People</a><a href="records_domain_people_section_life.html">Life items</a><a href="records_domain_people_section_health.html">Checkups and appointments</a><a href="records_domain_people_section_school.html">School</a><a href="#" data-demo="1">Classes and activities</a><a href="records_domain_people_section_dates.html">Holidays and dates</a><a href="#" data-demo="1">Critical info</a></nav>
-
-
-
-<div class="kpis rk"><div class="kpi"><span>People</span><b>5</b></div><div class="kpi"><span>Open items</span><b>29</b></div><div class="kpi"><span>Appointments ahead</span><b>5</b></div></div>
-
-
-
-
-<details class="card addnote">
-  <summary><h2>Add a person or pet</h2></summary>
-  <div id="radd-members">
-
-<form class="nform" data-hx-post="/records/add" data-hx-target="#radd-members" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;people/people&quot;, &quot;table&quot;: &quot;members&quot;}">
-
-  <label>Name<input name="name" maxlength="40" required="" value=""></label>
-  <label>Role<select name="role"><option value="adult">adult</option><option value="child">child</option><option value="pet">pet</option></select></label>
-  <label>Birthday (MM-DD, optional)<input name="birthday" maxlength="5" pattern="[0-9]{2}-[0-9]{2}" placeholder="04-23" value=""></label>
-  <label>Birth year (optional)<input name="year" type="number" min="1900" max="2100" step="1" value=""></label>
-
-  <button class="btn" type="submit">Add</button>
-</form></div>
-</details>
-
-
-<section class="card rblock">
-  <h2>People</h2>
+<section class="card fneeds"><h2>Needs a look</h2>
+  <ul class="rlist">
+    <li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">Sofia: Band fundraiser form was due Oct 9</span><span class="rl-go" aria-hidden="true">›</span></a></li>
   
-  <div class="tablewrap"><table class="cards">
-    <thead><tr><th>Name</th><th>Role</th><th>Relation</th><th>Birthday</th><th>Born</th><th>School</th><th>Grade</th></tr></thead>
-    <tbody><tr><td data-label="Name"><a href="#" data-demo="1">Marcus</a></td><td data-label="Role">adult</td><td data-label="Relation"></td><td data-label="Birthday">05-21</td><td data-label="Born">1982</td><td data-label="School"></td><td data-label="Grade"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Elena</a></td><td data-label="Role">adult</td><td data-label="Relation"></td><td data-label="Birthday">11-02</td><td data-label="Born">1984</td><td data-label="School"></td><td data-label="Grade"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Sofia</a></td><td data-label="Role">child</td><td data-label="Relation"></td><td data-label="Birthday">03-09</td><td data-label="Born">2012</td><td data-label="School"></td><td data-label="Grade"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Mateo</a></td><td data-label="Role">child</td><td data-label="Relation">son</td><td data-label="Birthday">07-23</td><td data-label="Born">2019</td><td data-label="School">Lincoln Middle</td><td data-label="Grade">Grade 6</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Pancho</a></td><td data-label="Role">pet</td><td data-label="Relation"></td><td data-label="Birthday">09-14</td><td data-label="Born"></td><td data-label="School"></td><td data-label="Grade"></td></tr></tbody>
-  </table></div>
+    <li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">Sofia: Tdap booster was due Oct 11</span><span class="rl-go" aria-hidden="true">›</span></a></li>
   
+    <li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">Mateo's passport expired Sep 25</span><span class="rl-go" aria-hidden="true">›</span></a></li>
+  
+    <li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">2017 Toyota Tacoma inspection ran out Oct 3</span><span class="rl-go" aria-hidden="true">›</span></a></li>
+  
+    <li><a href="#" data-demo="1"><span class="dotm t-warn" aria-hidden="true"></span><span class="rl-t">2021 Honda CR-V registration runs out Nov 9</span><span class="rl-go" aria-hidden="true">›</span></a></li>
+  
+    <li><a href="#" data-demo="1"><span class="dotm t-warn" aria-hidden="true"></span><span class="rl-t">State Farm auto policy ends Nov 14</span><span class="rl-go" aria-hidden="true">›</span></a></li>
+  </ul>
+</section>
+
+<section class="fparts">
+
+  <div class="fparts-g"><h2><a href="records_domain_people.html">People</a></h2><p class="muted">Family, life items, checkups, school, classes and dates.</p>
+    <nav class="fchips wrap" aria-label="People parts"><a href="records_domain_people_section_people.html">People</a><a href="records_domain_people_section_life.html">Life items</a><a href="records_domain_people_section_health.html">Checkups and appointments</a><a href="records_domain_people_section_school.html">School</a><a href="records_domain_people_section_classes.html">Classes and activities</a><a href="records_domain_people_section_dates.html">Holidays and dates</a><a href="#" data-demo="1">Critical info</a></nav></div>
+
+  <div class="fparts-g"><h2><a href="records_domain_home.html">Home</a></h2><p class="muted">Lists, meals, upkeep, service contacts and the things you own.</p>
+    <nav class="fchips wrap" aria-label="Home parts"><a href="records_domain_home_section_lists.html">Lists</a><a href="records_domain_home_section_meals.html">Meals</a><a href="records_domain_home_section_saved.html">Saved</a><a href="records_domain_home_section_upkeep.html">Upkeep</a><a href="records_domain_home_section_contacts.html">Service contacts</a><a href="records_domain_home_section_inventory.html">Inventory</a><a href="records_domain_home_section_shopping.html">Shopping</a></nav></div>
+
+  <div class="fparts-g"><h2><a href="records_domain_vehicles.html">Vehicles</a></h2><p class="muted">Cars, renewals and the service log.</p>
+    <nav class="fchips wrap" aria-label="Vehicles parts"><a href="records_domain_vehicles_section_vehicles.html">Vehicles</a></nav></div>
+
+  <div class="fparts-g"><h2><a href="records_domain_papers.html">Papers &amp; IDs</a></h2><p class="muted">Filed papers, IDs and insurance.</p>
+    <nav class="fchips wrap" aria-label="Papers &amp; IDs parts"><a href="records_domain_papers_section_papers.html">Papers</a><a href="records_domain_papers_section_ids.html">Expiries and IDs</a><a href="records_domain_papers_section_policies.html">Insurance</a><a href="records_domain_papers_section_emergency.html">Emergency sheet</a></nav></div>
+
+<div class="fparts-g"><h2><a href="finance.html">Finance</a></h2><p class="muted">Bills, accounts, budget and trends have a page of their own.</p>
+  <nav class="fchips wrap" aria-label="Finance"><a href="finance.html">Open Finance</a></nav></div>
 </section>
 
 
-<p class="muted small">Open a row to change it here, or tell Chat.</p>
-
-
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=records" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="records" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -157,7 +191,7 @@
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

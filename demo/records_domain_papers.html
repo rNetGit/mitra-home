@@ -1,0 +1,361 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>Records · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+    
+    
+      
+        
+        <span class="grp">Every day</span>
+        <a href="index.html">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        
+      
+        
+        <details class="rg" data-rg="Money" open="">
+          <summary>Money</summary>
+          <a href="month.html">This month</a><a href="finance.html">Finance</a>
+        </details>
+        
+      
+        
+        <details class="rg" data-rg="Everything else" open="">
+          <summary>Everything else</summary>
+          <a href="records.html" class="on" aria-current="page">Records</a><a href="notes.html">Notes</a>
+        </details>
+        
+      
+    
+    <span class="grow"></span>
+    <a href="settings.html">Settings</a>
+    <div class="railfoot">
+      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.113.1</small>
+  </nav>
+
+  <main>
+
+<header class="head fhead"><div><a class="fback" href="records.html">Records</a><h1>Papers &amp; IDs</h1><p class="sub">Papers</p></div><a class="btn alt rsgo" href="#" data-demo="1">Search</a></header>
+
+<nav class="fchips" aria-label="Papers &amp; IDs"><a href="records_domain_papers_section_papers.html" class="on" aria-current="true">Papers</a><a href="records_domain_papers_section_ids.html">Expiries and IDs</a><a href="records_domain_papers_section_policies.html">Insurance</a><a href="records_domain_papers_section_emergency.html">Emergency sheet</a></nav>
+
+
+
+
+
+
+<div class="kpis rk"><div class="kpi"><span>Papers filed</span><b>30</b></div><div class="kpi"><span>IDs and expiries</span><b>6</b></div><div class="kpi"><span>Policies</span><b>4</b></div></div>
+
+
+
+
+
+<section class="card rblock"><h2>Filed papers <span class="muted rcount">30</span></h2>
+  
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">D</span>
+      <span class="rl-main"><span class="rl-t">Duke Energy</span><span class="rl-m">bill</span></span>
+      <span class="rl-r"><b>Oct 6</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">V</span>
+      <span class="rl-main"><span class="rl-t">Verizon</span><span class="rl-m">bill</span></span>
+      <span class="rl-r"><b>Oct 5</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">S</span>
+      <span class="rl-main"><span class="rl-t">Savings</span><span class="rl-m">investment</span></span>
+      <span class="rl-r"><b>Oct 5</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">K</span>
+      <span class="rl-main"><span class="rl-t">401k</span><span class="rl-m">investment</span></span>
+      <span class="rl-r"><b>Oct 5</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">F</span>
+      <span class="rl-main"><span class="rl-t">Fidelity</span><span class="rl-m">investment</span></span>
+      <span class="rl-r"><b>Oct 5</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">C</span>
+      <span class="rl-main"><span class="rl-t">Comcast Xfinity</span><span class="rl-m">bill</span></span>
+      <span class="rl-r"><b>Oct 1</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">V</span>
+      <span class="rl-main"><span class="rl-t">Verizon</span><span class="rl-m">bill</span></span>
+      <span class="rl-r"><b>Sep 24</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">L</span>
+      <span class="rl-main"><span class="rl-t">Lowes</span><span class="rl-m">receipt</span></span>
+      <span class="rl-r"><b>Sep 19</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">W</span>
+      <span class="rl-main"><span class="rl-t">Wake County Tax Office</span><span class="rl-m">bill</span></span>
+      <span class="rl-r"><b>Sep 15</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">H</span>
+      <span class="rl-main"><span class="rl-t">Hillside Elementary</span></span>
+      <span class="rl-r"><b>Sep 5</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">H</span>
+      <span class="rl-main"><span class="rl-t">Harbor Bank</span><span class="rl-m">statement</span></span>
+      <span class="rl-r"><b>Aug 28</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">V</span>
+      <span class="rl-main"><span class="rl-t">Verizon</span><span class="rl-m">bill</span></span>
+      <span class="rl-r"><b>Aug 24</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">L</span>
+      <span class="rl-main"><span class="rl-t">LG</span><span class="rl-m">manual</span></span>
+      <span class="rl-r"><b>Aug 6</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">B</span>
+      <span class="rl-main"><span class="rl-t">Best Buy</span><span class="rl-m">receipt</span></span>
+      <span class="rl-r"><b>Aug 6</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">H</span>
+      <span class="rl-main"><span class="rl-t">Harbor Bank</span><span class="rl-m">statement</span></span>
+      <span class="rl-r"><b>Jul 28</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">V</span>
+      <span class="rl-main"><span class="rl-t">Verizon</span><span class="rl-m">bill</span></span>
+      <span class="rl-r"><b>Jul 24</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">H</span>
+      <span class="rl-main"><span class="rl-t">Harbor Bank</span><span class="rl-m">statement</span></span>
+      <span class="rl-r"><b>Jun 28</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">V</span>
+      <span class="rl-main"><span class="rl-t">Verizon</span><span class="rl-m">bill</span></span>
+      <span class="rl-r"><b>Jun 24</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">T</span>
+      <span class="rl-main"><span class="rl-t">Triangle Pediatrics</span><span class="rl-m">medical</span></span>
+      <span class="rl-r"><b>Jun 17</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">H</span>
+      <span class="rl-main"><span class="rl-t">Harbor Bank</span><span class="rl-m">statement</span></span>
+      <span class="rl-r"><b>May 28</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">S</span>
+      <span class="rl-main"><span class="rl-t">State Farm</span><span class="rl-m">policy</span></span>
+      <span class="rl-r"><b>May 18</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">N</span>
+      <span class="rl-main"><span class="rl-t">NC DMV</span><span class="rl-m">vehicle</span></span>
+      <span class="rl-r"><b>Mar 29</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">N</span>
+      <span class="rl-main"><span class="rl-t">NC DMV</span><span class="rl-m">vehicle</span></span>
+      <span class="rl-r"><b>Mar 29</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">A</span>
+      <span class="rl-main"><span class="rl-t">Allstate</span><span class="rl-m">policy</span></span>
+      <span class="rl-r"><b>Feb 12</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">S</span>
+      <span class="rl-main"><span class="rl-t">State Farm</span><span class="rl-m">policy</span></span>
+      <span class="rl-r"><b>Nov 17, 2025</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">A</span>
+      <span class="rl-main"><span class="rl-t">Allstate</span><span class="rl-m">policy</span></span>
+      <span class="rl-r"><b>Feb 12, 2025</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">N</span>
+      <span class="rl-main"><span class="rl-t">Northwind Systems</span><span class="rl-m">tax</span></span>
+      <span class="rl-r"><b>Jan 31, 2025</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">A</span>
+      <span class="rl-main"><span class="rl-t">Acme Corp</span><span class="rl-m">tax</span></span>
+      <span class="rl-r"><b>Jan 28, 2025</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">H</span>
+      <span class="rl-main"><span class="rl-t">Home Depot</span><span class="rl-m">receipt</span></span>
+      <span class="rl-r"><b>Apr 28, 2024</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">W</span>
+      <span class="rl-main"><span class="rl-t">Whirlpool</span><span class="rl-m">manual</span></span>
+      <span class="rl-r"><b>Apr 28, 2024</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
+    <thead><tr><th>Date</th><th>Type</th><th>Vendor</th></tr></thead>
+    <tbody><tr><td><a href="#" data-demo="1">Oct 6</a></td><td>bill</td><td>Duke Energy</td></tr><tr><td><a href="#" data-demo="1">Oct 5</a></td><td>bill</td><td>Verizon</td></tr><tr><td><a href="#" data-demo="1">Oct 5</a></td><td>investment</td><td>Savings</td></tr><tr><td><a href="#" data-demo="1">Oct 5</a></td><td>investment</td><td>401k</td></tr><tr><td><a href="#" data-demo="1">Oct 5</a></td><td>investment</td><td>Fidelity</td></tr><tr><td><a href="#" data-demo="1">Oct 1</a></td><td>bill</td><td>Comcast Xfinity</td></tr><tr><td><a href="#" data-demo="1">Sep 24</a></td><td>bill</td><td>Verizon</td></tr><tr><td><a href="#" data-demo="1">Sep 19</a></td><td>receipt</td><td>Lowes</td></tr><tr><td><a href="#" data-demo="1">Sep 15</a></td><td>bill</td><td>Wake County Tax Office</td></tr><tr><td><a href="#" data-demo="1">Sep 5</a></td><td>other</td><td>Hillside Elementary</td></tr><tr><td><a href="#" data-demo="1">Aug 28</a></td><td>statement</td><td>Harbor Bank</td></tr><tr><td><a href="#" data-demo="1">Aug 24</a></td><td>bill</td><td>Verizon</td></tr><tr><td><a href="#" data-demo="1">Aug 6</a></td><td>manual</td><td>LG</td></tr><tr><td><a href="#" data-demo="1">Aug 6</a></td><td>receipt</td><td>Best Buy</td></tr><tr><td><a href="#" data-demo="1">Jul 28</a></td><td>statement</td><td>Harbor Bank</td></tr><tr><td><a href="#" data-demo="1">Jul 24</a></td><td>bill</td><td>Verizon</td></tr><tr><td><a href="#" data-demo="1">Jun 28</a></td><td>statement</td><td>Harbor Bank</td></tr><tr><td><a href="#" data-demo="1">Jun 24</a></td><td>bill</td><td>Verizon</td></tr><tr><td><a href="#" data-demo="1">Jun 17</a></td><td>medical</td><td>Triangle Pediatrics</td></tr><tr><td><a href="#" data-demo="1">May 28</a></td><td>statement</td><td>Harbor Bank</td></tr><tr><td><a href="#" data-demo="1">May 18</a></td><td>policy</td><td>State Farm</td></tr><tr><td><a href="#" data-demo="1">Mar 29</a></td><td>vehicle</td><td>NC DMV</td></tr><tr><td><a href="#" data-demo="1">Mar 29</a></td><td>vehicle</td><td>NC DMV</td></tr><tr><td><a href="#" data-demo="1">Feb 12</a></td><td>policy</td><td>Allstate</td></tr><tr><td><a href="#" data-demo="1">Nov 17, 2025</a></td><td>policy</td><td>State Farm</td></tr><tr><td><a href="#" data-demo="1">Feb 12, 2025</a></td><td>policy</td><td>Allstate</td></tr><tr><td><a href="#" data-demo="1">Jan 31, 2025</a></td><td>tax</td><td>Northwind Systems</td></tr><tr><td><a href="#" data-demo="1">Jan 28, 2025</a></td><td>tax</td><td>Acme Corp</td></tr><tr><td><a href="#" data-demo="1">Apr 28, 2024</a></td><td>receipt</td><td>Home Depot</td></tr><tr><td><a href="#" data-demo="1">Apr 28, 2024</a></td><td>manual</td><td>Whirlpool</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+
+<p class="muted small">Looking up only here: to add or change one of these, tell Chat.</p>
+
+
+</main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=records:papers:papers" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="records" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html">Finance</a>
+        
+        <a role="menuitem" href="records.html" class="on" aria-current="page">Records</a>
+        
+        <a role="menuitem" href="notes.html">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings.html">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>

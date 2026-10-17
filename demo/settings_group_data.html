@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else" open="">
+        <details class="rg" data-rg="Everything else">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -68,23 +68,25 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html" class="on" aria-current="page">Settings</a>
+    <a href="settings.html" class="on" aria-current="page">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Settings</h1><p class="sub">Profile, agent, connections, phones and data</p></div></header>
-<nav class="pills" aria-label="Settings group"><a href="settings_group_household.html">Household profile</a><a href="settings_group_agent.html">Agent</a><a href="settings_group_connections.html">Connections</a><a href="#" data-demo="1">Phones</a><a href="settings_group_data.html" class="on" aria-current="true">Data</a></nav>
+
+
+<header class="head fhead"><div><a class="fback" href="settings.html">Settings</a><h1>Data</h1></div></header>
+<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html">Household profile</a><a href="settings_group_agent.html">Agent</a><a href="settings_group_connections.html">Connections</a><a href="settings_group_phones.html">Phones</a><a href="settings_group_data.html" class="on" aria-current="true">Data</a></nav>
 
 
 
-<section class="card">
-  <h2>Health check</h2>
+
+<details class="card sfold" open=""><summary><h2>Health check</h2></summary>
   <p class="alert"><b>Scheduled tasks</b>: not registered, so nothing runs by itself<br>Fix it in: Settings &gt; Data &gt; Runs on its own</p><p class="alert"><b>Review queue</b>: 2 file(s) need you to say what they are<br>Fix it in: the Inbox page</p>
   <p class="muted">2 thing(s) to fix.</p>
   
@@ -95,15 +97,14 @@
   </table></div>
   </details>
   
-</section>
-<section class="card">
-  <h2>Calendar file</h2>
+</details>
+<details class="card sfold"><summary><h2>Calendar file</h2><span class="muted">Every due date for a phone's calendar</span></summary>
   <p><a class="btn" href="#" data-demo="1" download="">Download the calendar file (next 365 days)</a></p>
   <p class="muted small">Open it on your phone to add every due date to its calendar. It holds names, amounts and last-4 digits
     only; importing it again updates the events instead of doubling them.</p>
-</section>
-<section class="card" id="data-backup">
-  <h2>Back up and export</h2>
+</details>
+<details class="card sfold"><summary><h2>Back up and export</h2><span class="muted">Back up now or export every table</span></summary>
+<div id="data-backup">
   <div class="optrow">
     <button type="button" class="btn" data-hx-post="/settings/backup" data-hx-disabled-elt="this" data-hx-indicator="#bk-wait">Back up now</button>
     <button type="button" class="btn alt" data-hx-post="/settings/export" data-hx-disabled-elt="this" data-hx-indicator="#bk-wait">Export all my data</button>
@@ -112,10 +113,11 @@
   
   <p class="muted small">A backup also runs every week by itself once it runs on its own (below). An export is every table as
     CSV files in one zip, for you to keep or open in a spreadsheet.</p>
-</section>
+</div>
+</details>
 
-<section class="card" id="data-restore">
-  <h2>Restore from backup</h2>
+<details class="card sfold"><summary><h2>Restore from backup</h2><span class="muted">Put the records back as they were</span></summary>
+<div id="data-restore">
   
   
   <p class="muted">Puts the household's records back as they were at the time of a backup. Everything entered since then is
@@ -132,10 +134,11 @@
   </form>
   <p class="muted small">The phone bot pauses during the restore and starts again afterwards. This page closes for about a minute.</p>
   
-</section>
+</div>
+</details>
 
-<section class="card" id="data-run">
-  <h2>Runs on its own</h2>
+<details class="card sfold"><summary><h2>Runs on its own</h2><span class="muted">Daily brief, weekly digest, backups, inbox check</span></summary>
+<div id="data-run">
   <p class="muted">This PC makes the Brief, the weekly digest and the backups at set times, with nothing to keep open.
     Switch each one on or off, change when it runs, and see when it last ran. The PC must be on and you signed in.</p>
   
@@ -225,11 +228,12 @@
     <button class="btn alt" type="submit">Switch them all on</button>
   </form>
   
-</section>
+</div>
+</details>
 
-<section class="card" id="data-update">
-  <h2>Updates</h2>
-  <p class="muted">This is Mitra Home 0.109.1.</p>
+<details class="card sfold"><summary><h2>Updates</h2><span class="muted">Check for and install new versions</span></summary>
+<div id="data-update">
+  <p class="muted">This is Mitra Home 0.113.1.</p>
   <div class="optrow">
     <button type="button" class="btn alt" data-hx-post="/settings/update" data-hx-vals="{&quot;op&quot;: &quot;check&quot;}" data-hx-disabled-elt="this">Check for updates</button>
     
@@ -243,28 +247,29 @@
     </div>
     <p class="muted small">Once a day the morning task asks api.github.com for the latest release number and its notes. Only that address is contacted and nothing about your family is sent. A new version shows up in the Inbox; it is never installed without you. Off: no network call at all.</p>
   </div>
-</section>
+</div>
+</details>
 
-<section class="card" id="data-check">
-  <h2>Full check</h2>
+<details class="card sfold"><summary><h2>Full check</h2><span class="muted">Every task on this PC and the AI</span></summary>
+<div id="data-check">
   <p class="muted">Also checks every scheduled task on this PC (not only this household's), and asks the AI a short question, so it uses a little of your AI plan (about a minute).</p>
   <button type="button" class="btn alt" data-hx-post="/settings/doctor" data-hx-target="#doctor-out" data-hx-swap="innerHTML" data-hx-disabled-elt="this" data-hx-indicator="#doc-wait">Run full check</button>
   <span id="doc-wait" class="setting-up muted" role="status">Checking...</span>
   <div id="doctor-out"></div>
-</section>
+</div>
+</details>
 
-<section class="card">
-  <h2>Changes made here</h2>
+<details class="card sfold"><summary><h2>Changes made here</h2><span class="muted">Who changed which setting</span></summary>
   <div class="tablewrap"><table>
     <thead><tr><th>When</th><th>Who</th><th>What</th><th>Detail</th></tr></thead>
     <tbody><tr><td>2026-10-16T01:26:32</td><td>Marcus</td><td>view_mode_set</td><td>advanced</td></tr><tr><td>2026-10-16T01:19:55</td><td>Marcus</td><td>view_mode_set</td><td>simple</td></tr><tr><td>2026-10-16T00:46:49</td><td>Marcus</td><td>view_mode_set</td><td>simple</td></tr><tr><td>2026-10-15T22:44:15</td><td>Marcus</td><td>task_time</td><td>job=weekly_backup</td></tr><tr><td>2026-10-15T22:43:58</td><td>Marcus</td><td>task_time</td><td>job=weekly_backup</td></tr><tr><td>2026-10-15T19:27:28</td><td>Marcus</td><td>view_mode_set</td><td>advanced</td></tr><tr><td>2026-10-15T19:27:25</td><td>Marcus</td><td>view_mode_set</td><td>simple</td></tr><tr><td>2026-10-15T19:27:23</td><td>Marcus</td><td>view_mode_set</td><td>advanced</td></tr><tr><td>2026-10-15T19:27:20</td><td>Marcus</td><td>view_mode_set</td><td>advanced</td></tr><tr><td>2026-10-15T19:23:12</td><td>Marcus</td><td>view_mode_set</td><td>simple</td></tr><tr><td>2026-10-15T18:58:35</td><td>Marcus</td><td>phone_pair_code</td><td>Marcus: sss</td></tr></tbody>
   </table></div>
   <p class="muted small">Settings changes only; no keys, tokens or questions are recorded.</p>
-</section>
+</details>
 
 
 <details class="card more-form"><summary><h2>Advanced</h2></summary>
-  <div class="tablewrap"><table><tbody><tr><th>AI provider</th><td>claude_code</td></tr><tr><th>Your folder (papers, settings, database)</th><td>C:\Users\you\MitraHome\home</td></tr><tr><th>App folder (code)</th><td>C:\Users\you\MitraHome\app</td></tr><tr><th>Backups on this drive</th><td>C:\Users\you\MitraHome\Mitra-Home-Backup</td></tr><tr><th>Google Drive folder</th><td>not set up (python onboard.py add drive)</td></tr><tr><th>Second backup location</th><td>none (python onboard.py add backup)</td></tr><tr><th>Version</th><td>0.109.1</td></tr></tbody></table></div>
+  <div class="tablewrap"><table><tbody><tr><th>AI provider</th><td>claude_code</td></tr><tr><th>Your folder (papers, settings, database)</th><td>C:\Users\you\MitraHome\home</td></tr><tr><th>App folder (code)</th><td>C:\Users\you\MitraHome\app</td></tr><tr><th>Backups on this drive</th><td>C:\Users\you\MitraHome\Mitra-Home-Backup</td></tr><tr><th>Google Drive folder</th><td>not set up (python onboard.py add drive)</td></tr><tr><th>Second backup location</th><td>none (python onboard.py add backup)</td></tr><tr><th>Version</th><td>0.113.1</td></tr></tbody></table></div>
   
   
   <h3>Commands for the checks above</h3>
@@ -278,9 +283,14 @@
     config/contacts.json (copy contacts.example.json).</p>
 </details>
 
-<p class="muted small">Version 0.109.1 · stored on this PC.</p>
+<p class="muted small">Version 0.113.1 · stored on this PC.</p>
 
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=settings" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="settings" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -305,7 +315,7 @@
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html" class="on" aria-current="page">Settings</a>
+        <a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

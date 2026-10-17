@@ -68,37 +68,27 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Records</h1><p class="sub">Home · Lists</p></div></header>
 
-<form class="rsearch card" action="records.html" method="get" role="search">
-  <label class="vh" for="rq">Search the records</label>
-  <input id="rq" type="search" name="q" value="" maxlength="200" placeholder="water bill, passport, furnace...">
-  <button class="btn" type="submit">Search</button>
-</form>
+<header class="head fhead"><div><a class="fback" href="records.html">Records</a><h1>Home</h1><p class="sub">Lists</p></div><a class="btn alt rsgo" href="#" data-demo="1">Search</a></header>
+
+<nav class="fchips" aria-label="Home"><a href="records_domain_home_section_lists.html" class="on" aria-current="true">Lists</a><a href="records_domain_home_section_meals.html">Meals</a><a href="records_domain_home_section_saved.html">Saved</a><a href="records_domain_home_section_upkeep.html">Upkeep</a><a href="records_domain_home_section_contacts.html">Service contacts</a><a href="records_domain_home_section_inventory.html">Inventory</a><a href="records_domain_home_section_shopping.html">Shopping</a></nav>
 
 
 
-
-
-
-<nav class="pills" aria-label="Area"><a href="#" data-demo="1">People</a><a href="#" data-demo="1" class="on" aria-current="true">Home</a><a href="#" data-demo="1">Vehicles</a><a href="#" data-demo="1">Papers &amp; IDs</a></nav>
-
-<nav class="pills sm" aria-label="Part"><a href="records_domain_home_section_lists.html" class="on" aria-current="true">Lists</a><a href="records_domain_home_section_meals.html">Meals</a><a href="records_domain_home_section_saved.html">Saved</a><a href="records_domain_home_section_upkeep.html">Upkeep</a><a href="#" data-demo="1">Service contacts</a><a href="records_domain_home_section_inventory.html">Inventory</a><a href="#" data-demo="1">Shopping</a></nav>
 
 
 
 <div class="kpis rk"><div class="kpi"><span>Upkeep jobs</span><b>13</b></div><div class="kpi"><span>Things at home</span><b>7</b></div><div class="kpi"><span>Service contacts</span><b>1</b></div><div class="kpi"><span>Recipes</span><b>6</b></div></div>
-
 
 
 
@@ -117,10 +107,39 @@
 </details>
 
 
-<section class="card rblock">
-  <h2>Lists</h2>
+
+<section class="card rblock"><h2>Lists <span class="muted rcount">4</span></h2>
   
-  <div class="tablewrap"><table>
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">B</span>
+      <span class="rl-main"><span class="rl-t">Beach trip packing</span><span class="rl-m">packing · family · Open items 5</span></span>
+      <span class="rl-r"></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">G</span>
+      <span class="rl-main"><span class="rl-t">Gift ideas (adults)</span><span class="rl-m">todo · adults · Open items 2</span></span>
+      <span class="rl-r"></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">G</span>
+      <span class="rl-main"><span class="rl-t">Groceries</span><span class="rl-m">shopping · family · Open items 19</span></span>
+      <span class="rl-r"></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">W</span>
+      <span class="rl-main"><span class="rl-t">Weekend to-do</span><span class="rl-m">todo · family · Open items 4</span></span>
+      <span class="rl-r"></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Name</th><th>Kind</th><th>Audience</th><th>Open items</th></tr></thead>
     <tbody><tr><td><a href="#" data-demo="1">Beach trip packing</a></td><td>packing</td><td>family</td><td>5</td></tr><tr><td><a href="#" data-demo="1">Gift ideas (adults)</a></td><td>todo</td><td>adults</td><td>2</td></tr><tr><td><a href="#" data-demo="1">Groceries</a></td><td>shopping</td><td>family</td><td>19</td></tr><tr><td><a href="#" data-demo="1">Weekend to-do</a></td><td>todo</td><td>family</td><td>4</td></tr></tbody>
   </table></div>
@@ -128,10 +147,16 @@
 </section>
 
 
+
 <p class="muted small">Open a row to change it here, or tell Chat.</p>
 
 
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=records:home:lists" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="records" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -156,7 +181,7 @@
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

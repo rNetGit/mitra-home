@@ -68,35 +68,25 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Records</h1><p class="sub">Vehicles</p></div></header>
 
-<form class="rsearch card" action="records.html" method="get" role="search">
-  <label class="vh" for="rq">Search the records</label>
-  <input id="rq" type="search" name="q" value="" maxlength="200" placeholder="water bill, passport, furnace...">
-  <button class="btn" type="submit">Search</button>
-</form>
+<header class="head fhead"><div><a class="fback" href="records.html">Records</a><h1>Vehicles</h1></div><a class="btn alt rsgo" href="#" data-demo="1">Search</a></header>
 
 
 
-
-
-
-<nav class="pills" aria-label="Area"><a href="#" data-demo="1">People</a><a href="#" data-demo="1">Home</a><a href="#" data-demo="1" class="on" aria-current="true">Vehicles</a><a href="#" data-demo="1">Papers &amp; IDs</a></nav>
 
 
 
 <div class="kpis rk"><div class="kpi"><span>Vehicles</span><b>2</b></div><div class="kpi"><span>Renewals in 60 days</span><b>1</b></div></div>
-
 
 
 
@@ -115,31 +105,82 @@
 </details>
 
 
-<section class="card rblock">
-  <h2>Vehicles</h2>
+
+<section class="card rblock"><h2>Vehicles <span class="muted rcount">2</span></h2>
   
-  <div class="tablewrap"><table class="cards">
-    <thead><tr><th>Year</th><th>Make</th><th>Model</th><th>Owner</th><th>Registration</th><th>Inspection</th></tr></thead>
-    <tbody><tr><td data-label="Year"><a href="#" data-demo="1">2021</a></td><td data-label="Make">Honda</td><td data-label="Model">CR-V</td><td data-label="Owner"></td><td data-label="Registration">2026-11-09</td><td data-label="Inspection">2026-11-09</td></tr><tr><td data-label="Year"><a href="#" data-demo="1">2017</a></td><td data-label="Make">Toyota</td><td data-label="Model">Tacoma</td><td data-label="Owner"></td><td data-label="Registration">2027-03-04</td><td data-label="Inspection">2026-10-03</td></tr></tbody>
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-warn" aria-hidden="true">H</span>
+      <span class="rl-main"><span class="rl-t">2021 Honda CR-V</span><span class="rl-m">Inspection Nov 9</span></span>
+      <span class="rl-r"><b>Nov 9</b><span class="chip-s t-warn">in 24 days</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-bad" aria-hidden="true">T</span>
+      <span class="rl-main"><span class="rl-t">2017 Toyota Tacoma</span><span class="rl-m">Inspection Oct 3</span></span>
+      <span class="rl-r"><b>Mar 4, 2027</b><span class="chip-s t-bad">inspection expired</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
+    <thead><tr><th>Vehicle</th><th>Owner</th><th>Registration</th><th>Inspection</th></tr></thead>
+    <tbody><tr><td><a href="#" data-demo="1">2021 Honda CR-V</a> <span class="chip-s t-warn">in 24 days</span></td><td></td><td>Nov 9</td><td>Nov 9</td></tr><tr><td><a href="#" data-demo="1">2017 Toyota Tacoma</a> <span class="chip-s t-bad">inspection expired</span></td><td></td><td>Mar 4, 2027</td><td>Oct 3</td></tr></tbody>
   </table></div>
   
 </section>
 
-<section class="card rblock">
-  <h2>Service log</h2>
+
+
+<section class="card rblock"><h2>Service log <span class="muted rcount">4</span></h2>
   
-  <div class="tablewrap"><table class="cards">
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">S</span>
+      <span class="rl-main"><span class="rl-t">Service</span><span class="rl-m">2017 Toyota Tacoma · Odometer 96300 · $312.00 · Capital Toyota</span></span>
+      <span class="rl-r"><b>Aug 31</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">O</span>
+      <span class="rl-main"><span class="rl-t">Oil change</span><span class="rl-m">2021 Honda CR-V · Odometer 41200 · $78.40 · Jiffy Lube</span></span>
+      <span class="rl-r"><b>Aug 6</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">T</span>
+      <span class="rl-main"><span class="rl-t">Tires</span><span class="rl-m">2021 Honda CR-V · Odometer 39800 · $842.17 · Tire Kingdom</span></span>
+      <span class="rl-r"><b>Jul 7</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">O</span>
+      <span class="rl-main"><span class="rl-t">Oil change</span><span class="rl-m">2017 Toyota Tacoma · Odometer 92100 · $71.25 · Jiffy Lube</span></span>
+      <span class="rl-r"><b>Mar 9</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table class="cards">
     <thead><tr><th>Date</th><th>Vehicle</th><th>Service</th><th>Odometer</th><th>Cost</th><th>Vendor</th></tr></thead>
-    <tbody><tr><td data-label="Date"><a href="#" data-demo="1">2026-08-31</a></td><td data-label="Vehicle">2017 Toyota Tacoma</td><td data-label="Service">service</td><td data-label="Odometer">96300</td><td data-label="Cost">$312.00</td><td data-label="Vendor">Capital Toyota</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">2026-08-06</a></td><td data-label="Vehicle">2021 Honda CR-V</td><td data-label="Service">oil change</td><td data-label="Odometer">41200</td><td data-label="Cost">$78.40</td><td data-label="Vendor">Jiffy Lube</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">2026-07-07</a></td><td data-label="Vehicle">2021 Honda CR-V</td><td data-label="Service">tires</td><td data-label="Odometer">39800</td><td data-label="Cost">$842.17</td><td data-label="Vendor">Tire Kingdom</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">2026-03-09</a></td><td data-label="Vehicle">2017 Toyota Tacoma</td><td data-label="Service">oil change</td><td data-label="Odometer">92100</td><td data-label="Cost">$71.25</td><td data-label="Vendor">Jiffy Lube</td></tr></tbody>
+    <tbody><tr><td data-label="Date"><a href="#" data-demo="1">Aug 31</a></td><td data-label="Vehicle">2017 Toyota Tacoma</td><td data-label="Service">service</td><td data-label="Odometer">96300</td><td data-label="Cost">$312.00</td><td data-label="Vendor">Capital Toyota</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Aug 6</a></td><td data-label="Vehicle">2021 Honda CR-V</td><td data-label="Service">oil change</td><td data-label="Odometer">41200</td><td data-label="Cost">$78.40</td><td data-label="Vendor">Jiffy Lube</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Jul 7</a></td><td data-label="Vehicle">2021 Honda CR-V</td><td data-label="Service">tires</td><td data-label="Odometer">39800</td><td data-label="Cost">$842.17</td><td data-label="Vendor">Tire Kingdom</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Mar 9</a></td><td data-label="Vehicle">2017 Toyota Tacoma</td><td data-label="Service">oil change</td><td data-label="Odometer">92100</td><td data-label="Cost">$71.25</td><td data-label="Vendor">Jiffy Lube</td></tr></tbody>
   </table></div>
   
 </section>
+
 
 
 <p class="muted small">Open a row to change it here, or tell Chat.</p>
 
 
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=records:vehicles:vehicles" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="records" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -164,7 +205,7 @@
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

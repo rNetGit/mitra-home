@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else" open="">
+        <details class="rg" data-rg="Everything else">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -68,20 +68,20 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Finance</h1><p class="sub">Pay · Subscriptions</p></div></header>
-<nav class="pills" aria-label="Group"><a href="finance_part_bills.html" class="on" aria-current="true">Pay</a><a href="finance_part_accounts.html">Keep</a><a href="finance_part_cashflow.html">Look back</a></nav>
 
-<nav class="pills sm" aria-label="Part"><a href="finance_part_bills.html">Bills</a><a href="finance_part_receipts.html">Receipts</a><a href="finance_part_mobile.html">Phone bills</a><a href="finance_part_subs.html" class="on" aria-current="true">Subscriptions</a><a href="#" data-demo="1">Amazon orders</a><a href="#" data-demo="1">Cards</a><a href="#" data-demo="1">Statement watch</a><a href="#" data-demo="1">Price spikes</a></nav>
+<header class="head fhead"><div><a class="fback" href="finance.html">Finance</a><h1>Pay</h1><p class="sub">Subscriptions</p></div></header>
+
+<nav class="fchips" aria-label="Pay"><a href="finance_part_bills.html">Bills</a><a href="finance_part_receipts.html">Receipts</a><a href="finance_part_mobile.html">Phone bills</a><a href="finance_part_subs.html" class="on" aria-current="true">Subscriptions</a><a href="#" data-demo="1">Amazon orders</a><a href="finance_part_cards.html">Cards</a><a href="#" data-demo="1">Statement watch</a><a href="#" data-demo="1">Price spikes</a></nav>
 
 
 
@@ -113,36 +113,94 @@
 
 
 
-<section class="card rblock">
-  <h2>Decide: is it used? (keep or cancel)</h2>
+
+
+<section class="card rblock"><h2>Decide: is it used? (keep or cancel)</h2>
   
-  <div class="tablewrap"><table class="cards">
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-ok" aria-hidden="true">P</span>
+      <span class="rl-main"><span class="rl-t">Planet Fitness</span><span class="rl-m">unreviewed · Per month $24.99 · Per year $299.88 · Harbor Checking x4417</span></span>
+      <span class="rl-r"><span class="chip-s t-ok">active</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-ok" aria-hidden="true">A</span>
+      <span class="rl-main"><span class="rl-t">Apple iCloud</span><span class="rl-m">unreviewed · Per month $2.99 · Per year $35.88 · Summit Rewards Visa x9026</span></span>
+      <span class="rl-r"><span class="chip-s t-ok">active</span></span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table class="cards">
     <thead><tr><th>Subscription</th><th>Decision</th><th>Status</th><th>Per month</th><th>Per year</th><th>Category</th><th>Paid with</th><th>Last charge</th><th>Next est</th><th>Used by</th></tr></thead>
     <tbody><tr><td data-label="Subscription"><a href="#" data-demo="1">Planet Fitness</a></td><td data-label="Decision">unreviewed</td><td data-label="Status">active</td><td data-label="Per month">$24.99</td><td data-label="Per year">$299.88</td><td data-label="Category"></td><td data-label="Paid with">Harbor Checking x4417</td><td data-label="Last charge">2026-10-06</td><td data-label="Next est">2026-11-05</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Apple iCloud</a></td><td data-label="Decision">unreviewed</td><td data-label="Status">active</td><td data-label="Per month">$2.99</td><td data-label="Per year">$35.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">2026-09-20</td><td data-label="Next est">2026-10-20</td><td data-label="Used by"></td></tr></tbody>
   </table></div>
   
 </section>
 
-<section class="card rblock">
-  <h2>Already decided</h2>
+
+
+<section class="card rblock"><h2>Already decided</h2>
   
-  <div class="tablewrap"><table class="cards">
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">H</span>
+      <span class="rl-main"><span class="rl-t">Hulu</span><span class="rl-m">cancelled · Per month $17.99 · Per year $215.88 · Summit Rewards Visa x9026</span></span>
+      <span class="rl-r"><span class="chip-s t-n">cancelled</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-ok" aria-hidden="true">N</span>
+      <span class="rl-main"><span class="rl-t">Netflix</span><span class="rl-m">keep · Per month $17.99 · Per year $215.88 · Summit Rewards Visa x9026</span></span>
+      <span class="rl-r"><span class="chip-s t-ok">active</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-ok" aria-hidden="true">D</span>
+      <span class="rl-main"><span class="rl-t">Disney Plus</span><span class="rl-m">cancel · Per month $13.99 · Per year $167.88 · Summit Rewards Visa x9026</span></span>
+      <span class="rl-r"><span class="chip-s t-ok">active</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-ok" aria-hidden="true">S</span>
+      <span class="rl-main"><span class="rl-t">Spotify</span><span class="rl-m">keep · Per month $11.99 · Per year $143.88 · Summit Rewards Visa x9026</span></span>
+      <span class="rl-r"><span class="chip-s t-ok">active</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">N</span>
+      <span class="rl-main"><span class="rl-t">NYT Cooking</span><span class="rl-m">unreviewed · Per month $0.00 · Per year $0.00</span></span>
+      <span class="rl-r"><span class="chip-s t-n">no charges found</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">X</span>
+      <span class="rl-main"><span class="rl-t">Xbox Game Pass</span><span class="rl-m">unreviewed · Per month $0.00 · Per year $0.00</span></span>
+      <span class="rl-r"><span class="chip-s t-n">no charges found</span></span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table class="cards">
     <thead><tr><th>Subscription</th><th>Decision</th><th>Status</th><th>Per month</th><th>Per year</th><th>Category</th><th>Paid with</th><th>Last charge</th><th>Next est</th><th>Used by</th></tr></thead>
     <tbody><tr><td data-label="Subscription"><a href="#" data-demo="1">Hulu</a></td><td data-label="Decision">cancelled</td><td data-label="Status">cancelled</td><td data-label="Per month">$17.99</td><td data-label="Per year">$215.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">2026-07-23</td><td data-label="Next est"></td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Netflix</a></td><td data-label="Decision">keep</td><td data-label="Status">active</td><td data-label="Per month">$17.99</td><td data-label="Per year">$215.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">2026-10-07</td><td data-label="Next est">2026-11-06</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Disney Plus</a></td><td data-label="Decision">cancel</td><td data-label="Status">active</td><td data-label="Per month">$13.99</td><td data-label="Per year">$167.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">2026-09-17</td><td data-label="Next est">2026-10-17</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Spotify</a></td><td data-label="Decision">keep</td><td data-label="Status">active</td><td data-label="Per month">$11.99</td><td data-label="Per year">$143.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">2026-10-11</td><td data-label="Next est">2026-11-10</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">NYT Cooking</a></td><td data-label="Decision">unreviewed</td><td data-label="Status">no charges found</td><td data-label="Per month">$0.00</td><td data-label="Per year">$0.00</td><td data-label="Category"></td><td data-label="Paid with"></td><td data-label="Last charge"></td><td data-label="Next est"></td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Xbox Game Pass</a></td><td data-label="Decision">unreviewed</td><td data-label="Status">no charges found</td><td data-label="Per month">$0.00</td><td data-label="Per year">$0.00</td><td data-label="Category"></td><td data-label="Paid with"></td><td data-label="Last charge"></td><td data-label="Next est"></td><td data-label="Used by"></td></tr></tbody>
   </table></div>
   
 </section>
 
-<section class="card rblock">
-  <h2>Other recurring payments seen (not tracked as subscriptions)</h2>
+
+
+<section class="card rblock"><h2>Other recurring payments seen (not tracked as subscriptions)</h2>
   <p class="muted">None seen.</p>
 </section>
 
 
+
 <p class="muted small">Open a row to change it here, or tell Chat.</p>
 
-
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=finance:subs" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="finance" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -167,7 +225,7 @@
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

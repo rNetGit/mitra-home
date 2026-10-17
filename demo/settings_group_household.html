@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else" open="">
+        <details class="rg" data-rg="Everything else">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -68,23 +68,25 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html" class="on" aria-current="page">Settings</a>
+    <a href="settings.html" class="on" aria-current="page">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Settings</h1><p class="sub">Profile, agent, connections, phones and data</p></div></header>
-<nav class="pills" aria-label="Settings group"><a href="settings_group_household.html" class="on" aria-current="true">Household profile</a><a href="settings_group_agent.html">Agent</a><a href="settings_group_connections.html">Connections</a><a href="#" data-demo="1">Phones</a><a href="settings_group_data.html">Data</a></nav>
+
+
+<header class="head fhead"><div><a class="fback" href="settings.html">Settings</a><h1>Household profile</h1></div></header>
+<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html" class="on" aria-current="true">Household profile</a><a href="settings_group_agent.html">Agent</a><a href="settings_group_connections.html">Connections</a><a href="settings_group_phones.html">Phones</a><a href="settings_group_data.html">Data</a></nav>
 
 
 
-<section class="card">
-  <h2>How much to show</h2>
+
+<details class="card sfold"><summary><h2>How much to show</h2><span class="muted">Simple or Advanced view</span></summary>
   <p class="muted small">You see everything, including finance, insurance, taxes, work, connections and the optional packs.
     This only changes what is shown. Nothing is deleted or switched off, and both views are free.</p>
   <form class="nform" data-hx-post="/settings/view">
@@ -94,23 +96,36 @@
     </fieldset>
     <button class="btn" type="submit">Save</button>
   </form>
-</section>
-<section class="card">
-  <h2>How complete is your profile</h2>
+</details>
+<details class="card sfold" open=""><summary><h2>How complete is your profile</h2></summary>
   <p><b>92%</b> filled in</p>
   
-  <div class="tablewrap"><table>
-    <thead><tr><th>Area</th><th>Filled in</th><th></th></tr></thead>
-    <tbody><tr><td>People</td><td>4 of 4</td><td>100%</td></tr><tr><td>Home</td><td>1 of 2</td><td>50%</td></tr><tr><td>Vehicles</td><td>1 of 1</td><td>100%</td></tr><tr><td>Finance</td><td>2 of 2</td><td>100%</td></tr><tr><td>Papers</td><td>2 of 2</td><td>100%</td></tr><tr><td>Subscriptions</td><td>1 of 1</td><td>100%</td></tr></tbody>
-  </table></div>
+  <ul class="fbars">
+    <li class="t-ok"><div class="fb-top"><span class="fb-l">People</span><span class="fb-v"><b>4</b> of 4</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"></rect><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"></rect></svg></li>
+  
+    <li class="t-warn"><div class="fb-top"><span class="fb-l">Home</span><span class="fb-v"><b>1</b> of 2</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"></rect><rect class="fb-fill" x="0" y="0" width="50" height="6" rx="3"></rect></svg></li>
+  
+    <li class="t-ok"><div class="fb-top"><span class="fb-l">Vehicles</span><span class="fb-v"><b>1</b> of 1</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"></rect><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"></rect></svg></li>
+  
+    <li class="t-ok"><div class="fb-top"><span class="fb-l">Finance</span><span class="fb-v"><b>2</b> of 2</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"></rect><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"></rect></svg></li>
+  
+    <li class="t-ok"><div class="fb-top"><span class="fb-l">Papers</span><span class="fb-v"><b>2</b> of 2</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"></rect><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"></rect></svg></li>
+  
+    <li class="t-ok"><div class="fb-top"><span class="fb-l">Subscriptions</span><span class="fb-v"><b>1</b> of 1</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"></rect><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"></rect></svg></li>
+  </ul>
   
   <p class="muted small">The rest fills in over the coming weeks: a couple of questions a day arrive in the Inbox.</p>
   
   <button type="button" class="btn" data-hx-post="/settings/next">Answer next (Home)</button>
   
-</section>
-<section class="card">
-  <h2>Names on your papers</h2>
+</details>
+<details class="card sfold"><summary><h2>Names on your papers</h2><span class="muted">Full names hidden before anything goes to the AI</span></summary>
   <p class="muted small">Bills, policies and statements often print full legal names, not the short names you use here. Write them
     one per line, so they are hidden before anything is sent to the AI. They stay on this PC.</p>
   <form class="nform" data-hx-post="/settings/papers">
@@ -119,19 +134,17 @@ Samantha Patel">Marcus Rivera
 Elena Rivera</textarea></label>
     <button class="btn" type="submit">Save the names</button>
   </form>
-</section>
+</details>
 
-<section class="card">
-  <h2>Optional features</h2>
+<details class="card sfold"><summary><h2>Optional features</h2><span class="muted">Packs you can switch on</span></summary>
   <p class="muted small">Switch on only what you will use. Turning one on never removes anything.</p>
   <form class="nform" data-hx-post="/settings/packs">
     <label class="check wide"><input type="checkbox" name="pack" value="festivals" checked=""> <span><b>Festival calendar</b>: Festival dates on the Brief. A starter list is added for you to edit.</span></label><label class="check wide"><input type="checkbox" name="pack" value="contracts" checked=""> <span><b>Work contracts</b>: End-date alerts, timesheet hours, hybrid schedule and monthly invoices.</span></label><label class="check wide"><input type="checkbox" name="pack" value="amazon" checked=""> <span><b>Amazon orders</b>: Match Amazon order history to card charges.</span></label><label class="check wide"><input type="checkbox" name="pack" value="shopping" checked=""> <span><b>Shopping lists</b>: Things to buy by a target date.</span></label><label class="check wide"><input type="checkbox" name="pack" value="holidays" checked=""> <span><b>Public holidays</b>: Your country's public holidays on the Calendar and the Brief, worked out on this PC.</span></label>
     <button class="btn" type="submit">Save</button>
   </form>
-</section>
+</details>
 
-<section class="card">
-  <h2>Traditions and holidays</h2>
+<details class="card sfold"><summary><h2>Traditions and holidays</h2><span class="muted">Festivals and holidays on the calendar</span></summary>
   <p class="muted small">Public holidays: US federal holidays (switch them off under Optional features).
     Optional: the traditions your family keeps (religious, cultural or regional), one per line, so their festivals and holidays reach the calendar. They stay on this PC: never on phones, Drive or a chat bot.</p>
   <form class="nform" data-hx-post="/settings/traditions">
@@ -143,10 +156,9 @@ Lunar New Year"></textarea></label>
     <button class="btn" type="submit">Save</button>
   </form>
   
-</section>
+</details>
 
-<section class="card">
-  <h2>Tax papers</h2>
+<details class="card sfold"><summary><h2>Tax papers</h2><span class="muted">Payers, state tax, tuition</span></summary>
   <p class="muted small">Names only, separated by commas. No account numbers. All three are optional and stay on this PC.</p>
   <form class="nform" data-hx-post="/settings/tax">
     <label class="wide">Banks, brokers or credit unions that send you interest forms<input name="payers" maxlength="2000" value=""></label>
@@ -154,9 +166,8 @@ Lunar New Year"></textarea></label>
     <label class="wide">Tuition payee as it appears on statements (% is a wildcard)<input name="tuition" maxlength="2000" value=""></label>
     <button class="btn" type="submit">Save</button>
   </form>
-</section>
-<section class="card">
-  <h2>How early to remind</h2>
+</details>
+<details class="card sfold"><summary><h2>How early to remind</h2><span class="muted">Days before an expiry date</span></summary>
   <p class="muted small">Days before an expiry date that its reminder starts.</p>
   
   <div class="tablewrap"><table>
@@ -170,12 +181,17 @@ Lunar New Year"></textarea></label>
     <button class="btn alt" type="submit">Save</button>
   </form>
   
-</section>
+</details>
 
 <p><a class="btn alt" href="#" data-demo="1">Run the setup interview again</a></p>
 
 
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=settings" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="settings" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -200,7 +216,7 @@ Lunar New Year"></textarea></label>
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html" class="on" aria-current="page">Settings</a>
+        <a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

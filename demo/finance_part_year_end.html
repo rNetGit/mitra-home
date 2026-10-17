@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else" open="">
+        <details class="rg" data-rg="Everything else">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -68,26 +68,26 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Finance</h1><p class="sub">Look back · Year-end</p></div></header>
-<nav class="pills" aria-label="Group"><a href="finance_part_bills.html">Pay</a><a href="finance_part_accounts.html">Keep</a><a href="finance_part_cashflow.html" class="on" aria-current="true">Look back</a></nav>
 
-<nav class="pills sm" aria-label="Part"><a href="finance_part_cashflow.html">Cashflow</a><a href="finance_part_trends.html">Trends</a><a href="finance_part_tax.html">Tax papers</a><a href="finance_part_home_office.html">Home office</a><a href="finance_part_year_end.html" class="on" aria-current="true">Year-end</a><a href="#" data-demo="1">Work</a></nav>
+<header class="head fhead"><div><a class="fback" href="finance.html">Finance</a><h1>Look back</h1><p class="sub">Year-end</p></div></header>
 
-
+<nav class="fchips" aria-label="Look back"><a href="finance_part_cashflow.html">Cashflow</a><a href="finance_part_trends.html">Trends</a><a href="finance_part_tax.html">Tax papers</a><a href="finance_part_home_office.html">Home office</a><a href="finance_part_year_end.html" class="on" aria-current="true">Year-end</a><a href="#" data-demo="1">Work</a></nav>
 
 
 
-<nav class="pills sm" aria-label="Year"><a href="#" data-demo="1" class="on" aria-current="true">2026</a><a href="#" data-demo="1">2025</a></nav>
+
+
+<nav class="fchips" aria-label="Year"><a href="#" data-demo="1" class="on" aria-current="true">2026</a><a href="#" data-demo="1">2025</a></nav>
 
 
 
@@ -618,10 +618,15 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </ul></section>
 
 
+
 <p class="muted small">Looking up only here: open a row to see it in full. To change one of these, tell Chat.</p>
 
-
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=finance:year_end" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="finance" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -646,7 +651,7 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

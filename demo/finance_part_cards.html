@@ -1,0 +1,273 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>Finance · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+    
+    
+      
+        
+        <span class="grp">Every day</span>
+        <a href="index.html">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        
+      
+        
+        <details class="rg" data-rg="Money" open="">
+          <summary>Money</summary>
+          <a href="month.html">This month</a><a href="finance.html" class="on" aria-current="page">Finance</a>
+        </details>
+        
+      
+        
+        <details class="rg" data-rg="Everything else">
+          <summary>Everything else</summary>
+          <a href="records.html">Records</a><a href="notes.html">Notes</a>
+        </details>
+        
+      
+    
+    <span class="grow"></span>
+    <a href="settings.html">Settings</a>
+    <div class="railfoot">
+      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.113.1</small>
+  </nav>
+
+  <main>
+
+<header class="head fhead"><div><a class="fback" href="finance.html">Finance</a><h1>Pay</h1><p class="sub">Cards</p></div></header>
+
+<nav class="fchips" aria-label="Pay"><a href="finance_part_bills.html">Bills</a><a href="finance_part_receipts.html">Receipts</a><a href="finance_part_mobile.html">Phone bills</a><a href="finance_part_subs.html">Subscriptions</a><a href="#" data-demo="1">Amazon orders</a><a href="finance_part_cards.html" class="on" aria-current="true">Cards</a><a href="#" data-demo="1">Statement watch</a><a href="#" data-demo="1">Price spikes</a></nav>
+
+
+
+
+
+<form class="rsearch ffilter" action="finance.html" method="get" role="search">
+  <input type="hidden" name="part" value="cards">
+  <label class="vh" for="fmonth">Month</label>
+  <select id="fmonth" name="month"><option value="2026-10" selected="">2026-10</option><option value="2026-09">2026-09</option><option value="2026-08">2026-08</option><option value="2026-07">2026-07</option><option value="2026-06">2026-06</option><option value="2026-05">2026-05</option><option value="2026-04">2026-04</option></select>
+  <label class="vh" for="fq">Search a merchant</label>
+  <input id="fq" type="search" name="q" value="" maxlength="100" placeholder="Search a merchant">
+  <button class="btn" type="submit">Show</button>
+</form>
+
+
+
+<div class="kpis rk"><div class="kpi"><span>Net spend, 2026-10</span><b>$391</b></div><div class="kpi"><span>Charges</span><b>8</b></div><div class="kpi"><span>Average charge</span><b>$49</b></div></div>
+
+
+
+
+
+<p><a class="btn alt" href="#" data-demo="1" download="">Download this list (.csv)</a></p>
+
+
+
+
+<section class="card rblock"><h2>By category</h2>
+  
+  <ul class="rlist fl-phone">
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">G</span>
+      <span class="rl-main"><span class="rl-t">groceries</span><span class="rl-m">43%</span></span>
+      <span class="rl-r"><b>$169.23</b></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">F</span>
+      <span class="rl-main"><span class="rl-t">fuel</span><span class="rl-m">27%</span></span>
+      <span class="rl-r"><b>$104.30</b></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">D</span>
+      <span class="rl-main"><span class="rl-t">dining</span><span class="rl-m">22%</span></span>
+      <span class="rl-r"><b>$87.94</b></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">S</span>
+      <span class="rl-main"><span class="rl-t">subscriptions</span><span class="rl-m">8%</span></span>
+      <span class="rl-r"><b>$29.98</b></span>
+    </div></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
+    <thead><tr><th>Category</th><th>Spent</th><th>Share</th></tr></thead>
+    <tbody><tr><td>groceries</td><td>$169.23</td><td>43%</td></tr><tr><td>fuel</td><td>$104.30</td><td>27%</td></tr><tr><td>dining</td><td>$87.94</td><td>22%</td></tr><tr><td>subscriptions</td><td>$29.98</td><td>8%</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+
+<section class="card rblock"><h2>By cardholder</h2>
+  
+  <ul class="rlist fl-phone">
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">M</span>
+      <span class="rl-main"><span class="rl-t">Marcus</span></span>
+      <span class="rl-r"><b>$219.84</b></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">E</span>
+      <span class="rl-main"><span class="rl-t">Elena</span></span>
+      <span class="rl-r"><b>$171.61</b></span>
+    </div></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
+    <thead><tr><th>Cardholder</th><th>Spent</th></tr></thead>
+    <tbody><tr><td>Marcus</td><td>$219.84</td></tr><tr><td>Elena</td><td>$171.61</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+
+<section class="card rblock"><h2>Transactions (8; negative = purchase)</h2>
+  
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-10-13</span><span class="rl-m">UBER EATS · dining · Summit Rewards Visa x9026 · Marcus</span></span>
+      <span class="rl-r"><b>-$52.52</b></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-10-13</span><span class="rl-m">SHELL OIL 5744 · fuel · Summit Rewards Visa x9026 · Elena</span></span>
+      <span class="rl-r"><b>-$49.57</b></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-10-11</span><span class="rl-m">SPOTIFY USA · subscriptions · Summit Rewards Visa x9026 · Elena</span></span>
+      <span class="rl-r"><b>-$11.99</b></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-10-09</span><span class="rl-m">KROGER #0123 RALEIGH NC · groceries · Summit Rewards Visa x9026 · Elena</span></span>
+      <span class="rl-r"><b>-$74.63</b></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-10-07</span><span class="rl-m">NETFLIX.COM · subscriptions · Summit Rewards Visa x9026 · Marcus</span></span>
+      <span class="rl-r"><b>-$17.99</b></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-10-05</span><span class="rl-m">CHIPOTLE 2210 · dining · Summit Rewards Visa x9026 · Elena</span></span>
+      <span class="rl-r"><b>-$35.42</b></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-10-04</span><span class="rl-m">WAWA 8841 · fuel · Summit Rewards Visa x9026 · Marcus</span></span>
+      <span class="rl-r"><b>-$54.73</b></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-10-02</span><span class="rl-m">KROGER #0123 RALEIGH NC · groceries · Summit Rewards Visa x9026 · Marcus</span></span>
+      <span class="rl-r"><b>-$94.60</b></span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table class="cards">
+    <thead><tr><th>Date</th><th>Description</th><th>Amount</th><th>Category</th><th>Card</th><th>Cardholder</th></tr></thead>
+    <tbody><tr><td data-label="Date"><a href="#" data-demo="1">2026-10-13</a></td><td data-label="Description">UBER EATS</td><td data-label="Amount">-$52.52</td><td data-label="Category">dining</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Marcus</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">2026-10-13</a></td><td data-label="Description">SHELL OIL 5744</td><td data-label="Amount">-$49.57</td><td data-label="Category">fuel</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Elena</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">2026-10-11</a></td><td data-label="Description">SPOTIFY USA</td><td data-label="Amount">-$11.99</td><td data-label="Category">subscriptions</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Elena</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">2026-10-09</a></td><td data-label="Description">KROGER #0123 RALEIGH NC</td><td data-label="Amount">-$74.63</td><td data-label="Category">groceries</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Elena</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">2026-10-07</a></td><td data-label="Description">NETFLIX.COM</td><td data-label="Amount">-$17.99</td><td data-label="Category">subscriptions</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Marcus</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">2026-10-05</a></td><td data-label="Description">CHIPOTLE 2210</td><td data-label="Amount">-$35.42</td><td data-label="Category">dining</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Elena</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">2026-10-04</a></td><td data-label="Description">WAWA 8841</td><td data-label="Amount">-$54.73</td><td data-label="Category">fuel</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Marcus</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">2026-10-02</a></td><td data-label="Description">KROGER #0123 RALEIGH NC</td><td data-label="Amount">-$94.60</td><td data-label="Category">groceries</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Marcus</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+
+<p class="muted small">Looking up only here: open a row to see it in full. To change one of these, tell Chat.</p>
+
+</main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=finance:cards" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="finance" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html" class="on" aria-current="page">Finance</a>
+        
+        <a role="menuitem" href="records.html">Records</a>
+        
+        <a role="menuitem" href="notes.html">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings.html">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>

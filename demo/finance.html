@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="static/tokens.css">
   <link rel="stylesheet" href="static/app.css">
   <script src="static/vendor/htmx.min.js" defer=""></script>
-  <script src="static/vendor/echarts.min.js" defer=""></script>
+  
   <script src="static/app.js" defer=""></script>
   <title>Finance · Mitra Home</title>
 </head>
@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else" open="">
+        <details class="rg" data-rg="Everything else">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -68,122 +68,87 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Finance</h1><p class="sub">Look back · Trends</p></div></header>
-<nav class="pills" aria-label="Group"><a href="finance_part_bills.html">Pay</a><a href="finance_part_accounts.html">Keep</a><a href="finance_part_cashflow.html" class="on" aria-current="true">Look back</a></nav>
 
-<nav class="pills sm" aria-label="Part"><a href="finance_part_cashflow.html">Cashflow</a><a href="finance_part_trends.html" class="on" aria-current="true">Trends</a><a href="finance_part_tax.html">Tax papers</a><a href="finance_part_home_office.html">Home office</a><a href="finance_part_year_end.html">Year-end</a><a href="#" data-demo="1">Work</a></nav>
+<header class="head"><div><h1>Finance</h1><p class="sub">What to pay, what you keep, and how the months went.</p></div></header>
 
 
 
-<section id="trends"><div class="seg" role="group" aria-label="Range">
-  
-  <button type="button" data-hx-get="/finance/trends?months=6" data-hx-target="#trends" data-hx-swap="innerHTML" data-hx-push-url="/finance?months=6" class="">6 mo</button>
-  
-  <button type="button" data-hx-get="/finance/trends?months=12" data-hx-target="#trends" data-hx-swap="innerHTML" data-hx-push-url="/finance?months=12" class="on">12 mo</button>
-  
-  <button type="button" data-hx-get="/finance/trends?months=24" data-hx-target="#trends" data-hx-swap="innerHTML" data-hx-push-url="/finance?months=24" class="">24 mo</button>
-  
+
+
+
+<a class="fhero g-over" href="month.html">
+  <p class="kick">October 2026 · so far</p>
+  <p class="gbig">$8,648 <small>left</small></p>
+  <div class="gtiles">
+    <div class="gtile"><small>In</small><b>$13,031</b></div>
+    <div class="gtile"><small>Out</small><b>$3,483</b></div>
+    <div class="gtile"><small>Saved</small><b>$900</b></div>
+  </div>
+  <p class="fhero-more">See this month <span aria-hidden="true">›</span></p>
+</a>
+
+<div class="flanes">
+
+  <a class="flane" href="finance_part_bills.html">
+    <span class="flane-ico g-high"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16l-3-2-2 2-2-2-2 2-2-2-3 2"></path><path d="M14 8h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3H10M12 14v1.5M12 6.5V8"></path>
+</svg></span>
+    <span class="flane-t"><b>Pay</b><span class="muted">1 overdue, 3 due in 14 days</span></span>
+    <span class="flane-n"><b class="bad">$631</b><small class="muted">open, next 14 days</small></span>
+    <span class="flane-go" aria-hidden="true">›</span>
+  </a>
+
+  <a class="flane" href="finance_part_accounts.html">
+    <span class="flane-ico g-flow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M3 10h18M5 6l7-3 7 3"></path><path d="M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"></path>
+</svg></span>
+    <span class="flane-t"><b>Keep</b><span class="muted">3 accounts · budget 3 close</span></span>
+    <span class="flane-n"><b class="">$13,972</b><small class="muted">net balances</small></span>
+    <span class="flane-go" aria-hidden="true">›</span>
+  </a>
+
+  <a class="flane" href="finance_part_cashflow.html">
+    <span class="flane-ico g-trend"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16"></path><path d="M4 15l4-6 4 2 4-5 4 4"></path></svg></span>
+    <span class="flane-t"><b>Look back</b><span class="muted">Sep 2026 spent $7,083 (+43% vs the month before)</span></span>
+    <span class="flane-n"><b class="">$5,423</b><small class="muted">typical month</small></span>
+    <span class="flane-go" aria-hidden="true">›</span>
+  </a>
+
 </div>
 
-<div class="kpis">
-  <div class="kpi"><span>Income · Sep 2026</span><b>$13,507</b></div>
-  <div class="kpi"><span>Spent</span><b>$7,083</b>
-    <i class="bad">+43% vs last month</i></div>
-  <div class="kpi"><span>Left</span><b>$6,424</b>
-    <i>48% of income</i></div>
-  <div class="kpi"><span>Typical month</span><b>$5,423</b><i>last 6 months</i></div>
-</div>
+<section class="card fneeds"><h2>Needs a look</h2>
+  <ul class="rlist">
+    <li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">Comcast Xfinity bill $89.99 was due Oct 13</span><span class="rl-go" aria-hidden="true">›</span></a></li>
+  </ul>
+</section>
 
-<p class="hint">Oct 2026 is not over yet: $13,031 in and $3,483 out so far. It is left out of the charts and the comparisons until the month ends.</p>
-<div class="grid">
-  <div class="card wide"><h2>Income and spending</h2>
-    <div class="chart" role="img" aria-label="Income and spending by month" data-chart="flow" _echarts_instance_="ec_1792160577181" style="position: relative;"><div style="position: relative; overflow: hidden; width: 980px; height: 320px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="980" height="320" style="position: absolute; left: 0px; top: 0px; user-select: none;"><rect width="980" height="320" x="0" y="0" fill="none"></rect><g><path d="M59.377 292.5L968 292.5" fill="transparent" stroke="#E4E6EA"></path><path d="M59.377 239.5L968 239.5" fill="transparent" stroke="#E4E6EA"></path><path d="M59.377 187.5L968 187.5" fill="transparent" stroke="#E4E6EA"></path><path d="M59.377 135.5L968 135.5" fill="transparent" stroke="#E4E6EA"></path><path d="M59.377 82.5L968 82.5" fill="transparent" stroke="#E4E6EA"></path><path d="M59.377 30.5L968 30.5" fill="transparent" stroke="#E4E6EA"></path><path d="M59.377 292.5L968 292.5" fill="transparent" stroke="#E4E6EA" stroke-linecap="round"></path><path d="M59.5 292L59.5 297" fill="transparent" stroke="#E4E6EA"></path><path d="M135.5 292L135.5 297" fill="transparent" stroke="#E4E6EA"></path><path d="M211.5 292L211.5 297" fill="transparent" stroke="#E4E6EA"></path><path d="M286.5 292L286.5 297" fill="transparent" stroke="#E4E6EA"></path><path d="M362.5 292L362.5 297" fill="transparent" stroke="#E4E6EA"></path><path d="M438.5 292L438.5 297" fill="transparent" stroke="#E4E6EA"></path><path d="M513.5 292L513.5 297" fill="transparent" stroke="#E4E6EA"></path><path d="M589.5 292L589.5 297" fill="transparent" stroke="#E4E6EA"></path><path d="M665.5 292L665.5 297" fill="transparent" stroke="#E4E6EA"></path><path d="M741.5 292L741.5 297" fill="transparent" stroke="#E4E6EA"></path><path d="M816.5 292L816.5 297" fill="transparent" stroke="#E4E6EA"></path><path d="M892.5 292L892.5 297" fill="transparent" stroke="#E4E6EA"></path><path d="M968.5 292L968.5 297" fill="transparent" stroke="#E4E6EA"></path><text dominant-baseline="central" text-anchor="end" transform="translate(51.377 292)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$0</text><text dominant-baseline="central" text-anchor="end" transform="translate(51.377 239.6)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$3,000</text><text dominant-baseline="central" text-anchor="end" transform="translate(51.377 187.2)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$6,000</text><text dominant-baseline="central" text-anchor="end" transform="translate(51.377 134.8)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$9,000</text><text dominant-baseline="central" text-anchor="end" transform="translate(51.377 82.4)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$12,000</text><text dominant-baseline="central" text-anchor="end" transform="translate(51.377 30)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$15,000</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(97.2362 300)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Nov 2025</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(172.9548 300)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Dec 2025</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(248.6734 300)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Jan 2026</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(324.392 300)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Feb 2026</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(400.1106 300)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Mar 2026</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(475.8292 300)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Apr 2026</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(551.5478 300)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">May 2026</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(627.2664 300)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Jun 2026</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(702.9849 300)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Jul 2026</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(778.7035 300)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Aug 2026</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(854.4221 300)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Sep 2026</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(930.1407 300)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Oct 2026</text><path d="M451.6292 292l22 0l0 -233.5997l-22 0Z" fill="#2E8B57"></path><path d="M527.3478 292l22 0l0 -224.9935l-22 0Z" fill="#2E8B57"></path><path d="M603.0664 292l22 0l0 -233.9859l-22 0Z" fill="#2E8B57"></path><path d="M678.7849 292l22 0l0 -226.0959l-22 0Z" fill="#2E8B57"></path><path d="M754.5035 292l22 0l0 -229.2699l-22 0Z" fill="#2E8B57"></path><path d="M830.2221 292l22 0l0 -235.9252l-22 0Z" fill="#2E8B57"></path><path d="M478.0292 292l22 0l0 -81.4649l-22 0Z" fill="#0F6CBD"></path><path d="M553.7478 292l22 0l0 -106.066l-22 0Z" fill="#0F6CBD"></path><path d="M629.4664 292l22 0l0 -83.4681l-22 0Z" fill="#0F6CBD"></path><path d="M705.1849 292l22 0l0 -87.3061l-22 0Z" fill="#0F6CBD"></path><path d="M780.9035 292l22 0l0 -86.3529l-22 0Z" fill="#0F6CBD"></path><path d="M856.6221 292l22 0l0 -123.7209l-22 0Z" fill="#0F6CBD"></path><g clip-path="url(#zr0-c0)"><path d="M475.8292 139.8652C475.8292 139.8652 513.5423 173.0724 551.5478 173.0724C589.2609 173.0724 588.1132 141.4822 627.2664 141.4822C663.8317 141.4822 664.9293 153.2102 702.9849 153.2102C740.6479 153.2102 742.2571 149.083 778.7036 149.083C817.9757 149.083 854.4221 179.7957 854.4221 179.7957" fill="transparent" stroke="#B8540B" stroke-width="2" stroke-linejoin="bevel"></path></g><path d="M-5 -5l218.7168 0l0 24l-218.7168 0Z" transform="translate(385.6416 5)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#ccc" stroke-width="0"></path><path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0" transform="translate(385.6416 5)" fill="#2E8B57"></path><text dominant-baseline="central" text-anchor="start" x="30" y="7" transform="translate(385.6416 5)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Income</text><path d="M0 0l72.6211 0l0 14l-72.6211 0Z" transform="translate(385.6416 5)" fill="transparent"></path><path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0" transform="translate(468.2627 5)" fill="#0F6CBD"></path><text dominant-baseline="central" text-anchor="start" x="30" y="7" transform="translate(468.2627 5)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Spent</text><path d="M0 0l63.2637 0l0 14l-63.2637 0Z" transform="translate(468.2627 5)" fill="transparent"></path><path d="M0 7L25 7" transform="translate(542.5264 5)" fill="#000" stroke="#B8540B" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10"></path><path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.9994" transform="translate(542.5264 5)" fill="#B8540B"></path><text dominant-baseline="central" text-anchor="start" x="30" y="7" transform="translate(542.5264 5)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Left</text><path d="M-1 1l52.832 0l0 12l-52.832 0Z" transform="translate(542.5264 5)" fill="transparent"></path></g><defs><clipPath id="zr0-c0"><path d="M58 29l912 0l0 264l-912 0Z" fill="#000"></path></clipPath></defs></svg></div><div class=""></div></div></div>
-  <div class="card"><h2>What moved most</h2><p class="hint">Last 12 months against the 12 before</p>
-    <div class="chart" role="img" aria-label="Categories that moved most" data-chart="cats" _echarts_instance_="ec_1792160577182" style="position: relative;"><div style="position: relative; overflow: hidden; width: 466px; height: 300px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="466" height="300" style="position: absolute; left: 0px; top: 0px; user-select: none;"><rect width="466" height="300" x="0" y="0" fill="none"></rect><g><path d="M81.5 30L81.5 272" fill="transparent" stroke="#E4E6EA"></path><path d="M143.5 30L143.5 272" fill="transparent" stroke="#E4E6EA"></path><path d="M205.5 30L205.5 272" fill="transparent" stroke="#E4E6EA"></path><path d="M267.5 30L267.5 272" fill="transparent" stroke="#E4E6EA"></path><path d="M330.5 30L330.5 272" fill="transparent" stroke="#E4E6EA"></path><path d="M392.5 30L392.5 272" fill="transparent" stroke="#E4E6EA"></path><path d="M454.5 30L454.5 272" fill="transparent" stroke="#E4E6EA"></path><path d="M81.5 272L81.5 30" fill="transparent" stroke="#E4E6EA" stroke-linecap="round"></path><path d="M81.3848 272.5L76.3848 272.5" fill="transparent" stroke="#E4E6EA"></path><path d="M81.3848 242.5L76.3848 242.5" fill="transparent" stroke="#E4E6EA"></path><path d="M81.3848 211.5L76.3848 211.5" fill="transparent" stroke="#E4E6EA"></path><path d="M81.3848 181.5L76.3848 181.5" fill="transparent" stroke="#E4E6EA"></path><path d="M81.3848 151.5L76.3848 151.5" fill="transparent" stroke="#E4E6EA"></path><path d="M81.3848 121.5L76.3848 121.5" fill="transparent" stroke="#E4E6EA"></path><path d="M81.3848 90.5L76.3848 90.5" fill="transparent" stroke="#E4E6EA"></path><path d="M81.3848 60.5L76.3848 60.5" fill="transparent" stroke="#E4E6EA"></path><path d="M81.3848 30.5L76.3848 30.5" fill="transparent" stroke="#E4E6EA"></path><text dominant-baseline="central" text-anchor="end" transform="translate(73.3848 256.875)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">fuel</text><text dominant-baseline="central" text-anchor="end" xml:space="preserve" transform="translate(73.3848 226.625)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">student loan</text><text dominant-baseline="central" text-anchor="end" transform="translate(73.3848 196.375)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">insurance</text><text dominant-baseline="central" text-anchor="end" transform="translate(73.3848 166.125)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">tax</text><text dominant-baseline="central" text-anchor="end" xml:space="preserve" transform="translate(73.3848 135.875)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">auto loan</text><text dominant-baseline="central" text-anchor="end" transform="translate(73.3848 105.625)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">utilities</text><text dominant-baseline="central" text-anchor="end" transform="translate(73.3848 75.375)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">groceries</text><text dominant-baseline="central" text-anchor="end" transform="translate(73.3848 45.125)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">housing</text><text dominant-baseline="central" text-anchor="middle" y="6" transform="translate(81.3848 280)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$0</text><text dominant-baseline="central" text-anchor="middle" y="6" transform="translate(143.4873 280)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$3,000</text><text dominant-baseline="central" text-anchor="middle" y="6" transform="translate(205.5898 280)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$6,000</text><text dominant-baseline="central" text-anchor="middle" y="6" transform="translate(267.6924 280)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$9,000</text><text dominant-baseline="central" text-anchor="middle" y="6" transform="translate(329.7949 280)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$12,000</text><text dominant-baseline="central" text-anchor="middle" y="6" transform="translate(391.8975 280)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$15,000</text><text dominant-baseline="central" text-anchor="middle" y="6" transform="translate(454 280)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$18,000</text><path d="M81.3848 245.8338l0 0l0 10.0375l0 0Z" fill="#B8540B"></path><path d="M81.3848 215.5838l0 0l0 10.0375l0 0Z" fill="#B8540B"></path><path d="M81.3848 185.3338l0 0l0 10.0375l0 0Z" fill="#B8540B"></path><path d="M81.3848 155.0838l0 0l0 10.0375l0 0Z" fill="#B8540B"></path><path d="M81.3848 124.8338l0 0l0 10.0375l0 0Z" fill="#B8540B"></path><path d="M81.3848 94.5838l0 0l0 10.0375l0 0Z" fill="#B8540B"></path><path d="M81.3848 64.3338l0 0l0 10.0375l0 0Z" fill="#B8540B"></path><path d="M81.3848 34.0838l0 0l0 10.0375l0 0Z" fill="#B8540B"></path><path d="M81.3848 257.8788l18.3973 0l0 10.0375l-18.3973 0Z" fill="#2E8B57"></path><path d="M81.3848 227.6288l26.7041 0l0 10.0375l-26.7041 0Z" fill="#2E8B57"></path><path d="M81.3848 197.3788l32.4111 0l0 10.0375l-32.4111 0Z" fill="#2E8B57"></path><path d="M81.3848 167.1288l45.5419 0l0 10.0375l-45.5419 0Z" fill="#2E8B57"></path><path d="M81.3848 136.8788l56.3684 0l0 10.0375l-56.3684 0Z" fill="#2E8B57"></path><path d="M81.3848 106.6288l70.8219 0l0 10.0375l-70.8219 0Z" fill="#2E8B57"></path><path d="M81.3848 76.3788l83.7544 0l0 10.0375l-83.7544 0Z" fill="#2E8B57"></path><path d="M81.3848 46.1287l311.5477 0l0 10.0375l-311.5477 0Z" fill="#2E8B57"></path><path d="M-5 -5l144.207 0l0 24l-144.207 0Z" transform="translate(165.8965 5)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#ccc" stroke-width="0"></path><path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0" transform="translate(165.8965 5)" fill="#B8540B"></path><text dominant-baseline="central" text-anchor="start" x="30" y="7" transform="translate(165.8965 5)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Before</text><path d="M0 0l67.3477 0l0 14l-67.3477 0Z" transform="translate(165.8965 5)" fill="transparent"></path><path d="M3.5 0L21.5 0A3.5 3.5 0 0 1 25 3.5L25 10.5A3.5 3.5 0 0 1 21.5 14L3.5 14A3.5 3.5 0 0 1 0 10.5L0 3.5A3.5 3.5 0 0 1 3.5 0" transform="translate(243.2441 5)" fill="#2E8B57"></path><text dominant-baseline="central" text-anchor="start" x="30" y="7" transform="translate(243.2441 5)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Now</text><path d="M0 0l56.8594 0l0 14l-56.8594 0Z" transform="translate(243.2441 5)" fill="transparent"></path></g></svg></div><div class=""></div></div></div>
-  <div class="card"><h2>This year and last</h2><p class="hint">Spending, same month a year earlier</p>
-    <div class="chart" role="img" aria-label="Spending against the same month last year" data-chart="yoy" _echarts_instance_="ec_1792160577183" style="position: relative;"><div style="position: relative; overflow: hidden; width: 466px; height: 300px;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="466" height="300" style="position: absolute; left: 0px; top: 0px; user-select: none;"><rect width="466" height="300" x="0" y="0" fill="none"></rect><g><path d="M52.7031 272.5L454 272.5" fill="transparent" stroke="#E4E6EA"></path><path d="M52.7031 242.5L454 242.5" fill="transparent" stroke="#E4E6EA"></path><path d="M52.7031 211.5L454 211.5" fill="transparent" stroke="#E4E6EA"></path><path d="M52.7031 181.5L454 181.5" fill="transparent" stroke="#E4E6EA"></path><path d="M52.7031 151.5L454 151.5" fill="transparent" stroke="#E4E6EA"></path><path d="M52.7031 121.5L454 121.5" fill="transparent" stroke="#E4E6EA"></path><path d="M52.7031 90.5L454 90.5" fill="transparent" stroke="#E4E6EA"></path><path d="M52.7031 60.5L454 60.5" fill="transparent" stroke="#E4E6EA"></path><path d="M52.7031 30.5L454 30.5" fill="transparent" stroke="#E4E6EA"></path><path d="M52.7031 272.5L454 272.5" fill="transparent" stroke="#E4E6EA" stroke-linecap="round"></path><path d="M52.5 272L52.5 277" fill="transparent" stroke="#E4E6EA"></path><path d="M153.5 272L153.5 277" fill="transparent" stroke="#E4E6EA"></path><path d="M253.5 272L253.5 277" fill="transparent" stroke="#E4E6EA"></path><path d="M353.5 272L353.5 277" fill="transparent" stroke="#E4E6EA"></path><path d="M454.5 272L454.5 277" fill="transparent" stroke="#E4E6EA"></path><text dominant-baseline="central" text-anchor="end" transform="translate(44.7031 272)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$0</text><text dominant-baseline="central" text-anchor="end" transform="translate(44.7031 241.75)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$1,000</text><text dominant-baseline="central" text-anchor="end" transform="translate(44.7031 211.5)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$2,000</text><text dominant-baseline="central" text-anchor="end" transform="translate(44.7031 181.25)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$3,000</text><text dominant-baseline="central" text-anchor="end" transform="translate(44.7031 151)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$4,000</text><text dominant-baseline="central" text-anchor="end" transform="translate(44.7031 120.75)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$5,000</text><text dominant-baseline="central" text-anchor="end" transform="translate(44.7031 90.5)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$6,000</text><text dominant-baseline="central" text-anchor="end" transform="translate(44.7031 60.25)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$7,000</text><text dominant-baseline="central" text-anchor="end" transform="translate(44.7031 30)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">$8,000</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(69.4238 280)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Nov 2025</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(169.748 280)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Feb 2026</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(270.0723 280)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">May 2026</text><text dominant-baseline="central" text-anchor="middle" xml:space="preserve" y="6" transform="translate(370.3965 280)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Aug 2026</text><g clip-path="url(#zr2-c0)"><path d="M236.6309 130.9134C236.6309 130.9134 252.9267 88.3075 270.0723 88.3075C286.3681 88.3075 283.3965 127.444 303.5137 127.444C316.8379 127.444 320.0826 120.7972 336.9551 120.7972C353.524 120.7972 359.866 122.4479 370.3965 122.4479C393.3074 122.4479 403.8379 57.7314 403.8379 57.7314" fill="transparent" stroke="#2E8B57" stroke-width="3" stroke-linejoin="bevel"></path></g><g clip-path="url(#zr2-c1)"><path d="" fill="transparent" stroke="#B8540B" stroke-width="2" stroke-dasharray="8,4" stroke-linejoin="bevel"></path></g><path d="M-5 -5l198.0391 0l0 22l-198.0391 0Z" transform="translate(138.9805 5)" fill="rgb(0,0,0)" fill-opacity="0" stroke="#ccc" stroke-width="0"></path><path d="M0 7L25 7" transform="translate(139.9805 4)" fill="#000" stroke="#2E8B57" stroke-width="2" stroke-linecap="butt" stroke-miterlimit="10"></path><path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.9994" transform="translate(139.9805 4)" fill="#2E8B57"></path><text dominant-baseline="central" text-anchor="start" xml:space="preserve" x="30" y="7" transform="translate(139.9805 4)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">This year</text><path d="M-1 1l81.877 0l0 12l-81.877 0Z" transform="translate(139.9805 4)" fill="transparent"></path><path d="M0 7L25 7" transform="translate(231.8574 4)" fill="#000" stroke="#B8540B" stroke-width="2" stroke-dasharray="8,4" stroke-linecap="butt" stroke-miterlimit="10"></path><path d="M18.1 7A5.6 5.6 0 1 1 18.1 6.9994" transform="translate(231.8574 4)" fill="#B8540B"></path><text dominant-baseline="central" text-anchor="start" xml:space="preserve" x="30" y="7" transform="translate(231.8574 4)" fill="#5B6470" style="font-size: 12px; font-family: &quot;Microsoft YaHei&quot;;">Year before</text><path d="M-1 1l96.1621 0l0 12l-96.1621 0Z" transform="translate(231.8574 4)" fill="transparent"></path></g><defs><clipPath id="zr2-c0"><path d="M51 28.5l403.564 0l0 245l-403.564 0Z" fill="#000"></path></clipPath><clipPath id="zr2-c1"><path d="M51 29l402.57 0l0 244l-402.57 0Z" fill="#000"></path></clipPath></defs></svg></div><div class=""></div></div></div>
-</div>
+<section class="fparts">
 
-<div class="card"><h2>Month by month</h2>
-  <div class="tablewrap"><table class="cards">
-    <thead><tr><th>Month</th><th class="n">Income</th><th class="n">Spent</th><th class="n">Left</th><th class="n">vs month before</th><th class="n">vs last year</th></tr></thead>
-    <tbody>
-    
-      <tr>
-        <td data-label="Month">Oct 2026 <span class="muted">(so far)</span></td><td class="n" data-label="Income">$13,031</td><td class="n" data-label="Spent">$3,483</td>
-        <td class="n" data-label="Left">$9,548</td>
-        <td class="n " data-label="vs month before"></td>
-        <td class="n " data-label="vs last year"></td>
-      </tr>
-    
-      <tr>
-        <td data-label="Month">Sep 2026</td><td class="n" data-label="Income">$13,507</td><td class="n" data-label="Spent">$7,083</td>
-        <td class="n" data-label="Left">$6,424</td>
-        <td class="n bad" data-label="vs month before">+43%</td>
-        <td class="n " data-label="vs last year"></td>
-      </tr>
-    
-      <tr>
-        <td data-label="Month">Aug 2026</td><td class="n" data-label="Income">$13,126</td><td class="n" data-label="Spent">$4,944</td>
-        <td class="n" data-label="Left">$8,182</td>
-        <td class="n good" data-label="vs month before">-1%</td>
-        <td class="n " data-label="vs last year"></td>
-      </tr>
-    
-      <tr>
-        <td data-label="Month">Jul 2026</td><td class="n" data-label="Income">$12,944</td><td class="n" data-label="Spent">$4,998</td>
-        <td class="n" data-label="Left">$7,946</td>
-        <td class="n bad" data-label="vs month before">+5%</td>
-        <td class="n " data-label="vs last year"></td>
-      </tr>
-    
-      <tr>
-        <td data-label="Month">Jun 2026</td><td class="n" data-label="Income">$13,396</td><td class="n" data-label="Spent">$4,779</td>
-        <td class="n" data-label="Left">$8,617</td>
-        <td class="n good" data-label="vs month before">-21%</td>
-        <td class="n " data-label="vs last year"></td>
-      </tr>
-    
-      <tr>
-        <td data-label="Month">May 2026</td><td class="n" data-label="Income">$12,881</td><td class="n" data-label="Spent">$6,072</td>
-        <td class="n" data-label="Left">$6,809</td>
-        <td class="n bad" data-label="vs month before">+30%</td>
-        <td class="n " data-label="vs last year"></td>
-      </tr>
-    
-      <tr>
-        <td data-label="Month">Apr 2026</td><td class="n" data-label="Income">$13,374</td><td class="n" data-label="Spent">$4,664</td>
-        <td class="n" data-label="Left">$8,710</td>
-        <td class="n " data-label="vs month before"></td>
-        <td class="n " data-label="vs last year"></td>
-      </tr>
-    
-      <tr><td data-label="Month">Mar 2026</td><td class="n muted" colspan="5" data-label="Income">no statements</td></tr>
-    
-      <tr><td data-label="Month">Feb 2026</td><td class="n muted" colspan="5" data-label="Income">no statements</td></tr>
-    
-      <tr><td data-label="Month">Jan 2026</td><td class="n muted" colspan="5" data-label="Income">no statements</td></tr>
-    
-      <tr><td data-label="Month">Dec 2025</td><td class="n muted" colspan="5" data-label="Income">no statements</td></tr>
-    
-      <tr><td data-label="Month">Nov 2025</td><td class="n muted" colspan="5" data-label="Income">no statements</td></tr>
-    
-    </tbody></table></div>
-</div>
-<script type="application/json" id="chart-data">{"cat_before": [0, 0, 0, 0, 0, 0, 0, 0], "cat_names": ["fuel", "student loan", "insurance", "tax", "auto loan", "utilities", "groceries", "housing"], "cat_now": [888.72, 1290.0, 1565.69, 2200.0, 2723.0, 3421.21, 4045.94, 15050.0], "expenses": [null, null, null, null, null, 4664.02, 6072.48, 4778.71, 4998.44, 4943.87, 7083.26, null], "income": [null, null, null, null, null, 13374.03, 12881.31, 13396.14, 12944.42, 13126.14, 13507.17, null], "last_year": [null, null, null, null, null, null, null, null, null, null, null, null], "left": [null, null, null, null, null, 8710.01, 6808.83, 8617.43, 7945.98, 8182.27, 6423.91, null], "months": ["Nov 2025", "Dec 2025", "Jan 2026", "Feb 2026", "Mar 2026", "Apr 2026", "May 2026", "Jun 2026", "Jul 2026", "Aug 2026", "Sep 2026", "Oct 2026"]}</script>
+  <div class="fparts-g"><h2>Pay</h2><p class="muted">Bills, subscriptions, cards and receipts.</p>
+    <nav class="fchips wrap" aria-label="Pay parts"><a href="finance_part_bills.html">Bills</a><a href="finance_part_receipts.html">Receipts</a><a href="finance_part_mobile.html">Phone bills</a><a href="finance_part_subs.html">Subscriptions</a><a href="#" data-demo="1">Amazon orders</a><a href="finance_part_cards.html">Cards</a><a href="#" data-demo="1">Statement watch</a><a href="#" data-demo="1">Price spikes</a></nav></div>
+
+  <div class="fparts-g"><h2>Keep</h2><p class="muted">Accounts, budget, loans and card perks.</p>
+    <nav class="fchips wrap" aria-label="Keep parts"><a href="finance_part_accounts.html">Accounts</a><a href="#" data-demo="1">Deposits</a><a href="finance_part_budget.html">Budget and loans</a><a href="#" data-demo="1">Card benefits</a></nav></div>
+
+  <div class="fparts-g"><h2>Look back</h2><p class="muted">Trends, cash flow, tax papers and year-end.</p>
+    <nav class="fchips wrap" aria-label="Look back parts"><a href="finance_part_cashflow.html">Cashflow</a><a href="finance_part_trends.html">Trends</a><a href="finance_part_tax.html">Tax papers</a><a href="finance_part_home_office.html">Home office</a><a href="finance_part_year_end.html">Year-end</a><a href="#" data-demo="1">Work</a></nav></div>
+
 </section>
 
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=finance" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="finance" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -208,7 +173,7 @@
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

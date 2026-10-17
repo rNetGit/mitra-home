@@ -68,32 +68,23 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Records</h1><p class="sub">Papers &amp; IDs · Insurance</p></div></header>
 
-<form class="rsearch card" action="records.html" method="get" role="search">
-  <label class="vh" for="rq">Search the records</label>
-  <input id="rq" type="search" name="q" value="" maxlength="200" placeholder="water bill, passport, furnace...">
-  <button class="btn" type="submit">Search</button>
-</form>
+<header class="head fhead"><div><a class="fback" href="records.html">Records</a><h1>Papers &amp; IDs</h1><p class="sub">Insurance</p></div><a class="btn alt rsgo" href="#" data-demo="1">Search</a></header>
+
+<nav class="fchips" aria-label="Papers &amp; IDs"><a href="records_domain_papers_section_papers.html">Papers</a><a href="records_domain_papers_section_ids.html">Expiries and IDs</a><a href="records_domain_papers_section_policies.html" class="on" aria-current="true">Insurance</a><a href="records_domain_papers_section_emergency.html">Emergency sheet</a></nav>
 
 
 
-
-
-
-<nav class="pills" aria-label="Area"><a href="#" data-demo="1">People</a><a href="#" data-demo="1">Home</a><a href="#" data-demo="1">Vehicles</a><a href="#" data-demo="1" class="on" aria-current="true">Papers &amp; IDs</a></nav>
-
-<nav class="pills sm" aria-label="Part"><a href="records_domain_papers_section_papers.html">Papers</a><a href="records_domain_papers_section_ids.html">Expiries and IDs</a><a href="records_domain_papers_section_policies.html" class="on" aria-current="true">Insurance</a><a href="records_domain_papers_section_emergency.html">Emergency sheet</a></nav>
 
 
 
@@ -103,21 +94,55 @@
 
 
 
-<section class="card rblock">
-  <h2>Insurance policies</h2>
+<section class="card rblock"><h2>Insurance policies <span class="muted rcount">4</span></h2>
   
-  <div class="tablewrap"><table class="cards">
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-ok" aria-hidden="true">A</span>
+      <span class="rl-main"><span class="rl-t">Allstate</span><span class="rl-m">home · 9033 · Term start Feb 12 · $1,722.00</span></span>
+      <span class="rl-r"><b>Feb 12, 2027</b><span class="chip-s t-ok">active</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-warn" aria-hidden="true">S</span>
+      <span class="rl-main"><span class="rl-t">State Farm</span><span class="rl-m">auto · 5521 · Term start May 18 · $1,342.00</span></span>
+      <span class="rl-r"><b>Nov 14</b><span class="chip-s t-warn">in 29 days</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-bad" aria-hidden="true">S</span>
+      <span class="rl-main"><span class="rl-t">State Farm</span><span class="rl-m">auto · 5521 · Term start Nov 17, 2025 · $1,180.00</span></span>
+      <span class="rl-r"><b>May 18</b><span class="chip-s t-bad">ended</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-bad" aria-hidden="true">A</span>
+      <span class="rl-main"><span class="rl-t">Allstate</span><span class="rl-m">home · 9033 · Term start Feb 12, 2025 · $1,604.00</span></span>
+      <span class="rl-r"><b>Feb 12</b><span class="chip-s t-bad">ended</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table class="cards">
     <thead><tr><th>Carrier</th><th>Kind</th><th>Policy (last 4)</th><th>Term start</th><th>Term end</th><th>Premium total</th><th>Status</th></tr></thead>
-    <tbody><tr><td data-label="Carrier"><a href="#" data-demo="1">Allstate</a></td><td data-label="Kind">home</td><td data-label="Policy (last 4)">9033</td><td data-label="Term start">2026-02-12</td><td data-label="Term end">2027-02-12</td><td data-label="Premium total">$1,722.00</td><td data-label="Status">active</td></tr><tr><td data-label="Carrier"><a href="#" data-demo="1">State Farm</a></td><td data-label="Kind">auto</td><td data-label="Policy (last 4)">5521</td><td data-label="Term start">2026-05-18</td><td data-label="Term end">2026-11-14</td><td data-label="Premium total">$1,342.00</td><td data-label="Status">active</td></tr><tr><td data-label="Carrier"><a href="#" data-demo="1">State Farm</a></td><td data-label="Kind">auto</td><td data-label="Policy (last 4)">5521</td><td data-label="Term start">2025-11-17</td><td data-label="Term end">2026-05-18</td><td data-label="Premium total">$1,180.00</td><td data-label="Status">replaced</td></tr><tr><td data-label="Carrier"><a href="#" data-demo="1">Allstate</a></td><td data-label="Kind">home</td><td data-label="Policy (last 4)">9033</td><td data-label="Term start">2025-02-12</td><td data-label="Term end">2026-02-12</td><td data-label="Premium total">$1,604.00</td><td data-label="Status">replaced</td></tr></tbody>
+    <tbody><tr><td data-label="Carrier"><a href="#" data-demo="1">Allstate</a></td><td data-label="Kind">home</td><td data-label="Policy (last 4)">9033</td><td data-label="Term start">Feb 12</td><td data-label="Term end">Feb 12, 2027</td><td data-label="Premium total">$1,722.00</td><td data-label="Status">active</td></tr><tr><td data-label="Carrier"><a href="#" data-demo="1">State Farm</a> <span class="chip-s t-warn">in 29 days</span></td><td data-label="Kind">auto</td><td data-label="Policy (last 4)">5521</td><td data-label="Term start">May 18</td><td data-label="Term end">Nov 14</td><td data-label="Premium total">$1,342.00</td><td data-label="Status">active</td></tr><tr><td data-label="Carrier"><a href="#" data-demo="1">State Farm</a> <span class="chip-s t-bad">ended</span></td><td data-label="Kind">auto</td><td data-label="Policy (last 4)">5521</td><td data-label="Term start">Nov 17, 2025</td><td data-label="Term end">May 18</td><td data-label="Premium total">$1,180.00</td><td data-label="Status">replaced</td></tr><tr><td data-label="Carrier"><a href="#" data-demo="1">Allstate</a> <span class="chip-s t-bad">ended</span></td><td data-label="Kind">home</td><td data-label="Policy (last 4)">9033</td><td data-label="Term start">Feb 12, 2025</td><td data-label="Term end">Feb 12</td><td data-label="Premium total">$1,604.00</td><td data-label="Status">replaced</td></tr></tbody>
   </table></div>
   
 </section>
+
 
 
 <p class="muted small">Looking up only here: to add or change one of these, tell Chat.</p>
 
 
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=records:papers:policies" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="records" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -142,7 +167,7 @@
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

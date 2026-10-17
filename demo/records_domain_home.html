@@ -28,7 +28,7 @@
   <script src="static/vendor/htmx.min.js" defer=""></script>
   
   <script src="static/app.js" defer=""></script>
-  <title>Work · Mitra Home</title>
+  <title>Records · Mitra Home</title>
 </head>
 
 
@@ -55,88 +55,108 @@
         
         <details class="rg" data-rg="Money" open="">
           <summary>Money</summary>
-          <a href="month.html">This month</a><a href="finance.html" class="on" aria-current="page">Finance</a>
+          <a href="month.html">This month</a><a href="finance.html">Finance</a>
         </details>
         
       
         
         <details class="rg" data-rg="Everything else" open="">
           <summary>Everything else</summary>
-          <a href="records.html">Records</a><a href="notes.html">Notes</a>
+          <a href="records.html" class="on" aria-current="page">Records</a><a href="notes.html">Notes</a>
         </details>
         
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Work</h1><p class="sub">Contracts, hours and invoices</p></div>
-  <a class="btn alt" href="#" data-demo="1">Back to Finance</a></header>
+
+<header class="head fhead"><div><a class="fback" href="records.html">Records</a><h1>Home</h1><p class="sub">Lists</p></div><a class="btn alt rsgo" href="#" data-demo="1">Search</a></header>
+
+<nav class="fchips" aria-label="Home"><a href="records_domain_home_section_lists.html" class="on" aria-current="true">Lists</a><a href="records_domain_home_section_meals.html">Meals</a><a href="records_domain_home_section_saved.html">Saved</a><a href="records_domain_home_section_upkeep.html">Upkeep</a><a href="records_domain_home_section_contacts.html">Service contacts</a><a href="records_domain_home_section_inventory.html">Inventory</a><a href="records_domain_home_section_shopping.html">Shopping</a></nav>
+
+
+
+
+
+
+<div class="kpis rk"><div class="kpi"><span>Upkeep jobs</span><b>13</b></div><div class="kpi"><span>Things at home</span><b>7</b></div><div class="kpi"><span>Service contacts</span><b>1</b></div><div class="kpi"><span>Recipes</span><b>6</b></div></div>
 
 
 
 <details class="card addnote">
-  <summary><h2>Add a contract</h2></summary>
-  <form class="nform" data-hx-post="/work" data-hx-vals="{&quot;op&quot;: &quot;contract_add&quot;}">
-    <label>Client<input name="client" maxlength="80" required=""></label>
-    <label>Vendor / agency (optional)<input name="vendor" maxlength="80"></label>
-    <label>Contract number (optional)<input name="contract_no" maxlength="40"></label>
-    <label>Who<select name="person"><option value=""></option><option value="Marcus">Marcus</option><option value="Elena">Elena</option><option value="Sofia">Sofia</option><option value="Mateo">Mateo</option><option value="Pancho">Pancho</option></select></label>
-    <label>Start date<input name="start" type="date" min="1990-01-01" max="2100-12-31"></label>
-    <label>End date<input name="end" type="date" min="1990-01-01" max="2100-12-31"></label>
-    <label>Hourly rate<input name="rate" inputmode="decimal" maxlength="12"></label>
-    <button class="btn" type="submit">Add contract</button>
-  </form>
+  <summary><h2>Start a list</h2></summary>
+  <div id="radd-lists">
+
+<form class="nform" data-hx-post="/records/add" data-hx-target="#radd-lists" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;home/lists&quot;, &quot;table&quot;: &quot;lists&quot;}">
+
+  <label>Name<input name="name" maxlength="60" required="" value=""></label>
+  <label>Kind<select name="kind"><option value="shopping">shopping</option><option value="todo" selected="">todo</option><option value="packing">packing</option></select></label>
+  <label class="check"><input type="checkbox" name="adults" value="1"> Adults only (children and guests do not see it)</label>
+
+  <button class="btn" type="submit">Add</button>
+</form></div>
 </details>
 
-<h2>Northwind Systems #NW-2026-014</h2>
-<nav class="pills sm" aria-label="Part"><a href="#" data-demo="1" class="on" aria-current="true">Billing</a><a href="#" data-demo="1">Hours</a><a href="#" data-demo="1">Schedule</a><a href="#" data-demo="1">Profile</a><a href="#" data-demo="1">Work calendar</a></nav>
 
 
-
-<form class="rsearch card" action="work.html" method="get"><input type="hidden" name="c" value="1"><input type="hidden" name="tab" value="billing">
-  <label class="vh" for="wmonth">Month</label>
-  <select id="wmonth" name="month"><option value="2026-10" selected="">2026-10</option><option value="2026-09">2026-09</option><option value="2026-08">2026-08</option><option value="2026-07">2026-07</option><option value="2026-06">2026-06</option><option value="2026-05">2026-05</option><option value="2026-04">2026-04</option><option value="2026-03">2026-03</option><option value="2026-02">2026-02</option><option value="2026-01">2026-01</option><option value="2025-12">2025-12</option><option value="2025-11">2025-11</option><option value="2025-10">2025-10</option></select>
-  <button class="btn" type="submit">Show</button></form>
-<div class="kpis rk">
-  <div class="kpi"><span>Hours</span><b>80</b></div>
-  <div class="kpi"><span>Amount</span><b>$6,800.00</b></div>
-  <div class="kpi"><span>On site / off site</span><b>6 / 4</b></div>
-  <div class="kpi"><span>Planned hours</span><b>168</b></div>
-</div>
-<p class="alert">1 scheduled day(s) with no hours entered: 10/15</p><p class="alert">hours on a holiday: 10/12</p>
-<section class="card rblock"><h2>Weeks</h2>
-  <div class="tablewrap"><table><thead><tr><th>Week of</th><th>Days</th><th>Hours</th></tr></thead>
-  <tbody><tr><td>2026-09-28</td><td>10/01 - 10/04</td><td>16.0</td></tr><tr><td>2026-10-05</td><td>10/05 - 10/11</td><td>40.0</td></tr><tr><td>2026-10-12</td><td>10/12 - 10/18</td><td>24.0</td></tr><tr><td>2026-10-19</td><td>10/19 - 10/25</td><td>0.0</td></tr><tr><td>2026-10-26</td><td>10/26 - 10/31</td><td>0.0</td></tr></tbody></table></div>
-  <p class="muted small">Pay days this month: Oct 07, Oct 21</p>
-  <button type="button" class="btn alt" data-hx-post="/work" data-hx-vals="{&quot;c&quot;: &quot;1&quot;, &quot;end&quot;: &quot;2026-10-31&quot;, &quot;op&quot;: &quot;invoice_make&quot;, &quot;start&quot;: &quot;2026-10-01&quot;, &quot;tab&quot;: &quot;billing&quot;}">Record invoice for 2026-10</button>
-</section>
-<section class="card rblock"><h2>Invoices</h2>
+<section class="card rblock"><h2>Lists <span class="muted rcount">4</span></h2>
   
-  <div class="tablewrap"><table class="cards"><thead><tr><th>Invoice</th><th>Period</th><th>Hours</th><th>Amount</th><th>Status</th><th>Sent</th><th>Paid</th></tr></thead>
-  <tbody><tr><td data-label="Invoice">2</td><td data-label="Period">2026-09-01 to 2026-09-30</td><td data-label="Hours">173.0</td><td data-label="Amount">$14,705.00</td><td data-label="Status">sent</td><td data-label="Sent">2026-10-07</td><td data-label="Paid"></td></tr><tr><td data-label="Invoice">1</td><td data-label="Period">2026-08-01 to 2026-08-31</td><td data-label="Hours">166.5</td><td data-label="Amount">$14,152.50</td><td data-label="Status">paid</td><td data-label="Sent">2026-09-10</td><td data-label="Paid">2026-09-25</td></tr></tbody></table></div>
-  <form class="nform" data-hx-post="/work" data-hx-vals="{&quot;c&quot;: &quot;1&quot;, &quot;op&quot;: &quot;invoice_set&quot;, &quot;tab&quot;: &quot;billing&quot;}">
-    <label>Invoice<select name="invoice"><option value="2">2 · 2026-09-01</option><option value="1">1 · 2026-08-01</option></select></label>
-    <label>Mark as<select name="status"><option>sent</option><option>paid</option><option>draft</option></select></label>
-    <label>On<input name="on" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-16"></label>
-    <button class="btn alt" type="submit">Save</button>
-  </form>
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">B</span>
+      <span class="rl-main"><span class="rl-t">Beach trip packing</span><span class="rl-m">packing · family · Open items 5</span></span>
+      <span class="rl-r"></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
   
-  <p class="muted small">2026 so far: 22 day(s) off site, 33 on site. A record for the home-office figures; whether a deduction applies is for your tax preparer.</p>
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">G</span>
+      <span class="rl-main"><span class="rl-t">Gift ideas (adults)</span><span class="rl-m">todo · adults · Open items 2</span></span>
+      <span class="rl-r"></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">G</span>
+      <span class="rl-main"><span class="rl-t">Groceries</span><span class="rl-m">shopping · family · Open items 19</span></span>
+      <span class="rl-r"></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">W</span>
+      <span class="rl-main"><span class="rl-t">Weekend to-do</span><span class="rl-m">todo · family · Open items 4</span></span>
+      <span class="rl-r"></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
+    <thead><tr><th>Name</th><th>Kind</th><th>Audience</th><th>Open items</th></tr></thead>
+    <tbody><tr><td><a href="#" data-demo="1">Beach trip packing</a></td><td>packing</td><td>family</td><td>5</td></tr><tr><td><a href="#" data-demo="1">Gift ideas (adults)</a></td><td>todo</td><td>adults</td><td>2</td></tr><tr><td><a href="#" data-demo="1">Groceries</a></td><td>shopping</td><td>family</td><td>19</td></tr><tr><td><a href="#" data-demo="1">Weekend to-do</a></td><td>todo</td><td>family</td><td>4</td></tr></tbody>
+  </table></div>
+  
 </section>
 
 
+
+<p class="muted small">Open a row to change it here, or tell Chat.</p>
 
 
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=records:home:lists" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="records" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -153,15 +173,15 @@
         
         <a role="menuitem" href="month.html">This month</a>
         
-        <a role="menuitem" href="finance.html" class="on" aria-current="page">Finance</a>
+        <a role="menuitem" href="finance.html">Finance</a>
         
-        <a role="menuitem" href="records.html">Records</a>
+        <a role="menuitem" href="records.html" class="on" aria-current="page">Records</a>
         
         <a role="menuitem" href="notes.html">Notes</a>
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

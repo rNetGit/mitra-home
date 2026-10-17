@@ -68,25 +68,35 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Notes</h1><p class="sub">Links, notes, places and deals to find again. Pinned first; deals with an end date show in the Brief.</p></div></header>
-<form id="notes-filter" class="nform card" action="notes.html" method="get" data-hx-get="/notes/body" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-trigger="input changed delay:300ms, change, submit">
-  <label class="wide">Search<input type="search" name="q" value="" maxlength="200" placeholder="pizza near the station, voice cloning, goa..."></label>
-  <label>Kind<select name="kind"><option value="">(any)</option><option value="link">Link</option><option value="note">Note</option><option value="place">Place</option><option value="deal">Deal</option><option value="video">Video</option><option value="repo">Repo</option><option value="article">Article</option><option value="social">Social</option></select></label>
-  <label>Tag<select name="tag"><option value="">(any)</option><option value="deal">deal</option><option value="diy">diy</option><option value="food">food</option><option value="home">home</option><option value="kids">kids</option><option value="outing">outing</option><option value="recipe">recipe</option><option value="safety">safety</option><option value="school">school</option><option value="tech">tech</option></select></label>
-  <label>Added by<select name="who"><option value="">(anyone)</option><option value="Marcus">Marcus</option><option value="Elena">Elena</option><option value="Sofia">Sofia</option><option value="Mateo">Mateo</option><option value="Pancho">Pancho</option></select></label>
-  <label class="check"><input type="checkbox" name="all" value="1"> Show archived and ended deals</label>
+<header class="head"><div><h1>Notes</h1><p class="sub">Links, notes, places and deals to find again.</p></div></header>
+<form id="notes-filter" class="nfilter card" action="notes.html" method="get" data-hx-get="/notes/body" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-trigger="input changed delay:300ms, change, submit" role="search">
+  <label class="vh" for="nq">Search notes</label>
+  <input id="nq" type="search" name="q" value="" maxlength="200" placeholder="Search: pizza near the station, voice cloning, goa...">
+  <div class="fchips nkinds" role="radiogroup" aria-label="Kind">
+    <label class="nchip"><input type="radio" name="kind" value="" checked=""><span>All</span></label>
+    <label class="nchip"><input type="radio" name="kind" value="note"><span>Notes <small>1</small></span></label><label class="nchip"><input type="radio" name="kind" value="place"><span>Places <small>1</small></span></label><label class="nchip"><input type="radio" name="kind" value="deal"><span>Deals <small>1</small></span></label><label class="nchip"><input type="radio" name="kind" value="video"><span>Videos <small>1</small></span></label><label class="nchip"><input type="radio" name="kind" value="repo"><span>Code <small>1</small></span></label><label class="nchip"><input type="radio" name="kind" value="article"><span>Articles <small>2</small></span></label>
+    
+  </div>
+  <details class="nmore">
+    <summary class="muted small">More filters</summary>
+    <div class="nmore-g">
+      <label>Tag<select name="tag"><option value="">(any)</option><option value="deal">deal</option><option value="diy">diy</option><option value="food">food</option><option value="home">home</option><option value="kids">kids</option><option value="outing">outing</option><option value="recipe">recipe</option><option value="safety">safety</option><option value="school">school</option><option value="tech">tech</option></select></label>
+      <label>Added by<select name="who"><option value="">(anyone)</option><option value="Marcus">Marcus</option><option value="Elena">Elena</option><option value="Sofia">Sofia</option><option value="Mateo">Mateo</option><option value="Pancho">Pancho</option></select></label>
+      <label class="check"><input type="checkbox" name="all" value="1"> Show archived and ended deals</label>
+    </div>
+  </details>
 </form>
-<details class="card addnote">
+<details class="card addnote" id="nadd">
   <summary><h2>Save a link, note, place or deal</h2></summary>
   <form class="nform" data-hx-post="/notes/add" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-reset-on-save="">
     <label>Title (you type it; links are never opened)<input name="title" maxlength="200" required=""></label>
@@ -105,18 +115,27 @@
 </details>
 <section id="notes">
 
-<p class="muted">7 items.</p>
+
+
+
+
+
+<p class="muted ncount">7 items.</p>
+
+
+
+<h2 class="nsec">Pinned <span class="muted">2</span></h2>
+<div class="npins">
 
 <article class="card ncard pinned">
-  <div class="nhead">
-    <h2><span title="Pinned" aria-label="Pinned">★</span> Pullen Park</h2>
-    <span class="ntag">place</span>
-  </div>
-  <p class="muted small">520 Ashe Ave, Raleigh NC · everyone</p>
+  <div class="nhead"><span class="nk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle>
+</svg></span><h2>Pullen Park</h2></div>
+  <p class="nmeta">520 Ashe Ave, Raleigh NC · everyone</p>
   <div class="nnote">Carousel and train</div>
   <p class="ntags"><span class="ntag">#kids</span><span class="ntag">#outing</span></p>
   
-  <div class="optrow">
+  
+  <div class="optrow nact">
     <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;3&quot;, &quot;op&quot;: &quot;unpin&quot;}">Unpin</button>
     <details class="more-form"><summary class="btn alt">Tags</summary>
       <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
@@ -128,18 +147,18 @@
     <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;3&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
   </div>
   
+
 </article>
 
 <article class="card ncard pinned">
-  <div class="nhead">
-    <h2><span title="Pinned" aria-label="Pinned">★</span> <a href="https://example.com/pizza-dough" target="_blank" rel="noopener noreferrer nofollow">Best pizza dough recipe</a></h2>
-    <span class="ntag">article</span>
-  </div>
-  <p class="muted small">example.com · everyone</p>
+  <div class="nhead"><span class="nk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"></path><path d="M9 11h7M9 15h7M9 7h4"></path>
+</svg></span><h2><a href="https://example.com/pizza-dough" target="_blank" rel="noopener noreferrer nofollow">Best pizza dough recipe</a></h2></div>
+  <p class="nmeta">example.com · everyone</p>
   <div class="nnote">72 hour cold ferment</div>
   <p class="ntags"><span class="ntag">#food</span><span class="ntag">#recipe</span></p>
   
-  <div class="optrow">
+  
+  <div class="optrow nact">
     <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;1&quot;, &quot;op&quot;: &quot;unpin&quot;}">Unpin</button>
     <details class="more-form"><summary class="btn alt">Tags</summary>
       <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
@@ -151,18 +170,26 @@
     <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;1&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
   </div>
   
+
 </article>
 
-<article class="card ncard">
-  <div class="nhead">
-    <h2><a href="https://example.com/hurricane" target="_blank" rel="noopener noreferrer nofollow">Hurricane prep checklist</a></h2>
-    <span class="ntag">article</span>
-  </div>
-  <p class="muted small">example.com · everyone</p>
+</div>
+
+
+<h2 class="nsec">Everything else <span class="muted">5</span></h2>
+<div class="card nlist">
+
+<article class="ncard nrow">
+  <span class="nk-ico k-article" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"></path><path d="M9 11h7M9 15h7M9 7h4"></path>
+</svg></span>
+  <div class="nbody">
+    <div class="nhead"><h2><a href="https://example.com/hurricane" target="_blank" rel="noopener noreferrer nofollow">Hurricane prep checklist</a></h2></div>
+    <p class="nmeta muted">example.com · everyone</p>
+    
+    <p class="ntags"><span class="ntag">#home</span><span class="ntag">#safety</span></p>
+    <details class="nmenu"><summary aria-label="Pin, tags or archive Hurricane prep checklist" title="Pin, tags, archive">⋯</summary>
   
-  <p class="ntags"><span class="ntag">#home</span><span class="ntag">#safety</span></p>
-  
-  <div class="optrow">
+  <div class="optrow nact">
     <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;9&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
     <details class="more-form"><summary class="btn alt">Tags</summary>
       <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
@@ -174,18 +201,21 @@
     <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;9&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
   </div>
   
+</details>
+  </div>
 </article>
 
-<article class="card ncard">
-  <div class="nhead">
-    <h2><a href="https://github.com/example/homeassistant-config" target="_blank" rel="noopener noreferrer nofollow">homeassistant-config</a></h2>
-    <span class="ntag">repo</span>
-  </div>
-  <p class="muted small">github.com · adults only</p>
+<article class="ncard nrow">
+  <span class="nk-ico k-repo" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12"></path>
+</svg></span>
+  <div class="nbody">
+    <div class="nhead"><h2><a href="https://github.com/example/homeassistant-config" target="_blank" rel="noopener noreferrer nofollow">homeassistant-config</a></h2></div>
+    <p class="nmeta muted">github.com · adults only</p>
+    
+    <p class="ntags"><span class="ntag">#tech</span></p>
+    <details class="nmenu"><summary aria-label="Pin, tags or archive homeassistant-config" title="Pin, tags, archive">⋯</summary>
   
-  <p class="ntags"><span class="ntag">#tech</span></p>
-  
-  <div class="optrow">
+  <div class="optrow nact">
     <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;6&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
     <details class="more-form"><summary class="btn alt">Tags</summary>
       <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
@@ -197,18 +227,21 @@
     <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;6&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
   </div>
   
+</details>
+  </div>
 </article>
 
-<article class="card ncard">
-  <div class="nhead">
-    <h2><a href="https://www.youtube.com/watch?v=abc123" target="_blank" rel="noopener noreferrer nofollow">Planet Money: how to fix a leaky faucet</a></h2>
-    <span class="ntag">video</span>
-  </div>
-  <p class="muted small">youtube.com · everyone</p>
+<article class="ncard nrow">
+  <span class="nk-ico k-video" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"></rect><path d="M10 9l5 3-5 3z"></path>
+</svg></span>
+  <div class="nbody">
+    <div class="nhead"><h2><a href="https://www.youtube.com/watch?v=abc123" target="_blank" rel="noopener noreferrer nofollow">Planet Money: how to fix a leaky faucet</a></h2></div>
+    <p class="nmeta muted">youtube.com · everyone</p>
+    
+    <p class="ntags"><span class="ntag">#home</span><span class="ntag">#diy</span></p>
+    <details class="nmenu"><summary aria-label="Pin, tags or archive Planet Money: how to fix a leaky faucet" title="Pin, tags, archive">⋯</summary>
   
-  <p class="ntags"><span class="ntag">#home</span><span class="ntag">#diy</span></p>
-  
-  <div class="optrow">
+  <div class="optrow nact">
     <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;5&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
     <details class="more-form"><summary class="btn alt">Tags</summary>
       <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
@@ -220,18 +253,21 @@
     <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;5&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
   </div>
   
+</details>
+  </div>
 </article>
 
-<article class="card ncard">
-  <div class="nhead">
-    <h2><a href="https://example.com/aquarium-deal" target="_blank" rel="noopener noreferrer nofollow">Aquarium family pass 20% off</a></h2>
-    <span class="ntag">deal</span>
-  </div>
-  <p class="muted small">example.com · until 2026-11-03 · everyone</p>
+<article class="ncard nrow">
+  <span class="nk-ico k-deal" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"></path><circle cx="7.5" cy="8.5" r="1.4"></circle>
+</svg></span>
+  <div class="nbody">
+    <div class="nhead"><h2><a href="https://example.com/aquarium-deal" target="_blank" rel="noopener noreferrer nofollow">Aquarium family pass 20% off</a></h2><span class="chip-s t-n">until Nov 3</span></div>
+    <p class="nmeta muted">example.com · everyone</p>
+    
+    <p class="ntags"><span class="ntag">#kids</span><span class="ntag">#deal</span></p>
+    <details class="nmenu"><summary aria-label="Pin, tags or archive Aquarium family pass 20% off" title="Pin, tags, archive">⋯</summary>
   
-  <p class="ntags"><span class="ntag">#kids</span><span class="ntag">#deal</span></p>
-  
-  <div class="optrow">
+  <div class="optrow nact">
     <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;4&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
     <details class="more-form"><summary class="btn alt">Tags</summary>
       <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
@@ -243,18 +279,21 @@
     <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;4&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
   </div>
   
+</details>
+  </div>
 </article>
 
-<article class="card ncard">
-  <div class="nhead">
-    <h2>Wifi password is on the router sticker</h2>
-    <span class="ntag">note</span>
-  </div>
-  <p class="muted small">everyone</p>
-  <div class="nnote">Guest network is on the fridge door</div>
-  <p class="ntags"><span class="ntag">#home</span></p>
+<article class="ncard nrow">
+  <span class="nk-ico k-note" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14v16H5z"></path><path d="M8 9h8M8 13h8M8 17h5"></path>
+</svg></span>
+  <div class="nbody">
+    <div class="nhead"><h2>Wifi password is on the router sticker</h2></div>
+    <p class="nmeta muted">everyone</p>
+    <div class="nnote">Guest network is on the fridge door</div>
+    <p class="ntags"><span class="ntag">#home</span></p>
+    <details class="nmenu"><summary aria-label="Pin, tags or archive Wifi password is on the router sticker" title="Pin, tags, archive">⋯</summary>
   
-  <div class="optrow">
+  <div class="optrow nact">
     <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;2&quot;, &quot;op&quot;: &quot;pin&quot;}">Pin</button>
     <details class="more-form"><summary class="btn alt">Tags</summary>
       <form class="nform" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter">
@@ -266,10 +305,20 @@
     <button type="button" class="btn alt" data-hx-post="/notes/act" data-hx-target="#notes" data-hx-swap="innerHTML" data-hx-include="#notes-filter" data-hx-vals="{&quot;id&quot;: &quot;2&quot;, &quot;op&quot;: &quot;archive&quot;}">Archive</button>
   </div>
   
+</details>
+  </div>
 </article>
+
+</div>
+
 
 </section>
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=notes" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="notes" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -294,7 +343,7 @@
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

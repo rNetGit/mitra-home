@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else" open="">
+        <details class="rg" data-rg="Everything else">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -68,20 +68,20 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Finance</h1><p class="sub">Pay · Receipts</p></div></header>
-<nav class="pills" aria-label="Group"><a href="finance_part_bills.html" class="on" aria-current="true">Pay</a><a href="finance_part_accounts.html">Keep</a><a href="finance_part_cashflow.html">Look back</a></nav>
 
-<nav class="pills sm" aria-label="Part"><a href="finance_part_bills.html">Bills</a><a href="finance_part_receipts.html" class="on" aria-current="true">Receipts</a><a href="finance_part_mobile.html">Phone bills</a><a href="finance_part_subs.html">Subscriptions</a><a href="#" data-demo="1">Amazon orders</a><a href="#" data-demo="1">Cards</a><a href="#" data-demo="1">Statement watch</a><a href="#" data-demo="1">Price spikes</a></nav>
+<header class="head fhead"><div><a class="fback" href="finance.html">Finance</a><h1>Pay</h1><p class="sub">Receipts</p></div></header>
+
+<nav class="fchips" aria-label="Pay"><a href="finance_part_bills.html">Bills</a><a href="finance_part_receipts.html" class="on" aria-current="true">Receipts</a><a href="finance_part_mobile.html">Phone bills</a><a href="finance_part_subs.html">Subscriptions</a><a href="#" data-demo="1">Amazon orders</a><a href="finance_part_cards.html">Cards</a><a href="#" data-demo="1">Statement watch</a><a href="#" data-demo="1">Price spikes</a></nav>
 
 
 
@@ -113,20 +113,72 @@
 
 
 
-<section class="card rblock">
-  <h2>Waiting for a charge</h2>
+
+
+<section class="card rblock"><h2>Waiting for a charge</h2>
   
-  <div class="tablewrap"><table>
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-10-10</span><span class="rl-m">Farmers Market</span></span>
+      <span class="rl-r"><b>$42.00</b><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-10-06</span><span class="rl-m">Pet Supplies Plus</span></span>
+      <span class="rl-r"><b>$61.38</b><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-09-19</span><span class="rl-m">Lowes</span></span>
+      <span class="rl-r"><b>$156.03</b><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-08-06</span><span class="rl-m">Best Buy</span></span>
+      <span class="rl-r"><b>$289.99</b><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2024-04-28</span><span class="rl-m">Home Depot</span></span>
+      <span class="rl-r"><b>$1,349.00</b><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Date</th><th>Store</th><th>Total</th><th>Note</th></tr></thead>
     <tbody><tr><td><a href="#" data-demo="1">2026-10-10</a></td><td>Farmers Market</td><td>$42.00</td><td>no charge yet (it may post after the next statement)</td></tr><tr><td><a href="#" data-demo="1">2026-10-06</a></td><td>Pet Supplies Plus</td><td>$61.38</td><td>no charge yet (it may post after the next statement)</td></tr><tr><td><a href="#" data-demo="1">2026-09-19</a></td><td>Lowes</td><td>$156.03</td><td>no charge yet (it may post after the next statement)</td></tr><tr><td><a href="#" data-demo="1">2026-08-06</a></td><td>Best Buy</td><td>$289.99</td><td>no charge yet (it may post after the next statement)</td></tr><tr><td><a href="#" data-demo="1">2024-04-28</a></td><td>Home Depot</td><td>$1,349.00</td><td>no charge yet (it may post after the next statement)</td></tr></tbody>
   </table></div>
   
 </section>
 
-<section class="card rblock">
-  <h2>Matched</h2>
+
+
+<section class="card rblock"><h2>Matched</h2>
   
-  <div class="tablewrap"><table class="cards">
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-10-09</span><span class="rl-m">Kroger · Oct 9 KROGER #0123 RALEIGH NC · Charged $74.63 · Summit Rewards Visa</span></span>
+      <span class="rl-r"><b>$74.63</b></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-10-02</span><span class="rl-m">Kroger · Oct 2 KROGER #0123 RALEIGH NC · Charged $94.60 · Summit Rewards Visa</span></span>
+      <span class="rl-r"><b>$94.60</b></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">2</span>
+      <span class="rl-main"><span class="rl-t">2026-09-16</span><span class="rl-m">Target · Sep 16 TARGET 00014 · Charged $88.54 · Summit Rewards Visa</span></span>
+      <span class="rl-r"><b>$85.54</b></span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table class="cards">
     <thead><tr><th>Date</th><th>Store</th><th>Total</th><th>Charge</th><th>Charged</th><th>Account</th><th>How</th></tr></thead>
     <tbody><tr><td data-label="Date"><a href="#" data-demo="1">2026-10-09</a></td><td data-label="Store">Kroger</td><td data-label="Total">$74.63</td><td data-label="Charge">2026-10-09 KROGER #0123 RALEIGH NC</td><td data-label="Charged">$74.63</td><td data-label="Account">Summit Rewards Visa</td><td data-label="How">high</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">2026-10-02</a></td><td data-label="Store">Kroger</td><td data-label="Total">$94.60</td><td data-label="Charge">2026-10-02 KROGER #0123 RALEIGH NC</td><td data-label="Charged">$94.60</td><td data-label="Account">Summit Rewards Visa</td><td data-label="How">high</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">2026-09-16</a></td><td data-label="Store">Target</td><td data-label="Total">$85.54</td><td data-label="Charge">2026-09-16 TARGET 00014</td><td data-label="Charged">$88.54</td><td data-label="Account">Summit Rewards Visa</td><td data-label="How">low</td></tr></tbody>
   </table></div>
@@ -134,10 +186,15 @@
 </section>
 
 
+
 <p class="muted small">Open a row to change it here, or tell Chat.</p>
 
-
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=finance:receipts" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="finance" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -162,7 +219,7 @@
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

@@ -68,37 +68,27 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Records</h1><p class="sub">Papers &amp; IDs · Emergency sheet</p></div></header>
 
-<form class="rsearch card" action="records.html" method="get" role="search">
-  <label class="vh" for="rq">Search the records</label>
-  <input id="rq" type="search" name="q" value="" maxlength="200" placeholder="water bill, passport, furnace...">
-  <button class="btn" type="submit">Search</button>
-</form>
+<header class="head fhead"><div><a class="fback" href="records.html">Records</a><h1>Papers &amp; IDs</h1><p class="sub">Emergency sheet</p></div><a class="btn alt rsgo" href="#" data-demo="1">Search</a></header>
+
+<nav class="fchips" aria-label="Papers &amp; IDs"><a href="records_domain_papers_section_papers.html">Papers</a><a href="records_domain_papers_section_ids.html">Expiries and IDs</a><a href="records_domain_papers_section_policies.html">Insurance</a><a href="records_domain_papers_section_emergency.html" class="on" aria-current="true">Emergency sheet</a></nav>
 
 
 
-
-
-
-<nav class="pills" aria-label="Area"><a href="#" data-demo="1">People</a><a href="#" data-demo="1">Home</a><a href="#" data-demo="1">Vehicles</a><a href="#" data-demo="1" class="on" aria-current="true">Papers &amp; IDs</a></nav>
-
-<nav class="pills sm" aria-label="Part"><a href="records_domain_papers_section_papers.html">Papers</a><a href="records_domain_papers_section_ids.html">Expiries and IDs</a><a href="records_domain_papers_section_policies.html">Insurance</a><a href="records_domain_papers_section_emergency.html" class="on" aria-current="true">Emergency sheet</a></nav>
 
 
 
 <div class="kpis rk"><div class="kpi"><span>Papers filed</span><b>30</b></div><div class="kpi"><span>IDs and expiries</span><b>6</b></div><div class="kpi"><span>Policies</span><b>4</b></div></div>
-
 
 
 <div class="card"><p>The emergency sheet is one of the documents on the Brief page.</p><p><a class="btn" href="brief.html">Open</a></p></div>
@@ -110,6 +100,11 @@
 
 
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=records" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="records" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -134,7 +129,7 @@
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

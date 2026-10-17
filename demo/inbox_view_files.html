@@ -68,41 +68,109 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Inbox</h1><p class="sub">Files and questions that need a person.</p></div></header>
-<section class="card addfiles" id="upload">
-  <div><h2>Add files</h2>
-  <p class="muted">Bills, statements, receipts and photos. Up to 25 MB each.</p></div>
+<header class="head"><div><h1>Inbox</h1><p class="sub">Drop anything here. Mitra reads it, files it, and asks only when unsure.</p></div></header>
+<section class="card dropzone" id="upload" data-autofile="">
   <input type="file" id="inbox-files" class="vh" multiple="" accept=".csv,.doc,.docx,.eml,.heic,.jpeg,.jpg,.ofx,.pdf,.png,.qfx,.tif,.tiff,.txt,.webp,.xls,.xlsx" aria-label="Choose files to add">
+  <label for="inbox-files" class="dz-target">
+    <svg class="dz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a4.6 4.4 0 0 1 0-8.8A5 4.5 0 0 1 17 8h1a3.5 3.5 0 0 1 0 7h-1"></path><path d="M9 15l3-3 3 3"></path><path d="M12 12v9"></path></svg>
+    <span class="dz-h">Drop files here, paste, or <u>choose files</u></span>
+    <span class="muted">Bills, statements, receipts, photos, school calendars. Up to 25 MB each.</span>
+  </label>
   <label class="btn" for="inbox-files">Choose files or take a photo</label>
   <ul id="upload-result" class="uploads" role="status" aria-live="polite"></ul>
 </section>
-<section id="inbox"><div class="seg" role="group" aria-label="Show">
+<section id="inbox">
+<section class="card iprog iprog-waiting" id="iprog" aria-live="polite">
+  <div class="iprog-head">
+    <h2>Waiting to be read</h2>
+    
+  </div>
+  <p class="muted">4 files waiting. They will be filed at the next inbox check.</p>
   
-  <button type="button" data-hx-get="/inbox/body?view=all" data-hx-target="#inbox" data-hx-swap="innerHTML" data-hx-push-url="/inbox?view=all" class="">All</button>
   
-  <button type="button" data-hx-get="/inbox/body?view=files" data-hx-target="#inbox" data-hx-swap="innerHTML" data-hx-push-url="/inbox?view=files" class="on">Files</button>
+  <ul class="pfiles">
   
-  <button type="button" data-hx-get="/inbox/body?view=decisions" data-hx-target="#inbox" data-hx-swap="innerHTML" data-hx-push-url="/inbox?view=decisions" class="">Decisions</button>
+    <li class="pfile t-wait">
+      <svg class="pf-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"></path></svg>
+      <div class="pf-main">
+        <div class="pf-top"><span class="pf-name">2026-10_pest_control_invoice.txt</span><span class="chip-s">Waiting</span></div>
+        
+        
+      </div>
+    </li>
   
-  <button type="button" data-hx-get="/inbox/body?view=questions" data-hx-target="#inbox" data-hx-swap="innerHTML" data-hx-push-url="/inbox?view=questions" class="">Questions</button>
+    <li class="pfile t-wait">
+      <svg class="pf-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"></path></svg>
+      <div class="pf-main">
+        <div class="pf-top"><span class="pf-name">ACME_paystub_oct.txt</span><span class="chip-s">Waiting</span></div>
+        
+        
+      </div>
+    </li>
   
-</div>
+    <li class="pfile t-wait">
+      <svg class="pf-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"></path></svg>
+      <div class="pf-main">
+        <div class="pf-top"><span class="pf-name">Rivera_school_forms.txt</span><span class="chip-s">Waiting</span></div>
+        
+        
+      </div>
+    </li>
+  
+    <li class="pfile t-wait">
+      <svg class="pf-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"></path></svg>
+      <div class="pf-main">
+        <div class="pf-top"><span class="pf-name">dentist_receipt_mateo.txt</span><span class="chip-s">Waiting</span></div>
+        
+        
+      </div>
+    </li>
+  
+  </ul>
+  
+</section>
 
-<p class="muted istatus">26 things need you. 4 files waiting. They will be filed at the next inbox check.
-  </p>
+<nav class="icats" aria-label="Show">
+  
+  <button type="button" data-hx-get="/inbox/body?view=all" data-hx-target="#inbox" data-hx-swap="innerHTML" data-hx-push-url="/inbox?view=all" class="icat ">
+    All <span class="n">26</span></button>
+  
+  <button type="button" data-hx-get="/inbox/body?view=files" data-hx-target="#inbox" data-hx-swap="innerHTML" data-hx-push-url="/inbox?view=files" class="icat on" aria-current="true">
+    Files to look at <span class="n">2</span></button>
+  
+  <button type="button" data-hx-get="/inbox/body?view=money" data-hx-target="#inbox" data-hx-swap="innerHTML" data-hx-push-url="/inbox?view=money" class="icat ">
+    Money <span class="n">9</span></button>
+  
+  <button type="button" data-hx-get="/inbox/body?view=renewals" data-hx-target="#inbox" data-hx-swap="innerHTML" data-hx-push-url="/inbox?view=renewals" class="icat ">
+    Renewals and documents <span class="n">1</span></button>
+  
+  <button type="button" data-hx-get="/inbox/body?view=family" data-hx-target="#inbox" data-hx-swap="innerHTML" data-hx-push-url="/inbox?view=family" class="icat ">
+    Family and household <span class="n">14</span></button>
+  
+</nav>
 
 
 
+
+<section class="isec isec-files" aria-labelledby="isec-files">
+  <header class="isec-head">
+    <span class="isec-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"></path><circle cx="11.5" cy="14.5" r="2.5"></circle><path d="M13.3 16.3L15 18"></path>
+</svg></span>
+    <div class="isec-t"><h2 id="isec-files">Files to look at <span class="n">2</span></h2><p class="muted">Papers that could not be read or placed.</p></div>
+    
+  </header>
+  
+  
 <article class="card icard">
   <h2>scan_0042.txt needs you: say what it is</h2>
   <p class="muted">It is a scan, so it could not be read.</p>
@@ -165,9 +233,19 @@
   </div>
 </article>
 
-
+  
+  
 </section>
+
+<button type="button" class="imore" data-hx-get="/inbox/body?view=all" data-hx-target="#inbox" data-hx-swap="innerHTML" data-hx-push-url="/inbox">Back to everything</button>
+</section>
+<div class="dropveil" aria-hidden="true"><span>Drop to add to the Inbox</span></div>
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=inbox" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="inbox" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -192,7 +270,7 @@
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

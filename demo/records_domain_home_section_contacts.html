@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>Records · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+    
+    
+      
+        
+        <span class="grp">Every day</span>
+        <a href="index.html">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        
+      
+        
+        <details class="rg" data-rg="Money" open="">
+          <summary>Money</summary>
+          <a href="month.html">This month</a><a href="finance.html">Finance</a>
+        </details>
+        
+      
+        
+        <details class="rg" data-rg="Everything else" open="">
+          <summary>Everything else</summary>
+          <a href="records.html" class="on" aria-current="page">Records</a><a href="notes.html">Notes</a>
+        </details>
+        
+      
+    
+    <span class="grow"></span>
+    <a href="settings.html">Settings</a>
+    <div class="railfoot">
+      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.113.1</small>
+  </nav>
+
+  <main>
+
+<header class="head fhead"><div><a class="fback" href="records.html">Records</a><h1>Home</h1><p class="sub">Service contacts</p></div><a class="btn alt rsgo" href="#" data-demo="1">Search</a></header>
+
+<nav class="fchips" aria-label="Home"><a href="records_domain_home_section_lists.html">Lists</a><a href="records_domain_home_section_meals.html">Meals</a><a href="records_domain_home_section_saved.html">Saved</a><a href="records_domain_home_section_upkeep.html">Upkeep</a><a href="records_domain_home_section_contacts.html" class="on" aria-current="true">Service contacts</a><a href="records_domain_home_section_inventory.html">Inventory</a><a href="records_domain_home_section_shopping.html">Shopping</a></nav>
+
+
+
+
+
+
+<div class="kpis rk"><div class="kpi"><span>Upkeep jobs</span><b>13</b></div><div class="kpi"><span>Things at home</span><b>7</b></div><div class="kpi"><span>Service contacts</span><b>1</b></div><div class="kpi"><span>Recipes</span><b>6</b></div></div>
+
+
+
+<details class="card addnote">
+  <summary><h2>Add a plumber, furnace company, garage ...</h2></summary>
+  <div id="radd-home_contacts">
+
+<form class="nform" data-hx-post="/records/add" data-hx-target="#radd-home_contacts" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;home/contacts&quot;, &quot;table&quot;: &quot;home_contacts&quot;}">
+
+    <label>Name<input name="name" maxlength="80" required="" placeholder="Acme Plumbing" value=""></label>
+  <label>Kind of work<select name="trade"><option value="plumbing">Plumbing</option><option value="electrical">Electrical</option><option value="heating_cooling">Heating and cooling (furnace, AC)</option><option value="garage_door">Garage door</option><option value="auto">Car repair</option><option value="appliance">Appliance repair</option><option value="roofing">Roofing</option><option value="handyman">Handyman</option><option value="landscaping">Lawn and garden</option><option value="pest">Pest control</option><option value="cleaning">Cleaning</option><option value="painting">Painting</option><option value="locksmith">Locksmith</option><option value="pool">Pool and spa</option><option value="other">Other</option></select></label>
+  <label>Phone<input name="phone" type="tel" maxlength="30" autocomplete="off" value=""></label>
+  <label>Email<input name="email" type="email" maxlength="120" autocomplete="off" value=""></label>
+  <label>Website<input name="website" maxlength="200" placeholder="https://" value=""></label>
+  <label>Last job<input name="last_used" type="date" min="1990-01-01" max="2100-12-31" value=""></label>
+  <label>Rating<select name="rating"><option value="">(none)</option><option value="5">5 of 5</option><option value="4">4 of 5</option><option value="3">3 of 5</option><option value="2">2 of 5</option><option value="1">1 of 5</option></select></label>
+  <label>Use them again?<select name="again"><option value="">not said</option><option value="1">yes</option><option value="0">no</option></select></label>
+  <label>Notes<input name="notes" maxlength="300" placeholder="Fixed the furnace igniter, $180; ask for Dave" value=""></label>
+  <p class="muted small">Stays on this PC. A business line is fine; no account numbers or passwords.</p>
+
+  <button class="btn" type="submit">Add</button>
+</form></div>
+</details>
+
+
+
+<section class="card rblock"><h2>Plumbers, furnace, garage and other help <span class="muted rcount">1</span></h2>
+  
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">W</span>
+      <span class="rl-main"><span class="rl-t">Warm Air Heating</span><span class="rl-m">heating cooling · (555) 010-2233 · Last job Oct 15</span></span>
+      <span class="rl-r"></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table class="cards">
+    <thead><tr><th>Name</th><th>Kind</th><th>Phone</th><th>Last job</th><th>Use again</th><th>Rating</th><th>Notes</th></tr></thead>
+    <tbody><tr><td data-label="Name"><a href="#" data-demo="1">Warm Air Heating</a></td><td data-label="Kind">heating cooling</td><td data-label="Phone">(555) 010-2233</td><td data-label="Last job">Oct 15</td><td data-label="Use again"></td><td data-label="Rating"></td><td data-label="Notes"></td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+
+<p class="muted small">Open a row to change it here, or tell Chat.</p>
+
+
+</main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=records:home:contacts" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="records" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html">Finance</a>
+        
+        <a role="menuitem" href="records.html" class="on" aria-current="page">Records</a>
+        
+        <a role="menuitem" href="notes.html">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings.html">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>

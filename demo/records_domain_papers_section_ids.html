@@ -68,37 +68,27 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Records</h1><p class="sub">Papers &amp; IDs · Expiries and IDs</p></div></header>
 
-<form class="rsearch card" action="records.html" method="get" role="search">
-  <label class="vh" for="rq">Search the records</label>
-  <input id="rq" type="search" name="q" value="" maxlength="200" placeholder="water bill, passport, furnace...">
-  <button class="btn" type="submit">Search</button>
-</form>
+<header class="head fhead"><div><a class="fback" href="records.html">Records</a><h1>Papers &amp; IDs</h1><p class="sub">Expiries and IDs</p></div><a class="btn alt rsgo" href="#" data-demo="1">Search</a></header>
+
+<nav class="fchips" aria-label="Papers &amp; IDs"><a href="records_domain_papers_section_papers.html">Papers</a><a href="records_domain_papers_section_ids.html" class="on" aria-current="true">Expiries and IDs</a><a href="records_domain_papers_section_policies.html">Insurance</a><a href="records_domain_papers_section_emergency.html">Emergency sheet</a></nav>
 
 
 
-
-
-
-<nav class="pills" aria-label="Area"><a href="#" data-demo="1">People</a><a href="#" data-demo="1">Home</a><a href="#" data-demo="1">Vehicles</a><a href="#" data-demo="1" class="on" aria-current="true">Papers &amp; IDs</a></nav>
-
-<nav class="pills sm" aria-label="Part"><a href="records_domain_papers_section_papers.html">Papers</a><a href="records_domain_papers_section_ids.html" class="on" aria-current="true">Expiries and IDs</a><a href="records_domain_papers_section_policies.html">Insurance</a><a href="records_domain_papers_section_emergency.html">Emergency sheet</a></nav>
 
 
 
 <div class="kpis rk"><div class="kpi"><span>Papers filed</span><b>30</b></div><div class="kpi"><span>IDs and expiries</span><b>6</b></div><div class="kpi"><span>Policies</span><b>4</b></div></div>
-
 
 
 
@@ -119,21 +109,70 @@
 </details>
 
 
-<section class="card rblock">
-  <h2>ID documents</h2>
+
+<section class="card rblock"><h2>ID documents <span class="muted rcount">6</span></h2>
   
-  <div class="tablewrap"><table class="cards">
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-bad" aria-hidden="true">P</span>
+      <span class="rl-main"><span class="rl-t">Passport</span><span class="rl-m">Mateo · 6402 · US Dept of State</span></span>
+      <span class="rl-r"><b>Sep 25</b><span class="chip-s t-bad">expired</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">P</span>
+      <span class="rl-main"><span class="rl-t">Passport</span><span class="rl-m">Marcus · 7741 · US Dept of State</span></span>
+      <span class="rl-r"><b>Dec 12</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">D</span>
+      <span class="rl-main"><span class="rl-t">Drivers license</span><span class="rl-m">Marcus · 3329 · State DMV</span></span>
+      <span class="rl-r"><b>May 13, 2027</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">D</span>
+      <span class="rl-main"><span class="rl-t">Drivers license</span><span class="rl-m">Elena · 5503 · State DMV</span></span>
+      <span class="rl-r"><b>Nov 19, 2027</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">P</span>
+      <span class="rl-main"><span class="rl-t">Passport</span><span class="rl-m">Elena · 1186 · US Dept of State</span></span>
+      <span class="rl-r"><b>Apr 2, 2029</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">P</span>
+      <span class="rl-main"><span class="rl-t">Passport</span><span class="rl-m">Sofia · 9921 · US Dept of State</span></span>
+      <span class="rl-r"><b>Oct 19, 2029</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table class="cards">
     <thead><tr><th>Person</th><th>Document</th><th>Expires</th><th>Last 4</th><th>Issuing authority</th></tr></thead>
-    <tbody><tr><td data-label="Person"><a href="#" data-demo="1">Mateo</a></td><td data-label="Document">passport</td><td data-label="Expires">2026-09-25</td><td data-label="Last 4">6402</td><td data-label="Issuing authority">US Dept of State</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Marcus</a></td><td data-label="Document">passport</td><td data-label="Expires">2026-12-12</td><td data-label="Last 4">7741</td><td data-label="Issuing authority">US Dept of State</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Marcus</a></td><td data-label="Document">drivers license</td><td data-label="Expires">2027-05-13</td><td data-label="Last 4">3329</td><td data-label="Issuing authority">State DMV</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Elena</a></td><td data-label="Document">drivers license</td><td data-label="Expires">2027-11-19</td><td data-label="Last 4">5503</td><td data-label="Issuing authority">State DMV</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Elena</a></td><td data-label="Document">passport</td><td data-label="Expires">2029-04-02</td><td data-label="Last 4">1186</td><td data-label="Issuing authority">US Dept of State</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Sofia</a></td><td data-label="Document">passport</td><td data-label="Expires">2029-10-19</td><td data-label="Last 4">9921</td><td data-label="Issuing authority">US Dept of State</td></tr></tbody>
+    <tbody><tr><td data-label="Person"><a href="#" data-demo="1">Mateo</a> <span class="chip-s t-bad">expired</span></td><td data-label="Document">passport</td><td data-label="Expires">Sep 25</td><td data-label="Last 4">6402</td><td data-label="Issuing authority">US Dept of State</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Marcus</a></td><td data-label="Document">passport</td><td data-label="Expires">Dec 12</td><td data-label="Last 4">7741</td><td data-label="Issuing authority">US Dept of State</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Marcus</a></td><td data-label="Document">drivers license</td><td data-label="Expires">May 13, 2027</td><td data-label="Last 4">3329</td><td data-label="Issuing authority">State DMV</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Elena</a></td><td data-label="Document">drivers license</td><td data-label="Expires">Nov 19, 2027</td><td data-label="Last 4">5503</td><td data-label="Issuing authority">State DMV</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Elena</a></td><td data-label="Document">passport</td><td data-label="Expires">Apr 2, 2029</td><td data-label="Last 4">1186</td><td data-label="Issuing authority">US Dept of State</td></tr><tr><td data-label="Person"><a href="#" data-demo="1">Sofia</a></td><td data-label="Document">passport</td><td data-label="Expires">Oct 19, 2029</td><td data-label="Last 4">9921</td><td data-label="Issuing authority">US Dept of State</td></tr></tbody>
   </table></div>
   
 </section>
+
 
 
 <p class="muted small">Open a row to change it here, or tell Chat.</p>
 
 
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=records:papers:ids" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="records" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -158,7 +197,7 @@
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>Records · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+    
+    
+      
+        
+        <span class="grp">Every day</span>
+        <a href="index.html">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        
+      
+        
+        <details class="rg" data-rg="Money" open="">
+          <summary>Money</summary>
+          <a href="month.html">This month</a><a href="finance.html">Finance</a>
+        </details>
+        
+      
+        
+        <details class="rg" data-rg="Everything else" open="">
+          <summary>Everything else</summary>
+          <a href="records.html" class="on" aria-current="page">Records</a><a href="notes.html">Notes</a>
+        </details>
+        
+      
+    
+    <span class="grow"></span>
+    <a href="settings.html">Settings</a>
+    <div class="railfoot">
+      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.113.1</small>
+  </nav>
+
+  <main>
+
+<header class="head fhead"><div><a class="fback" href="records.html">Records</a><h1>Vehicles</h1></div><a class="btn alt rsgo" href="#" data-demo="1">Search</a></header>
+
+
+
+
+
+
+<div class="kpis rk"><div class="kpi"><span>Vehicles</span><b>2</b></div><div class="kpi"><span>Renewals in 60 days</span><b>1</b></div></div>
+
+
+
+<details class="card addnote">
+  <summary><h2>Add a vehicle</h2></summary>
+  <div id="radd-vehicles">
+
+<form class="nform" data-hx-post="/records/add" data-hx-target="#radd-vehicles" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;vehicles/vehicles&quot;, &quot;table&quot;: &quot;vehicles&quot;}">
+
+  <label>Make<input name="make" maxlength="40" required="" value=""></label>
+  <label>Model<input name="model" maxlength="60" required="" value=""></label>
+  <label>Year (optional)<input name="year" type="number" min="1950" max="2100" step="1" value=""></label>
+
+  <button class="btn" type="submit">Add</button>
+</form></div>
+</details>
+
+
+
+<section class="card rblock"><h2>Vehicles <span class="muted rcount">2</span></h2>
+  
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-warn" aria-hidden="true">H</span>
+      <span class="rl-main"><span class="rl-t">2021 Honda CR-V</span><span class="rl-m">Inspection Nov 9</span></span>
+      <span class="rl-r"><b>Nov 9</b><span class="chip-s t-warn">in 24 days</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-bad" aria-hidden="true">T</span>
+      <span class="rl-main"><span class="rl-t">2017 Toyota Tacoma</span><span class="rl-m">Inspection Oct 3</span></span>
+      <span class="rl-r"><b>Mar 4, 2027</b><span class="chip-s t-bad">inspection expired</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
+    <thead><tr><th>Vehicle</th><th>Owner</th><th>Registration</th><th>Inspection</th></tr></thead>
+    <tbody><tr><td><a href="#" data-demo="1">2021 Honda CR-V</a> <span class="chip-s t-warn">in 24 days</span></td><td></td><td>Nov 9</td><td>Nov 9</td></tr><tr><td><a href="#" data-demo="1">2017 Toyota Tacoma</a> <span class="chip-s t-bad">inspection expired</span></td><td></td><td>Mar 4, 2027</td><td>Oct 3</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+
+<section class="card rblock"><h2>Service log <span class="muted rcount">4</span></h2>
+  
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">S</span>
+      <span class="rl-main"><span class="rl-t">Service</span><span class="rl-m">2017 Toyota Tacoma · Odometer 96300 · $312.00 · Capital Toyota</span></span>
+      <span class="rl-r"><b>Aug 31</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">O</span>
+      <span class="rl-main"><span class="rl-t">Oil change</span><span class="rl-m">2021 Honda CR-V · Odometer 41200 · $78.40 · Jiffy Lube</span></span>
+      <span class="rl-r"><b>Aug 6</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">T</span>
+      <span class="rl-main"><span class="rl-t">Tires</span><span class="rl-m">2021 Honda CR-V · Odometer 39800 · $842.17 · Tire Kingdom</span></span>
+      <span class="rl-r"><b>Jul 7</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-n" aria-hidden="true">O</span>
+      <span class="rl-main"><span class="rl-t">Oil change</span><span class="rl-m">2017 Toyota Tacoma · Odometer 92100 · $71.25 · Jiffy Lube</span></span>
+      <span class="rl-r"><b>Mar 9</b></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table class="cards">
+    <thead><tr><th>Date</th><th>Vehicle</th><th>Service</th><th>Odometer</th><th>Cost</th><th>Vendor</th></tr></thead>
+    <tbody><tr><td data-label="Date"><a href="#" data-demo="1">Aug 31</a></td><td data-label="Vehicle">2017 Toyota Tacoma</td><td data-label="Service">service</td><td data-label="Odometer">96300</td><td data-label="Cost">$312.00</td><td data-label="Vendor">Capital Toyota</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Aug 6</a></td><td data-label="Vehicle">2021 Honda CR-V</td><td data-label="Service">oil change</td><td data-label="Odometer">41200</td><td data-label="Cost">$78.40</td><td data-label="Vendor">Jiffy Lube</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Jul 7</a></td><td data-label="Vehicle">2021 Honda CR-V</td><td data-label="Service">tires</td><td data-label="Odometer">39800</td><td data-label="Cost">$842.17</td><td data-label="Vendor">Tire Kingdom</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Mar 9</a></td><td data-label="Vehicle">2017 Toyota Tacoma</td><td data-label="Service">oil change</td><td data-label="Odometer">92100</td><td data-label="Cost">$71.25</td><td data-label="Vendor">Jiffy Lube</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+
+<p class="muted small">Open a row to change it here, or tell Chat.</p>
+
+
+</main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=records:vehicles:vehicles" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="records" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html">Finance</a>
+        
+        <a role="menuitem" href="records.html" class="on" aria-current="page">Records</a>
+        
+        <a role="menuitem" href="notes.html">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings.html">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>

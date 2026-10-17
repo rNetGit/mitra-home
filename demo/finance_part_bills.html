@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else" open="">
+        <details class="rg" data-rg="Everything else">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -68,26 +68,26 @@
       
     
     <span class="grow"></span>
-    <a href="settings_group_household.html">Settings</a>
+    <a href="settings.html">Settings</a>
     <div class="railfoot">
       <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.109.1</small>
+    <small class="ver">v0.113.1</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Finance</h1><p class="sub">Pay · Bills</p></div></header>
-<nav class="pills" aria-label="Group"><a href="finance_part_bills.html" class="on" aria-current="true">Pay</a><a href="finance_part_accounts.html">Keep</a><a href="finance_part_cashflow.html">Look back</a></nav>
 
-<nav class="pills sm" aria-label="Part"><a href="finance_part_bills.html" class="on" aria-current="true">Bills</a><a href="finance_part_receipts.html">Receipts</a><a href="finance_part_mobile.html">Phone bills</a><a href="finance_part_subs.html">Subscriptions</a><a href="#" data-demo="1">Amazon orders</a><a href="#" data-demo="1">Cards</a><a href="#" data-demo="1">Statement watch</a><a href="#" data-demo="1">Price spikes</a></nav>
+<header class="head fhead"><div><a class="fback" href="finance.html">Finance</a><h1>Pay</h1><p class="sub">Bills</p></div></header>
 
-
+<nav class="fchips" aria-label="Pay"><a href="finance_part_bills.html" class="on" aria-current="true">Bills</a><a href="finance_part_receipts.html">Receipts</a><a href="finance_part_mobile.html">Phone bills</a><a href="finance_part_subs.html">Subscriptions</a><a href="#" data-demo="1">Amazon orders</a><a href="finance_part_cards.html">Cards</a><a href="#" data-demo="1">Statement watch</a><a href="#" data-demo="1">Price spikes</a></nav>
 
 
 
-<form class="rsearch card" action="finance.html" method="get" role="search">
+
+
+<form class="rsearch ffilter" action="finance.html" method="get" role="search">
   <input type="hidden" name="part" value="bills">
   <label class="vh" for="fmonth">Month</label>
   <select id="fmonth" name="month"><option value="2026-11">2026-11</option><option value="2026-10" selected="">2026-10</option><option value="2026-09">2026-09</option><option value="2026-08">2026-08</option><option value="2026-07">2026-07</option></select>
@@ -107,20 +107,72 @@
 
 
 
-<section class="card rblock">
-  <h2>Bills due in October 2026</h2>
+
+
+<section class="card rblock"><h2>Bills due in October 2026</h2>
   
-  <div class="tablewrap"><table class="cards">
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-ok" aria-hidden="true">O</span>
+      <span class="rl-main"><span class="rl-t">Oak Dental invoice</span><span class="rl-m">Oak Dental · Oct 3</span></span>
+      <span class="rl-r"><b>$186.00</b><span class="chip-s t-ok">paid</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-bad" aria-hidden="true">C</span>
+      <span class="rl-main"><span class="rl-t">Comcast Xfinity bill</span><span class="rl-m">Comcast Xfinity · Oct 13</span></span>
+      <span class="rl-r"><b>$89.99</b><span class="chip-s t-bad">overdue</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-warn" aria-hidden="true">V</span>
+      <span class="rl-main"><span class="rl-t">Verizon bill</span><span class="rl-m">Verizon · Oct 16</span></span>
+      <span class="rl-r"><b>$180.00</b><span class="chip-s t-warn">due</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-ok" aria-hidden="true">D</span>
+      <span class="rl-main"><span class="rl-t">Duke Energy bill</span><span class="rl-m">Duke Energy · Oct 21</span></span>
+      <span class="rl-r"><b>$182.02</b><span class="chip-s t-ok">paid</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-warn" aria-hidden="true">V</span>
+      <span class="rl-main"><span class="rl-t">Verizon Wireless</span><span class="rl-m">Verizon · Oct 26</span></span>
+      <span class="rl-r"><b>$191.50</b><span class="chip-s t-warn">due</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-warn" aria-hidden="true">V</span>
+      <span class="rl-main"><span class="rl-t">Verizon bill</span><span class="rl-m">Verizon · Oct 27</span></span>
+      <span class="rl-r"><b>$170.00</b><span class="chip-s t-warn">due</span></span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table class="cards">
     <thead><tr><th>Name</th><th>Vendor</th><th>Category</th><th>Amount</th><th>Due</th><th>Status</th></tr></thead>
     <tbody><tr><td data-label="Name"><a href="#" data-demo="1">Oak Dental invoice</a></td><td data-label="Vendor">Oak Dental</td><td data-label="Category">Other</td><td data-label="Amount">$186.00</td><td data-label="Due">2026-10-03</td><td data-label="Status">paid</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Comcast Xfinity bill</a></td><td data-label="Vendor">Comcast Xfinity</td><td data-label="Category">Other</td><td data-label="Amount">$89.99</td><td data-label="Due">2026-10-13</td><td data-label="Status">overdue</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Verizon bill</a></td><td data-label="Vendor">Verizon</td><td data-label="Category">Other</td><td data-label="Amount">$180.00</td><td data-label="Due">2026-10-16</td><td data-label="Status">due</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Duke Energy bill</a></td><td data-label="Vendor">Duke Energy</td><td data-label="Category">Other</td><td data-label="Amount">$182.02</td><td data-label="Due">2026-10-21</td><td data-label="Status">paid</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Verizon Wireless</a></td><td data-label="Vendor">Verizon</td><td data-label="Category">Other</td><td data-label="Amount">$191.50</td><td data-label="Due">2026-10-26</td><td data-label="Status">due</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Verizon bill</a></td><td data-label="Vendor">Verizon</td><td data-label="Category">Other</td><td data-label="Amount">$170.00</td><td data-label="Due">2026-10-27</td><td data-label="Status">due</td></tr></tbody>
   </table></div>
   
 </section>
 
-<section class="card rblock">
-  <h2>Recurring payments tracked as bills</h2>
+
+
+<section class="card rblock"><h2>Recurring payments tracked as bills</h2>
   
-  <div class="tablewrap"><table class="cards">
+  <ul class="rlist fl-phone">
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">C</span>
+      <span class="rl-main"><span class="rl-t">Comcast</span><span class="rl-m">monthly · Oct 9 · Nov 9 · due Nov 9</span></span>
+      <span class="rl-r"><b>$89.99</b></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">D</span>
+      <span class="rl-main"><span class="rl-t">Duke Energy</span><span class="rl-m">monthly · Oct 12 · Nov 12 · due Nov 12</span></span>
+      <span class="rl-r"><b>$182.02</b></span>
+    </div></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table class="cards">
     <thead><tr><th>Bill</th><th>Every</th><th>Expected</th><th>Last charge</th><th>Next expected</th><th>Open bill</th></tr></thead>
     <tbody><tr><td data-label="Bill">Comcast</td><td data-label="Every">monthly</td><td data-label="Expected">$89.99</td><td data-label="Last charge">2026-10-09</td><td data-label="Next expected">2026-11-09</td><td data-label="Open bill">due 2026-11-09</td></tr><tr><td data-label="Bill">Duke Energy</td><td data-label="Every">monthly</td><td data-label="Expected">$182.02</td><td data-label="Last charge">2026-10-12</td><td data-label="Next expected">2026-11-12</td><td data-label="Open bill">due 2026-11-12</td></tr></tbody>
   </table></div>
@@ -128,10 +180,15 @@
 </section>
 
 
+
 <p class="muted small">Open a row to change it here, or tell Chat.</p>
 
-
 </main>
+
+  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=finance:bills" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="finance" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+
 
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
@@ -156,7 +213,7 @@
         
         <a role="menuitem" href="chat.html">Chat</a>
         
-        <a role="menuitem" href="settings_group_household.html">Settings</a>
+        <a role="menuitem" href="settings.html">Settings</a>
         
         <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
         <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>

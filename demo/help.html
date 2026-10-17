@@ -1,0 +1,797 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css">
+  <script src="static/vendor/htmx.min.js" defer=""></script>
+  
+  <script src="static/app.js" defer=""></script>
+  <title>Help · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
+<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
+<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
+<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+    
+    
+      
+        
+        <span class="grp">Every day</span>
+        <a href="index.html">Today</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        
+      
+        
+        <details class="rg" data-rg="Money">
+          <summary>Money</summary>
+          <a href="month.html">This month</a><a href="finance.html">Finance</a>
+        </details>
+        
+      
+        
+        <details class="rg" data-rg="Everything else">
+          <summary>Everything else</summary>
+          <a href="records.html">Records</a><a href="notes.html">Notes</a>
+        </details>
+        
+      
+    
+    <span class="grow"></span>
+    <a href="settings.html">Settings</a>
+    <div class="railfoot">
+      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
+      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+    </div>
+    <small class="ver">v0.113.1</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>Help</h1><p class="sub">How to add and change things on each page. The <b>?</b> button on a page opens its part.</p></div></header>
+<form class="rsearch card" action="help.html" method="get" role="search">
+  <label class="vh" for="hq">Search the help</label>
+  <input id="hq" type="search" name="q" value="" maxlength="100" placeholder="add a class, mark paid, pin a note ...">
+  <button class="btn" type="submit">Search</button>
+</form>
+
+
+<h2 class="sec">Pages</h2>
+<div class="helpall">
+  <article class="card hp-card" id="help-home">
+<h2 class="hp-title">Today</h2>
+<p class="hp-purpose">What needs you today, what is on, and the money ahead, for the whole family or one person.</p>
+
+<section class="hp-sec"><h3>Add something</h3>
+  <ul><li>Got a paper? Press <kbd class="hk">Add or scan</kbd> and drop the bill, statement, receipt or photo. It is read, filed and its due date lands here.</li><li>Rather type it? Press <kbd class="hk">Chat</kbd> and write it the way you would say it, for example "Sam's dentist is Oct 21 at 3pm". You see what will be saved and press <kbd class="hk">Yes, save it</kbd>.</li><li>Birthdays, classes, IDs and other dates have their own forms in Records (links below).</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Done, paid, snooze</h3>
+  <ul><li>Press <kbd class="hk">Done</kbd> or <kbd class="hk">Paid</kbd> on a row under <b>Needs you</b>. A paid bill shows <kbd class="hk">Undo</kbd> for a moment.</li><li>To snooze or hide something, open <b>To do</b> and use the <b>⋯</b> menu on its row.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Open the row in <b>To do</b> (<b>⋯</b> &gt; <kbd class="hk">Open record</kbd>) or find it in Records; the forms under it change it.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Tips</h3>
+  <ul><li>Tap a name above the card to see only that person's things.</li><li>On a phone, tap or swipe the card for <b>On today</b> and <b>Money</b>.</li></ul>
+</section>
+
+<p class="hp-links"><a href="brief.html">To do</a><a href="records_domain_people_section_life.html">Records &gt; People &gt; Life items</a><a href="inbox.html">Inbox</a></p>
+</article><article class="card hp-card" id="help-family">
+<h2 class="hp-title">Family</h2>
+<p class="hp-purpose">One card per person (and one for the house and cars) with their next 30 days.</p>
+
+<section class="hp-sec"><h3>Add a person or a pet</h3>
+  <ul><li>Go to Records &gt; People &gt; People and use <kbd class="hk">Add a person or pet</kbd>: name, role, birthday.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>The pencil on a card opens that person's record: name, birthday, school, IDs. Fill in <b>Change it</b> and press <kbd class="hk">Save changes</kbd>.</li><li>A new name is used everywhere from then on; papers already filed keep the old spelling.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>See one person</h3>
+  <ul><li>Tap a card to list everything for that person. From there, open Today or To do just for them.</li></ul>
+</section>
+
+<p class="hp-links"><a href="records_domain_people_section_people.html">Records &gt; People</a></p>
+</article><article class="card hp-card" id="help-calendar">
+<h2 class="hp-title">Calendar</h2>
+<p class="hp-purpose">Every due date, appointment, class, holiday and birthday from your records, by week, month or year.</p>
+
+<section class="hp-sec"><h3>Add something</h3>
+  <ul><li>The calendar shows your records, so you add things where they belong:</li><li>a weekly class or sport: Records &gt; People &gt; Classes and activities, <kbd class="hk">Add a weekly class or activity</kbd>;</li><li>a holiday or a day off school: Records &gt; People &gt; Holidays and dates;</li><li>a doctor, school or pet date: Records &gt; People &gt; Life items, <kbd class="hk">Add an item</kbd>;</li><li>a bill: drop it in the Inbox, or Finance &gt; Bills. Or just tell Chat.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Change the record it comes from (Records, or Finance for bills). The calendar updates by itself.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Moving around</h3>
+  <ul><li><kbd class="hk">Week</kbd>, <kbd class="hk">Month</kbd> and <kbd class="hk">Year</kbd> switch the view; the arrows and <kbd class="hk">Today</kbd> move through time.</li><li>In the year view, tap a coloured day to open its week.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Tips</h3>
+  <ul><li>The card on top counts what is on, who it is for and what not to miss.</li><li>Your Google calendar, if connected, is shown below as a read-only copy.</li></ul>
+</section>
+
+<p class="hp-links"><a href="records_domain_people_section_classes.html">Classes and activities</a><a href="records_domain_people_section_dates.html">Holidays and dates</a><a href="records_domain_people_section_life.html">Life items</a></p>
+</article><article class="card hp-card" id="help-inbox">
+<h2 class="hp-title">Inbox</h2>
+<p class="hp-purpose">The way in for every paper: drop files here, watch them being read, then answer what needs a person.</p>
+
+<section class="hp-sec"><h3>Add files</h3>
+  <ul><li>Drag files anywhere onto this page, paste a picture, or press <kbd class="hk">Choose files or take a photo</kbd>.</li><li>Each file shows a bar while it is sent. Scans from the phone app arrive here too.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Watch them being read</h3>
+  <ul><li>The panel under the drop box shows every file and its step: in line, checking, reading, sorting, filed.</li><li>With an AI helper set up, reading starts on its own. Otherwise press <kbd class="hk">File them now</kbd>: common bank statements, CSV exports and phone bills are read without AI. Anything it cannot read waits under <b>Files to look at</b>.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Work through what is left</h3>
+  <ul><li>Open items are grouped: Files to look at, Money, Renewals and documents, Family and household, Calendar. Tap a group name at the top, or press <kbd class="hk">Work through these</kbd>, to see only that group.</li><li>Each card asks one thing (a new subscription, a price rise, a missing birthday ...). Pick an answer and press <kbd class="hk">Save</kbd>, or snooze it for later. After filing, <kbd class="hk">Open record</kbd> shows what was saved.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Tips</h3>
+  <ul><li>An exact copy of a paper already filed is set aside, never filed twice.</li></ul>
+</section>
+
+<p class="hp-links"><a href="settings_group_connections.html">Settings &gt; Connections (AI helper)</a></p>
+</article><article class="card hp-card" id="help-brief">
+<h2 class="hp-title">To do</h2>
+<p class="hp-purpose">What needs you and what is coming up, today, this week or this month.</p>
+
+<section class="hp-sec"><h3>Done, paid</h3>
+  <ul><li>Press <kbd class="hk">Done</kbd> (or <kbd class="hk">Paid</kbd> for a bill) on a row.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Snooze, hide, open</h3>
+  <ul><li>The <b>⋯</b> menu on a row: snooze it 1, 7 or 30 days, hide it, or <kbd class="hk">Open record</kbd> to see and change it.</li><li>Hidden items come back from Settings &gt; Agent &gt; Hidden from the Brief (<kbd class="hk">Restore</kbd>).</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Add something</h3>
+  <ul><li>New dates come from your records and papers: use <kbd class="hk">Add or scan</kbd>, Records, or Chat.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Documents</h3>
+  <ul><li><kbd class="hk">This week</kbd>, <kbd class="hk">Weekly digest</kbd>, <kbd class="hk">Family meeting</kbd> and <kbd class="hk">Emergency sheet</kbd> make a page you can read here or download.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Tips</h3>
+  <ul><li><kbd class="hk">Today</kbd>, <kbd class="hk">Week</kbd> and <kbd class="hk">Month</kbd> change how far ahead you look; tap a person to see only their rows.</li></ul>
+</section>
+
+<p class="hp-links"><a href="settings_group_agent.html">Settings &gt; Agent</a></p>
+</article><article class="card hp-card" id="help-month">
+<h2 class="hp-title">This month</h2>
+<p class="hp-purpose">Where the money went this month (or any month), plus bills, subscriptions and upkeep coming up.</p>
+
+<section class="hp-sec"><h3>Fill it</h3>
+  <ul><li>Spending comes from your bank and card statements: drop them in the Inbox (<kbd class="hk">Add or scan</kbd>).</li><li>Budget lines: Finance &gt; Budget (<kbd class="hk">Set or remove a budget line</kbd>). Subscriptions: Finance &gt; Subscriptions (<kbd class="hk">Add a subscription</kbd>).</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Read the card</h3>
+  <ul><li>Tap or swipe through Overview, Cash flow, Where it went, Six months and Highlights.</li><li>Pick another month with the month list or the arrows.</li><li>Below the card, open a category to see every charge, biggest first or by date.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Charges come straight from your statements and are not edited here. Bills and subscriptions are changed in Finance.</li></ul>
+</section>
+
+<p class="hp-links"><a href="finance_part_budget.html">Finance &gt; Budget</a><a href="finance_part_subs.html">Finance &gt; Subscriptions</a><a href="inbox.html">Inbox</a></p>
+</article><article class="card hp-card" id="help-notes">
+<h2 class="hp-title">Notes</h2>
+<p class="hp-purpose">Links, notes, places and deals you want to find again.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li>Open <kbd class="hk">Save a link, note, place or deal</kbd>, type a title (and the link if there is one), pick who sees it, then <kbd class="hk">Save</kbd>.</li><li>A deal with an end date also shows up in To do before it ends.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change</h3>
+  <ul><li>Pinned items sit on top as coloured cards with their buttons; on any other row tap <b>...</b> to see them.</li><li><kbd class="hk">Pin</kbd> keeps a note on top; <kbd class="hk">Unpin</kbd> lets it go back in line.</li><li><kbd class="hk">Tags</kbd> changes its tags (<kbd class="hk">Save tags</kbd>); <kbd class="hk">Archive</kbd> puts it away.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Find</h3>
+  <ul><li>Type in <b>Search</b>, or tap a kind in the row under it (Places, Deals ...). <b>More filters</b> has the tag, who added it and <b>Show archived and ended deals</b>. A deal ending within two weeks shows how many days are left.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Tips</h3>
+  <ul><li>Links are never opened by the app; they open in a new tab only when you click them.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-chat">
+<h2 class="hp-title">Chat</h2>
+<p class="hp-purpose">Ask about your records, or tell it something to save, in plain words.</p>
+
+<section class="hp-sec"><h3>Ask</h3>
+  <ul><li>"When does the car insurance renew?", "What did we spend on groceries last month?". Each answer says which records it used.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Add or change</h3>
+  <ul><li>Type it the way you would say it: "Sam's dentist is Oct 21 at 3pm". Nothing is saved until you press <kbd class="hk">Yes, save it</kbd> on the card that shows exactly what will change.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Tips</h3>
+  <ul><li>Typed requests need an AI helper (Settings &gt; Connections). <kbd class="hk">Clear this chat</kbd> starts over.</li><li>Answers are records, not professional advice.</li></ul>
+</section>
+
+<p class="hp-links"><a href="settings_group_connections.html">Settings &gt; Connections</a></p>
+</article><article class="card hp-card" id="help-work">
+<h2 class="hp-title">Work</h2>
+<p class="hp-purpose">Contracts you bill by the hour: hours per timesheet period, invoices, the on / off-site schedule and the work calendar.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Add a contract</kbd> at the top: client, rate, how often you invoice and the timesheet cycle.</li><li>Hours come from a timesheet you import, or are typed per day under <b>Hours</b>.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change</h3>
+  <ul><li>Pick the contract's part in the row of chips: Billing, Hours, Schedule, Profile, Work calendar.</li><li>Billing: <b>Record invoice for</b> the month makes the month's invoice; mark it sent or paid below and <kbd class="hk">Save</kbd>.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Tips</h3>
+  <ul><li>Days on the schedule with no hours, and hours on a holiday, show in red above the weeks.</li><li>Off-site days feed the home-office figures in Finance; whether a deduction applies is for your tax preparer.</li></ul>
+</section>
+
+<p class="hp-links"><a href="finance.html">Finance</a><a href="finance_part_home_office.html">Finance &gt; Home office</a></p>
+</article><article class="card hp-card" id="help-settings">
+<h2 class="hp-title">Settings</h2>
+<p class="hp-purpose">Your household, the agent, connections, phones and your data.</p>
+
+<section class="hp-sec"><h3>Find your way</h3>
+  <ul><li>Settings opens on a summary: how complete the profile is (<kbd class="hk">Answer next</kbd> asks the next question), one card per group with how it stands, and <b>Needs a look</b> for health warnings. Open a group, then switch groups in the row at the top; tap a card's heading to open it.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Household profile</h3>
+  <ul><li>How complete your profile is, Simple or Advanced view, names as printed on papers, traditions and holidays, optional features, tax papers and how early to remind.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Agent</h3>
+  <ul><li>The agent's name and tone, when the daily brief and weekly digest arrive, and what they watch; sign-in PINs (<kbd class="hk">Save PIN</kbd>); items hidden from To do (<kbd class="hk">Restore</kbd>).</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Connections</h3>
+  <ul><li>An AI helper, Google Calendar and Gmail, and the phone bot. Keys can be typed only on this PC.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Phones</h3>
+  <ul><li>Pair a phone with the app's QR code (<kbd class="hk">Show the pairing code</kbd>); remove a lost phone.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Data</h3>
+  <ul><li>Back up, restore, export, updates, the health check, and <b>Runs on its own</b> (the daily brief, weekly digest and backup on a schedule).</li></ul>
+</section>
+
+<p class="hp-links"><a href="settings_group_household.html">Household profile</a><a href="settings_group_data.html">Data</a></p>
+</article>
+</div>
+
+<h2 class="sec">Records</h2>
+<div class="helpall">
+  <article class="card hp-card" id="help-records">
+<h2 class="hp-title">Records</h2>
+<p class="hp-purpose">Everything the app knows, by area: People, Home, Vehicles, Papers and IDs.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li>Records opens on a home: the four areas with a count each, and Needs a look (overdue items, IDs and car renewals running out, policies ending, upkeep due). Open an area, then pick a part in the row at the top; parts you can add to have a form at the top (for example <kbd class="hk">Add a person or pet</kbd>). Or drop the paper in the Inbox, or tell Chat.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Find</h3>
+  <ul><li>Type in the search box at the top: it looks through every record and every filed paper.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-people-people">
+<h2 class="hp-title">People</h2>
+<p class="hp-purpose">Everyone in the household, pets included.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Add a person or pet</kbd>: name, role (adult, child, pet) and birthday.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li>Fill in <b>Change it</b> and press <kbd class="hk">Save changes</kbd>. A new name is used everywhere from then on; papers already filed keep the old spelling.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-people-life">
+<h2 class="hp-title">Life items</h2>
+<p class="hp-purpose">School forms, doctor and dentist visits, vaccines, pet care, chores, gifts and other dated things for a person.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Add an item</kbd>: what, for whom, the date, and how often it repeats.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li><b>Change it</b> &gt; <kbd class="hk">Save changes</kbd>. <kbd class="hk">Mark done</kbd> moves a repeating item to its next date and closes a one-off. <kbd class="hk">Remove</kbd> takes it off the lists but keeps its history.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-people-health">
+<h2 class="hp-title">Checkups and appointments</h2>
+<p class="hp-purpose">Regular checkups (dentist, eye test ...) and booked appointments.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li>A booked appointment: Records &gt; People &gt; Life items, <kbd class="hk">Add an item</kbd>, or tell Chat.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li>After a checkup press <kbd class="hk">Mark done</kbd>; the next one is set from its interval.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-people-school">
+<h2 class="hp-title">School</h2>
+<p class="hp-purpose">School items: forms, trips, fees and events, per child.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Add an item</kbd> in Life items, or drop the school letter in the Inbox.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li></ul>
+</section>
+
+<p class="hp-links"><a href="records_domain_people_section_life.html">Life items</a></p>
+</article><article class="card hp-card" id="help-records-people-classes">
+<h2 class="hp-title">Classes and activities</h2>
+<p class="hp-purpose">Lessons, sports and clubs that repeat every week.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Add a weekly class or activity</kbd>: what, for whom, the days, the time, and when the term starts and ends.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li><b>Change it</b> &gt; <kbd class="hk">Save changes</kbd>. <kbd class="hk">Skip that day</kbd> for one missed session; <kbd class="hk">End it</kbd> when the term or the activity is over.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Where it shows</h3>
+  <ul><li>Calendar, Today and the child's own page.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-people-dates">
+<h2 class="hp-title">Holidays and dates</h2>
+<p class="hp-purpose">Public holidays, festivals, school closures and early dismissals.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Add a holiday, festival or day off school</kbd>. School calendars dropped in the Inbox and your traditions also suggest dates; you accept them in the Inbox.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li><kbd class="hk">Remove</kbd> a date that is wrong.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-people-profiles">
+<h2 class="hp-title">Critical info</h2>
+<p class="hp-purpose">Facts you may need fast: emergency contacts, allergies, doctors, school contacts.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Add a fact (contact, allergy, doctor, school)</kbd>. It stays on this PC; it never goes to an AI, a phone or Chat.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li><b>Change it</b> &gt; <kbd class="hk">Save changes</kbd>; <kbd class="hk">Still correct</kbd> when you have checked it; <kbd class="hk">Remove</kbd> when it no longer applies.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Tips</h3>
+  <ul><li>Facts not checked for a while come back in the Inbox to confirm.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-home-lists">
+<h2 class="hp-title">Lists</h2>
+<p class="hp-purpose">Shopping, to-do and packing lists everyone can tick off.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Start a list</kbd>, then open it and use <kbd class="hk">Add to the list</kbd>.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li>Tick items with <b>✓</b> (and untick with <b>↺</b>); <kbd class="hk">Clear ticked items</kbd> tidies up; <kbd class="hk">Archive the list</kbd> when you are done with it.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-home-meals">
+<h2 class="hp-title">Meals</h2>
+<p class="hp-purpose">Recipes and the week's meal plan.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Save a recipe</kbd> with its ingredients; <kbd class="hk">Plan a meal</kbd> for a day; <kbd class="hk">Put the planned meals on a shopping list</kbd>.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li><kbd class="hk">Take it off the plan</kbd> for a planned meal; <kbd class="hk">Archive this recipe</kbd> for one you no longer make.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-home-upkeep">
+<h2 class="hp-title">Upkeep</h2>
+<p class="hp-purpose">Home and car jobs that come back: filters, gutters, smoke alarms, seasonal tasks.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li>They come from your region's seasonal list and your home; to add your own, tell Chat.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li><kbd class="hk">Mark done</kbd> when a job is done; <kbd class="hk">Season is over</kbd> skips the rest of a seasonal job this year.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-home-contacts">
+<h2 class="hp-title">Service contacts</h2>
+<p class="hp-purpose">The plumber, electrician, furnace company and others you call.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Add a plumber, furnace company, garage ...</kbd>: name, trade, phone, notes, rating.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li><b>Change it</b> &gt; <kbd class="hk">Save changes</kbd>; <kbd class="hk">Used them today</kbd> records the last job; <kbd class="hk">Remove</kbd> when you stop using them.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Tips</h3>
+  <ul><li>They are printed on the emergency sheet unless you said you would not use them again.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-home-inventory">
+<h2 class="hp-title">Inventory</h2>
+<p class="hp-purpose">Things you own: where they are, what they cost, warranty, receipt and manual.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Add a thing to the inventory</kbd>.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li><b>Change it</b> &gt; <kbd class="hk">Save changes</kbd>; <kbd class="hk">Receipt and manual</kbd> links filed papers; <kbd class="hk">Sold, thrown out or lost</kbd> takes it off the inventory but keeps its history.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-home-shopping">
+<h2 class="hp-title">Shopping</h2>
+<p class="hp-purpose">Planned purchases with target dates and prices.</p>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li>This part is for looking up. To add or change something here, tell Chat.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-vehicles-vehicles">
+<h2 class="hp-title">Vehicles</h2>
+<p class="hp-purpose">Your cars: registration, inspection, insurance and services.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Add a vehicle</kbd>: make, model, year, and the registration and inspection dates.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li>Under <b>Log a service</b>, pick the service, the date and the odometer, then <kbd class="hk">Save</kbd>; the next due date follows from it.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-papers-papers">
+<h2 class="hp-title">Papers</h2>
+<p class="hp-purpose">Every filed document, by year and type.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li>Drop papers in the Inbox (<kbd class="hk">Add or scan</kbd>); they are renamed, sorted and filed here.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li>A wrong date or type: tell Chat.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-papers-ids">
+<h2 class="hp-title">Expiries and IDs</h2>
+<p class="hp-purpose">Passports, licences and other IDs, and everything else that expires.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Add an ID document</kbd>: kind, whose, expiry date, and only the last four characters of the number.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li>Renewed? Under <b>Renewed? New expiry</b> type the new date and press <kbd class="hk">Save</kbd>.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-records-papers-policies">
+<h2 class="hp-title">Insurance</h2>
+<p class="hp-purpose">Your policies, what they cover, and when they renew.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li>Drop the declarations page in the Inbox; the policy, its cars, drivers and coverages are read from it.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li>This part is for looking up. To add or change something here, tell Chat.</li></ul>
+</section>
+
+
+</article>
+</div>
+
+<h2 class="sec">Finance</h2>
+<div class="helpall">
+  <article class="card hp-card" id="help-finance">
+<h2 class="hp-title">Finance</h2>
+<p class="hp-purpose">The home shows this month (in, out, saved, left), then three lanes: Pay (what goes out), Keep (accounts, budget, loans) and Look back (cashflow, trends, taxes), and anything that needs a look. Tap a lane to open it; the chips at the top switch between its parts, and Finance (top left) comes back here.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li>Statements, bills and receipts go in the Inbox (<kbd class="hk">Add or scan</kbd>). Parts with a form have it at the top (subscriptions, receipts, budget, loans, accounts).</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Where rows open: tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-bills">
+<h2 class="hp-title">Bills</h2>
+<p class="hp-purpose">Bills due this month, paid or not.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li>Drop the bill in the Inbox, or tell Chat. Steady charges in your statements also become suggested bills in the Inbox.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li><kbd class="hk">Mark paid</kbd> or <kbd class="hk">Mark as not paid</kbd>. A yearly bill rolls on to next year when paid.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-receipts">
+<h2 class="hp-title">Receipts</h2>
+<p class="hp-purpose">Receipts matched to card charges.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li>Drop a receipt photo in the Inbox, or <kbd class="hk">Add a receipt by hand</kbd>: store, date, total.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li><kbd class="hk">Link</kbd> it to one of the suggested charges, or <kbd class="hk">No charge expected</kbd> for a cash receipt.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-mobile">
+<h2 class="hp-title">Phone bills</h2>
+<p class="hp-purpose">Each phone line's share of the bill, per person.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li>Drop the phone bill PDF in the Inbox; Verizon bills are read without AI.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>This part is for looking up. To add or change something here, tell Chat.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-subs">
+<h2 class="hp-title">Subscriptions</h2>
+<p class="hp-purpose">What you pay for every month or year, and when it charges next.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Add a subscription</kbd>, or confirm the ones found in your statements in the Inbox.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li>Pick keep or cancel and press <kbd class="hk">Save decision</kbd>; <kbd class="hk">Stop tracking it</kbd> for one that ended. Nothing is ever cancelled for you.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-amazon">
+<h2 class="hp-title">Amazon orders</h2>
+<p class="hp-purpose">Amazon orders matched to their card charges.</p>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>This part is for looking up. To add or change something here, tell Chat.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-cards">
+<h2 class="hp-title">Cards</h2>
+<p class="hp-purpose">Card transactions for one month, with a download.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li>Drop the card statement in the Inbox.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>This part is for looking up. To add or change something here, tell Chat.</li><li>Pick a card and a month at the top; search for a shop.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-watch">
+<h2 class="hp-title">Statement watch</h2>
+<p class="hp-purpose">Which accounts have statements, and which are missing.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li>Drop the missing statements in the Inbox.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>This part is for looking up. To add or change something here, tell Chat.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-spikes">
+<h2 class="hp-title">Price spikes</h2>
+<p class="hp-purpose">Bills and subscriptions that went up.</p>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>This part is for looking up. To add or change something here, tell Chat.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-accounts">
+<h2 class="hp-title">Accounts</h2>
+<p class="hp-purpose">Bank, card and loan accounts (last four digits only).</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Add an account</kbd>; filed statements add their account by themselves.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-deposits">
+<h2 class="hp-title">Deposits</h2>
+<p class="hp-purpose">Money coming in, by month and source.</p>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>This part is for looking up. To add or change something here, tell Chat.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-budget">
+<h2 class="hp-title">Budget and loans</h2>
+<p class="hp-purpose">Monthly limits per category, and your loans.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li><kbd class="hk">Set or remove a budget line</kbd>: pick a category and a monthly limit (0 removes it). <kbd class="hk">Add a loan</kbd>: lender, balance, rate, payment.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>Tap a row (on a PC, the first column) to open it on a page of its own: its details, the paper it came from, the form to change it and its history. The link at the top goes back to the list.</li><li>A loan: <b>Update it</b> &gt; <kbd class="hk">Save</kbd>; <kbd class="hk">Mark paid off</kbd> when it is cleared.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Tips</h3>
+  <ul><li>This month shows how each budget line is going.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-benefits">
+<h2 class="hp-title">Card benefits</h2>
+<p class="hp-purpose">Credits and perks your cards give, and whether you used them.</p>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>This part is for looking up. To add or change something here, tell Chat.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-cashflow">
+<h2 class="hp-title">Cashflow</h2>
+<p class="hp-purpose">Money in and out per month.</p>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>This part is for looking up. To add or change something here, tell Chat.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-trends">
+<h2 class="hp-title">Trends</h2>
+<p class="hp-purpose">Income, spending and what was left, month by month, against last year.</p>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>This part is for looking up. To add or change something here, tell Chat.</li><li>Pick 6, 12 or 24 months at the top.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-tax">
+<h2 class="hp-title">Tax papers</h2>
+<p class="hp-purpose">Which tax documents you have for the year and which are still missing.</p>
+
+<section class="hp-sec"><h3>Add</h3>
+  <ul><li>Drop tax papers in the Inbox.</li></ul>
+</section>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>This part is for looking up. To add or change something here, tell Chat.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-home_office">
+<h2 class="hp-title">Home office</h2>
+<p class="hp-purpose">Home office figures for the tax year.</p>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>This part is for looking up. To add or change something here, tell Chat.</li></ul>
+</section>
+
+
+</article><article class="card hp-card" id="help-finance-year_end">
+<h2 class="hp-title">Year-end</h2>
+<p class="hp-purpose">A summary of the year, with a download.</p>
+
+<section class="hp-sec"><h3>Change or correct</h3>
+  <ul><li>This part is for looking up. To add or change something here, tell Chat.</li></ul>
+</section>
+
+
+</article>
+</div>
+
+</main>
+
+
+  <nav class="bnav" aria-label="Main (phone)">
+    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
+    <details class="bmore">
+      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
+      <div class="sheet" role="menu">
+        
+        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        
+        <a role="menuitem" href="month.html">This month</a>
+        
+        <a role="menuitem" href="finance.html">Finance</a>
+        
+        <a role="menuitem" href="records.html">Records</a>
+        
+        <a role="menuitem" href="notes.html">Notes</a>
+        
+        <a role="menuitem" href="chat.html">Chat</a>
+        
+        <a role="menuitem" href="settings.html">Settings</a>
+        
+        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
+      </div>
+    </details>
+  </nav>
+
+
+</body></html>
