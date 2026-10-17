@@ -8,6 +8,7 @@ a{color:var(--link)}
   flex-direction:column;gap:2px;position:sticky;top:0;height:100vh;overflow-y:auto}
 .rail .brand{font-weight:700;padding:0 10px 10px;font-size:1.1rem;display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none}
 .logohead{display:flex;align-items:center;gap:12px}.logohead img{width:40px;height:40px;border-radius:9px}
+.logohead .bt{display:flex;flex-direction:column;line-height:1.1}.logohead .bt small{font-weight:500;font-size:.9rem;color:var(--text-2);margin-top:2px}
 .rail .brand:hover{background:none}.rail .brand img{width:40px;height:40px;border-radius:9px;flex:none}
 .rail .bt{display:flex;flex-direction:column;line-height:1.15}.rail .bt small{font-weight:500;font-size:.78rem;color:var(--text-2)}
 .rail a,.rail .ghost{color:var(--text);text-decoration:none;padding:9px 10px;border-radius:8px;display:flex;align-items:center;
