@@ -49,7 +49,7 @@
         
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html" class="on" aria-current="page">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html" class="on" aria-current="page">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
         
       
         
@@ -74,7 +74,7 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.113.2</small>
+    <small class="ver">v0.114.0</small>
   </nav>
 
   <main>
@@ -82,12 +82,12 @@
 <section id="calendar"><div class="calbar">
   <div class="calnav">
     <a href="#" data-demo="1" data-hx-get="/calendar/body?view=month&amp;ref=2026-09-01" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=month&amp;ref=2026-09-01" class="btn alt">◀ Prev</a>
-    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=month&amp;ref=2026-10-16" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=month&amp;ref=2026-10-16" class="btn alt">Today</a>
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=month&amp;ref=2026-10-17" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=month&amp;ref=2026-10-17" class="btn alt">Today</a>
     <a href="#" data-demo="1" data-hx-get="/calendar/body?view=month&amp;ref=2026-11-01" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=month&amp;ref=2026-11-01" class="btn alt">Next ▶</a>
     <h2>October 2026</h2>
   </div>
   <div class="seg" role="group" aria-label="View">
-    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-16" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-16">Week</a><a href="#" data-demo="1" data-hx-get="/calendar/body?view=month&amp;ref=2026-10-16" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=month&amp;ref=2026-10-16" class="on">Month</a><a href="#" data-demo="1" data-hx-get="/calendar/body?view=year&amp;ref=2026-10-16" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=year&amp;ref=2026-10-16">Year</a>
+    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-17" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-17">Week</a><a href="#" data-demo="1" data-hx-get="/calendar/body?view=month&amp;ref=2026-10-17" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=month&amp;ref=2026-10-17" class="on">Month</a><a href="#" data-demo="1" data-hx-get="/calendar/body?view=year&amp;ref=2026-10-17" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=year&amp;ref=2026-10-17">Year</a>
   </div>
 </div>
 
@@ -97,7 +97,7 @@
   
   
 <article class="slide g-cat on" aria-label="What is on" aria-hidden="false"><p class="kick">October 2026</p>
-    <h3 class="gbig">57<small> things · 36 still ahead</small></h3>
+    <h3 class="gbig">57<small> things · 34 still ahead</small></h3>
     <ul class="kbars">
       <li class="k-class"><i class="kdot" aria-hidden="true"></i><span>Class</span><b>27</b>
         <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="kbar" width="100.0" height="8"></rect></svg></li><li class="k-bill"><i class="kdot" aria-hidden="true"></i><span>Bill</span><b>6</b>
@@ -232,12 +232,12 @@
     <span class="kchip k-class"><span class="vh">Class: </span>Soccer practice 16:30-17:30 (Mateo)</span>
   </div>
   
-  <div class="day today">
+  <div class="day">
     <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-16" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-16" class="dnum">16</a>
     <span class="kchip k-bill"><span class="vh">Bill: </span>Verizon $180.00</span><span class="kchip k-class"><span class="vh">Class: </span>Art club 15:15-16:00 (Mateo)</span>
   </div>
   
-  <div class="day">
+  <div class="day today">
     <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-17" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-17" class="dnum">17</a>
     <span class="kchip k-subscription"><span class="vh">Subscription: </span>Disney Plus $13.99</span><span class="kchip k-chore"><span class="vh">Chore: </span>Take out recycling (Mateo)</span><span class="kchip k-class"><span class="vh">Class: </span>Piano lesson 10:00-10:45 (Sofia)</span>
   </div>
@@ -342,6 +342,8 @@
       <div class="sheet" role="menu">
         
         <a role="menuitem" href="calendar_view_week.html" class="on" aria-current="page">Calendar</a>
+        
+        <a role="menuitem" href="wallet.html">Wallet</a>
         
         <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
         

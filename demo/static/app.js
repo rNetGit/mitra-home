@@ -340,6 +340,14 @@
   });
   document.addEventListener('htmx:afterSwap', function (e) { if (e.target && e.target.id === 'helpp') helpOpen(true); });
   document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('[data-help-close]')) helpOpen(false); });
+  // [data-check-all="1|0"] ticks or unticks every box in its fieldset (Settings > Connections > Bank sync accounts)
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-check-all]');
+    var fs = b && b.closest('fieldset');
+    if (!fs) return;
+    var on = b.getAttribute('data-check-all') === '1';
+    fs.querySelectorAll('input[type=checkbox]').forEach(function (c) { c.checked = on; });
+  });
   document.addEventListener('keydown', function (e) {
     var p = document.getElementById('helpp');
     if (e.key === 'Escape' && p && !p.hidden) helpOpen(false);

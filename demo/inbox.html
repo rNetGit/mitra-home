@@ -49,7 +49,7 @@
         
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html" class="on" aria-current="page">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html" class="on" aria-current="page">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
         
       
         
@@ -74,7 +74,7 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.113.2</small>
+    <small class="ver">v0.114.0</small>
   </nav>
 
   <main>
@@ -187,7 +187,7 @@
       <label>What is it
         <select name="type"><option value="bill">Bill</option><option value="statement">Statement</option><option value="receipt">Receipt</option><option value="policy">Policy</option><option value="id">Id</option><option value="vehicle">Vehicle</option><option value="tax">Tax</option><option value="medical">Medical</option><option value="investment">Investment</option><option value="manual">Manual</option><option value="timesheet">Timesheet</option><option value="work_calendar">Work calendar</option><option value="school_calendar">School calendar</option><option value="other">Other</option></select></label>
       <label>From (company or person)<input name="vendor" maxlength="80" required=""></label>
-      <label>Date on it<input type="date" name="date" value="2026-10-16" min="1990-01-01" max="2100-12-31" required=""></label>
+      <label>Date on it<input type="date" name="date" value="2026-10-17" min="1990-01-01" max="2100-12-31" required=""></label>
       <label>Amount (blank = none)<input type="number" name="amount" min="0" step="0.01" inputmode="decimal"></label>
       <label>Due date<input type="date" name="due" min="1990-01-01" max="2100-12-31"></label>
       
@@ -218,7 +218,7 @@
       <label>What is it
         <select name="type"><option value="bill">Bill</option><option value="statement">Statement</option><option value="receipt">Receipt</option><option value="policy">Policy</option><option value="id">Id</option><option value="vehicle">Vehicle</option><option value="tax">Tax</option><option value="medical">Medical</option><option value="investment">Investment</option><option value="manual">Manual</option><option value="timesheet">Timesheet</option><option value="work_calendar">Work calendar</option><option value="school_calendar">School calendar</option><option value="other">Other</option></select></label>
       <label>From (company or person)<input name="vendor" maxlength="80" required=""></label>
-      <label>Date on it<input type="date" name="date" value="2026-10-16" min="1990-01-01" max="2100-12-31" required=""></label>
+      <label>Date on it<input type="date" name="date" value="2026-10-17" min="1990-01-01" max="2100-12-31" required=""></label>
       <label>Amount (blank = none)<input type="number" name="amount" min="0" step="0.01" inputmode="decimal"></label>
       <label>Due date<input type="date" name="due" min="1990-01-01" max="2100-12-31"></label>
       
@@ -302,7 +302,7 @@
   
   
 <article class="card icard">
-  <h2>Your State Farm auto policy ending 5521 runs out on Nov 14 (29 days)</h2>
+  <h2>Your Harbor Mutual auto policy ending 5521 runs out on Nov 14 (29 days)</h2>
   <p class="muted">The premium is $1,342.00, +13.7% on the term before. Drop the new declarations page in the Inbox when it arrives; the review checklist compares it to this term.</p>
   <div class="optrow">
   
@@ -343,7 +343,7 @@
       <input type="hidden" name="view" value="all">
       <input type="hidden" name="open" value="undated">
       
-      <label>When<input type="date" name="date" value="2026-10-16" min="1990-01-01" max="2026-10-16" required=""></label>
+      <label>When<input type="date" name="date" value="2026-10-17" min="1990-01-01" max="2026-10-17" required=""></label>
       <label>Where or who (optional)<input name="provider" maxlength="80"></label>
       
       <button class="btn" type="submit">Save</button>
@@ -372,7 +372,7 @@
       <input type="hidden" name="view" value="all">
       <input type="hidden" name="open" value="undated">
       
-      <label>When<input type="date" name="date" value="2026-10-16" min="1990-01-01" max="2026-10-16" required=""></label>
+      <label>When<input type="date" name="date" value="2026-10-17" min="1990-01-01" max="2026-10-17" required=""></label>
       <label>Where or who (optional)<input name="provider" maxlength="80"></label>
       
       <button class="btn" type="submit">Save</button>
@@ -401,7 +401,7 @@
       <input type="hidden" name="view" value="all">
       <input type="hidden" name="open" value="undated">
       
-      <label>When<input type="date" name="date" value="2026-10-16" min="1990-01-01" max="2026-10-16" required=""></label>
+      <label>When<input type="date" name="date" value="2026-10-17" min="1990-01-01" max="2026-10-17" required=""></label>
       <label>Where or who (optional)<input name="provider" maxlength="80"></label>
       
       <button class="btn" type="submit">Save</button>
@@ -441,6 +441,8 @@
       <div class="sheet" role="menu">
         
         <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="wallet.html">Wallet</a>
         
         <a role="menuitem" href="inbox.html" class="on" aria-current="page">Inbox <span class="badge">30</span></a>
         

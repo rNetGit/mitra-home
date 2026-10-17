@@ -49,11 +49,11 @@
         
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
         
       
         
-        <details class="rg" data-rg="Money">
+        <details class="rg" data-rg="Money" open="">
           <summary>Money</summary>
           <a href="month.html">This month</a><a href="finance.html">Finance</a>
         </details>
@@ -74,7 +74,7 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.113.2</small>
+    <small class="ver">v0.114.0</small>
   </nav>
 
   <main>
@@ -98,7 +98,7 @@
 
 <form class="nform" data-hx-post="/records/add" data-hx-target="#radd-meal_plan" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;home/meals&quot;, &quot;table&quot;: &quot;meal_plan&quot;}">
 
-  <label>Day<input name="day" type="date" min="2000-01-01" max="2100-12-31" required="" value="2026-10-16"></label>
+  <label>Day<input name="day" type="date" min="2000-01-01" max="2100-12-31" required="" value="2026-10-17"></label>
   <label>Meal<select name="slot"><option value="breakfast">breakfast</option><option value="lunch">lunch</option><option value="dinner" selected="">dinner</option><option value="snack">snack</option></select></label>
   <label>What (a recipe name or any text)<input name="what" maxlength="80" required="" value=""></label>
   <label>Note (optional)<input name="note" maxlength="200" value=""></label>
@@ -131,8 +131,8 @@
 
 <form class="nform" data-hx-post="/records/add" data-hx-target="#radd-meal_shop" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;home/meals&quot;, &quot;table&quot;: &quot;meal_shop&quot;}">
 
-  <label>From<input name="start" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-16"></label>
-  <label>To<input name="end" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-22"></label>
+  <label>From<input name="start" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-17"></label>
+  <label>To<input name="end" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-23"></label>
   <label>Shopping list<input name="list_name" maxlength="60" value="Groceries"></label>
   <p class="muted small">Ingredients of the planned recipes, staples left out; a meal is only added once.</p>
 
@@ -142,16 +142,9 @@
 
 
 
-<section class="card rblock"><h2>Planned meals <span class="muted rcount">3</span></h2>
+<section class="card rblock"><h2>Planned meals <span class="muted rcount">2</span></h2>
   
   <ul class="rlist fl-phone">
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-n" aria-hidden="true">P</span>
-      <span class="rl-main"><span class="rl-t">Pizza night (takeout)</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Oct 16</b></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">P</span>
       <span class="rl-main"><span class="rl-t">Pancakes</span><span class="rl-m">breakfast</span></span>
@@ -168,7 +161,7 @@
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Day</th><th>Slot</th><th>Meal</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Oct 16</a></td><td>dinner</td><td>Pizza night (takeout)</td></tr><tr><td><a href="#" data-demo="1">Oct 17</a></td><td>breakfast</td><td>Pancakes</td></tr><tr><td><a href="#" data-demo="1">Oct 18</a></td><td>dinner</td><td>Black bean soup</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Oct 17</a></td><td>breakfast</td><td>Pancakes</td></tr><tr><td><a href="#" data-demo="1">Oct 18</a></td><td>dinner</td><td>Black bean soup</td></tr></tbody>
   </table></div>
   
 </section>
@@ -249,6 +242,8 @@
       <div class="sheet" role="menu">
         
         <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="wallet.html">Wallet</a>
         
         <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
         

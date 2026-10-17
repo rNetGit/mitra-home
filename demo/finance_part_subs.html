@@ -49,7 +49,7 @@
         
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
         
       
         
@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else">
+        <details class="rg" data-rg="Everything else" open="">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -74,7 +74,7 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.113.2</small>
+    <small class="ver">v0.114.0</small>
   </nav>
 
   <main>
@@ -131,8 +131,8 @@
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table class="cards">
-    <thead><tr><th>Subscription</th><th>Decision</th><th>Status</th><th>Per month</th><th>Per year</th><th>Category</th><th>Paid with</th><th>Last charge</th><th>Next est</th><th>Used by</th></tr></thead>
-    <tbody><tr><td data-label="Subscription"><a href="#" data-demo="1">Planet Fitness</a></td><td data-label="Decision">unreviewed</td><td data-label="Status"><span class="chip-s t-ok">active</span></td><td data-label="Per month">$24.99</td><td data-label="Per year">$299.88</td><td data-label="Category"></td><td data-label="Paid with">Harbor Checking x4417</td><td data-label="Last charge">Oct 6</td><td data-label="Next est">Nov 5</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Apple iCloud</a></td><td data-label="Decision">unreviewed</td><td data-label="Status"><span class="chip-s t-ok">active</span></td><td data-label="Per month">$2.99</td><td data-label="Per year">$35.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">Sep 20</td><td data-label="Next est">Oct 20</td><td data-label="Used by"></td></tr></tbody>
+    <thead><tr><th>Subscription</th><th>Decision</th><th>Status</th><th class="num">Per month</th><th class="num">Per year</th><th>Category</th><th>Paid with</th><th>Last charge</th><th>Next est</th><th>Used by</th></tr></thead>
+    <tbody><tr><td data-label="Subscription"><a href="#" data-demo="1">Planet Fitness</a></td><td data-label="Decision">unreviewed</td><td data-label="Status"><span class="chip-s t-ok">active</span></td><td class="num" data-label="Per month">$24.99</td><td class="num" data-label="Per year">$299.88</td><td data-label="Category"></td><td data-label="Paid with">Harbor Checking x4417</td><td data-label="Last charge">Oct 6</td><td data-label="Next est">Nov 5</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Apple iCloud</a></td><td data-label="Decision">unreviewed</td><td data-label="Status"><span class="chip-s t-ok">active</span></td><td class="num" data-label="Per month">$2.99</td><td class="num" data-label="Per year">$35.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">Sep 20</td><td data-label="Next est">Oct 20</td><td data-label="Used by"></td></tr></tbody>
   </table></div>
   
 </section>
@@ -179,8 +179,8 @@
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table class="cards">
-    <thead><tr><th>Subscription</th><th>Decision</th><th>Status</th><th>Per month</th><th>Per year</th><th>Category</th><th>Paid with</th><th>Last charge</th><th>Next est</th><th>Used by</th></tr></thead>
-    <tbody><tr><td data-label="Subscription"><a href="#" data-demo="1">Hulu</a></td><td data-label="Decision">cancelled</td><td data-label="Status"><span class="chip-s t-n">cancelled</span></td><td data-label="Per month">$17.99</td><td data-label="Per year">$215.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">Jul 23</td><td data-label="Next est"></td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Netflix</a></td><td data-label="Decision">keep</td><td data-label="Status"><span class="chip-s t-ok">active</span></td><td data-label="Per month">$17.99</td><td data-label="Per year">$215.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">Oct 7</td><td data-label="Next est">Nov 6</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Disney Plus</a></td><td data-label="Decision">cancel</td><td data-label="Status"><span class="chip-s t-ok">active</span></td><td data-label="Per month">$13.99</td><td data-label="Per year">$167.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">Sep 17</td><td data-label="Next est">Oct 17</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Spotify</a></td><td data-label="Decision">keep</td><td data-label="Status"><span class="chip-s t-ok">active</span></td><td data-label="Per month">$11.99</td><td data-label="Per year">$143.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">Oct 11</td><td data-label="Next est">Nov 10</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">NYT Cooking</a></td><td data-label="Decision">unreviewed</td><td data-label="Status"><span class="chip-s t-n">no charges found</span></td><td data-label="Per month">$0.00</td><td data-label="Per year">$0.00</td><td data-label="Category"></td><td data-label="Paid with"></td><td data-label="Last charge"></td><td data-label="Next est"></td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Xbox Game Pass</a></td><td data-label="Decision">unreviewed</td><td data-label="Status"><span class="chip-s t-n">no charges found</span></td><td data-label="Per month">$0.00</td><td data-label="Per year">$0.00</td><td data-label="Category"></td><td data-label="Paid with"></td><td data-label="Last charge"></td><td data-label="Next est"></td><td data-label="Used by"></td></tr></tbody>
+    <thead><tr><th>Subscription</th><th>Decision</th><th>Status</th><th class="num">Per month</th><th class="num">Per year</th><th>Category</th><th>Paid with</th><th>Last charge</th><th>Next est</th><th>Used by</th></tr></thead>
+    <tbody><tr><td data-label="Subscription"><a href="#" data-demo="1">Hulu</a></td><td data-label="Decision">cancelled</td><td data-label="Status"><span class="chip-s t-n">cancelled</span></td><td class="num" data-label="Per month">$17.99</td><td class="num" data-label="Per year">$215.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">Jul 23</td><td data-label="Next est"></td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Netflix</a></td><td data-label="Decision">keep</td><td data-label="Status"><span class="chip-s t-ok">active</span></td><td class="num" data-label="Per month">$17.99</td><td class="num" data-label="Per year">$215.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">Oct 7</td><td data-label="Next est">Nov 6</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Disney Plus</a></td><td data-label="Decision">cancel</td><td data-label="Status"><span class="chip-s t-ok">active</span></td><td class="num" data-label="Per month">$13.99</td><td class="num" data-label="Per year">$167.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">Sep 17</td><td data-label="Next est">Oct 17</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Spotify</a></td><td data-label="Decision">keep</td><td data-label="Status"><span class="chip-s t-ok">active</span></td><td class="num" data-label="Per month">$11.99</td><td class="num" data-label="Per year">$143.88</td><td data-label="Category"></td><td data-label="Paid with">Summit Rewards Visa x9026</td><td data-label="Last charge">Oct 11</td><td data-label="Next est">Nov 10</td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">NYT Cooking</a></td><td data-label="Decision">unreviewed</td><td data-label="Status"><span class="chip-s t-n">no charges found</span></td><td class="num" data-label="Per month">$0.00</td><td class="num" data-label="Per year">$0.00</td><td data-label="Category"></td><td data-label="Paid with"></td><td data-label="Last charge"></td><td data-label="Next est"></td><td data-label="Used by"></td></tr><tr><td data-label="Subscription"><a href="#" data-demo="1">Xbox Game Pass</a></td><td data-label="Decision">unreviewed</td><td data-label="Status"><span class="chip-s t-n">no charges found</span></td><td class="num" data-label="Per month">$0.00</td><td class="num" data-label="Per year">$0.00</td><td data-label="Category"></td><td data-label="Paid with"></td><td data-label="Last charge"></td><td data-label="Next est"></td><td data-label="Used by"></td></tr></tbody>
   </table></div>
   
 </section>
@@ -212,6 +212,8 @@
       <div class="sheet" role="menu">
         
         <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="wallet.html">Wallet</a>
         
         <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
         

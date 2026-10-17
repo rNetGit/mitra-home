@@ -49,7 +49,7 @@
         
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
         
       
         
@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else">
+        <details class="rg" data-rg="Everything else" open="">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -74,7 +74,7 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.113.2</small>
+    <small class="ver">v0.114.0</small>
   </nav>
 
   <main>
@@ -137,8 +137,8 @@
     </div></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
-    <thead><tr><th>Category</th><th>Spent</th><th>Share</th></tr></thead>
-    <tbody><tr><td>groceries</td><td>$169.23</td><td>43%</td></tr><tr><td>fuel</td><td>$104.30</td><td>27%</td></tr><tr><td>dining</td><td>$87.94</td><td>22%</td></tr><tr><td>subscriptions</td><td>$29.98</td><td>8%</td></tr></tbody>
+    <thead><tr><th>Category</th><th class="num">Spent</th><th>Share</th></tr></thead>
+    <tbody><tr><td>groceries</td><td class="num">$169.23</td><td>43%</td></tr><tr><td>fuel</td><td class="num">$104.30</td><td>27%</td></tr><tr><td>dining</td><td class="num">$87.94</td><td>22%</td></tr><tr><td>subscriptions</td><td class="num">$29.98</td><td>8%</td></tr></tbody>
   </table></div>
   
 </section>
@@ -161,8 +161,8 @@
     </div></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
-    <thead><tr><th>Cardholder</th><th>Spent</th></tr></thead>
-    <tbody><tr><td>Marcus</td><td>$219.84</td></tr><tr><td>Elena</td><td>$171.61</td></tr></tbody>
+    <thead><tr><th>Cardholder</th><th class="num">Spent</th></tr></thead>
+    <tbody><tr><td>Marcus</td><td class="num">$219.84</td></tr><tr><td>Elena</td><td class="num">$171.61</td></tr></tbody>
   </table></div>
   
 </section>
@@ -221,8 +221,8 @@
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table class="cards">
-    <thead><tr><th>Date</th><th>Description</th><th>Amount</th><th>Category</th><th>Card</th><th>Cardholder</th></tr></thead>
-    <tbody><tr><td data-label="Date"><a href="#" data-demo="1">Oct 13</a></td><td data-label="Description">UBER EATS</td><td data-label="Amount">-$52.52</td><td data-label="Category">dining</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Marcus</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 13</a></td><td data-label="Description">SHELL OIL 5744</td><td data-label="Amount">-$49.57</td><td data-label="Category">fuel</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Elena</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 11</a></td><td data-label="Description">SPOTIFY USA</td><td data-label="Amount">-$11.99</td><td data-label="Category">subscriptions</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Elena</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 9</a></td><td data-label="Description">KROGER #0123 RALEIGH NC</td><td data-label="Amount">-$74.63</td><td data-label="Category">groceries</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Elena</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 7</a></td><td data-label="Description">NETFLIX.COM</td><td data-label="Amount">-$17.99</td><td data-label="Category">subscriptions</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Marcus</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 5</a></td><td data-label="Description">CHIPOTLE 2210</td><td data-label="Amount">-$35.42</td><td data-label="Category">dining</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Elena</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 4</a></td><td data-label="Description">WAWA 8841</td><td data-label="Amount">-$54.73</td><td data-label="Category">fuel</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Marcus</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 2</a></td><td data-label="Description">KROGER #0123 RALEIGH NC</td><td data-label="Amount">-$94.60</td><td data-label="Category">groceries</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Marcus</td></tr></tbody>
+    <thead><tr><th>Date</th><th>Description</th><th class="num">Amount</th><th>Category</th><th>Card</th><th>Cardholder</th></tr></thead>
+    <tbody><tr><td data-label="Date"><a href="#" data-demo="1">Oct 13</a></td><td data-label="Description">UBER EATS</td><td class="num" data-label="Amount">-$52.52</td><td data-label="Category">dining</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Marcus</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 13</a></td><td data-label="Description">SHELL OIL 5744</td><td class="num" data-label="Amount">-$49.57</td><td data-label="Category">fuel</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Elena</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 11</a></td><td data-label="Description">SPOTIFY USA</td><td class="num" data-label="Amount">-$11.99</td><td data-label="Category">subscriptions</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Elena</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 9</a></td><td data-label="Description">KROGER #0123 RALEIGH NC</td><td class="num" data-label="Amount">-$74.63</td><td data-label="Category">groceries</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Elena</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 7</a></td><td data-label="Description">NETFLIX.COM</td><td class="num" data-label="Amount">-$17.99</td><td data-label="Category">subscriptions</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Marcus</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 5</a></td><td data-label="Description">CHIPOTLE 2210</td><td class="num" data-label="Amount">-$35.42</td><td data-label="Category">dining</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Elena</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 4</a></td><td data-label="Description">WAWA 8841</td><td class="num" data-label="Amount">-$54.73</td><td data-label="Category">fuel</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Marcus</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 2</a></td><td data-label="Description">KROGER #0123 RALEIGH NC</td><td class="num" data-label="Amount">-$94.60</td><td data-label="Category">groceries</td><td data-label="Card">Summit Rewards Visa x9026</td><td data-label="Cardholder">Marcus</td></tr></tbody>
   </table></div>
   
 </section>
@@ -248,6 +248,8 @@
       <div class="sheet" role="menu">
         
         <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="wallet.html">Wallet</a>
         
         <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
         

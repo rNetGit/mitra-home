@@ -49,18 +49,18 @@
         
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
         
       
         
-        <details class="rg" data-rg="Money">
+        <details class="rg" data-rg="Money" open="">
           <summary>Money</summary>
           <a href="month.html">This month</a><a href="finance.html">Finance</a>
         </details>
         
       
         
-        <details class="rg" data-rg="Everything else">
+        <details class="rg" data-rg="Everything else" open="">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -74,7 +74,7 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.113.2</small>
+    <small class="ver">v0.114.0</small>
   </nav>
 
   <main>
@@ -233,7 +233,7 @@
 
 <details class="card sfold"><summary><h2>Updates</h2><span class="muted">Check for and install new versions</span></summary>
 <div id="data-update">
-  <p class="muted">This is Mitra Home 0.113.2.</p>
+  <p class="muted">This is Mitra Home 0.114.0.</p>
   <div class="optrow">
     <button type="button" class="btn alt" data-hx-post="/settings/update" data-hx-vals="{&quot;op&quot;: &quot;check&quot;}" data-hx-disabled-elt="this">Check for updates</button>
     
@@ -269,7 +269,7 @@
 
 
 <details class="card more-form"><summary><h2>Advanced</h2></summary>
-  <div class="tablewrap"><table><tbody><tr><th>AI provider</th><td>claude_code</td></tr><tr><th>Your folder (papers, settings, database)</th><td>C:\Users\you\MitraHome\home</td></tr><tr><th>App folder (code)</th><td>C:\Users\you\MitraHome\app</td></tr><tr><th>Backups on this drive</th><td>C:\Users\you\MitraHome\Mitra-Home-Backup</td></tr><tr><th>Google Drive folder</th><td>not set up (python onboard.py add drive)</td></tr><tr><th>Second backup location</th><td>none (python onboard.py add backup)</td></tr><tr><th>Version</th><td>0.113.2</td></tr></tbody></table></div>
+  <div class="tablewrap"><table><tbody><tr><th>AI provider</th><td>claude_code</td></tr><tr><th>Your folder (papers, settings, database)</th><td>C:\Users\you\MitraHome\home</td></tr><tr><th>App folder (code)</th><td>C:\Users\you\MitraHome\app</td></tr><tr><th>Backups on this drive</th><td>C:\Users\you\MitraHome\Mitra-Home-Backup</td></tr><tr><th>Google Drive folder</th><td>not set up (python onboard.py add drive)</td></tr><tr><th>Second backup location</th><td>none (python onboard.py add backup)</td></tr><tr><th>Version</th><td>0.114.0</td></tr></tbody></table></div>
   
   
   <h3>Commands for the checks above</h3>
@@ -283,7 +283,7 @@
     config/contacts.json (copy contacts.example.json).</p>
 </details>
 
-<p class="muted small">Version 0.113.2 · stored on this PC.</p>
+<p class="muted small">Version 0.114.0 · stored on this PC.</p>
 
 </main>
 
@@ -302,6 +302,8 @@
       <div class="sheet" role="menu">
         
         <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="wallet.html">Wallet</a>
         
         <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
         

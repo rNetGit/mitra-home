@@ -49,7 +49,7 @@
         
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
         
       
         
@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else">
+        <details class="rg" data-rg="Everything else" open="">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -74,7 +74,7 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.113.2</small>
+    <small class="ver">v0.114.0</small>
   </nav>
 
   <main>
@@ -136,8 +136,8 @@
     </div></li>
   </ul>
   <div class="tablewrap fl-wide"><table class="cards">
-    <thead><tr><th>Month</th><th>Elena Rivera</th><th>Marcus Rivera</th><th>Sofia Rivera</th><th>Total</th></tr></thead>
-    <tbody><tr><td data-label="Month">2026-10</td><td data-label="Elena Rivera">$53.50</td><td data-label="Marcus Rivera">$78.00</td><td data-label="Sofia Rivera">$38.50</td><td data-label="Total">$170.00</td></tr><tr><td data-label="Month">2026-09</td><td data-label="Elena Rivera">$56.00</td><td data-label="Marcus Rivera">$83.00</td><td data-label="Sofia Rivera">$41.00</td><td data-label="Total">$180.00</td></tr><tr><td data-label="Month">2026-08</td><td data-label="Elena Rivera">$53.50</td><td data-label="Marcus Rivera">$78.00</td><td data-label="Sofia Rivera">$38.50</td><td data-label="Total">$170.00</td></tr><tr><td data-label="Month">2026-07</td><td data-label="Elena Rivera">$56.00</td><td data-label="Marcus Rivera">$83.00</td><td data-label="Sofia Rivera">$41.00</td><td data-label="Total">$180.00</td></tr><tr><td data-label="Month">2026-06</td><td data-label="Elena Rivera">$53.50</td><td data-label="Marcus Rivera">$78.00</td><td data-label="Sofia Rivera">$38.50</td><td data-label="Total">$170.00</td></tr></tbody>
+    <thead><tr><th>Month</th><th class="num">Elena Rivera</th><th class="num">Marcus Rivera</th><th class="num">Sofia Rivera</th><th class="num">Total</th></tr></thead>
+    <tbody><tr><td data-label="Month">2026-10</td><td class="num" data-label="Elena Rivera">$53.50</td><td class="num" data-label="Marcus Rivera">$78.00</td><td class="num" data-label="Sofia Rivera">$38.50</td><td class="num" data-label="Total">$170.00</td></tr><tr><td data-label="Month">2026-09</td><td class="num" data-label="Elena Rivera">$56.00</td><td class="num" data-label="Marcus Rivera">$83.00</td><td class="num" data-label="Sofia Rivera">$41.00</td><td class="num" data-label="Total">$180.00</td></tr><tr><td data-label="Month">2026-08</td><td class="num" data-label="Elena Rivera">$53.50</td><td class="num" data-label="Marcus Rivera">$78.00</td><td class="num" data-label="Sofia Rivera">$38.50</td><td class="num" data-label="Total">$170.00</td></tr><tr><td data-label="Month">2026-07</td><td class="num" data-label="Elena Rivera">$56.00</td><td class="num" data-label="Marcus Rivera">$83.00</td><td class="num" data-label="Sofia Rivera">$41.00</td><td class="num" data-label="Total">$180.00</td></tr><tr><td data-label="Month">2026-06</td><td class="num" data-label="Elena Rivera">$53.50</td><td class="num" data-label="Marcus Rivera">$78.00</td><td class="num" data-label="Sofia Rivera">$38.50</td><td class="num" data-label="Total">$170.00</td></tr></tbody>
   </table></div>
   
 </section>
@@ -178,8 +178,8 @@
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
-    <thead><tr><th>Bill date</th><th>Carrier</th><th>Bill total</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Oct 5</a></td><td>Verizon</td><td>$170.00</td></tr><tr><td><a href="#" data-demo="1">Sep 24</a></td><td>Verizon</td><td>$180.00</td></tr><tr><td><a href="#" data-demo="1">Aug 24</a></td><td>Verizon</td><td>$170.00</td></tr><tr><td><a href="#" data-demo="1">Jul 24</a></td><td>Verizon</td><td>$180.00</td></tr><tr><td><a href="#" data-demo="1">Jun 24</a></td><td>Verizon</td><td>$170.00</td></tr></tbody>
+    <thead><tr><th>Bill date</th><th>Carrier</th><th class="num">Bill total</th></tr></thead>
+    <tbody><tr><td><a href="#" data-demo="1">Oct 5</a></td><td>Verizon</td><td class="num">$170.00</td></tr><tr><td><a href="#" data-demo="1">Sep 24</a></td><td>Verizon</td><td class="num">$180.00</td></tr><tr><td><a href="#" data-demo="1">Aug 24</a></td><td>Verizon</td><td class="num">$170.00</td></tr><tr><td><a href="#" data-demo="1">Jul 24</a></td><td>Verizon</td><td class="num">$180.00</td></tr><tr><td><a href="#" data-demo="1">Jun 24</a></td><td>Verizon</td><td class="num">$170.00</td></tr></tbody>
   </table></div>
   
 </section>
@@ -205,6 +205,8 @@
       <div class="sheet" role="menu">
         
         <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="wallet.html">Wallet</a>
         
         <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
         

@@ -49,7 +49,7 @@
         
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
         
       
         
@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else">
+        <details class="rg" data-rg="Everything else" open="">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -74,7 +74,7 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.113.2</small>
+    <small class="ver">v0.114.0</small>
   </nav>
 
   <main>
@@ -113,7 +113,7 @@
 </div>
 
 <section class="card fneeds"><h2>Needs a look</h2>
-  <ul class="rlist"><li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">1 scheduled day(s) with no hours entered: 10/15</span><span class="rl-go" aria-hidden="true">›</span></a></li><li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">hours on a holiday: 10/12</span><span class="rl-go" aria-hidden="true">›</span></a></li></ul>
+  <ul class="rlist"><li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">2 scheduled day(s) with no hours entered: 10/15, 10/16</span><span class="rl-go" aria-hidden="true">›</span></a></li><li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">hours on a holiday: 10/12</span><span class="rl-go" aria-hidden="true">›</span></a></li></ul>
 </section>
 
 <section class="card rblock"><h2>Weeks in Oct 2026</h2>
@@ -138,7 +138,7 @@
   <form class="nform" data-hx-post="/work" data-hx-vals="{&quot;c&quot;: &quot;1&quot;, &quot;op&quot;: &quot;invoice_set&quot;, &quot;tab&quot;: &quot;billing&quot;}">
     <label>Invoice<select name="invoice"><option value="2">#2 · Sep 1</option><option value="1">#1 · Aug 1</option></select></label>
     <label>Mark as<select name="status"><option>sent</option><option>paid</option><option>draft</option></select></label>
-    <label>On<input name="on" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-16"></label>
+    <label>On<input name="on" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-17"></label>
     <button class="btn alt" type="submit">Save</button>
   </form></details>
   
@@ -165,6 +165,8 @@
       <div class="sheet" role="menu">
         
         <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="wallet.html">Wallet</a>
         
         <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
         

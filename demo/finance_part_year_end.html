@@ -49,7 +49,7 @@
         
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
         
       
         
@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else">
+        <details class="rg" data-rg="Everything else" open="">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -74,7 +74,7 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.113.2</small>
+    <small class="ver">v0.114.0</small>
   </nav>
 
   <main>
@@ -97,7 +97,7 @@
 
 <p><a class="btn alt" href="#" data-demo="1" download="">Download it (.md)</a></p>
 <section class="card doc"><h1>2026 year-end summary (year to date)</h1>
-<p><em>Generated 2026-10-16. Transactions in the data run to 2026-10-15. Source: family.db. Aggregates only; card/account numbers are last4.</em></p>
+<p><em>Generated 2026-10-17. Transactions in the data run to 2026-10-15. Source: family.db. Aggregates only; card/account numbers are last4.</em></p>
 <p>&gt; 2026 is not over: every figure is year to date, and months before the first loaded statement are missing.</p>
 <h2>Income vs spend vs invested</h2>
 <table>
@@ -278,7 +278,7 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <td>7</td>
 </tr>
 <tr>
-<td>State Farm</td>
+<td>Harbor Mutual</td>
 <td>$1,566</td>
 <td>7</td>
 </tr>
@@ -441,25 +441,25 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </thead>
 <tbody>
 <tr>
-<td>Allstate home x9033</td>
+<td>Oakline Insurance home x9033</td>
 <td>2025-02-12 to 2026-02-12</td>
 <td>$1,604</td>
 <td>n/a</td>
 </tr>
 <tr>
-<td>State Farm auto x5521</td>
+<td>Harbor Mutual auto x5521</td>
 <td>2025-11-17 to 2026-05-18</td>
 <td>$1,180</td>
 <td>n/a</td>
 </tr>
 <tr>
-<td>Allstate home x9033</td>
+<td>Oakline Insurance home x9033</td>
 <td>2026-02-12 to 2027-02-12</td>
 <td>$1,722</td>
 <td>+7.4%</td>
 </tr>
 <tr>
-<td>State Farm auto x5521</td>
+<td>Harbor Mutual auto x5521</td>
 <td>2026-05-18 to 2026-11-14</td>
 <td>$1,342</td>
 <td>+13.7%</td>
@@ -477,7 +477,7 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </thead>
 <tbody>
 <tr>
-<td>State Farm</td>
+<td>Harbor Mutual</td>
 <td>$1,566</td>
 <td>7</td>
 </tr>
@@ -578,8 +578,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </ul>
 <h3>insurance (2)</h3>
 <ul>
-<li>2026-02-12_allstate_policy.txt</li>
-<li>2026-05-18_state_farm_policy.txt</li>
+<li>2026-02-12_oakline_policy.txt</li>
+<li>2026-05-18_harbor_mutual_policy.txt</li>
 </ul>
 <h3>investments (3)</h3>
 <ul>
@@ -638,6 +638,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
       <div class="sheet" role="menu">
         
         <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="wallet.html">Wallet</a>
         
         <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
         

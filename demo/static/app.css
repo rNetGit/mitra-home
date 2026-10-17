@@ -780,3 +780,37 @@ details.sfold>summary:hover h2{color:var(--accent)}
 /* Work 2 */
 .wmark{margin-top:10px}.wmark[open]>summary{margin-bottom:8px}
 @media (max-width:760px){.kpis.wkpi{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Wallet: one gradient card per ID, car, policy and membership (wallet.py); tap = where the number is */
+.wchips small{margin-left:5px;opacity:.75}
+.wsoon{flex:0 0 auto;align-self:center;margin-left:auto;font-size:.85rem;padding:4px 10px;border-radius:999px;background:var(--warn-soft);color:var(--warn)}
+.wgroup{margin:6px 0 18px}.wgh{font-size:1rem;margin:0 0 8px;color:var(--text-2)}
+.wgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.wwrap{min-width:0}.wwrap.wwide{grid-column:span 2}
+@media (max-width:760px){.wwrap.wwide{grid-column:auto}}
+.wcard{border-radius:18px;color:#fff;background:linear-gradient(160deg,var(--wg1),var(--wg2));box-shadow:0 8px 20px rgba(0,0,0,.16)}
+.wcard>summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:6px;min-height:118px;padding:14px 16px;box-sizing:border-box}
+.wcard>summary::-webkit-details-marker{display:none}
+.wcard>summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:18px}
+.wtt{display:flex;flex-direction:column;min-width:0}.wtt b{font-size:1.02rem}.wtt small{opacity:.88;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.wnum{font-family:ui-monospace,Consolas,monospace;font-size:1.08rem;letter-spacing:.06em}
+.wfoot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.82rem;opacity:.95}
+.wpill{border-radius:999px;padding:2px 9px;background:rgba(255,255,255,.22);white-space:nowrap}
+.wpill.w-warn{background:#fac775;color:#633806}.wpill.w-bad{background:#f7c1c1;color:#791f1f}
+.wcarrow{display:flex;align-items:center;gap:12px;min-width:0}.wcarrow .wtt{flex:1}
+.wcar{width:64px;height:28px;flex:0 0 auto;opacity:.95}
+.wplate{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;background:#fff;color:#2c2c2a;border:2px solid #444441;border-radius:7px;padding:3px 10px;font-family:ui-monospace,Consolas,monospace;font-size:1.15rem;letter-spacing:.08em;line-height:1.1}
+.wplate small{font-size:.62rem;letter-spacing:.1em}
+.wback{padding:0 16px 12px;font-size:.88rem}.wback a{color:#fff;text-decoration:underline}
+.whint{margin:0 0 6px;padding:8px 10px;border-radius:10px;background:rgba(0,0,0,.18)}
+.wedit{margin-top:6px}.wref{margin-top:14px}
+.wt-car{--wg1:#0f6e56;--wg2:#1d9e75}.wt-policy{--wg1:#3c3489;--wg2:#7f77dd}.wt-id{--wg1:#0c447c;--wg2:#378add}
+.wt-health{--wg1:#993c1d;--wg2:#d85a30}.wt-home{--wg1:#444441;--wg2:#888780}.wt-members{--wg1:#854f0b;--wg2:#ba7517}
+
+/* Finance Deposits and Bills: From / To month, Category, search (one row on a PC, wraps on a phone) */
+.ffilter.frange{flex-wrap:wrap;align-items:flex-end}
+.frange .fsel{display:flex;flex-direction:column;gap:2px;flex:0 1 9rem;min-width:7.5rem}
+.frange .fsel span{font-size:.78rem;color:var(--text-2)}
+.frange .fsel select{flex:none;width:100%}
+.frange input[type=search]{flex:1 1 12rem}
+.tablewrap th.num,.tablewrap td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}

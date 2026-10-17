@@ -49,7 +49,7 @@
         
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
         
       
         
@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else">
+        <details class="rg" data-rg="Everything else" open="">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -74,7 +74,7 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.113.2</small>
+    <small class="ver">v0.114.0</small>
   </nav>
 
   <main>
@@ -99,7 +99,7 @@
 <form class="nform" data-hx-post="/records/add" data-hx-target="#radd-receipts" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;money/receipts&quot;, &quot;table&quot;: &quot;receipts&quot;}">
 
   <label>Store<input name="merchant" maxlength="80" required="" value=""></label>
-  <label>Date<input name="date" type="date" min="2000-01-01" max="2100-12-31" required="" value="2026-10-16"></label>
+  <label>Date<input name="date" type="date" min="2000-01-01" max="2100-12-31" required="" value="2026-10-17"></label>
   <label>Total<input name="total" type="number" min="0" max="1000000" step="0.01" required="" value=""></label>
   <label>Card last 4 (optional)<input name="last4" maxlength="4" pattern="[0-9]{4}" inputmode="numeric" value=""></label>
 
@@ -149,8 +149,8 @@
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
-    <thead><tr><th>Date</th><th>Store</th><th>Total</th><th>Note</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Oct 10</a></td><td>Farmers Market</td><td>$42.00</td><td><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></td></tr><tr><td><a href="#" data-demo="1">Oct 6</a></td><td>Pet Supplies Plus</td><td>$61.38</td><td><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></td></tr><tr><td><a href="#" data-demo="1">Sep 19</a></td><td>Lowes</td><td>$156.03</td><td><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></td></tr><tr><td><a href="#" data-demo="1">Aug 6</a></td><td>Best Buy</td><td>$289.99</td><td><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></td></tr><tr><td><a href="#" data-demo="1">Apr 28, 2024</a></td><td>Home Depot</td><td>$1,349.00</td><td><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></td></tr></tbody>
+    <thead><tr><th>Date</th><th>Store</th><th class="num">Total</th><th>Note</th></tr></thead>
+    <tbody><tr><td><a href="#" data-demo="1">Oct 10</a></td><td>Farmers Market</td><td class="num">$42.00</td><td><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></td></tr><tr><td><a href="#" data-demo="1">Oct 6</a></td><td>Pet Supplies Plus</td><td class="num">$61.38</td><td><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></td></tr><tr><td><a href="#" data-demo="1">Sep 19</a></td><td>Lowes</td><td class="num">$156.03</td><td><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></td></tr><tr><td><a href="#" data-demo="1">Aug 6</a></td><td>Best Buy</td><td class="num">$289.99</td><td><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></td></tr><tr><td><a href="#" data-demo="1">Apr 28, 2024</a></td><td>Home Depot</td><td class="num">$1,349.00</td><td><span class="chip-s t-n">no charge yet (it may post after the next statement)</span></td></tr></tbody>
   </table></div>
   
 </section>
@@ -179,8 +179,8 @@
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table class="cards">
-    <thead><tr><th>Date</th><th>Store</th><th>Total</th><th>Charge</th><th>Charged</th><th>Account</th><th>How</th></tr></thead>
-    <tbody><tr><td data-label="Date"><a href="#" data-demo="1">Oct 9</a></td><td data-label="Store">Kroger</td><td data-label="Total">$74.63</td><td data-label="Charge">Oct 9 KROGER #0123 RALEIGH NC</td><td data-label="Charged">$74.63</td><td data-label="Account">Summit Rewards Visa</td><td data-label="How">high</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 2</a></td><td data-label="Store">Kroger</td><td data-label="Total">$94.60</td><td data-label="Charge">Oct 2 KROGER #0123 RALEIGH NC</td><td data-label="Charged">$94.60</td><td data-label="Account">Summit Rewards Visa</td><td data-label="How">high</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Sep 16</a></td><td data-label="Store">Target</td><td data-label="Total">$85.54</td><td data-label="Charge">Sep 16 TARGET 00014</td><td data-label="Charged">$88.54</td><td data-label="Account">Summit Rewards Visa</td><td data-label="How">low</td></tr></tbody>
+    <thead><tr><th>Date</th><th>Store</th><th class="num">Total</th><th>Charge</th><th class="num">Charged</th><th>Account</th><th>How</th></tr></thead>
+    <tbody><tr><td data-label="Date"><a href="#" data-demo="1">Oct 9</a></td><td data-label="Store">Kroger</td><td class="num" data-label="Total">$74.63</td><td data-label="Charge">Oct 9 KROGER #0123 RALEIGH NC</td><td class="num" data-label="Charged">$74.63</td><td data-label="Account">Summit Rewards Visa</td><td data-label="How">high</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Oct 2</a></td><td data-label="Store">Kroger</td><td class="num" data-label="Total">$94.60</td><td data-label="Charge">Oct 2 KROGER #0123 RALEIGH NC</td><td class="num" data-label="Charged">$94.60</td><td data-label="Account">Summit Rewards Visa</td><td data-label="How">high</td></tr><tr><td data-label="Date"><a href="#" data-demo="1">Sep 16</a></td><td data-label="Store">Target</td><td class="num" data-label="Total">$85.54</td><td data-label="Charge">Sep 16 TARGET 00014</td><td class="num" data-label="Charged">$88.54</td><td data-label="Account">Summit Rewards Visa</td><td data-label="How">low</td></tr></tbody>
   </table></div>
   
 </section>
@@ -206,6 +206,8 @@
       <div class="sheet" role="menu">
         
         <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="wallet.html">Wallet</a>
         
         <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
         

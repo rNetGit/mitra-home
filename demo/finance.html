@@ -49,7 +49,7 @@
         
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
         
       
         
@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else">
+        <details class="rg" data-rg="Everything else" open="">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -74,7 +74,7 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.113.2</small>
+    <small class="ver">v0.114.0</small>
   </nav>
 
   <main>
@@ -102,12 +102,12 @@
   <a class="flane" href="finance_part_bills.html">
     <span class="flane-ico g-high"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16l-3-2-2 2-2-2-2 2-2-2-3 2"></path><path d="M14 8h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3H10M12 14v1.5M12 6.5V8"></path>
 </svg></span>
-    <span class="flane-t"><b>Pay</b><span class="muted">1 overdue, 3 due in 14 days</span></span>
+    <span class="flane-t"><b>Pay</b><span class="muted">2 overdue, 2 due in 14 days</span></span>
     <span class="flane-n"><b class="bad">$631</b><small class="muted">open, next 14 days</small></span>
     <span class="flane-go" aria-hidden="true">›</span>
   </a>
 
-  <a class="flane" href="finance_part_accounts.html">
+  <a class="flane" href="#" data-demo="1">
     <span class="flane-ico g-flow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M3 10h18M5 6l7-3 7 3"></path><path d="M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"></path>
 </svg></span>
     <span class="flane-t"><b>Keep</b><span class="muted">3 accounts · budget 3 close</span></span>
@@ -127,6 +127,8 @@
 <section class="card fneeds"><h2>Needs a look</h2>
   <ul class="rlist">
     <li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">Comcast Xfinity bill $89.99 was due Oct 13</span><span class="rl-go" aria-hidden="true">›</span></a></li>
+  
+    <li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">Verizon bill $180.00 was due Oct 16</span><span class="rl-go" aria-hidden="true">›</span></a></li>
   </ul>
 </section>
 
@@ -136,7 +138,7 @@
     <nav class="fchips wrap" aria-label="Pay parts"><a href="finance_part_bills.html">Bills</a><a href="finance_part_receipts.html">Receipts</a><a href="finance_part_mobile.html">Phone bills</a><a href="finance_part_subs.html">Subscriptions</a><a href="#" data-demo="1">Amazon orders</a><a href="finance_part_cards.html">Cards</a><a href="#" data-demo="1">Statement watch</a><a href="#" data-demo="1">Price spikes</a></nav></div>
 
   <div class="fparts-g"><h2>Keep</h2><p class="muted">Accounts, budget, loans and card perks.</p>
-    <nav class="fchips wrap" aria-label="Keep parts"><a href="finance_part_accounts.html">Accounts</a><a href="#" data-demo="1">Deposits</a><a href="finance_part_budget.html">Budget and loans</a><a href="#" data-demo="1">Card benefits</a></nav></div>
+    <nav class="fchips wrap" aria-label="Keep parts"><a href="#" data-demo="1">Deposits</a><a href="finance_part_accounts.html">Accounts</a><a href="finance_part_budget.html">Budget and loans</a><a href="#" data-demo="1">Card benefits</a></nav></div>
 
   <div class="fparts-g"><h2>Look back</h2><p class="muted">Trends, cash flow, tax papers and year-end.</p>
     <nav class="fchips wrap" aria-label="Look back parts"><a href="finance_part_cashflow.html">Cashflow</a><a href="finance_part_trends.html">Trends</a><a href="finance_part_tax.html">Tax papers</a><a href="finance_part_home_office.html">Home office</a><a href="finance_part_year_end.html">Year-end</a><a href="#" data-demo="1">Work</a></nav></div>
@@ -160,6 +162,8 @@
       <div class="sheet" role="menu">
         
         <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="wallet.html">Wallet</a>
         
         <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
         

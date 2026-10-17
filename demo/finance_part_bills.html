@@ -49,7 +49,7 @@
         
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
         
       
         
@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else">
+        <details class="rg" data-rg="Everything else" open="">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -74,7 +74,7 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.113.2</small>
+    <small class="ver">v0.114.0</small>
   </nav>
 
   <main>
@@ -87,12 +87,13 @@
 
 
 
-<form class="rsearch ffilter" action="finance.html" method="get" role="search">
+<form class="rsearch ffilter frange" action="finance.html" method="get" role="search">
   <input type="hidden" name="part" value="bills">
-  <label class="vh" for="fmonth">Month</label>
-  <select id="fmonth" name="month"><option value="2026-11">2026-11</option><option value="2026-10" selected="">2026-10</option><option value="2026-09">2026-09</option><option value="2026-08">2026-08</option><option value="2026-07">2026-07</option></select>
-  <label class="vh" for="fq">Search a bill</label>
-  <input id="fq" type="search" name="q" value="" maxlength="100" placeholder="Search a bill">
+  <label class="fsel"><span>From</span><select name="from"><option value="2026-11">2026-11</option><option value="2026-10" selected="">2026-10</option><option value="2026-09">2026-09</option><option value="2026-08">2026-08</option><option value="2026-07">2026-07</option></select></label>
+  <label class="fsel"><span>To</span><select name="to"><option value="2026-11">2026-11</option><option value="2026-10" selected="">2026-10</option><option value="2026-09">2026-09</option><option value="2026-08">2026-08</option><option value="2026-07">2026-07</option></select></label>
+  <label class="fsel"><span>Category</span><select name="cat"><option value="">All categories</option><option value="Other">Other</option></select></label>
+  <label class="vh" for="fq">Search name, vendor or category</label>
+  <input id="fq" type="search" name="q" value="" maxlength="100" placeholder="Search name, vendor or category">
   <button class="btn" type="submit">Show</button>
 </form>
 
@@ -125,9 +126,9 @@
     </a></li>
   
     <li><a href="#" data-demo="1">
-      <span class="rl-av t-warn" aria-hidden="true">V</span>
+      <span class="rl-av t-bad" aria-hidden="true">V</span>
       <span class="rl-main"><span class="rl-t">Verizon bill</span><span class="rl-m">Verizon · Oct 16</span></span>
-      <span class="rl-r"><b>$180.00</b><span class="chip-s t-warn">due</span></span>
+      <span class="rl-r"><b>$180.00</b><span class="chip-s t-bad">overdue</span></span>
     </a></li>
   
     <li><a href="#" data-demo="1">
@@ -149,8 +150,8 @@
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table class="cards">
-    <thead><tr><th>Name</th><th>Vendor</th><th>Category</th><th>Amount</th><th>Due</th><th>Status</th></tr></thead>
-    <tbody><tr><td data-label="Name"><a href="#" data-demo="1">Oak Dental invoice</a></td><td data-label="Vendor">Oak Dental</td><td data-label="Category">Other</td><td data-label="Amount">$186.00</td><td data-label="Due">Oct 3</td><td data-label="Status"><span class="chip-s t-ok">paid</span></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Comcast Xfinity bill</a></td><td data-label="Vendor">Comcast Xfinity</td><td data-label="Category">Other</td><td data-label="Amount">$89.99</td><td data-label="Due">Oct 13</td><td data-label="Status"><span class="chip-s t-bad">overdue</span></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Verizon bill</a></td><td data-label="Vendor">Verizon</td><td data-label="Category">Other</td><td data-label="Amount">$180.00</td><td data-label="Due">Oct 16</td><td data-label="Status"><span class="chip-s t-warn">due</span></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Duke Energy bill</a></td><td data-label="Vendor">Duke Energy</td><td data-label="Category">Other</td><td data-label="Amount">$182.02</td><td data-label="Due">Oct 21</td><td data-label="Status"><span class="chip-s t-ok">paid</span></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Verizon Wireless</a></td><td data-label="Vendor">Verizon</td><td data-label="Category">Other</td><td data-label="Amount">$191.50</td><td data-label="Due">Oct 26</td><td data-label="Status"><span class="chip-s t-warn">due</span></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Verizon bill</a></td><td data-label="Vendor">Verizon</td><td data-label="Category">Other</td><td data-label="Amount">$170.00</td><td data-label="Due">Oct 27</td><td data-label="Status"><span class="chip-s t-warn">due</span></td></tr></tbody>
+    <thead><tr><th>Name</th><th>Vendor</th><th>Category</th><th class="num">Amount</th><th>Due</th><th>Status</th></tr></thead>
+    <tbody><tr><td data-label="Name"><a href="#" data-demo="1">Oak Dental invoice</a></td><td data-label="Vendor">Oak Dental</td><td data-label="Category">Other</td><td class="num" data-label="Amount">$186.00</td><td data-label="Due">Oct 3</td><td data-label="Status"><span class="chip-s t-ok">paid</span></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Comcast Xfinity bill</a></td><td data-label="Vendor">Comcast Xfinity</td><td data-label="Category">Other</td><td class="num" data-label="Amount">$89.99</td><td data-label="Due">Oct 13</td><td data-label="Status"><span class="chip-s t-bad">overdue</span></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Verizon bill</a></td><td data-label="Vendor">Verizon</td><td data-label="Category">Other</td><td class="num" data-label="Amount">$180.00</td><td data-label="Due">Oct 16</td><td data-label="Status"><span class="chip-s t-bad">overdue</span></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Duke Energy bill</a></td><td data-label="Vendor">Duke Energy</td><td data-label="Category">Other</td><td class="num" data-label="Amount">$182.02</td><td data-label="Due">Oct 21</td><td data-label="Status"><span class="chip-s t-ok">paid</span></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Verizon Wireless</a></td><td data-label="Vendor">Verizon</td><td data-label="Category">Other</td><td class="num" data-label="Amount">$191.50</td><td data-label="Due">Oct 26</td><td data-label="Status"><span class="chip-s t-warn">due</span></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Verizon bill</a></td><td data-label="Vendor">Verizon</td><td data-label="Category">Other</td><td class="num" data-label="Amount">$170.00</td><td data-label="Due">Oct 27</td><td data-label="Status"><span class="chip-s t-warn">due</span></td></tr></tbody>
   </table></div>
   
 </section>
@@ -173,8 +174,8 @@
     </div></li>
   </ul>
   <div class="tablewrap fl-wide"><table class="cards">
-    <thead><tr><th>Bill</th><th>Every</th><th>Expected</th><th>Last charge</th><th>Next expected</th><th>Open bill</th></tr></thead>
-    <tbody><tr><td data-label="Bill">Comcast</td><td data-label="Every">monthly</td><td data-label="Expected">$89.99</td><td data-label="Last charge">Oct 9</td><td data-label="Next expected">Nov 9</td><td data-label="Open bill">due Nov 9</td></tr><tr><td data-label="Bill">Duke Energy</td><td data-label="Every">monthly</td><td data-label="Expected">$182.02</td><td data-label="Last charge">Oct 12</td><td data-label="Next expected">Nov 12</td><td data-label="Open bill">due Nov 12</td></tr></tbody>
+    <thead><tr><th>Bill</th><th>Every</th><th class="num">Expected</th><th>Last charge</th><th>Next expected</th><th>Open bill</th></tr></thead>
+    <tbody><tr><td data-label="Bill">Comcast</td><td data-label="Every">monthly</td><td class="num" data-label="Expected">$89.99</td><td data-label="Last charge">Oct 9</td><td data-label="Next expected">Nov 9</td><td data-label="Open bill">due Nov 9</td></tr><tr><td data-label="Bill">Duke Energy</td><td data-label="Every">monthly</td><td class="num" data-label="Expected">$182.02</td><td data-label="Last charge">Oct 12</td><td data-label="Next expected">Nov 12</td><td data-label="Open bill">due Nov 12</td></tr></tbody>
   </table></div>
   
 </section>
@@ -200,6 +201,8 @@
       <div class="sheet" role="menu">
         
         <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="wallet.html">Wallet</a>
         
         <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
         

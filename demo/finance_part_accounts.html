@@ -49,7 +49,7 @@
         
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
         
       
         
@@ -60,7 +60,7 @@
         
       
         
-        <details class="rg" data-rg="Everything else">
+        <details class="rg" data-rg="Everything else" open="">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -74,14 +74,14 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.113.2</small>
+    <small class="ver">v0.114.0</small>
   </nav>
 
   <main>
 
 <header class="head fhead"><div><a class="fback" href="finance.html">Finance</a><h1>Keep</h1><p class="sub">Accounts</p></div></header>
 
-<nav class="fchips" aria-label="Keep"><a href="finance_part_accounts.html" class="on" aria-current="true">Accounts</a><a href="#" data-demo="1">Deposits</a><a href="finance_part_budget.html">Budget and loans</a><a href="#" data-demo="1">Card benefits</a></nav>
+<nav class="fchips" aria-label="Keep"><a href="#" data-demo="1">Deposits</a><a href="finance_part_accounts.html" class="on" aria-current="true">Accounts</a><a href="finance_part_budget.html">Budget and loans</a><a href="#" data-demo="1">Card benefits</a></nav>
 
 
 
@@ -89,7 +89,7 @@
 
 
 
-<div class="kpis rk"><div class="kpi"><span>Cash and investments</span><b>$15,361</b></div><div class="kpi"><span>Cards and loans owed</span><b>$1,388</b></div><div class="kpi"><span>Net position</span><b>$13,972</b></div><div class="kpi"><span>Latest balance</span><b>2026-10-15</b></div></div>
+<div class="kpis rk"><div class="kpi"><span>Cash</span><b>$15,361</b></div><div class="kpi"><span>Investments</span><b>$0</b></div><div class="kpi"><span>Cards and loans owed</span><b>$1,388</b></div><div class="kpi"><span>Net position · Oct 15</span><b>$13,972</b></div></div>
 
 
 <details class="card addnote">
@@ -138,8 +138,8 @@
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table class="cards">
-    <thead><tr><th>Account</th><th>Type</th><th>Owner</th><th>As of</th><th>Reported</th></tr></thead>
-    <tbody><tr><td data-label="Account"><a href="#" data-demo="1">Harbor Checking x4417</a></td><td data-label="Type">checking</td><td data-label="Owner">Marcus</td><td data-label="As of">Oct 15</td><td data-label="Reported">$6,240.18</td></tr><tr><td data-label="Account"><a href="#" data-demo="1">Summit Rewards Visa x9026</a></td><td data-label="Type">credit</td><td data-label="Owner">Marcus</td><td data-label="As of">Oct 15</td><td data-label="Reported">$1,388.26</td></tr><tr><td data-label="Account"><a href="#" data-demo="1">Harbor Savings x4420</a></td><td data-label="Type">savings</td><td data-label="Owner">Elena</td><td data-label="As of">Oct 15</td><td data-label="Reported">$9,120.55</td></tr></tbody>
+    <thead><tr><th>Account</th><th>Type</th><th>Owner</th><th>As of</th><th class="num">Reported</th></tr></thead>
+    <tbody><tr><td data-label="Account"><a href="#" data-demo="1">Harbor Checking x4417</a></td><td data-label="Type">checking</td><td data-label="Owner">Marcus</td><td data-label="As of">Oct 15</td><td class="num" data-label="Reported">$6,240.18</td></tr><tr><td data-label="Account"><a href="#" data-demo="1">Summit Rewards Visa x9026</a></td><td data-label="Type">credit</td><td data-label="Owner">Marcus</td><td data-label="As of">Oct 15</td><td class="num" data-label="Reported">$1,388.26</td></tr><tr><td data-label="Account"><a href="#" data-demo="1">Harbor Savings x4420</a></td><td data-label="Type">savings</td><td data-label="Owner">Elena</td><td data-label="As of">Oct 15</td><td class="num" data-label="Reported">$9,120.55</td></tr></tbody>
   </table></div>
   
 </section>
@@ -198,8 +198,8 @@
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table class="cards">
-    <thead><tr><th>Name</th><th>Kind</th><th>Invested</th><th>Value now</th><th>As of</th><th>Matures</th></tr></thead>
-    <tbody><tr><td data-label="Name"><a href="#" data-demo="1">Fidelity brokerage</a></td><td data-label="Kind">brokerage</td><td data-label="Invested">$41,000.00</td><td data-label="Value now">$48,200.00</td><td data-label="As of">Oct 5</td><td data-label="Matures"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">401k Elena (Acme)</a></td><td data-label="Kind">retirement</td><td data-label="Invested">$88,000.00</td><td data-label="Value now">$112,340.00</td><td data-label="As of">Oct 5</td><td data-label="Matures"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Savings bond</a></td><td data-label="Kind">other</td><td data-label="Invested">$4,000.00</td><td data-label="Value now">$5,000.00</td><td data-label="As of">Oct 5</td><td data-label="Matures">Nov 19, 2027</td></tr></tbody>
+    <thead><tr><th>Name</th><th>Kind</th><th class="num">Invested</th><th class="num">Value now</th><th>As of</th><th>Matures</th></tr></thead>
+    <tbody><tr><td data-label="Name"><a href="#" data-demo="1">Fidelity brokerage</a></td><td data-label="Kind">brokerage</td><td class="num" data-label="Invested">$41,000.00</td><td class="num" data-label="Value now">$48,200.00</td><td data-label="As of">Oct 5</td><td data-label="Matures"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">401k Elena (Acme)</a></td><td data-label="Kind">retirement</td><td class="num" data-label="Invested">$88,000.00</td><td class="num" data-label="Value now">$112,340.00</td><td data-label="As of">Oct 5</td><td data-label="Matures"></td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Savings bond</a></td><td data-label="Kind">other</td><td class="num" data-label="Invested">$4,000.00</td><td class="num" data-label="Value now">$5,000.00</td><td data-label="As of">Oct 5</td><td data-label="Matures">Nov 19, 2027</td></tr></tbody>
   </table></div>
   
 </section>
@@ -252,8 +252,8 @@
     </div></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
-    <thead><tr><th>Month</th><th>Payee</th><th>Invested</th><th>Cumulative total</th></tr></thead>
-    <tbody><tr><td>2026-10</td><td>Fidelity</td><td>$500.00</td><td>$3,500.00</td></tr><tr><td>2026-09</td><td>Fidelity</td><td>$500.00</td><td>$3,000.00</td></tr><tr><td>2026-08</td><td>Fidelity</td><td>$500.00</td><td>$2,500.00</td></tr><tr><td>2026-07</td><td>Fidelity</td><td>$500.00</td><td>$2,000.00</td></tr><tr><td>2026-06</td><td>Fidelity</td><td>$500.00</td><td>$1,500.00</td></tr><tr><td>2026-05</td><td>Fidelity</td><td>$500.00</td><td>$1,000.00</td></tr><tr><td>2026-04</td><td>Fidelity</td><td>$500.00</td><td>$500.00</td></tr></tbody>
+    <thead><tr><th>Month</th><th>Payee</th><th class="num">Invested</th><th class="num">Cumulative total</th></tr></thead>
+    <tbody><tr><td>2026-10</td><td>Fidelity</td><td class="num">$500.00</td><td class="num">$3,500.00</td></tr><tr><td>2026-09</td><td>Fidelity</td><td class="num">$500.00</td><td class="num">$3,000.00</td></tr><tr><td>2026-08</td><td>Fidelity</td><td class="num">$500.00</td><td class="num">$2,500.00</td></tr><tr><td>2026-07</td><td>Fidelity</td><td class="num">$500.00</td><td class="num">$2,000.00</td></tr><tr><td>2026-06</td><td>Fidelity</td><td class="num">$500.00</td><td class="num">$1,500.00</td></tr><tr><td>2026-05</td><td>Fidelity</td><td class="num">$500.00</td><td class="num">$1,000.00</td></tr><tr><td>2026-04</td><td>Fidelity</td><td class="num">$500.00</td><td class="num">$500.00</td></tr></tbody>
   </table></div>
   
 </section>
@@ -279,6 +279,8 @@
       <div class="sheet" role="menu">
         
         <a role="menuitem" href="calendar_view_week.html">Calendar</a>
+        
+        <a role="menuitem" href="wallet.html">Wallet</a>
         
         <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
         
