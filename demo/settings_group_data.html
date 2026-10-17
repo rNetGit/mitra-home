@@ -49,18 +49,18 @@
         
         <span class="grp">Every day</span>
         <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="30 waiting">30</span></a><a href="brief.html">To do</a>
+        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="32 waiting">32</span></a><a href="brief.html">To do</a>
         
       
         
-        <details class="rg" data-rg="Money" open="">
+        <details class="rg" data-rg="Money">
           <summary>Money</summary>
           <a href="month.html">This month</a><a href="finance.html">Finance</a>
         </details>
         
       
         
-        <details class="rg" data-rg="Everything else" open="">
+        <details class="rg" data-rg="Everything else">
           <summary>Everything else</summary>
           <a href="records.html">Records</a><a href="notes.html">Notes</a>
         </details>
@@ -74,7 +74,7 @@
       <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
       <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
     </div>
-    <small class="ver">v0.115.0</small>
+    <small class="ver">v0.116.0</small>
   </nav>
 
   <main>
@@ -87,16 +87,23 @@
 
 
 <details class="card sfold" open=""><summary><h2>Health check</h2></summary>
-  <p class="alert"><b>Scheduled tasks</b>: not registered, so nothing runs by itself<br>Fix it in: Settings &gt; Data &gt; Runs on its own</p><p class="alert"><b>Review queue</b>: 2 file(s) need you to say what they are<br>Fix it in: the Inbox page</p>
-  <p class="muted">2 thing(s) to fix.</p>
+  <p class="alert"><b>Scheduled tasks</b>: not registered, so nothing runs by itself<br>Fix it in: Settings &gt; Data &gt; Runs on its own</p><p class="alert"><b>Review queue</b>: 2 file(s) need you to say what they are<br>Fix it in: the Inbox page</p><p class="alert"><b>Data check</b>: 2 thing(s) to look at from Oct 17, 2026<br>Fix it in: Settings &gt; Data &gt; Data check</p>
+  <p class="muted">3 thing(s) to fix.</p>
   
-  <details><summary>All checks (10)</summary>
+  <details><summary>All checks (11)</summary>
   <div class="tablewrap"><table>
     <thead><tr><th></th><th>Check</th><th>What</th><th>Where to fix it</th></tr></thead>
-    <tbody><tr><td>OK</td><td>Database</td><td>integrity ok</td><td></td></tr><tr><td>OK</td><td>Database updates</td><td>all applied</td><td></td></tr><tr><td>Fix</td><td>Scheduled tasks</td><td>not registered, so nothing runs by itself</td><td>Settings &gt; Data &gt; Runs on its own</td></tr><tr><td>OK</td><td>Backup (same-drive)</td><td>newest 2026-10-13</td><td></td></tr><tr><td>Note</td><td>Backup encryption</td><td>backups are not encrypted</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>Second backup place</td><td>none: backups sit next to the project folder</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>AI provider</td><td>none: files wait for you or Claude Code</td><td>Settings &gt; Connections &gt; AI provider</td></tr><tr><td>Note</td><td>Update token</td><td>not set: fine while the releases are public; a private project needs one to check for updates</td><td>set MITRAHOME_TOKEN to a read-only GitHub token</td></tr><tr><td>Note</td><td>Inbox</td><td>4 file(s) waiting to be filed</td><td>Inbox &gt; File them now</td></tr><tr><td>Fix</td><td>Review queue</td><td>2 file(s) need you to say what they are</td><td>the Inbox page</td></tr></tbody>
+    <tbody><tr><td>OK</td><td>Database</td><td>integrity ok</td><td></td></tr><tr><td>OK</td><td>Database updates</td><td>all applied</td><td></td></tr><tr><td>Fix</td><td>Scheduled tasks</td><td>not registered, so nothing runs by itself</td><td>Settings &gt; Data &gt; Runs on its own</td></tr><tr><td>OK</td><td>Backup (same-drive)</td><td>newest 2026-10-13</td><td></td></tr><tr><td>Note</td><td>Backup encryption</td><td>backups are not encrypted</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>Second backup place</td><td>none: backups sit next to the project folder</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>AI provider</td><td>none: files wait for you or Claude Code</td><td>Settings &gt; Connections &gt; AI provider</td></tr><tr><td>Note</td><td>Update token</td><td>not set: fine while the releases are public; a private project needs one to check for updates</td><td>set MITRAHOME_TOKEN to a read-only GitHub token</td></tr><tr><td>Note</td><td>Inbox</td><td>4 file(s) waiting to be filed</td><td>Inbox &gt; File them now</td></tr><tr><td>Fix</td><td>Review queue</td><td>2 file(s) need you to say what they are</td><td>the Inbox page</td></tr><tr><td>Fix</td><td>Data check</td><td>2 thing(s) to look at from Oct 17, 2026</td><td>Settings &gt; Data &gt; Data check</td></tr></tbody>
   </table></div>
   </details>
   
+</details>
+<details class="card sfold" id="data-audit"><summary><h2>Data check</h2><span class="muted">Records that do not add up, entered twice or missing</span></summary>
+  <p class="muted">Every week, with the weekly digest, Mitra Home reads through the records for charges entered twice, bills
+    still open long after their due date, phone bills that do not add up and filed papers missing on disk. It fixes only
+    what cannot be wrong, with Undo; what needs you waits in the Inbox. No AI is used.</p>
+  <div class="optrow"><a class="btn alt" href="settings_audit.html">Open the data check</a>
+    <button type="button" class="btn" data-hx-post="/settings/audit" data-hx-disabled-elt="this">Check now</button></div>
 </details>
 <details class="card sfold"><summary><h2>Calendar file</h2><span class="muted">Every due date for a phone's calendar</span></summary>
   <p><a class="btn" href="#" data-demo="1" download="">Download the calendar file (next 365 days)</a></p>
@@ -233,7 +240,7 @@
 
 <details class="card sfold"><summary><h2>Updates</h2><span class="muted">Check for and install new versions</span></summary>
 <div id="data-update">
-  <p class="muted">This is Mitra Home 0.115.0.</p>
+  <p class="muted">This is Mitra Home 0.116.0.</p>
   <div class="optrow">
     <button type="button" class="btn alt" data-hx-post="/settings/update" data-hx-vals="{&quot;op&quot;: &quot;check&quot;}" data-hx-disabled-elt="this">Check for updates</button>
     
@@ -269,12 +276,12 @@
 
 
 <details class="card more-form"><summary><h2>Advanced</h2></summary>
-  <div class="tablewrap"><table><tbody><tr><th>AI provider</th><td>claude_code</td></tr><tr><th>Your folder (papers, settings, database)</th><td>C:\Users\you\MitraHome\home</td></tr><tr><th>App folder (code)</th><td>C:\Users\you\MitraHome\app</td></tr><tr><th>Backups on this drive</th><td>C:\Users\you\MitraHome\Mitra-Home-Backup</td></tr><tr><th>Google Drive folder</th><td>not set up (python onboard.py add drive)</td></tr><tr><th>Second backup location</th><td>none (python onboard.py add backup)</td></tr><tr><th>Version</th><td>0.115.0</td></tr></tbody></table></div>
+  <div class="tablewrap"><table><tbody><tr><th>AI provider</th><td>claude_code</td></tr><tr><th>Your folder (papers, settings, database)</th><td>C:\Users\you\MitraHome\home</td></tr><tr><th>App folder (code)</th><td>C:\Users\you\MitraHome\app</td></tr><tr><th>Backups on this drive</th><td>C:\Users\you\MitraHome\Mitra-Home-Backup</td></tr><tr><th>Google Drive folder</th><td>not set up (python onboard.py add drive)</td></tr><tr><th>Second backup location</th><td>none (python onboard.py add backup)</td></tr><tr><th>Version</th><td>0.116.0</td></tr></tbody></table></div>
   
   
   <h3>Commands for the checks above</h3>
   <p class="muted small">In a terminal, in the Mitra Home folder.</p>
-  <div class="tablewrap"><table><tbody><tr><td>Scheduled tasks</td><td><code>python onboard.py (step 11, 'Register the scheduled tasks')</code></td></tr><tr><td>Backup encryption</td><td><code>python onboard.py add backup</code></td></tr><tr><td>Second backup place</td><td><code>python onboard.py add backup</code></td></tr><tr><td>AI provider</td><td><code>python onboard.py add ai</code></td></tr></tbody></table></div>
+  <div class="tablewrap"><table><tbody><tr><td>Scheduled tasks</td><td><code>python onboard.py (step 11, 'Register the scheduled tasks')</code></td></tr><tr><td>Backup encryption</td><td><code>python onboard.py add backup</code></td></tr><tr><td>Second backup place</td><td><code>python onboard.py add backup</code></td></tr><tr><td>AI provider</td><td><code>python onboard.py add ai</code></td></tr><tr><td>Data check</td><td><code>python data/audit.py show</code></td></tr></tbody></table></div>
   
   
   <p class="muted small">Restore a backup into a new folder without touching this one: python data/restore_backup.py. Full check in a
@@ -283,7 +290,7 @@
     config/contacts.json (copy contacts.example.json).</p>
 </details>
 
-<p class="muted small">Version 0.115.0 · stored on this PC.</p>
+<p class="muted small">Version 0.116.0 · stored on this PC.</p>
 
 </main>
 
@@ -295,7 +302,7 @@
   <nav class="bnav" aria-label="Main (phone)">
     <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
     <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
-    <a href="inbox.html" class="scan" aria-label="Add or scan, 30 in the Inbox"><b aria-hidden="true">+</b><span class="badge">30</span></a>
+    <a href="inbox.html" class="scan" aria-label="Add or scan, 32 in the Inbox"><b aria-hidden="true">+</b><span class="badge">32</span></a>
     <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
     <details class="bmore">
       <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
@@ -305,7 +312,7 @@
         
         <a role="menuitem" href="wallet.html">Wallet</a>
         
-        <a role="menuitem" href="inbox.html">Inbox <span class="badge">30</span></a>
+        <a role="menuitem" href="inbox.html">Inbox <span class="badge">32</span></a>
         
         <a role="menuitem" href="month.html">This month</a>
         
