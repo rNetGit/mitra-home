@@ -51,7 +51,7 @@
         <span class="ctag beta">Beta</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/></svg>
         <strong>Mac</strong>
-        <span>A folder and a starter today. A Mac app (.dmg) is on the way.</span>
+        <span>A Mac app (.dmg) you drag into Applications. No Python needed.</span>
       </a>
       <a class="choice" href="#phones">
         <span class="ctag beta">Beta</span>
@@ -74,8 +74,8 @@
         <p>Windows 10 or 11, or a Mac. One that is usually switched on, because it is where reminders are made and phones connect.</p>
       </div>
       <div class="card">
-        <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg></span>Python, only on a Mac</h3>
-        <p>The Windows installer brings everything with it. On a Mac, install the free Python 3.12 or newer first; the starter tells you if it is missing.</p>
+        <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg></span>Nothing else to install</h3>
+        <p>The Windows installer and the Mac app bring their own copy of Python and everything the app needs. No admin password, no typing commands.</p>
       </div>
       <div class="card">
         <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.3A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>An AI helper (optional)</h3>
@@ -172,6 +172,31 @@
     <div role="tabpanel" id="panel-mac" aria-labelledby="tab-mac" hidden>
       <ol class="steps">
         <li>
+          <h3>Open the <code>.dmg</code> you were sent</h3>
+          <p>Use <code>MitraHome-&hellip;-mac-arm64.dmg</code> for a Mac with Apple silicon (M1 and newer) or <code>-mac-intel.dmg</code> for an older Mac. Not sure? Apple menu &gt; <strong>About This Mac</strong>: "Chip: Apple M&hellip;" means Apple silicon.</p>
+        </li>
+        <li>
+          <h3>Drag Mitra Home onto Applications</h3>
+          <p>The window that opens shows the app and an Applications folder. Drag one onto the other, then eject the disk.</p>
+        </li>
+        <li>
+          <h3>Open it the first time</h3>
+          <p>Double-click <strong>Mitra Home</strong> in Applications. The beta app is not signed by Apple yet, so macOS says it cannot be opened. Click <strong>Done</strong>, open <strong>System Settings &gt; Privacy &amp; Security</strong>, scroll down and click <strong>Open Anyway</strong> next to Mitra Home. macOS asks only this once.</p>
+          <p class="small muted">The first start prepares everything (a minute or two, no internet needed), then your browser opens on the setup page. Mitra Home runs in the background with no Dock icon; double-click it again any time to reopen the browser.</p>
+        </li>
+        <li>
+          <h3>Answer the setup chat</h3>
+          <p>Same as on Windows: family, people, home, cars, an optional AI helper, and a PIN for each adult. Your family's files live in <code>Documents/Mitra-Home-Data</code>; updates never touch that folder.</p>
+        </li>
+        <li>
+          <h3>Drop in a few papers and let it run on its own</h3>
+          <p>Use <strong>Add</strong>, then <strong>Settings &gt; Data &gt; Runs on its own</strong>. On a Mac these become login items (LaunchAgents), so no extra permission is needed.</p>
+        </li>
+      </ol>
+      <details>
+        <summary>Installing from the zip instead</summary>
+        <ol class="steps" style="margin-top:12px">
+        <li>
           <h3>Install Python</h3>
           <p>Go to <a href="https://www.python.org/downloads/" rel="noopener">python.org/downloads</a>, download the macOS installer and run it (version 3.12 or newer).</p>
         </li>
@@ -181,19 +206,12 @@
         </li>
         <li>
           <h3>Open <code>Start Mitra Home.command</code></h3>
-          <p>The first time only: <strong>right-click</strong> it, choose <strong>Open</strong>, then <strong>Open</strong> again (macOS asks once). It prepares everything and opens your browser on the setup page.</p>
-          <p class="small muted">Keep the Terminal window open while you use Mitra Home.</p>
+          <p>The first time only: <strong>right-click</strong> it and choose <strong>Open</strong>; if macOS still refuses, use <strong>Open Anyway</strong> under System Settings &gt; Privacy &amp; Security. Keep the Terminal window open while you use Mitra Home.</p>
         </li>
-        <li>
-          <h3>Answer the setup chat</h3>
-          <p>Same as on Windows: family, people, home, cars, an optional AI helper, and a PIN for each adult.</p>
-        </li>
-        <li>
-          <h3>Drop in a few papers and let it run on its own</h3>
-          <p>Use <strong>Add</strong>, then <strong>Settings &gt; Data &gt; Runs on its own</strong>. On a Mac these become login items (LaunchAgents), so no extra permission is needed.</p>
-        </li>
-      </ol>
-      <p class="note small">Mac works but is tested less than Windows. A Mac app you drag into Applications (.dmg, no Python needed) is being built. Linux is not tested yet.</p>
+        </ol>
+        <p class="small muted">Then continue with the setup chat above.</p>
+      </details>
+      <p class="note small">The Mac app is newer than the Windows installer and tested less. Linux is not tested yet.</p>
     </div>
   </div>
 </section>
