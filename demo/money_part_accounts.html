@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.125.0">
-  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.126.0">
+  <script src="static/vendor/htmx.min.js?v=0.126.0" defer></script>
   
-  <script src="static/app.js?v=0.125.0" defer></script>
+  <script src="static/app.js?v=0.126.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -65,7 +65,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.125.0</small>
+    <small class="ver">v0.126.0</small>
   </nav>
 
   <main>
@@ -93,6 +93,8 @@
 <details class="card addnote" id="add-accounts">
   <summary><h2>Add an account</h2></summary>
   <div id="radd-accounts">
+
+
 
 <form class="nform" hx-post="/records/add" hx-target="#radd-accounts" hx-swap="innerHTML" hx-vals='{"part": "money/accounts", "table": "accounts"}'>
 
@@ -153,6 +155,60 @@
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Account</th><th class="num">Reported</th><th>Type</th><th>Owner</th><th>As of</th></tr></thead>
     <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/1?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Lakeside Bank Checking x4821</a></td><td class="num">$6,420.55</td><td>checking</td><td>Marcus</td><td>Oct 18</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/3?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Northway Visa x1209</a></td><td class="num">-$1,184.20</td><td>credit</td><td>Marcus</td><td>Oct 18</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/4?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Summit Rewards Card x3344</a></td><td class="num">-$702.48</td><td>credit</td><td>Elena</td><td>Oct 18</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/5?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Harbor Brokerage x5502</a></td><td class="num">$42,310.00</td><td>investment</td><td>Marcus</td><td>Oct 18</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/2?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Lakeside Bank Savings x7310</a></td><td class="num">$18,250.00</td><td>savings</td><td>Elena</td><td>Oct 18</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+
+<section class="card rblock"><h2>Net worth by month</h2>
+  
+  <ul class="rlist fl-phone">
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">O</span>
+      <span class="rl-main"><span class="rl-t">Oct 2026</span><span class="rl-m">Cash $26,557.23 · Investments $42,310.00 · Cards and loans owed $0.00 · Net worth $68,867.23</span></span>
+      <span class="rl-r"></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">S</span>
+      <span class="rl-main"><span class="rl-t">Sep 2026</span><span class="rl-m">Cash $26,042.23 · Investments $41,700.00 · Cards and loans owed $0.00 · Net worth $67,742.23</span></span>
+      <span class="rl-r"></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">A</span>
+      <span class="rl-main"><span class="rl-t">Aug 2026</span><span class="rl-m">Cash $25,527.23 · Investments $41,090.00 · Cards and loans owed $0.00 · Net worth $66,617.23</span></span>
+      <span class="rl-r"></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">J</span>
+      <span class="rl-main"><span class="rl-t">Jul 2026</span><span class="rl-m">Cash $25,012.23 · Investments $40,480.00 · Cards and loans owed $0.00 · Net worth $65,492.23</span></span>
+      <span class="rl-r"></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">J</span>
+      <span class="rl-main"><span class="rl-t">Jun 2026</span><span class="rl-m">Cash $24,497.23 · Investments $39,870.00 · Cards and loans owed $0.00 · Net worth $64,367.23</span></span>
+      <span class="rl-r"></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">M</span>
+      <span class="rl-main"><span class="rl-t">May 2026</span><span class="rl-m">Cash $23,982.23 · Investments $39,260.00 · Cards and loans owed $0.00 · Net worth $63,242.23</span></span>
+      <span class="rl-r"></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">A</span>
+      <span class="rl-main"><span class="rl-t">Apr 2026</span><span class="rl-m">Cash $23,467.23 · Investments $38,650.00 · Cards and loans owed $0.00 · Net worth $62,117.23</span></span>
+      <span class="rl-r"></span>
+    </div></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
+    <thead><tr><th>Month</th><th class="num">Cash</th><th class="num">Investments</th><th class="num">Cards and loans owed</th><th class="num">Net worth</th><th>Change</th></tr></thead>
+    <tbody><tr><td>Oct 2026</td><td class="num">$26,557.23</td><td class="num">$42,310.00</td><td class="num">$0.00</td><td class="num">$68,867.23</td><td>+$1,125</td></tr><tr><td>Sep 2026</td><td class="num">$26,042.23</td><td class="num">$41,700.00</td><td class="num">$0.00</td><td class="num">$67,742.23</td><td>+$1,125</td></tr><tr><td>Aug 2026</td><td class="num">$25,527.23</td><td class="num">$41,090.00</td><td class="num">$0.00</td><td class="num">$66,617.23</td><td>+$1,125</td></tr><tr><td>Jul 2026</td><td class="num">$25,012.23</td><td class="num">$40,480.00</td><td class="num">$0.00</td><td class="num">$65,492.23</td><td>+$1,125</td></tr><tr><td>Jun 2026</td><td class="num">$24,497.23</td><td class="num">$39,870.00</td><td class="num">$0.00</td><td class="num">$64,367.23</td><td>+$1,125</td></tr><tr><td>May 2026</td><td class="num">$23,982.23</td><td class="num">$39,260.00</td><td class="num">$0.00</td><td class="num">$63,242.23</td><td>+$1,125</td></tr><tr><td>Apr 2026</td><td class="num">$23,467.23</td><td class="num">$38,650.00</td><td class="num">$0.00</td><td class="num">$62,117.23</td><td></td></tr></tbody>
   </table></div>
   
 </section>

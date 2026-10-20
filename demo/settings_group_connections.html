@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.125.0">
-  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.126.0">
+  <script src="static/vendor/htmx.min.js?v=0.126.0" defer></script>
   
-  <script src="static/app.js?v=0.125.0" defer></script>
+  <script src="static/app.js?v=0.126.0" defer></script>
   <title>Settings · Mitra Home</title>
 </head>
 
@@ -65,7 +65,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.125.0</small>
+    <small class="ver">v0.126.0</small>
   </nav>
 
   <main>
@@ -145,6 +145,21 @@
   
 </section>
 
+<section class="card" id="conn-feeds">
+  <h2>Other calendars <span class="chip muted">0 added</span></h2>
+  <p class="muted">An iCloud, Outlook, school or work calendar shown on the Calendar page next to everything else,
+    read-only. In that calendar, copy its subscribe or publish address (it ends in .ics or starts with webcal://).</p>
+  
+  
+  <form class="nform" hx-post="/settings/feeds" hx-vals='{"op": "add"}' hx-disabled-elt="find button" autocomplete="off">
+    <label>Name<input name="name" maxlength="40" required placeholder="Work"></label>
+    <label>Calendar address<input name="url" type="url" maxlength="2000" required spellcheck="false" placeholder="webcal://..."></label>
+    <button class="btn" type="submit">Add the calendar</button>
+  </form>
+  
+  <p class="muted small">The address stays on this PC and goes only to that calendar's own server, read about once an
+    hour. Titles and times are kept; descriptions and places are not. Nothing is written back.</p>
+</section>
 
 
 </main>

@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.125.0">
-  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.126.0">
+  <script src="static/vendor/htmx.min.js?v=0.126.0" defer></script>
   
-  <script src="static/app.js?v=0.125.0" defer></script>
+  <script src="static/app.js?v=0.126.0" defer></script>
   <title>Routines · Mitra Home</title>
 </head>
 
@@ -65,12 +65,12 @@
 </div>
       </details>
     
-    <small class="ver">v0.125.0</small>
+    <small class="ver">v0.126.0</small>
   </nav>
 
   <main>
 
-<header class="head"><div><h1>Family</h1><p class="sub">Routines: the children's jobs for the Mitra Wall and each child's own page, with stars toward their allowance.</p></div></header>
+<header class="head"><div><h1>Family</h1><p class="sub">Routines: the children's jobs for the Mitra Wall and each child's own page. The allowance pays for jobs done; stars can also be spent on rewards.</p></div></header>
 
 <nav class="pchips mtabs" aria-label="Family">
   <a href="family.html" class="pchip">Everyone</a><a href="records_domain_people.html" class="pchip">People</a><a href="records_domain_home.html" class="pchip">Home</a><a href="records_domain_vehicles.html" class="pchip">Cars</a><a href="records_domain_papers.html" class="pchip">Papers &amp; IDs</a><a href="wallet.html" class="pchip">Wallet</a><a href="family_routines.html" class="pchip on" aria-current="true">Routines</a>
@@ -112,6 +112,7 @@
   </ul>
   
   
+  <p class="muted small">★ 47 stars to spend on rewards.</p>
   <h3>Goal and allowance</h3>
   
   <form class="nform" hx-post="/family/routines" autocomplete="off">
@@ -159,6 +160,7 @@
   </ul>
   
   
+  <p class="muted small">★ 28 stars to spend on rewards.</p>
   <h3>Goal and allowance</h3>
   
   <p>New bike: <b>43 of 100 stars</b> · 57 to go</p>
@@ -192,6 +194,42 @@
     </fieldset>
     <button class="btn" type="submit">Add the job</button>
   </form>
+</section>
+
+<section class="card" id="rewards">
+  <h2>Rewards</h2>
+  
+  <h3>Asked for</h3>
+  <ul class="checklist">
+    <li><span class="ctext"><b>Mateo</b> asks for Pick Friday&#39;s dinner <span class="muted">· 15 stars</span></span>
+      <button type="button" class="btn sm" hx-post="/family/routines" hx-vals='{"id": "1", "op": "reward_give"}'>Give it</button>
+      <button type="button" class="btn alt sm" hx-post="/family/routines" hx-vals='{"id": "1", "op": "reward_no"}'>Not now</button></li>
+  </ul>
+  
+  
+  <ul class="checklist">
+    <li><span class="ctext">30 minutes of screen time <span class="muted">· 10 stars · any child</span></span>
+      <button type="button" class="btn alt sm" hx-post="/family/routines" hx-vals='{"id": "1", "op": "reward_drop"}'>Remove</button></li>
+  
+    <li><span class="ctext">Pick Friday&#39;s dinner <span class="muted">· 15 stars · any child</span></span>
+      <button type="button" class="btn alt sm" hx-post="/family/routines" hx-vals='{"id": "2", "op": "reward_drop"}'>Remove</button></li>
+  
+    <li><span class="ctext">Stay up 30 minutes late <span class="muted">· 20 stars · any child</span></span>
+      <button type="button" class="btn alt sm" hx-post="/family/routines" hx-vals='{"id": "3", "op": "reward_drop"}'>Remove</button></li>
+  
+    <li><span class="ctext">Trip to the bookshop <span class="muted">· 40 stars · Sofia</span></span>
+      <button type="button" class="btn alt sm" hx-post="/family/routines" hx-vals='{"id": "4", "op": "reward_drop"}'>Remove</button></li>
+  </ul>
+  
+  <form class="nform" hx-post="/family/routines" autocomplete="off">
+    <input type="hidden" name="op" value="reward_add">
+    <label>Reward<input name="title" maxlength="60" required placeholder="30 minutes of screen time"></label>
+    <label>Stars it costs<input name="stars" inputmode="numeric" maxlength="3" required placeholder="10"></label>
+    <label>For<select name="member"><option value="">Any child</option><option>Sofia</option><option>Mateo</option></select></label>
+    <button class="btn alt" type="submit">Add the reward</button>
+  </form>
+  <p class="muted small">Stars to spend = every star earned, minus rewards asked for or given. A request holds its stars
+    until you answer; Not now gives them back. The allowance is separate and does not use stars up.</p>
 </section>
 
 <section class="card">

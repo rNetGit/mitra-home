@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.125.0">
-  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.126.0">
+  <script src="static/vendor/htmx.min.js?v=0.126.0" defer></script>
   
-  <script src="static/app.js?v=0.125.0" defer></script>
+  <script src="static/app.js?v=0.126.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -65,7 +65,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.125.0</small>
+    <small class="ver">v0.126.0</small>
   </nav>
 
   <main>
@@ -93,6 +93,8 @@
   <summary><h2>Plan a meal</h2></summary>
   <div id="radd-meal_plan">
 
+
+
 <form class="nform" hx-post="/records/add" hx-target="#radd-meal_plan" hx-swap="innerHTML" hx-vals='{"part": "home/meals", "table": "meal_plan"}'>
 
   <label>Day<input name="day" type="date" min="2000-01-01" max="2100-12-31" required value="2026-10-20"></label>
@@ -107,6 +109,15 @@
 <details class="card addnote" id="add-recipes">
   <summary><h2>Save a recipe</h2></summary>
   <div id="radd-recipes">
+
+
+
+<form class="nform" hx-post="/records/recipe/url" hx-target="#radd-recipes" hx-swap="innerHTML" hx-disabled-elt="find button" autocomplete="off">
+  <label>Fill it in from a web address (optional)<input name="url" type="url" maxlength="2000" placeholder="https://..." spellcheck="false"></label>
+  <button class="btn alt" type="submit">Fill it in</button>
+</form>
+<p class="muted small">Reads the recipe most recipe sites include in the page (no AI). Needs Look things up online on
+  (Family &gt; House). Check what it filled in below, then Add.</p>
 
 <form class="nform" hx-post="/records/add" hx-target="#radd-recipes" hx-swap="innerHTML" hx-vals='{"part": "home/meals", "table": "recipes"}'>
 
@@ -125,6 +136,8 @@
 <details class="card addnote" id="add-meal_shop">
   <summary><h2>Put the planned meals on a shopping list</h2></summary>
   <div id="radd-meal_shop">
+
+
 
 <form class="nform" hx-post="/records/add" hx-target="#radd-meal_shop" hx-swap="innerHTML" hx-vals='{"part": "home/meals", "table": "meal_shop"}'>
 

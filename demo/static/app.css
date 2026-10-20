@@ -568,6 +568,10 @@ body:has(.bmore[open]) .helptip,body:has(.helpp:not([hidden])) .helptip{display:
 @media (min-width:761px){body:has(.helpbtn) main{padding-bottom:88px}}
 @media (max-width:760px){body.has-bnav:has(.helptip:not([hidden])) main{padding-bottom:calc(160px + env(safe-area-inset-bottom))}}
 @media print{.helpbtn,.helpp,.helptip{display:none}}
+/* Print the list: only the list, without its buttons */
+@media print{body.print-one *{visibility:hidden}body.print-one .print-this,body.print-one .print-this *{visibility:visible}
+body.print-one .print-this{position:absolute;left:0;top:0;width:100%}body.print-one .print-this button{display:none}
+body.print-one .print-this .checklist li{border:0;padding:4px 0}body.print-one .print-this .checklist li::before{content:"\2610  "}}
 
 /* Inbox 2: drop zone, live progress, categories */
 .dropzone{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;border:2px dashed color-mix(in srgb,var(--accent) 45%,var(--line));background:color-mix(in srgb,var(--accent) 5%,var(--surface));padding:22px 18px;margin-bottom:14px;transition:border-color .15s,background .15s}

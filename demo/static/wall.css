@@ -164,6 +164,13 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 .kgoal .top svg { width: 16px; height: 16px; fill: var(--star); stroke: var(--star-line); stroke-width: 1.4; }
 .kgoal .bar { height: 10px; border-radius: 999px; background: var(--pfill); overflow: hidden; }
 .kgoal .bar i { display: block; height: 100%; background: var(--pink); border-radius: 999px; }
+.krew { background: #FFFFFF; border-radius: 14px; padding: 10px 14px; display: flex; flex-direction: column; gap: 6px; }
+.krew .top { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 15px; }
+.krew svg { width: 14px; height: 14px; fill: var(--star); stroke: var(--star-line); stroke-width: 1.4; vertical-align: -2px; }
+.rew { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 15px; margin: 0; }
+.rew small { color: var(--muted); font-weight: 600; }
+.rew button { font: 700 15px var(--sans); border: 0; border-radius: 999px; padding: 8px 16px; min-height: 40px;
+  background: var(--accent); color: #FFFFFF; cursor: pointer; }
 .kids { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; overflow: auto; }
 .kcol { background: var(--pfill); border-radius: 26px; padding: 16px; display: flex; flex-direction: column; gap: 12px; min-height: 0; }
 .khead { display: flex; align-items: center; gap: 12px; }
