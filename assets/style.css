@@ -334,3 +334,7 @@ footer .wrap > div:not(.fgrid):not(.fine) { margin-bottom: 6px; }
   .eco-arrow svg { transform: rotate(90deg); margin: 12px auto 14px; }
 }
 @media (max-width: 560px) { .eco-devices { grid-template-columns: 1fr; } }
+
+.feature-btns { margin-top: 18px; }
+.shot-link { display: block; color: inherit; }
+.shot-link:hover .browser { box-shadow: var(--shadow-lg); }

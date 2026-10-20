@@ -149,7 +149,7 @@ def rewrite(body, names, prefix, demo_bar, extra=""):
             return f'href="{names[n]}{frag}"'
         return 'href="#" data-demo="1"'
     body = re.sub(r'\b(href|src|data-src|data-photo|content)="(/[^"]*)"', attr, body)
-    body = re.sub(r"(data-photos=\")([^\"]*)", lambda m: m.group(1) + re.sub(r"/wall/photo/", prefix + "wall_photo/", m.group(2)), body)
+    body = re.sub(r"(data-photos=)(['\"])(.*?)\2", lambda m: m.group(1) + m.group(2) + m.group(3).replace("/wall/photo/", prefix + "wall_photo/") + m.group(2), body)
     body = re.sub(r'<link rel="manifest"[^>]*>', "", body)
     venv = Path(sys.executable).parent.parent
     for where, fake in ((INST, "/Users/rivera/MitraHome"), (venv, "/Users/rivera/MitraHome/.venv"),
