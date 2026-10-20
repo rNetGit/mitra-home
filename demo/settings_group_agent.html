@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head>
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
   <meta charset="utf-8"><script>
 (function(){
   function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
@@ -16,7 +18,7 @@
 })();
 </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
@@ -24,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css">
-  <script src="static/vendor/htmx.min.js" defer=""></script>
+  <link rel="stylesheet" href="static/app.css?v=0.125.0">
+  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
   
-  <script src="static/app.js" defer=""></script>
+  <script src="static/app.js?v=0.125.0" defer></script>
   <title>Settings · Mitra Home</title>
 </head>
 
@@ -35,73 +37,62 @@
 <body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
-<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
-<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
-<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
 
   <nav class="rail" aria-label="Main">
     <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me on" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
     
-    
-      
-        
-        <span class="grp">Every day</span>
-        <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="32 waiting">32</span></a><a href="brief.html">To do</a>
-        
-      
-        
-        <details class="rg" data-rg="Money">
-          <summary>Money</summary>
-          <a href="month.html">This month</a><a href="finance.html">Finance</a>
-        </details>
-        
-      
-        
-        <details class="rg" data-rg="Everything else">
-          <summary>Everything else</summary>
-          <a href="records.html">Records</a><a href="notes.html">Notes</a>
-        </details>
-        
-      
-    
-    <span class="grow"></span>
-    <a href="settings.html" class="on" aria-current="page">Settings</a>
-    <div class="railfoot">
-      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
-      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
-      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
-    </div>
-    <small class="ver">v0.116.0</small>
+    <small class="ver">v0.125.0</small>
   </nav>
 
   <main>
 
 
 <header class="head fhead"><div><a class="fback" href="settings.html">Settings</a><h1>Agent</h1></div></header>
-<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html">Household profile</a><a href="settings_group_agent.html" class="on" aria-current="true">Agent</a><a href="settings_group_connections.html">Connections</a><a href="settings_group_phones.html">Phones</a><a href="settings_group_data.html">Data</a></nav>
+<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html" >Household profile</a><a href="settings_group_agent.html" class="on" aria-current="true">Agent</a><a href="settings_group_connections.html" >Connections</a><a href="settings_group_phones.html" >Phones</a><a href="settings_group_data.html" >Data</a></nav>
 
 
 
 
 
-<details class="card sfold" open=""><summary><h2>Your agent</h2></summary>
+<details class="card sfold" open><summary><h2>Your agent</h2></summary>
   <p class="muted small">How the agent talks, when the brief is made and what it keeps an eye on. You can also ask in Chat,
     for example: send the brief at 6 instead.</p>
-  <form class="nform" data-hx-post="/settings/agent">
-    <label>Name<input name="name" maxlength="40" required="" value="Mitra"></label>
-    <label>Tone<select name="tone"><option value="brief">Brief and plain</option><option value="warm" selected="">Warm and a little more detail</option></select></label>
-    <label>Daily brief at<select name="brief_time"><option>00:00</option><option>00:30</option><option>01:00</option><option>01:30</option><option>02:00</option><option>02:30</option><option>03:00</option><option>03:30</option><option>04:00</option><option>04:30</option><option>05:00</option><option>05:30</option><option>06:00</option><option>06:30</option><option selected="">07:00</option><option>07:30</option><option>08:00</option><option>08:30</option><option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option><option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option><option>18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option><option>22:30</option><option>23:00</option><option>23:30</option></select></label>
-    <label>Weekly digest on<select name="weekly_day"><option value="MON">Monday</option><option value="TUE">Tuesday</option><option value="WED">Wednesday</option><option value="THU">Thursday</option><option value="FRI">Friday</option><option value="SAT">Saturday</option><option value="SUN" selected="">Sunday</option></select></label>
-    <label>at<select name="weekly_time"><option>00:00</option><option>00:30</option><option>01:00</option><option>01:30</option><option>02:00</option><option>02:30</option><option>03:00</option><option>03:30</option><option>04:00</option><option>04:30</option><option>05:00</option><option>05:30</option><option>06:00</option><option>06:30</option><option>07:00</option><option>07:30</option><option>08:00</option><option>08:30</option><option>09:00</option><option>09:30</option><option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option><option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>15:30</option><option>16:00</option><option>16:30</option><option>17:00</option><option>17:30</option><option selected="">18:00</option><option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option><option>22:00</option><option>22:30</option><option>23:00</option><option>23:30</option></select></label>
+  <form class="nform" hx-post="/settings/agent">
+    <label>Name<input name="name" maxlength="40" required value="Mitra"></label>
+    <label>Tone<select name="tone"><option value="brief" >Brief and plain</option><option value="warm" selected>Warm and a little more detail</option></select></label>
+    <label>Daily brief at<select name="brief_time"><option >00:00</option><option >00:30</option><option >01:00</option><option >01:30</option><option >02:00</option><option >02:30</option><option >03:00</option><option >03:30</option><option >04:00</option><option >04:30</option><option >05:00</option><option >05:30</option><option >06:00</option><option >06:30</option><option selected>07:00</option><option >07:30</option><option >08:00</option><option >08:30</option><option >09:00</option><option >09:30</option><option >10:00</option><option >10:30</option><option >11:00</option><option >11:30</option><option >12:00</option><option >12:30</option><option >13:00</option><option >13:30</option><option >14:00</option><option >14:30</option><option >15:00</option><option >15:30</option><option >16:00</option><option >16:30</option><option >17:00</option><option >17:30</option><option >18:00</option><option >18:30</option><option >19:00</option><option >19:30</option><option >20:00</option><option >20:30</option><option >21:00</option><option >21:30</option><option >22:00</option><option >22:30</option><option >23:00</option><option >23:30</option></select></label>
+    <label>Weekly digest on<select name="weekly_day"><option value="MON" >Monday</option><option value="TUE" >Tuesday</option><option value="WED" >Wednesday</option><option value="THU" >Thursday</option><option value="FRI" >Friday</option><option value="SAT" >Saturday</option><option value="SUN" selected>Sunday</option></select></label>
+    <label>at<select name="weekly_time"><option >00:00</option><option >00:30</option><option >01:00</option><option >01:30</option><option >02:00</option><option >02:30</option><option >03:00</option><option >03:30</option><option >04:00</option><option >04:30</option><option >05:00</option><option >05:30</option><option >06:00</option><option >06:30</option><option >07:00</option><option >07:30</option><option >08:00</option><option >08:30</option><option >09:00</option><option >09:30</option><option >10:00</option><option >10:30</option><option >11:00</option><option >11:30</option><option >12:00</option><option >12:30</option><option >13:00</option><option >13:30</option><option >14:00</option><option >14:30</option><option >15:00</option><option >15:30</option><option >16:00</option><option >16:30</option><option >17:00</option><option >17:30</option><option selected>18:00</option><option >18:30</option><option >19:00</option><option >19:30</option><option >20:00</option><option >20:30</option><option >21:00</option><option >21:30</option><option >22:00</option><option >22:30</option><option >23:00</option><option >23:30</option></select></label>
     <fieldset class="wide"><legend>The Brief keeps an eye on</legend>
-      <label class="check"><input type="checkbox" name="watch" value="bills" checked=""> Bills, loans and tax dates</label><label class="check"><input type="checkbox" name="watch" value="renewals" checked=""> Renewals and things that expire</label><label class="check"><input type="checkbox" name="watch" value="checkups" checked=""> Checkups and appointments</label><label class="check"><input type="checkbox" name="watch" value="seasonal" checked=""> Seasonal home tasks</label><label class="check"><input type="checkbox" name="watch" value="school" checked=""> School, activities and events</label><label class="check"><input type="checkbox" name="watch" value="dates" checked=""> Birthdays, holidays and festivals</label><label class="check"><input type="checkbox" name="watch" value="money" checked=""> Money alerts (price rises, unusual spending)</label><label class="check"><input type="checkbox" name="watch" value="home" checked=""> Home: warranties, cars, shopping</label><label class="check"><input type="checkbox" name="watch" value="work" checked=""> Work hours and invoices</label>
-      <p class="muted small">What is left out stays quiet in the Brief. Backup and task warnings always show.</p>
+      <label class="check"><input type="checkbox" name="watch" value="bills" checked> Bills, loans and tax dates</label><label class="check"><input type="checkbox" name="watch" value="renewals" checked> Renewals and things that expire</label><label class="check"><input type="checkbox" name="watch" value="checkups" checked> Checkups and appointments</label><label class="check"><input type="checkbox" name="watch" value="seasonal" checked> Seasonal home tasks</label><label class="check"><input type="checkbox" name="watch" value="school" checked> School, activities and events</label><label class="check"><input type="checkbox" name="watch" value="dates" checked> Birthdays, holidays and festivals</label><label class="check"><input type="checkbox" name="watch" value="money" checked> Money alerts (price rises, unusual spending)</label><label class="check"><input type="checkbox" name="watch" value="home" checked> Home: warranties, cars, shopping</label><label class="check"><input type="checkbox" name="watch" value="work" checked> Work hours and invoices</label>
+      <p class="muted small">What is left out stays quiet on Today. Backup and task warnings always show.</p>
     </fieldset>
     <fieldset class="wide"><legend>Who may approve Inbox items from a phone</legend>
-      <label class="check"><input type="checkbox" name="approvers" value="Marcus"> Marcus</label><label class="check"><input type="checkbox" name="approvers" value="Elena"> Elena</label>
+      <label class="check"><input type="checkbox" name="approvers" value="Marcus" > Marcus</label><label class="check"><input type="checkbox" name="approvers" value="Elena" > Elena</label>
       <p class="muted small">None ticked = every adult with a linked phone.</p>
     </fieldset>
     <button class="btn" type="submit">Save</button>
@@ -112,62 +103,63 @@
   
   <p class="muted small">A PIN lets each person sign in on this PC and on a phone. Phone access stays off until at least one PIN
     exists. Children get a smaller screen with no money.</p>
-  <p class="small">Has a PIN: Marcus, Elena, Sofia, Mateo.</p>
-  <form class="nform" data-hx-post="/settings/pin" autocomplete="off">
-    <label>Person<select name="who"><option value="Marcus" selected="">Marcus</option><option value="Elena">Elena</option><option value="Sofia">Sofia</option><option value="Mateo">Mateo</option><option value="Pancho">Pancho</option></select></label>
-    <label>New PIN (4 or more)<input name="pin" type="password" minlength="4" maxlength="40" required="" autocomplete="new-password"></label>
-    <label>Type it again<input name="again" type="password" minlength="4" maxlength="40" required="" autocomplete="new-password"></label>
-    <label>Your own current PIN<input name="current" type="password" maxlength="40" required="" autocomplete="current-password"></label>
+  <p class="small">Has a PIN: nobody yet.</p>
+  <form class="nform" hx-post="/settings/pin" autocomplete="off">
+    <label>Person<select name="who"><option value="Marcus" >Marcus</option><option value="Elena" >Elena</option><option value="Sofia" >Sofia</option><option value="Mateo" >Mateo</option></select></label>
+    <label>New PIN (4 or more)<input name="pin" type="password" minlength="4" maxlength="40" required autocomplete="new-password"></label>
+    <label>Type it again<input name="again" type="password" minlength="4" maxlength="40" required autocomplete="new-password"></label>
+    
     <button class="btn" type="submit">Save PIN</button>
   </form>
-  <p class="muted small">Your own current PIN is asked so a screen left open cannot change sign-ins. A changed PIN signs that person out everywhere.</p>
+  <p class="muted small">A changed PIN signs that person out everywhere.</p>
   
 </details>
-<details class="card sfold"><summary><h2>Hidden from the Brief</h2><span class="muted">Items you hid or snoozed</span></summary>
+<details class="card sfold"><summary><h2>Hidden from Today</h2><span class="muted">Items you hid or snoozed</span></summary>
   <p class="muted">Nothing is hidden. Hide in a Brief row's menu quiets one item.</p>
 </details>
-<p class="muted small">Light or dark: the switch at the bottom of the rail.</p>
+<p class="muted small">Light or dark: open More from your picture, then Dark mode or Light mode.</p>
 
 
 </main>
 
-  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=settings" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
-  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="settings" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+  <button type="button" class="helpbtn" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML"
+          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="settings" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
+  <details class="bmore pme">
+    <summary aria-label="More" class="on"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
   <nav class="bnav" aria-label="Main (phone)">
-    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
-    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
-    <a href="inbox.html" class="scan" aria-label="Add or scan, 32 in the Inbox"><b aria-hidden="true">+</b><span class="badge">32</span></a>
-    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
-    <details class="bmore">
-      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
-      <div class="sheet" role="menu">
-        
-        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
-        
-        <a role="menuitem" href="wallet.html">Wallet</a>
-        
-        <a role="menuitem" href="inbox.html">Inbox <span class="badge">32</span></a>
-        
-        <a role="menuitem" href="month.html">This month</a>
-        
-        <a role="menuitem" href="finance.html">Finance</a>
-        
-        <a role="menuitem" href="records.html">Records</a>
-        
-        <a role="menuitem" href="notes.html">Notes</a>
-        
-        <a role="menuitem" href="chat.html">Chat</a>
-        
-        <a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
-        
-        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
-      </div>
-    </details>
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" ><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
   </nav>
 
-
-</body></html>
+</body>
+</html>

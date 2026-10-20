@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css?v=0.125.0">
+  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
+  
+  <script src="static/app.js?v=0.125.0" defer></script>
+  <title>Money · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:bills" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
+    
+    <small class="ver">v0.125.0</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>Money</h1><p class="sub">Pay · Bills</p></div></header>
+<nav class="pchips mtabs" aria-label="Money">
+  <a href="money.html" class="pchip">Overview</a>
+  <a href="money_part_month.html" class="pchip">This month</a>
+  
+  <a href="money_part_bills.html" class="pchip on" aria-current="true">Pay</a>
+  <a href="money_part_deposits.html" class="pchip">Keep</a>
+  <a href="money_part_ledger.html" class="pchip">Look back</a>
+</nav>
+
+<nav class="fchips" aria-label="Pay"><a href="money_part_bills.html" class="on" aria-current="true">Bills</a><a href="money_part_receipts.html" >Receipts</a><a href="money_part_mobile.html" >Phone bills</a><a href="money_part_subs.html" >Subscriptions</a><a href="money_part_amazon.html" >Amazon orders</a><a href="money_part_cards.html" >Cards</a><a href="money_part_watch.html" >Missing statements</a><a href="money_part_spikes.html" >Price rises</a></nav>
+
+
+
+
+<form class="rsearch ffilter frange" action="/money" method="get" role="search">
+  <input type="hidden" name="part" value="bills">
+  <label class="fsel"><span>From</span><select name="from"><option value="2026-11" >2026-11</option><option value="2026-10" selected>2026-10</option></select></label>
+  <label class="fsel"><span>To</span><select name="to"><option value="2026-11" >2026-11</option><option value="2026-10" selected>2026-10</option></select></label>
+  <label class="fsel"><span>Category</span><select name="cat"><option value="">All categories</option><option value="Loan" >Loan</option><option value="Utilities" >Utilities</option></select></label>
+  <label class="vh" for="fq">Search name, vendor or category</label>
+  <input id="fq" type="search" name="q" value="" maxlength="100" placeholder="Search name, vendor or category">
+  <button class="btn" type="submit">Show</button>
+</form>
+
+
+
+<div class="kpis rk"><div class="kpi"><span>Bills</span><b >4</b></div><div class="kpi"><span>Unpaid</span><b >$331</b></div><div class="kpi"><span>Paid</span><b >$389</b></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="card rblock"><h2>Bills due in October 2026</h2>
+  
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1" hx-get="/money/row/bills/7?part=bills" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-av t-ok" aria-hidden="true">A</span>
+      <span class="rl-main"><span class="rl-t">Auto loan</span><span class="rl-m">Oct 9 · Crestline Auto Finance · Loan</span></span>
+      <span class="rl-r"><b>$389.00</b><span class="chip-s t-ok">paid</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1" hx-get="/money/row/bills/3?part=bills" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-av t-bad" aria-hidden="true">I</span>
+      <span class="rl-main"><span class="rl-t">Internet</span><span class="rl-m">Oct 18 · Brightwave · Utilities</span></span>
+      <span class="rl-r"><b>$70.00</b><span class="chip-s t-bad">overdue</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1" hx-get="/money/row/bills/2?part=bills" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-av t-warn" aria-hidden="true">W</span>
+      <span class="rl-main"><span class="rl-t">Water and power</span><span class="rl-m">Oct 24 · City Water &amp; Power · Utilities</span></span>
+      <span class="rl-r"><b>$142.18</b><span class="chip-s t-warn">due</span></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1" hx-get="/money/row/bills/4?part=bills" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-av t-warn" aria-hidden="true">M</span>
+      <span class="rl-main"><span class="rl-t">Mobile phones</span><span class="rl-m">Oct 29 · Northstar Mobile · Utilities</span></span>
+      <span class="rl-r"><b>$118.40</b><span class="chip-s t-warn">due</span></span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
+    <thead><tr><th>Due</th><th>Status</th><th class="num">Amount</th><th>Name</th><th>Vendor</th><th>Category</th></tr></thead>
+    <tbody><tr><td>Oct 9</td><td><span class="chip-s t-ok">paid</span></td><td class="num">$389.00</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/7?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Auto loan</a></td><td>Crestline Auto Finance</td><td>Loan</td></tr><tr><td>Oct 18</td><td><span class="chip-s t-bad">overdue</span></td><td class="num">$70.00</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/3?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Internet</a></td><td>Brightwave</td><td>Utilities</td></tr><tr><td>Oct 24</td><td><span class="chip-s t-warn">due</span></td><td class="num">$142.18</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/2?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Water and power</a></td><td>City Water &amp; Power</td><td>Utilities</td></tr><tr><td>Oct 29</td><td><span class="chip-s t-warn">due</span></td><td class="num">$118.40</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/4?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Mobile phones</a></td><td>Northstar Mobile</td><td>Utilities</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+
+
+<p class="muted small">Open a row to change it here, or tell Chat.</p>
+
+<dialog id="txn-dialog" class="txndlg" aria-labelledby="txn-title"><div id="txn-body"></div></dialog>
+</main>
+
+  <button type="button" class="helpbtn" hx-get="/help/panel?key=finance:bills" hx-target="#helpp" hx-swap="innerHTML"
+          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="finance" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
+
+
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:bills" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
+  <nav class="bnav" aria-label="Main (phone)">
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" class="on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
+  </nav>
+
+</body>
+</html>

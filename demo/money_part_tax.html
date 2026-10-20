@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css?v=0.125.0">
+  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
+  
+  <script src="static/app.js?v=0.125.0" defer></script>
+  <title>Money · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:tax" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
+    
+    <small class="ver">v0.125.0</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>Money</h1><p class="sub">Look back · Tax papers</p></div></header>
+<nav class="pchips mtabs" aria-label="Money">
+  <a href="money.html" class="pchip">Overview</a>
+  <a href="money_part_month.html" class="pchip">This month</a>
+  
+  <a href="money_part_bills.html" class="pchip">Pay</a>
+  <a href="money_part_deposits.html" class="pchip">Keep</a>
+  <a href="money_part_ledger.html" class="pchip on" aria-current="true">Look back</a>
+</nav>
+
+<nav class="fchips" aria-label="Look back"><a href="money_part_ledger.html" >Ledger</a><a href="money_part_cashflow.html" >Cashflow</a><a href="money_part_trends.html" >Trends</a><a href="money_part_tax.html" class="on" aria-current="true">Tax papers</a><a href="money_part_home-office.html" >Home office</a><a href="money_part_year-end.html" >Year-end</a></nav>
+
+
+
+
+<nav class="fchips" aria-label="Year"><a href="#" data-demo="1" class="on" aria-current="true">2026</a><a href="#" data-demo="1" >2025</a></nav>
+
+
+
+
+
+
+
+
+
+
+<p><a class="btn alt" href="#" data-demo="1" download>Download it (.md)</a></p>
+<section class="card doc"><h1>Tax prep 2026</h1>
+<p><em>Generated 2026-10-20. Source: documents + transactions in family.db. Country profile: United States (IRS; tax year from 01-01).</em></p>
+<p><em>1099s/W-2s normally arrive by Jan 31 (1099-B/consolidated by mid-Feb); federal filing is due mid-April.</em></p>
+<h2>Expected documents</h2>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>On file?</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W-2 (each employer)</td>
+<td>not yet issued</td>
+<td>One per employer, for each working adult</td>
+</tr>
+<tr>
+<td>1099-INT/DIV/B bank, brokerage or Treasury interest</td>
+<td>not yet issued</td>
+<td>Brokerage consolidated 1099 usually mid-Feb. Add your institutions in config/tax_prep.json</td>
+</tr>
+<tr>
+<td>1098 mortgage interest</td>
+<td>not yet issued</td>
+<td>Only if there is a mortgage</td>
+</tr>
+<tr>
+<td>1098-T tuition (education credit)</td>
+<td>not yet issued</td>
+<td>Only if someone is in college</td>
+</tr>
+<tr>
+<td>Property tax bill/receipt</td>
+<td>not yet issued</td>
+<td></td>
+</tr>
+<tr>
+<td>School tax receipt</td>
+<td>not yet issued</td>
+<td>Only where school tax is billed separately</td>
+</tr>
+<tr>
+<td>Charitable donation receipts</td>
+<td>not yet issued</td>
+<td></td>
+</tr>
+<tr>
+<td>Health insurance 1095 / HSA 1099-SA</td>
+<td>not yet issued</td>
+<td></td>
+</tr>
+<tr>
+<td>Home-office records (self-employed only)</td>
+<td>not yet issued</td>
+<td>See reports/&lt;year&gt;_home_office.md; skip if you are a W-2 employee</td>
+</tr>
+<tr>
+<td>Estimated tax payment records (IRS / state)</td>
+<td>not yet issued</td>
+<td>Bank rows typed 'tax' cover payments made</td>
+</tr>
+</tbody>
+</table>
+<h2>Filed tax documents</h2>
+<p><em>none</em></p>
+<h2>Totals from bank/card data (calendar year to date)</h2>
+<ul>
+<li>Tax payments (federal/state/property/school, txn_type 'tax', money out): $0.00</li>
+<li>Tax refunds received: $0.00</li>
+<li>Bank interest credited (txn_type 'interest'): $74.40</li>
+</ul>
+<h2>Notes</h2>
+<ul>
+<li>This is a records checklist, not tax advice. Confirm treatment with your preparer.</li>
+<li>Drop each form in the Inbox when it arrives; it is filed with that year's tax papers.</li>
+</ul></section>
+
+
+
+
+
+<p class="muted small">Looking up only here: open a row to see it in full. To change one of these, tell Chat.</p>
+
+<dialog id="txn-dialog" class="txndlg" aria-labelledby="txn-title"><div id="txn-body"></div></dialog>
+</main>
+
+  <button type="button" class="helpbtn" hx-get="/help/panel?key=finance:tax" hx-target="#helpp" hx-swap="innerHTML"
+          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="finance" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
+
+
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:tax" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
+  <nav class="bnav" aria-label="Main (phone)">
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" class="on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
+  </nav>
+
+</body>
+</html>

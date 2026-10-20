@@ -1,0 +1,280 @@
+<!doctype html>
+
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#FBFAF7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/wall.css?v=0.125.0">
+  <script src="static/wall.js?v=0.125.0" defer></script>
+  <title>Week · The Rivera Family</title>
+</head>
+<body data-rest-url="wall_rest.html" data-home-url="wall.html" class="wall " data-idle="120" data-refresh="60"
+  data-night-from="22:00" data-night-to="06:00"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="index.html">Back to the app</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+<div class="shell">
+  <nav class="wrail" aria-label="Wall">
+    <a class="mark" href="wall.html" aria-label="The Rivera Family, Today"><img src="static/icon.svg" alt="" width="52" height="52"></a>
+    
+    <a class="tab" href="wall.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg><span>Today</span></a>
+    
+    <a class="tab on" href="wall_week.html" aria-current="page">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"></path></svg><span>Week</span></a>
+    
+    <a class="tab" href="wall_chores.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.9-4.3 4.1 1 5.8L12 16.6 6.8 19.2l1-5.8L3.5 9.3l5.9-.9z"></path></svg><span>Chores</span></a>
+    
+    <a class="tab" href="wall_lists.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"></path></svg><span>Lists</span></a>
+    
+    <a class="tab" href="wall_meals.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v8a2 2 0 0 0 4 0V3M9 11v10M16 3c-1.7 1-2.5 3-2.5 6s1 4 2.5 4v8"></path></svg><span>Meals</span></a>
+    
+    <a class="tab" href="wall_money.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11V8a6 6 0 0 1 12 0v3M5 11h14v10H5z"></path></svg><span>Money</span></a>
+    
+    <span class="grow"></span>
+  </nav>
+  <main class="wmain">
+    
+<div class="whead">
+  <h1>The Rivera Family</h1>
+  <span class="clock" data-clock="12">12:44 PM</span>
+  <span class="date">October 20 – 26</span>
+  <span class="grow"></span>
+  <nav class="seg" aria-label="Calendar view"><a href="wall_week.html" class="on" aria-current="page">Week</a><a href="wall_month.html" class="">Month</a></nav>
+  
+  <a class="btn sq" href="#" data-demo="1" aria-label="Earlier week"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+  <a class="btn sq" href="#" data-demo="1" aria-label="Later week"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a>
+</div>
+
+<div class="chiprow">
+  <span class="chip cd"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path></svg> Elena&#39;s birthday <span class="n">in 13 days</span></span><span class="chip cd"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path></svg> Wedding anniversary <span class="n">in 18 days</span></span>
+  
+  <a class="chip c0" href="#" data-demo="1" aria-pressed="false">
+    <span class="av">M</span>Marcus <span class="n">1</span></a>
+  
+  <a class="chip c1" href="#" data-demo="1" aria-pressed="false">
+    <span class="av">E</span>Elena <span class="n">0</span></a>
+  
+  <a class="chip c2" href="#" data-demo="1" aria-pressed="false">
+    <span class="av">S</span>Sofia <span class="n">5</span></a>
+  
+  <a class="chip c3" href="#" data-demo="1" aria-pressed="false">
+    <span class="av">M</span>Mateo <span class="n">4</span></a>
+  
+  <a class="chip c4" href="#" data-demo="1" aria-pressed="false">
+    <span class="av">P</span>Pancho <span class="n">2</span></a>
+  
+</div>
+
+<section class="week" aria-label="The family week">
+  <div class="whd">
+    <div></div>
+    
+    <div class="day today">
+      
+      <div class="dn"><b>Tue</b><span>20</span>
+        <i class="wxd"><svg class="i l-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"></path></svg>64°/45°<span class="vh"> Sunny</span></i></div>
+      <div class="bands">
+        <span class="band ch late" role="button" tabindex="0" data-pop>Replace furnace filter<div class="pop" hidden><small class="pk">Chore · late</small><b class="pt">Replace furnace filter</b><span class="pwhen">Tuesday, October 20 · overdue</span></div></span><span class="band c4" role="button" tabindex="0" data-pop>Flea and tick dose<div class="pop" hidden><small class="pk">Pet</small><b class="pt">Flea and tick dose</b><span class="pwhen">Tuesday, October 20 · all day</span><span class="ppl"><span class="pp"><span class="av sm fill c4">P</span>Pancho</span></span></div></span>
+        
+        <span class="mband late" role="button" tabindex="0" data-pop><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v12H3zM3 11h18M7 15h3"></path></svg>Brightwave · late<div class="pop" hidden><small class="pk">Bill</small><b class="pt">Brightwave</b><span class="pwhen">Tuesday, October 20 · late</span><span class="pnote">The amount shows in Money, after an adult unlocks it.</span></div></span>
+      </div>
+    </div>
+    
+    <div class="day">
+      
+      <div class="dn"><b>Wed</b><span>21</span>
+        <i class="wxd"><svg class="i l-partly" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v1.5M3.5 4.5l1 1M2 9h1.5M12.5 4.5l-1 1M5 11.8a3.5 3.5 0 0 1 6.4-4.3M17.5 12.5h-.9A5.5 5.5 0 1 0 11 19.5h6.5a3.5 3.5 0 0 0 0-7z"></path></svg>61°/41°<span class="vh"> Partly cloudy</span></i></div>
+      <div class="bands">
+        <span class="band c3" role="button" tabindex="0" data-pop>Field trip form and $12<div class="pop" hidden><small class="pk">School</small><b class="pt">Field trip form and $12</b><span class="pwhen">Wednesday, October 21 · all day</span><span class="ppl"><span class="pp"><span class="av sm fill c3">M</span>Mateo</span></span></div></span>
+        
+        
+      </div>
+    </div>
+    
+    <div class="day">
+      
+      <div class="dn"><b>Thu</b><span>22</span>
+        <i class="wxd"><svg class="i l-cloud" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>58°/45°<span class="vh"> Cloudy</span></i></div>
+      <div class="bands">
+        
+        
+        <span class="mband renews" role="button" tabindex="0" data-pop><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v12H3zM3 11h18M7 15h3"></path></svg>Springfield Gym · renews<div class="pop" hidden><small class="pk">Money</small><b class="pt">Springfield Gym</b><span class="pwhen">Thursday, October 22 · renews</span><span class="pnote">The amount shows in Money, after an adult unlocks it.</span></div></span>
+      </div>
+    </div>
+    
+    <div class="day">
+      
+      <div class="dn"><b>Fri</b><span>23</span>
+        <i class="wxd"><svg class="i l-rain" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 13v8M8 13v8M12 15v8M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"></path></svg>64°/41°<span class="vh"> Rain</span></i></div>
+      <div class="bands">
+        <span class="band c2" role="button" tabindex="0" data-pop>Science fair project due<div class="pop" hidden><small class="pk">School</small><b class="pt">Science fair project due</b><span class="pwhen">Friday, October 23 · all day</span><span class="ppl"><span class="pp"><span class="av sm fill c2">S</span>Sofia</span></span></div></span>
+        
+        
+      </div>
+    </div>
+    
+    <div class="day">
+      
+      <div class="dn"><b>Sat</b><span>24</span>
+        <i class="wxd"><svg class="i l-partly" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v1.5M3.5 4.5l1 1M2 9h1.5M12.5 4.5l-1 1M5 11.8a3.5 3.5 0 0 1 6.4-4.3M17.5 12.5h-.9A5.5 5.5 0 1 0 11 19.5h6.5a3.5 3.5 0 0 0 0-7z"></path></svg>61°/45°<span class="vh"> Partly cloudy</span></i></div>
+      <div class="bands">
+        
+        
+        <span class="mband bill" role="button" tabindex="0" data-pop><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v12H3zM3 11h18M7 15h3"></path></svg>City Water &amp; Power · due<div class="pop" hidden><small class="pk">Bill</small><b class="pt">City Water &amp; Power</b><span class="pwhen">Saturday, October 24 · due</span><span class="pnote">The amount shows in Money, after an adult unlocks it.</span></div></span>
+      </div>
+    </div>
+    
+    <div class="day">
+      
+      <div class="dn"><b>Sun</b><span>25</span>
+        <i class="wxd"><svg class="i l-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"></path></svg>58°/41°<span class="vh"> Sunny</span></i></div>
+      <div class="bands">
+        
+        
+        
+      </div>
+    </div>
+    
+    <div class="day">
+      
+      <div class="dn"><b>Mon</b><span>26</span>
+        <i class="wxd"><svg class="i l-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z"></path></svg>64°/45°<span class="vh"> Sunny</span></i></div>
+      <div class="bands">
+        <span class="band c3" role="button" tabindex="0" data-pop>Picture day<div class="pop" hidden><small class="pk">School</small><b class="pt">Picture day</b><span class="pwhen">Monday, October 26 · all day</span><span class="ppl"><span class="pp"><span class="av sm fill c3">M</span>Mateo</span></span></div></span>
+        
+        
+      </div>
+    </div>
+    
+  </div>
+  <div class="wgrid">
+    <div class="hours slots-52"><span class="gs-1">8 AM</span><span class="gs-5">9 AM</span><span class="gs-9">10 AM</span><span class="gs-13">11 AM</span><span class="gs-17">12 PM</span><span class="gs-21">1 PM</span><span class="gs-25">2 PM</span><span class="gs-29">3 PM</span><span class="gs-33">4 PM</span><span class="gs-37">5 PM</span><span class="gs-41">6 PM</span><span class="gs-45">7 PM</span><span class="gs-49">8 PM</span></div>
+    
+    <div class="col slots-52 lanes-1 today">
+      
+      <div class="ev c2 gs-39 ge-45 col-all" role="button" tabindex="0" data-pop>
+        <div class="pop" hidden><small class="pk">Class</small><b class="pt">Soccer practice</b><span class="pwhen">Tuesday, October 20 · 5:30 PM – 7 PM</span><span class="ppl"><span class="pp"><span class="av sm fill c2">S</span>Sofia</span></span></div>
+        <b>Soccer practice</b><small>5:30 PM – 7 PM</small>
+        <span class="who"><span class="av sm c2" title="Sofia">S</span></span>
+      </div>
+      
+      <div class="nowline gs-19" aria-hidden="true"></div>
+    </div>
+    
+    <div class="col slots-52 lanes-1">
+      
+      <div class="ev c0 gs-2 ge-6 col-all" role="button" tabindex="0" data-pop>
+        <div class="pop" hidden><small class="pk">Appointment</small><b class="pt">Knee follow-up · Lakeside Physio</b><span class="pwhen">Wednesday, October 21 · 8:15 AM – 9:15 AM</span><span class="ppl"><span class="pp"><span class="av sm fill c0">M</span>Marcus</span></span></div>
+        <b>Knee follow-up · Lakeside Physio</b><small>8:15 AM – 9:15 AM</small>
+        <span class="who"><span class="av sm c0" title="Marcus">M</span></span>
+      </div>
+      
+      <div class="ev c3 gs-33 ge-35 col-all short" role="button" tabindex="0" data-pop>
+        <div class="pop" hidden><small class="pk">Class</small><b class="pt">Piano</b><span class="pwhen">Wednesday, October 21 · 4 PM – 4:30 PM</span><span class="ppl"><span class="pp"><span class="av sm fill c3">M</span>Mateo</span></span></div>
+        <b>Piano</b><small>4 PM – 4:30 PM</small>
+        <span class="who"><span class="av sm c3" title="Mateo">M</span></span>
+      </div>
+      
+      
+    </div>
+    
+    <div class="col slots-52 lanes-1">
+      
+      <div class="ev c2 gs-31 ge-35 col-all" role="button" tabindex="0" data-pop>
+        <div class="pop" hidden><small class="pk">Appointment</small><b class="pt">Cleaning · Bright Smiles Dental</b><span class="pwhen">Thursday, October 22 · 3:30 PM – 4:30 PM</span><span class="ppl"><span class="pp"><span class="av sm fill c2">S</span>Sofia</span></span></div>
+        <b>Cleaning · Bright Smiles Dental</b><small>3:30 PM – 4:30 PM</small>
+        <span class="who"><span class="av sm c2" title="Sofia">S</span></span>
+      </div>
+      
+      <div class="ev c2 gs-39 ge-45 col-all" role="button" tabindex="0" data-pop>
+        <div class="pop" hidden><small class="pk">Class</small><b class="pt">Soccer practice</b><span class="pwhen">Thursday, October 22 · 5:30 PM – 7 PM</span><span class="ppl"><span class="pp"><span class="av sm fill c2">S</span>Sofia</span></span></div>
+        <b>Soccer practice</b><small>5:30 PM – 7 PM</small>
+        <span class="who"><span class="av sm c2" title="Sofia">S</span></span>
+      </div>
+      
+      
+    </div>
+    
+    <div class="col slots-52 lanes-1">
+      
+      
+    </div>
+    
+    <div class="col slots-52 lanes-1">
+      
+      <div class="ev c3 gs-9 ge-12 col-all short" role="button" tabindex="0" data-pop>
+        <div class="pop" hidden><small class="pk">Class</small><b class="pt">Swim lessons</b><span class="pwhen">Saturday, October 24 · 10 AM – 10:45 AM</span><span class="ppl"><span class="pp"><span class="av sm fill c3">M</span>Mateo</span></span></div>
+        <b>Swim lessons</b><small>10 AM – 10:45 AM</small>
+        <span class="who"><span class="av sm c3" title="Mateo">M</span></span>
+      </div>
+      
+      <div class="ev ch gs-45 ge-53 col-all" role="button" tabindex="0" data-pop>
+        <div class="pop" hidden><small class="pk">Event</small><b class="pt">Family movie night</b><span class="pwhen">Saturday, October 24 · 7 PM – 9 PM</span></div>
+        <b>Family movie night</b><small>7 PM – 9 PM</small>
+        <span class="who"></span>
+      </div>
+      
+      
+    </div>
+    
+    <div class="col slots-52 lanes-1">
+      
+      <div class="ev c4 gs-13 ge-17 col-all" role="button" tabindex="0" data-pop>
+        <div class="pop" hidden><small class="pk">Appointment</small><b class="pt">Vaccines · Oak Street Vet</b><span class="pwhen">Sunday, October 25 · 11 AM – 12 PM</span><span class="ppl"><span class="pp"><span class="av sm fill c4">P</span>Pancho</span></span></div>
+        <b>Vaccines · Oak Street Vet</b><small>11 AM – 12 PM</small>
+        <span class="who"><span class="av sm c4" title="Pancho">P</span></span>
+      </div>
+      
+      
+    </div>
+    
+    <div class="col slots-52 lanes-1">
+      
+      <div class="ev c2 gs-30 ge-34 col-all" role="button" tabindex="0" data-pop>
+        <div class="pop" hidden><small class="pk">Class</small><b class="pt">Art club</b><span class="pwhen">Monday, October 26 · 3:15 PM – 4:15 PM</span><span class="ppl"><span class="pp"><span class="av sm fill c2">S</span>Sofia</span></span></div>
+        <b>Art club</b><small>3:15 PM – 4:15 PM</small>
+        <span class="who"><span class="av sm c2" title="Sofia">S</span></span>
+      </div>
+      
+      
+    </div>
+    
+  </div>
+</section>
+
+    <p class="alert" id="wmsg" role="status" hidden></p>
+  </main>
+  <dialog id="wpop" class="wpop" aria-label="Details"><div class="wpop-body"></div>
+    <form method="dialog"><button class="btn" value="close">Close</button></form></dialog>
+</div>
+
+</body>
+</html>

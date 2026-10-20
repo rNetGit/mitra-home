@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head>
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
   <meta charset="utf-8"><script>
 (function(){
   function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
@@ -16,7 +18,7 @@
 })();
 </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
@@ -24,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css">
-  <script src="static/vendor/htmx.min.js" defer=""></script>
+  <link rel="stylesheet" href="static/app.css?v=0.125.0">
+  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
   
-  <script src="static/app.js" defer=""></script>
+  <script src="static/app.js?v=0.125.0" defer></script>
   <title>Settings · Mitra Home</title>
 </head>
 
@@ -35,53 +37,42 @@
 <body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
-<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
-<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
-<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
 
   <nav class="rail" aria-label="Main">
     <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me on" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
     
-    
-      
-        
-        <span class="grp">Every day</span>
-        <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="32 waiting">32</span></a><a href="brief.html">To do</a>
-        
-      
-        
-        <details class="rg" data-rg="Money">
-          <summary>Money</summary>
-          <a href="month.html">This month</a><a href="finance.html">Finance</a>
-        </details>
-        
-      
-        
-        <details class="rg" data-rg="Everything else">
-          <summary>Everything else</summary>
-          <a href="records.html">Records</a><a href="notes.html">Notes</a>
-        </details>
-        
-      
-    
-    <span class="grow"></span>
-    <a href="settings.html" class="on" aria-current="page">Settings</a>
-    <div class="railfoot">
-      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
-      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
-      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
-    </div>
-    <small class="ver">v0.116.0</small>
+    <small class="ver">v0.125.0</small>
   </nav>
 
   <main>
 
 
 <header class="head fhead"><div><a class="fback" href="settings.html">Settings</a><h1>Phones</h1></div></header>
-<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html">Household profile</a><a href="settings_group_agent.html">Agent</a><a href="settings_group_connections.html">Connections</a><a href="settings_group_phones.html" class="on" aria-current="true">Phones</a><a href="settings_group_data.html">Data</a></nav>
+<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html" >Household profile</a><a href="settings_group_agent.html" >Agent</a><a href="settings_group_connections.html" >Connections</a><a href="settings_group_phones.html" class="on" aria-current="true">Phones</a><a href="settings_group_data.html" >Data</a></nav>
 
 
 
@@ -110,46 +101,110 @@
     keeps a copy of only what its person may see, and the switches above decide the rest.</p>
 </section>
 
+<section class="card">
+  <h2>Mitra Wall</h2>
+  <p class="muted">An old tablet or iPad on the wall that shows the week, today's plan, the children's jobs, the lists
+    and the meals. It opens Money only when an adult types their own PIN, and closes it again after a minute.</p>
+  
+  
+  <div class="phone">
+    <h3>Kitchen wall <span class="muted small">· paired Tue, Oct 20 · last seen Tue, Oct 20 12:43</span></h3>
+    <form class="nform" hx-post="/settings/wall/revoke">
+      <input type="hidden" name="id" value="1">
+      <label class="check"><input type="checkbox" name="sure" value="1" required> Remove Kitchen wall: it shows the pairing page again</label>
+      <button class="btn alt" type="submit">Remove</button>
+    </form>
+  </div>
+  
+  
+  
+  <form class="nform" hx-post="/settings/wall/add" autocomplete="off">
+    <label>Wall name<input name="name" maxlength="40" required placeholder="Kitchen wall"></label>
+    <button class="btn" type="submit">Show the wall code</button>
+  </form>
+  <p class="muted small">The code works once, for 15 minutes. The wall can tick family lists and the
+    children's jobs (set them in Family › Routines); it never sees adults-only lists, critical info or papers.</p>
+  
+  
+  <h3 id="wall-screen">Wall screen</h3>
+  <p class="muted small">After two minutes untouched the wall shows a full-size clock, and in the day the family's photos
+    in turn. At night it stays on a dark clock.</p>
+  <form class="nform wscreen" hx-post="/settings/wall/screen">
+    <label>Clock<select name="clock"><option value="digital" selected>Digital</option>
+      <option value="analog" >Traditional (hands)</option></select></label>
+    <label class="check"><input type="checkbox" name="photos" value="1" checked> Show photos in turn with the clock</label>
+    <label>Photos from<input type="time" name="photos_from" value="07:00" required></label>
+    <label>Photos until<input type="time" name="photos_to" value="21:00" required></label>
+    <label>Night from<input type="time" name="night_from" value="22:00" required></label>
+    <label>Night until<input type="time" name="night_to" value="06:00" required></label>
+    <label>Clock shows (seconds)<input type="number" name="clock_seconds" min="10" max="3600" value="60" required></label>
+    <label>Each photo (seconds)<input type="number" name="photo_seconds" min="5" max="300" value="12" required></label>
+    <label>Photos each turn<input type="number" name="per_turn" min="1" max="20" value="4" required></label>
+    <button class="btn" type="submit">Save the wall screen</button>
+  </form>
+  <h3>Photos <span class="muted small">· 4 of 300</span></h3>
+  <div class="wphotos">
+    <figure><img src="wall_photo/9750afd14420184c.jpg" alt="" loading="lazy" width="160" height="110">
+      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="9750afd14420184c.jpg">
+        <button class="btn alt" type="submit">Remove</button></form></figure>
+    <figure><img src="wall_photo/45498e08cd503edd.jpg" alt="" loading="lazy" width="160" height="110">
+      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="45498e08cd503edd.jpg">
+        <button class="btn alt" type="submit">Remove</button></form></figure>
+    <figure><img src="wall_photo/af7b5b44b9543f60.jpg" alt="" loading="lazy" width="160" height="110">
+      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="af7b5b44b9543f60.jpg">
+        <button class="btn alt" type="submit">Remove</button></form></figure>
+    <figure><img src="wall_photo/32b3f6297c023d49.jpg" alt="" loading="lazy" width="160" height="110">
+      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="32b3f6297c023d49.jpg">
+        <button class="btn alt" type="submit">Remove</button></form></figure></div>
+  
+  <div class="optrow"><input type="file" id="wphoto" accept="image/jpeg,image/png,image/webp,.heic" multiple>
+    <button type="button" class="btn" data-upload="#wphoto" data-upload-to="/settings/wall/photo" data-upload-name="1" data-upload-each="1">Add photos</button>
+    <span id="wphoto-said" class="muted" role="status"></span></div>
+  <p class="muted small">Each photo is made again on this PC: turned upright, at most 1920 pixels a side and without its
+    location or camera details. They stay on this PC (in the household folder, wall_photos) and only a paired wall shows them.</p>
+</section>
+
 
 </main>
 
-  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=settings" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
-  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="settings" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+  <button type="button" class="helpbtn" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML"
+          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="settings" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
+  <details class="bmore pme">
+    <summary aria-label="More" class="on"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
   <nav class="bnav" aria-label="Main (phone)">
-    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
-    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
-    <a href="inbox.html" class="scan" aria-label="Add or scan, 32 in the Inbox"><b aria-hidden="true">+</b><span class="badge">32</span></a>
-    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
-    <details class="bmore">
-      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
-      <div class="sheet" role="menu">
-        
-        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
-        
-        <a role="menuitem" href="wallet.html">Wallet</a>
-        
-        <a role="menuitem" href="inbox.html">Inbox <span class="badge">32</span></a>
-        
-        <a role="menuitem" href="month.html">This month</a>
-        
-        <a role="menuitem" href="finance.html">Finance</a>
-        
-        <a role="menuitem" href="records.html">Records</a>
-        
-        <a role="menuitem" href="notes.html">Notes</a>
-        
-        <a role="menuitem" href="chat.html">Chat</a>
-        
-        <a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
-        
-        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
-      </div>
-    </details>
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" ><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
   </nav>
 
-
-</body></html>
+</body>
+</html>

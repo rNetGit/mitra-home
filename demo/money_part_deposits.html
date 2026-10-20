@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css?v=0.125.0">
+  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
+  
+  <script src="static/app.js?v=0.125.0" defer></script>
+  <title>Money · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:deposits" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
+    
+    <small class="ver">v0.125.0</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>Money</h1><p class="sub">Keep · Deposits</p></div></header>
+<nav class="pchips mtabs" aria-label="Money">
+  <a href="money.html" class="pchip">Overview</a>
+  <a href="money_part_month.html" class="pchip">This month</a>
+  
+  <a href="money_part_bills.html" class="pchip">Pay</a>
+  <a href="money_part_deposits.html" class="pchip on" aria-current="true">Keep</a>
+  <a href="money_part_ledger.html" class="pchip">Look back</a>
+</nav>
+
+<nav class="fchips" aria-label="Keep"><a href="money_part_deposits.html" class="on" aria-current="true">Deposits</a><a href="money_part_accounts.html" >Accounts</a><a href="money_part_budget.html" >Budget and loans</a><a href="money_part_benefits.html" >Card benefits</a></nav>
+
+
+
+
+<form class="rsearch ffilter frange" action="/money" method="get" role="search">
+  <input type="hidden" name="part" value="deposits">
+  <label class="fsel"><span>From</span><select name="from"><option value="2026-10" selected>2026-10</option><option value="2026-09" >2026-09</option><option value="2026-08" >2026-08</option><option value="2026-07" >2026-07</option><option value="2026-06" >2026-06</option><option value="2026-05" >2026-05</option><option value="2026-04" >2026-04</option></select></label>
+  <label class="fsel"><span>To</span><select name="to"><option value="2026-10" selected>2026-10</option><option value="2026-09" >2026-09</option><option value="2026-08" >2026-08</option><option value="2026-07" >2026-07</option><option value="2026-06" >2026-06</option><option value="2026-05" >2026-05</option><option value="2026-04" >2026-04</option></select></label>
+  <label class="fsel"><span>Category</span><select name="cat"><option value="">All categories</option><option value="salary" >salary</option><option value="transfer" >transfer</option></select></label>
+  <label class="vh" for="fq">Search source, type, category or account</label>
+  <input id="fq" type="search" name="q" value="" maxlength="100" placeholder="Search source, type, category or account">
+  <button class="btn" type="submit">Show</button>
+</form>
+
+
+
+<div class="kpis rk"><div class="kpi"><span>Deposits, October 2026</span><b >$11,880</b></div><div class="kpi"><span>Income</span><b >$11,380</b></div><div class="kpi"><span>Transfers in</span><b >$500</b></div><div class="kpi"><span>Count</span><b >5</b></div></div>
+
+
+<details class="card rblock merch fold">
+  <summary><h2>Where deposits come from <span class="muted">3</span></h2></summary>
+  <p class="muted small">Only pay and interest count as income. Say once what a source is (money back from TreasuryDirect or a brokerage, your own money moved, a refund) and every deposit from it, now and later, follows. The text to match can be shortened.</p>
+  <datalist id="merch-cats"><option value="auto loan"><option value="car care"><option value="card payment"><option value="cash withdrawal"><option value="debit card purchase"><option value="debit card recurring"><option value="dining"><option value="fitness"><option value="fuel"><option value="general merchandise"><option value="groceries"><option value="healthcare"><option value="home improvement"><option value="housing"><option value="insurance"><option value="interest"><option value="international transfers"><option value="investing"><option value="kids activities"><option value="medical"><option value="pets"><option value="pharmacy"><option value="restaurant"><option value="salary"><option value="shopping"><option value="subscriptions"><option value="tax"><option value="tax refund"><option value="taxis &amp; coach"><option value="tolls"><option value="transfer"><option value="transit"><option value="utilities"><option value="wholesale stores"></datalist>
+  <ul class="merchlist">
+    <li><form class="merchrow dep" hx-post="/money/rule" hx-disabled-elt="find button">
+      <input type="hidden" name="back" value="deposits"><input type="hidden" name="from" value="2026-10"><input type="hidden" name="to" value="2026-10"><input type="hidden" name="q" value="">
+      <span class="mr-info"><b>ACME ENGINEERING PAYROLL</b><span class="muted small">2 deposits · $6,960 · <span class="chip-s t-n">income</span></span></span>
+      <label class="vh" for="dp1">Text to match</label><input id="dp1" name="pattern" maxlength="60" required value="ACME ENGINEERING PAYROLL">
+      <label class="vh" for="dk1">What it is</label><select id="dk1" name="kind" required><option value="income" selected>Income (pay, salary)</option><option value="interest" >Interest</option><option value="transfer" >Own money moved between accounts</option><option value="investment_transfer" >Money back from investments (TreasuryDirect, brokerage)</option><option value="tax" >Tax refund</option><option value="spend" >Refund (lowers spending)</option></select>
+      <label class="vh" for="dc1">Category (optional)</label><input id="dc1" name="category" maxlength="40" list="merch-cats" placeholder="Category (optional)" value="salary">
+      <button class="btn" type="submit">Remember</button>
+    </form></li>
+  
+    <li><form class="merchrow dep" hx-post="/money/rule" hx-disabled-elt="find button">
+      <input type="hidden" name="back" value="deposits"><input type="hidden" name="from" value="2026-10"><input type="hidden" name="to" value="2026-10"><input type="hidden" name="q" value="">
+      <span class="mr-info"><b>SPRINGFIELD SCHOOLS PAYROLL</b><span class="muted small">2 deposits · $4,420 · <span class="chip-s t-n">income</span></span></span>
+      <label class="vh" for="dp2">Text to match</label><input id="dp2" name="pattern" maxlength="60" required value="SPRINGFIELD SCHOOLS PAYROLL">
+      <label class="vh" for="dk2">What it is</label><select id="dk2" name="kind" required><option value="income" selected>Income (pay, salary)</option><option value="interest" >Interest</option><option value="transfer" >Own money moved between accounts</option><option value="investment_transfer" >Money back from investments (TreasuryDirect, brokerage)</option><option value="tax" >Tax refund</option><option value="spend" >Refund (lowers spending)</option></select>
+      <label class="vh" for="dc2">Category (optional)</label><input id="dc2" name="category" maxlength="40" list="merch-cats" placeholder="Category (optional)" value="salary">
+      <button class="btn" type="submit">Remember</button>
+    </form></li>
+  
+    <li><form class="merchrow dep" hx-post="/money/rule" hx-disabled-elt="find button">
+      <input type="hidden" name="back" value="deposits"><input type="hidden" name="from" value="2026-10"><input type="hidden" name="to" value="2026-10"><input type="hidden" name="q" value="">
+      <span class="mr-info"><b>TRANSFER FROM CHECKING</b><span class="muted small">1 deposit · $500 · <span class="chip-s t-n">transfer</span></span></span>
+      <label class="vh" for="dp3">Text to match</label><input id="dp3" name="pattern" maxlength="60" required value="TRANSFER FROM CHECKING">
+      <label class="vh" for="dk3">What it is</label><select id="dk3" name="kind" required><option value="income" >Income (pay, salary)</option><option value="interest" >Interest</option><option value="transfer" selected>Own money moved between accounts</option><option value="investment_transfer" >Money back from investments (TreasuryDirect, brokerage)</option><option value="tax" >Tax refund</option><option value="spend" >Refund (lowers spending)</option></select>
+      <label class="vh" for="dc3">Category (optional)</label><input id="dc3" name="category" maxlength="40" list="merch-cats" placeholder="Category (optional)" value="transfer">
+      <button class="btn" type="submit">Remember</button>
+    </form></li>
+  </ul>
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="card rblock"><h2>Deposits</h2>
+  
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1" hx-get="/money/row/transactions/256?part=deposits" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-av t-n" aria-hidden="true">O</span>
+      <span class="rl-main"><span class="rl-t">Oct 16</span><span class="rl-m">SPRINGFIELD SCHOOLS PAYROLL · income · salary · Lakeside Bank Checking x4821</span></span>
+      <span class="rl-r"><b>$2,210.00</b></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1" hx-get="/money/row/transactions/255?part=deposits" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-av t-n" aria-hidden="true">O</span>
+      <span class="rl-main"><span class="rl-t">Oct 15</span><span class="rl-m">ACME ENGINEERING PAYROLL · income · salary · Lakeside Bank Checking x4821</span></span>
+      <span class="rl-r"><b>$3,480.00</b></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1" hx-get="/money/row/transactions/258?part=deposits" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-av t-n" aria-hidden="true">O</span>
+      <span class="rl-main"><span class="rl-t">Oct 5</span><span class="rl-m">TRANSFER FROM CHECKING · transfer · transfer · Lakeside Bank Savings x7310</span></span>
+      <span class="rl-r"><b>$500.00</b></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1" hx-get="/money/row/transactions/254?part=deposits" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-av t-n" aria-hidden="true">O</span>
+      <span class="rl-main"><span class="rl-t">Oct 2</span><span class="rl-m">SPRINGFIELD SCHOOLS PAYROLL · income · salary · Lakeside Bank Checking x4821</span></span>
+      <span class="rl-r"><b>$2,210.00</b></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1" hx-get="/money/row/transactions/253?part=deposits" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-av t-n" aria-hidden="true">O</span>
+      <span class="rl-main"><span class="rl-t">Oct 1</span><span class="rl-m">ACME ENGINEERING PAYROLL · income · salary · Lakeside Bank Checking x4821</span></span>
+      <span class="rl-r"><b>$3,480.00</b></span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
+    <thead><tr><th>Date</th><th>Source</th><th>Type</th><th>Category</th><th class="num">Amount</th><th>Account</th></tr></thead>
+    <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/transactions/256?part=deposits" hx-target="#txn-body" hx-swap="innerHTML">Oct 16</a></td><td>SPRINGFIELD SCHOOLS PAYROLL</td><td>income</td><td>salary</td><td class="num">$2,210.00</td><td>Lakeside Bank Checking x4821</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/transactions/255?part=deposits" hx-target="#txn-body" hx-swap="innerHTML">Oct 15</a></td><td>ACME ENGINEERING PAYROLL</td><td>income</td><td>salary</td><td class="num">$3,480.00</td><td>Lakeside Bank Checking x4821</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/transactions/258?part=deposits" hx-target="#txn-body" hx-swap="innerHTML">Oct 5</a></td><td>TRANSFER FROM CHECKING</td><td>transfer</td><td>transfer</td><td class="num">$500.00</td><td>Lakeside Bank Savings x7310</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/transactions/254?part=deposits" hx-target="#txn-body" hx-swap="innerHTML">Oct 2</a></td><td>SPRINGFIELD SCHOOLS PAYROLL</td><td>income</td><td>salary</td><td class="num">$2,210.00</td><td>Lakeside Bank Checking x4821</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/transactions/253?part=deposits" hx-target="#txn-body" hx-swap="innerHTML">Oct 1</a></td><td>ACME ENGINEERING PAYROLL</td><td>income</td><td>salary</td><td class="num">$3,480.00</td><td>Lakeside Bank Checking x4821</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+
+
+<p class="muted small">Looking up only here: open a row to see it in full. To change one of these, tell Chat.</p>
+
+<dialog id="txn-dialog" class="txndlg" aria-labelledby="txn-title"><div id="txn-body"></div></dialog>
+</main>
+
+  <button type="button" class="helpbtn" hx-get="/help/panel?key=finance:deposits" hx-target="#helpp" hx-swap="innerHTML"
+          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="finance" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
+
+
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:deposits" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
+  <nav class="bnav" aria-label="Main (phone)">
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" class="on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
+  </nav>
+
+</body>
+</html>

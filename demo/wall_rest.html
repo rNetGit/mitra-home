@@ -1,0 +1,78 @@
+<!doctype html>
+
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#FBFAF7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/wall.css?v=0.125.0">
+  <script src="static/wall.js?v=0.125.0" defer></script>
+  <title>The Rivera Family</title>
+</head>
+<body data-rest-url="wall_rest.html" data-home-url="wall.html" class="wall rest face-digital" data-idle="0" data-refresh="300"
+  data-night-from="22:00" data-night-to="06:00" data-photos='["wall_photo/9750afd14420184c.jpg", "wall_photo/45498e08cd503edd.jpg", "wall_photo/af7b5b44b9543f60.jpg", "wall_photo/32b3f6297c023d49.jpg"]' data-photo-s="12" data-clock-s="60"
+  data-per-turn="4" data-photos-from="07:00" data-photos-to="21:00"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="index.html">Back to the app</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+<a class="restv" href="wall.html" aria-label="Open Today">
+  <div class="top">The Rivera Family<small>Tap anywhere to open</small></div>
+  <div class="mid">
+    
+    <div>
+      <div class="timerow"><div class="time" data-clock="">12:44</div>
+        <span class="wxr"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v1.5M3.5 4.5l1 1M2 9h1.5M12.5 4.5l-1 1M5 11.8a3.5 3.5 0 0 1 6.4-4.3M17.5 12.5h-.9A5.5 5.5 0 1 0 11 19.5h6.5a3.5 3.5 0 0 0 0-7z"></path></svg>58°<span class="vh"> Partly cloudy</span></span></div>
+      <div class="day">Tuesday, October 20</div>
+    </div>
+    
+<div class="next">
+  
+  <span class="k">Next</span>
+  <span class="main">Soccer practice at 5:30 PM</span>
+  
+  
+  <div class="l c0"><span>Wed</span><i class="dot"></i><span>Knee follow-up · Lakeside Physio · 8:15 AM</span></div>
+  
+  <div class="l c3"><span>Wed</span><i class="dot"></i><span>Piano · 4 PM</span></div>
+  
+  <div class="l c2"><span>Thu</span><i class="dot"></i><span>Cleaning · Bright Smiles Dental · 3:30 PM</span></div>
+  
+</div>
+    
+  </div>
+  <div class="bottom">
+    <span>Sofia: all done</span><span>Mateo: 2 jobs left</span>
+    <span>Dinner: Chicken enchiladas</span>
+  </div>
+</a>
+
+<div class="stage" id="stage" hidden aria-hidden="true">
+  <img class="ph" alt=""><img class="ph" alt="">
+  <div class="corner"><span data-clock="12">12:44</span><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v1.5M3.5 4.5l1 1M2 9h1.5M12.5 4.5l-1 1M5 11.8a3.5 3.5 0 0 1 6.4-4.3M17.5 12.5h-.9A5.5 5.5 0 1 0 11 19.5h6.5a3.5 3.5 0 0 0 0-7z"></path></svg>58°</span></div>
+</div>
+
+
+</body>
+</html>

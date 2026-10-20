@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head>
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
   <meta charset="utf-8"><script>
 (function(){
   function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
@@ -16,7 +18,7 @@
 })();
 </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
@@ -24,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css">
-  <script src="static/vendor/htmx.min.js" defer=""></script>
+  <link rel="stylesheet" href="static/app.css?v=0.125.0">
+  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
   
-  <script src="static/app.js" defer=""></script>
+  <script src="static/app.js?v=0.125.0" defer></script>
   <title>Settings · Mitra Home</title>
 </head>
 
@@ -35,53 +37,42 @@
 <body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
-<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
-<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
-<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
 
   <nav class="rail" aria-label="Main">
     <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me on" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
     
-    
-      
-        
-        <span class="grp">Every day</span>
-        <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="32 waiting">32</span></a><a href="brief.html">To do</a>
-        
-      
-        
-        <details class="rg" data-rg="Money">
-          <summary>Money</summary>
-          <a href="month.html">This month</a><a href="finance.html">Finance</a>
-        </details>
-        
-      
-        
-        <details class="rg" data-rg="Everything else">
-          <summary>Everything else</summary>
-          <a href="records.html">Records</a><a href="notes.html">Notes</a>
-        </details>
-        
-      
-    
-    <span class="grow"></span>
-    <a href="settings.html" class="on" aria-current="page">Settings</a>
-    <div class="railfoot">
-      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
-      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
-      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
-    </div>
-    <small class="ver">v0.116.0</small>
+    <small class="ver">v0.125.0</small>
   </nav>
 
   <main>
 
 
 <header class="head fhead"><div><a class="fback" href="settings.html">Settings</a><h1>Household profile</h1></div></header>
-<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html" class="on" aria-current="true">Household profile</a><a href="settings_group_agent.html">Agent</a><a href="settings_group_connections.html">Connections</a><a href="settings_group_phones.html">Phones</a><a href="settings_group_data.html">Data</a></nav>
+<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html" class="on" aria-current="true">Household profile</a><a href="settings_group_agent.html" >Agent</a><a href="settings_group_connections.html" >Connections</a><a href="settings_group_phones.html" >Phones</a><a href="settings_group_data.html" >Data</a></nav>
 
 
 
@@ -89,69 +80,65 @@
 <details class="card sfold"><summary><h2>How much to show</h2><span class="muted">Simple or Advanced view</span></summary>
   <p class="muted small">You see everything, including finance, insurance, taxes, work, connections and the optional packs.
     This only changes what is shown. Nothing is deleted or switched off, and both views are free.</p>
-  <form class="nform" data-hx-post="/settings/view">
+  <form class="nform" hx-post="/settings/view">
     <fieldset><legend class="vh">How much to show</legend>
-    <label class="check"><input type="radio" name="mode" value="simple"> <span><b>Simple</b>: the everyday tools for the whole family</span></label>
-    <label class="check"><input type="radio" name="mode" value="advanced" checked=""> <span><b>Advanced</b>: everything, for the family's tech person</span></label>
+    <label class="check"><input type="radio" name="mode" value="simple" > <span><b>Simple</b>: the everyday tools for the whole family</span></label>
+    <label class="check"><input type="radio" name="mode" value="advanced" checked> <span><b>Advanced</b>: everything, for the family's tech person</span></label>
     </fieldset>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-<details class="card sfold" open=""><summary><h2>How complete is your profile</h2></summary>
+<details class="card sfold" open><summary><h2>How complete is your profile</h2></summary>
   <p><b>92%</b> filled in</p>
   
   <ul class="fbars">
     <li class="t-ok"><div class="fb-top"><span class="fb-l">People</span><span class="fb-v"><b>4</b> of 4</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"></rect><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"></rect></svg></li>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"/></svg></li>
   
     <li class="t-warn"><div class="fb-top"><span class="fb-l">Home</span><span class="fb-v"><b>1</b> of 2</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"></rect><rect class="fb-fill" x="0" y="0" width="50" height="6" rx="3"></rect></svg></li>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="50" height="6" rx="3"/></svg></li>
   
     <li class="t-ok"><div class="fb-top"><span class="fb-l">Vehicles</span><span class="fb-v"><b>1</b> of 1</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"></rect><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"></rect></svg></li>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"/></svg></li>
   
-    <li class="t-ok"><div class="fb-top"><span class="fb-l">Finance</span><span class="fb-v"><b>2</b> of 2</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"></rect><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"></rect></svg></li>
+    <li class="t-ok"><div class="fb-top"><span class="fb-l">Money</span><span class="fb-v"><b>2</b> of 2</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"/></svg></li>
   
     <li class="t-ok"><div class="fb-top"><span class="fb-l">Papers</span><span class="fb-v"><b>2</b> of 2</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"></rect><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"></rect></svg></li>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"/></svg></li>
   
     <li class="t-ok"><div class="fb-top"><span class="fb-l">Subscriptions</span><span class="fb-v"><b>1</b> of 1</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"></rect><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"></rect></svg></li>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="100" height="6" rx="3"/></svg></li>
   </ul>
   
   <p class="muted small">The rest fills in over the coming weeks: a couple of questions a day arrive in the Inbox.</p>
   
-  <button type="button" class="btn" data-hx-post="/settings/next">Answer next (Home)</button>
+  <button type="button" class="btn" hx-post="/settings/next">Ask me the next question (Home)</button>
   
 </details>
 <details class="card sfold"><summary><h2>Names on your papers</h2><span class="muted">Full names hidden before anything goes to the AI</span></summary>
   <p class="muted small">Bills, policies and statements often print full legal names, not the short names you use here. Write them
     one per line, so they are hidden before anything is sent to the AI. They stay on this PC.</p>
-  <form class="nform" data-hx-post="/settings/papers">
-    <label class="wide">Full names as printed<textarea name="names" rows="4" maxlength="4000" placeholder="Alexander Q Patel
-Samantha Patel">Marcus Rivera
-Elena Rivera</textarea></label>
+  <form class="nform" hx-post="/settings/papers">
+    <label class="wide">Full names as printed<textarea name="names" rows="4" maxlength="4000" placeholder="Alexander Q Patel&#10;Samantha Patel"></textarea></label>
     <button class="btn" type="submit">Save the names</button>
   </form>
 </details>
 
 <details class="card sfold"><summary><h2>Optional features</h2><span class="muted">Packs you can switch on</span></summary>
   <p class="muted small">Switch on only what you will use. Turning one on never removes anything.</p>
-  <form class="nform" data-hx-post="/settings/packs">
-    <label class="check wide"><input type="checkbox" name="pack" value="festivals" checked=""> <span><b>Festival calendar</b>: Festival dates on the Brief. A starter list is added for you to edit.</span></label><label class="check wide"><input type="checkbox" name="pack" value="contracts" checked=""> <span><b>Work contracts</b>: End-date alerts, timesheet hours, hybrid schedule and monthly invoices.</span></label><label class="check wide"><input type="checkbox" name="pack" value="amazon" checked=""> <span><b>Amazon orders</b>: Match Amazon order history to card charges.</span></label><label class="check wide"><input type="checkbox" name="pack" value="shopping" checked=""> <span><b>Shopping lists</b>: Things to buy by a target date.</span></label><label class="check wide"><input type="checkbox" name="pack" value="holidays" checked=""> <span><b>Public holidays</b>: Your country's public holidays on the Calendar and the Brief, worked out on this PC.</span></label>
+  <form class="nform" hx-post="/settings/packs">
+    <label class="check wide"><input type="checkbox" name="pack" value="festivals" > <span><b>Festival calendar</b>: Festival dates on Today and the Calendar. A starter list is added for you to edit.</span></label><label class="check wide"><input type="checkbox" name="pack" value="contracts" > <span><b>Work contracts</b>: End-date alerts, timesheet hours, hybrid schedule and monthly invoices.</span></label><label class="check wide"><input type="checkbox" name="pack" value="amazon" > <span><b>Amazon orders</b>: Match Amazon order history to card charges.</span></label><label class="check wide"><input type="checkbox" name="pack" value="shopping" > <span><b>Shopping lists</b>: Things to buy by a target date.</span></label><label class="check wide"><input type="checkbox" name="pack" value="holidays" checked> <span><b>Public holidays</b>: Your country&#39;s public holidays on the Calendar and the Brief, worked out on this PC.</span></label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 
 <details class="card sfold"><summary><h2>Traditions and holidays</h2><span class="muted">Festivals and holidays on the calendar</span></summary>
-  <p class="muted small">Public holidays: US federal holidays (switch them off under Optional features).
+  <p class="muted small">Public holidays: US federal holidays + Illinois (switch them off under Optional features).
     Optional: the traditions your family keeps (religious, cultural or regional), one per line, so their festivals and holidays reach the calendar. They stay on this PC: never on phones, Drive or a chat bot.</p>
-  <form class="nform" data-hx-post="/settings/traditions">
-    <label class="wide">Our traditions<textarea name="names" rows="3" maxlength="600" placeholder="Hindu (Telugu)
-Christian (Catholic)
-Lunar New Year"></textarea></label>
-    <label class="check wide"><input type="checkbox" name="lookup" value="1"> <span>Once a year, look up their dates with our AI. It is sent only these names, the year and the country. The dates wait in the Inbox until you add them.</span></label>
+  <form class="nform" hx-post="/settings/traditions">
+    <label class="wide">Our traditions<textarea name="names" rows="3" maxlength="600" placeholder="Hindu (Telugu)&#10;Christian (Catholic)&#10;Lunar New Year"></textarea></label>
+    <label class="check wide"><input type="checkbox" name="lookup" value="1" > <span>Once a year, look up their dates with our AI. It is sent only these names, the year and the country. The dates wait in the Inbox until you add them.</span></label>
     <p class="muted small">The look-up needs an AI: no AI provider is set up (Settings &gt; Connections &gt; AI).</p>
     <button class="btn" type="submit">Save</button>
   </form>
@@ -160,7 +147,7 @@ Lunar New Year"></textarea></label>
 
 <details class="card sfold"><summary><h2>Tax papers</h2><span class="muted">Payers, state tax, tuition</span></summary>
   <p class="muted small">Names only, separated by commas. No account numbers. All three are optional and stay on this PC.</p>
-  <form class="nform" data-hx-post="/settings/tax">
+  <form class="nform" hx-post="/settings/tax">
     <label class="wide">Banks, brokers or credit unions that send you interest forms<input name="payers" maxlength="2000" value=""></label>
     <label class="wide">Words on your state tax payments (for example the state tax agency's name)<input name="state" maxlength="2000" value=""></label>
     <label class="wide">Tuition payee as it appears on statements (% is a wildcard)<input name="tuition" maxlength="2000" value=""></label>
@@ -172,9 +159,9 @@ Lunar New Year"></textarea></label>
   
   <div class="tablewrap"><table>
     <thead><tr><th>Type</th><th>Days before</th><th>Default</th><th></th></tr></thead>
-    <tbody><tr><td>passport</td><td>120</td><td>274</td><td>changed</td></tr><tr><td>drivers license</td><td>120</td><td>120</td><td></td></tr><tr><td>permit</td><td>120</td><td>120</td><td></td></tr><tr><td>state id</td><td>120</td><td>120</td><td></td></tr><tr><td>green card</td><td>120</td><td>120</td><td></td></tr><tr><td>insurance card</td><td>120</td><td>120</td><td></td></tr><tr><td>other</td><td>120</td><td>120</td><td></td></tr><tr><td>vehicle registration</td><td>60</td><td>60</td><td></td></tr><tr><td>vehicle inspection</td><td>45</td><td>45</td><td></td></tr><tr><td>warranty</td><td>90</td><td>90</td><td></td></tr><tr><td>vaccination</td><td>30</td><td>30</td><td></td></tr><tr><td>insurance</td><td>30</td><td>30</td><td></td></tr><tr><td>deal</td><td>3</td><td>3</td><td></td></tr><tr><td>wallet card</td><td>30</td><td>30</td><td></td></tr></tbody>
+    <tbody><tr><td>passport</td><td>274</td><td>274</td><td></td></tr><tr><td>drivers license</td><td>120</td><td>120</td><td></td></tr><tr><td>permit</td><td>120</td><td>120</td><td></td></tr><tr><td>state id</td><td>120</td><td>120</td><td></td></tr><tr><td>green card</td><td>120</td><td>120</td><td></td></tr><tr><td>insurance card</td><td>120</td><td>120</td><td></td></tr><tr><td>other</td><td>120</td><td>120</td><td></td></tr><tr><td>vehicle registration</td><td>60</td><td>60</td><td></td></tr><tr><td>vehicle inspection</td><td>45</td><td>45</td><td></td></tr><tr><td>warranty</td><td>90</td><td>90</td><td></td></tr><tr><td>vaccination</td><td>30</td><td>30</td><td></td></tr><tr><td>insurance</td><td>30</td><td>30</td><td></td></tr><tr><td>deal</td><td>3</td><td>3</td><td></td></tr><tr><td>wallet card</td><td>30</td><td>30</td><td></td></tr></tbody>
   </table></div>
-  <form class="nform" data-hx-post="/settings/lead">
+  <form class="nform" hx-post="/settings/lead">
     <label>Type<select name="type"><option value="passport">passport</option><option value="drivers_license">drivers license</option><option value="permit">permit</option><option value="state_id">state id</option><option value="green_card">green card</option><option value="insurance_card">insurance card</option><option value="other">other</option><option value="vehicle_registration">vehicle registration</option><option value="vehicle_inspection">vehicle inspection</option><option value="warranty">warranty</option><option value="vaccination">vaccination</option><option value="insurance">insurance</option><option value="deal">deal</option><option value="wallet_card">wallet card</option></select></label>
     <label>Days before the date<input name="days" type="number" min="0" max="730" step="1"></label>
     <label class="check"><input type="checkbox" name="reset" value="1"> Back to the default</label>
@@ -188,43 +175,44 @@ Lunar New Year"></textarea></label>
 
 </main>
 
-  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=settings" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
-  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="settings" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+  <button type="button" class="helpbtn" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML"
+          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="settings" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
+  <details class="bmore pme">
+    <summary aria-label="More" class="on"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
   <nav class="bnav" aria-label="Main (phone)">
-    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
-    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
-    <a href="inbox.html" class="scan" aria-label="Add or scan, 32 in the Inbox"><b aria-hidden="true">+</b><span class="badge">32</span></a>
-    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
-    <details class="bmore">
-      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
-      <div class="sheet" role="menu">
-        
-        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
-        
-        <a role="menuitem" href="wallet.html">Wallet</a>
-        
-        <a role="menuitem" href="inbox.html">Inbox <span class="badge">32</span></a>
-        
-        <a role="menuitem" href="month.html">This month</a>
-        
-        <a role="menuitem" href="finance.html">Finance</a>
-        
-        <a role="menuitem" href="records.html">Records</a>
-        
-        <a role="menuitem" href="notes.html">Notes</a>
-        
-        <a role="menuitem" href="chat.html">Chat</a>
-        
-        <a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
-        
-        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
-      </div>
-    </details>
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" ><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
   </nav>
 
-
-</body></html>
+</body>
+</html>

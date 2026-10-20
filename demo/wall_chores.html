@@ -1,0 +1,162 @@
+<!doctype html>
+
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#FBFAF7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/wall.css?v=0.125.0">
+  <script src="static/wall.js?v=0.125.0" defer></script>
+  <title>Chores · The Rivera Family</title>
+</head>
+<body data-rest-url="wall_rest.html" data-home-url="wall.html" class="wall " data-idle="120" data-refresh="60"
+  data-night-from="22:00" data-night-to="06:00"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="index.html">Back to the app</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+<div class="shell">
+  <nav class="wrail" aria-label="Wall">
+    <a class="mark" href="wall.html" aria-label="The Rivera Family, Today"><img src="static/icon.svg" alt="" width="52" height="52"></a>
+    
+    <a class="tab" href="wall.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg><span>Today</span></a>
+    
+    <a class="tab" href="wall_week.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"></path></svg><span>Week</span></a>
+    
+    <a class="tab on" href="wall_chores.html" aria-current="page">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.9-4.3 4.1 1 5.8L12 16.6 6.8 19.2l1-5.8L3.5 9.3l5.9-.9z"></path></svg><span>Chores</span></a>
+    
+    <a class="tab" href="wall_lists.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"></path></svg><span>Lists</span></a>
+    
+    <a class="tab" href="wall_meals.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v8a2 2 0 0 0 4 0V3M9 11v10M16 3c-1.7 1-2.5 3-2.5 6s1 4 2.5 4v8"></path></svg><span>Meals</span></a>
+    
+    <a class="tab" href="wall_money.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11V8a6 6 0 0 1 12 0v3M5 11h14v10H5z"></path></svg><span>Money</span></a>
+    
+    <span class="grow"></span>
+  </nav>
+  <main class="wmain">
+    
+<div class="whead">
+  <div>
+    <div class="date">Tuesday, October 20 · <span data-clock="12">12:44 PM</span></div>
+    <h1>Chores</h1>
+  </div>
+  <span class="grow"></span>
+  <nav class="seg" aria-label="Part of the day">
+    <a href="#" data-demo="1" class="">Morning</a><a href="#" data-demo="1" class="on" aria-current="true">After school</a><a href="#" data-demo="1" class="">Evening</a>
+  </nav>
+</div>
+
+
+<div class="kids">
+  
+  
+  <section class="kcol c2" aria-label="Sofia">
+    <div class="khead">
+      <span class="av lg">S</span>
+      <div class="t"><b>Sofia</b>
+        <small>All done. Well done!</small></div>
+      <span class="stars" title="Stars this week"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.9-4.3 4.1 1 5.8L12 16.6 6.8 19.2l1-5.8L3.5 9.3l5.9-.9z"></path></svg>11</span>
+    </div>
+    <div class="bar"><i class="w-100"></i></div>
+    <div class="jobs">
+      
+      <form class="job done" method="post" action="/wall/chores/tick" data-wall>
+        <input type="hidden" name="id" value="7">
+        <input type="hidden" name="done" value="0">
+        <input type="hidden" name="part" value="afternoon">
+        <button type="submit" aria-pressed="true">
+          <span class="worth">+2<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.9-4.3 4.1 1 5.8L12 16.6 6.8 19.2l1-5.8L3.5 9.3l5.9-.9z"></path></svg></span>
+          <span class="tick"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg></span>
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l10-2v12M9 18a2.5 2.5 0 1 1-2.5-2.5H9M19 16a2.5 2.5 0 1 1-2.5-2.5H19"></path></svg>
+          <b>Piano practice</b>
+        </button>
+      </form>
+      
+    </div>
+    
+    <p class="kfoot">11 stars this week · $2.75 allowance on Sunday</p>
+  </section>
+  
+  
+  <section class="kcol c3" aria-label="Mateo">
+    <div class="khead">
+      <span class="av lg">M</span>
+      <div class="t"><b>Mateo</b>
+        <small>0 of 2 done</small></div>
+      <span class="stars" title="Stars this week"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.9-4.3 4.1 1 5.8L12 16.6 6.8 19.2l1-5.8L3.5 9.3l5.9-.9z"></path></svg>9</span>
+    </div>
+    <div class="bar"><i class="w-0"></i></div>
+    <div class="jobs">
+      
+      <form class="job" method="post" action="/wall/chores/tick" data-wall>
+        <input type="hidden" name="id" value="3">
+        <input type="hidden" name="done" value="1">
+        <input type="hidden" name="part" value="afternoon">
+        <button type="submit" aria-pressed="false">
+          <span class="worth">+2<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.9-4.3 4.1 1 5.8L12 16.6 6.8 19.2l1-5.8L3.5 9.3l5.9-.9z"></path></svg></span>
+          <span class="tick"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg></span>
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM8 7h7"></path></svg>
+          <b>Homework</b>
+        </button>
+      </form>
+      
+      <form class="job" method="post" action="/wall/chores/tick" data-wall>
+        <input type="hidden" name="id" value="4">
+        <input type="hidden" name="done" value="1">
+        <input type="hidden" name="part" value="afternoon">
+        <button type="submit" aria-pressed="false">
+          <span class="worth">+1<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.9-4.3 4.1 1 5.8L12 16.6 6.8 19.2l1-5.8L3.5 9.3l5.9-.9z"></path></svg></span>
+          <span class="tick"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg></span>
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 13c-2 2-3 4-1 6 2 1 3-1 5-1s3 2 5 1c2-2 1-4-1-6-1.4-1.4-2.4-2-4-2s-2.6.6-4 2zM6 9.5h.01M10 6.5h.01M14 6.5h.01M18 9.5h.01"></path></svg>
+          <b>Feed Pancho</b>
+        </button>
+      </form>
+      
+    </div>
+    
+    <div class="kgoal" role="img" aria-label="New bike: 43 of 100 stars">
+      <div class="top"><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.9-4.3 4.1 1 5.8L12 16.6 6.8 19.2l1-5.8L3.5 9.3l5.9-.9z"></path></svg> New bike</b><span>43 of 100</span></div>
+      <div class="bar"><i class="w-43"></i></div>
+    </div>
+    
+    <p class="kfoot">9 stars this week · $2.25 allowance on Sunday</p>
+  </section>
+  
+</div>
+
+
+    <p class="alert" id="wmsg" role="status" hidden></p>
+  </main>
+  <dialog id="wpop" class="wpop" aria-label="Details"><div class="wpop-body"></div>
+    <form method="dialog"><button class="btn" value="close">Close</button></form></dialog>
+</div>
+
+</body>
+</html>

@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head>
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
   <meta charset="utf-8"><script>
 (function(){
   function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
@@ -16,7 +18,7 @@
 })();
 </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
@@ -24,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css">
-  <script src="static/vendor/htmx.min.js" defer=""></script>
+  <link rel="stylesheet" href="static/app.css?v=0.125.0">
+  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
   
-  <script src="static/app.js" defer=""></script>
+  <script src="static/app.js?v=0.125.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -35,71 +37,66 @@
 <body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
-<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
-<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
-<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
 
   <nav class="rail" aria-label="Main">
     <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=records:home:inventory" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
     
-    
-      
-        
-        <span class="grp">Every day</span>
-        <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="32 waiting">32</span></a><a href="brief.html">To do</a>
-        
-      
-        
-        <details class="rg" data-rg="Money">
-          <summary>Money</summary>
-          <a href="month.html">This month</a><a href="finance.html">Finance</a>
-        </details>
-        
-      
-        
-        <details class="rg" data-rg="Everything else" open="">
-          <summary>Everything else</summary>
-          <a href="records.html" class="on" aria-current="page">Records</a><a href="notes.html">Notes</a>
-        </details>
-        
-      
-    
-    <span class="grow"></span>
-    <a href="settings.html">Settings</a>
-    <div class="railfoot">
-      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
-      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
-      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
-    </div>
-    <small class="ver">v0.116.0</small>
+    <small class="ver">v0.125.0</small>
   </nav>
 
   <main>
 
-<header class="head fhead"><div><a class="fback" href="records.html">Records</a><h1>Home</h1><p class="sub">Inventory</p></div><a class="btn alt rsgo" href="#" data-demo="1">Search</a></header>
 
-<nav class="fchips" aria-label="Home"><a href="records_domain_home_section_lists.html">Lists</a><a href="records_domain_home_section_meals.html">Meals</a><a href="records_domain_home_section_saved.html">Saved</a><a href="records_domain_home_section_upkeep.html">Upkeep</a><a href="records_domain_home_section_contacts.html">Service contacts</a><a href="records_domain_home_section_inventory.html" class="on" aria-current="true">Inventory</a><a href="records_domain_home_section_shopping.html">Shopping</a></nav>
+<header class="head"><div><h1>Family</h1><p class="sub">Home · Inventory</p></div><a class="btn alt rsgo" href="family.html#rq">Search</a></header>
 
-
-
-
-
-
-<div class="kpis rk"><div class="kpi"><span>Upkeep jobs</span><b>13</b></div><div class="kpi"><span>Things at home</span><b>7</b></div><div class="kpi"><span>Service contacts</span><b>1</b></div><div class="kpi"><span>Recipes</span><b>6</b></div></div>
+<nav class="pchips mtabs" aria-label="Family">
+  <a href="family.html" class="pchip">Everyone</a><a href="records_domain_people.html" class="pchip">People</a><a href="records_domain_home.html" class="pchip on" aria-current="true">Home</a><a href="records_domain_vehicles.html" class="pchip">Cars</a><a href="records_domain_papers.html" class="pchip">Papers &amp; IDs</a><a href="wallet.html" class="pchip">Wallet</a><a href="family_routines.html" class="pchip">Routines</a>
+</nav>
 
 
+<nav class="fchips" aria-label="Home"><a href="#" data-demo="1" >Lists</a><a href="#" data-demo="1" >Meals</a><a href="#" data-demo="1" >Saved</a><a href="#" data-demo="1" >Upkeep</a><a href="#" data-demo="1" >Service contacts</a><a href="#" data-demo="1" class="on" aria-current="true">Inventory</a><a href="#" data-demo="1" >Shopping</a></nav>
 
-<details class="card addnote">
+
+
+
+
+
+<div class="kpis rk"><div class="kpi"><span>Upkeep jobs</span><b>7</b></div><div class="kpi"><span>Things at home</span><b>1</b></div><div class="kpi"><span>Service contacts</span><b>2</b></div><div class="kpi"><span>Recipes</span><b>2</b></div></div>
+
+
+
+<details class="card addnote" id="add-home_assets">
   <summary><h2>Add a thing to the inventory</h2></summary>
   <div id="radd-home_assets">
 
-<form class="nform" data-hx-post="/records/add" data-hx-target="#radd-home_assets" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;home/inventory&quot;, &quot;table&quot;: &quot;home_assets&quot;}">
+<form class="nform" hx-post="/records/add" hx-target="#radd-home_assets" hx-swap="innerHTML" hx-vals='{"part": "home/inventory", "table": "home_assets"}'>
 
-    <label>Name<input name="name" maxlength="80" required="" value=""></label>
-  <label>Category<select name="category"><option value="">(none)</option><option value="appliance">appliance</option><option value="hvac">hvac</option><option value="roof">roof</option><option value="plumbing">plumbing</option><option value="electrical">electrical</option><option value="electronics">electronics</option><option value="furniture">furniture</option><option value="tools">tools</option><option value="outdoor">outdoor</option><option value="vehicle">vehicle</option><option value="other">other</option></select></label>
+    <label>Name<input name="name" maxlength="80" required value=""></label>
+  <label>Category<select name="category"><option value="">(none)</option><option value="appliance" >appliance</option><option value="hvac" >hvac</option><option value="roof" >roof</option><option value="plumbing" >plumbing</option><option value="electrical" >electrical</option><option value="electronics" >electronics</option><option value="furniture" >furniture</option><option value="tools" >tools</option><option value="outdoor" >outdoor</option><option value="vehicle" >vehicle</option><option value="other" >other</option></select></label>
   <label>Brand and model<input name="brand_model" maxlength="80" value=""></label>
   <label>Where it is<input name="location" maxlength="80" value=""></label>
   <label>Bought on<input name="purchase_date" type="date" min="1950-01-01" max="2100-12-31" value=""></label>
@@ -116,61 +113,19 @@
 
 
 
-<section class="card rblock"><h2>Things at home <span class="muted rcount">7</span></h2>
+<section class="card rblock"><h2>Things at home <span class="muted rcount">1</span></h2>
   
   <ul class="rlist fl-phone">
     <li><a href="#" data-demo="1">
-      <span class="rl-av t-n" aria-hidden="true">I</span>
-      <span class="rl-main"><span class="rl-t">27in monitor</span><span class="rl-m">electronics · Marcus office · LG 27UL500 · Bought Aug 6</span></span>
-      <span class="rl-r"><span class="chip-s t-n">in use</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-n" aria-hidden="true">G</span>
-      <span class="rl-main"><span class="rl-t">Gaming laptop (Sofia)</span><span class="rl-m">electronics · Sofia's room · ASUS TUF · Bought Dec 19, 2025</span></span>
-      <span class="rl-r"><span class="chip-s t-n">in use</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-n" aria-hidden="true">H</span>
-      <span class="rl-main"><span class="rl-t">HVAC system</span><span class="rl-m">system · Garage and attic · Trane XR15 · Bought Mar 20, 2020</span></span>
-      <span class="rl-r"><b>Apr 2, 2029</b><span class="chip-s t-n">in use</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-n" aria-hidden="true">R</span>
-      <span class="rl-main"><span class="rl-t">Refrigerator</span><span class="rl-m">appliance · Kitchen · Whirlpool WRF535 · Bought Apr 28, 2024</span></span>
-      <span class="rl-r"><span class="chip-s t-n">in use</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-bad" aria-hidden="true">W</span>
-      <span class="rl-main"><span class="rl-t">Washer</span><span class="rl-m">appliance · Laundry room · Samsung WF45 · Bought Sep 6, 2022</span></span>
-      <span class="rl-r"><b>Sep 10, 2025</b><span class="chip-s t-bad">ended</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-n" aria-hidden="true">W</span>
-      <span class="rl-main"><span class="rl-t">Water heater</span><span class="rl-m">system · Garage · Bought Jan 19, 2024 · $1,150.00</span></span>
-      <span class="rl-r"><b>Feb 27, 2028</b><span class="chip-s t-n">in use</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-n" aria-hidden="true">O</span>
-      <span class="rl-main"><span class="rl-t">Old dishwasher</span><span class="rl-m">appliance · Kitchen · Bought Jul 29, 2018 · $500.00</span></span>
-      <span class="rl-r"><span class="chip-s t-n">sold</span></span>
+      <span class="rl-av t-ok" aria-hidden="true">R</span>
+      <span class="rl-main"><span class="rl-t">Refrigerator</span><span class="rl-m">appliance · Kitchen · ColdCo FR-300 · Bought Apr 2, 2023</span></span>
+      <span class="rl-r"><b>Feb 17, 2027</b><span class="chip-s t-ok">active</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
-  <div class="tablewrap fl-wide"><table class="cards">
+  <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Name</th><th>Category</th><th>Place</th><th>Brand and model</th><th>Bought</th><th>Price</th><th>Warranty ends</th><th>Status</th></tr></thead>
-    <tbody><tr><td data-label="Name"><a href="#" data-demo="1">27in monitor</a></td><td data-label="Category">electronics</td><td data-label="Place">Marcus office</td><td data-label="Brand and model">LG 27UL500</td><td data-label="Bought">Aug 6</td><td data-label="Price">$289.99</td><td data-label="Warranty ends"></td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Gaming laptop (Sofia)</a></td><td data-label="Category">electronics</td><td data-label="Place">Sofia's room</td><td data-label="Brand and model">ASUS TUF</td><td data-label="Bought">Dec 19, 2025</td><td data-label="Price">$899.00</td><td data-label="Warranty ends"></td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">HVAC system</a></td><td data-label="Category">system</td><td data-label="Place">Garage and attic</td><td data-label="Brand and model">Trane XR15</td><td data-label="Bought">Mar 20, 2020</td><td data-label="Price">$7,800.00</td><td data-label="Warranty ends">Apr 2, 2029</td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Refrigerator</a></td><td data-label="Category">appliance</td><td data-label="Place">Kitchen</td><td data-label="Brand and model">Whirlpool WRF535</td><td data-label="Bought">Apr 28, 2024</td><td data-label="Price">$1,349.00</td><td data-label="Warranty ends"></td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Washer</a> <span class="chip-s t-bad">ended</span></td><td data-label="Category">appliance</td><td data-label="Place">Laundry room</td><td data-label="Brand and model">Samsung WF45</td><td data-label="Bought">Sep 6, 2022</td><td data-label="Price">$899.00</td><td data-label="Warranty ends">Sep 10, 2025</td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Water heater</a></td><td data-label="Category">system</td><td data-label="Place">Garage</td><td data-label="Brand and model"></td><td data-label="Bought">Jan 19, 2024</td><td data-label="Price">$1,150.00</td><td data-label="Warranty ends">Feb 27, 2028</td><td data-label="Status">in_use</td></tr><tr><td data-label="Name"><a href="#" data-demo="1">Old dishwasher</a></td><td data-label="Category">appliance</td><td data-label="Place">Kitchen</td><td data-label="Brand and model"></td><td data-label="Bought">Jul 29, 2018</td><td data-label="Price">$500.00</td><td data-label="Warranty ends"></td><td data-label="Status">sold</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Refrigerator</a></td><td>appliance</td><td>Kitchen</td><td>ColdCo FR-300</td><td>Apr 2, 2023</td><td>$1,299.00</td><td>Feb 17, 2027</td><td>active</td></tr></tbody>
   </table></div>
   
 </section>
@@ -182,43 +137,44 @@
 
 </main>
 
-  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=records:home:inventory" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
-  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="records" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+  <button type="button" class="helpbtn" hx-get="/help/panel?key=records:home:inventory" hx-target="#helpp" hx-swap="innerHTML"
+          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="records" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=records:home:inventory" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
   <nav class="bnav" aria-label="Main (phone)">
-    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
-    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
-    <a href="inbox.html" class="scan" aria-label="Add or scan, 32 in the Inbox"><b aria-hidden="true">+</b><span class="badge">32</span></a>
-    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
-    <details class="bmore">
-      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
-      <div class="sheet" role="menu">
-        
-        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
-        
-        <a role="menuitem" href="wallet.html">Wallet</a>
-        
-        <a role="menuitem" href="inbox.html">Inbox <span class="badge">32</span></a>
-        
-        <a role="menuitem" href="month.html">This month</a>
-        
-        <a role="menuitem" href="finance.html">Finance</a>
-        
-        <a role="menuitem" href="records.html" class="on" aria-current="page">Records</a>
-        
-        <a role="menuitem" href="notes.html">Notes</a>
-        
-        <a role="menuitem" href="chat.html">Chat</a>
-        
-        <a role="menuitem" href="settings.html">Settings</a>
-        
-        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
-      </div>
-    </details>
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" ><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" class="on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
   </nav>
 
-
-</body></html>
+</body>
+</html>

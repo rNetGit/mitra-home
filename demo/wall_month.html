@@ -1,0 +1,366 @@
+<!doctype html>
+
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#FBFAF7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/wall.css?v=0.125.0">
+  <script src="static/wall.js?v=0.125.0" defer></script>
+  <title>Month · The Rivera Family</title>
+</head>
+<body data-rest-url="wall_rest.html" data-home-url="wall.html" class="wall " data-idle="120" data-refresh="60"
+  data-night-from="22:00" data-night-to="06:00"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="index.html">Back to the app</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+<div class="shell">
+  <nav class="wrail" aria-label="Wall">
+    <a class="mark" href="wall.html" aria-label="The Rivera Family, Today"><img src="static/icon.svg" alt="" width="52" height="52"></a>
+    
+    <a class="tab" href="wall.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg><span>Today</span></a>
+    
+    <a class="tab on" href="wall_week.html" aria-current="page">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"></path></svg><span>Week</span></a>
+    
+    <a class="tab" href="wall_chores.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.9-4.3 4.1 1 5.8L12 16.6 6.8 19.2l1-5.8L3.5 9.3l5.9-.9z"></path></svg><span>Chores</span></a>
+    
+    <a class="tab" href="wall_lists.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"></path></svg><span>Lists</span></a>
+    
+    <a class="tab" href="wall_meals.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v8a2 2 0 0 0 4 0V3M9 11v10M16 3c-1.7 1-2.5 3-2.5 6s1 4 2.5 4v8"></path></svg><span>Meals</span></a>
+    
+    <a class="tab" href="wall_money.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11V8a6 6 0 0 1 12 0v3M5 11h14v10H5z"></path></svg><span>Money</span></a>
+    
+    <span class="grow"></span>
+  </nav>
+  <main class="wmain">
+    
+<div class="whead">
+  <h1>The Rivera Family</h1>
+  <span class="clock" data-clock="12">12:44 PM</span>
+  <span class="date">October 2026</span>
+  <span class="grow"></span>
+  <nav class="seg" aria-label="Calendar view"><a href="wall_week.html" class="">Week</a><a href="wall_month.html" class="on" aria-current="page">Month</a></nav>
+  
+  <a class="btn sq" href="#" data-demo="1" aria-label="Earlier month"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+  <a class="btn sq" href="#" data-demo="1" aria-label="Later month"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a>
+</div>
+<div class="chiprow">
+  <span class="chip cd"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path></svg> Elena&#39;s birthday <span class="n">in 13 days</span></span><span class="chip cd"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path></svg> Wedding anniversary <span class="n">in 18 days</span></span>
+</div>
+
+<section class="month mrows-5" aria-label="October 2026">
+  <div class="mdow">Mon</div><div class="mdow">Tue</div><div class="mdow">Wed</div><div class="mdow">Thu</div><div class="mdow">Fri</div><div class="mdow">Sat</div><div class="mdow">Sun</div>
+  
+  <div class="mday out" role="button" tabindex="0" data-pop>
+    <span class="mnum">28</span>
+    <span class="mline c2"><small>3:15 PM</small> Art club</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Monday, September 28</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Art club</b><small>3:15 PM – 4:15 PM · Class · Sofia</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday out" role="button" tabindex="0" data-pop>
+    <span class="mnum">29</span>
+    <span class="mline c2"><small>5:30 PM</small> Soccer practice</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Tuesday, September 29</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Soccer practice</b><small>5:30 PM – 7 PM · Class · Sofia</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday out" role="button" tabindex="0" data-pop>
+    <span class="mnum">30</span>
+    <span class="mline c3"><small>4 PM</small> Piano</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Wednesday, September 30</b>
+      <ul class="plist"><li class="c3"><span class="pdot"></span><span><b>Piano</b><small>4 PM – 4:30 PM · Class · Mateo</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">1</span>
+    <span class="mline c2"><small>5:30 PM</small> Soccer practice</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Thursday, October 1</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Soccer practice</b><small>5:30 PM – 7 PM · Class · Sofia</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday empty">
+    <span class="mnum">2</span>
+    
+    
+    
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">3</span>
+    <span class="mline c3"><small>10 AM</small> Swim lessons</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Saturday, October 3</b>
+      <ul class="plist"><li class="c3"><span class="pdot"></span><span><b>Swim lessons</b><small>10 AM – 10:45 AM · Class · Mateo</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday empty">
+    <span class="mnum">4</span>
+    
+    
+    
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">5</span>
+    <span class="mline c2"><small>3:15 PM</small> Art club</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Monday, October 5</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Art club</b><small>3:15 PM – 4:15 PM · Class · Sofia</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">6</span>
+    <span class="mline c2"><small>5:30 PM</small> Soccer practice</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Tuesday, October 6</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Soccer practice</b><small>5:30 PM – 7 PM · Class · Sofia</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">7</span>
+    <span class="mline c3"><small>4 PM</small> Piano</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Wednesday, October 7</b>
+      <ul class="plist"><li class="c3"><span class="pdot"></span><span><b>Piano</b><small>4 PM – 4:30 PM · Class · Mateo</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">8</span>
+    <span class="mline c2"><small>5:30 PM</small> Soccer practice</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Thursday, October 8</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Soccer practice</b><small>5:30 PM – 7 PM · Class · Sofia</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday empty">
+    <span class="mnum">9</span>
+    
+    
+    
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">10</span>
+    <span class="mline c3"><small>10 AM</small> Swim lessons</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Saturday, October 10</b>
+      <ul class="plist"><li class="c3"><span class="pdot"></span><span><b>Swim lessons</b><small>10 AM – 10:45 AM · Class · Mateo</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday empty">
+    <span class="mnum">11</span>
+    
+    
+    
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">12</span>
+    <span class="mline c2"><small>3:15 PM</small> Art club</span><span class="mline ch">Columbus Day / Indigenous Peoples&#39; Day</span>
+    
+    <div class="pop" hidden><small class="pk">2 things</small><b class="pt">Monday, October 12</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Art club</b><small>3:15 PM – 4:15 PM · Class · Sofia</small></span></li><li class="ch"><span class="pdot"></span><span><b>Columbus Day / Indigenous Peoples&#39; Day</b><small>all day · Holiday</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">13</span>
+    <span class="mline c2"><small>5:30 PM</small> Soccer practice</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Tuesday, October 13</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Soccer practice</b><small>5:30 PM – 7 PM · Class · Sofia</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">14</span>
+    <span class="mline c3"><small>4 PM</small> Piano</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Wednesday, October 14</b>
+      <ul class="plist"><li class="c3"><span class="pdot"></span><span><b>Piano</b><small>4 PM – 4:30 PM · Class · Mateo</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">15</span>
+    <span class="mline c2"><small>5:30 PM</small> Soccer practice</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Thursday, October 15</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Soccer practice</b><small>5:30 PM – 7 PM · Class · Sofia</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday empty">
+    <span class="mnum">16</span>
+    
+    
+    
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">17</span>
+    <span class="mline c3"><small>10 AM</small> Swim lessons</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Saturday, October 17</b>
+      <ul class="plist"><li class="c3"><span class="pdot"></span><span><b>Swim lessons</b><small>10 AM – 10:45 AM · Class · Mateo</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">18</span>
+    <span class="mline ch">Replace furnace filter</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Sunday, October 18</b>
+      <ul class="plist"><li class="ch"><span class="pdot"></span><span><b>Replace furnace filter</b><small>all day · Chore</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">19</span>
+    <span class="mline ch"><small>9 AM</small> Neighborhood cleanup</span><span class="mline c2"><small>3:15 PM</small> Art club</span>
+    
+    <div class="pop" hidden><small class="pk">2 things</small><b class="pt">Monday, October 19</b>
+      <ul class="plist"><li class="ch"><span class="pdot"></span><span><b>Neighborhood cleanup</b><small>9 AM – 11 AM · Event</small></span></li><li class="c2"><span class="pdot"></span><span><b>Art club</b><small>3:15 PM – 4:15 PM · Class · Sofia</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday today" role="button" tabindex="0" data-pop>
+    <span class="mnum">20</span>
+    <span class="mline c2"><small>5:30 PM</small> Soccer practice</span><span class="mline ch">Replace furnace filter</span><span class="mline c4">Flea and tick dose</span>
+    <span class="mmore">+1 more</span>
+    <div class="pop" hidden><small class="pk">4 things</small><b class="pt">Tuesday, October 20</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Soccer practice</b><small>5:30 PM – 7 PM · Class · Sofia</small></span></li><li class="ch"><span class="pdot"></span><span><b>Replace furnace filter</b><small>all day · Chore · late</small></span></li><li class="c4"><span class="pdot"></span><span><b>Flea and tick dose</b><small>all day · Pet · Pancho</small></span></li><li class="ch"><span class="pdot"></span><span><b>Brightwave</b><small>late</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">21</span>
+    <span class="mline c0"><small>8:15 AM</small> Knee follow-up · Lakeside Physio</span><span class="mline c3"><small>4 PM</small> Piano</span><span class="mline c3">Field trip form and $12</span>
+    
+    <div class="pop" hidden><small class="pk">3 things</small><b class="pt">Wednesday, October 21</b>
+      <ul class="plist"><li class="c0"><span class="pdot"></span><span><b>Knee follow-up · Lakeside Physio</b><small>8:15 AM – 9:15 AM · Appointment · Marcus</small></span></li><li class="c3"><span class="pdot"></span><span><b>Piano</b><small>4 PM – 4:30 PM · Class · Mateo</small></span></li><li class="c3"><span class="pdot"></span><span><b>Field trip form and $12</b><small>all day · School · Mateo</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">22</span>
+    <span class="mline c2"><small>3:30 PM</small> Cleaning · Bright Smiles Dental</span><span class="mline c2"><small>5:30 PM</small> Soccer practice</span><span class="mline ch money renews">Springfield Gym</span>
+    
+    <div class="pop" hidden><small class="pk">3 things</small><b class="pt">Thursday, October 22</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Cleaning · Bright Smiles Dental</b><small>3:30 PM – 4:30 PM · Appointment · Sofia</small></span></li><li class="c2"><span class="pdot"></span><span><b>Soccer practice</b><small>5:30 PM – 7 PM · Class · Sofia</small></span></li><li class="ch"><span class="pdot"></span><span><b>Springfield Gym</b><small>renews</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">23</span>
+    <span class="mline c2">Science fair project due</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Friday, October 23</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Science fair project due</b><small>all day · School · Sofia</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">24</span>
+    <span class="mline c3"><small>10 AM</small> Swim lessons</span><span class="mline ch"><small>7 PM</small> Family movie night</span><span class="mline ch money bill">City Water &amp; Power</span>
+    
+    <div class="pop" hidden><small class="pk">3 things</small><b class="pt">Saturday, October 24</b>
+      <ul class="plist"><li class="c3"><span class="pdot"></span><span><b>Swim lessons</b><small>10 AM – 10:45 AM · Class · Mateo</small></span></li><li class="ch"><span class="pdot"></span><span><b>Family movie night</b><small>7 PM – 9 PM · Event</small></span></li><li class="ch"><span class="pdot"></span><span><b>City Water &amp; Power</b><small>due</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">25</span>
+    <span class="mline c4"><small>11 AM</small> Vaccines · Oak Street Vet</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Sunday, October 25</b>
+      <ul class="plist"><li class="c4"><span class="pdot"></span><span><b>Vaccines · Oak Street Vet</b><small>11 AM – 12 PM · Appointment · Pancho</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">26</span>
+    <span class="mline c2"><small>3:15 PM</small> Art club</span><span class="mline c3">Picture day</span>
+    
+    <div class="pop" hidden><small class="pk">2 things</small><b class="pt">Monday, October 26</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Art club</b><small>3:15 PM – 4:15 PM · Class · Sofia</small></span></li><li class="c3"><span class="pdot"></span><span><b>Picture day</b><small>all day · School · Mateo</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">27</span>
+    <span class="mline c2"><small>5:30 PM</small> Soccer practice</span><span class="mline ch">Book Thanksgiving flights</span>
+    
+    <div class="pop" hidden><small class="pk">2 things</small><b class="pt">Tuesday, October 27</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Soccer practice</b><small>5:30 PM – 7 PM · Class · Sofia</small></span></li><li class="ch"><span class="pdot"></span><span><b>Book Thanksgiving flights</b><small>all day · Travel</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">28</span>
+    <span class="mline c3"><small>9 AM</small> Annual checkup · Dr. Okafor Pediatrics</span><span class="mline c3"><small>4 PM</small> Piano</span>
+    
+    <div class="pop" hidden><small class="pk">2 things</small><b class="pt">Wednesday, October 28</b>
+      <ul class="plist"><li class="c3"><span class="pdot"></span><span><b>Annual checkup · Dr. Okafor Pediatrics</b><small>9 AM – 10 AM · Appointment · Mateo</small></span></li><li class="c3"><span class="pdot"></span><span><b>Piano</b><small>4 PM – 4:30 PM · Class · Mateo</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">29</span>
+    <span class="mline c2"><small>5:30 PM</small> Soccer practice</span><span class="mline c2">Soccer team photos</span><span class="mline ch money bill">Northstar Mobile</span>
+    
+    <div class="pop" hidden><small class="pk">3 things</small><b class="pt">Thursday, October 29</b>
+      <ul class="plist"><li class="c2"><span class="pdot"></span><span><b>Soccer practice</b><small>5:30 PM – 7 PM · Class · Sofia</small></span></li><li class="c2"><span class="pdot"></span><span><b>Soccer team photos</b><small>all day · Activity · Sofia</small></span></li><li class="ch"><span class="pdot"></span><span><b>Northstar Mobile</b><small>due</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">30</span>
+    <span class="mline ch"><small>12 PM</small> Grandma Rosa visits</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Friday, October 30</b>
+      <ul class="plist"><li class="ch"><span class="pdot"></span><span><b>Grandma Rosa visits</b><small>12 PM – 3 PM · Event</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday" role="button" tabindex="0" data-pop>
+    <span class="mnum">31</span>
+    <span class="mline ch">Teacher institute day (no school)</span>
+    
+    <div class="pop" hidden><small class="pk">1 thing</small><b class="pt">Saturday, October 31</b>
+      <ul class="plist"><li class="ch"><span class="pdot"></span><span><b>Teacher institute day (no school)</b><small>all day · No school</small></span></li></ul></div>
+  </div>
+  
+  <div class="mday out" role="button" tabindex="0" data-pop>
+    <span class="mnum">1</span>
+    <span class="mline ch">Daylight saving time ends: clocks go back 1 hour</span><span class="mline ch money bill">Maple Home Lending</span>
+    
+    <div class="pop" hidden><small class="pk">2 things</small><b class="pt">Sunday, November 1</b>
+      <ul class="plist"><li class="ch"><span class="pdot"></span><span><b>Daylight saving time ends: clocks go back 1 hour</b><small>all day · Clocks change</small></span></li><li class="ch"><span class="pdot"></span><span><b>Maple Home Lending</b><small>due</small></span></li></ul></div>
+  </div>
+  
+</section>
+
+    <p class="alert" id="wmsg" role="status" hidden></p>
+  </main>
+  <dialog id="wpop" class="wpop" aria-label="Details"><div class="wpop-body"></div>
+    <form method="dialog"><button class="btn" value="close">Close</button></form></dialog>
+</div>
+
+</body>
+</html>

@@ -5,7 +5,7 @@ whole family, kept on the family's own PC.
 
 Static HTML and CSS, served by GitHub Pages from the `main` branch. No build step, no outside scripts.
 
-The source of these pages lives in the app repository under `site/`; this repository is the published copy.
+These pages are edited here; `tools/demo/` rebuilds the demo and the screenshots (see its README).
 
 `demo/` is a read-only copy of the app's pages for an invented family (the Riveras), saved from a test install.
 Nothing in it is real, and nothing a visitor clicks is sent anywhere.

@@ -10,29 +10,27 @@
     if (m && m.content) e.detail.headers['X-CSRF-Token'] = m.content;
   });
 
-  // Phone bottom bar: the More sheet closes on a tap outside it or on Escape.
+  // More (the avatar's menu on the PC, its sheet on a phone) closes on a tap outside it or on Escape.
   document.addEventListener('click', function (e) {
-    var open = document.querySelector('.bmore[open]');
+    var open = document.querySelector('.bmore[open],.rmore[open]');
     if (open && !open.contains(e.target)) open.removeAttribute('open');
   });
   document.addEventListener('keydown', function (e) {
-    var open = document.querySelector('.bmore[open]');
+    var open = document.querySelector('.bmore[open],.rmore[open]');
     if (open && e.key === 'Escape') { open.removeAttribute('open'); open.querySelector('summary').focus(); }
   });
 
-  // Rail groups fold: the choice is remembered in this browser (the group holding the open page always shows open).
+  // A link to a folded form (Add's tiles: /records?...#add-members, /notes#nadd, /wallet#wadd) opens it.
   (function () {
-    var k = 'rail-groups', saved = {};
-    try { saved = JSON.parse(localStorage.getItem(k) || '{}') || {}; } catch (e) { saved = {}; }
-    document.querySelectorAll('.rail details.rg').forEach(function (d) {
-      var n = d.dataset.rg;
-      if (saved[n] === true) d.open = true;
-      d.addEventListener('toggle', function () {
-        saved[n] = d.open;
-        try { localStorage.setItem(k, JSON.stringify(saved)); } catch (e) { /* private window */ }
-      });
-    });
+    var d = location.hash && document.getElementById(location.hash.slice(1));
+    if (d && d.tagName === 'DETAILS') { d.open = true; d.scrollIntoView({block: 'start'}); }
   })();
+
+  // A chip row wider than the screen (Money, Family and their parts on a phone) opens with the chosen chip in view.
+  document.querySelectorAll('.mtabs, .fchips').forEach(function (row) {
+    var on = row.querySelector('.on');
+    if (on && row.scrollWidth > row.clientWidth) row.scrollLeft = Math.max(0, on.offsetLeft - row.offsetLeft - 16);
+  });
 
   // Light / dark: change the page now, remember it for this person on the server.
   document.addEventListener('click', function (e) {
@@ -202,6 +200,26 @@
     var to = b.dataset.uploadTo, extra = b.dataset.uploadExtra && document.querySelector(b.dataset.uploadExtra);
     if (extra) to += '&calendar=' + encodeURIComponent(extra.value || '');
     var head = {'X-CSRF-Token': meta(), 'Content-Type': 'application/octet-stream'};
+    if (b.dataset.uploadEach) {  // several files, one request each (wall photos); then reload with what was added
+      var files = Array.prototype.slice.call(input.files), done = 0, bad = [];
+      b.disabled = true;
+      var next = function () {
+        if (!files.length) {
+          if (said) said.textContent = done + ' added' + (bad.length ? '. ' + bad.join(' ') : '.');
+          if (done) setTimeout(function () { window.location.reload(); }, bad.length ? 2500 : 200); else b.disabled = false;
+          return;
+        }
+        var f = files.shift();
+        if (said) said.textContent = 'Adding ' + f.name + '...';
+        var h = {'X-CSRF-Token': meta(), 'Content-Type': 'application/octet-stream', 'X-Filename': encodeURIComponent(f.name)};
+        fetch(to, {method: 'POST', credentials: 'same-origin', body: f, headers: h})
+          .then(function (r) { return r.json().catch(function () { return {ok: false, message: 'Not saved (' + r.status + ').'}; }); })
+          .then(function (j) { if (j.ok) { done += 1; } else { bad.push(f.name + ': ' + j.message); } next(); })
+          .catch(function () { bad.push(f.name + ': could not be sent.'); next(); });
+      };
+      next();
+      return;
+    }
     if (b.dataset.uploadName) head['X-Filename'] = encodeURIComponent(input.files[0].name);
     b.disabled = true;
     fetch(to, {method: 'POST', credentials: 'same-origin', body: input.files[0], headers: head})
@@ -338,7 +356,12 @@
       helpOpen(false);
     }
   });
-  document.addEventListener('htmx:afterSwap', function (e) { if (e.target && e.target.id === 'helpp') helpOpen(true); });
+  document.addEventListener('htmx:afterSwap', function (e) {
+    if (!e.target || e.target.id !== 'helpp') return;
+    var more = document.querySelector('.bmore[open],.rmore[open]');  // opened from More: close the menu
+    if (more) more.removeAttribute('open');
+    helpOpen(true);
+  });
   document.addEventListener('click', function (e) { if (e.target.closest && e.target.closest('[data-help-close]')) helpOpen(false); });
   // Wallet > Add a card from a photo: the photo goes up as the raw body (like the Inbox), then the page shows Check the card
   document.addEventListener('change', function (e) {
@@ -357,6 +380,30 @@
       var j; try { j = JSON.parse(x.responseText); } catch (err) { j = {ok: false, message: 'Not sent (' + x.status + ').'}; }
       if (!j.ok) { if (msg) msg.textContent = j.message || 'Not sent.'; return; }
       if (window.location.pathname + window.location.search === '/wallet') { window.location.hash = 'wcheck'; window.location.reload(); }
+      else window.location.href = j.redirect;
+    };
+    x.onerror = function () { if (msg) msg.textContent = 'Could not be sent.'; };
+    x.send(f);
+  });
+  // Add > Dates / Recipe from a photo (webapp/routes_photo.py): the same raw-body upload, then the page shows the check form
+  document.addEventListener('change', function (e) {
+    var input = e.target.closest && e.target.closest('#photo-read');
+    if (!input || !input.files.length) return;
+    var f = input.files[0], kind = input.getAttribute('data-kind') || 'dates';
+    var ai = document.getElementById('photo-read-ai'), msg = document.getElementById('photo-read-msg');
+    input.value = '';
+    if (msg) msg.textContent = ai && ai.checked ? 'Sending the photo and reading it...' : 'Sending the photo...';
+    var x = new XMLHttpRequest();
+    x.open('POST', '/add/photo?kind=' + encodeURIComponent(kind) + (ai && ai.checked ? '&ai=1' : ''));
+    var m = document.querySelector('meta[name="csrf-token"]');
+    if (m) x.setRequestHeader('X-CSRF-Token', m.content);
+    x.setRequestHeader('X-Filename', encodeURIComponent(f.name));
+    x.setRequestHeader('Content-Type', 'application/octet-stream');
+    x.onload = function () {
+      var j; try { j = JSON.parse(x.responseText); } catch (err) { j = {ok: false, message: 'Not sent (' + x.status + ').'}; }
+      if (!j.ok) { if (msg) msg.textContent = j.message || 'Not sent.'; return; }
+      var to = j.redirect.split('#');
+      if (window.location.pathname + window.location.search === to[0]) { window.location.hash = to[1] || ''; window.location.reload(); }
       else window.location.href = j.redirect;
     };
     x.onerror = function () { if (msg) msg.textContent = 'Could not be sent.'; };
@@ -391,7 +438,7 @@
     if (e.key === 'Escape' && p && !p.hidden) helpOpen(false);
   });
 
-  // First visit to a page: a one-line tip next to the "?" button, until "Got it" or the panel is opened (this browser).
+  // First visit: a one-line tip next to the "?" button, until "Got it" (every page) or that page's panel is opened.
   function seenTips() { try { return JSON.parse(localStorage.getItem('help-tips') || '[]'); } catch (e) { return []; } }
   function tipSeen(key) {
     var seen = seenTips();
@@ -401,13 +448,14 @@
     if (t) t.hidden = true;
   }
   document.addEventListener('DOMContentLoaded', function () {
-    var t = document.querySelector('.helptip');
-    if (t && seenTips().indexOf(t.dataset.helpTip) < 0) t.hidden = false;
+    var t = document.querySelector('.helptip'), seen = seenTips();
+    if (t && seen.indexOf('*') < 0 && seen.indexOf(t.dataset.helpTip) < 0) t.hidden = false;
   });
   document.addEventListener('click', function (e) {
     var t = document.querySelector('.helptip');
     if (!t || !e.target.closest) return;
-    if (e.target.closest('[data-help-tip-close]') || e.target.closest('.helpbtn')) tipSeen(t.dataset.helpTip);
+    if (e.target.closest('[data-help-tip-close]')) tipSeen('*');  // "Got it": the tip has done its job everywhere
+    else if (e.target.closest('.helpbtn')) tipSeen(t.dataset.helpTip);
   });
 
   // Folded Settings cards: a link to #id inside one opens it, and the card a form was sent from stays open after the
@@ -429,6 +477,54 @@
     var h = d && d.querySelector('summary h2');
     if (h) try { sessionStorage.setItem('sfold', h.textContent); } catch (err) {}
   });
+
+  // Money > Ledger: picking a period fills From / To (this week = Monday to Sunday, this month, this year); editing a
+  // date makes the period Custom. The server fills them too when a link names only a period.
+  document.addEventListener('change', function (e) {
+    var t = e.target, f = t.form;
+    if (!f || !f.hasAttribute('data-ledger') || !t.matches) return;
+    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+    var iso = function (d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); };
+    if (t.matches('select[data-period]')) {
+      var p = (f.getAttribute('data-today') || '').split('-');
+      var d = p.length === 3 ? new Date(+p[0], +p[1] - 1, +p[2]) : new Date(), a, b;
+      if (t.value === 'week') { a = new Date(d.getFullYear(), d.getMonth(), d.getDate() - ((d.getDay() + 6) % 7)); b = new Date(a.getFullYear(), a.getMonth(), a.getDate() + 6); }
+      else if (t.value === 'month') { a = new Date(d.getFullYear(), d.getMonth(), 1); b = new Date(d.getFullYear(), d.getMonth() + 1, 0); }
+      else if (t.value === 'year') { a = new Date(d.getFullYear(), 0, 1); b = new Date(d.getFullYear(), 11, 31); }
+      else return;
+      f.elements.from.value = iso(a); f.elements.to.value = iso(b);
+    } else if (t.name === 'from' || t.name === 'to') {
+      var sel = f.querySelector('select[data-period]'); if (sel) sel.value = 'custom';
+    }
+  });
+
+  // Money > Ledger quick view: a description opens the line in a window over the list (htmx fills #txn-body); Previous / Next
+  // and the arrow keys walk the filtered list; closing after a save reloads the page so the list shows the change.
+  (function () {
+    var dlg = function () { return document.getElementById('txn-dialog'); };
+    document.addEventListener('htmx:afterSwap', function (e) {
+      var d = dlg();
+      if (d && e.detail && e.detail.target && e.detail.target.id === 'txn-body' && !d.open && d.showModal) d.showModal();
+    });
+    document.addEventListener('txn-saved', function () { var d = dlg(); if (d) d.dataset.dirty = '1'; });
+    document.addEventListener('click', function (e) {
+      var d = dlg(), t = e.target;
+      if (!d || !d.open || !t) return;
+      if (t === d || (t.closest && t.closest('[data-txn-close]'))) d.close();
+    });
+    document.addEventListener('close', function (e) {
+      var d = dlg();
+      if (d && e.target === d && d.dataset.dirty) { delete d.dataset.dirty; window.location.reload(); }
+    }, true);
+    document.addEventListener('keydown', function (e) {
+      var d = dlg();
+      if (!d || !d.open || e.altKey || e.ctrlKey || e.metaKey) return;
+      var tag = (e.target && e.target.tagName || '').toLowerCase();
+      if (tag === 'input' || tag === 'select' || tag === 'textarea') return;
+      var b = d.querySelector(e.key === 'ArrowLeft' ? '[data-txn-prev]' : e.key === 'ArrowRight' ? '[data-txn-next]' : null);
+      if (b && !b.disabled) { e.preventDefault(); b.click(); }
+    });
+  })();
 
   // Installable app: the service worker only keeps the app's own files (never a signed-in page).
   if ('serviceWorker' in navigator && window.isSecureContext) {

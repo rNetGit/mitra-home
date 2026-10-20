@@ -1,0 +1,187 @@
+<!doctype html>
+
+
+<html lang="en">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#FBFAF7">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/wall.css?v=0.125.0">
+  <script src="static/wall.js?v=0.125.0" defer></script>
+  <title>Today · The Rivera Family</title>
+</head>
+<body data-rest-url="wall_rest.html" data-home-url="wall.html" class="wall " data-idle="120" data-refresh="60"
+  data-night-from="22:00" data-night-to="06:00"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="index.html">Back to the app</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+<div class="shell">
+  <nav class="wrail" aria-label="Wall">
+    <a class="mark" href="wall.html" aria-label="The Rivera Family, Today"><img src="static/icon.svg" alt="" width="52" height="52"></a>
+    
+    <a class="tab on" href="wall.html" aria-current="page">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg><span>Today</span></a>
+    
+    <a class="tab" href="wall_week.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"></path></svg><span>Week</span></a>
+    
+    <a class="tab" href="wall_chores.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.9-4.3 4.1 1 5.8L12 16.6 6.8 19.2l1-5.8L3.5 9.3l5.9-.9z"></path></svg><span>Chores</span></a>
+    
+    <a class="tab" href="wall_lists.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"></path></svg><span>Lists</span></a>
+    
+    <a class="tab" href="wall_meals.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v8a2 2 0 0 0 4 0V3M9 11v10M16 3c-1.7 1-2.5 3-2.5 6s1 4 2.5 4v8"></path></svg><span>Meals</span></a>
+    
+    <a class="tab" href="wall_money.html">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11V8a6 6 0 0 1 12 0v3M5 11h14v10H5z"></path></svg><span>Money</span></a>
+    
+    <span class="grow"></span>
+  </nav>
+  <main class="wmain">
+    
+<div class="whead">
+  <div>
+    <div class="date">Tuesday, October 20</div>
+    <h1>Good afternoon</h1>
+  </div>
+  <span class="grow"></span>
+  <div class="wx">
+    <svg class="i wxi l-partly" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2v1.5M3.5 4.5l1 1M2 9h1.5M12.5 4.5l-1 1M5 11.8a3.5 3.5 0 0 1 6.4-4.3M17.5 12.5h-.9A5.5 5.5 0 1 0 11 19.5h6.5a3.5 3.5 0 0 0 0-7z"></path></svg>
+    <span class="wxt">58°</span>
+    <span class="wxs"><b>Partly cloudy · high 64°, low 45°</b>
+      <small>Rain likely from 3 PM</small></span>
+  </div>
+  <span class="figure" data-clock="">12:44</span>
+</div>
+
+<section class="card" aria-label="Today">
+  <h2>Today <span class="n">· 1 on the calendar, Flea and tick dose</span></h2>
+  
+  <div class="agenda">
+    
+    
+    
+    <div class="tev c2" role="button" tabindex="0" data-pop><small>5:30 PM – 7 PM</small><b>Soccer practice</b>
+      <div class="pop" hidden><small class="pk">Class</small><b class="pt">Soccer practice</b><span class="pwhen">Tuesday, October 20 · 5:30 PM – 7 PM</span><span class="ppl"><span class="pp"><span class="av sm fill c2">S</span>Sofia</span></span></div>
+      <span class="who"><span class="av sm">S</span></span></div>
+    
+    
+  </div>
+  
+</section>
+
+<div class="tiles3">
+  <section class="card rows" aria-label="Needs doing">
+    <h2>Needs doing <span class="late">· 1 late</span></h2>
+    
+    <div class="row"><span class="av fill ch">H</span>
+      <div class="t"><b>Replace furnace filter</b><small class="late">late</small></div></div>
+    
+    <div class="row"><span class="av fill c4">P</span>
+      <div class="t"><b>Flea and tick dose</b><small class="">today</small></div></div>
+    
+  </section>
+
+  <section class="card" aria-label="Kids today">
+    <h2>Kids · after school</h2>
+    
+    
+    <a class="kid c2" href="wall_chores.html">
+      <svg class="ring" viewBox="0 0 62 62" role="img" aria-label="Sofia: 1 of 1 done">
+        <circle class="bg" cx="31" cy="31" r="26"></circle>
+        <circle class="fg" cx="31" cy="31" r="26" stroke-dasharray="163.4 999" transform="rotate(-90 31 31)"></circle>
+        <text x="31" y="36" text-anchor="middle">1/1</text>
+      </svg>
+      <span class="t"><b>Sofia</b><small>All done</small></span>
+      <span class="stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.9-4.3 4.1 1 5.8L12 16.6 6.8 19.2l1-5.8L3.5 9.3l5.9-.9z"></path></svg>11</span>
+    </a>
+    
+    
+    <a class="kid c3" href="wall_chores.html">
+      <svg class="ring" viewBox="0 0 62 62" role="img" aria-label="Mateo: 0 of 2 done">
+        <circle class="bg" cx="31" cy="31" r="26"></circle>
+        <circle class="fg" cx="31" cy="31" r="26" stroke-dasharray="0.0 999" transform="rotate(-90 31 31)"></circle>
+        <text x="31" y="36" text-anchor="middle">0/2</text>
+      </svg>
+      <span class="t"><b>Mateo</b><small>Tap to see the jobs</small></span>
+      <span class="stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.9-4.3 4.1 1 5.8L12 16.6 6.8 19.2l1-5.8L3.5 9.3l5.9-.9z"></path></svg>9</span>
+    </a>
+    
+  </section>
+
+  <section class="card coming" aria-label="Dinner and coming up">
+    <h2>Dinner tonight</h2>
+    <p class="big">Chicken enchiladas</p>
+    <h2 class="sub">Coming up</h2>
+    
+    <div class="crow c0" role="button" tabindex="0" data-pop>
+      <span class="cw">Tomorrow<small>8:15 AM</small></span>
+      <span class="ct">Knee follow-up · Lakeside Physio</span>
+      <div class="pop" hidden><small class="pk">Appointment</small><b class="pt">Knee follow-up · Lakeside Physio</b><span class="pwhen">Wednesday, October 21 · 8:15 AM</span><span class="ppl"><span class="pp"><span class="av sm fill c0">M</span>Marcus</span></span></div>
+    </div>
+    
+    <div class="crow c3" role="button" tabindex="0" data-pop>
+      <span class="cw">Tomorrow<small>4 PM</small></span>
+      <span class="ct">Piano</span>
+      <div class="pop" hidden><small class="pk">Class</small><b class="pt">Piano</b><span class="pwhen">Wednesday, October 21 · 4 PM</span><span class="ppl"><span class="pp"><span class="av sm fill c3">M</span>Mateo</span></span></div>
+    </div>
+    
+    <div class="crow c3" role="button" tabindex="0" data-pop>
+      <span class="cw">Tomorrow</span>
+      <span class="ct">Field trip form and $12</span>
+      <div class="pop" hidden><small class="pk">School</small><b class="pt">Field trip form and $12</b><span class="pwhen">Wednesday, October 21</span><span class="ppl"><span class="pp"><span class="av sm fill c3">M</span>Mateo</span></span></div>
+    </div>
+    
+    <div class="crow c2" role="button" tabindex="0" data-pop>
+      <span class="cw">Thursday<small>3:30 PM</small></span>
+      <span class="ct">Cleaning · Bright Smiles Dental</span>
+      <div class="pop" hidden><small class="pk">Appointment</small><b class="pt">Cleaning · Bright Smiles Dental</b><span class="pwhen">Thursday, October 22 · 3:30 PM</span><span class="ppl"><span class="pp"><span class="av sm fill c2">S</span>Sofia</span></span></div>
+    </div>
+    
+    <div class="crow c2" role="button" tabindex="0" data-pop>
+      <span class="cw">Thursday<small>5:30 PM</small></span>
+      <span class="ct">Soccer practice</span>
+      <div class="pop" hidden><small class="pk">Class</small><b class="pt">Soccer practice</b><span class="pwhen">Thursday, October 22 · 5:30 PM</span><span class="ppl"><span class="pp"><span class="av sm fill c2">S</span>Sofia</span></span></div>
+    </div>
+    
+    <div class="crow ch money renews" role="button" tabindex="0" data-pop>
+      <span class="cw">Thursday</span>
+      <span class="ct">Springfield Gym</span>
+      <div class="pop" hidden><small class="pk">renews</small><b class="pt">Springfield Gym</b><span class="pwhen">Thursday, October 22</span></div>
+    </div>
+    
+    <a class="cmore" href="wall_week.html">+1 more this week</a>
+  </section>
+</div>
+
+    <p class="alert" id="wmsg" role="status" hidden></p>
+  </main>
+  <dialog id="wpop" class="wpop" aria-label="Details"><div class="wpop-body"></div>
+    <form method="dialog"><button class="btn" value="close">Close</button></form></dialog>
+</div>
+
+</body>
+</html>
