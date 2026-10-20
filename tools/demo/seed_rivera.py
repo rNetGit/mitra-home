@@ -120,6 +120,10 @@ add_uncat = ins("transactions", account_id=visa, txn_date=d(-3), description="TS
 
 for acct, bal in ((chk, 6420.55), (sav, 18250.00), (visa, -1184.20), (summit, -702.48), (inv, 42310.00)):
     ins("account_balances", account_id=acct, as_of=d(-2), balance=bal, kind="statement")
+    for back in range(1, 7):  # older statements, so Money shows net worth by month
+        grow = {sav: -420, inv: -610, chk: -95}.get(acct, 0)
+        ins("account_balances", account_id=acct, as_of=d(-2 - 30 * back), balance=round(bal + grow * back, 2),
+            kind="statement")
 
 for name, vendor, freq, amt, due, status in (
         ("Mortgage", "Maple Home Lending", "monthly", 2150.00, 12, "due"),
@@ -143,6 +147,9 @@ for name, amt, freq, nxt, pat, cat, dec in (
 ins("loans", name="Family SUV loan", lender="Crestline Auto Finance", kind="auto", last4="8812", balance=14620.00,
     balance_date=d(-11), rate_pct=4.9, payment=389.00, payment_day=9, start_date="2024-06-09", payoff_date="2029-06-09",
     status="active")
+ins("savings_goals", name="Emergency fund", target=25000.00, account_id=sav, status="active")
+ins("savings_goals", name="Summer trip to the lake", target=3200.00, saved=1450.00, due_date=d(240), status="active")
+ins("savings_goals", name="New roof", target=12000.00, saved=2600.00, due_date=d(540), status="active")
 for cat, lim in (("groceries", 900), ("dining", 250), ("fuel", 200), ("general merchandise", 200), ("kids activities", 150),
                  ("allowance:Mateo", 30)):
     con.execute("INSERT OR REPLACE INTO budget(category, monthly_limit) VALUES (?,?)", (cat, lim))
@@ -281,6 +288,14 @@ for back in range(0, 9):
     for rid, stars in routine_ids:
         if back == 0 and random.random() < 0.55 or back and random.random() < 0.8:
             ins("routine_done", routine_id=rid, day=day, stars=stars, done_by="Kitchen wall", done_at=day + "T08:00:00")
+con.commit()
+
+for title, stars, member in (("30 minutes of screen time", 10, None), ("Pick Friday's dinner", 15, None),
+                             ("Stay up 30 minutes late", 20, None), ("Trip to the bookshop", 40, "Sofia")):
+    rew = ins("rewards", title=title, stars=stars, member=member, status="active")
+    if title.startswith("Pick"):
+        ins("reward_claims", reward_id=rew, member="Mateo", stars=stars, status="asked",
+            asked_at=NOW.isoformat(timespec="seconds"), asked_by="Kitchen wall")
 con.commit()
 
 code, _info = wall.pair_start(con, "Kitchen wall", by="Elena")

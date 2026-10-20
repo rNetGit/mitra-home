@@ -418,6 +418,60 @@
       b.textContent = 'Copied'; setTimeout(function () { b.textContent = was; }, 1500);
     }, function () {});
   });
+  // [data-share] (a list): the phone's share sheet when there is one (Messages, WhatsApp, Notes ...), else the clipboard
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-share]');
+    if (!b) return;
+    var text = b.getAttribute('data-share'), was = b.textContent;
+    var said = function (t) { b.textContent = t; setTimeout(function () { b.textContent = was; }, 1500); };
+    if (navigator.share) {
+      navigator.share({title: b.getAttribute('data-share-title') || '', text: text}).catch(function () {});
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(function () { said('Copied'); }, function () { said('Could not copy'); });
+    }
+  });
+  // [data-print-list] prints only the list (or document) it belongs to (the rest of the page is hidden while printing)
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-print-list]');
+    var box = b && b.parentNode && b.parentNode.parentNode;
+    var list = b && (b.closest('.print-list') || (box && box.querySelector('.print-list')));
+    if (!list) return;
+    list.classList.add('print-this');
+    document.body.classList.add('print-one');
+    window.print();
+  });
+  window.addEventListener('afterprint', function () {
+    document.body.classList.remove('print-one');
+    document.querySelectorAll('.print-this').forEach(function (el) { el.classList.remove('print-this'); });
+  });
+  // <form data-download-post="/url">: posted with the CSRF token, and the answer is saved as the file it names (the
+  // emergency sheet's sealed copy); an error answer is shown next to the button instead
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    var url = f.getAttribute && f.getAttribute('data-download-post');
+    if (!url) return;
+    e.preventDefault();
+    var said = f.querySelector('[data-said]'), btn = f.querySelector('button[type=submit]');
+    var token = (document.querySelector('meta[name="csrf-token"]') || {}).content || '';
+    if (btn) btn.disabled = true;
+    if (said) said.textContent = 'Sealing...';
+    fetch(url, {method: 'POST', credentials: 'same-origin', body: new URLSearchParams(new FormData(f)),
+                headers: {'X-CSRF-Token': token}})
+      .then(function (r) {
+        if (!r.ok) return r.text().then(function (t) { throw new Error(t || 'Not made.'); });
+        var cd = r.headers.get('Content-Disposition') || '', m = /filename="([^"]+)"/.exec(cd);
+        return r.blob().then(function (blob) {
+          var a = document.createElement('a');
+          a.href = URL.createObjectURL(blob); a.download = m ? m[1] : 'download';
+          document.body.appendChild(a); a.click(); a.remove();
+          setTimeout(function () { URL.revokeObjectURL(a.href); }, 5000);
+          f.reset();
+          if (said) said.textContent = 'Saved to your downloads.';
+        });
+      })
+      .catch(function (err) { if (said) said.textContent = String(err.message || err).slice(0, 200); })
+      .then(function () { if (btn) btn.disabled = false; });
+  });
   // [data-wake] on a page keeps the screen on while it is shown (Wallet parking); browsers without it just skip
   function wake() {
     if (!document.querySelector('[data-wake]') || !navigator.wakeLock || document.visibilityState !== 'visible') return;

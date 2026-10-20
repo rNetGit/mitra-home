@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.125.0">
-  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.126.0">
+  <script src="static/vendor/htmx.min.js?v=0.126.0" defer></script>
   
-  <script src="static/app.js?v=0.125.0" defer></script>
+  <script src="static/app.js?v=0.126.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -65,7 +65,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.125.0</small>
+    <small class="ver">v0.126.0</small>
   </nav>
 
   <main>
@@ -94,6 +94,8 @@
   <summary><h2>Set or remove a budget line</h2></summary>
   <div id="radd-budget">
 
+
+
 <form class="nform" hx-post="/records/add" hx-target="#radd-budget" hx-swap="innerHTML" hx-vals='{"part": "money/budget", "table": "budget"}'>
 
   <label>Category<input name="category" maxlength="60" required list="budget-lines" value=""></label>
@@ -110,6 +112,8 @@
   <summary><h2>Add a loan</h2></summary>
   <div id="radd-loans">
 
+
+
 <form class="nform" hx-post="/records/add" hx-target="#radd-loans" hx-swap="innerHTML" hx-vals='{"part": "money/budget", "table": "loans"}'>
 
   <label>Name<input name="name" maxlength="80" required value=""></label>
@@ -124,9 +128,28 @@
 </form></div>
 </details>
 
+<details class="card addnote" id="add-savings_goals">
+  <summary><h2>Add a savings goal</h2></summary>
+  <div id="radd-savings_goals">
 
 
 
+<form class="nform" hx-post="/records/add" hx-target="#radd-savings_goals" hx-swap="innerHTML" hx-vals='{"part": "money/budget", "table": "savings_goals"}'>
+
+  <label>What it is for<input name="name" maxlength="60" required placeholder="Summer holiday" value=""></label>
+  <label>Amount to save<input name="target" type="number" min="0.01" max="1000000000" step="0.01" required value=""></label>
+  <label>By when (optional)<input name="due" type="date" min="2000-01-01" max="2100-12-31" value=""></label>
+  <label>Saved so far (optional)<input name="saved" type="number" min="0" max="1000000000" step="0.01" value=""></label>
+  <label>Or follow an account kept for it (optional)<select name="account"><option value="">(none: I type what is saved)</option><option value="2" >Lakeside Bank Savings x7310</option><option value="5" >Harbor Brokerage x5502</option><option value="1" >Lakeside Bank Checking x4821</option></select></label>
+  <p class="muted small">With an account, the amount saved is its latest statement balance.</p>
+
+  <button class="btn" type="submit">Add</button>
+</form></div>
+</details>
+
+
+
+<p class="notice">Payoff figures are arithmetic on the balance, rate and payment on file, not advice.</p>
 
 
 
@@ -162,7 +185,7 @@
       <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="1" height="6" rx="3"/><rect class="fb-mark" x="64" y="0" width="1" height="6"/></svg>
       <p class="muted fb-n">on track</p></li>
   </ul>
-  <p class="muted small">The thin line is where spending would be by today at an even pace.</p>
+  <p class="muted small">The thin line is where it would be by today at an even pace.</p>
   
 </section>
 
@@ -312,6 +335,93 @@
   </table></div>
   
 </section>
+
+
+
+<section class="card rblock"><h2>Savings goals</h2>
+  
+  <ul class="fbars">
+    <li class="t-"><div class="fb-top"><span class="fb-l">Summer trip to the lake</span><span class="fb-v"><b>$1,450</b> of $3,200</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="45" height="6" rx="3"/></svg>
+      <p class="muted fb-n">$219 a month to reach it by Jun 2027</p></li>
+  
+    <li class="t-"><div class="fb-top"><span class="fb-l">New roof</span><span class="fb-v"><b>$2,600</b> of $12,000</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="22" height="6" rx="3"/></svg>
+      <p class="muted fb-n">$522 a month to reach it by Apr 2028</p></li>
+  
+    <li class="t-"><div class="fb-top"><span class="fb-l">Emergency fund</span><span class="fb-v"><b>$18,250</b> of $25,000</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="73" height="6" rx="3"/></svg>
+      <p class="muted fb-n">$6,750 to go (balance on 2026-10-18)</p></li>
+  </ul>
+  
+  
+</section>
+
+
+
+<details class="card rblock fold"><summary><h2>Change a savings goal <span class="muted">3</span></h2></summary>
+  
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1" hx-get="/money/row/savings_goals/2?part=budget" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-av t-n" aria-hidden="true">S</span>
+      <span class="rl-main"><span class="rl-t">Summer trip to the lake</span><span class="rl-m">Saved $1,450.00 · Target $3,200.00 · Jun 17, 2027 · A month to get there $218.75</span></span>
+      <span class="rl-r"></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1" hx-get="/money/row/savings_goals/3?part=budget" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-av t-n" aria-hidden="true">N</span>
+      <span class="rl-main"><span class="rl-t">New roof</span><span class="rl-m">Saved $2,600.00 · Target $12,000.00 · Apr 12, 2028 · A month to get there $522.22</span></span>
+      <span class="rl-r"></span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1" hx-get="/money/row/savings_goals/1?part=budget" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-av t-n" aria-hidden="true">E</span>
+      <span class="rl-main"><span class="rl-t">Emergency fund</span><span class="rl-m">Saved $18,250.00 · Target $25,000.00</span></span>
+      <span class="rl-r"></span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
+    <thead><tr><th>Goal</th><th class="num">Saved</th><th class="num">Target</th><th>By</th><th class="num">A month to get there</th></tr></thead>
+    <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/2?part=budget" hx-target="#txn-body" hx-swap="innerHTML">Summer trip to the lake</a></td><td class="num">$1,450.00</td><td class="num">$3,200.00</td><td>Jun 17, 2027</td><td class="num">$218.75</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/3?part=budget" hx-target="#txn-body" hx-swap="innerHTML">New roof</a></td><td class="num">$2,600.00</td><td class="num">$12,000.00</td><td>Apr 12, 2028</td><td class="num">$522.22</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/1?part=budget" hx-target="#txn-body" hx-swap="innerHTML">Emergency fund</a></td><td class="num">$18,250.00</td><td class="num">$25,000.00</td><td></td><td class="num"></td></tr></tbody>
+  </table></div>
+  
+</details>
+
+
+
+<details class="card rblock fold"><summary><h2>Paying loans off sooner <span class="muted">4</span></h2></summary>
+  
+  <ul class="rlist fl-phone">
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">F</span>
+      <span class="rl-main"><span class="rl-t">Family SUV loan</span><span class="rl-m">$389 (now) · Mar 2030 · Interest left $1,284.15</span></span>
+      <span class="rl-r"></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">F</span>
+      <span class="rl-main"><span class="rl-t">Family SUV loan</span><span class="rl-m">$439 (+$50) · Oct 2029 · Interest left $1,126.67 · 5 months</span></span>
+      <span class="rl-r"></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">F</span>
+      <span class="rl-main"><span class="rl-t">Family SUV loan</span><span class="rl-m">$489 (+$100) · Jun 2029 · Interest left $1,004.29 · 9 months</span></span>
+      <span class="rl-r"></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">F</span>
+      <span class="rl-main"><span class="rl-t">Family SUV loan</span><span class="rl-m">$639 (+$250) · Nov 2028 · Interest left $760.09 · 16 months</span></span>
+      <span class="rl-r"></span>
+    </div></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
+    <thead><tr><th>Loan</th><th>A month</th><th>Paid off</th><th class="num">Interest left</th><th>Sooner</th><th class="num">Interest saved</th></tr></thead>
+    <tbody><tr><td>Family SUV loan</td><td>$389 (now)</td><td>Mar 2030</td><td class="num">$1,284.15</td><td></td><td class="num"></td></tr><tr><td>Family SUV loan</td><td>$439 (+$50)</td><td>Oct 2029</td><td class="num">$1,126.67</td><td>5 months</td><td class="num">$157.48</td></tr><tr><td>Family SUV loan</td><td>$489 (+$100)</td><td>Jun 2029</td><td class="num">$1,004.29</td><td>9 months</td><td class="num">$279.86</td></tr><tr><td>Family SUV loan</td><td>$639 (+$250)</td><td>Nov 2028</td><td class="num">$760.09</td><td>16 months</td><td class="num">$524.06</td></tr></tbody>
+  </table></div>
+  
+</details>
 
 
 

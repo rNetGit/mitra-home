@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.125.0">
-  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.126.0">
+  <script src="static/vendor/htmx.min.js?v=0.126.0" defer></script>
   
-  <script src="static/app.js?v=0.125.0" defer></script>
+  <script src="static/app.js?v=0.126.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -65,7 +65,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.125.0</small>
+    <small class="ver">v0.126.0</small>
   </nav>
 
   <main>
@@ -93,6 +93,8 @@
   <summary><h2>Add a holiday, festival or day off school</h2></summary>
   <div id="radd-calendar_days">
 
+
+
 <form class="nform" hx-post="/records/add" hx-target="#radd-calendar_days" hx-swap="innerHTML" hx-vals='{"part": "people/dates", "table": "calendar_days"}'>
 
   <label>Name<input name="name" maxlength="80" required placeholder="Winter break" value=""></label>
@@ -109,6 +111,8 @@
 <details class="card addnote" id="add-events">
   <summary><h2>Add a family event or a yearly date</h2></summary>
   <div id="radd-events">
+
+
 
 <form class="nform" hx-post="/records/add" hx-target="#radd-events" hx-swap="innerHTML" hx-vals='{"part": "people/dates", "table": "events"}'>
 

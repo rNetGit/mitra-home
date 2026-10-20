@@ -26,10 +26,10 @@
   <link rel="icon" href="../static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="../static/icon-180.png">
   <link rel="stylesheet" href="../static/tokens.css">
-  <link rel="stylesheet" href="../static/app.css?v=0.125.0">
-  <script src="../static/vendor/htmx.min.js?v=0.125.0" defer></script>
+  <link rel="stylesheet" href="../static/app.css?v=0.126.0">
+  <script src="../static/vendor/htmx.min.js?v=0.126.0" defer></script>
   
-  <script src="../static/app.js?v=0.125.0" defer></script>
+  <script src="../static/app.js?v=0.126.0" defer></script>
   <title>Mitra Home</title>
 </head>
 
@@ -51,7 +51,7 @@
         <button type="button" class="ghost ibtn" hx-post="/logout" title="Log out (Mateo)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
       </div>
     
-    <small class="ver">v0.125.0</small>
+    <small class="ver">v0.126.0</small>
   </nav>
 
   <main>
@@ -104,6 +104,24 @@
       <svg class="rico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l1 12H5zM9 8V6a3 3 0 0 1 6 0v2M9 12h6"/></svg>
       <span class="ctext"><s>Pack school bag</s> <span class="muted">· +1 ★</span></span>
     </li>
+  
+  </ul>
+  
+  
+  <h3>My rewards <span class="muted small">· ★ 28 to spend</span></h3>
+  <ul class="checklist">
+  
+    <li><span class="ctext">30 minutes of screen time <span class="muted">· 10 ★</span></span>
+      <button type="button" class="btn alt sm" hx-post="/me" hx-vals='{"op": "reward", "reward": "1"}'>Ask for it</button>
+      </li>
+  
+    <li><span class="ctext">Pick Friday&#39;s dinner <span class="muted">· 15 ★</span></span>
+      <span class="muted small">asked, waiting for a grown-up</span>
+      </li>
+  
+    <li><span class="ctext">Stay up 30 minutes late <span class="muted">· 20 ★</span></span>
+      <button type="button" class="btn alt sm" hx-post="/me" hx-vals='{"op": "reward", "reward": "3"}'>Ask for it</button>
+      </li>
   
   </ul>
   
