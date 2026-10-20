@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css?v=0.125.0">
+  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
+  
+  <script src="static/app.js?v=0.125.0" defer></script>
+  <title>Money · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:year_end" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
+    
+    <small class="ver">v0.125.0</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>Money</h1><p class="sub">Look back · Year-end</p></div></header>
+<nav class="pchips mtabs" aria-label="Money">
+  <a href="money.html" class="pchip">Overview</a>
+  <a href="money_part_month.html" class="pchip">This month</a>
+  
+  <a href="money_part_bills.html" class="pchip">Pay</a>
+  <a href="money_part_deposits.html" class="pchip">Keep</a>
+  <a href="money_part_ledger.html" class="pchip on" aria-current="true">Look back</a>
+</nav>
+
+<nav class="fchips" aria-label="Look back"><a href="money_part_ledger.html" >Ledger</a><a href="money_part_cashflow.html" >Cashflow</a><a href="money_part_trends.html" >Trends</a><a href="money_part_tax.html" >Tax papers</a><a href="money_part_home-office.html" >Home office</a><a href="money_part_year-end.html" class="on" aria-current="true">Year-end</a></nav>
+
+
+
+
+<nav class="fchips" aria-label="Year"><a href="#" data-demo="1" class="on" aria-current="true">2026</a><a href="#" data-demo="1" >2025</a></nav>
+
+
+
+
+
+
+
+
+
+
+<p><a class="btn alt" href="#" data-demo="1" download>Download it (.md)</a></p>
+<section class="card doc"><h1>2026 year-end summary (year to date)</h1>
+<p><em>Generated 2026-10-20. Transactions in the data run to 2026-10-20. Source: family.db. Aggregates only; card/account numbers are last4.</em></p>
+<p>&gt; 2026 is not over: every figure is year to date, and months before the first loaded statement are missing.</p>
+<h2>Income vs spend vs invested</h2>
+<table>
+<thead>
+<tr>
+<th>Month</th>
+<th>Income</th>
+<th>Spend</th>
+<th>Taxes</th>
+<th>Invested</th>
+<th>Left over</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-04</td>
+<td>$11,393</td>
+<td>$4,510</td>
+<td>$0</td>
+<td>$0</td>
+<td>$6,883</td>
+</tr>
+<tr>
+<td>2026-05</td>
+<td>$11,393</td>
+<td>$4,411</td>
+<td>$0</td>
+<td>$0</td>
+<td>$6,982</td>
+</tr>
+<tr>
+<td>2026-06</td>
+<td>$11,393</td>
+<td>$4,644</td>
+<td>$0</td>
+<td>$0</td>
+<td>$6,748</td>
+</tr>
+<tr>
+<td>2026-07</td>
+<td>$11,392</td>
+<td>$4,463</td>
+<td>$0</td>
+<td>$0</td>
+<td>$6,929</td>
+</tr>
+<tr>
+<td>2026-08</td>
+<td>$11,392</td>
+<td>$4,949</td>
+<td>$0</td>
+<td>$0</td>
+<td>$6,442</td>
+</tr>
+<tr>
+<td>2026-09</td>
+<td>$11,391</td>
+<td>$4,821</td>
+<td>$0</td>
+<td>$0</td>
+<td>$6,571</td>
+</tr>
+<tr>
+<td>2026-10</td>
+<td>$11,380</td>
+<td>$4,364</td>
+<td>$0</td>
+<td>$0</td>
+<td>$7,016</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>$79,734</strong></td>
+<td><strong>$32,162</strong></td>
+<td><strong>$0</strong></td>
+<td><strong>$0</strong></td>
+<td><strong>$47,572</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Income $79,734; spend $32,162; net taxes $0; invested $0. Income minus spend and taxes: $47,572 (60% of income).
+Spend includes insurance, utilities, loan payments and untyped checks. Card payments and account-to-account transfers are excluded (card purchases are counted once, on the card). One-off lumps (e.g. a life-insurance payment) are included; see the payee list.</p>
+<h2>Top spend categories</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Net spend</th>
+<th>Txns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>housing</td>
+<td>$15,050</td>
+<td>7</td>
+</tr>
+<tr>
+<td>groceries</td>
+<td>$5,483</td>
+<td>59</td>
+</tr>
+<tr>
+<td>auto loan</td>
+<td>$2,723</td>
+<td>7</td>
+</tr>
+<tr>
+<td>utilities</td>
+<td>$2,314</td>
+<td>21</td>
+</tr>
+<tr>
+<td>insurance</td>
+<td>$1,568</td>
+<td>7</td>
+</tr>
+<tr>
+<td>general merchandise</td>
+<td>$1,086</td>
+<td>14</td>
+</tr>
+<tr>
+<td>fuel</td>
+<td>$1,045</td>
+<td>21</td>
+</tr>
+<tr>
+<td>dining</td>
+<td>$910</td>
+<td>38</td>
+</tr>
+<tr>
+<td>kids activities</td>
+<td>$868</td>
+<td>8</td>
+</tr>
+<tr>
+<td>pets</td>
+<td>$291</td>
+<td>7</td>
+</tr>
+<tr>
+<td>fitness</td>
+<td>$234</td>
+<td>6</td>
+</tr>
+<tr>
+<td>subscriptions</td>
+<td>$231</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<h2>Top merchants / payees</h2>
+<table>
+<thead>
+<tr>
+<th>Payee</th>
+<th>Net spend</th>
+<th>Txns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MAPLE HOME LENDING MORTGAGE</td>
+<td>$15,050</td>
+<td>7</td>
+</tr>
+<tr>
+<td>FRESHFIELD MARKET</td>
+<td>$4,117</td>
+<td>36</td>
+</tr>
+<tr>
+<td>CRESTLINE AUTO LOAN</td>
+<td>$2,723</td>
+<td>7</td>
+</tr>
+<tr>
+<td>LAKESIDE MUTUAL AUTO INS</td>
+<td>$1,568</td>
+<td>7</td>
+</tr>
+<tr>
+<td>GREENLEAF GROCERS</td>
+<td>$1,366</td>
+<td>23</td>
+</tr>
+<tr>
+<td>BRIGHTMART</td>
+<td>$1,086</td>
+<td>14</td>
+</tr>
+<tr>
+<td>QUICKFUEL #221</td>
+<td>$1,045</td>
+<td>21</td>
+</tr>
+<tr>
+<td>CITY WATER &amp; POWER</td>
+<td>$995</td>
+<td>7</td>
+</tr>
+<tr>
+<td>NORTHSTAR MOBILE</td>
+<td>$829</td>
+<td>7</td>
+</tr>
+<tr>
+<td>BRIGHTWAVE INTERNET</td>
+<td>$490</td>
+<td>7</td>
+</tr>
+<tr>
+<td>PIZZA PALACE</td>
+<td>$461</td>
+<td>12</td>
+</tr>
+<tr>
+<td>CORNER CAFE</td>
+<td>$449</td>
+<td>26</td>
+</tr>
+<tr>
+<td>YMCA SWIM PROGRAM</td>
+<td>$448</td>
+<td>7</td>
+</tr>
+<tr>
+<td>SUMMER CAMP REGISTRATION</td>
+<td>$420</td>
+<td>1</td>
+</tr>
+<tr>
+<td>PAWS &amp; CLAWS PET</td>
+<td>$291</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<h2>Card spend by cardholder</h2>
+<table>
+<thead>
+<tr>
+<th>Cardholder</th>
+<th>Card</th>
+<th>Charges</th>
+<th>Credits</th>
+<th>Net</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ELENA RIVERA</td>
+<td>Summit Rewards Card x3344</td>
+<td>$2,575</td>
+<td>$0</td>
+<td>$2,575</td>
+</tr>
+<tr>
+<td>Elena</td>
+<td>Summit Rewards Card x3344</td>
+<td>$567</td>
+<td>$0</td>
+<td>$567</td>
+</tr>
+<tr>
+<td>MARCUS RIVERA</td>
+<td>Northway Visa x1209</td>
+<td>$5,933</td>
+<td>$0</td>
+<td>$5,933</td>
+</tr>
+<tr>
+<td>Marcus</td>
+<td>Northway Visa x1209</td>
+<td>$346</td>
+<td>$0</td>
+<td>$346</td>
+</tr>
+<tr>
+<td>SOFIA RIVERA</td>
+<td>Summit Rewards Card x3344</td>
+<td>$1,086</td>
+<td>$0</td>
+<td>$1,086</td>
+</tr>
+</tbody>
+</table>
+<p>By person: MARCUS RIVERA $5,933, ELENA RIVERA $2,575, SOFIA RIVERA $1,086, Elena $567, Marcus $346.</p>
+<h2>Subscriptions (annual cost)</h2>
+<p>Still charging: 3 tracked subscriptions, about $72/month, $864/year at current prices. Charged in 2026 so far: $465.</p>
+<table>
+<thead>
+<tr>
+<th>Subscription</th>
+<th>Decision</th>
+<th>Status</th>
+<th>~Per year</th>
+<th>2026 charged</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Springfield Gym</td>
+<td>keep</td>
+<td>active</td>
+<td>$468</td>
+<td>$234</td>
+</tr>
+<tr>
+<td>TuneWave Family</td>
+<td>unreviewed</td>
+<td>active</td>
+<td>$204</td>
+<td>$119</td>
+</tr>
+<tr>
+<td>StreamBox</td>
+<td>keep</td>
+<td>active</td>
+<td>$192</td>
+<td>$112</td>
+</tr>
+</tbody>
+</table>
+<p>No subscriptions are marked cancel/cancelled yet.</p>
+<h2>Insurance premiums</h2>
+<table>
+<thead>
+<tr>
+<th>Policy</th>
+<th>Term</th>
+<th>Premium</th>
+<th>vs prior term</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prairie Shield home x0884</td>
+<td>2026-04-03 to 2027-04-03</td>
+<td>$1,420</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Lakeside Mutual auto x5521</td>
+<td>2026-05-23 to 2026-11-21</td>
+<td>$1,344</td>
+<td>n/a</td>
+</tr>
+</tbody>
+</table>
+<p>Insurance payments seen in bank/card data (includes life insurance and any lump sums):</p>
+<table>
+<thead>
+<tr>
+<th>Payee</th>
+<th>Paid</th>
+<th>Payments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td>$1,568</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<h2>Interest income</h2>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Interest</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>?</td>
+<td>$74.40</td>
+</tr>
+</tbody>
+</table>
+<p>Total bank interest: $74.40. Interest from brokerage or government-bond accounts is on those accounts' own year-end statements, not here.</p>
+<h2>Taxes paid</h2>
+<table>
+<thead>
+<tr>
+<th>Payee</th>
+<th>Net paid (refunds negative)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Net taxes: $0.</p>
+<p>Tax-prep checklist: <code>reports/2026_tax_prep.md</code> (could not be generated)</p>
+<h2>Archive index</h2>
+<p>Documents logged (documents table), by type:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><em>No archive/2026 folder.</em></p></section>
+
+
+
+
+
+<p class="muted small">Looking up only here: open a row to see it in full. To change one of these, tell Chat.</p>
+
+<dialog id="txn-dialog" class="txndlg" aria-labelledby="txn-title"><div id="txn-body"></div></dialog>
+</main>
+
+  <button type="button" class="helpbtn" hx-get="/help/panel?key=finance:year_end" hx-target="#helpp" hx-swap="innerHTML"
+          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="finance" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
+
+
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:year_end" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
+  <nav class="bnav" aria-label="Main (phone)">
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" class="on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
+  </nav>
+
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css?v=0.125.0">
+  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
+  
+  <script src="static/app.js?v=0.125.0" defer></script>
+  <title>Add · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add on" aria-current="page" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=inbox" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
+    
+    <small class="ver">v0.125.0</small>
+  </nav>
+
+  <main>
+<header class="head"><div><h1>Add</h1><p class="sub">Scan or drop a paper and Mitra files it, asking only when unsure. Or type it in below.</p></div></header>
+<section class="card dropzone" id="upload" data-autofile="">
+  <input type="file" id="inbox-files" class="vh" multiple accept=".csv,.doc,.docx,.eml,.heic,.jpeg,.jpg,.ofx,.pdf,.png,.qfx,.tif,.tiff,.txt,.webp,.xls,.xlsx" aria-label="Choose files to add">
+  <label for="inbox-files" class="dz-target">
+    <svg class="dz-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18a4.6 4.4 0 0 1 0-8.8A5 4.5 0 0 1 17 8h1a3.5 3.5 0 0 1 0 7h-1"/><path d="M9 15l3-3 3 3"/><path d="M12 12v9"/></svg>
+    <span class="dz-h">Drop files here, paste, or <u>choose files</u></span>
+    <span class="muted">Bills, statements, receipts, photos, school calendars. Up to 25 MB each.</span>
+  </label>
+  <label class="btn" for="inbox-files">Choose files or take a photo</label>
+  <ul id="upload-result" class="uploads" role="status" aria-live="polite"></ul>
+</section>
+<h2 class="sec">Or type it in</h2>
+<nav class="addtiles" aria-label="Type it in">
+  <a class="addtile" href="#" data-demo="1"><i class="ic ic-family" aria-hidden="true"></i><span>Person or pet</span></a><a class="addtile" href="#" data-demo="1"><i class="ic ic-calendar" aria-hidden="true"></i><span>Class or activity</span></a><a class="addtile" href="#" data-demo="1"><i class="ic ic-today" aria-hidden="true"></i><span>Date or reminder</span></a><a class="addtile" href="#" data-demo="1"><i class="ic ic-calendar" aria-hidden="true"></i><span>Family event</span></a><a class="addtile" href="#" data-demo="1"><i class="ic ic-brief" aria-hidden="true"></i><span>List item</span></a><a class="addtile" href="notes.html#nadd"><i class="ic ic-note" aria-hidden="true"></i><span>Note or link</span></a><a class="addtile" href="money_part_subs.html#add-subscriptions"><i class="ic ic-money" aria-hidden="true"></i><span>Subscription</span></a><a class="addtile" href="wallet.html#wadd"><i class="ic ic-card" aria-hidden="true"></i><span>Card for the wallet</span></a><a class="addtile" href="add_photo_kind_dates.html"><i class="ic ic-calendar" aria-hidden="true"></i><span>Dates from a photo</span></a><a class="addtile" href="add_photo_kind_recipe.html"><i class="ic ic-brief" aria-hidden="true"></i><span>Recipe from a photo</span></a><a class="addtile" href="chat.html"><i class="ic ic-chat" aria-hidden="true"></i><span>Tell Chat</span></a>
+</nav>
+<h2 class="sec" id="inbox-h">Inbox <span class="cnt">18</span></h2>
+<section id="inbox" aria-labelledby="inbox-h"><section id="iprog" hidden></section>
+<nav class="icats" aria-label="Show">
+  
+  <button type="button" hx-get="/inbox/body?view=all" hx-target="#inbox" hx-swap="innerHTML"
+          hx-push-url="/add?view=all" class="icat on" aria-current="true">
+    All <span class="n">18</span></button>
+  
+  <button type="button" hx-get="/inbox/body?view=money" hx-target="#inbox" hx-swap="innerHTML"
+          hx-push-url="/add?view=money" class="icat ">
+    Money <span class="n">8</span></button>
+  
+  <button type="button" hx-get="/inbox/body?view=renewals" hx-target="#inbox" hx-swap="innerHTML"
+          hx-push-url="/add?view=renewals" class="icat ">
+    Renewals and documents <span class="n">1</span></button>
+  
+  <button type="button" hx-get="/inbox/body?view=family" hx-target="#inbox" hx-swap="innerHTML"
+          hx-push-url="/add?view=family" class="icat ">
+    Family and household <span class="n">8</span></button>
+  
+  <button type="button" hx-get="/inbox/body?view=calendar" hx-target="#inbox" hx-swap="innerHTML"
+          hx-push-url="/add?view=calendar" class="icat ">
+    Calendar <span class="n">1</span></button>
+  
+</nav>
+
+
+
+
+<section class="isec isec-money" aria-labelledby="isec-money">
+  <header class="isec-head">
+    <span class="isec-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M14.8 9A2 1.8 0 0 0 13 8h-2a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4h-2a2 2 0 0 1-1.8-1"/><path d="M12 7v10"/>
+</svg></span>
+    <div class="isec-t"><h2 id="isec-money">Money <span class="n">8</span></h2><p class="muted">Repeating payments, price rises, statements, duplicates.</p></div>
+    <button type="button" class="btn alt" hx-get="/inbox/body?view=money" hx-target="#inbox"
+      hx-swap="innerHTML" hx-push-url="/add?view=money">Work through these</button>
+    
+  </header>
+  
+  
+<article class="card icard">
+  <h2>Brightwave Internet charged $70.00 monthly (7 times)</h2>
+  <p class="muted">Track it so its next charge shows up on Today?</p>
+  
+  <div class="optrow">
+  
+  
+    
+    <button type="button" class="btn " hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "1", "open": "recurring", "option": "bill", "view": "all"}'>Track as a bill</button>
+    
+    <button type="button" class="btn alt" hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "1", "open": "recurring", "option": "ignore", "view": "all"}'>Not a bill</button>
+    
+    
+  </div>
+</article>
+
+<article class="card icard">
+  <h2>City Water charged $142.18 monthly (7 times)</h2>
+  <p class="muted">Track it so its next charge shows up on Today?</p>
+  
+  <div class="optrow">
+  
+  
+    
+    <button type="button" class="btn " hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "2", "open": "recurring", "option": "bill", "view": "all"}'>Track as a bill</button>
+    
+    <button type="button" class="btn alt" hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "2", "open": "recurring", "option": "ignore", "view": "all"}'>Not a bill</button>
+    
+    
+  </div>
+</article>
+
+<article class="card icard">
+  <h2>Crestline Auto charged $389.00 monthly (7 times)</h2>
+  <p class="muted">Track it so its next charge shows up on Today?</p>
+  
+  <div class="optrow">
+  
+  
+    
+    <button type="button" class="btn " hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "3", "open": "recurring", "option": "bill", "view": "all"}'>Track as a bill</button>
+    
+    <button type="button" class="btn alt" hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "3", "open": "recurring", "option": "ignore", "view": "all"}'>Not a bill</button>
+    
+    
+  </div>
+</article>
+
+  
+  <button type="button" class="imore" hx-get="/inbox/body?view=money" hx-target="#inbox" hx-swap="innerHTML"
+    hx-push-url="/add?view=money">Show all 8 in Money</button>
+</section>
+
+<section class="isec isec-renewals" aria-labelledby="isec-renewals">
+  <header class="isec-head">
+    <span class="isec-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a12 12 0 0 0 8.5 3A12 12 0 0 1 12 21 12 12 0 0 1 3.5 6 12 12 0 0 0 12 3"/><path d="M9 12l2 2 4-4"/>
+</svg></span>
+    <div class="isec-t"><h2 id="isec-renewals">Renewals and documents <span class="n">1</span></h2><p class="muted">Policies and papers that run out.</p></div>
+    
+    
+  </header>
+  
+  
+<article class="card icard">
+  <h2>Your Lakeside Mutual auto policy ending 5521 runs out on Nov 21 (32 days)</h2>
+  <p class="muted">The premium is $1,344.00. Drop the new declarations page in the Inbox when it arrives; the review checklist compares it to this term.</p>
+  
+  <div class="optrow">
+  
+  
+    
+    <button type="button" class="btn " hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "9", "open": "renewal", "option": "reviewed", "view": "all"}'>I looked into it</button>
+    
+    <button type="button" class="btn alt" hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "9", "open": "renewal", "option": "later", "view": "all"}'>Remind me in a week</button>
+    
+    <button type="button" class="btn alt" hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "9", "open": "renewal", "option": "dismiss", "view": "all"}'>Dismiss</button>
+    
+    <a class="btn alt" href="#" data-demo="1">Open record</a>
+  </div>
+</article>
+
+  
+  
+</section>
+
+<section class="isec isec-family" aria-labelledby="isec-family">
+  <header class="isec-head">
+    <span class="isec-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/><path d="M21 21v-2a4 4 0 0 0-3-3.9"/>
+</svg></span>
+    <div class="isec-t"><h2 id="isec-family">Family and household <span class="n">8</span></h2><p class="muted">Birthdays, dates and details to fill in.</p></div>
+    <button type="button" class="btn alt" hx-get="/inbox/body?view=family" hx-target="#inbox"
+      hx-swap="innerHTML" hx-push-url="/add?view=family">Work through these</button>
+    
+  </header>
+  
+  
+<article class="card icard">
+  <h2>When was Check fire extinguishers last done?</h2>
+  <p class="muted">Then the next one is scheduled from that date.</p>
+  
+  <div class="optrow">
+  
+  <details class="more-form"><summary class="btn">Pick date</summary>
+    <form class="nform" hx-post="/inbox/decide" hx-target="#inbox" hx-swap="innerHTML">
+      <input type="hidden" name="id" value="10">
+      <input type="hidden" name="option" value="date">
+      <input type="hidden" name="view" value="all">
+      <input type="hidden" name="open" value="undated">
+      
+      <label>When<input type="date" name="date" value="2026-10-20" min="1990-01-01" max="2026-10-20" required></label>
+      <label>Where or who (optional)<input name="provider" maxlength="80"></label>
+      
+      <button class="btn" type="submit">Save</button>
+    </form>
+  </details>
+  
+  
+    
+    <button type="button" class="btn alt" hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "10", "open": "undated", "option": "not_sure", "view": "all"}'>Not sure</button>
+    
+    <button type="button" class="btn alt" hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "10", "open": "undated", "option": "not_ours", "view": "all"}'>Not ours</button>
+    
+    <a class="btn alt" href="#" data-demo="1">Open record</a>
+  </div>
+</article>
+
+<article class="card icard">
+  <h2>When was Dryer vent cleaning last done?</h2>
+  <p class="muted">Then the next one is scheduled from that date.</p>
+  
+  <div class="optrow">
+  
+  <details class="more-form"><summary class="btn">Pick date</summary>
+    <form class="nform" hx-post="/inbox/decide" hx-target="#inbox" hx-swap="innerHTML">
+      <input type="hidden" name="id" value="11">
+      <input type="hidden" name="option" value="date">
+      <input type="hidden" name="view" value="all">
+      <input type="hidden" name="open" value="undated">
+      
+      <label>When<input type="date" name="date" value="2026-10-20" min="1990-01-01" max="2026-10-20" required></label>
+      <label>Where or who (optional)<input name="provider" maxlength="80"></label>
+      
+      <button class="btn" type="submit">Save</button>
+    </form>
+  </details>
+  
+  
+    
+    <button type="button" class="btn alt" hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "11", "open": "undated", "option": "not_sure", "view": "all"}'>Not sure</button>
+    
+    <button type="button" class="btn alt" hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "11", "open": "undated", "option": "not_ours", "view": "all"}'>Not ours</button>
+    
+    <a class="btn alt" href="#" data-demo="1">Open record</a>
+  </div>
+</article>
+
+<article class="card icard">
+  <h2>When was Fridge water filter last done?</h2>
+  <p class="muted">Then the next one is scheduled from that date.</p>
+  
+  <div class="optrow">
+  
+  <details class="more-form"><summary class="btn">Pick date</summary>
+    <form class="nform" hx-post="/inbox/decide" hx-target="#inbox" hx-swap="innerHTML">
+      <input type="hidden" name="id" value="12">
+      <input type="hidden" name="option" value="date">
+      <input type="hidden" name="view" value="all">
+      <input type="hidden" name="open" value="undated">
+      
+      <label>When<input type="date" name="date" value="2026-10-20" min="1990-01-01" max="2026-10-20" required></label>
+      <label>Where or who (optional)<input name="provider" maxlength="80"></label>
+      
+      <button class="btn" type="submit">Save</button>
+    </form>
+  </details>
+  
+  
+    
+    <button type="button" class="btn alt" hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "12", "open": "undated", "option": "not_sure", "view": "all"}'>Not sure</button>
+    
+    <button type="button" class="btn alt" hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "12", "open": "undated", "option": "not_ours", "view": "all"}'>Not ours</button>
+    
+    <a class="btn alt" href="#" data-demo="1">Open record</a>
+  </div>
+</article>
+
+  
+  <button type="button" class="imore" hx-get="/inbox/body?view=family" hx-target="#inbox" hx-swap="innerHTML"
+    hx-push-url="/add?view=family">Show all 8 in Family and household</button>
+</section>
+
+<section class="isec isec-calendar" aria-labelledby="isec-calendar">
+  <header class="isec-head">
+    <span class="isec-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M16 3v4M8 3v4M4 11h16"/><path d="M8 15h2v2H8z"/>
+</svg></span>
+    <div class="isec-t"><h2 id="isec-calendar">Calendar <span class="n">1</span></h2><p class="muted">Holidays and school days to add.</p></div>
+    
+    
+  </header>
+  
+  
+<article class="card icard">
+  <h2>1 day off or early from a school calendar: add them?</h2>
+  <p class="muted">Nov 26: Thanksgiving break (no school). Read from the school calendar paper you filed. Check them against the paper.</p>
+  
+  <div class="optrow">
+  
+  
+    
+    <button type="button" class="btn " hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "18", "open": "days", "option": "accept", "view": "all"}'>Add them to the calendar</button>
+    
+    <button type="button" class="btn alt" hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "18", "open": "days", "option": "later", "view": "all"}'>Remind me in a week</button>
+    
+    <button type="button" class="btn alt" hx-post="/inbox/decide"
+      hx-target="#inbox" hx-swap="innerHTML"
+      hx-vals='{"id": "18", "open": "days", "option": "dismiss", "view": "all"}'>Leave them out</button>
+    
+    <a class="btn alt" href="#" data-demo="1">Open record</a>
+  </div>
+</article>
+
+  
+  
+</section>
+
+
+</section>
+<div class="dropveil" aria-hidden="true"><span>Drop to add to the Inbox</span></div>
+</main>
+
+  <button type="button" class="helpbtn" hx-get="/help/panel?key=inbox" hx-target="#helpp" hx-swap="innerHTML"
+          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="inbox" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
+
+
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=inbox" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
+  <nav class="bnav" aria-label="Main (phone)">
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan on" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" ><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
+  </nav>
+
+</body>
+</html>

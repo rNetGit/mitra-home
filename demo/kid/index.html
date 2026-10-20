@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head>
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
   <meta charset="utf-8"><script>
 (function(){
   function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
@@ -16,7 +18,7 @@
 })();
 </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
@@ -24,10 +26,10 @@
   <link rel="icon" href="../static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="../static/icon-180.png">
   <link rel="stylesheet" href="../static/tokens.css">
-  <link rel="stylesheet" href="../static/app.css">
-  <script src="../static/vendor/htmx.min.js" defer=""></script>
+  <link rel="stylesheet" href="../static/app.css?v=0.125.0">
+  <script src="../static/vendor/htmx.min.js?v=0.125.0" defer></script>
   
-  <script src="../static/app.js" defer=""></script>
+  <script src="../static/app.js?v=0.125.0" defer></script>
   <title>Mitra Home</title>
 </head>
 
@@ -35,30 +37,77 @@
 <body class=""><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
-<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
-<a href="../index.html">See a parent's view</a><a href="../../index.html">Website</a></div>
-<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="../index.html">Back to the parents' view</a><a href="../../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
 
   <nav class="rail" aria-label="Main">
     <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="../static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
-    
-    
       <a href="index.html" class="on" aria-current="page">Home</a>
+      <span class="grow"></span>
+      <div class="railfoot">
+        <span class="me" title="Mateo"><span class="av sm av3" aria-hidden="true">M</span><span class="mename">Mateo</span></span>
+        <button type="button" class="ghost ibtn" data-theme-toggle data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
+        <button type="button" class="ghost ibtn" hx-post="/logout" title="Log out (Mateo)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
+      </div>
     
-    <span class="grow"></span>
-    
-    <div class="railfoot">
-      <span class="me" title="Sofia"><span class="av sm av2" aria-hidden="true">S</span><span class="mename">Sofia</span></span>
-      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
-      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Sofia)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
-    </div>
-    <small class="ver">v0.116.0</small>
+    <small class="ver">v0.125.0</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Hi Sofia</h1><p class="sub">Saturday, October 17</p></div></header>
+<header class="head"><div><h1>Hi Mateo</h1><p class="sub">Tuesday, October 20</p></div></header>
+
+
+
+<section class="card rbox" aria-label="My jobs today">
+  <h2>My jobs today <span class="muted small">· 3 of 5 done · ★ 9 stars this week</span></h2>
+  
+  <h3>Morning</h3>
+  <ul class="checklist">
+  
+    <li class="done">
+      <button type="button" class="btn alt sm" aria-label="Untick Make your bed" aria-pressed="true" hx-post="/me" hx-vals='{"done": "0", "job": "1", "op": "job"}'>↺</button>
+      <svg class="rico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18v-7h18v7M3 14h18M7 11V8h5v3"/></svg>
+      <span class="ctext"><s>Make your bed</s> <span class="muted">· +1 ★</span></span>
+    </li>
+  
+    <li class="done">
+      <button type="button" class="btn alt sm" aria-label="Untick Brush teeth" aria-pressed="true" hx-post="/me" hx-vals='{"done": "0", "job": "2", "op": "job"}'>↺</button>
+      <svg class="rico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h7v3H5zM8 7v13"/></svg>
+      <span class="ctext"><s>Brush teeth</s> <span class="muted">· +1 ★</span></span>
+    </li>
+  
+  </ul>
+  
+  <h3>After school</h3>
+  <ul class="checklist">
+  
+    <li class="">
+      <button type="button" class="btn alt sm" aria-label="Tick Homework" aria-pressed="false" hx-post="/me" hx-vals='{"done": "1", "job": "3", "op": "job"}'>✓</button>
+      <svg class="rico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM8 7h7"/></svg>
+      <span class="ctext">Homework <span class="muted">· +2 ★</span></span>
+    </li>
+  
+    <li class="">
+      <button type="button" class="btn alt sm" aria-label="Tick Feed Pancho" aria-pressed="false" hx-post="/me" hx-vals='{"done": "1", "job": "4", "op": "job"}'>✓</button>
+      <svg class="rico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 13c-2 2-3 4-1 6 2 1 3-1 5-1s3 2 5 1c2-2 1-4-1-6-1.4-1.4-2.4-2-4-2s-2.6.6-4 2zM6 9.5h.01M10 6.5h.01M14 6.5h.01M18 9.5h.01"/></svg>
+      <span class="ctext">Feed Pancho <span class="muted">· +1 ★</span></span>
+    </li>
+  
+  </ul>
+  
+  <h3>Evening</h3>
+  <ul class="checklist">
+  
+    <li class="done">
+      <button type="button" class="btn alt sm" aria-label="Untick Pack school bag" aria-pressed="true" hx-post="/me" hx-vals='{"done": "0", "job": "5", "op": "job"}'>↺</button>
+      <svg class="rico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l1 12H5zM9 8V6a3 3 0 0 1 6 0v2M9 12h6"/></svg>
+      <span class="ctext"><s>Pack school bag</s> <span class="muted">· +1 ★</span></span>
+    </li>
+  
+  </ul>
+  
+</section>
 
 
 <section class="card rbox">
@@ -67,38 +116,23 @@
   <ul class="checklist">
   
     <li>
-      <span class="ctext">Band fundraiser form <span class="muted">· school · 2026-10-09 · Hillside Middle</span></span>
-      <button type="button" class="btn alt sm" aria-label="I finished Band fundraiser form" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;11&quot;, &quot;op&quot;: &quot;done&quot;}">Done</button>
+      <span class="ctext">Field trip form and $12 <span class="muted">· school · Wed, Oct 21 · Washington Elementary</span></span>
+      <button type="button" class="btn alt sm" aria-label="I finished Field trip form and $12" hx-post="/me" hx-vals='{"item": "11", "op": "done"}'>Done</button>
     </li>
   
     <li>
-      <span class="ctext">Wash the car <span class="muted">· chore · 2026-10-18</span></span>
-      <button type="button" class="btn alt sm" aria-label="I finished Wash the car" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;29&quot;, &quot;op&quot;: &quot;done&quot;}">Done</button>
-    </li>
-  
-    <li>
-      <span class="ctext">Braces adjustment <span class="muted">· medical · 2026-10-22 · Smile Ortho</span></span>
-      <button type="button" class="btn alt sm" aria-label="I finished Braces adjustment" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;17&quot;, &quot;op&quot;: &quot;done&quot;}">Done</button>
-    </li>
-  
-    <li>
-      <span class="ctext">Science fair project due <span class="muted">· school · 2026-10-24 · Hillside Middle</span></span>
-      <button type="button" class="btn alt sm" aria-label="I finished Science fair project due" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;10&quot;, &quot;op&quot;: &quot;done&quot;}">Done</button>
-    </li>
-  
-    <li>
-      <span class="ctext">Soccer registration fee <span class="muted">· activity · 2026-11-05</span></span>
-      <button type="button" class="btn alt sm" aria-label="I finished Soccer registration fee" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;15&quot;, &quot;op&quot;: &quot;done&quot;}">Done</button>
+      <span class="ctext">Picture day <span class="muted">· school · Mon, Oct 26 · Washington Elementary</span></span>
+      <button type="button" class="btn alt sm" aria-label="I finished Picture day" hx-post="/me" hx-vals='{"item": "12", "op": "done"}'>Done</button>
     </li>
   
     <li>
       <span class="ctext">Vaccination record check <span class="muted">· medical · ask a parent for the date</span></span>
-      <button type="button" class="btn alt sm" aria-label="I finished Vaccination record check" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;4&quot;, &quot;op&quot;: &quot;done&quot;}">Done</button>
+      <button type="button" class="btn alt sm" aria-label="I finished Vaccination record check" hx-post="/me" hx-vals='{"item": "5", "op": "done"}'>Done</button>
     </li>
   
     <li>
       <span class="ctext">School registration / forms for the new year <span class="muted">· school · ask a parent for the date</span></span>
-      <button type="button" class="btn alt sm" aria-label="I finished School registration / forms for the new year" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;6&quot;, &quot;op&quot;: &quot;done&quot;}">Done</button>
+      <button type="button" class="btn alt sm" aria-label="I finished School registration / forms for the new year" hx-post="/me" hx-vals='{"item": "7", "op": "done"}'>Done</button>
     </li>
   
   </ul>
@@ -109,185 +143,66 @@
   <h2>Our lists</h2>
   
   
-  <h3>Beach trip packing <span class="muted small">5 to do</span></h3>
+  <h3>Groceries <span class="muted small">5 to do</span></h3>
   
   <ul class="checklist">
   
     <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick Sunscreen" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;11&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">Sunscreen</span>
+      <button type="button" class="btn alt sm" aria-label="Tick Milk" hx-post="/me" hx-vals='{"item": "1", "op": "tick"}'>✓</button>
+      <span class="ctext">Milk</span>
     </li>
   
     <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick Towels" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;12&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">Towels</span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick Cooler" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;13&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">Cooler</span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick Beach umbrella" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;14&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">Beach umbrella</span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick Sandals" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;15&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">Sandals</span>
-    </li>
-  
-  </ul>
-  
-  <form class="nform" data-hx-post="/me" data-hx-vals="{&quot;list&quot;: &quot;3&quot;, &quot;op&quot;: &quot;add&quot;}">
-    <label>Add to Beach trip packing<input name="text" maxlength="120" required="" placeholder="milk, sun cream..."></label>
-    <button class="btn" type="submit">Add</button>
-  </form>
-  
-  
-  <h3>Groceries <span class="muted small">19 to do</span></h3>
-  
-  <ul class="checklist">
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick Milk" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;1&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">Milk <span class="muted">· 2 gal</span></span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick Tortillas" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;3&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">Tortillas</span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick Chicken thighs" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;4&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">Chicken thighs <span class="muted">· 3 lb</span></span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick Bananas" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;5&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
+      <button type="button" class="btn alt sm" aria-label="Tick Bananas" hx-post="/me" hx-vals='{"item": "2", "op": "tick"}'>✓</button>
       <span class="ctext">Bananas</span>
     </li>
   
     <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick Dog food" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;6&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">Dog food</span>
+      <button type="button" class="btn alt sm" aria-label="Tick Tortillas" hx-post="/me" hx-vals='{"item": "3", "op": "tick"}'>✓</button>
+      <span class="ctext">Tortillas</span>
     </li>
   
     <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick chipotles" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;18&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">chipotles <span class="muted">· 1 can</span></span>
+      <button type="button" class="btn alt sm" aria-label="Tick Cereal" hx-post="/me" hx-vals='{"item": "4", "op": "tick"}'>✓</button>
+      <span class="ctext">Cereal</span>
     </li>
   
     <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick onion" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;19&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">onion <span class="muted">· 4</span></span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick pasta" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;20&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">pasta <span class="muted">· 1 lb</span></span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick zucchini" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;21&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">zucchini <span class="muted">· 2</span></span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick rice" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;22&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">rice <span class="muted">· 2 cups</span></span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick chicken" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;23&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">chicken <span class="muted">· 1 lb</span></span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick peas" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;24&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">peas <span class="muted">· 1 cup</span></span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick flour" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;25&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">flour <span class="muted">· 2 cups</span></span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick salmon" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;26&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">salmon <span class="muted">· 1.5 lb</span></span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick eggs" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;27&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">eggs <span class="muted">· 4</span></span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick potatoes" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;28&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">potatoes <span class="muted">· 1 lb</span></span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick lemon" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;29&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">lemon <span class="muted">· 1</span></span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick black beans" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;30&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">black beans <span class="muted">· 2 cans</span></span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick lime" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;31&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">lime <span class="muted">· 1</span></span>
-    </li>
-  
-    <li class="done">
-      <button type="button" class="btn alt sm" aria-label="Untick Eggs" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;2&quot;, &quot;op&quot;: &quot;untick&quot;}">↺</button>
-      <span class="ctext"><s>Eggs</s> <span class="muted">· 18</span></span>
+      <button type="button" class="btn alt sm" aria-label="Tick Eggs" hx-post="/me" hx-vals='{"item": "5", "op": "tick"}'>✓</button>
+      <span class="ctext">Eggs</span>
     </li>
   
   </ul>
   
-  <form class="nform" data-hx-post="/me" data-hx-vals="{&quot;list&quot;: &quot;1&quot;, &quot;op&quot;: &quot;add&quot;}">
-    <label>Add to Groceries<input name="text" maxlength="120" required="" placeholder="milk, sun cream..."></label>
+  <form class="nform" hx-post="/me" hx-vals='{"list": "1", "op": "add"}'>
+    <label>Add to Groceries<input name="text" maxlength="120" required placeholder="milk, sun cream..."></label>
     <button class="btn" type="submit">Add</button>
   </form>
   
-  <div class="optrow"><button type="button" class="btn alt" data-hx-post="/me" data-hx-vals="{&quot;list&quot;: &quot;1&quot;, &quot;op&quot;: &quot;clear&quot;}">Clear ticked items</button></div>
   
-  
-  <h3>Weekend to-do <span class="muted small">4 to do</span></h3>
+  <h3>Weekend jobs <span class="muted small">3 to do</span></h3>
   
   <ul class="checklist">
   
     <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick Mow the lawn" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;7&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">Mow the lawn</span>
+      <button type="button" class="btn alt sm" aria-label="Tick Rake the front yard" hx-post="/me" hx-vals='{"item": "6", "op": "tick"}'>✓</button>
+      <span class="ctext">Rake the front yard</span>
     </li>
   
     <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick Clean Pancho's bed" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;8&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">Clean Pancho's bed</span>
+      <button type="button" class="btn alt sm" aria-label="Tick Clean the garage" hx-post="/me" hx-vals='{"item": "7", "op": "tick"}'>✓</button>
+      <span class="ctext">Clean the garage</span>
     </li>
   
     <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick Return library books" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;9&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">Return library books</span>
-    </li>
-  
-    <li class="">
-      <button type="button" class="btn alt sm" aria-label="Tick Call plumber" data-hx-post="/me" data-hx-vals="{&quot;item&quot;: &quot;10&quot;, &quot;op&quot;: &quot;tick&quot;}">✓</button>
-      <span class="ctext">Call plumber</span>
+      <button type="button" class="btn alt sm" aria-label="Tick Swap summer clothes" hx-post="/me" hx-vals='{"item": "8", "op": "tick"}'>✓</button>
+      <span class="ctext">Swap summer clothes</span>
     </li>
   
   </ul>
   
-  <form class="nform" data-hx-post="/me" data-hx-vals="{&quot;list&quot;: &quot;2&quot;, &quot;op&quot;: &quot;add&quot;}">
-    <label>Add to Weekend to-do<input name="text" maxlength="120" required="" placeholder="milk, sun cream..."></label>
+  <form class="nform" hx-post="/me" hx-vals='{"list": "2", "op": "add"}'>
+    <label>Add to Weekend jobs<input name="text" maxlength="120" required placeholder="milk, sun cream..."></label>
     <button class="btn" type="submit">Add</button>
   </form>
   
@@ -296,36 +211,27 @@
 
 <section class="card rbox">
   <h2>Our saved links</h2>
-  <form class="rsearch" method="get" action="index.html" role="search">
+  <form class="rsearch" method="get" action="/" role="search">
     <input name="q" maxlength="80" value="" placeholder="pizza, science project, game..." aria-label="Search our saved links">
     <button class="btn alt" type="submit">Search</button>
   </form>
   
   <ul class="hits">
   
-    <li>Pullen Park
-      <span class="muted"> · Carousel and train</span></li>
+    <li>Lincoln Park playground
+      <span class="muted small"> · added by Elena</span></li>
   
-    <li><a href="https://example.com/pizza-dough" target="_blank" rel="noopener noreferrer nofollow">Best pizza dough recipe</a>
-      <span class="muted"> · 72 hour cold ferment</span></li>
+    <li><a href="https://example.org/science-fair" target="_blank" rel="noopener noreferrer nofollow">Science fair rules</a>
+      <span class="muted small"> · added by Marcus</span></li>
   
-    <li><a href="https://example.com/hurricane" target="_blank" rel="noopener noreferrer nofollow">Hurricane prep checklist</a>
-      </li>
-  
-    <li><a href="https://www.youtube.com/watch?v=abc123" target="_blank" rel="noopener noreferrer nofollow">Planet Money: how to fix a leaky faucet</a>
-      </li>
-  
-    <li><a href="https://example.com/aquarium-deal" target="_blank" rel="noopener noreferrer nofollow">Aquarium family pass 20% off</a>
-      </li>
-  
-    <li>Wifi password is on the router sticker
-      <span class="muted"> · Guest network is on the fridge door</span></li>
+    <li>Winter coats 30% off at BrightMart
+      <span class="muted small"> · added by Elena</span></li>
   
   </ul>
   
   <details class="more-form"><summary class="btn alt">Save a link or note</summary>
-    <form class="nform" data-hx-post="/me" data-hx-vals="{&quot;op&quot;: &quot;save&quot;}">
-      <label>Title<input name="title" maxlength="200" required="" placeholder="What is it?"></label>
+    <form class="nform" hx-post="/me" hx-vals='{"op": "save"}'>
+      <label>Title<input name="title" maxlength="200" required placeholder="What is it?"></label>
       <label>Link (optional)<input name="url" type="url" maxlength="2000" placeholder="https://..."></label>
       <label>Note (optional)<input name="note" maxlength="300"></label>
       <button class="btn" type="submit">Save</button>
@@ -336,23 +242,23 @@
 <section class="card rbox">
   <h2>Coming up in the next two weeks</h2>
   
-  <ul class="hits"><li>2026-10-18: Wash the car (Sofia)</li><li>2026-10-22: Braces adjustment (Sofia)</li><li>2026-10-24: Science fair project due (Sofia)</li><li>2026-10-27: Parent-teacher conference sign-up</li></ul>
+  <ul class="hits"><li>Wed, Oct 21: Field trip form and $12 (Mateo)</li><li>Mon, Oct 26: Picture day (Mateo)</li><li>Tue, Oct 27: Book Thanksgiving flights</li></ul>
   
   
   <h3>My classes this week</h3>
-  <ul class="hits"><li>Sat Oct 17: Piano lesson 10:00 at Music studio</li><li>Mon Oct 19: Swimming 17:00 at YMCA</li><li>Wed Oct 21: Swimming 17:00 at YMCA</li></ul>
+  <ul class="hits"><li>Wed, Oct 21: Piano 16:00 at Ms. Lee&#39;s Studio</li><li>Sat, Oct 24: Swim lessons 10:00 at YMCA</li></ul>
   
   
   <h3>Holidays and days off</h3>
-  <ul class="hits"><li>Oct 21: Teacher work day (no school)</li><li>Nov 01 to Nov 02: Dia de los Muertos</li><li>Nov 11: Veterans Day</li></ul>
+  <ul class="hits"><li>Oct 31: Teacher institute day (no school) (no school)</li><li>Nov 1: Daylight saving time ends: clocks go back 1 hour (clocks change)</li><li>Nov 5: Early dismissal 12:30 (early dismissal)</li><li>Nov 11: Veterans Day</li></ul>
   
   <h3>Birthdays</h3>
   
-  <ul class="hits"><li>Nov 02: Elena's birthday (turns 42)</li><li>Mar 09: Sofia's birthday (turns 15)</li><li>May 21: Marcus's birthday (turns 45)</li><li>Jul 23: Mateo's birthday (turns 8)</li><li>Sep 14: Pancho's birthday</li></ul>
+  <ul class="hits"><li>Mon, Nov 2: Elena&#39;s birthday (turns 42)</li><li>Tue, Mar 9, 2027: Sofia&#39;s birthday (turns 15)</li><li>Fri, May 21, 2027: Marcus&#39;s birthday (turns 45)</li><li>Fri, Jul 23, 2027: Mateo&#39;s birthday (turns 11)</li><li>Tue, Sep 14, 2027: Pancho&#39;s birthday</li></ul>
   
 </section>
 </main>
 
 
-
-</body></html>
+</body>
+</html>

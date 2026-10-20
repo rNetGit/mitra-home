@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head>
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
   <meta charset="utf-8"><script>
 (function(){
   function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
@@ -16,7 +18,7 @@
 })();
 </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
@@ -24,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css">
-  <script src="static/vendor/htmx.min.js" defer=""></script>
+  <link rel="stylesheet" href="static/app.css?v=0.125.0">
+  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
   
-  <script src="static/app.js" defer=""></script>
+  <script src="static/app.js?v=0.125.0" defer></script>
   <title>Settings · Mitra Home</title>
 </head>
 
@@ -35,53 +37,42 @@
 <body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
-<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
-<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
-<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
 
   <nav class="rail" aria-label="Main">
     <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me on" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
     
-    
-      
-        
-        <span class="grp">Every day</span>
-        <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="32 waiting">32</span></a><a href="brief.html">To do</a>
-        
-      
-        
-        <details class="rg" data-rg="Money">
-          <summary>Money</summary>
-          <a href="month.html">This month</a><a href="finance.html">Finance</a>
-        </details>
-        
-      
-        
-        <details class="rg" data-rg="Everything else">
-          <summary>Everything else</summary>
-          <a href="records.html">Records</a><a href="notes.html">Notes</a>
-        </details>
-        
-      
-    
-    <span class="grow"></span>
-    <a href="settings.html" class="on" aria-current="page">Settings</a>
-    <div class="railfoot">
-      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
-      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
-      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
-    </div>
-    <small class="ver">v0.116.0</small>
+    <small class="ver">v0.125.0</small>
   </nav>
 
   <main>
 
 
 <header class="head fhead"><div><a class="fback" href="settings.html">Settings</a><h1>Connections</h1></div></header>
-<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html">Household profile</a><a href="settings_group_agent.html">Agent</a><a href="settings_group_connections.html" class="on" aria-current="true">Connections</a><a href="settings_group_phones.html">Phones</a><a href="settings_group_data.html">Data</a></nav>
+<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html" >Household profile</a><a href="settings_group_agent.html" >Agent</a><a href="settings_group_connections.html" class="on" aria-current="true">Connections</a><a href="settings_group_phones.html" >Phones</a><a href="settings_group_data.html" >Data</a></nav>
 
 
 
@@ -92,15 +83,15 @@
 <section class="card" id="conn-ai">
   <h2>AI provider <span class="chip info">Not set up</span></h2>
   <p class="muted">Choose an AI to read your papers and answer questions. Everything else works without one.</p>
-  <form class="nform" data-hx-post="/settings/ai" data-hx-vals="{&quot;from&quot;: &quot;settings&quot;}" data-hx-disabled-elt="find button[type=submit]">
-  <label>Provider<select name="provider"><option value="claude_code">Claude Code (your own Claude login)</option><option value="gemini">Google Gemini (API key, paid tier)</option><option value="openai">OpenAI (API key)</option><option value="anthropic">Anthropic Claude (API key)</option><option value="openrouter">OpenRouter (one API key, many models)</option><option value="ollama">Ollama (a model on this PC)</option><option value="none" selected="">No AI</option></select></label>
-  <label>Model (blank = the default)<input name="model" maxlength="80" value="" autocomplete="off"></label>
+  <form class="nform" hx-post="/settings/ai" hx-vals='{"from": "settings"}' hx-disabled-elt="find button[type=submit]">
+  <label>Provider<select name="provider"><option value="claude_code" >Claude Code (your own Claude login)</option><option value="gemini"  data-keyed>Google Gemini (API key, paid tier)</option><option value="openai"  data-keyed>OpenAI (API key)</option><option value="anthropic"  data-keyed>Anthropic Claude (API key)</option><option value="openrouter"  data-keyed>OpenRouter (one API key, many models)</option><option value="ollama" >Ollama (a model on this PC)</option><option value="none" selected>No AI</option></select></label>
+  <label class="ai-field">Model (blank = the default)<input name="model" maxlength="80" value="" autocomplete="off"></label>
   
-  <label>API key<input name="key" type="password" maxlength="300" autocomplete="off" spellcheck="false"></label>
+  <label class="ai-field ai-key">API key<input name="key" type="password" maxlength="300" autocomplete="off" spellcheck="false"></label>
   
-  <label class="check wide"><input type="checkbox" name="consent" value="1"> I understand the text of my documents (identifiers and names masked) goes to this provider under my own account.</label>
-  <label class="check wide"><input type="checkbox" name="paid" value="1"> Gemini only: this key's Google project has billing on (paid tier: prompts are not used for training).</label>
-  <label class="check wide"><input type="checkbox" name="photos" value="1"> Let the AI read photos: receipts in the Inbox and wallet cards (a photo cannot be masked first).</label>
+  <label class="check wide ai-field"><input type="checkbox" name="consent" value="1"> I understand the text of my documents (identifiers and names masked) goes to this provider under my own account.</label>
+  <label class="check wide ai-field ai-gemini"><input type="checkbox" name="paid" value="1" > Gemini only: this key's Google project has billing on (paid tier: prompts are not used for training).</label>
+  <label class="check wide ai-field"><input type="checkbox" name="photos" value="1" > Let the AI read photos: receipts in the Inbox and wallet cards (a photo cannot be masked first).</label>
   <div class="optrow wide">
     <button class="btn" type="submit">Save</button>
     
@@ -116,8 +107,8 @@
   <p class="muted">Family members can ask what is due, search documents and send papers from their phones. In Telegram,
     message @BotFather, send /newbot, pick a name, and paste the token it gives you here.</p>
   
-  <form class="nform" data-hx-post="/settings/telegram" data-hx-vals="{&quot;op&quot;: &quot;token&quot;}" data-hx-disabled-elt="find button">
-    <label>Bot token<input name="token" type="password" maxlength="200" required="" autocomplete="off" spellcheck="false"></label>
+  <form class="nform" hx-post="/settings/telegram" hx-vals='{"op": "token"}' hx-disabled-elt="find button">
+    <label>Bot token<input name="token" type="password" maxlength="200" required autocomplete="off" spellcheck="false"></label>
     <button class="btn" type="submit">Save token</button>
   </form>
   
@@ -138,47 +129,64 @@
   
 </section>
 
+<section class="card" id="conn-bank">
+  <h2>Bank sync (SimpleFIN) <span class="chip info">Not set up</span></h2>
+  <p class="muted">Optional, for power users: balances and new transactions pulled every morning through SimpleFIN Bridge (a service the family pays about $1.50 a month). Statements in the Inbox work without it.</p>
+  
+  <p class="muted small">SimpleFIN Bridge (bridge.simplefin.org) is a paid service the family signs up for themselves (about $1.50 a month,
+    paid to them, not to Mitra Home). You connect your banks there; Mitra Home only asks it, read-only, for balances and new
+    transactions once a morning. Nothing else leaves this PC. Make a setup token there and paste it here. docs/BANK_SYNC.md has the steps.</p>
+  
+  <form class="nform" hx-post="/settings/bank" hx-vals='{"op": "token"}' hx-disabled-elt="find button">
+    <label>Setup token<input name="token" type="password" maxlength="2000" required autocomplete="off" spellcheck="false"></label>
+    <button class="btn" type="submit">Connect</button>
+  </form>
+  
+  
+</section>
+
 
 
 </main>
 
-  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=settings" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
-  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="settings" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+  <button type="button" class="helpbtn" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML"
+          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="settings" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
+  <details class="bmore pme">
+    <summary aria-label="More" class="on"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
   <nav class="bnav" aria-label="Main (phone)">
-    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
-    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
-    <a href="inbox.html" class="scan" aria-label="Add or scan, 32 in the Inbox"><b aria-hidden="true">+</b><span class="badge">32</span></a>
-    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
-    <details class="bmore">
-      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
-      <div class="sheet" role="menu">
-        
-        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
-        
-        <a role="menuitem" href="wallet.html">Wallet</a>
-        
-        <a role="menuitem" href="inbox.html">Inbox <span class="badge">32</span></a>
-        
-        <a role="menuitem" href="month.html">This month</a>
-        
-        <a role="menuitem" href="finance.html">Finance</a>
-        
-        <a role="menuitem" href="records.html">Records</a>
-        
-        <a role="menuitem" href="notes.html">Notes</a>
-        
-        <a role="menuitem" href="chat.html">Chat</a>
-        
-        <a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
-        
-        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
-      </div>
-    </details>
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" ><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
   </nav>
 
-
-</body></html>
+</body>
+</html>

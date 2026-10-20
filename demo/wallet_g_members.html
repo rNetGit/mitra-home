@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head>
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
   <meta charset="utf-8"><script>
 (function(){
   function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
@@ -16,7 +18,7 @@
 })();
 </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
@@ -24,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css">
-  <script src="static/vendor/htmx.min.js" defer=""></script>
+  <link rel="stylesheet" href="static/app.css?v=0.125.0">
+  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
   
-  <script src="static/app.js" defer=""></script>
+  <script src="static/app.js?v=0.125.0" defer></script>
   <title>Wallet · Mitra Home</title>
 </head>
 
@@ -35,62 +37,57 @@
 <body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
-<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
-<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
-<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
 
   <nav class="rail" aria-label="Main">
     <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=wallet" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
     
-    
-      
-        
-        <span class="grp">Every day</span>
-        <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html" class="on" aria-current="page">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="32 waiting">32</span></a><a href="brief.html">To do</a>
-        
-      
-        
-        <details class="rg" data-rg="Money">
-          <summary>Money</summary>
-          <a href="month.html">This month</a><a href="finance.html">Finance</a>
-        </details>
-        
-      
-        
-        <details class="rg" data-rg="Everything else">
-          <summary>Everything else</summary>
-          <a href="records.html">Records</a><a href="notes.html">Notes</a>
-        </details>
-        
-      
-    
-    <span class="grow"></span>
-    <a href="settings.html">Settings</a>
-    <div class="railfoot">
-      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
-      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
-      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
-    </div>
-    <small class="ver">v0.116.0</small>
+    <small class="ver">v0.125.0</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Wallet</h1><p class="sub">Your cards in one place: where each number is, plates, policies and memberships.</p></div>
-  <a class="btn wparkbtn" href="#" data-demo="1">Parking</a></header>
-<form class="rsearch wsearch" action="wallet.html" method="get" role="search">
+
+<header class="head"><div><h1>Family</h1><p class="sub">Wallet: where each number is, plates, policies and memberships.</p></div>
+  <a class="btn wparkbtn" href="wallet_park.html">Parking</a></header>
+
+<nav class="pchips mtabs" aria-label="Family">
+  <a href="family.html" class="pchip">Everyone</a><a href="records_domain_people.html" class="pchip">People</a><a href="records_domain_home.html" class="pchip">Home</a><a href="records_domain_vehicles.html" class="pchip">Cars</a><a href="records_domain_papers.html" class="pchip">Papers &amp; IDs</a><a href="wallet.html" class="pchip on" aria-current="true">Wallet</a><a href="family_routines.html" class="pchip">Routines</a>
+</nav>
+
+<form class="rsearch wsearch" action="/wallet" method="get" role="search">
   <input type="hidden" name="g" value="members">
   <label class="vh" for="wq">Search the wallet</label>
-  <input id="wq" type="search" name="q" value="" maxlength="100" placeholder="plate? wifi? library? Mia's passport?">
+  <input id="wq" type="search" name="q" value="" maxlength="100" placeholder="Search: plate, wifi, library card, passport">
   <button class="btn" type="submit">Find</button>
 </form>
 
 
 <nav class="fchips wchips" aria-label="Show">
-  <a href="wallet.html" class="">All <small>14</small></a>
-  <a href="wallet_g_car.html" class="">Car <small>3</small></a><a href="wallet_g_people.html" class="">People <small>7</small></a><a href="wallet_g_home.html" class="">Home <small>2</small></a><a href="wallet_g_members.html" class="on" aria-current="page">Memberships <small>2</small></a>
+  <a href="wallet.html" class="" >All <small>12</small></a>
+  <a href="wallet_g_car.html" class="" >Car <small>3</small></a><a href="wallet_g_people.html" class="" >People <small>5</small></a><a href="wallet_g_home.html" class="" >Home <small>2</small></a><a href="wallet_g_members.html" class="on" aria-current="page">Memberships <small>2</small></a>
   <span class="wsoon">4 expiring soon</span>
 </nav>
 
@@ -104,33 +101,33 @@
       <details class="wcard wt-members">
         <summary>
           
-          <span class="wtt"><b>City library</b><small>Elena</small></span>
-          <span class="wnum">2 9001 0042 1187</span>
+          <span class="wtt"><b>Warehouse club</b><small>Marcus · BulkBarn</small></span>
+          <span class="wnum">8001 2345 6</span>
           
-          <span class="wfoot"><span></span></span>
+          <span class="wfoot"><span></span><span class="wpill w-warn">due in 40 days</span></span>
         </summary>
         <div class="wback">
-          <p class="whint"><b>Where's the number?</b> Card number: back of the card, under the barcode.</p>
+          <p class="whint"><b>Where's the number?</b> Member number: back of the card, under the barcode.</p>
           
-          <p class="small"><a href="#" data-demo="1">Open in Records</a></p>
+          <p class="small"><a href="#" data-demo="1">Open record</a></p>
         </div>
       </details>
       
       <details class="more-form wedit"><summary class="btn alt">Change</summary>
-        <form class="nform" data-hx-post="/wallet/card" data-hx-vals="{&quot;id&quot;: 2, &quot;op&quot;: &quot;save&quot;}">
-            <label>Kind<select name="kind"><option value="membership">Membership</option><option value="loyalty">Store or loyalty</option><option value="library" selected="">Library</option><option value="travel">Travel (known traveler, airline)</option><option value="health">Health or dental</option><option value="home">Home facts</option><option value="other">Other</option></select></label>
-  <label>Name on the card<input name="title" maxlength="60" required="" value="City library" placeholder="City library"></label>
-  <label>Whose card (optional)<select name="member"><option value="">(the household)</option><option value="Marcus">Marcus</option><option value="Elena" selected="">Elena</option><option value="Sofia">Sofia</option><option value="Mateo">Mateo</option><option value="Pancho">Pancho</option></select></label>
-  <label>Issued by (optional)<input name="issuer" maxlength="60" value=""></label>
-  <label>Whole number (membership, store, library)<input name="number" maxlength="30" value="2 9001 0042 1187" autocomplete="off" inputmode="text"></label>
-  <label>Last 4 (any other card)<input name="number_last4" maxlength="4" value="1187" autocomplete="off"></label>
+        <form class="nform" hx-post="/wallet/card" hx-vals='{"id": 2, "op": "save"}'>
+            <label>Kind<select name="kind"><option value="membership" selected>Membership</option><option value="loyalty" >Store or loyalty</option><option value="library" >Library</option><option value="travel" >Travel (known traveler, airline)</option><option value="health" >Health or dental</option><option value="home" >Home facts</option><option value="other" >Other</option></select></label>
+  <label>Name on the card<input name="title" maxlength="60" required value="Warehouse club" placeholder="City library"></label>
+  <label>Whose card (optional)<select name="member"><option value="">(the household)</option><option value="Marcus" selected>Marcus</option><option value="Elena" >Elena</option><option value="Sofia" >Sofia</option><option value="Mateo" >Mateo</option><option value="Pancho" >Pancho</option></select></label>
+  <label>Issued by (optional)<input name="issuer" maxlength="60" value="BulkBarn"></label>
+  <label>Whole number (membership, store, library)<input name="number" maxlength="30" value="800123456" autocomplete="off" inputmode="text"></label>
+  <label>Last 4 (any other card)<input name="number_last4" maxlength="4" value="3456" autocomplete="off"></label>
   <label>Where the number is (optional)<input name="where_hint" maxlength="120" value="" placeholder="back, under the barcode"></label>
   <label>Details (optional)<input name="details" maxlength="300" value="" placeholder="Wi-Fi name, trash day, filter size"></label>
-  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value=""></label>
+  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2026-11-29"></label>
           <button class="btn" type="submit">Save card</button>
         </form>
-        <form class="nform" data-hx-post="/wallet/card" data-hx-vals="{&quot;id&quot;: 2, &quot;op&quot;: &quot;drop&quot;}">
-          <label class="check"><input type="checkbox" name="sure" value="1" required=""> Yes, remove this card</label>
+        <form class="nform" hx-post="/wallet/card" hx-vals='{"id": 2, "op": "drop"}'>
+          <label class="check"><input type="checkbox" name="sure" value="1" required> Yes, remove this card</label>
           <button class="btn alt" type="submit">Remove</button>
         </form>
       </details>
@@ -141,33 +138,33 @@
       <details class="wcard wt-members">
         <summary>
           
-          <span class="wtt"><b>Warehouse club</b><small></small></span>
-          <span class="wnum">1110 2233 4455</span>
+          <span class="wtt"><b>Springfield Public Library</b><small>Sofia · Springfield Library</small></span>
+          <span class="wnum">2991 1004 417</span>
           
-          <span class="wfoot"><span></span><span class="wpill w-ok">Oct 2027</span></span>
+          <span class="wfoot"><span></span><span class="wpill w-ok">Aug 2027</span></span>
         </summary>
         <div class="wback">
-          <p class="whint"><b>Where's the number?</b> Member number: back of the card, under the barcode.</p>
+          <p class="whint"><b>Where's the number?</b> Card number: back of the card, under the barcode.</p>
           
-          <p class="small"><a href="#" data-demo="1">Open in Records</a></p>
+          <p class="small"><a href="#" data-demo="1">Open record</a></p>
         </div>
       </details>
       
       <details class="more-form wedit"><summary class="btn alt">Change</summary>
-        <form class="nform" data-hx-post="/wallet/card" data-hx-vals="{&quot;id&quot;: 1, &quot;op&quot;: &quot;save&quot;}">
-            <label>Kind<select name="kind"><option value="membership" selected="">Membership</option><option value="loyalty">Store or loyalty</option><option value="library">Library</option><option value="travel">Travel (known traveler, airline)</option><option value="health">Health or dental</option><option value="home">Home facts</option><option value="other">Other</option></select></label>
-  <label>Name on the card<input name="title" maxlength="60" required="" value="Warehouse club" placeholder="City library"></label>
-  <label>Whose card (optional)<select name="member"><option value="">(the household)</option><option value="Marcus">Marcus</option><option value="Elena">Elena</option><option value="Sofia">Sofia</option><option value="Mateo">Mateo</option><option value="Pancho">Pancho</option></select></label>
-  <label>Issued by (optional)<input name="issuer" maxlength="60" value=""></label>
-  <label>Whole number (membership, store, library)<input name="number" maxlength="30" value="1110 2233 4455" autocomplete="off" inputmode="text"></label>
-  <label>Last 4 (any other card)<input name="number_last4" maxlength="4" value="4455" autocomplete="off"></label>
+        <form class="nform" hx-post="/wallet/card" hx-vals='{"id": 1, "op": "save"}'>
+            <label>Kind<select name="kind"><option value="membership" >Membership</option><option value="loyalty" >Store or loyalty</option><option value="library" selected>Library</option><option value="travel" >Travel (known traveler, airline)</option><option value="health" >Health or dental</option><option value="home" >Home facts</option><option value="other" >Other</option></select></label>
+  <label>Name on the card<input name="title" maxlength="60" required value="Springfield Public Library" placeholder="City library"></label>
+  <label>Whose card (optional)<select name="member"><option value="">(the household)</option><option value="Marcus" >Marcus</option><option value="Elena" >Elena</option><option value="Sofia" selected>Sofia</option><option value="Mateo" >Mateo</option><option value="Pancho" >Pancho</option></select></label>
+  <label>Issued by (optional)<input name="issuer" maxlength="60" value="Springfield Library"></label>
+  <label>Whole number (membership, store, library)<input name="number" maxlength="30" value="29911004417" autocomplete="off" inputmode="text"></label>
+  <label>Last 4 (any other card)<input name="number_last4" maxlength="4" value="4417" autocomplete="off"></label>
   <label>Where the number is (optional)<input name="where_hint" maxlength="120" value="" placeholder="back, under the barcode"></label>
   <label>Details (optional)<input name="details" maxlength="300" value="" placeholder="Wi-Fi name, trash day, filter size"></label>
-  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2027-10-31"></label>
+  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2027-08-16"></label>
           <button class="btn" type="submit">Save card</button>
         </form>
-        <form class="nform" data-hx-post="/wallet/card" data-hx-vals="{&quot;id&quot;: 1, &quot;op&quot;: &quot;drop&quot;}">
-          <label class="check"><input type="checkbox" name="sure" value="1" required=""> Yes, remove this card</label>
+        <form class="nform" hx-post="/wallet/card" hx-vals='{"id": 1, "op": "drop"}'>
+          <label class="check"><input type="checkbox" name="sure" value="1" required> Yes, remove this card</label>
           <button class="btn alt" type="submit">Remove</button>
         </form>
       </details>
@@ -180,8 +177,8 @@
 <details class="card sfold" id="wphoto">
   <summary><h2>Add a card from a photo</h2></summary>
   <div class="nform">
-    <label>Photo of the card (front or back)<input type="file" id="wallet-photo" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" capture="environment"></label>
-    <p class="muted small wide">The AI does not read photos here (turn it on in Settings &gt; Connections &gt; AI helper), so you fill in the card yourself.</p>
+    <label>Photo of the card (front or back)<input type="file" id="wallet-photo" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp,.heic,image/heic" capture="environment"></label>
+    <p class="muted small wide">The AI does not read photos here (turn it on in Settings > Connections > AI helper), so you fill in the card yourself.</p>
     <p class="muted small wide" id="wallet-photo-msg" role="status"></p>
   </div>
   <p class="muted small">Membership, store, library, travel and health cards. Driver licences and passports come in through the Inbox.
@@ -189,10 +186,10 @@
 </details>
 <details class="card sfold" id="wadd">
   <summary><h2>Add a card</h2></summary>
-  <form class="nform" data-hx-post="/wallet/card" data-hx-vals="{&quot;op&quot;: &quot;add&quot;}" data-reset-on-save="">
-      <label>Kind<select name="kind"><option value="membership" selected="">Membership</option><option value="loyalty">Store or loyalty</option><option value="library">Library</option><option value="travel">Travel (known traveler, airline)</option><option value="health">Health or dental</option><option value="home">Home facts</option><option value="other">Other</option></select></label>
-  <label>Name on the card<input name="title" maxlength="60" required="" value="" placeholder="City library"></label>
-  <label>Whose card (optional)<select name="member"><option value="">(the household)</option><option value="Marcus">Marcus</option><option value="Elena">Elena</option><option value="Sofia">Sofia</option><option value="Mateo">Mateo</option><option value="Pancho">Pancho</option></select></label>
+  <form class="nform" hx-post="/wallet/card" hx-vals='{"op": "add"}' data-reset-on-save>
+      <label>Kind<select name="kind"><option value="membership" selected>Membership</option><option value="loyalty" >Store or loyalty</option><option value="library" >Library</option><option value="travel" >Travel (known traveler, airline)</option><option value="health" >Health or dental</option><option value="home" >Home facts</option><option value="other" >Other</option></select></label>
+  <label>Name on the card<input name="title" maxlength="60" required value="" placeholder="City library"></label>
+  <label>Whose card (optional)<select name="member"><option value="">(the household)</option><option value="Marcus" >Marcus</option><option value="Elena" >Elena</option><option value="Sofia" >Sofia</option><option value="Mateo" >Mateo</option><option value="Pancho" >Pancho</option></select></label>
   <label>Issued by (optional)<input name="issuer" maxlength="60" value=""></label>
   <label>Whole number (membership, store, library)<input name="number" maxlength="30" value="" autocomplete="off" inputmode="text"></label>
   <label>Last 4 (any other card)<input name="number_last4" maxlength="4" value="" autocomplete="off"></label>
@@ -207,43 +204,44 @@
 <p class="muted small wref">Reference copies, not official IDs. Tap a card to see where its number is.</p>
 </main>
 
-  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=wallet" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
-  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="wallet" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+  <button type="button" class="helpbtn" hx-get="/help/panel?key=wallet" hx-target="#helpp" hx-swap="innerHTML"
+          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="wallet" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=wallet" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
   <nav class="bnav" aria-label="Main (phone)">
-    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
-    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
-    <a href="inbox.html" class="scan" aria-label="Add or scan, 32 in the Inbox"><b aria-hidden="true">+</b><span class="badge">32</span></a>
-    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
-    <details class="bmore">
-      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
-      <div class="sheet" role="menu">
-        
-        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
-        
-        <a role="menuitem" href="wallet.html" class="on" aria-current="page">Wallet</a>
-        
-        <a role="menuitem" href="inbox.html">Inbox <span class="badge">32</span></a>
-        
-        <a role="menuitem" href="month.html">This month</a>
-        
-        <a role="menuitem" href="finance.html">Finance</a>
-        
-        <a role="menuitem" href="records.html">Records</a>
-        
-        <a role="menuitem" href="notes.html">Notes</a>
-        
-        <a role="menuitem" href="chat.html">Chat</a>
-        
-        <a role="menuitem" href="settings.html">Settings</a>
-        
-        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
-      </div>
-    </details>
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" ><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" class="on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
   </nav>
 
-
-</body></html>
+</body>
+</html>

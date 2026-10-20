@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head>
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
   <meta charset="utf-8"><script>
 (function(){
   function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
@@ -16,7 +18,7 @@
 })();
 </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
@@ -24,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css">
-  <script src="static/vendor/htmx.min.js" defer=""></script>
+  <link rel="stylesheet" href="static/app.css?v=0.125.0">
+  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
   
-  <script src="static/app.js" defer=""></script>
+  <script src="static/app.js?v=0.125.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -35,72 +37,67 @@
 <body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
-<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
-<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
-<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
 
   <nav class="rail" aria-label="Main">
     <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=records:people:life" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
     
-    
-      
-        
-        <span class="grp">Every day</span>
-        <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="32 waiting">32</span></a><a href="brief.html">To do</a>
-        
-      
-        
-        <details class="rg" data-rg="Money">
-          <summary>Money</summary>
-          <a href="month.html">This month</a><a href="finance.html">Finance</a>
-        </details>
-        
-      
-        
-        <details class="rg" data-rg="Everything else" open="">
-          <summary>Everything else</summary>
-          <a href="records.html" class="on" aria-current="page">Records</a><a href="notes.html">Notes</a>
-        </details>
-        
-      
-    
-    <span class="grow"></span>
-    <a href="settings.html">Settings</a>
-    <div class="railfoot">
-      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
-      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
-      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
-    </div>
-    <small class="ver">v0.116.0</small>
+    <small class="ver">v0.125.0</small>
   </nav>
 
   <main>
 
-<header class="head fhead"><div><a class="fback" href="records.html">Records</a><h1>People</h1><p class="sub">Life items</p></div><a class="btn alt rsgo" href="#" data-demo="1">Search</a></header>
 
-<nav class="fchips" aria-label="People"><a href="records_domain_people_section_people.html">People</a><a href="records_domain_people_section_life.html" class="on" aria-current="true">Life items</a><a href="records_domain_people_section_health.html">Checkups and appointments</a><a href="records_domain_people_section_school.html">School</a><a href="records_domain_people_section_classes.html">Classes and activities</a><a href="records_domain_people_section_dates.html">Holidays and dates</a><a href="#" data-demo="1">Critical info</a></nav>
+<header class="head"><div><h1>Family</h1><p class="sub">People · Life items</p></div><a class="btn alt rsgo" href="family.html#rq">Search</a></header>
 
-
-
-
-
-
-<div class="kpis rk"><div class="kpi"><span>People</span><b>5</b></div><div class="kpi"><span>Open items</span><b>29</b></div><div class="kpi"><span>Appointments ahead</span><b>5</b></div></div>
+<nav class="pchips mtabs" aria-label="Family">
+  <a href="family.html" class="pchip">Everyone</a><a href="records_domain_people.html" class="pchip on" aria-current="true">People</a><a href="records_domain_home.html" class="pchip">Home</a><a href="records_domain_vehicles.html" class="pchip">Cars</a><a href="records_domain_papers.html" class="pchip">Papers &amp; IDs</a><a href="wallet.html" class="pchip">Wallet</a><a href="family_routines.html" class="pchip">Routines</a>
+</nav>
 
 
+<nav class="fchips" aria-label="People"><a href="#" data-demo="1" >People</a><a href="#" data-demo="1" class="on" aria-current="true">Life items</a><a href="#" data-demo="1" >Checkups and appointments</a><a href="#" data-demo="1" >School</a><a href="#" data-demo="1" >Classes and activities</a><a href="#" data-demo="1" >Holidays and dates</a><a href="#" data-demo="1" >Critical info</a></nav>
 
-<details class="card addnote">
+
+
+
+
+
+<div class="kpis rk"><div class="kpi"><span>People</span><b>5</b></div><div class="kpi"><span>Open items</span><b>18</b></div><div class="kpi"><span>Appointments ahead</span><b>5</b></div></div>
+
+
+
+<details class="card addnote" id="add-life_items">
   <summary><h2>Add an item</h2></summary>
   <div id="radd-life_items">
 
-<form class="nform" data-hx-post="/records/add" data-hx-target="#radd-life_items" data-hx-swap="innerHTML" data-hx-vals="{&quot;part&quot;: &quot;people/life&quot;, &quot;table&quot;: &quot;life_items&quot;}">
+<form class="nform" hx-post="/records/add" hx-target="#radd-life_items" hx-swap="innerHTML" hx-vals='{"part": "people/life", "table": "life_items"}'>
 
-  <label>Type<select name="domain"><option value="school">school</option><option value="activity">activity</option><option value="medical">medical</option><option value="prescription">prescription</option><option value="vaccine">vaccine</option><option value="pet">pet</option><option value="legal">legal</option><option value="travel">travel</option><option value="gift">gift</option><option value="chore">chore</option><option value="other">other</option></select></label>
-  <label>For<select name="who"><option value="household">household</option><option value="Marcus">Marcus</option><option value="Elena">Elena</option><option value="Sofia">Sofia</option><option value="Mateo">Mateo</option><option value="Pancho">Pancho</option></select></label>
-  <label>What<input name="title" maxlength="120" required="" value=""></label>
+  <label>Type<select name="domain"><option value="school" >school</option><option value="activity" >activity</option><option value="medical" >medical</option><option value="prescription" >prescription</option><option value="vaccine" >vaccine</option><option value="pet" >pet</option><option value="legal" >legal</option><option value="travel" >travel</option><option value="gift" >gift</option><option value="chore" >chore</option><option value="other" >other</option></select></label>
+  <label>For<select name="who"><option value="household">household</option><option value="Marcus" >Marcus</option><option value="Elena" >Elena</option><option value="Sofia" >Sofia</option><option value="Mateo" >Mateo</option><option value="Pancho" >Pancho</option></select></label>
+  <label>What<input name="title" maxlength="120" required value=""></label>
   <label>Due date (optional)<input name="due" type="date" min="1990-01-01" max="2100-12-31" value=""></label>
   <label>Repeats every N months (0 = once)<input name="every" type="number" min="0" max="600" step="1" value="0"></label>
   <label>Cost (0 = none)<input name="amount" type="number" min="0" max="10000000" step="0.01" value="0"></label>
@@ -112,146 +109,69 @@
 
 
 
-<section class="card rblock"><h2>Open items <span class="muted rcount">29</span></h2>
+<section class="card rblock"><h2>Open items <span class="muted rcount">18</span></h2>
   
   <ul class="rlist fl-phone">
     <li><a href="#" data-demo="1">
-      <span class="rl-av t-bad" aria-hidden="true">B</span>
-      <span class="rl-main"><span class="rl-t">Band fundraiser form</span><span class="rl-m">school · Sofia · Hillside Middle</span></span>
-      <span class="rl-r"><b>Oct 9</b><span class="chip-s t-bad">overdue</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-bad" aria-hidden="true">T</span>
-      <span class="rl-main"><span class="rl-t">Tdap booster</span><span class="rl-m">vaccine · Sofia</span></span>
-      <span class="rl-r"><b>Oct 11</b><span class="chip-s t-bad">overdue</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-warn" aria-hidden="true">T</span>
-      <span class="rl-main"><span class="rl-t">Take out recycling</span><span class="rl-m">chore · Mateo · every month</span></span>
-      <span class="rl-r"><b>Oct 17</b><span class="chip-s t-warn">today</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-warn" aria-hidden="true">W</span>
-      <span class="rl-main"><span class="rl-t">Wash the car</span><span class="rl-m">chore · Sofia · every month</span></span>
-      <span class="rl-r"><b>Oct 18</b><span class="chip-s t-warn">tomorrow</span></span>
+      <span class="rl-av t-bad" aria-hidden="true">R</span>
+      <span class="rl-main"><span class="rl-t">Replace furnace filter</span><span class="rl-m">chore · every 3 months</span></span>
+      <span class="rl-r"><b>Oct 18</b><span class="chip-s t-bad">overdue</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-warn" aria-hidden="true">F</span>
-      <span class="rl-main"><span class="rl-t">Field-trip form and fee</span><span class="rl-m">school · Mateo · $25.00 · Hillside Elementary</span></span>
-      <span class="rl-r"><b>Oct 19</b><span class="chip-s t-warn">in 2 days</span></span>
+      <span class="rl-main"><span class="rl-t">Flea and tick dose</span><span class="rl-m">pet · Pancho · every month</span></span>
+      <span class="rl-r"><b>Oct 20</b><span class="chip-s t-warn">today</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
-      <span class="rl-av t-warn" aria-hidden="true">A</span>
-      <span class="rl-main"><span class="rl-t">Allergy prescription refill</span><span class="rl-m">prescription · Elena · every 3 months · CVS</span></span>
-      <span class="rl-r"><b>Oct 20</b><span class="chip-s t-warn">in 3 days</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-warn" aria-hidden="true">B</span>
-      <span class="rl-main"><span class="rl-t">Braces adjustment</span><span class="rl-m">medical · Sofia · every 2 months · Smile Ortho</span></span>
-      <span class="rl-r"><b>Oct 22</b><span class="chip-s t-warn">in 5 days</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-warn" aria-hidden="true">H</span>
-      <span class="rl-main"><span class="rl-t">Heartworm pill</span><span class="rl-m">pet · Pancho · every month</span></span>
-      <span class="rl-r"><b>Oct 23</b><span class="chip-s t-warn">in 6 days</span></span>
+      <span class="rl-av t-warn" aria-hidden="true">F</span>
+      <span class="rl-main"><span class="rl-t">Field trip form and $12</span><span class="rl-m">school · Mateo · Washington Elementary</span></span>
+      <span class="rl-r"><b>Oct 21</b><span class="chip-s t-warn">tomorrow</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-warn" aria-hidden="true">S</span>
-      <span class="rl-main"><span class="rl-t">Science fair project due</span><span class="rl-m">school · Sofia · Hillside Middle</span></span>
-      <span class="rl-r"><b>Oct 24</b><span class="chip-s t-warn">in 7 days</span></span>
+      <span class="rl-main"><span class="rl-t">Science fair project due</span><span class="rl-m">school · Sofia · Lincoln Middle School</span></span>
+      <span class="rl-r"><b>Oct 23</b><span class="chip-s t-warn">in 3 days</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-warn" aria-hidden="true">P</span>
-      <span class="rl-main"><span class="rl-t">Parent-teacher conference sign-up</span><span class="rl-m">school · Hillside Elementary</span></span>
-      <span class="rl-r"><b>Oct 27</b><span class="chip-s t-warn">in 10 days</span></span>
+      <span class="rl-main"><span class="rl-t">Picture day</span><span class="rl-m">school · Mateo · Washington Elementary</span></span>
+      <span class="rl-r"><b>Oct 26</b><span class="chip-s t-warn">in 6 days</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-warn" aria-hidden="true">B</span>
+      <span class="rl-main"><span class="rl-t">Book Thanksgiving flights</span><span class="rl-m">travel</span></span>
+      <span class="rl-r"><b>Oct 27</b><span class="chip-s t-warn">in 7 days</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-warn" aria-hidden="true">S</span>
-      <span class="rl-main"><span class="rl-t">Swim lessons session 2</span><span class="rl-m">activity · Mateo · $95.00</span></span>
-      <span class="rl-r"><b>Oct 30</b><span class="chip-s t-warn">in 13 days</span></span>
+      <span class="rl-main"><span class="rl-t">Soccer team photos</span><span class="rl-m">activity · Sofia · Springfield Youth Soccer</span></span>
+      <span class="rl-r"><b>Oct 29</b><span class="chip-s t-warn">in 9 days</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
-      <span class="rl-av t-warn" aria-hidden="true">S</span>
-      <span class="rl-main"><span class="rl-t">School picture day</span><span class="rl-m">school · Mateo</span></span>
-      <span class="rl-r"><b>Nov 1</b><span class="chip-s t-warn">in 15 days</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-warn" aria-hidden="true">F</span>
-      <span class="rl-main"><span class="rl-t">Flu shot</span><span class="rl-m">vaccine · Mateo · every year</span></span>
-      <span class="rl-r"><b>Nov 2</b><span class="chip-s t-warn">in 16 days</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-warn" aria-hidden="true">S</span>
-      <span class="rl-main"><span class="rl-t">Soccer registration fee</span><span class="rl-m">activity · Sofia · $140.00</span></span>
-      <span class="rl-r"><b>Nov 5</b><span class="chip-s t-warn">in 19 days</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-warn" aria-hidden="true">A</span>
-      <span class="rl-main"><span class="rl-t">Abuela Rosa's birthday gift</span><span class="rl-m">gift · $50.00</span></span>
-      <span class="rl-r"><b>Nov 7</b><span class="chip-s t-warn">in 21 days</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-warn" aria-hidden="true">G</span>
-      <span class="rl-main"><span class="rl-t">Grooming</span><span class="rl-m">pet · Pancho · every 2 months · $65.00</span></span>
-      <span class="rl-r"><b>Nov 10</b><span class="chip-s t-warn">in 24 days</span></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-n" aria-hidden="true">E</span>
-      <span class="rl-main"><span class="rl-t">Eye exam</span><span class="rl-m">medical · Elena · every year</span></span>
-      <span class="rl-r"><b>Nov 17</b></span>
+      <span class="rl-av t-warn" aria-hidden="true">B</span>
+      <span class="rl-main"><span class="rl-t">Birthday gift for Elena</span><span class="rl-m">gift · Elena</span></span>
+      <span class="rl-r"><b>Nov 2</b><span class="chip-s t-warn">in 13 days</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">R</span>
-      <span class="rl-main"><span class="rl-t">Rabies vaccine</span><span class="rl-m">pet · Pancho · every year · VCA Animal Hospital</span></span>
-      <span class="rl-r"><b>Nov 28</b></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-n" aria-hidden="true">R</span>
-      <span class="rl-main"><span class="rl-t">Renew Mateo's passport before summer trip</span><span class="rl-m">travel · Mateo</span></span>
-      <span class="rl-r"><b>Dec 14</b></span>
-      <span class="rl-go" aria-hidden="true">›</span>
-    </a></li>
-  
-    <li><a href="#" data-demo="1">
-      <span class="rl-av t-n" aria-hidden="true">U</span>
-      <span class="rl-main"><span class="rl-t">Update beneficiaries on retirement accounts</span><span class="rl-m">legal · every 36 months</span></span>
-      <span class="rl-r"><b>Dec 24</b></span>
+      <span class="rl-main"><span class="rl-t">Review wills and beneficiaries</span><span class="rl-m">legal · every 36 months</span></span>
+      <span class="rl-r"><b>Dec 4</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
@@ -318,9 +238,9 @@
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
-  <div class="tablewrap fl-wide"><table class="cards">
+  <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Title</th><th>Kind</th><th>Who</th><th>Due</th><th>Every (months)</th><th>Amount</th><th>Provider</th></tr></thead>
-    <tbody><tr><td data-label="Title"><a href="#" data-demo="1">Band fundraiser form</a> <span class="chip-s t-bad">overdue</span></td><td data-label="Kind">school</td><td data-label="Who">Sofia</td><td data-label="Due">Oct 9</td><td data-label="Every (months)"></td><td data-label="Amount"></td><td data-label="Provider">Hillside Middle</td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Tdap booster</a> <span class="chip-s t-bad">overdue</span></td><td data-label="Kind">vaccine</td><td data-label="Who">Sofia</td><td data-label="Due">Oct 11</td><td data-label="Every (months)"></td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Take out recycling</a> <span class="chip-s t-warn">today</span></td><td data-label="Kind">chore</td><td data-label="Who">Mateo</td><td data-label="Due">Oct 17</td><td data-label="Every (months)">1</td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Wash the car</a> <span class="chip-s t-warn">tomorrow</span></td><td data-label="Kind">chore</td><td data-label="Who">Sofia</td><td data-label="Due">Oct 18</td><td data-label="Every (months)">1</td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Field-trip form and fee</a> <span class="chip-s t-warn">in 2 days</span></td><td data-label="Kind">school</td><td data-label="Who">Mateo</td><td data-label="Due">Oct 19</td><td data-label="Every (months)"></td><td data-label="Amount">$25.00</td><td data-label="Provider">Hillside Elementary</td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Allergy prescription refill</a> <span class="chip-s t-warn">in 3 days</span></td><td data-label="Kind">prescription</td><td data-label="Who">Elena</td><td data-label="Due">Oct 20</td><td data-label="Every (months)">3</td><td data-label="Amount"></td><td data-label="Provider">CVS</td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Braces adjustment</a> <span class="chip-s t-warn">in 5 days</span></td><td data-label="Kind">medical</td><td data-label="Who">Sofia</td><td data-label="Due">Oct 22</td><td data-label="Every (months)">2</td><td data-label="Amount"></td><td data-label="Provider">Smile Ortho</td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Heartworm pill</a> <span class="chip-s t-warn">in 6 days</span></td><td data-label="Kind">pet</td><td data-label="Who">Pancho</td><td data-label="Due">Oct 23</td><td data-label="Every (months)">1</td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Science fair project due</a> <span class="chip-s t-warn">in 7 days</span></td><td data-label="Kind">school</td><td data-label="Who">Sofia</td><td data-label="Due">Oct 24</td><td data-label="Every (months)"></td><td data-label="Amount"></td><td data-label="Provider">Hillside Middle</td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Parent-teacher conference sign-up</a> <span class="chip-s t-warn">in 10 days</span></td><td data-label="Kind">school</td><td data-label="Who">household</td><td data-label="Due">Oct 27</td><td data-label="Every (months)"></td><td data-label="Amount"></td><td data-label="Provider">Hillside Elementary</td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Swim lessons session 2</a> <span class="chip-s t-warn">in 13 days</span></td><td data-label="Kind">activity</td><td data-label="Who">Mateo</td><td data-label="Due">Oct 30</td><td data-label="Every (months)"></td><td data-label="Amount">$95.00</td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">School picture day</a> <span class="chip-s t-warn">in 15 days</span></td><td data-label="Kind">school</td><td data-label="Who">Mateo</td><td data-label="Due">Nov 1</td><td data-label="Every (months)"></td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Flu shot</a> <span class="chip-s t-warn">in 16 days</span></td><td data-label="Kind">vaccine</td><td data-label="Who">Mateo</td><td data-label="Due">Nov 2</td><td data-label="Every (months)">12</td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Soccer registration fee</a> <span class="chip-s t-warn">in 19 days</span></td><td data-label="Kind">activity</td><td data-label="Who">Sofia</td><td data-label="Due">Nov 5</td><td data-label="Every (months)"></td><td data-label="Amount">$140.00</td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Abuela Rosa's birthday gift</a> <span class="chip-s t-warn">in 21 days</span></td><td data-label="Kind">gift</td><td data-label="Who">household</td><td data-label="Due">Nov 7</td><td data-label="Every (months)"></td><td data-label="Amount">$50.00</td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Grooming</a> <span class="chip-s t-warn">in 24 days</span></td><td data-label="Kind">pet</td><td data-label="Who">Pancho</td><td data-label="Due">Nov 10</td><td data-label="Every (months)">2</td><td data-label="Amount">$65.00</td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Eye exam</a></td><td data-label="Kind">medical</td><td data-label="Who">Elena</td><td data-label="Due">Nov 17</td><td data-label="Every (months)">12</td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Rabies vaccine</a></td><td data-label="Kind">pet</td><td data-label="Who">Pancho</td><td data-label="Due">Nov 28</td><td data-label="Every (months)">12</td><td data-label="Amount"></td><td data-label="Provider">VCA Animal Hospital</td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Renew Mateo's passport before summer trip</a></td><td data-label="Kind">travel</td><td data-label="Who">Mateo</td><td data-label="Due">Dec 14</td><td data-label="Every (months)"></td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Update beneficiaries on retirement accounts</a></td><td data-label="Kind">legal</td><td data-label="Who">household</td><td data-label="Due">Dec 24</td><td data-label="Every (months)">36</td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Review will, beneficiaries and power of attorney</a></td><td data-label="Kind">legal</td><td data-label="Who">Marcus</td><td data-label="Due">needs a date</td><td data-label="Every (months)">36</td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Review will, beneficiaries and power of attorney</a></td><td data-label="Kind">legal</td><td data-label="Who">Elena</td><td data-label="Due">needs a date</td><td data-label="Every (months)">36</td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Review emergency contacts and the emergency sheet</a></td><td data-label="Kind">legal</td><td data-label="Who">household</td><td data-label="Due">needs a date</td><td data-label="Every (months)">12</td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Vaccination record check</a></td><td data-label="Kind">medical</td><td data-label="Who">Sofia</td><td data-label="Due">needs a date</td><td data-label="Every (months)">12</td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Vaccination record check</a></td><td data-label="Kind">medical</td><td data-label="Who">Mateo</td><td data-label="Due">needs a date</td><td data-label="Every (months)">12</td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Vet checkup</a></td><td data-label="Kind">pet</td><td data-label="Who">Pancho</td><td data-label="Due">needs a date</td><td data-label="Every (months)">12</td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">Flea / tick / heartworm prevention refill</a></td><td data-label="Kind">pet</td><td data-label="Who">Pancho</td><td data-label="Due">needs a date</td><td data-label="Every (months)">1</td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">School registration / forms for the new year</a></td><td data-label="Kind">school</td><td data-label="Who">Sofia</td><td data-label="Due">needs a date</td><td data-label="Every (months)">12</td><td data-label="Amount"></td><td data-label="Provider"></td></tr><tr><td data-label="Title"><a href="#" data-demo="1">School registration / forms for the new year</a></td><td data-label="Kind">school</td><td data-label="Who">Mateo</td><td data-label="Due">needs a date</td><td data-label="Every (months)">12</td><td data-label="Amount"></td><td data-label="Provider"></td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Replace furnace filter</a> <span class="chip-s t-bad">overdue</span></td><td>chore</td><td>household</td><td>Oct 18</td><td>3</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Flea and tick dose</a> <span class="chip-s t-warn">today</span></td><td>pet</td><td>Pancho</td><td>Oct 20</td><td>1</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Field trip form and $12</a> <span class="chip-s t-warn">tomorrow</span></td><td>school</td><td>Mateo</td><td>Oct 21</td><td></td><td></td><td>Washington Elementary</td></tr><tr><td><a href="#" data-demo="1">Science fair project due</a> <span class="chip-s t-warn">in 3 days</span></td><td>school</td><td>Sofia</td><td>Oct 23</td><td></td><td></td><td>Lincoln Middle School</td></tr><tr><td><a href="#" data-demo="1">Picture day</a> <span class="chip-s t-warn">in 6 days</span></td><td>school</td><td>Mateo</td><td>Oct 26</td><td></td><td></td><td>Washington Elementary</td></tr><tr><td><a href="#" data-demo="1">Book Thanksgiving flights</a> <span class="chip-s t-warn">in 7 days</span></td><td>travel</td><td>household</td><td>Oct 27</td><td></td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Soccer team photos</a> <span class="chip-s t-warn">in 9 days</span></td><td>activity</td><td>Sofia</td><td>Oct 29</td><td></td><td></td><td>Springfield Youth Soccer</td></tr><tr><td><a href="#" data-demo="1">Birthday gift for Elena</a> <span class="chip-s t-warn">in 13 days</span></td><td>gift</td><td>Elena</td><td>Nov 2</td><td></td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Review wills and beneficiaries</a></td><td>legal</td><td>household</td><td>Dec 4</td><td>36</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Review will, beneficiaries and power of attorney</a></td><td>legal</td><td>Marcus</td><td>needs a date</td><td>36</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Review will, beneficiaries and power of attorney</a></td><td>legal</td><td>Elena</td><td>needs a date</td><td>36</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Review emergency contacts and the emergency sheet</a></td><td>legal</td><td>household</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Vaccination record check</a></td><td>medical</td><td>Sofia</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Vaccination record check</a></td><td>medical</td><td>Mateo</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Vet checkup</a></td><td>pet</td><td>Pancho</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Flea / tick / heartworm prevention refill</a></td><td>pet</td><td>Pancho</td><td>needs a date</td><td>1</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">School registration / forms for the new year</a></td><td>school</td><td>Sofia</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">School registration / forms for the new year</a></td><td>school</td><td>Mateo</td><td>needs a date</td><td>12</td><td></td><td></td></tr></tbody>
   </table></div>
   
 </section>
@@ -332,43 +252,44 @@
 
 </main>
 
-  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=records:people:life" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
-  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="records" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+  <button type="button" class="helpbtn" hx-get="/help/panel?key=records:people:life" hx-target="#helpp" hx-swap="innerHTML"
+          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="records" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=records:people:life" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
   <nav class="bnav" aria-label="Main (phone)">
-    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
-    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
-    <a href="inbox.html" class="scan" aria-label="Add or scan, 32 in the Inbox"><b aria-hidden="true">+</b><span class="badge">32</span></a>
-    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
-    <details class="bmore">
-      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
-      <div class="sheet" role="menu">
-        
-        <a role="menuitem" href="calendar_view_week.html">Calendar</a>
-        
-        <a role="menuitem" href="wallet.html">Wallet</a>
-        
-        <a role="menuitem" href="inbox.html">Inbox <span class="badge">32</span></a>
-        
-        <a role="menuitem" href="month.html">This month</a>
-        
-        <a role="menuitem" href="finance.html">Finance</a>
-        
-        <a role="menuitem" href="records.html" class="on" aria-current="page">Records</a>
-        
-        <a role="menuitem" href="notes.html">Notes</a>
-        
-        <a role="menuitem" href="chat.html">Chat</a>
-        
-        <a role="menuitem" href="settings.html">Settings</a>
-        
-        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
-      </div>
-    </details>
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" ><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" class="on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
   </nav>
 
-
-</body></html>
+</body>
+</html>

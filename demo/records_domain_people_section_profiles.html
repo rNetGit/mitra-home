@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#2E8B57">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css?v=0.125.0">
+  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
+  
+  <script src="static/app.js?v=0.125.0" defer></script>
+  <title>Records · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#BFE3CD}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=records:people:profiles" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
+    
+    <small class="ver">v0.125.0</small>
+  </nav>
+
+  <main>
+
+
+<header class="head"><div><h1>Family</h1><p class="sub">People · Critical info</p></div><a class="btn alt rsgo" href="family.html#rq">Search</a></header>
+
+<nav class="pchips mtabs" aria-label="Family">
+  <a href="family.html" class="pchip">Everyone</a><a href="records_domain_people.html" class="pchip on" aria-current="true">People</a><a href="records_domain_home.html" class="pchip">Home</a><a href="records_domain_vehicles.html" class="pchip">Cars</a><a href="records_domain_papers.html" class="pchip">Papers &amp; IDs</a><a href="wallet.html" class="pchip">Wallet</a><a href="family_routines.html" class="pchip">Routines</a>
+</nav>
+
+
+<nav class="fchips" aria-label="People"><a href="#" data-demo="1" >People</a><a href="#" data-demo="1" >Life items</a><a href="#" data-demo="1" >Checkups and appointments</a><a href="#" data-demo="1" >School</a><a href="#" data-demo="1" >Classes and activities</a><a href="#" data-demo="1" >Holidays and dates</a><a href="#" data-demo="1" class="on" aria-current="true">Critical info</a></nav>
+
+
+
+
+
+
+<div class="kpis rk"><div class="kpi"><span>People</span><b>5</b></div><div class="kpi"><span>Open items</span><b>18</b></div><div class="kpi"><span>Appointments ahead</span><b>5</b></div></div>
+
+
+
+<details class="card addnote" id="add-member_info">
+  <summary><h2>Add a fact (contact, allergy, doctor, school)</h2></summary>
+  <div id="radd-member_info">
+
+<form class="nform" hx-post="/records/add" hx-target="#radd-member_info" hx-swap="innerHTML" hx-vals='{"part": "people/profiles", "table": "member_info"}'>
+
+  <label>For<select name="who" required><option value="">pick</option><option value="Marcus" >Marcus</option><option value="Elena" >Elena</option><option value="Sofia" >Sofia</option><option value="Mateo" >Mateo</option><option value="Pancho" >Pancho</option></select></label>
+  <label>Kind<select name="category"><option value="emergency" >Emergency contacts</option><option value="medical" >Medical</option><option value="school" >School and care</option><option value="other" >Other</option></select></label>
+  <label>What<input name="label" maxlength="60" required list="info-labels" placeholder="Allergies" value=""></label>
+  <datalist id="info-labels"><option value="Contact 1"><option value="Contact 2"><option value="Neighbour"><option value="Family doctor"><option value="Phone"><option value="Allergies"><option value="Medicines"><option value="Conditions"><option value="Doctor"><option value="Blood type"><option value="Dentist"><option value="School"><option value="Teacher"><option value="Caregiver"><option value="Authorized pickup"><option value="School phone"></datalist>
+  <label>Fact<input name="value" maxlength="200" required placeholder="Peanuts; carries an EpiPen" value=""></label>
+  <p class="muted small">Stays on this PC and is shown to adults only. No passwords, PINs or full account or ID numbers.</p>
+
+  <button class="btn" type="submit">Add</button>
+</form></div>
+</details>
+
+
+
+<section class="card rblock"><h2>Emergency, medical and school facts <span class="muted rcount">2</span></h2>
+  
+  <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-ok" aria-hidden="true">A</span>
+      <span class="rl-main"><span class="rl-t">Allergy</span><span class="rl-m">Mateo · medical · Peanuts: carries an EpiPen · Confirmed Sep 20</span></span>
+      <span class="rl-r"><span class="chip-s t-ok">ok</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  
+    <li><a href="#" data-demo="1">
+      <span class="rl-av t-ok" aria-hidden="true">S</span>
+      <span class="rl-main"><span class="rl-t">School nurse</span><span class="rl-m">Sofia · emergency · Lincoln Middle, ext. 214 · Confirmed Aug 21</span></span>
+      <span class="rl-r"><span class="chip-s t-ok">ok</span></span>
+      <span class="rl-go" aria-hidden="true">›</span>
+    </a></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
+    <thead><tr><th>Who</th><th>Category</th><th>Label</th><th>Value</th><th>Confirmed</th><th>Status</th></tr></thead>
+    <tbody><tr><td><a href="#" data-demo="1">Mateo</a></td><td>medical</td><td>Allergy</td><td>Peanuts: carries an EpiPen</td><td>Sep 20</td><td>ok</td></tr><tr><td><a href="#" data-demo="1">Sofia</a></td><td>emergency</td><td>School nurse</td><td>Lincoln Middle, ext. 214</td><td>Aug 21</td><td>ok</td></tr></tbody>
+  </table></div>
+  
+</section>
+
+
+
+<p class="muted small">Open a row to change it here, or tell Chat.</p>
+
+
+</main>
+
+  <button type="button" class="helpbtn" hx-get="/help/panel?key=records:people:profiles" hx-target="#helpp" hx-swap="innerHTML"
+          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="records" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
+
+
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=records:people:profiles" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
+  <nav class="bnav" aria-label="Main (phone)">
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" ><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" class="on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
+  </nav>
+
+</body>
+</html>

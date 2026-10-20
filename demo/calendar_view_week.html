@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head>
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
   <meta charset="utf-8"><script>
 (function(){
   function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
@@ -16,7 +18,7 @@
 })();
 </script>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="htmx-config" content="{&quot;includeIndicatorStyles&quot;:false}">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
   <meta name="theme-color" content="#2E8B57">
   
@@ -24,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css">
-  <script src="static/vendor/htmx.min.js" defer=""></script>
+  <link rel="stylesheet" href="static/app.css?v=0.125.0">
+  <script src="static/vendor/htmx.min.js?v=0.125.0" defer></script>
   
-  <script src="static/app.js" defer=""></script>
+  <script src="static/app.js?v=0.125.0" defer></script>
   <title>Calendar · Mitra Home</title>
 </head>
 
@@ -35,95 +37,96 @@
 <body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style>
-<div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span>
-<a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div>
-<div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
 
   <nav class="rail" aria-label="Main">
     <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
     
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab on" aria-current="page"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=calendar" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
     
-    
-      
-        
-        <span class="grp">Every day</span>
-        <a href="index.html">Today</a>
-        <a href="family.html">Family</a><a href="calendar_view_week.html" class="on" aria-current="page">Calendar</a><a href="wallet.html">Wallet</a><a href="inbox.html">Inbox<span class="badge" aria-label="32 waiting">32</span></a><a href="brief.html">To do</a>
-        
-      
-        
-        <details class="rg" data-rg="Money">
-          <summary>Money</summary>
-          <a href="month.html">This month</a><a href="finance.html">Finance</a>
-        </details>
-        
-      
-        
-        <details class="rg" data-rg="Everything else">
-          <summary>Everything else</summary>
-          <a href="records.html">Records</a><a href="notes.html">Notes</a>
-        </details>
-        
-      
-    
-    <span class="grow"></span>
-    <a href="settings.html">Settings</a>
-    <div class="railfoot">
-      <span class="me" title="Marcus"><span class="av sm av0" aria-hidden="true">M</span><span class="mename">Marcus</span></span>
-      <button type="button" class="ghost ibtn" data-theme-toggle="" data-mode="light" title="Dark mode" aria-label="Dark mode"><i class="ic ic-theme" aria-hidden="true"></i></button>
-      <button type="button" class="ghost ibtn" data-hx-post="/logout" title="Log out (Marcus)" aria-label="Log out"><i class="ic ic-logout" aria-hidden="true"></i></button>
-    </div>
-    <small class="ver">v0.116.0</small>
+    <small class="ver">v0.125.0</small>
   </nav>
 
   <main>
 <header class="head"><div><h1>Calendar</h1><p class="sub">Every due date, appointment and birthday from your records.</p></div></header>
 <section id="calendar"><div class="calbar">
   <div class="calnav">
-    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-10" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-10" class="btn alt">◀ Prev</a>
-    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-17" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-17" class="btn alt">Today</a>
-    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-24" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-24" class="btn alt">Next ▶</a>
-    <h2>Week of Oct 12, 2026</h2>
+    <a href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-13"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-13"
+   class="btn alt">‹ Prev</a>
+    <a href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-20"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-20"
+   class="btn alt">Today</a>
+    <a href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-27"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-27"
+   class="btn alt">Next ›</a>
+    <h2>Oct 20 to 26, 2026</h2>
   </div>
   <div class="seg" role="group" aria-label="View">
-    <a href="#" data-demo="1" data-hx-get="/calendar/body?view=week&amp;ref=2026-10-17" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=week&amp;ref=2026-10-17" class="on">Week</a><a href="#" data-demo="1" data-hx-get="/calendar/body?view=month&amp;ref=2026-10-17" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=month&amp;ref=2026-10-17">Month</a><a href="#" data-demo="1" data-hx-get="/calendar/body?view=year&amp;ref=2026-10-17" data-hx-target="#calendar" data-hx-swap="innerHTML" data-hx-push-url="/calendar?view=year&amp;ref=2026-10-17">Year</a>
+    <a href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-20"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-20"
+   class="on">Week</a><a href="#" data-demo="1" hx-get="/calendar/body?view=month&amp;ref=2026-10-20"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=month&amp;ref=2026-10-20"
+   >Month</a><a href="#" data-demo="1" hx-get="/calendar/body?view=year&amp;ref=2026-10-20"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=year&amp;ref=2026-10-20"
+   >Year</a>
   </div>
 </div>
 
 
 
-<div class="story deck calc js" data-story="" tabindex="0" aria-roledescription="carousel" aria-label="Week of Oct 12, 2026 at a glance" data-ready="1"><div class="sbars" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+<div class="story deck calc" data-story tabindex="0" aria-roledescription="carousel" aria-label="Oct 20 to 26, 2026 at a glance">
   
   
-<article class="slide g-cat on" aria-label="What is on" aria-hidden="false"><p class="kick">Week of Oct 12, 2026</p>
-    <h3 class="gbig">15<small> things · 5 still ahead</small></h3>
+<article class="slide g-cat" aria-label="What is on"><p class="kick">Oct 20 to 26, 2026</p>
+    <h3 class="gbig">15<small> things</small></h3>
     <ul class="kbars">
-      <li class="k-class"><i class="kdot" aria-hidden="true"></i><span>Class</span><b>6</b>
-        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="kbar" width="100.0" height="8"></rect></svg></li><li class="k-appointment"><i class="kdot" aria-hidden="true"></i><span>Appointment</span><b>2</b>
-        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="kbar" width="33.3" height="8"></rect></svg></li><li class="k-bill"><i class="kdot" aria-hidden="true"></i><span>Bill</span><b>2</b>
-        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="kbar" width="33.3" height="8"></rect></svg></li><li class="k-chore"><i class="kdot" aria-hidden="true"></i><span>Chore</span><b>2</b>
-        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="kbar" width="33.3" height="8"></rect></svg></li>
-      <li class="dim"><span>2 more kinds</span></li>
+      <li class="k-class"><i class="kdot" aria-hidden="true"></i><span>Class</span><b>5</b>
+        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="kbar" width="100.0" height="8"/></svg></li><li class="k-appointment"><i class="kdot" aria-hidden="true"></i><span>Appointment</span><b>3</b>
+        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="kbar" width="60.0" height="8"/></svg></li><li class="k-school"><i class="kdot" aria-hidden="true"></i><span>School</span><b>3</b>
+        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="kbar" width="60.0" height="8"/></svg></li><li class="k-bill"><i class="kdot" aria-hidden="true"></i><span>Bill</span><b>1</b>
+        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="kbar" width="20.0" height="8"/></svg></li>
+      <li class="dim"><span>3 more kinds</span></li>
     </ul>
-    <p class="dim sm">Busiest: Mon Oct 12, 4 things</p>
+    <p class="dim sm">Busiest: Wed Oct 21, 3 things</p>
   </article>
 
   
-<article class="slide g-over" aria-label="Who" aria-hidden="true"><p class="kick">Who</p>
+<article class="slide g-over" aria-label="Who"><p class="kick">Who</p>
     <ul class="kbars">
-      <li><span class="av sm avall" aria-hidden="true">∗</span><span>Everyone</span><b>7</b>
-        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="pbar" width="100.0" height="8"></rect></svg></li><li><span class="av sm av2" aria-hidden="true">S</span><span>Sofia</span><b>4</b>
-        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="pbar" width="57.1" height="8"></rect></svg></li><li><span class="av sm av3" aria-hidden="true">M</span><span>Mateo</span><b>4</b>
-        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"></rect><rect class="pbar" width="57.1" height="8"></rect></svg></li>
+      <li><span class="av sm avall" aria-hidden="true"><i class="ic ic-family"></i></span><span>Everyone</span><b>6</b>
+        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="pbar" width="100.0" height="8"/></svg></li><li><span class="av sm av2" aria-hidden="true">S</span><span>Sofia</span><b>4</b>
+        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="pbar" width="66.7" height="8"/></svg></li><li><span class="av sm av3" aria-hidden="true">M</span><span>Mateo</span><b>4</b>
+        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="pbar" width="66.7" height="8"/></svg></li><li><span class="av sm av4" aria-hidden="true">P</span><span>Pancho</span><b>1</b>
+        <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="pbar" width="16.7" height="8"/></svg></li>
     </ul>
   </article>
 
   
-<article class="slide g-high" aria-label="Do not miss" aria-hidden="true"><p class="kick">Don't miss</p>
+<article class="slide g-high" aria-label="Do not miss"><p class="kick">Don&#39;t miss</p>
     <ul class="dline">
-      <li class="dim"><b>Mon 12</b><span>Columbus Day / Indigenous Peoples' Day <small>Holiday</small></span></li>
-      
+      <li class="dim"><span>No birthdays, holidays or renewals in this week.</span></li>
       
     </ul>
   </article>
@@ -136,88 +139,86 @@
 
 <div class="cal week">
   
-  <div class="day">
-    <div class="dnum">Mon Oct 12</div>
-    <span class="kchip k-appointment"><span class="vh">Appointment: </span>Cleaning – Oak Dental 16:00</span><span class="kchip k-subscription"><span class="vh">Subscription: </span>NYT Cooking $5.00</span><span class="kchip k-class"><span class="vh">Class: </span>Swimming 17:00-17:45 (Sofia)</span><span class="kchip k-holiday"><span class="vh">Holiday: </span>Columbus Day / Indigenous Peoples' Day</span>
-  </div>
-  
-  <div class="day">
-    <div class="dnum">Tue Oct 13</div>
-    <span class="kchip k-bill"><span class="vh">Bill: </span>Comcast Xfinity $89.99</span><span class="kchip k-class"><span class="vh">Class: </span>Soccer practice 16:30-17:30 (Mateo)</span>
-  </div>
-  
-  <div class="day">
-    <div class="dnum">Wed Oct 14</div>
-    <span class="kchip k-class"><span class="vh">Class: </span>Swimming 17:00-17:45 (Sofia)</span>
-  </div>
-  
-  <div class="day">
-    <div class="dnum">Thu Oct 15</div>
-    <span class="kchip k-class"><span class="vh">Class: </span>Soccer practice 16:30-17:30 (Mateo)</span>
-  </div>
-  
-  <div class="day">
-    <div class="dnum">Fri Oct 16</div>
-    <span class="kchip k-bill"><span class="vh">Bill: </span>Verizon $180.00</span><span class="kchip k-class"><span class="vh">Class: </span>Art club 15:15-16:00 (Mateo)</span>
-  </div>
-  
   <div class="day today">
-    <div class="dnum">Sat Oct 17</div>
-    <span class="kchip k-subscription"><span class="vh">Subscription: </span>Disney Plus $13.99</span><span class="kchip k-chore"><span class="vh">Chore: </span>Take out recycling (Mateo)</span><span class="kchip k-class"><span class="vh">Class: </span>Piano lesson 10:00-10:45 (Sofia)</span>
+    <div class="dnum">Tue Oct 20</div>
+    <span class="kchip k-pet"><span class="vh">Pet: </span>Flea and tick dose (Pancho)</span><span class="kchip k-class"><span class="vh">Class: </span>Soccer practice 17:30-19:00 (Sofia)</span>
   </div>
   
   <div class="day">
-    <div class="dnum">Sun Oct 18</div>
-    <span class="kchip k-appointment"><span class="vh">Appointment: </span>Flu shot – Triangle Pediatrics 09:15</span><span class="kchip k-chore"><span class="vh">Chore: </span>Wash the car (Sofia)</span>
+    <div class="dnum">Wed Oct 21</div>
+    <span class="kchip k-appointment"><span class="vh">Appointment: </span>Knee follow-up – Lakeside Physio 08:15</span><span class="kchip k-school"><span class="vh">School: </span>Field trip form and $12 (Mateo)</span><span class="kchip k-class"><span class="vh">Class: </span>Piano 16:00-16:30 (Mateo)</span>
+  </div>
+  
+  <div class="day">
+    <div class="dnum">Thu Oct 22</div>
+    <span class="kchip k-appointment"><span class="vh">Appointment: </span>Cleaning – Bright Smiles Dental 15:30</span><span class="kchip k-subscription"><span class="vh">Subscription: </span>Springfield Gym $39.00</span><span class="kchip k-class"><span class="vh">Class: </span>Soccer practice 17:30-19:00 (Sofia)</span>
+  </div>
+  
+  <div class="day">
+    <div class="dnum">Fri Oct 23</div>
+    <span class="kchip k-school"><span class="vh">School: </span>Science fair project due (Sofia)</span>
+  </div>
+  
+  <div class="day">
+    <div class="dnum">Sat Oct 24</div>
+    <span class="kchip k-bill"><span class="vh">Bill: </span>City Water &amp; Power $142.18</span><span class="kchip k-event"><span class="vh">Event: </span>Family movie night 7:00–9:00 PM</span><span class="kchip k-class"><span class="vh">Class: </span>Swim lessons 10:00-10:45 (Mateo)</span>
+  </div>
+  
+  <div class="day">
+    <div class="dnum">Sun Oct 25</div>
+    <span class="kchip k-appointment"><span class="vh">Appointment: </span>Vaccines – Oak Street Vet 11:00</span>
+  </div>
+  
+  <div class="day">
+    <div class="dnum">Mon Oct 26</div>
+    <span class="kchip k-school"><span class="vh">School: </span>Picture day (Mateo)</span><span class="kchip k-class"><span class="vh">Class: </span>Art club 15:15-16:15 (Sofia)</span>
   </div>
   
 </div>
 
-<div class="legend"><span class="kchip k-bill"><span class="vh">Bill: </span>Bill</span><span class="kchip k-appointment"><span class="vh">Appointment: </span>Appointment</span><span class="kchip k-event"><span class="vh">Event: </span>Event</span><span class="kchip k-insurance"><span class="vh">Insurance: </span>Insurance</span><span class="kchip k-vehicle"><span class="vh">Vehicle: </span>Vehicle</span><span class="kchip k-subscription"><span class="vh">Subscription: </span>Subscription</span><span class="kchip k-investment"><span class="vh">Investment: </span>Investment</span><span class="kchip k-festival"><span class="vh">Festival: </span>Festival</span><span class="kchip k-contract"><span class="vh">Contract: </span>Contract</span><span class="kchip k-shopping"><span class="vh">Shopping: </span>Shopping</span><span class="kchip k-birthday"><span class="vh">Birthday: </span>Birthday</span><span class="kchip k-school"><span class="vh">School: </span>School</span><span class="kchip k-activity"><span class="vh">Activity: </span>Activity</span><span class="kchip k-medical"><span class="vh">Medical: </span>Medical</span><span class="kchip k-pet"><span class="vh">Pet: </span>Pet</span><span class="kchip k-legal"><span class="vh">Legal: </span>Legal</span><span class="kchip k-travel"><span class="vh">Travel: </span>Travel</span><span class="kchip k-gift"><span class="vh">Gift: </span>Gift</span><span class="kchip k-chore"><span class="vh">Chore: </span>Chore</span><span class="kchip k-loan"><span class="vh">Loan: </span>Loan</span><span class="kchip k-tax"><span class="vh">Tax: </span>Tax</span><span class="kchip k-class"><span class="vh">Class: </span>Class</span><span class="kchip k-holiday"><span class="vh">Holiday: </span>Holiday</span><span class="kchip k-noschool"><span class="vh">No school: </span>No school</span><span class="kchip k-earlydismissal"><span class="vh">Early dismissal: </span>Early dismissal</span><span class="kchip k-clockschange"><span class="vh">Clocks change: </span>Clocks change</span></div></section>
-<h2 class="sec">Google Calendar</h2>
-<section id="gcal" class="card" data-hx-get="/calendar/google?days=14" data-hx-trigger="load" data-hx-swap="innerHTML">
-<p class="muted">Not connected. To show your Google Calendar here (read-only, no AI):
-  <a href="settings_group_connections.html">Settings › Connections › Google</a>.</p>
-</section>
+<details class="legendf"><summary>What the colours mean</summary>
+<div class="legend"><span class="kchip k-bill"><span class="vh">Bill: </span>Bill</span><span class="kchip k-appointment"><span class="vh">Appointment: </span>Appointment</span><span class="kchip k-event"><span class="vh">Event: </span>Event</span><span class="kchip k-subscription"><span class="vh">Subscription: </span>Subscription</span><span class="kchip k-school"><span class="vh">School: </span>School</span><span class="kchip k-pet"><span class="vh">Pet: </span>Pet</span><span class="kchip k-class"><span class="vh">Class: </span>Class</span></div></details></section>
+<section id="gcal" hx-get="/calendar/google?days=14" hx-trigger="load" hx-swap="innerHTML"></section>
 </main>
 
-  <button type="button" class="helpbtn" data-hx-get="/help/panel?key=calendar" data-hx-target="#helpp" data-hx-swap="innerHTML" aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
-  <aside id="helpp" class="helpp" hidden="" tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="calendar" role="status">New here? Press <b>?</b> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close="">Got it</button></p>
+  <button type="button" class="helpbtn" hx-get="/help/panel?key=calendar" hx-target="#helpp" hx-swap="innerHTML"
+          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+  <p class="helptip" data-help-tip="calendar" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet" role="menu">
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=calendar" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
   <nav class="bnav" aria-label="Main (phone)">
-    <a href="index.html"><i class="ic ic-today" aria-hidden="true"></i>Today</a>
-    <a href="family.html"><i class="ic ic-family" aria-hidden="true"></i>Family</a>
-    <a href="inbox.html" class="scan" aria-label="Add or scan, 32 in the Inbox"><b aria-hidden="true">+</b><span class="badge">32</span></a>
-    <a href="brief.html"><i class="ic ic-brief" aria-hidden="true"></i>To do</a>
-    <details class="bmore">
-      <summary class="on"><i class="ic ic-more" aria-hidden="true"></i>More</summary>
-      <div class="sheet" role="menu">
-        
-        <a role="menuitem" href="calendar_view_week.html" class="on" aria-current="page">Calendar</a>
-        
-        <a role="menuitem" href="wallet.html">Wallet</a>
-        
-        <a role="menuitem" href="inbox.html">Inbox <span class="badge">32</span></a>
-        
-        <a role="menuitem" href="month.html">This month</a>
-        
-        <a role="menuitem" href="finance.html">Finance</a>
-        
-        <a role="menuitem" href="records.html">Records</a>
-        
-        <a role="menuitem" href="notes.html">Notes</a>
-        
-        <a role="menuitem" href="chat.html">Chat</a>
-        
-        <a role="menuitem" href="settings.html">Settings</a>
-        
-        <button type="button" class="ghost" data-theme-toggle="" data-mode="light">Dark mode</button>
-        <button type="button" class="ghost" data-hx-post="/logout">Log out (Marcus)</button>
-      </div>
-    </details>
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" class="on" aria-current="page"><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" ><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
   </nav>
 
-
-</body></html>
+</body>
+</html>
