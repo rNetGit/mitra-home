@@ -5,5 +5,5 @@
              {"name": "Sofia", "role": "child", "birth_month_day": "03-09", "birth_year": 2012},
              {"name": "Mateo", "role": "child", "birth_month_day": "07-23", "birth_year": 2016},
              {"name": "Pancho", "role": "pet", "birth_month_day": "09-14"}],
- "packs": {}, "tasks_registered": false, "ui": {"mode": "advanced"}, "plan": "pro",
+ "packs": {}, "tasks_registered": false, "ui": {"mode": "simple"}, "plan": "pro",
  "updates": {"daily_check": false}}

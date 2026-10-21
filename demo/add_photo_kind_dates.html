@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.126.0">
-  <script src="static/vendor/htmx.min.js?v=0.126.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.130.0">
+  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
   
-  <script src="static/app.js?v=0.126.0" defer></script>
+  <script src="static/app.js?v=0.130.0" defer></script>
   <title>Dates from a photo · Mitra Home</title>
 </head>
 
@@ -37,7 +37,7 @@
 <body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
 
   <nav class="rail" aria-label="Main">
@@ -58,14 +58,14 @@
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=inbox" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.126.0</small>
+    <small class="ver">v0.130.0</small>
   </nav>
 
   <main>
@@ -80,7 +80,7 @@
 <section class="card">
   <h2>Take or pick a photo</h2>
   <div class="nform">
-    <label>Photo of the flyer or letter<input type="file" id="photo-read" data-kind="dates" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp,.heic,image/heic" capture="environment"></label>
+    <label>Photo of the flyer or letter<input type="file" id="photo-read" data-kind="dates" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" capture="environment"></label>
     <p class="muted small wide">The AI does not read photos here (turn it on in Settings > Connections > AI helper), so you fill in the form next to the photo.</p>
     <p class="muted small wide" id="photo-read-msg" role="status"></p>
   </div>
@@ -99,7 +99,7 @@
   <details class="bmore pme">
     <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
     <div class="sheet" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=inbox" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         

@@ -1112,3 +1112,37 @@ table.ledger .c-edit{width:4.2rem;text-align:right}table.ledger .lded summary{wh
 .wphotos figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
 .wphotos img { width: 100%; height: 110px; object-fit: cover; border-radius: 10px; background: var(--line, #E8E5DE); }
 .wscreen label.check { grid-column: 1 / -1; }
+
+/* Ledger: money that only moves between the family's own accounts is not spending, so its lines read quieter */
+.lt-transfer .c-amt,.lt-transfer .c-desc,.lt-card_payment .c-amt,.lt-card_payment .c-desc,.lrow.lt-transfer .rl-main,.lrow.lt-card_payment .rl-main{opacity:.72}
+.lt-spend .c-type,.lt-income .c-type,.lt-insurance .c-type,.lt-utility .c-type{font-weight:600}
+.lchips{margin:6px 0 12px}.lchips a{display:inline-flex;gap:6px}
+.lsumt{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:6px}.lsumt th,.lsumt td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left}
+.lsumt .num{text-align:right;font-variant-numeric:tabular-nums}.lsumt tfoot th{border-bottom:0;border-top:2px solid var(--line)}
+.lsumt td:first-child,.lsumt th:first-child{white-space:normal}.lsumt .num{white-space:nowrap}
+@media (max-width:600px){.lsumt{font-size:.84rem}.lsumt th,.lsumt td{padding:5px 4px}}
+.lchips a.on .muted{color:rgba(255,255,255,.85)}
+
+/* Money > Spending / Bills / Regular (the simple outlook, _moutlook.html) and the Standard Overview (_fhome_simple.html) */
+.mo-top,.mo-sum{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom:14px}
+.mo-top .card,.mo-link{display:flex;flex-direction:column;gap:4px;min-width:0}.mo-top b,.mo-link b{font-size:1.6rem;font-variant-numeric:tabular-nums}
+.mo-link{color:var(--text);text-decoration:none}.mo-link:hover{border-color:var(--accent)}.mo-link small.warn{color:var(--warn)}
+.mo-top .mo-warn{background:var(--warn-soft)}
+.mo-g,.mo-b{display:grid;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--line)}
+.mo-g{grid-template-columns:minmax(0,2.2fr) repeat(3,minmax(0,1fr))}.mo-b{grid-template-columns:minmax(0,2fr) repeat(2,minmax(0,1fr))}
+.mo-h{border-top:0;font-size:.8rem;color:var(--text-2)}.mo-h .now{color:var(--accent);font-weight:600}
+.mo-g .num,.mo-b .num{text-align:right;font-variant-numeric:tabular-nums}.mo-b small{display:block;font-size:12px;color:var(--text-2)}
+.mo-note{display:block;font-size:12px;color:var(--text-2)}.mo-b.waiting .mo-note{color:var(--warn)}
+.mo-cat{min-width:0}.mo-bar{display:block;width:100%;height:5px;margin-top:3px}.mo-bar .bg{fill:var(--neutral-soft)}
+.mo-bar.now .fill{fill:var(--accent)}.mo-bar.prev .fill{fill:var(--text-2);opacity:.45}
+.mo-pair{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:1000px){.mo-pair{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}}
+.mo-groups{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:start}
+.mo-groups h2,.mo-pair h2{margin:0;font-size:1.05rem}.mo-groups .rl-m .bad,.mo-pair .rl-m.bad{color:var(--danger)}.mo-groups .rl-m .warn{color:var(--warn)}
+.mo-soon{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.flane-box{display:flex;flex-direction:column;gap:8px;min-width:0}.flane-box .fchips{margin:0}
+.mo-all h3{margin:12px 0 6px;font-size:.95rem}
+.msum.solo{display:block}.fhome-top{display:grid;gap:14px;margin-bottom:14px;align-items:start}
+@media (min-width:1000px){.fhome-top{grid-template-columns:420px minmax(0,1fr)}}
+.mo-top .mo-soon b{font-size:inherit}
+@media (max-width:600px){.mo-top{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.mo-top .card{padding:10px}.mo-top b{font-size:1.1rem}.mo-top small{font-size:11px}}

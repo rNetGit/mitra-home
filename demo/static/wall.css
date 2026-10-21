@@ -133,6 +133,7 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 .agenda .tev.on { box-shadow: 0 0 0 2px var(--accent); }
 .nowmark { align-self: center; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #C2410C;
   padding: 4px 10px; border-radius: 999px; border: 2px solid #C2410C; }
+.agdone { align-self: center; font-size: 14px; color: var(--ink-2); }  /* every timed event has ended: no Now pill beside the last one */
 .tiles3 { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .rows .row { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-top: 1px solid var(--line-2); }
 .rows .row:first-of-type { border-top: 0; }
@@ -256,6 +257,42 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 .mbar { height: 8px; border-radius: 4px; background: #EFEDE8; overflow: hidden; } .mbar i { display: block; height: 8px; background: var(--accent); }
 .mbar i.over { background: var(--late); }
 .tiles3m { flex: 1; min-height: 0; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; }
+/* money pages: Spending (category x three months), Bills (last month against this one), Regular (three groups) */
+.whead .seg { margin-left: 4px; }
+.card.warn { border-color: #E9CF95; background: #FFFBF1; }
+.mlist { flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 6px; }
+.mscroll { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+.sgrid { display: grid; grid-template-columns: minmax(0, 1fr) repeat(3, minmax(96px, 168px)); gap: 12px 20px; align-items: center;
+  padding: 9px 4px; border-top: 1px solid var(--line-2); }
+.mhead { border-top: 0; padding: 0 4px 6px; font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.sgrid .k::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 3px; margin-right: 6px; background: var(--kc); }
+.sgrid .now { --kc: var(--accent); } .sgrid .prev { --kc: #8FA39A; } .sgrid .ly { --kc: #D9C49A; }
+.sgrid .cat b { font-size: 15.5px; font-weight: 600; }
+.bars { display: flex; flex-direction: column; gap: 3px; margin-top: 6px; }
+.bars i { display: block; height: 6px; border-radius: 3px; min-width: 2px; }
+.bars i.now { background: var(--accent); } .bars i.prev { background: #8FA39A; } .bars i.ly { background: #D9C49A; }
+.num { font: 600 19px/1.2 var(--serif); text-align: right; color: var(--ink-2); } .num.now { color: var(--ink); }
+.mpair { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr); gap: 16px; }
+.sgrid.mhead > :not(:first-child), .bgrid.mhead > :not(:first-child) { text-align: right; }
+.bgrid { display: grid; grid-template-columns: minmax(0, 1fr) repeat(2, minmax(88px, 176px)); gap: 12px 16px; align-items: center;
+  padding: 9px 4px; border-top: 1px solid var(--line-2); }
+.bgrid.mhead { border-top: 0; }
+.bgrid .t { display: flex; flex-direction: column; min-width: 0; } .bgrid .t b { font-size: 15.5px; font-weight: 600; }
+.bgrid .t small, .bgrid .paid small { font-size: 13px; color: var(--muted); }
+.bgrid .paid { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+.bgrid .paid b { font: 600 18px/1.2 var(--serif); }
+.bgrid.waiting .t small { color: var(--warn); font-weight: 600; } .bgrid.new .t small { color: var(--accent-ink); }
+.pill.wait { display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border-radius: 999px; font-size: 13px;
+  font-weight: 700; color: var(--warn); background: #FBF1DA; border: 1px solid #E9CF95; }
+.mlist .row small.late, .mlist .row .late { color: var(--late); font-weight: 600; }
+.mlist .row .flag { color: var(--warn); font-weight: 600; }
+.mlist .row .big { font-size: 19px; }
+.soon { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.soon .tag { display: inline-flex; gap: 6px; align-items: center; min-height: 30px; padding: 0 10px; border-radius: 999px; font-size: 13.5px;
+  background: var(--accent-soft); color: var(--accent-ink); }
+.tiles3m.reg { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.mlist h2 { margin-bottom: 0; } .gsum { margin: 0 0 4px; font: 600 20px/1.2 var(--serif); }
+.g-home h2 { color: #0F6CBD; } .g-loans h2 { color: #A14A0A; } .g-subs h2 { color: #7A3DB8; }
 .pinpad { max-width: 420px; margin: auto; display: flex; flex-direction: column; gap: 14px; align-items: stretch; }
 .pinpad h1 { margin: 0; font: 600 34px var(--serif); text-align: center; }
 .pinpad select, .pinpad input { min-height: 56px; border-radius: 14px; border: 1px solid #D9D5CC; background: #FFFFFF; padding: 0 14px; font-size: 20px; }
@@ -382,6 +419,10 @@ body.rest.night .restv .bottom span { background: rgba(243,241,236,.05); }
 
 /* portrait (a tablet on its side): Today stacks Needs doing above the other two, the bill strip shows a week a row */
 @media (orientation: portrait) {
+  .mpair { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1.7fr) minmax(0, 1fr); }
+  .tiles3m.reg { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); }
+  .tiles3m.reg > .g-subs { grid-column: 1 / -1; }
+  .whead .seg { order: 9; }
   .tiles3 { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto minmax(0, 1fr); }
   .tiles3 > :first-child { grid-column: 1 / -1; }
   .strip { grid-template-columns: repeat(7, minmax(0, 1fr)); }

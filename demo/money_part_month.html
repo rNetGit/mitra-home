@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.126.0">
-  <script src="static/vendor/htmx.min.js?v=0.126.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.130.0">
+  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
   
-  <script src="static/app.js?v=0.126.0" defer></script>
+  <script src="static/app.js?v=0.130.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -37,7 +37,7 @@
 <body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
 
   <nav class="rail" aria-label="Main">
@@ -58,27 +58,24 @@
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=month" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.126.0</small>
+    <small class="ver">v0.130.0</small>
   </nav>
 
   <main>
-<header class="head"><div><h1>Money</h1><p class="sub">October 2026: spending, bills, subscriptions and upkeep.</p></div></header>
+
+<header class="head"><div><h1>Money</h1><p class="sub">October 2026: where the money went, category by category.</p></div></header>
 <nav class="pchips mtabs" aria-label="Money">
   <a href="money.html" class="pchip">Overview</a>
-  <a href="money_part_month.html" class="pchip on" aria-current="true">This month</a>
+  <a href="money_part_spending.html" class="pchip">Spending</a><a href="money_part_paid.html" class="pchip">Bills</a><a href="money_part_regular.html" class="pchip">Regular</a>
   
-  <a href="money_part_bills.html" class="pchip">Pay</a>
-  <a href="money_part_deposits.html" class="pchip">Keep</a>
-  <a href="money_part_ledger.html" class="pchip">Look back</a>
 </nav>
-
 
 
 
@@ -108,52 +105,52 @@
   
   
   <circle class="dseg s0" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100"
-          stroke-dasharray="48.699999999999996 51.300000000000004" stroke-dashoffset="0" transform="rotate(-90 60 60)"><title>Housing $2,150</title></circle>
+          stroke-dasharray="48.4 51.6" stroke-dashoffset="0" transform="rotate(-90 60 60)"><title>Housing $2,150</title></circle>
   
   <circle class="dseg s1" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100"
-          stroke-dasharray="15.799999999999999 84.2" stroke-dashoffset="-49.3" transform="rotate(-90 60 60)"><title>Groceries $714</title></circle>
+          stroke-dasharray="15.700000000000001 84.3" stroke-dashoffset="-49.0" transform="rotate(-90 60 60)"><title>Groceries $714</title></circle>
   
   <circle class="dseg s2" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100"
-          stroke-dasharray="8.3 91.7" stroke-dashoffset="-65.69999999999999" transform="rotate(-90 60 60)"><title>Auto loan $389</title></circle>
+          stroke-dasharray="8.3 91.7" stroke-dashoffset="-65.3" transform="rotate(-90 60 60)"><title>Auto loan $389</title></circle>
   
   <circle class="dseg s3" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100"
-          stroke-dasharray="7.0 93.0" stroke-dashoffset="-74.6" transform="rotate(-90 60 60)"><title>Utilities $331</title></circle>
+          stroke-dasharray="6.9 93.1" stroke-dashoffset="-74.2" transform="rotate(-90 60 60)"><title>Utilities $331</title></circle>
   
   <circle class="dseg s4" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100"
-          stroke-dasharray="4.5 95.5" stroke-dashoffset="-82.19999999999999" transform="rotate(-90 60 60)"><title>Insurance $224</title></circle>
+          stroke-dasharray="4.5 95.5" stroke-dashoffset="-81.7" transform="rotate(-90 60 60)"><title>Insurance $224</title></circle>
   
   <circle class="dseg s5" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100"
-          stroke-dasharray="3.0 97.0" stroke-dashoffset="-87.29999999999998" transform="rotate(-90 60 60)"><title>Fuel $156</title></circle>
+          stroke-dasharray="3.0 97.0" stroke-dashoffset="-86.8" transform="rotate(-90 60 60)"><title>Fuel $156</title></circle>
   
   <circle class="dseg s6" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100"
-          stroke-dasharray="8.6 91.4" stroke-dashoffset="-90.89999999999998" transform="rotate(-90 60 60)"><title>Other $400</title></circle>
+          stroke-dasharray="9.200000000000001 90.8" stroke-dashoffset="-90.39999999999999" transform="rotate(-90 60 60)"><title>Other $426</title></circle>
   
 </svg>
 
-        <div class="mmid"><small>Spent</small><b>$4,364</b><small>62% of income kept</small></div>
+        <div class="mmid"><small>Spent</small><b>$4,391</b><small>61% of income kept</small></div>
       </div>
-      <ul class="mlegend"><li><i class="dot s0" aria-hidden="true"></i>Housing <b>49%</b></li><li><i class="dot s1" aria-hidden="true"></i>Groceries <b>16%</b></li><li><i class="dot s2" aria-hidden="true"></i>Auto loan <b>9%</b></li><li><i class="dot s3" aria-hidden="true"></i>Utilities <b>8%</b></li><li><i class="dot s4" aria-hidden="true"></i>Insurance <b>5%</b></li><li><i class="dot s5" aria-hidden="true"></i>Fuel <b>4%</b></li><li><i class="dot s6" aria-hidden="true"></i>Other <b>9%</b></li></ul>
+      <ul class="mlegend"><li><i class="dot s0" aria-hidden="true"></i>Housing <b>49%</b></li><li><i class="dot s1" aria-hidden="true"></i>Groceries <b>16%</b></li><li><i class="dot s2" aria-hidden="true"></i>Auto loan <b>9%</b></li><li><i class="dot s3" aria-hidden="true"></i>Utilities <b>8%</b></li><li><i class="dot s4" aria-hidden="true"></i>Insurance <b>5%</b></li><li><i class="dot s5" aria-hidden="true"></i>Fuel <b>4%</b></li><li><i class="dot s6" aria-hidden="true"></i>Other <b>10%</b></li></ul>
       <dl class="mtiles">
         <div><dt>Income</dt><dd>$11,380</dd></div>
-        <div><dt>Spent</dt><dd>$4,364</dd></div>
+        <div><dt>Spent</dt><dd>$4,391</dd></div>
         <div><dt>Saved</dt><dd>$500</dd></div>
-        <div class=""><dt>Left</dt><dd>$6,516</dd></div>
+        <div class=""><dt>Left</dt><dd>$6,489</dd></div>
       </dl>
     </article>
 
     <article class="slide g-flow" aria-label="Cash flow">
       <p class="kick">Cash flow</p>
       
-      <h3 class="mbig">62%<small> of income kept</small></h3>
+      <h3 class="mbig">61%<small> of income kept</small></h3>
       
-      <svg class="mflow" viewBox="0 0 100 10" preserveAspectRatio="none" role="img" aria-label="Income: fixed $3,127, everyday $1,238, saved $500, left $6,516">
-        <rect class="f1" x="0" y="0" width="27.47" height="10"/><rect class="f2" x="27.47" y="0" width="10.88" height="10"/><rect class="f3" x="38.35" y="0" width="4.39" height="10"/><rect class="f4" x="42.75" y="0" width="57.25" height="10"/>
+      <svg class="mflow" viewBox="0 0 100 10" preserveAspectRatio="none" role="img" aria-label="Income: fixed $3,127, everyday $1,264, saved $500, left $6,489">
+        <rect class="f1" x="0" y="0" width="27.47" height="10"/><rect class="f2" x="27.47" y="0" width="11.11" height="10"/><rect class="f3" x="38.58" y="0" width="4.39" height="10"/><rect class="f4" x="42.98" y="0" width="57.02" height="10"/>
       </svg>
       <ul class="mrows">
         <li><i class="dot f1" aria-hidden="true"></i><span>Fixed costs <small>housing, loans, bills</small></span><b>$3,127</b></li>
-        <li><i class="dot f2" aria-hidden="true"></i><span>Everyday spending</span><b>$1,238</b></li>
+        <li><i class="dot f2" aria-hidden="true"></i><span>Everyday spending</span><b>$1,264</b></li>
         <li><i class="dot f3" aria-hidden="true"></i><span>Saved <small>to savings $500</small></span><b>$500</b></li>
-        <li class=""><i class="dot f4" aria-hidden="true"></i><span>Left</span><b>$6,516</b></li>
+        <li class=""><i class="dot f4" aria-hidden="true"></i><span>Left</span><b>$6,489</b></li>
       </ul>
       <p class="kick sm">Income came from</p>
       <ul class="mrows"><li><span>Other</span><b>$11,380</b></li>
@@ -242,17 +239,17 @@
         </g>
         <g class="on">
           <rect class="inc" x="252" y="16.127797770560875" width="15" height="111.87220222943913" rx="3"><title>Oct income $11,380</title></rect>
-          <rect class="spd" x="269" y="85.09455279557623" width="15" height="42.905447204423766" rx="3"><title>Oct spent $4,364</title></rect>
+          <rect class="spd" x="269" y="84.83640129904327" width="15" height="43.163598700956726" rx="3"><title>Oct spent $4,391</title></rect>
           <text x="268" y="144" text-anchor="middle">Oct</text>
         </g>
       </svg>
       <p class="mkey"><i class="inc"></i>Income <i class="spd"></i>Spent</p>
       <ul class="mfacts">
-        <li><span>On pace for</span><b>$6,765</b></li>
-        <li><span>That pace against Sep</span><b class="up">+40%</b></li>
+        <li><span>On pace for</span><b>$6,482</b></li>
+        <li><span>That pace against Sep</span><b class="up">+34%</b></li>
         
         <li><span>Against Oct last year</span><b class="">n/a</b></li>
-        <li><span>Average a day</span><b>$218</b></li>
+        <li><span>Average a day</span><b>$209</b></li>
       </ul>
     </article>
 
@@ -263,7 +260,7 @@
         <div><small>Biggest buy</small><b>$147</b><span>FRESHFIELD MARKET</span></div>
         <div><small>Top place</small><b>FRESHFIELD MARKET</b><span>4× · $473</span></div>
         <div><small>Busiest day</small><b>10/20</b><span>$155</span></div>
-        <div><small>Charges</small><b>27</b><span>14 categories</span></div>
+        <div><small>Charges</small><b>28</b><span>14 categories</span></div>
         <div><small>Subscriptions</small><b>$72</b><span>a month, 3 tracked</span></div>
         <div><small>Bills ahead</small><b>6</b><span>in the next 30 days</span></div>
       </div>
@@ -271,8 +268,9 @@
     <p class="shint" aria-hidden="true">Tap or swipe</p>
   </div>
 
+  
   <div class="card mlist">
-    <h2 class="row-h">All categories, Oct 2026 <span class="mtot muted">$4,364 · 27 charges</span></h2>
+    <h2 class="row-h">All categories, Oct 2026 <span class="mtot muted">$4,391 · 28 charges</span></h2>
     <div class="msort" role="group" aria-label="Sort charges"><button type="button" class="on" data-sort="a">Biggest first</button><button type="button" data-sort="d">By date</button></div>
     
     <details class="mcat">
@@ -348,6 +346,14 @@
     </details>
     
     <details class="mcat">
+      <summary><i class="dot s6" aria-hidden="true"></i><span>Dining</span><small class="muted">3 · 1%</small><b>$55</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-10-21" data-a="26.26"><span class="muted">10-21</span><span>PIZZA PALACE</span><span class="n">$26.26</span></div><div class="mrow" data-d="2026-10-05" data-a="19.42"><span class="muted">10-05</span><span>CORNER CAFE</span><span class="n">$19.42</span></div><div class="mrow" data-d="2026-10-05" data-a="9.41"><span class="muted">10-05</span><span>CORNER CAFE</span><span class="n">$9.41</span></div></div>
+      
+      <p class="muted sm"><a href="#" data-demo="1">Search the records</a></p>
+      
+    </details>
+    
+    <details class="mcat">
       <summary><i class="dot s6" aria-hidden="true"></i><span>Subscriptions</span><small class="muted">2 · 1%</small><b>$33</b></summary>
       <div class="mrowsx"><div class="mrow" data-d="2026-10-14" data-a="16.99"><span class="muted">10-14</span><span>TUNEWAVE FAMILY</span><span class="n">$16.99</span></div><div class="mrow" data-d="2026-10-12" data-a="15.99"><span class="muted">10-12</span><span>STREAMBOX</span><span class="n">$15.99</span></div></div>
       
@@ -364,14 +370,6 @@
     </details>
     
     <details class="mcat">
-      <summary><i class="dot s6" aria-hidden="true"></i><span>Dining</span><small class="muted">2 · 1%</small><b>$29</b></summary>
-      <div class="mrowsx"><div class="mrow" data-d="2026-10-05" data-a="19.42"><span class="muted">10-05</span><span>CORNER CAFE</span><span class="n">$19.42</span></div><div class="mrow" data-d="2026-10-05" data-a="9.41"><span class="muted">10-05</span><span>CORNER CAFE</span><span class="n">$9.41</span></div></div>
-      
-      <p class="muted sm"><a href="#" data-demo="1">Search the records</a></p>
-      
-    </details>
-    
-    <details class="mcat">
       <summary><i class="dot s6" aria-hidden="true"></i><span>Shopping</span><small class="muted">1 · 0%</small><b>$19</b></summary>
       <div class="mrowsx"><div class="mrow" data-d="2026-10-11" data-a="19.26"><span class="muted">10-11</span><span>PAGEBOOK STORE</span><span class="n">$19.26</span></div></div>
       
@@ -381,7 +379,7 @@
     
     <details class="mcat">
       <summary><i class="dot s6" aria-hidden="true"></i><span>Uncategorized</span><small class="muted">1 · 0%</small><b>$18</b></summary>
-      <div class="mrowsx"><div class="mrow" data-d="2026-10-17" data-a="18.4"><span class="muted">10-17</span><span>HILLTOP BAKERY</span><span class="n">$18.40</span></div></div>
+      <div class="mrowsx"><div class="mrow" data-d="2026-10-18" data-a="18.4"><span class="muted">10-18</span><span>HILLTOP BAKERY</span><span class="n">$18.40</span></div></div>
       
       
       <p class="muted sm">Name a category once and every charge from that merchant, now and later, gets it.</p>
@@ -401,168 +399,9 @@
     </details>
     
   </div>
+  
 </section>
 
-<div class="mgrid">
-  
-  <section class="card">
-    <h2 class="row-h">Spending against the plan <a href="money_part_budget.html">Budget</a></h2>
-    
-    <p><b class="big">$1,107</b> <span class="muted">of $1,700 so far (through Oct 20)</span></p>
-    <ul class="bars">
-      
-      <li><span>Groceries</span>
-        <progress class="amber" max="900.0" value="714.38" aria-label="groceries: $714 of $900"></progress>
-        <small class="muted">$714 / $900 · on course to pass</small></li>
-      
-      <li><span>Fuel</span>
-        <progress class="amber" max="200.0" value="156.33" aria-label="fuel: $156 of $200"></progress>
-        <small class="muted">$156 / $200 · on course to pass</small></li>
-      
-      <li><span>General merchandise</span>
-        <progress class="amber" max="200.0" value="143.78" aria-label="general merchandise: $144 of $200"></progress>
-        <small class="muted">$144 / $200 · on course to pass</small></li>
-      
-      <li><span>Kids activities</span>
-        <progress class="green" max="150.0" value="64.0" aria-label="kids activities: $64 of $150"></progress>
-        <small class="muted">$64 / $150</small></li>
-      
-      <li><span>Dining</span>
-        <progress class="green" max="250.0" value="28.83" aria-label="dining: $29 of $250"></progress>
-        <small class="muted">$29 / $250</small></li>
-      
-    </ul>
-    
-    
-  </section>
-  
-  <section>
-    <h2 class="sec row-h">Bills, next 30 days <a href="money_part_bills.html">Bills</a></h2>
-    
-<div class="card rows">
-  
-
-
-<div class="trow">
-  <span class="av avn" aria-hidden="true"></span>
-  <div class="tmain">
-    <span class="ttl">Brightwave</span>
-    <small class="muted">Bill · $70.00</small>
-  </div>
-  <span class="pill danger">Overdue 2d</span>
-  
-</div>
-
-
-
-<div class="trow">
-  <span class="av avn" aria-hidden="true"></span>
-  <div class="tmain">
-    <span class="ttl">City Water &amp; Power</span>
-    <small class="muted">Bill · $142.18</small>
-  </div>
-  <span class="pill ">in 4d</span>
-  
-</div>
-
-
-
-<div class="trow">
-  <span class="av avn" aria-hidden="true"></span>
-  <div class="tmain">
-    <span class="ttl">Northstar Mobile</span>
-    <small class="muted">Bill · $118.40</small>
-  </div>
-  <span class="pill ">Oct 29</span>
-  
-</div>
-
-
-
-<div class="trow">
-  <span class="av avn" aria-hidden="true"></span>
-  <div class="tmain">
-    <span class="ttl">Maple Home Lending</span>
-    <small class="muted">Bill · $2,150.00</small>
-  </div>
-  <span class="pill ">Nov 1</span>
-  
-</div>
-
-
-
-<div class="trow">
-  <span class="av avn" aria-hidden="true"></span>
-  <div class="tmain">
-    <span class="ttl">Lakeside Mutual</span>
-    <small class="muted">Bill · $224.00</small>
-  </div>
-  <span class="pill ">Nov 4</span>
-  
-</div>
-
-
-
-<div class="trow">
-  <span class="av avn" aria-hidden="true"></span>
-  <div class="tmain">
-    <span class="ttl">Sangamon County</span>
-    <small class="muted">Bill · $1,840.00</small>
-  </div>
-  <span class="pill ">Nov 15</span>
-  
-</div>
-
-</div>
-
-  </section>
-  <section>
-    <h2 class="sec row-h">Subscriptions <a href="money_part_subs.html">All</a></h2>
-    <div class="card rows">
-      
-      
-      <div class="trow"><span class="av avn" aria-hidden="true"></span>
-        <div class="tmain"><span class="ttl">Springfield Gym</span><small class="muted">next Oct 22</small></div>
-        <span class="n">$39.00</span></div>
-      
-      <div class="trow"><span class="av avn" aria-hidden="true"></span>
-        <div class="tmain"><span class="ttl">StreamBox</span><small class="muted">next Nov 11</small></div>
-        <span class="n">$15.99</span></div>
-      
-      <div class="trow"><span class="av avn" aria-hidden="true"></span>
-        <div class="tmain"><span class="ttl">TuneWave Family</span><small class="muted">next Nov 13</small></div>
-        <span class="n">$16.99</span></div>
-      
-      <p class="muted">About $72 a month.</p>
-    </div>
-  </section>
-  <section>
-    <h2 class="sec">House and car</h2>
-    
-<div class="card rows">
-  
-
-
-<div class="trow">
-  <span class="av avh" aria-hidden="true">H</span>
-  <div class="tmain">
-    <span class="ttl">2021 Honda Pilot registration expires</span>
-    <small class="muted">Renewal</small>
-  </div>
-  <span class="pill ">Nov 13</span>
-  
-</div>
-
-</div>
-
-    <h2 class="sec">Renewals and papers</h2>
-    
-<div class="card rows">
-  <p class="muted quiet">Nothing to renew in the next 30 days.</p>
-</div>
-
-  </section>
-</div>
 
 </main>
 
@@ -575,7 +414,7 @@
   <details class="bmore pme">
     <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
     <div class="sheet" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=month" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         

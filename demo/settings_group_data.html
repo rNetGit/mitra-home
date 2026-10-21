@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.126.0">
-  <script src="static/vendor/htmx.min.js?v=0.126.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.130.0">
+  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
   
-  <script src="static/app.js?v=0.126.0" defer></script>
+  <script src="static/app.js?v=0.130.0" defer></script>
   <title>Settings · Mitra Home</title>
 </head>
 
@@ -37,7 +37,7 @@
 <body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
 
   <nav class="rail" aria-label="Main">
@@ -58,21 +58,21 @@
       <details class="rmore">
         <summary class="me on" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.126.0</small>
+    <small class="ver">v0.130.0</small>
   </nav>
 
   <main>
 
 
 <header class="head fhead"><div><a class="fback" href="settings.html">Settings</a><h1>Data</h1></div></header>
-<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html" >Household profile</a><a href="settings_group_agent.html" >Agent</a><a href="settings_group_connections.html" >Connections</a><a href="settings_group_phones.html" >Phones</a><a href="settings_group_data.html" class="on" aria-current="true">Data</a></nav>
+<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html" >Household profile</a><a href="settings_group_agent.html" >Agent</a><a href="settings_group_phones.html" >Phones</a><a href="settings_group_data.html" class="on" aria-current="true">Data</a></nav>
 
 
 
@@ -84,7 +84,7 @@
   <details><summary>All checks (9)</summary>
   <div class="tablewrap"><table>
     <thead><tr><th></th><th>Check</th><th>What</th><th>Where to fix it</th></tr></thead>
-    <tbody><tr><td>OK</td><td>Database</td><td>integrity ok</td><td></td></tr><tr><td>OK</td><td>Database updates</td><td>all applied</td><td></td></tr><tr><td>Fix</td><td>Scheduled tasks</td><td>not registered, so nothing runs by itself</td><td>Settings &gt; Data &gt; Runs on its own</td></tr><tr><td>Fix</td><td>Backup (same-drive)</td><td>no backup yet</td><td>Settings &gt; Data &gt; Back up now</td></tr><tr><td>Note</td><td>Backup encryption</td><td>backups are not encrypted</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>Second backup place</td><td>none: backups sit next to the project folder</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>AI provider</td><td>none: files wait for you or Claude Code</td><td>Settings &gt; Connections &gt; AI provider</td></tr><tr><td>Note</td><td>Update token</td><td>not set: fine while the releases are public; a private project needs one to check for updates</td><td>set MITRAHOME_TOKEN to a read-only GitHub token</td></tr><tr><td>OK</td><td>Data check</td><td>nothing wrong on Oct 20, 2026</td><td></td></tr></tbody>
+    <tbody><tr><td>OK</td><td>Database</td><td>integrity ok</td><td></td></tr><tr><td>OK</td><td>Database updates</td><td>all applied</td><td></td></tr><tr><td>Fix</td><td>Scheduled tasks</td><td>not registered, so nothing runs by itself</td><td>Settings &gt; Data &gt; Runs on its own</td></tr><tr><td>Fix</td><td>Backup (same-drive)</td><td>no backup yet</td><td>Settings &gt; Data &gt; Back up now</td></tr><tr><td>Note</td><td>Backup encryption</td><td>backups are not encrypted</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>Second backup place</td><td>none: backups sit next to the project folder</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>AI provider</td><td>none: files wait for you or Claude Code</td><td>Settings &gt; Connections &gt; AI provider</td></tr><tr><td>Note</td><td>Update token</td><td>not set: fine while the releases are public; a private project needs one to check for updates</td><td>set MITRAHOME_TOKEN to a read-only GitHub token</td></tr><tr><td>OK</td><td>Data check</td><td>nothing wrong on Oct 21, 2026</td><td></td></tr></tbody>
   </table></div>
   </details>
   
@@ -219,7 +219,7 @@
 
 <details class="card sfold"><summary><h2>Updates</h2><span class="muted">Check for and install new versions</span></summary>
 <div id="data-update">
-  <p class="muted">This is Mitra Home 0.126.0.</p>
+  <p class="muted">This is Mitra Home 0.130.0.</p>
   <div class="optrow">
     <button type="button" class="btn alt" hx-post="/settings/update" hx-vals='{"op": "check"}' hx-disabled-elt="this">Check for updates</button>
     
@@ -247,22 +247,7 @@
 </details>
 
 
-<details class="card more-form"><summary><h2>Advanced</h2></summary>
-  <div class="tablewrap"><table><tbody><tr><th>AI provider</th><td>claude_code</td></tr><tr><th>Your folder (papers, settings, database)</th><td>/Users/rivera/MitraHome  (inside the app folder; python onboard.py home moves it out)</td></tr><tr><th>App folder (code)</th><td>/Users/rivera/MitraHome</td></tr><tr><th>Backups on this drive</th><td>/Users/rivera/Mitra-Home-Backup</td></tr><tr><th>Google Drive folder</th><td>not set up (python onboard.py add drive)</td></tr><tr><th>Second backup location</th><td>none (python onboard.py add backup)</td></tr><tr><th>Version</th><td>0.126.0</td></tr></tbody></table></div>
-  
-  
-  <h3>Commands for the checks above</h3>
-  <p class="muted small">In a terminal, in the Mitra Home folder.</p>
-  <div class="tablewrap"><table><tbody><tr><td>Scheduled tasks</td><td><code>python onboard.py (step 11, &#39;Register the scheduled tasks&#39;)</code></td></tr><tr><td>Backup (same-drive)</td><td><code>python tasks/run_task.py weekly_backup</code></td></tr><tr><td>Backup encryption</td><td><code>python onboard.py add backup</code></td></tr><tr><td>Second backup place</td><td><code>python onboard.py add backup</code></td></tr><tr><td>AI provider</td><td><code>python onboard.py add ai</code></td></tr></tbody></table></div>
-  
-  <p class="muted small">To start the phone bot with this computer, add this line to your crontab (crontab -e):</p><pre class="doc">@reboot cd &#39;/Users/rivera/MitraHome&#39; &amp;&amp; &#39;/Users/rivera/MitraHome/.venv/bin/python&#39; data/chat_telegram.py run  # MitraHome</pre>
-  <p class="muted small">Restore a backup into a new folder without touching this one: python data/restore_backup.py. Full check in a
-    terminal: python onboard.py doctor. Load a bank CSV export by hand: python data/import_statement.py detect FILE.csv.
-    Encrypted backups and a second backup place: python onboard.py add backup. Emergency contacts for the emergency sheet:
-    config/contacts.json (copy contacts.example.json).</p>
-</details>
-
-<p class="muted small">Version 0.126.0 · stored on this PC.</p>
+<p class="muted small">Version 0.130.0 · stored on this PC.</p>
 
 </main>
 
@@ -275,7 +260,7 @@
   <details class="bmore pme">
     <summary aria-label="More" class="on"><span class="av avall" aria-hidden="true">⋯</span></summary>
     <div class="sheet" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
