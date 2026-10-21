@@ -13,14 +13,15 @@ OUT = Path(sys.argv[2]) if len(sys.argv) > 2 else Path(__file__).resolve().paren
 HIDE = "#demo-bar,#demo-note,.helptip{display:none!important}"
 
 PC = [("pc-today", "index.html"), ("pc-calendar", "calendar_view_month.html"), ("pc-money", "money.html"),
-      ("pc-month", "money_part_month.html"), ("pc-ledger", "money_part_ledger.html"), ("pc-add", "add.html"),
+      ("pc-month", "money_part_month.html"), ("pc-spending", "money_part_spending.html"),
+      ("pc-ledger", "money_part_ledger.html"), ("pc-add", "add.html"),
       ("pc-family", "family.html"), ("pc-wallet", "wallet.html"), ("pc-audit", "settings_audit.html"),
       ("pc-wall-settings", "settings_group_phones.html#wall-screen"), ("pc-routines", "family_routines.html"),
       ("pc-house", "family_house.html")]
 WALL = [("wall-week", "wall_week.html"), ("wall-month", "wall_month.html"), ("wall-today", "wall.html"),
         ("wall-rest", "wall_rest.html"), ("wall-chores", "wall_chores.html")]
 PHONE = [("phone-today", "index.html"), ("phone-month", "money_part_month.html"), ("phone-money", "money.html"),
-         ("phone-family", "family.html"), ("phone-add", "add.html"), ("phone-wallet", "wallet.html"),
+         ("phone-spending", "money_part_spending.html"), ("phone-family", "family.html"), ("phone-add", "add.html"), ("phone-wallet", "wallet.html"),
          ("phone-calendar", "calendar_view_week.html"), ("phone-kid", "kid/index.html")]
 
 

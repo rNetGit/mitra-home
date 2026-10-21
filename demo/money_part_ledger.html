@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.126.0">
-  <script src="static/vendor/htmx.min.js?v=0.126.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.130.0">
+  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
   
-  <script src="static/app.js?v=0.126.0" defer></script>
+  <script src="static/app.js?v=0.130.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -37,7 +37,7 @@
 <body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
 
   <nav class="rail" aria-label="Main">
@@ -58,40 +58,39 @@
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:ledger" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.126.0</small>
+    <small class="ver">v0.130.0</small>
   </nav>
 
   <main>
+
 <header class="head"><div><h1>Money</h1><p class="sub">Look back · Ledger</p></div></header>
 <nav class="pchips mtabs" aria-label="Money">
   <a href="money.html" class="pchip">Overview</a>
-  <a href="money_part_month.html" class="pchip">This month</a>
+  <a href="money_part_spending.html" class="pchip">Spending</a><a href="money_part_paid.html" class="pchip">Bills</a><a href="money_part_regular.html" class="pchip">Regular</a>
   
-  <a href="money_part_bills.html" class="pchip">Pay</a>
-  <a href="money_part_deposits.html" class="pchip">Keep</a>
   <a href="money_part_ledger.html" class="pchip on" aria-current="true">Look back</a>
 </nav>
 
-<nav class="fchips" aria-label="Look back"><a href="money_part_ledger.html" class="on" aria-current="true">Ledger</a><a href="money_part_cashflow.html" >Cashflow</a><a href="money_part_trends.html" >Trends</a><a href="money_part_tax.html" >Tax papers</a><a href="money_part_home-office.html" >Home office</a><a href="money_part_year-end.html" >Year-end</a></nav>
+<nav class="fchips" aria-label="Look back"><a href="money_part_ledger.html" class="on" aria-current="true">Ledger</a><a href="money_part_deposits.html" >Deposit sources</a><a href="money_part_trends.html" >Trends</a><a href="money_part_watch.html" >Missing statements</a><a href="money_part_spikes.html" >Price rises</a><a href="money_part_tax.html" >Tax papers</a><a href="money_part_home-office.html" >Home office</a><a href="money_part_year-end.html" >Year-end</a></nav>
 
 
 
 
-<form class="rsearch ffilter frange fledger" action="/money" method="get" role="search" data-ledger data-today="2026-10-20">
+<form class="rsearch ffilter frange fledger" action="/money" method="get" role="search" data-ledger data-today="2026-10-21">
   <input type="hidden" name="part" value="ledger">
   <label class="fsel"><span>Period</span><select name="period" data-period><option value="week" >This week</option><option value="month" selected>This month</option><option value="year" >This year</option><option value="custom" >Custom dates</option></select></label>
   <label class="fsel"><span>From</span><input type="date" name="from" value="2026-10-01" required></label>
   <label class="fsel"><span>To</span><input type="date" name="to" value="2026-10-31" required></label>
   <label class="fsel"><span>Account</span><select name="account"><option value="">All accounts</option><option value="1" >Lakeside Bank Checking x4821</option><option value="2" >Lakeside Bank Savings x7310</option><option value="3" >Northway Visa x1209</option><option value="4" >Summit Rewards Card x3344</option></select></label>
   <label class="fsel"><span>Category</span><select name="cat"><option value="">All categories</option><option value="__none__" >Uncategorized</option><option value="auto loan" >auto loan</option><option value="card payment" >card payment</option><option value="dining" >dining</option><option value="fitness" >fitness</option><option value="fuel" >fuel</option><option value="general merchandise" >general merchandise</option><option value="groceries" >groceries</option><option value="healthcare" >healthcare</option><option value="housing" >housing</option><option value="insurance" >insurance</option><option value="interest" >interest</option><option value="kids activities" >kids activities</option><option value="pets" >pets</option><option value="salary" >salary</option><option value="shopping" >shopping</option><option value="subscriptions" >subscriptions</option><option value="transfer" >transfer</option><option value="utilities" >utilities</option></select></label>
-  <label class="fsel"><span>Type</span><select name="type"><option value="">All types</option><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+  <label class="fsel"><span>Type</span><select name="type"><option value="">All types</option><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
   <label class="fsel"><span>Card member</span><select name="member"><option value="">Everyone</option><option value="ELENA RIVERA" >ELENA RIVERA</option><option value="MARCUS RIVERA" >MARCUS RIVERA</option><option value="SOFIA RIVERA" >SOFIA RIVERA</option></select></label>
   <label class="fsel"><span>Amount from</span><input type="number" name="min" value="" min="0" step="0.01" inputmode="decimal" placeholder="0.00"></label>
   <label class="fsel"><span>Amount to</span><input type="number" name="max" value="" min="0" step="0.01" inputmode="decimal" placeholder="any"></label>
@@ -103,13 +102,14 @@
 
 
 
-<div class="kpis rk"><div class="kpi"><span>Money in</span><b >$11,880.00</b></div><div class="kpi"><span>Money out</span><b >-$4,864.48</b></div><div class="kpi"><span>Net</span><b >$7,015.52</b></div><div class="kpi"><span>Lines</span><b >33</b></div></div>
+<div class="kpis rk"><div class="kpi"><span>Income</span><b >$11,380.00</b><i>pay and interest</i></div><div class="kpi"><span>Spending</span><b >$4,390.74</b><i>28 charges</i></div><div class="kpi"><span>Left over</span><b class="good">$6,989.26</b><i>income less spending</i></div><div class="kpi"><span>Bills paid</span><b >$943.58</b><i>part of spending</i></div><div class="kpi"><span>Invested</span><b >$0.00</b><i>set aside</i></div><div class="kpi"><span>Between your accounts</span><b >$500.00</b><i>matched, nets to $0</i></div><div class="kpi"><span>Card payments</span><b >$0.00</b><i>$0.00 matched</i></div><div class="kpi"><span>Lines</span><b >34</b></div></div>
 
 
 
 
+<ul class="calmlist"><li><span class="dotm t-warn" aria-hidden="true"></span><span>Not up to date: 1 savings or other account. Add its latest statement.</span></li></ul>
 
-<p class="notice">Transfers and card payments are lines like any other, so money in and out here are not income and spending. Filter Type to Spending or Income for those.</p>
+
 
 
 <p class="optrow"><a class="btn alt" href="#" data-demo="1" download>Download this list (.csv)</a>
@@ -119,13 +119,74 @@
 
 
 
+<details class="card rblock fold"><summary><h2>By card member <span class="muted">4</span></h2></summary>
+  
+  <ul class="rlist fl-phone">
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">N</span>
+      <span class="rl-main"><span class="rl-t">Not named</span></span>
+      <span class="rl-r"><b>$3,190.56</b></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">M</span>
+      <span class="rl-main"><span class="rl-t">MARCUS RIVERA</span></span>
+      <span class="rl-r"><b>$734.03</b></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">E</span>
+      <span class="rl-main"><span class="rl-t">ELENA RIVERA</span></span>
+      <span class="rl-r"><b>$322.37</b></span>
+    </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">S</span>
+      <span class="rl-main"><span class="rl-t">SOFIA RIVERA</span></span>
+      <span class="rl-r"><b>$143.78</b></span>
+    </div></li>
+  </ul>
+  <div class="tablewrap fl-wide"><table>
+    <thead><tr><th>Card member</th><th class="num">Spent</th></tr></thead>
+    <tbody><tr><td>Not named</td><td class="num">$3,190.56</td></tr><tr><td>MARCUS RIVERA</td><td class="num">$734.03</td></tr><tr><td>ELENA RIVERA</td><td class="num">$322.37</td></tr><tr><td>SOFIA RIVERA</td><td class="num">$143.78</td></tr></tbody>
+  </table></div>
+  
+</details>
+
+
+
+
+<details class="card rblock fold lsum">
+  <summary><h2>How the tiles add up</h2></summary>
+  <table class="lsumt"><thead><tr><th>Kind of line</th><th class="num">In</th><th class="num">Out</th></tr></thead>
+    <tbody><tr><td>Income</td><td class="num">$11,380.00</td><td class="num"></td></tr><tr><td>Spending</td><td class="num"></td><td class="num">-$4,390.74</td></tr><tr><td>Between your accounts</td><td class="num">$500.00</td><td class="num">-$500.00</td></tr></tbody>
+    <tfoot><tr><th>Every line</th><th class="num">$11,880.00</th><th class="num">-$4,890.74</th></tr></tfoot></table>
+</details>
+<nav class="fchips wrap lchips" aria-label="Kind of line"><a href="#" data-demo="1" class="on" aria-current="true">All <span class="muted">34</span></a><a href="#" data-demo="1" >Spending <span class="muted">23 · -$3,447.16</span></a><a href="#" data-demo="1" >Income <span class="muted">4 · $11,380.00</span></a><a href="#" data-demo="1" >Transfers <span class="muted">2 · $0.00</span></a><a href="#" data-demo="1" >Utilities <span class="muted">3 · -$330.58</span></a><a href="#" data-demo="1" >Insurance <span class="muted">1 · -$224.00</span></a><a href="#" data-demo="1" >Loan payments <span class="muted">1 · -$389.00</span></a></nav>
 <section class="card rblock">
-  <h2>Transactions <span class="muted">33</span></h2>
+  <h2>Transactions <span class="muted">34</span></h2>
   <p class="muted small">Negative = money out. Open a description to see the line in full; Edit changes only the category and type. A line you edit stays as you set it.</p>
   
   <datalist id="ledger-cats"><option value="auto loan"><option value="card payment"><option value="dining"><option value="fitness"><option value="fuel"><option value="general merchandise"><option value="groceries"><option value="healthcare"><option value="housing"><option value="insurance"><option value="interest"><option value="kids activities"><option value="pets"><option value="salary"><option value="shopping"><option value="subscriptions"><option value="transfer"><option value="utilities"></datalist>
   <ul class="rlist fl-phone">
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/274?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/277?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-main"><span class="rl-t">PIZZA PALACE</span><span class="rl-m">Oct 21 · Northway Visa x1209 · MARCUS RIVERA · dining · Spending</span></span>
+      <span class="rl-r"><b>-$26.26</b></span></a>
+      
+<details class="lded">
+  <summary>Edit</summary>
+  <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
+    <input type="hidden" name="id" value="277">
+    <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
+    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="dining" placeholder="Uncategorized"></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
+    <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
+    <button class="btn" type="submit">Save</button>
+  </form>
+</details>
+</li>
+  
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/274?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">GREENLEAF GROCERS</span><span class="rl-m">Oct 20 · Summit Rewards Card x3344 · ELENA RIVERA · groceries · Spending</span></span>
       <span class="rl-r"><b>-$90.88</b></span></a>
       
@@ -135,14 +196,14 @@
     <input type="hidden" name="id" value="274">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="groceries" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/267?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/267?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">YMCA SWIM PROGRAM</span><span class="rl-m">Oct 20 · Summit Rewards Card x3344 · kids activities · Spending</span></span>
       <span class="rl-r"><b>-$64.00</b></span></a>
       
@@ -152,32 +213,32 @@
     <input type="hidden" name="id" value="267">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="kids activities" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/285?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
-      <span class="rl-main"><span class="rl-t">TST* HILLTOP BAKERY</span><span class="rl-m">Oct 17 · Northway Visa x1209 · MARCUS RIVERA · Uncategorized · Spending</span></span>
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/286?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-main"><span class="rl-t">TST* HILLTOP BAKERY</span><span class="rl-m">Oct 18 · Northway Visa x1209 · MARCUS RIVERA · Uncategorized · Spending</span></span>
       <span class="rl-r"><b>-$18.40</b></span></a>
       
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="285">
+    <input type="hidden" name="id" value="286">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/266?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
-      <span class="rl-main"><span class="rl-t">NORTHSTAR MOBILE</span><span class="rl-m">Oct 17 · Lakeside Bank Checking x4821 · utilities · Utility</span></span>
+    <li class="lrow lt-utility"><a href="#" data-demo="1" hx-get="/money/txn/266?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-main"><span class="rl-t">NORTHSTAR MOBILE</span><span class="rl-m">Oct 17 · Lakeside Bank Checking x4821 · utilities · Utilities</span></span>
       <span class="rl-r"><b>-$118.40</b></span></a>
       
 <details class="lded">
@@ -186,14 +247,14 @@
     <input type="hidden" name="id" value="266">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="utilities" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="" selected>Utility</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" selected>Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/256?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-income"><a href="#" data-demo="1" hx-get="/money/txn/256?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">SPRINGFIELD SCHOOLS PAYROLL</span><span class="rl-m">Oct 16 · Lakeside Bank Checking x4821 · salary · Income</span></span>
       <span class="rl-r"><b>$2,210.00</b></span></a>
       
@@ -203,14 +264,14 @@
     <input type="hidden" name="id" value="256">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="salary" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/272?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/272?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">GREENLEAF GROCERS</span><span class="rl-m">Oct 15 · Summit Rewards Card x3344 · ELENA RIVERA · groceries · Spending</span></span>
       <span class="rl-r"><b>-$80.97</b></span></a>
       
@@ -220,14 +281,14 @@
     <input type="hidden" name="id" value="272">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="groceries" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/265?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-insurance"><a href="#" data-demo="1" hx-get="/money/txn/265?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">LAKESIDE MUTUAL AUTO INS</span><span class="rl-m">Oct 15 · Lakeside Bank Checking x4821 · insurance · Insurance</span></span>
       <span class="rl-r"><b>-$224.00</b></span></a>
       
@@ -237,14 +298,14 @@
     <input type="hidden" name="id" value="265">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="insurance" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="" selected>Insurance</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" selected>Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/255?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-income"><a href="#" data-demo="1" hx-get="/money/txn/255?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">ACME ENGINEERING PAYROLL</span><span class="rl-m">Oct 15 · Lakeside Bank Checking x4821 · salary · Income</span></span>
       <span class="rl-r"><b>$3,480.00</b></span></a>
       
@@ -254,48 +315,48 @@
     <input type="hidden" name="id" value="255">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="salary" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/283?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/284?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">PAWS &amp; CLAWS PET</span><span class="rl-m">Oct 14 · Northway Visa x1209 · MARCUS RIVERA · pets · Spending</span></span>
       <span class="rl-r"><b>-$60.37</b></span></a>
       
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="283">
+    <input type="hidden" name="id" value="284">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="pets" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/277?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/278?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">QUICKFUEL #221</span><span class="rl-m">Oct 14 · Northway Visa x1209 · MARCUS RIVERA · fuel · Spending</span></span>
       <span class="rl-r"><b>-$60.69</b></span></a>
       
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="277">
+    <input type="hidden" name="id" value="278">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="fuel" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/264?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/264?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">TUNEWAVE FAMILY</span><span class="rl-m">Oct 14 · Summit Rewards Card x3344 · subscriptions · Spending</span></span>
       <span class="rl-r"><b>-$16.99</b></span></a>
       
@@ -305,14 +366,14 @@
     <input type="hidden" name="id" value="264">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="subscriptions" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/268?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/268?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">FRESHFIELD MARKET</span><span class="rl-m">Oct 13 · Northway Visa x1209 · MARCUS RIVERA · groceries · Spending</span></span>
       <span class="rl-r"><b>-$125.93</b></span></a>
       
@@ -322,14 +383,14 @@
     <input type="hidden" name="id" value="268">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="groceries" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/263?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/263?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">STREAMBOX</span><span class="rl-m">Oct 12 · Northway Visa x1209 · subscriptions · Spending</span></span>
       <span class="rl-r"><b>-$15.99</b></span></a>
       
@@ -339,32 +400,32 @@
     <input type="hidden" name="id" value="263">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="subscriptions" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/282?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/283?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">PAGEBOOK STORE</span><span class="rl-m">Oct 11 · Summit Rewards Card x3344 · ELENA RIVERA · shopping · Spending</span></span>
       <span class="rl-r"><b>-$19.26</b></span></a>
       
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="282">
+    <input type="hidden" name="id" value="283">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="shopping" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/262?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
-      <span class="rl-main"><span class="rl-t">CRESTLINE AUTO LOAN</span><span class="rl-m">Oct 9 · Lakeside Bank Checking x4821 · auto loan · Loan payment</span></span>
+    <li class="lrow lt-loan_payment"><a href="#" data-demo="1" hx-get="/money/txn/262?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-main"><span class="rl-t">CRESTLINE AUTO LOAN</span><span class="rl-m">Oct 9 · Lakeside Bank Checking x4821 · auto loan · Loan payments</span></span>
       <span class="rl-r"><b>-$389.00</b></span></a>
       
 <details class="lded">
@@ -373,32 +434,32 @@
     <input type="hidden" name="id" value="262">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="auto loan" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="" selected>Loan payment</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" selected>Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/281?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/282?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">BRIGHTMART</span><span class="rl-m">Oct 8 · Summit Rewards Card x3344 · SOFIA RIVERA · general merchandise · Spending</span></span>
       <span class="rl-r"><b>-$95.90</b></span></a>
       
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="281">
+    <input type="hidden" name="id" value="282">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="general merchandise" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/261?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
-      <span class="rl-main"><span class="rl-t">BRIGHTWAVE INTERNET</span><span class="rl-m">Oct 8 · Lakeside Bank Checking x4821 · utilities · Utility</span></span>
+    <li class="lrow lt-utility"><a href="#" data-demo="1" hx-get="/money/txn/261?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-main"><span class="rl-t">BRIGHTWAVE INTERNET</span><span class="rl-m">Oct 8 · Lakeside Bank Checking x4821 · utilities · Utilities</span></span>
       <span class="rl-r"><b>-$70.00</b></span></a>
       
 <details class="lded">
@@ -407,33 +468,50 @@
     <input type="hidden" name="id" value="261">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="utilities" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="" selected>Utility</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" selected>Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/280?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/281?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">BRIGHTMART</span><span class="rl-m">Oct 7 · Summit Rewards Card x3344 · SOFIA RIVERA · general merchandise · Spending</span></span>
       <span class="rl-r"><b>-$47.88</b></span></a>
       
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="280">
+    <input type="hidden" name="id" value="281">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="general merchandise" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/279?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/280?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">QUICKFUEL #221</span><span class="rl-m">Oct 7 · Northway Visa x1209 · MARCUS RIVERA · fuel · Spending</span></span>
       <span class="rl-r"><b>-$38.64</b></span></a>
+      
+<details class="lded">
+  <summary>Edit</summary>
+  <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
+    <input type="hidden" name="id" value="280">
+    <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
+    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="fuel" placeholder="Uncategorized"></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
+    <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
+    <button class="btn" type="submit">Save</button>
+  </form>
+</details>
+</li>
+  
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/279?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-main"><span class="rl-t">QUICKFUEL #221</span><span class="rl-m">Oct 7 · Northway Visa x1209 · MARCUS RIVERA · fuel · Spending</span></span>
+      <span class="rl-r"><b>-$57.00</b></span></a>
       
 <details class="lded">
   <summary>Edit</summary>
@@ -441,31 +519,14 @@
     <input type="hidden" name="id" value="279">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="fuel" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/278?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
-      <span class="rl-main"><span class="rl-t">QUICKFUEL #221</span><span class="rl-m">Oct 7 · Northway Visa x1209 · MARCUS RIVERA · fuel · Spending</span></span>
-      <span class="rl-r"><b>-$57.00</b></span></a>
-      
-<details class="lded">
-  <summary>Edit</summary>
-  <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="278">
-    <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
-    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="fuel" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
-    <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
-    <button class="btn" type="submit">Save</button>
-  </form>
-</details>
-</li>
-  
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/270?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/270?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">FRESHFIELD MARKET</span><span class="rl-m">Oct 6 · Northway Visa x1209 · MARCUS RIVERA · groceries · Spending</span></span>
       <span class="rl-r"><b>-$147.41</b></span></a>
       
@@ -475,14 +536,14 @@
     <input type="hidden" name="id" value="270">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="groceries" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/276?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/276?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">CORNER CAFE</span><span class="rl-m">Oct 5 · Summit Rewards Card x3344 · ELENA RIVERA · dining · Spending</span></span>
       <span class="rl-r"><b>-$9.41</b></span></a>
       
@@ -492,14 +553,14 @@
     <input type="hidden" name="id" value="276">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="dining" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/275?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/275?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">CORNER CAFE</span><span class="rl-m">Oct 5 · Summit Rewards Card x3344 · ELENA RIVERA · dining · Spending</span></span>
       <span class="rl-r"><b>-$19.42</b></span></a>
       
@@ -509,14 +570,14 @@
     <input type="hidden" name="id" value="275">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="dining" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/273?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/273?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">GREENLEAF GROCERS</span><span class="rl-m">Oct 5 · Summit Rewards Card x3344 · ELENA RIVERA · groceries · Spending</span></span>
       <span class="rl-r"><b>-$69.86</b></span></a>
       
@@ -526,15 +587,15 @@
     <input type="hidden" name="id" value="273">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="groceries" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/258?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
-      <span class="rl-main"><span class="rl-t">TRANSFER FROM CHECKING</span><span class="rl-m">Oct 5 · Lakeside Bank Savings x7310 · transfer · Transfers</span></span>
+    <li class="lrow lt-transfer"><a href="#" data-demo="1" hx-get="/money/txn/258?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-main"><span class="rl-t">TRANSFER FROM CHECKING</span><span class="rl-m">Oct 5 · Lakeside Bank Savings x7310 · transfer · Transfers · between your accounts</span></span>
       <span class="rl-r"><b>$500.00</b></span></a>
       
 <details class="lded">
@@ -543,15 +604,15 @@
     <input type="hidden" name="id" value="258">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="transfer" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" selected>Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" selected>Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/257?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
-      <span class="rl-main"><span class="rl-t">TRANSFER TO SAVINGS</span><span class="rl-m">Oct 5 · Lakeside Bank Checking x4821 · transfer · Transfers</span></span>
+    <li class="lrow lt-transfer"><a href="#" data-demo="1" hx-get="/money/txn/257?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-main"><span class="rl-t">TRANSFER TO SAVINGS</span><span class="rl-m">Oct 5 · Lakeside Bank Checking x4821 · transfer · Transfers · between your accounts</span></span>
       <span class="rl-r"><b>-$500.00</b></span></a>
       
 <details class="lded">
@@ -560,14 +621,14 @@
     <input type="hidden" name="id" value="257">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="transfer" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" selected>Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" selected>Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/269?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/269?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">FRESHFIELD MARKET</span><span class="rl-m">Oct 3 · Northway Visa x1209 · MARCUS RIVERA · groceries · Spending</span></span>
       <span class="rl-r"><b>-$124.33</b></span></a>
       
@@ -577,15 +638,15 @@
     <input type="hidden" name="id" value="269">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="groceries" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/260?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
-      <span class="rl-main"><span class="rl-t">CITY WATER &amp; POWER</span><span class="rl-m">Oct 3 · Lakeside Bank Checking x4821 · utilities · Utility</span></span>
+    <li class="lrow lt-utility"><a href="#" data-demo="1" hx-get="/money/txn/260?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-main"><span class="rl-t">CITY WATER &amp; POWER</span><span class="rl-m">Oct 3 · Lakeside Bank Checking x4821 · utilities · Utilities</span></span>
       <span class="rl-r"><b>-$142.18</b></span></a>
       
 <details class="lded">
@@ -594,31 +655,31 @@
     <input type="hidden" name="id" value="260">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="utilities" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="" selected>Utility</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" selected>Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/284?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/285?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">RIVERSIDE PHARMACY</span><span class="rl-m">Oct 2 · Summit Rewards Card x3344 · ELENA RIVERA · healthcare · Spending</span></span>
       <span class="rl-r"><b>-$32.57</b></span></a>
       
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="284">
+    <input type="hidden" name="id" value="285">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="healthcare" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/254?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-income"><a href="#" data-demo="1" hx-get="/money/txn/254?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">SPRINGFIELD SCHOOLS PAYROLL</span><span class="rl-m">Oct 2 · Lakeside Bank Checking x4821 · salary · Income</span></span>
       <span class="rl-r"><b>$2,210.00</b></span></a>
       
@@ -628,14 +689,14 @@
     <input type="hidden" name="id" value="254">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="salary" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/271?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/271?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">FRESHFIELD MARKET</span><span class="rl-m">Oct 1 · Northway Visa x1209 · MARCUS RIVERA · groceries · Spending</span></span>
       <span class="rl-r"><b>-$75.00</b></span></a>
       
@@ -645,14 +706,14 @@
     <input type="hidden" name="id" value="271">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="groceries" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/259?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/259?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">MAPLE HOME LENDING MORTGAGE</span><span class="rl-m">Oct 1 · Lakeside Bank Checking x4821 · housing · Spending</span></span>
       <span class="rl-r"><b>-$2,150.00</b></span></a>
       
@@ -662,14 +723,14 @@
     <input type="hidden" name="id" value="259">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="housing" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
 </li>
   
-    <li class="lrow"><a href="#" data-demo="1" hx-get="/money/txn/253?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-income"><a href="#" data-demo="1" hx-get="/money/txn/253?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">ACME ENGINEERING PAYROLL</span><span class="rl-m">Oct 1 · Lakeside Bank Checking x4821 · salary · Income</span></span>
       <span class="rl-r"><b>$3,480.00</b></span></a>
       
@@ -679,7 +740,7 @@
     <input type="hidden" name="id" value="253">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="salary" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
@@ -688,7 +749,23 @@
   </ul>
   <div class="tablewrap fl-wide"><table class="ledger has-member">
     <thead><tr><th class="c-date">Date</th><th class="c-acct">Account</th><th class="num c-amt">Amount</th><th class="c-cat">Category</th><th class="c-desc">Description</th><th class="c-mem">Card member</th><th class="c-type">Type</th><th class="c-edit"><span class="vh">Edit</span></th></tr></thead>
-    <tbody><tr>
+    <tbody><tr class="lt-spend">
+      <td class="c-date">Oct 21</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$26.26</td><td class="c-cat">dining</td>
+      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/277?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">PIZZA PALACE</a></td>
+      <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
+      <td class="lded-cell c-edit">
+<details class="lded">
+  <summary>Edit</summary>
+  <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
+    <input type="hidden" name="id" value="277">
+    <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
+    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="dining" placeholder="Uncategorized"></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
+    <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
+    <button class="btn" type="submit">Save</button>
+  </form>
+</details>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 20</td><td class="c-acct">Summit Rewards Card x3344</td><td class="num c-amt">-$90.88</td><td class="c-cat">groceries</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/274?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">GREENLEAF GROCERS</a></td>
       <td class="c-mem">ELENA RIVERA</td><td class="c-type">Spending</td>
@@ -699,12 +776,12 @@
     <input type="hidden" name="id" value="274">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="groceries" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 20</td><td class="c-acct">Summit Rewards Card x3344</td><td class="num c-amt">-$64.00</td><td class="c-cat">kids activities</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/267?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">YMCA SWIM PROGRAM</a></td>
       <td class="c-mem"></td><td class="c-type">Spending</td>
@@ -715,31 +792,31 @@
     <input type="hidden" name="id" value="267">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="kids activities" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
-      <td class="c-date">Oct 17</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$18.40</td><td class="c-cat">Uncategorized</td>
-      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/285?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">TST* HILLTOP BAKERY</a></td>
+</td></tr><tr class="lt-spend">
+      <td class="c-date">Oct 18</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$18.40</td><td class="c-cat">Uncategorized</td>
+      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/286?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">TST* HILLTOP BAKERY</a></td>
       <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
       <td class="lded-cell c-edit">
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="285">
+    <input type="hidden" name="id" value="286">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-utility">
       <td class="c-date">Oct 17</td><td class="c-acct">Lakeside Bank Checking x4821</td><td class="num c-amt">-$118.40</td><td class="c-cat">utilities</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/266?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">NORTHSTAR MOBILE</a></td>
-      <td class="c-mem"></td><td class="c-type">Utility</td>
+      <td class="c-mem"></td><td class="c-type">Utilities</td>
       <td class="lded-cell c-edit">
 <details class="lded">
   <summary>Edit</summary>
@@ -747,12 +824,12 @@
     <input type="hidden" name="id" value="266">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="utilities" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="" selected>Utility</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" selected>Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-income">
       <td class="c-date">Oct 16</td><td class="c-acct">Lakeside Bank Checking x4821</td><td class="num c-amt">$2,210.00</td><td class="c-cat">salary</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/256?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">SPRINGFIELD SCHOOLS PAYROLL</a></td>
       <td class="c-mem"></td><td class="c-type">Income</td>
@@ -763,12 +840,12 @@
     <input type="hidden" name="id" value="256">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="salary" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 15</td><td class="c-acct">Summit Rewards Card x3344</td><td class="num c-amt">-$80.97</td><td class="c-cat">groceries</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/272?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">GREENLEAF GROCERS</a></td>
       <td class="c-mem">ELENA RIVERA</td><td class="c-type">Spending</td>
@@ -779,12 +856,12 @@
     <input type="hidden" name="id" value="272">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="groceries" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-insurance">
       <td class="c-date">Oct 15</td><td class="c-acct">Lakeside Bank Checking x4821</td><td class="num c-amt">-$224.00</td><td class="c-cat">insurance</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/265?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">LAKESIDE MUTUAL AUTO INS</a></td>
       <td class="c-mem"></td><td class="c-type">Insurance</td>
@@ -795,12 +872,12 @@
     <input type="hidden" name="id" value="265">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="insurance" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="" selected>Insurance</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" selected>Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-income">
       <td class="c-date">Oct 15</td><td class="c-acct">Lakeside Bank Checking x4821</td><td class="num c-amt">$3,480.00</td><td class="c-cat">salary</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/255?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">ACME ENGINEERING PAYROLL</a></td>
       <td class="c-mem"></td><td class="c-type">Income</td>
@@ -811,44 +888,44 @@
     <input type="hidden" name="id" value="255">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="salary" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 14</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$60.37</td><td class="c-cat">pets</td>
-      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/283?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">PAWS &amp; CLAWS PET</a></td>
+      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/284?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">PAWS &amp; CLAWS PET</a></td>
       <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
       <td class="lded-cell c-edit">
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="283">
+    <input type="hidden" name="id" value="284">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="pets" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 14</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$60.69</td><td class="c-cat">fuel</td>
-      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/277?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">QUICKFUEL #221</a></td>
+      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/278?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">QUICKFUEL #221</a></td>
       <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
       <td class="lded-cell c-edit">
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="277">
+    <input type="hidden" name="id" value="278">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="fuel" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 14</td><td class="c-acct">Summit Rewards Card x3344</td><td class="num c-amt">-$16.99</td><td class="c-cat">subscriptions</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/264?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">TUNEWAVE FAMILY</a></td>
       <td class="c-mem"></td><td class="c-type">Spending</td>
@@ -859,12 +936,12 @@
     <input type="hidden" name="id" value="264">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="subscriptions" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 13</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$125.93</td><td class="c-cat">groceries</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/268?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">FRESHFIELD MARKET</a></td>
       <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
@@ -875,12 +952,12 @@
     <input type="hidden" name="id" value="268">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="groceries" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 12</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$15.99</td><td class="c-cat">subscriptions</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/263?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">STREAMBOX</a></td>
       <td class="c-mem"></td><td class="c-type">Spending</td>
@@ -891,31 +968,31 @@
     <input type="hidden" name="id" value="263">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="subscriptions" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 11</td><td class="c-acct">Summit Rewards Card x3344</td><td class="num c-amt">-$19.26</td><td class="c-cat">shopping</td>
-      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/282?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">PAGEBOOK STORE</a></td>
+      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/283?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">PAGEBOOK STORE</a></td>
       <td class="c-mem">ELENA RIVERA</td><td class="c-type">Spending</td>
       <td class="lded-cell c-edit">
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="282">
+    <input type="hidden" name="id" value="283">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="shopping" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-loan_payment">
       <td class="c-date">Oct 9</td><td class="c-acct">Lakeside Bank Checking x4821</td><td class="num c-amt">-$389.00</td><td class="c-cat">auto loan</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/262?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">CRESTLINE AUTO LOAN</a></td>
-      <td class="c-mem"></td><td class="c-type">Loan payment</td>
+      <td class="c-mem"></td><td class="c-type">Loan payments</td>
       <td class="lded-cell c-edit">
 <details class="lded">
   <summary>Edit</summary>
@@ -923,13 +1000,45 @@
     <input type="hidden" name="id" value="262">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="auto loan" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="" selected>Loan payment</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" selected>Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 8</td><td class="c-acct">Summit Rewards Card x3344</td><td class="num c-amt">-$95.90</td><td class="c-cat">general merchandise</td>
+      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/282?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">BRIGHTMART</a></td>
+      <td class="c-mem">SOFIA RIVERA</td><td class="c-type">Spending</td>
+      <td class="lded-cell c-edit">
+<details class="lded">
+  <summary>Edit</summary>
+  <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
+    <input type="hidden" name="id" value="282">
+    <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
+    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="general merchandise" placeholder="Uncategorized"></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
+    <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
+    <button class="btn" type="submit">Save</button>
+  </form>
+</details>
+</td></tr><tr class="lt-utility">
+      <td class="c-date">Oct 8</td><td class="c-acct">Lakeside Bank Checking x4821</td><td class="num c-amt">-$70.00</td><td class="c-cat">utilities</td>
+      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/261?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">BRIGHTWAVE INTERNET</a></td>
+      <td class="c-mem"></td><td class="c-type">Utilities</td>
+      <td class="lded-cell c-edit">
+<details class="lded">
+  <summary>Edit</summary>
+  <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
+    <input type="hidden" name="id" value="261">
+    <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
+    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="utilities" placeholder="Uncategorized"></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" selected>Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
+    <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
+    <button class="btn" type="submit">Save</button>
+  </form>
+</details>
+</td></tr><tr class="lt-spend">
+      <td class="c-date">Oct 7</td><td class="c-acct">Summit Rewards Card x3344</td><td class="num c-amt">-$47.88</td><td class="c-cat">general merchandise</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/281?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">BRIGHTMART</a></td>
       <td class="c-mem">SOFIA RIVERA</td><td class="c-type">Spending</td>
       <td class="lded-cell c-edit">
@@ -939,45 +1048,29 @@
     <input type="hidden" name="id" value="281">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="general merchandise" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
-      <td class="c-date">Oct 8</td><td class="c-acct">Lakeside Bank Checking x4821</td><td class="num c-amt">-$70.00</td><td class="c-cat">utilities</td>
-      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/261?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">BRIGHTWAVE INTERNET</a></td>
-      <td class="c-mem"></td><td class="c-type">Utility</td>
-      <td class="lded-cell c-edit">
-<details class="lded">
-  <summary>Edit</summary>
-  <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="261">
-    <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
-    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="utilities" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="" selected>Utility</option></select></label>
-    <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
-    <button class="btn" type="submit">Save</button>
-  </form>
-</details>
-</td></tr><tr>
-      <td class="c-date">Oct 7</td><td class="c-acct">Summit Rewards Card x3344</td><td class="num c-amt">-$47.88</td><td class="c-cat">general merchandise</td>
-      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/280?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">BRIGHTMART</a></td>
-      <td class="c-mem">SOFIA RIVERA</td><td class="c-type">Spending</td>
+</td></tr><tr class="lt-spend">
+      <td class="c-date">Oct 7</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$38.64</td><td class="c-cat">fuel</td>
+      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/280?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">QUICKFUEL #221</a></td>
+      <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
       <td class="lded-cell c-edit">
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
     <input type="hidden" name="id" value="280">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
-    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="general merchandise" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="fuel" placeholder="Uncategorized"></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
-      <td class="c-date">Oct 7</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$38.64</td><td class="c-cat">fuel</td>
+</td></tr><tr class="lt-spend">
+      <td class="c-date">Oct 7</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$57.00</td><td class="c-cat">fuel</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/279?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">QUICKFUEL #221</a></td>
       <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
       <td class="lded-cell c-edit">
@@ -987,28 +1080,12 @@
     <input type="hidden" name="id" value="279">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="fuel" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
-      <td class="c-date">Oct 7</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$57.00</td><td class="c-cat">fuel</td>
-      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/278?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">QUICKFUEL #221</a></td>
-      <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
-      <td class="lded-cell c-edit">
-<details class="lded">
-  <summary>Edit</summary>
-  <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="278">
-    <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
-    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="fuel" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
-    <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
-    <button class="btn" type="submit">Save</button>
-  </form>
-</details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 6</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$147.41</td><td class="c-cat">groceries</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/270?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">FRESHFIELD MARKET</a></td>
       <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
@@ -1019,12 +1096,12 @@
     <input type="hidden" name="id" value="270">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="groceries" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 5</td><td class="c-acct">Summit Rewards Card x3344</td><td class="num c-amt">-$9.41</td><td class="c-cat">dining</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/276?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">CORNER CAFE</a></td>
       <td class="c-mem">ELENA RIVERA</td><td class="c-type">Spending</td>
@@ -1035,12 +1112,12 @@
     <input type="hidden" name="id" value="276">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="dining" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 5</td><td class="c-acct">Summit Rewards Card x3344</td><td class="num c-amt">-$19.42</td><td class="c-cat">dining</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/275?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">CORNER CAFE</a></td>
       <td class="c-mem">ELENA RIVERA</td><td class="c-type">Spending</td>
@@ -1051,12 +1128,12 @@
     <input type="hidden" name="id" value="275">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="dining" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 5</td><td class="c-acct">Summit Rewards Card x3344</td><td class="num c-amt">-$69.86</td><td class="c-cat">groceries</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/273?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">GREENLEAF GROCERS</a></td>
       <td class="c-mem">ELENA RIVERA</td><td class="c-type">Spending</td>
@@ -1067,15 +1144,15 @@
     <input type="hidden" name="id" value="273">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="groceries" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-transfer">
       <td class="c-date">Oct 5</td><td class="c-acct">Lakeside Bank Savings x7310</td><td class="num c-amt">$500.00</td><td class="c-cat">transfer</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/258?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">TRANSFER FROM CHECKING</a></td>
-      <td class="c-mem"></td><td class="c-type">Transfers</td>
+      <td class="c-mem"></td><td class="c-type">Transfers <span class="chip-s t-ok" title="The other side is in another of your accounts">matched</span></td>
       <td class="lded-cell c-edit">
 <details class="lded">
   <summary>Edit</summary>
@@ -1083,15 +1160,15 @@
     <input type="hidden" name="id" value="258">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="transfer" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" selected>Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" selected>Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-transfer">
       <td class="c-date">Oct 5</td><td class="c-acct">Lakeside Bank Checking x4821</td><td class="num c-amt">-$500.00</td><td class="c-cat">transfer</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/257?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">TRANSFER TO SAVINGS</a></td>
-      <td class="c-mem"></td><td class="c-type">Transfers</td>
+      <td class="c-mem"></td><td class="c-type">Transfers <span class="chip-s t-ok" title="The other side is in another of your accounts">matched</span></td>
       <td class="lded-cell c-edit">
 <details class="lded">
   <summary>Edit</summary>
@@ -1099,12 +1176,12 @@
     <input type="hidden" name="id" value="257">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="transfer" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" selected>Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" selected>Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 3</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$124.33</td><td class="c-cat">groceries</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/269?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">FRESHFIELD MARKET</a></td>
       <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
@@ -1115,15 +1192,15 @@
     <input type="hidden" name="id" value="269">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="groceries" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-utility">
       <td class="c-date">Oct 3</td><td class="c-acct">Lakeside Bank Checking x4821</td><td class="num c-amt">-$142.18</td><td class="c-cat">utilities</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/260?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">CITY WATER &amp; POWER</a></td>
-      <td class="c-mem"></td><td class="c-type">Utility</td>
+      <td class="c-mem"></td><td class="c-type">Utilities</td>
       <td class="lded-cell c-edit">
 <details class="lded">
   <summary>Edit</summary>
@@ -1131,28 +1208,28 @@
     <input type="hidden" name="id" value="260">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="utilities" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="" selected>Utility</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" selected>Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 2</td><td class="c-acct">Summit Rewards Card x3344</td><td class="num c-amt">-$32.57</td><td class="c-cat">healthcare</td>
-      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/284?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">RIVERSIDE PHARMACY</a></td>
+      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/285?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">RIVERSIDE PHARMACY</a></td>
       <td class="c-mem">ELENA RIVERA</td><td class="c-type">Spending</td>
       <td class="lded-cell c-edit">
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="284">
+    <input type="hidden" name="id" value="285">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="healthcare" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-income">
       <td class="c-date">Oct 2</td><td class="c-acct">Lakeside Bank Checking x4821</td><td class="num c-amt">$2,210.00</td><td class="c-cat">salary</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/254?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">SPRINGFIELD SCHOOLS PAYROLL</a></td>
       <td class="c-mem"></td><td class="c-type">Income</td>
@@ -1163,12 +1240,12 @@
     <input type="hidden" name="id" value="254">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="salary" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 1</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$75.00</td><td class="c-cat">groceries</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/271?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">FRESHFIELD MARKET</a></td>
       <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
@@ -1179,12 +1256,12 @@
     <input type="hidden" name="id" value="271">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="groceries" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Oct 1</td><td class="c-acct">Lakeside Bank Checking x4821</td><td class="num c-amt">-$2,150.00</td><td class="c-cat">housing</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/259?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">MAPLE HOME LENDING MORTGAGE</a></td>
       <td class="c-mem"></td><td class="c-type">Spending</td>
@@ -1195,12 +1272,12 @@
     <input type="hidden" name="id" value="259">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="housing" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
 </details>
-</td></tr><tr>
+</td></tr><tr class="lt-income">
       <td class="c-date">Oct 1</td><td class="c-acct">Lakeside Bank Checking x4821</td><td class="num c-amt">$3,480.00</td><td class="c-cat">salary</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/253?from=2026-10-01&amp;to=2026-10-31" hx-target="#txn-body" hx-swap="innerHTML">ACME ENGINEERING PAYROLL</a></td>
       <td class="c-mem"></td><td class="c-type">Income</td>
@@ -1211,7 +1288,7 @@
     <input type="hidden" name="id" value="253">
     <input type="hidden" name="from" value="2026-10-01"><input type="hidden" name="to" value="2026-10-31"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="salary" placeholder="Uncategorized"></label>
-    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option></select></label>
+    <label>Type <select name="txn_type"><option value="spend" >Spending</option><option value="income" selected>Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
     <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
     <button class="btn" type="submit">Save</button>
   </form>
@@ -1220,7 +1297,6 @@
   </table></div>
   
 </section>
-
 
 
 <p class="muted small">Looking up only here: open a row to see it in full. To change one of these, tell Chat.</p>
@@ -1237,7 +1313,7 @@
   <details class="bmore pme">
     <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
     <div class="sheet" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:ledger" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         

@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.126.0">
-  <script src="static/vendor/htmx.min.js?v=0.126.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.130.0">
+  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
   
-  <script src="static/app.js?v=0.126.0" defer></script>
+  <script src="static/app.js?v=0.130.0" defer></script>
   <title>Settings · Mitra Home</title>
 </head>
 
@@ -37,7 +37,7 @@
 <body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
 
   <nav class="rail" aria-label="Main">
@@ -58,32 +58,32 @@
       <details class="rmore">
         <summary class="me on" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.126.0</small>
+    <small class="ver">v0.130.0</small>
   </nav>
 
   <main>
 
 
 <header class="head fhead"><div><a class="fback" href="settings.html">Settings</a><h1>Household profile</h1></div></header>
-<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html" class="on" aria-current="true">Household profile</a><a href="settings_group_agent.html" >Agent</a><a href="settings_group_connections.html" >Connections</a><a href="settings_group_phones.html" >Phones</a><a href="settings_group_data.html" >Data</a></nav>
+<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html" class="on" aria-current="true">Household profile</a><a href="settings_group_agent.html" >Agent</a><a href="settings_group_phones.html" >Phones</a><a href="settings_group_data.html" >Data</a></nav>
 
 
 
 
 <details class="card sfold"><summary><h2>How much to show</h2><span class="muted">Simple or Advanced view</span></summary>
-  <p class="muted small">You see everything, including finance, insurance, taxes, work, connections and the optional packs.
+  <p class="muted small">You see the everyday tools: Today, Family, Calendar, Inbox, the Brief, bills, lists and notes, phones and backups.
     This only changes what is shown. Nothing is deleted or switched off, and both views are free.</p>
   <form class="nform" hx-post="/settings/view">
     <fieldset><legend class="vh">How much to show</legend>
-    <label class="check"><input type="radio" name="mode" value="simple" > <span><b>Simple</b>: the everyday tools for the whole family</span></label>
-    <label class="check"><input type="radio" name="mode" value="advanced" checked> <span><b>Advanced</b>: everything, for the family's tech person</span></label>
+    <label class="check"><input type="radio" name="mode" value="simple" checked> <span><b>Simple</b>: the everyday tools for the whole family</span></label>
+    <label class="check"><input type="radio" name="mode" value="advanced" > <span><b>Advanced</b>: everything, for the family's tech person</span></label>
     </fieldset>
     <button class="btn" type="submit">Save</button>
   </form>
@@ -125,47 +125,14 @@
   </form>
 </details>
 
-<details class="card sfold"><summary><h2>Optional features</h2><span class="muted">Packs you can switch on</span></summary>
-  <p class="muted small">Switch on only what you will use. Turning one on never removes anything.</p>
-  <form class="nform" hx-post="/settings/packs">
-    <label class="check wide"><input type="checkbox" name="pack" value="festivals" > <span><b>Festival calendar</b>: Festival dates on Today and the Calendar. A starter list is added for you to edit.</span></label><label class="check wide"><input type="checkbox" name="pack" value="contracts" > <span><b>Work contracts</b>: End-date alerts, timesheet hours, hybrid schedule and monthly invoices.</span></label><label class="check wide"><input type="checkbox" name="pack" value="amazon" > <span><b>Amazon orders</b>: Match Amazon order history to card charges.</span></label><label class="check wide"><input type="checkbox" name="pack" value="shopping" > <span><b>Shopping lists</b>: Things to buy by a target date.</span></label><label class="check wide"><input type="checkbox" name="pack" value="holidays" checked> <span><b>Public holidays</b>: Your country&#39;s public holidays on the Calendar and the Brief, worked out on this PC.</span></label>
-    <button class="btn" type="submit">Save</button>
-  </form>
-</details>
-
 <details class="card sfold"><summary><h2>Traditions and holidays</h2><span class="muted">Festivals and holidays on the calendar</span></summary>
-  <p class="muted small">Public holidays: US federal holidays + Illinois (switch them off under Optional features).
+  <p class="muted small">Public holidays: US federal holidays + Illinois (switch them off under the Advanced view's Optional features).
     Optional: the traditions your family keeps (religious, cultural or regional), one per line, so their festivals and holidays reach the calendar. They stay on this PC: never on phones, Drive or a chat bot.</p>
   <form class="nform" hx-post="/settings/traditions">
     <label class="wide">Our traditions<textarea name="names" rows="3" maxlength="600" placeholder="Hindu (Telugu)&#10;Christian (Catholic)&#10;Lunar New Year"></textarea></label>
     <label class="check wide"><input type="checkbox" name="lookup" value="1" > <span>Once a year, look up their dates with our AI. It is sent only these names, the year and the country. The dates wait in the Inbox until you add them.</span></label>
     <p class="muted small">The look-up needs an AI: no AI provider is set up (Settings &gt; Connections &gt; AI).</p>
     <button class="btn" type="submit">Save</button>
-  </form>
-  
-</details>
-
-<details class="card sfold"><summary><h2>Tax papers</h2><span class="muted">Payers, state tax, tuition</span></summary>
-  <p class="muted small">Names only, separated by commas. No account numbers. All three are optional and stay on this PC.</p>
-  <form class="nform" hx-post="/settings/tax">
-    <label class="wide">Banks, brokers or credit unions that send you interest forms<input name="payers" maxlength="2000" value=""></label>
-    <label class="wide">Words on your state tax payments (for example the state tax agency's name)<input name="state" maxlength="2000" value=""></label>
-    <label class="wide">Tuition payee as it appears on statements (% is a wildcard)<input name="tuition" maxlength="2000" value=""></label>
-    <button class="btn" type="submit">Save</button>
-  </form>
-</details>
-<details class="card sfold"><summary><h2>How early to remind</h2><span class="muted">Days before an expiry date</span></summary>
-  <p class="muted small">Days before an expiry date that its reminder starts.</p>
-  
-  <div class="tablewrap"><table>
-    <thead><tr><th>Type</th><th>Days before</th><th>Default</th><th></th></tr></thead>
-    <tbody><tr><td>passport</td><td>274</td><td>274</td><td></td></tr><tr><td>drivers license</td><td>120</td><td>120</td><td></td></tr><tr><td>permit</td><td>120</td><td>120</td><td></td></tr><tr><td>state id</td><td>120</td><td>120</td><td></td></tr><tr><td>green card</td><td>120</td><td>120</td><td></td></tr><tr><td>insurance card</td><td>120</td><td>120</td><td></td></tr><tr><td>other</td><td>120</td><td>120</td><td></td></tr><tr><td>vehicle registration</td><td>60</td><td>60</td><td></td></tr><tr><td>vehicle inspection</td><td>45</td><td>45</td><td></td></tr><tr><td>warranty</td><td>90</td><td>90</td><td></td></tr><tr><td>vaccination</td><td>30</td><td>30</td><td></td></tr><tr><td>insurance</td><td>30</td><td>30</td><td></td></tr><tr><td>deal</td><td>3</td><td>3</td><td></td></tr><tr><td>wallet card</td><td>30</td><td>30</td><td></td></tr></tbody>
-  </table></div>
-  <form class="nform" hx-post="/settings/lead">
-    <label>Type<select name="type"><option value="passport">passport</option><option value="drivers_license">drivers license</option><option value="permit">permit</option><option value="state_id">state id</option><option value="green_card">green card</option><option value="insurance_card">insurance card</option><option value="other">other</option><option value="vehicle_registration">vehicle registration</option><option value="vehicle_inspection">vehicle inspection</option><option value="warranty">warranty</option><option value="vaccination">vaccination</option><option value="insurance">insurance</option><option value="deal">deal</option><option value="wallet_card">wallet card</option></select></label>
-    <label>Days before the date<input name="days" type="number" min="0" max="730" step="1"></label>
-    <label class="check"><input type="checkbox" name="reset" value="1"> Back to the default</label>
-    <button class="btn alt" type="submit">Save</button>
   </form>
   
 </details>
@@ -184,7 +151,7 @@
   <details class="bmore pme">
     <summary aria-label="More" class="on"><span class="av avall" aria-hidden="true">⋯</span></summary>
     <div class="sheet" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         

@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.126.0">
-  <script src="static/vendor/htmx.min.js?v=0.126.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.130.0">
+  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
   
-  <script src="static/app.js?v=0.126.0" defer></script>
+  <script src="static/app.js?v=0.130.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -37,7 +37,7 @@
 <body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
 #demo-bar a{color:#BFE3CD}
 .chart>div{width:100%!important;height:auto!important}
-.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
 
   <nav class="rail" aria-label="Main">
@@ -58,28 +58,27 @@
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:year_end" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.126.0</small>
+    <small class="ver">v0.130.0</small>
   </nav>
 
   <main>
+
 <header class="head"><div><h1>Money</h1><p class="sub">Look back · Year-end</p></div></header>
 <nav class="pchips mtabs" aria-label="Money">
   <a href="money.html" class="pchip">Overview</a>
-  <a href="money_part_month.html" class="pchip">This month</a>
+  <a href="money_part_spending.html" class="pchip">Spending</a><a href="money_part_paid.html" class="pchip">Bills</a><a href="money_part_regular.html" class="pchip">Regular</a>
   
-  <a href="money_part_bills.html" class="pchip">Pay</a>
-  <a href="money_part_deposits.html" class="pchip">Keep</a>
   <a href="money_part_ledger.html" class="pchip on" aria-current="true">Look back</a>
 </nav>
 
-<nav class="fchips" aria-label="Look back"><a href="money_part_ledger.html" >Ledger</a><a href="money_part_cashflow.html" >Cashflow</a><a href="money_part_trends.html" >Trends</a><a href="money_part_tax.html" >Tax papers</a><a href="money_part_home-office.html" >Home office</a><a href="money_part_year-end.html" class="on" aria-current="true">Year-end</a></nav>
+<nav class="fchips" aria-label="Look back"><a href="money_part_ledger.html" >Ledger</a><a href="money_part_deposits.html" >Deposit sources</a><a href="money_part_trends.html" >Trends</a><a href="money_part_watch.html" >Missing statements</a><a href="money_part_spikes.html" >Price rises</a><a href="money_part_tax.html" >Tax papers</a><a href="money_part_home-office.html" >Home office</a><a href="money_part_year-end.html" class="on" aria-current="true">Year-end</a></nav>
 
 
 
@@ -95,11 +94,12 @@
 
 
 
+
 <p class="optrow"><a class="btn alt" href="#" data-demo="1" download>Download it (.md)</a>
   </p>
 
 <section class="card doc"><h1>2026 year-end summary (year to date)</h1>
-<p><em>Generated 2026-10-20. Transactions in the data run to 2026-10-20. Source: family.db. Aggregates only; card/account numbers are last4.</em></p>
+<p><em>Generated 2026-10-21. Transactions in the data run to 2026-10-21. Source: family.db. Aggregates only; card/account numbers are last4.</em></p>
 <p>&gt; 2026 is not over: every figure is year to date, and months before the first loaded statement are missing.</p>
 <h2>Income vs spend vs invested</h2>
 <table>
@@ -165,22 +165,22 @@
 <tr>
 <td>2026-10</td>
 <td>$11,380</td>
-<td>$4,364</td>
+<td>$4,391</td>
 <td>$0</td>
 <td>$0</td>
-<td>$7,016</td>
+<td>$6,989</td>
 </tr>
 <tr>
 <td><strong>Total</strong></td>
 <td><strong>$79,734</strong></td>
-<td><strong>$32,162</strong></td>
+<td><strong>$32,189</strong></td>
 <td><strong>$0</strong></td>
 <td><strong>$0</strong></td>
-<td><strong>$47,572</strong></td>
+<td><strong>$47,546</strong></td>
 </tr>
 </tbody>
 </table>
-<p>Income $79,734; spend $32,162; net taxes $0; invested $0. Income minus spend and taxes: $47,572 (60% of income).
+<p>Income $79,734; spend $32,189; net taxes $0; invested $0. Income minus spend and taxes: $47,546 (60% of income).
 Spend includes insurance, utilities, loan payments and untyped checks. Card payments and account-to-account transfers are excluded (card purchases are counted once, on the card). One-off lumps (e.g. a life-insurance payment) are included; see the payee list.</p>
 <h2>Top spend categories</h2>
 <table>
@@ -229,8 +229,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 <tr>
 <td>dining</td>
-<td>$910</td>
-<td>38</td>
+<td>$936</td>
+<td>39</td>
 </tr>
 <tr>
 <td>kids activities</td>
@@ -316,8 +316,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 <tr>
 <td>PIZZA PALACE</td>
-<td>$461</td>
-<td>12</td>
+<td>$487</td>
+<td>13</td>
 </tr>
 <tr>
 <td>CORNER CAFE</td>
@@ -370,9 +370,9 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <tr>
 <td>MARCUS RIVERA</td>
 <td>Northway Visa x1209</td>
-<td>$5,933</td>
+<td>$5,959</td>
 <td>$0</td>
-<td>$5,933</td>
+<td>$5,959</td>
 </tr>
 <tr>
 <td>Marcus</td>
@@ -390,7 +390,7 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 </tbody>
 </table>
-<p>By person: MARCUS RIVERA $5,933, ELENA RIVERA $2,575, SOFIA RIVERA $1,086, Elena $567, Marcus $346.</p>
+<p>By person: MARCUS RIVERA $5,959, ELENA RIVERA $2,575, SOFIA RIVERA $1,086, Elena $567, Marcus $346.</p>
 <h2>Subscriptions (annual cost)</h2>
 <p>Still charging: 3 tracked subscriptions, about $72/month, $864/year at current prices. Charged in 2026 so far: $465.</p>
 <table>
@@ -441,13 +441,13 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <tbody>
 <tr>
 <td>Prairie Shield home x0884</td>
-<td>2026-04-03 to 2027-04-03</td>
+<td>2026-04-04 to 2027-04-04</td>
 <td>$1,420</td>
 <td>n/a</td>
 </tr>
 <tr>
 <td>Lakeside Mutual auto x5521</td>
-<td>2026-05-23 to 2026-11-21</td>
+<td>2026-05-24 to 2026-11-22</td>
 <td>$1,344</td>
 <td>n/a</td>
 </tr>
@@ -539,7 +539,7 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
   <details class="bmore pme">
     <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
     <div class="sheet" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="chat.html" >Chat</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:year_end" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
