@@ -127,6 +127,10 @@ code, kbd { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; fon
 
 /* Sections */
 section { padding: 88px 0; }
+section.tour { padding-top: 40px; }
+.tour .section-head { margin-bottom: 28px; }
+.tour-video { max-width: 1040px; margin: 0 auto; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-lg); background: #FAFAF8; }
+.tour-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
 section.alt { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .section-head { max-width: 40em; margin-bottom: 40px; }
 .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }

@@ -1,4 +1,4 @@
-// Theme toggle (remembered per browser) and the Windows / Mac tabs on the install page.
+// Theme toggle (remembered per browser), the Windows / Mac tabs on the install page, and the home page tour video.
 (function () {
   var root = document.documentElement;
   function get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
@@ -34,6 +34,18 @@
       var want = document.getElementById(get("mitra-os") || "");
       if (!want && /Mac/i.test(navigator.platform || "")) want = document.getElementById("tab-mac");
       if (want && list.contains(want)) show(want);
+    });
+
+    // The tour video loads and plays (muted) only while it is on screen, and never by itself for reduced motion.
+    var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.querySelectorAll("video[data-autoplay]").forEach(function (v) {
+      if (still || !("IntersectionObserver" in window)) return;
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () { /* blocked: the controls still work */ }); }
+          else v.pause();
+        });
+      }, { threshold: 0.4 }).observe(v);
     });
   });
 })();
