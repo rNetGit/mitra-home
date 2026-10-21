@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <!-- Mitra Home tour, 30 s, 1920x1080. Pictures are the made-up Rivera family (tools/demo). -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /* Same tokens as the site (assets/style.css) */
+      :root {
+        --canvas: #FAFAF8; --surface: #FFFFFF; --line: #E6E4DF;
+        --text: #14181F; --text-2: #5E6672;
+        --accent: #1F7A4D; --accent-soft: #E8F3EC; --accent-ink: #0F3D2A;
+        --shadow-lg: 0 2px 6px rgba(20,24,31,.06), 0 24px 60px rgba(20,24,31,.14);
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1920px; height: 1080px; overflow: hidden;
+        background: var(--canvas); color: var(--text);
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      }
+      #root { position: relative; width: 100%; height: 100%; }
+      .scene { position: absolute; inset: 0; }
+
+      /* Caption block on the left of each screen scene */
+      .copy { position: absolute; left: 120px; top: 50%; width: 560px; transform: translateY(-50%); }
+      .eyebrow { font-size: 22px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
+      .copy h2 { font-size: 64px; line-height: 1.08; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 26px; }
+      .copy p { font-size: 28px; line-height: 1.4; color: var(--text-2); }
+
+      /* Desktop window */
+      .window {
+        position: absolute; right: 100px; top: 50%; width: 1080px; margin-top: -360px;
+        background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+        box-shadow: var(--shadow-lg); overflow: hidden;
+      }
+      .window .bar { height: 40px; display: flex; align-items: center; gap: 9px; padding: 0 18px; border-bottom: 1px solid var(--line); background: #F4F4F1; }
+      .window .bar i { width: 13px; height: 13px; border-radius: 50%; background: #D6D3CC; }
+      .window .shot { width: 1080px; height: 675px; overflow: hidden; }
+      .window img, .tablet img { display: block; width: 100%; transform-origin: 50% 0; }
+
+      /* Tablet (the Mitra Wall) */
+      .tablet {
+        position: absolute; right: 100px; top: 50%; width: 1104px; margin-top: -357px;
+        padding: 26px; background: #1B1E23; border-radius: 40px; box-shadow: var(--shadow-lg);
+      }
+      .tablet .shot { width: 1052px; height: 658px; border-radius: 14px; overflow: hidden; }
+
+      /* Phones */
+      .phones { position: absolute; right: 150px; top: 50%; margin-top: -400px; display: flex; gap: 56px; }
+      .phone { width: 360px; height: 800px; padding: 14px; background: #1B1E23; border-radius: 56px; box-shadow: var(--shadow-lg); }
+      .phone .shot { width: 332px; height: 772px; border-radius: 44px; overflow: hidden; background: #F4F4F1; }
+      .phone img { display: block; width: 100%; }
+
+      /* Title and end cards */
+      .card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+      .brand { display: flex; align-items: center; gap: 28px; margin-bottom: 40px; }
+      .brand img { width: 120px; height: 120px; }
+      .brand span { font-size: 92px; font-weight: 700; letter-spacing: -0.03em; }
+      .card h1 { font-size: 64px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; max-width: 1300px; }
+      .card .sub { margin-top: 28px; font-size: 32px; color: var(--text-2); }
+      .card .url {
+        margin-top: 56px; font-size: 30px; font-weight: 600; color: var(--accent);
+        background: var(--accent-soft); padding: 18px 36px; border-radius: 999px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1920" data-height="1080">
+
+      <!-- 1. Title -->
+      <section id="s1" class="scene card clip" data-start="0" data-duration="4.5" data-track-index="0">
+        <div class="brand"><img src="assets/mark.svg" alt="" /><span>Mitra Home</span></div>
+        <h1>Your family's paperwork, handled at home.</h1>
+      </section>
+
+      <!-- 2. Today -->
+      <section id="s2" class="scene clip" data-start="4" data-duration="6.5" data-track-index="1">
+        <div class="copy">
+          <div class="eyebrow">Today</div>
+          <h2>Open it, and you know what needs you.</h2>
+          <p>Bills due, appointments, chores and who they are for, on one page.</p>
+        </div>
+        <div class="window"><div class="bar"><i></i><i></i><i></i></div><div class="shot" data-layout-allow-overflow><img src="assets/pc-today.jpg" alt="" /></div></div>
+      </section>
+
+      <!-- 3. Calendar -->
+      <section id="s3" class="scene clip" data-start="10" data-duration="6" data-track-index="0">
+        <div class="copy">
+          <div class="eyebrow">Calendar</div>
+          <h2>Everyone's dates, in one calendar.</h2>
+          <p>School, classes, doctors, birthdays and due dates, from your own records.</p>
+        </div>
+        <div class="window"><div class="bar"><i></i><i></i><i></i></div><div class="shot" data-layout-allow-overflow><img src="assets/pc-calendar.jpg" alt="" /></div></div>
+      </section>
+
+      <!-- 4. Phone: Money and Wallet -->
+      <section id="s4" class="scene clip" data-start="15.5" data-duration="6" data-track-index="1">
+        <div class="copy">
+          <div class="eyebrow">On your phone</div>
+          <h2>Money and the family wallet, in your pocket.</h2>
+          <p>What to pay, what you keep, and where every card and plate number is.</p>
+        </div>
+        <div class="phones">
+          <div class="phone"><div class="shot" data-layout-allow-overflow><img src="assets/phone-money.jpg" alt="" /></div></div>
+          <div class="phone"><div class="shot" data-layout-allow-overflow><img src="assets/phone-wallet.jpg" alt="" /></div></div>
+        </div>
+      </section>
+
+      <!-- 5. Mitra Wall -->
+      <section id="s5" class="scene clip" data-start="21" data-duration="5.5" data-track-index="0">
+        <div class="copy">
+          <div class="eyebrow">Mitra Wall</div>
+          <h2>An old tablet becomes the family's screen.</h2>
+          <p>The week, the weather and everyone's chores, on the kitchen wall.</p>
+        </div>
+        <div class="tablet"><div class="shot" data-layout-allow-overflow><img src="assets/wall-week.jpg" alt="" /></div></div>
+      </section>
+
+      <!-- 6. End card -->
+      <section id="s6" class="scene card clip" data-start="26" data-duration="4" data-track-index="1">
+        <div class="brand"><img src="assets/mark.svg" alt="" /><span>Mitra Home</span></div>
+        <h1>Runs on your own computer.</h1>
+        <div class="sub">Your papers stay at home, not in someone else's cloud.</div>
+        <div class="url">rnetgit.github.io/mitra-home</div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const ease = "power3.out";
+
+      // Each scene runs 0.5 s past the next one's start: it fades out quickly while the next fades in, a short cross-fade
+      function sceneIn(id, at, dur) {
+        tl.fromTo(`#${id}`, { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power1.in" }, at + 0.1);
+        tl.fromTo(`#${id}`, { opacity: 1 }, { opacity: 0, duration: 0.35, ease: "power1.out", immediateRender: false }, at + dur - 0.5);
+      }
+
+      // 1. Title
+      sceneIn("s1", 0, 4.5);
+      tl.fromTo("#s1 .brand", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 0.2);
+      tl.fromTo("#s1 h1", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 0.8);
+
+      // 2, 3, 5: caption slides in, screen rises, then a slow push-in on the picture
+      function screenScene(id, at, dur, frame) {
+        sceneIn(id, at, dur);
+        tl.fromTo(`#${id} .eyebrow`, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease }, at + 0.2);
+        tl.fromTo(`#${id} h2`, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease }, at + 0.35);
+        tl.fromTo(`#${id} p`, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease }, at + 0.55);
+        tl.fromTo(`#${id} ${frame}`, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, at + 0.1);
+        tl.fromTo(`#${id} ${frame} img`, { scale: 1 }, { scale: 1.06, duration: dur - 1.5, ease: "sine.inOut" }, at + 0.8);
+      }
+      screenScene("s2", 4, 6.5, ".window");
+      screenScene("s3", 10, 6, ".window");
+      screenScene("s5", 21, 5.5, ".tablet");
+
+      // 4. Two phones rise one after the other
+      sceneIn("s4", 15.5, 6);
+      tl.fromTo("#s4 .eyebrow", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease }, 15.7);
+      tl.fromTo("#s4 h2", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease }, 15.85);
+      tl.fromTo("#s4 p", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease }, 16.05);
+      tl.fromTo("#s4 .phone", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease, stagger: 0.25 }, 15.6);
+      tl.fromTo("#s4 .phone img", { yPercent: 0 }, { yPercent: -18, duration: 3.6, ease: "sine.inOut" }, 16.6);
+
+      // 6. End card
+      sceneIn("s6", 26, 4.5); // fade-out would start at 30 s, so the end card holds
+      tl.fromTo("#s6 .brand", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 26.1);
+      tl.fromTo("#s6 h1", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 26.5);
+      tl.fromTo("#s6 .sub", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 26.8);
+      tl.fromTo("#s6 .url", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.6)" }, 27.3);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
