@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <!-- Mitra Home phone app, demo walkthrough, about 41 s, 1920x1080, with a voice-over (Kokoro, made locally) and the same words as captions.
+         Pictures are the app's built-in demo (the made-up Rivera family), captured by headless Chrome. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --canvas: #FAFAF8; --surface: #FFFFFF; --line: #E6E4DF;
+        --text: #14181F; --text-2: #5E6672;
+        --accent: #1F7A4D; --accent-soft: #E8F3EC; --accent-ink: #0F3D2A;
+        --shadow-lg: 0 2px 6px rgba(20,24,31,.06), 0 24px 60px rgba(20,24,31,.14);
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1920px; height: 1080px; overflow: hidden;
+        background: var(--canvas); color: var(--text);
+        font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      }
+      #root { position: relative; width: 100%; height: 100%; }
+      .scene { position: absolute; inset: 0; }
+
+      .copy { position: absolute; left: 120px; top: 50%; width: 760px; transform: translateY(-58%); }
+      .eyebrow { font-size: 22px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
+      .copy h2 { font-size: 68px; line-height: 1.08; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 26px; }
+      .copy p { font-size: 30px; line-height: 1.4; color: var(--text-2); }
+
+      /* The spoken words, as captions along the bottom */
+      .cap {
+        position: absolute; left: 120px; bottom: 64px; width: 1000px;
+        font-size: 30px; line-height: 1.35; font-weight: 500; color: var(--accent-ink);
+        background: var(--accent-soft); padding: 16px 26px; border-radius: 16px;
+      }
+
+      .phone { position: absolute; right: 230px; top: 50%; margin-top: -440px; width: 408px; height: 880px; padding: 16px; background: #1B1E23; border-radius: 64px; box-shadow: var(--shadow-lg); }
+      .phone .shot { position: relative; width: 376px; height: 848px; border-radius: 50px; overflow: hidden; background: #131416; }
+      .phone img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; transform-origin: 50% 0; }
+      .ring { position: absolute; border: 5px solid #6DD3A0; border-radius: 16px; box-shadow: 0 0 0 0 rgba(109,211,160,.6); opacity: 0; }
+
+      .card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+      .brand { display: flex; align-items: center; gap: 28px; margin-bottom: 40px; }
+      .brand img { width: 120px; height: 120px; }
+      .brand span { font-size: 92px; font-weight: 700; letter-spacing: -0.03em; }
+      .card h1 { font-size: 64px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; max-width: 1300px; }
+      .card .sub { margin-top: 28px; font-size: 32px; color: var(--text-2); }
+      .card .url { margin-top: 56px; font-size: 30px; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 18px 36px; border-radius: 999px; }
+      .card .cap { left: 50%; transform: translateX(-50%); width: 1300px; text-align: center; }
+      .points { display: flex; gap: 28px; margin-top: 56px; }
+      .points div { font-size: 30px; font-weight: 600; color: var(--accent-ink); background: var(--accent-soft); padding: 20px 34px; border-radius: 999px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="41" data-width="1920" data-height="1080">
+
+      <!-- Voice-over, one line per scene (assets/vo/*.wav, made with `hyperframes tts`, voice af_heart) -->
+      <audio id="vo1" src="assets/vo/s1.wav" data-start="0.6" data-duration="4.757" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo2" src="assets/vo/s2.wav" data-start="6" data-duration="6.315" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo3" src="assets/vo/s3.wav" data-start="12.9" data-duration="4.395" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo4" src="assets/vo/s4.wav" data-start="17.9" data-duration="4.736" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo5" src="assets/vo/s5.wav" data-start="23.2" data-duration="3.52" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo6" src="assets/vo/s6.wav" data-start="27.3" data-duration="4.096" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo7" src="assets/vo/s7.wav" data-start="32" data-duration="5.525" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo8" src="assets/vo/s8.wav" data-start="38.1" data-duration="2.155" data-track-index="10" data-volume="1"></audio>
+
+      <!-- 1. Title -->
+      <section id="s1" class="scene card clip" data-start="0" data-duration="5.9" data-track-index="0">
+        <div class="brand"><img src="assets/mark.svg" alt="" /><span>Mitra Home</span></div>
+        <h1>Your family's bills, dates and lists, on your phone.</h1>
+        <div class="cap">Mitra Home. Your family's bills, dates and lists, from your own computer, on your phone.</div>
+      </section>
+
+      <!-- 2. Pair or try the demo -->
+      <section id="s2" class="scene clip" data-start="5.4" data-duration="7.4" data-track-index="1">
+        <div class="copy">
+          <div class="eyebrow">Get started</div>
+          <h2>Pair with your computer, or try the demo.</h2>
+          <p>Scan the code your family computer shows. No computer yet? Tap Try the demo.</p>
+        </div>
+        <div class="cap">Pair the app with your family computer by scanning a code. Or tap Try the demo, to look around without one.</div>
+        <div class="phone"><div class="shot" data-layout-allow-overflow><img src="assets/1-pairing.png" alt="" /><div class="ring" style="left:1.5%;top:46.8%;width:43%;height:5.4%"></div></div></div>
+      </section>
+
+      <!-- 3. Today -->
+      <section id="s3" class="scene clip" data-start="12.3" data-duration="5.5" data-track-index="0">
+        <div class="copy">
+          <div class="eyebrow">Today</div>
+          <h2>Open it, and you know what needs you.</h2>
+          <p>Bills due, tasks and who they are for. Mark a bill paid with a tap.</p>
+        </div>
+        <div class="cap">Today shows what is due and what needs you. Mark a bill paid with one tap.</div>
+        <div class="phone"><div class="shot" data-layout-allow-overflow><img src="assets/2-today.png" alt="" /><div class="ring" style="left:77.5%;top:59.1%;width:16.5%;height:5.8%"></div></div></div>
+      </section>
+
+      <!-- 4. Calendar -->
+      <section id="s4" class="scene clip" data-start="17.3" data-duration="5.8" data-track-index="1">
+        <div class="copy">
+          <div class="eyebrow">Calendar</div>
+          <h2>Everyone's dates, in one calendar.</h2>
+          <p>School, doctors, chores and family events, from your own records.</p>
+        </div>
+        <div class="cap">The calendar gathers everyone's dates: school, doctors, chores and events.</div>
+        <div class="phone"><div class="shot" data-layout-allow-overflow><img src="assets/3-calendar.png" alt="" /></div></div>
+      </section>
+
+      <!-- 5. Money -->
+      <section id="s5" class="scene clip" data-start="22.6" data-duration="4.6" data-track-index="0">
+        <div class="copy">
+          <div class="eyebrow">Money</div>
+          <h2>Know what is coming up.</h2>
+          <p>Bills in the next 30 days and your regular subscriptions.</p>
+        </div>
+        <div class="cap">Money shows the bills coming up, and your regular subscriptions.</div>
+        <div class="phone"><div class="shot" data-layout-allow-overflow><img src="assets/4-money.png" alt="" /></div></div>
+      </section>
+
+      <!-- 6. Lists -->
+      <section id="s6" class="scene clip" data-start="26.7" data-duration="5.2" data-track-index="1">
+        <div class="copy">
+          <div class="eyebrow">Lists</div>
+          <h2>Shared lists that stay in step.</h2>
+          <p>Groceries, a trip, a to-do. Tick things off; your computer gets the change.</p>
+        </div>
+        <div class="cap">Shared lists, like groceries or a trip, stay in step with your computer.</div>
+        <div class="phone"><div class="shot" data-layout-allow-overflow><img src="assets/6-lists.png" alt="" /></div></div>
+      </section>
+
+      <!-- 7. Private -->
+      <section id="s7" class="scene card clip" data-start="31.4" data-duration="6.6" data-track-index="0">
+        <h1>Between your phone and your own computer.</h1>
+        <div class="points"><div>No account</div><div>No cloud</div><div>Stays on your home network</div></div>
+        <div class="cap">Everything stays between your phone and your own computer at home. No account. No cloud.</div>
+      </section>
+
+      <!-- 8. End card -->
+      <section id="s8" class="scene card clip" data-start="37.5" data-duration="3.5" data-track-index="1">
+        <div class="brand"><img src="assets/mark.svg" alt="" /><span>Mitra Home</span></div>
+        <h1>Try the demo today.</h1>
+        <div class="url">rnetgit.github.io/mitra-home</div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const ease = "power3.out";
+
+      // A scene fades in, and out 0.5 s before it ends while the next fades in
+      function sceneIn(id, at, dur, last) {
+        tl.fromTo(`#${id}`, { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power1.in" }, at + 0.1);
+        if (!last) tl.fromTo(`#${id}`, { opacity: 1 }, { opacity: 0, duration: 0.35, ease: "power1.out", immediateRender: false }, at + dur - 0.5);
+      }
+
+      // Title and cards
+      sceneIn("s1", 0, 5.9);
+      tl.fromTo("#s1 .brand", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 0.2);
+      tl.fromTo("#s1 h1", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 0.8);
+      tl.fromTo("#s1 .cap", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease }, 1.2);
+
+      // Phone scenes: caption block slides in, phone rises, slow push-in, the caption appears with the voice
+      function phoneScene(id, at, dur, zoom = true) {
+        sceneIn(id, at, dur);
+        tl.fromTo(`#${id} .eyebrow`, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease }, at + 0.2);
+        tl.fromTo(`#${id} h2`, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease }, at + 0.35);
+        tl.fromTo(`#${id} .copy p`, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease }, at + 0.55);
+        tl.fromTo(`#${id} .cap`, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease }, at + 0.8);
+        tl.fromTo(`#${id} .phone`, { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, at + 0.1);
+        if (zoom) tl.fromTo(`#${id} .phone img`, { scale: 1 }, { scale: 1.04, duration: dur - 1.5, ease: "sine.inOut" }, at + 0.9); // no push-in where a ring sits on the picture
+      }
+      phoneScene("s2", 5.4, 7.4, false);
+      phoneScene("s3", 12.3, 5.5, false);
+      phoneScene("s4", 17.3, 5.8);
+      phoneScene("s5", 22.6, 4.6);
+      phoneScene("s6", 26.7, 5.2);
+
+      // A ring pulses on what the voice is talking about: the demo link, then the Paid button
+      function pulse(sel, at) {
+        tl.fromTo(sel, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.8)" }, at);
+        tl.to(sel, { boxShadow: "0 0 0 18px rgba(109,211,160,0)", duration: 0.9, ease: "power1.out", repeat: 2 }, at + 0.4);
+      }
+      pulse("#s2 .ring", 9.6);
+      pulse("#s3 .ring", 15.2);
+
+      // 7. Private
+      sceneIn("s7", 31.4, 6.6);
+      tl.fromTo("#s7 h1", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 31.6);
+      tl.fromTo("#s7 .points div", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease, stagger: 0.3 }, 32.6);
+      tl.fromTo("#s7 .cap", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease }, 32.2);
+
+      // 8. End card (holds to the end)
+      sceneIn("s8", 37.5, 3.5, true);
+      tl.fromTo("#s8 .brand", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 37.6);
+      tl.fromTo("#s8 h1", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 38);
+      tl.fromTo("#s8 .url", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.6)" }, 38.6);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
