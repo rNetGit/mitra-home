@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mitra Home Privacy Policy</title>
+<meta name="description" content="Privacy policy for the Mitra Home Android and iPhone apps.">
+<link rel="icon" href="assets/logo/icon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo/icon-192.png">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/logo/icon.svg" alt=""> Mitra Home <span>AI Agent</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="index.html#how">How it works</a>
+      <a href="demo/index.html">Demo</a>
+      <a class="nav-cta" href="install.html">Get Mitra Home</a>
+      <a href="faq.html">FAQ</a>
+      <button class="theme-btn" type="button" aria-label="Switch light or dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="wrap" style="max-width:820px">
+    <div class="section-head">
+      <div class="eyebrow">Legal</div>
+      <h1>Privacy Policy: Mitra Home apps</h1>
+    </div>
+<p>Effective date:
+2026-10-21<br>Publisher: CLOUDWARE EDGE LLC, contact <a
+href="mailto:rNetphone1@gmail.com">rNetphone1@gmail.com</a></p>
+<p>Mitra Home is a phone companion for the Mitra family-admin software
+that you run on your own computer ("your PC"). This policy covers the
+Android app and the iPhone app, both called "Mitra Home". Where they
+differ, each paragraph says which one it is about.</p>
+<h2 id="short-version">Short version</h2>
+<p>We do not collect your data. The app has no accounts, no ads, no
+analytics of its own and no crash-reporting service. Your information
+moves only between your phone and your own PC on your home network. The
+one exception is outside our control: on Android, the Google scanners
+the app uses send Google technical diagnostics about themselves (see
+Third-party components). The iPhone app embeds no third-party code that
+sends anything anywhere.</p>
+<h2 id="what-the-app-handles">What the app handles</h2>
+<ul>
+<li><strong>Pairing details:</strong> the address of your PC, a
+certificate fingerprint and a pairing token, from the QR code you scan.
+Stored on your phone: on Android encrypted with an Android Keystore key,
+on iPhone in the Keychain (this device only, never in backups).</li>
+<li><strong>Family data from your PC:</strong> bills, appointments,
+items, lists and notes that your PC lets this phone see. Kept on your
+phone as one encrypted file so you can read it away from home.</li>
+<li><strong>Changes you make:</strong> ticks, new items and notes wait
+in an encrypted file on your phone until your PC is reachable, then are
+sent to it.</li>
+<li><strong>Files you send:</strong> papers you scan, or PDFs, images
+and spreadsheets you share to the app. Held encrypted in the app's
+private storage until sent to your PC, then removed. On iPhone the Share
+sheet entry ("Mitra Home") is a small separate part of the app that
+encrypts the file and leaves it for the app to send; it has no network
+access and cannot see the pairing token or any of your family data.</li>
+<li><strong>Reminder and lock settings:</strong> your chosen reminder
+hour and lock options, stored on the phone.</li>
+</ul>
+<h2 id="where-data-goes">Where data goes</h2>
+<p>Only to your PC, over your home network, using an encrypted
+connection pinned to your PC's certificate. We (the publisher) never
+receive it and operate no server that stores it.</p>
+<h2 id="third-party-components">Third-party components</h2>
+<ul>
+<li><strong>Google Play services document scanner and code
+scanner</strong> (ML Kit) are used to scan papers and the pairing QR
+code. They run on your device; the scanned pages and codes are not sent
+to Google by the app. ML Kit does send Google technical diagnostics
+about its own use: device and app information, device identifiers,
+performance measurements, settings such as image size, and error codes,
+used by Google for diagnostics and usage analytics and encrypted in
+transit. This is not your documents, pages or codes, and we (the
+publisher) never receive it. See Google's ML Kit data-disclosure page
+(developers.google.com/ml-kit/android-data-disclosure) and Google's
+privacy policy; this is collected by Google, under its terms.</li>
+<li><strong>On-device assistant for quick add</strong> (optional). If
+you type a sentence on the Add tab and tap Fill in, the app reads it
+with its own rules on the phone. On phones that have one, it may also
+ask the phone's own language model (Apple's Foundation Models on iPhone;
+Google's Gemini Nano through ML Kit on Android). The model runs on the
+phone, the sentence is not sent to us or to a server, and nothing is
+saved until you check the form and tap Add. On Android, ML Kit's
+technical diagnostics (above) also apply to this feature.</li>
+<li><strong>Android biometric / screen-lock prompt</strong> and, on
+iPhone, <strong>Face ID / Touch ID / passcode (Apple's
+LocalAuthentication)</strong> are used only if you turn on app lock. The
+app never receives your fingerprint, face or PIN; the phone only tells
+it whether you passed.</li>
+<li><strong>iPhone document scanner (Apple's VisionKit)</strong> scans
+papers on your device; nothing is sent to us or to a third party by the
+app. The iPhone app uses only Apple's own system frameworks and the
+open-source Capacitor shell (MIT licence), which collects nothing. The
+apps themselves include no advertising, analytics or crash-reporting
+SDKs of their own.</li>
+</ul>
+<h2 id="permissions">Permissions</h2>
+<ul>
+<li>Internet: to reach your PC.</li>
+<li>Camera (Android: through Google's scanners; iPhone: Apple's scanner
+and camera): to scan papers and the QR code.</li>
+<li>Local Network (iPhone): to reach your PC on your home Wi-Fi; nothing
+else on your network is looked at.</li>
+<li>Notifications: for the optional daily reminder. Notifications avoid
+amounts and details; the title is only a count ("N things need you
+today"), and if your phone hides previews or sensitive content the lock
+screen shows no details.</li>
+<li>Face ID (iPhone): for the optional app lock.</li>
+<li>Run at startup: to set the daily reminder again after a
+restart.</li>
+<li>Biometric / screen lock: for the optional app lock
+(<code>USE_BIOMETRIC</code>; older Android also lists
+<code>USE_FINGERPRINT</code>).</li>
+<li>Network state: to tell whether the phone is on a network before
+trying to reach your PC.</li>
+</ul>
+<h2 id="storage-security-and-backups">Storage, security and backups</h2>
+<p>The family copy, waiting changes, waiting scans and reminder rows are
+encrypted at rest with a key held in the Android Keystore (iPhone: the
+Keychain, this device only); your reminder and lock settings are plain
+preferences that contain no family data. Android cloud backup is turned
+off for this app, and on iPhone the encrypted files and the Keychain
+items are kept out of iCloud and device backups. "Forget this phone" in
+the app deletes the encrypted copy, waiting scans and changes, reminder
+data and pairing token from the phone at once; removing the phone on
+your PC does the same the next time the phone reaches your PC (until
+then, the daily reminder may still show the rows it already had, but
+never from a copy older than 14 days: after that the reminder stops and
+its rows are deleted). Uninstalling the Android app removes everything
+it stored. On iPhone, deleting an app does not remove its Keychain items
+(iOS keeps them); the app erases them the first time it is installed
+again, and they cannot be read by other apps. To remove them at once,
+use "Forget this phone" before you delete the app, or remove the phone
+on your PC, which makes the stored pairing token useless.</p>
+<h2 id="children">Children</h2>
+<p>The app is for families. A parent pairs a child's phone, and the
+child sees only what the parent allows. We do not knowingly collect any
+information from children, since we collect none from anyone.</p>
+<h2 id="sharing-and-sale-of-data">Sharing and sale of data</h2>
+<p>None. We do not sell, share or transfer your data.</p>
+<h2 id="your-pcs-data">Your PC's data</h2>
+<p>What your PC software stores, and any optional Google Calendar or
+Gmail connections you set up there, are covered by the Mitra PC
+software's own documentation and the Google terms you accept there, not
+by this app.</p>
+<h2 id="changes">Changes</h2>
+<p>Updates to this policy will be posted at <a
+href="https://rnetgit.github.io/mitra-home/privacy.html">https://rnetgit.github.io/mitra-home/privacy.html</a>
+with a new effective date.</p>
+<h2 id="contact">Contact</h2>
+<p>CLOUDWARE EDGE LLC, <a
+href="mailto:rNetphone1@gmail.com">rNetphone1@gmail.com</a></p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/logo/icon.svg" alt=""> Mitra Home <span>AI Agent</span></a>
+        <p style="margin:12px 0 0;max-width:28em">A household assistant that lives on your own computer. Bills, papers, dates and lists for the whole family.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul><li><a href="index.html#what">Features</a></li><li><a href="index.html#how">How it works</a></li><li><a href="demo/index.html">Demo</a></li><li><a href="install.html">Install</a></li></ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul><li><a href="faq.html">FAQ</a></li><li><a href="index.html#privacy">Privacy</a></li><li><a href="privacy.html">Privacy policy</a></li><li><a href="install.html#trouble">Troubleshooting</a></li></ul>
+      </div>
+    </div>
+    <div class="fine">
+      <div>Records and reminders only. Nothing here is financial, tax, legal, insurance or medical advice.</div>
+      <div>Not affiliated with or endorsed by Anthropic, OpenAI or Google. Product names belong to their owners.</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
