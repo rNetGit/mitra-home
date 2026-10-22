@@ -22,6 +22,7 @@ BASE = sys.argv[1].rstrip("/")
 INST = Path(sys.argv[2])
 OUT = Path(sys.argv[3]) if len(sys.argv) > 3 else Path(__file__).resolve().parents[2] / "demo"
 WEBSITE = "../index.html"
+PHONE_DEMO = "../phone-demo.html"  # the page with the QR that opens the phone app's demo household
 
 # Pages a visitor can walk to. Query keys that pick a page part are kept; anything else (dates, searches, record ids,
 # filters) would multiply pages and is sent to the note.
@@ -196,11 +197,11 @@ def main():
         {"name": "Mateo", "pin": "730264"}).encode(), method="POST"), timeout=30).read()
     kid = crawl(kop, KID_PAGES, re.compile(r"^/$"), 6, follow=False)
 
-    links = [("See the Mitra Wall", "wall.html"), ("See a child's view", "kid/index.html"), ("Website", WEBSITE)]
+    links = [("See the Mitra Wall", "wall.html"), ("See a child's view", "kid/index.html"), ("Phone app demo", PHONE_DEMO), ("Website", WEBSITE)]
     names = save_set(adult, "", bar("", links))
-    save_set(wall, "", bar("", [("Back to the app", "index.html"), ("Website", WEBSITE)]),
+    save_set(wall, "", bar("", [("Back to the app", "index.html"), ("Phone app demo", PHONE_DEMO), ("Website", WEBSITE)]),
              extra=' data-rest-url="wall_rest.html" data-home-url="wall.html"')
-    save_set(kid, "kid/", bar("../", [("Back to the parents' view", "index.html"), ("Website", WEBSITE)]))
+    save_set(kid, "kid/", bar("../", [("Back to the parents' view", "index.html"), ("Phone app demo", PHONE_DEMO), ("Website", WEBSITE)]))
 
     # static files, the CSS the app makes, the wall photos
     shutil.copytree(INST / "data" / "webapp" / "static", OUT / "static", ignore=shutil.ignore_patterns("sw.js"))
