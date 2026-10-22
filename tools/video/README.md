@@ -35,3 +35,24 @@ motion is one GSAP timeline at the bottom.
 
 `AGENTS.md` and `CLAUDE.md` in `tour/` come from `hyperframes init` (notes for coding agents). The text uses Inter
 from Google Fonts, so the render needs the internet once and looks the same on the Mac and the PC.
+
+## phone/ - a 41 second 16:9 demo walkthrough of the phone app (1920x1080)
+
+Pairing screen, then Today, Calendar, Money, Family and Lists in the phone app's demo mode (the made-up Rivera
+household), with a voice-over and the same words as captions. The scenes and the captions are in `phone/index.html`;
+`phone/assets/` holds the six screenshots (`1-pairing.png` .. `6-lists.png`, shot from the demo) and the eight
+voice-over clips `vo/s1.wav` .. `s8.wav`.
+
+Render (in `tools/video/phone`, same environment variables as above):
+
+```
+npx --yes hyperframes@0.8.181 check
+npx --yes hyperframes@0.8.181 render --crf 24 -o renders/mitra-home-phone-demo.mp4
+```
+
+The clips are committed so a render needs no speech model. To change the words, edit the caption and the matching
+`<audio>` line in `index.html`, then make the clip again with `hyperframes tts` (voice `af_heart`, Kokoro, runs on this
+machine). Kokoro needs `pip install kokoro-onnx soundfile` in a throwaway virtual environment (never the global
+Python), pointed to with `HYPERFRAMES_PYTHON`; set each `<audio>` `data-duration` to the new clip's length.
+
+The finished MP4 is not committed. The published copy is on YouTube (channel CLOUDWAREEDGE): https://youtu.be/GD40jC-bRiM.
