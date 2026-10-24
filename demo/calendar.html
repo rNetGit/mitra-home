@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Calendar · Mitra Home</title>
 </head>
 
@@ -54,52 +54,56 @@
       
       <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=calendar" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
 <header class="head"><div><h1>Calendar</h1><p class="sub">Every due date, appointment and birthday from your records.</p></div></header>
 <section id="calendar"><div class="calbar">
   <div class="calnav">
-    <a href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-14"
-   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-14"
+    <a href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-18"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-18"
    class="btn alt">‹ Prev</a>
-    <a href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-21"
-   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-21"
+    <a href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-25"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-25"
    class="btn alt">Today</a>
-    <a href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-28"
-   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-28"
+    <a href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-01"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-01"
    class="btn alt">Next ›</a>
-    <h2>Oct 21 to 27, 2026</h2>
+    <h2>Oct 25 to 31, 2026</h2>
   </div>
   <div class="seg" role="group" aria-label="View">
-    <a href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-21"
-   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-21"
-   class="on">Week</a><a href="#" data-demo="1" hx-get="/calendar/body?view=month&amp;ref=2026-10-21"
-   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=month&amp;ref=2026-10-21"
-   >Month</a><a href="#" data-demo="1" hx-get="/calendar/body?view=year&amp;ref=2026-10-21"
-   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=year&amp;ref=2026-10-21"
+    <a href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-25"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-25"
+   class="on">Week</a><a href="#" data-demo="1" hx-get="/calendar/body?view=month&amp;ref=2026-10-25"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=month&amp;ref=2026-10-25"
+   >Month</a><a href="#" data-demo="1" hx-get="/calendar/body?view=year&amp;ref=2026-10-25"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=year&amp;ref=2026-10-25"
    >Year</a>
   </div>
 </div>
 
 
 
-<div class="story deck calc" data-story tabindex="0" aria-roledescription="carousel" aria-label="Oct 21 to 27, 2026 at a glance">
+<div class="story deck calc" data-story tabindex="0" aria-roledescription="carousel" aria-label="Oct 25 to 31, 2026 at a glance">
   
   
-<article class="slide g-cat" aria-label="What is on"><p class="kick">Oct 21 to 27, 2026</p>
+<article class="slide g-cat" aria-label="What is on"><p class="kick">Oct 25 to 31, 2026</p>
     <h3 class="gbig">15<small> things</small></h3>
     <ul class="kbars">
       <li class="k-class"><i class="kdot" aria-hidden="true"></i><span>Class</span><b>5</b>
@@ -109,7 +113,7 @@
         <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="kbar" width="20.0" height="8"/></svg></li>
       <li class="dim"><span>3 more kinds</span></li>
     </ul>
-    <p class="dim sm">Busiest: Thu Oct 22, 3 things</p>
+    <p class="dim sm">Busiest: Mon Oct 26, 3 things</p>
   </article>
 
   
@@ -140,38 +144,38 @@
 <div class="cal week">
   
   <div class="day today">
-    <div class="dnum">Wed Oct 21</div>
-    <span class="kchip k-pet"><span class="vh">Pet: </span>Flea and tick dose (Pancho)</span><span class="kchip k-class"><span class="vh">Class: </span>Piano 16:00-16:30 (Mateo)</span>
-  </div>
-  
-  <div class="day">
-    <div class="dnum">Thu Oct 22</div>
-    <span class="kchip k-appointment"><span class="vh">Appointment: </span>Knee follow-up – Lakeside Physio 08:15</span><span class="kchip k-school"><span class="vh">School: </span>Field trip form and $12 (Mateo)</span><span class="kchip k-class"><span class="vh">Class: </span>Soccer practice 17:30-19:00 (Sofia)</span>
-  </div>
-  
-  <div class="day">
-    <div class="dnum">Fri Oct 23</div>
-    <span class="kchip k-appointment"><span class="vh">Appointment: </span>Cleaning – Bright Smiles Dental 15:30</span><span class="kchip k-subscription"><span class="vh">Subscription: </span>Springfield Gym $39.00</span>
-  </div>
-  
-  <div class="day">
-    <div class="dnum">Sat Oct 24</div>
-    <span class="kchip k-school"><span class="vh">School: </span>Science fair project due (Sofia)</span><span class="kchip k-class"><span class="vh">Class: </span>Swim lessons 10:00-10:45 (Mateo)</span>
-  </div>
-  
-  <div class="day">
     <div class="dnum">Sun Oct 25</div>
-    <span class="kchip k-bill"><span class="vh">Bill: </span>City Water &amp; Power $142.18</span><span class="kchip k-event"><span class="vh">Event: </span>Family movie night 7:00–9:00 PM</span>
+    <span class="kchip k-pet"><span class="vh">Pet: </span>Flea and tick dose (Pancho)</span>
   </div>
   
   <div class="day">
     <div class="dnum">Mon Oct 26</div>
-    <span class="kchip k-appointment"><span class="vh">Appointment: </span>Vaccines – Oak Street Vet 11:00</span><span class="kchip k-class"><span class="vh">Class: </span>Art club 15:15-16:15 (Sofia)</span>
+    <span class="kchip k-appointment"><span class="vh">Appointment: </span>Knee follow-up – Lakeside Physio 08:15</span><span class="kchip k-school"><span class="vh">School: </span>Field trip form and $12 (Mateo)</span><span class="kchip k-class"><span class="vh">Class: </span>Art club 15:15-16:15 (Sofia)</span>
   </div>
   
   <div class="day">
     <div class="dnum">Tue Oct 27</div>
-    <span class="kchip k-school"><span class="vh">School: </span>Picture day (Mateo)</span><span class="kchip k-class"><span class="vh">Class: </span>Soccer practice 17:30-19:00 (Sofia)</span>
+    <span class="kchip k-appointment"><span class="vh">Appointment: </span>Cleaning – Bright Smiles Dental 15:30</span><span class="kchip k-subscription"><span class="vh">Subscription: </span>Springfield Gym $39.00</span><span class="kchip k-class"><span class="vh">Class: </span>Soccer practice 17:30-19:00 (Sofia)</span>
+  </div>
+  
+  <div class="day">
+    <div class="dnum">Wed Oct 28</div>
+    <span class="kchip k-school"><span class="vh">School: </span>Science fair project due (Sofia)</span><span class="kchip k-class"><span class="vh">Class: </span>Piano 16:00-16:30 (Mateo)</span>
+  </div>
+  
+  <div class="day">
+    <div class="dnum">Thu Oct 29</div>
+    <span class="kchip k-bill"><span class="vh">Bill: </span>City Water &amp; Power $142.18</span><span class="kchip k-event"><span class="vh">Event: </span>Family movie night 7:00–9:00 PM</span><span class="kchip k-class"><span class="vh">Class: </span>Soccer practice 17:30-19:00 (Sofia)</span>
+  </div>
+  
+  <div class="day">
+    <div class="dnum">Fri Oct 30</div>
+    <span class="kchip k-appointment"><span class="vh">Appointment: </span>Vaccines – Oak Street Vet 11:00</span>
+  </div>
+  
+  <div class="day">
+    <div class="dnum">Sat Oct 31</div>
+    <span class="kchip k-school"><span class="vh">School: </span>Picture day (Mateo)</span><span class="kchip k-class"><span class="vh">Class: </span>Swim lessons 10:00-10:45 (Mateo)</span>
   </div>
   
 </div>

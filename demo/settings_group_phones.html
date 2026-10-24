@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Settings · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me on" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
+        <a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -79,90 +83,33 @@
 
 
 
-<section class="card">
-  <h2>Phones on the home Wi-Fi</h2>
+<nav class="seg devtabs" aria-label="Devices">
   
-  <p>Phones cannot reach Mitra Home right now: it was started for this PC only.</p>
-  <p class="muted small">To pair a phone, close Mitra Home and start it again with the starter whose name ends in
-    "for phones" (in the app folder). Phones then use HTTPS on the home Wi-Fi only; nothing goes through the internet.</p>
+  <a href="settings_group_phones_tab_phones.html" class="on" aria-current="page">Phones <span class="devn">0</span></a>
   
-</section>
-<section class="card">
-  <h2>Add a phone</h2>
+  <a href="settings_group_phones_tab_walls.html" class="">Walls <span class="devn">1</span></a>
   
-  <p class="muted">Start Mitra Home for phones first (see above).</p>
+  <a href="settings_group_phones_tab_connection.html" class="">Connection</a>
   
-</section>
-<section class="card">
-  <h2>Paired phones</h2>
-  <p class="muted">No phone is paired yet.</p>
-  
-  <p class="muted small">On the phone, open the Mitra Home app and scan the pairing code from "Add a phone". Each phone
-    keeps a copy of only what its person may see, and the switches above decide the rest.</p>
-</section>
+</nav>
+
+<p class="alert">Phones and tablets cannot reach Mitra Home right now: it was started for this PC only. <a href="settings_group_phones_tab_connection.html">How to open it to phones</a></p>
+
+
+
 
 <section class="card">
-  <h2>Mitra Wall</h2>
-  <p class="muted">An old tablet or iPad on the wall that shows the week, today's plan, the children's jobs, the lists
-    and the meals. It opens Money only when an adult types their own PIN, and closes it again after a minute.</p>
-  
-  
-  <div class="phone">
-    <h3>Kitchen wall <span class="muted small">· paired Wed, Oct 21 · last seen Wed, Oct 21 13:02</span></h3>
-    <form class="nform" hx-post="/settings/wall/revoke">
-      <input type="hidden" name="id" value="1">
-      <label class="check"><input type="checkbox" name="sure" value="1" required> Remove Kitchen wall: it shows the pairing page again</label>
-      <button class="btn alt" type="submit">Remove</button>
-    </form>
+  <div class="devhead"><h2>Phones</h2>
   </div>
+  <p class="muted">No phone is paired yet.</p>
   
-  
-  
-  <form class="nform" hx-post="/settings/wall/add" autocomplete="off">
-    <label>Wall name<input name="name" maxlength="40" required placeholder="Kitchen wall"></label>
-    <button class="btn" type="submit">Show the wall code</button>
-  </form>
-  <p class="muted small">The code works once, for 15 minutes. The wall can tick family lists and the
-    children's jobs (set them in Family › Routines); it never sees adults-only lists, critical info or papers.</p>
-  
-  
-  <h3 id="wall-screen">Wall screen</h3>
-  <p class="muted small">After two minutes untouched the wall shows a full-size clock, and in the day the family's photos
-    in turn. At night it stays on a dark clock.</p>
-  <form class="nform wscreen" hx-post="/settings/wall/screen">
-    <label>Clock<select name="clock"><option value="digital" selected>Digital</option>
-      <option value="analog" >Traditional (hands)</option></select></label>
-    <label class="check"><input type="checkbox" name="photos" value="1" checked> Show photos in turn with the clock</label>
-    <label>Photos from<input type="time" name="photos_from" value="07:00" required></label>
-    <label>Photos until<input type="time" name="photos_to" value="21:00" required></label>
-    <label>Night from<input type="time" name="night_from" value="22:00" required></label>
-    <label>Night until<input type="time" name="night_to" value="06:00" required></label>
-    <label>Clock shows (seconds)<input type="number" name="clock_seconds" min="10" max="3600" value="60" required></label>
-    <label>Each photo (seconds)<input type="number" name="photo_seconds" min="5" max="300" value="12" required></label>
-    <label>Photos each turn<input type="number" name="per_turn" min="1" max="20" value="4" required></label>
-    <button class="btn" type="submit">Save the wall screen</button>
-  </form>
-  <h3>Photos <span class="muted small">· 4 of 300</span></h3>
-  <div class="wphotos">
-    <figure><img src="wall_photo/f28d750566e44281.jpg" alt="" loading="lazy" width="160" height="110">
-      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="f28d750566e44281.jpg">
-        <button class="btn alt" type="submit">Remove</button></form></figure>
-    <figure><img src="wall_photo/fa1e934eac1d4195.jpg" alt="" loading="lazy" width="160" height="110">
-      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="fa1e934eac1d4195.jpg">
-        <button class="btn alt" type="submit">Remove</button></form></figure>
-    <figure><img src="wall_photo/9095acd2bea9430f.jpg" alt="" loading="lazy" width="160" height="110">
-      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="9095acd2bea9430f.jpg">
-        <button class="btn alt" type="submit">Remove</button></form></figure>
-    <figure><img src="wall_photo/6fc809593fce3438.jpg" alt="" loading="lazy" width="160" height="110">
-      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="6fc809593fce3438.jpg">
-        <button class="btn alt" type="submit">Remove</button></form></figure></div>
-  
-  <div class="optrow"><input type="file" id="wphoto" accept="image/jpeg,image/png,image/webp,.heic" multiple>
-    <button type="button" class="btn" data-upload="#wphoto" data-upload-to="/settings/wall/photo" data-upload-name="1" data-upload-each="1">Add photos</button>
-    <span id="wphoto-said" class="muted" role="status"></span></div>
-  <p class="muted small">Each photo is made again on this PC: turned upright, at most 1920 pixels a side and without its
-    location or camera details. They stay on this PC (in the household folder, wall_photos) and only a paired wall shows them.</p>
+  <p class="muted small">Click a phone to choose what it may carry or to remove it. Each phone keeps a copy of only what its
+    person may see.</p>
 </section>
+
+
+
+
 
 
 </main>

@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -80,13 +84,14 @@
 
 
 
+<p class="muted asof">Data as of: Cards and checking as of Oct 25 · savings and loans as of Oct 5</p>
 
 <section class="fhero g-over" aria-label="October 2026">
   <p class="kick">October 2026 · so far</p>
-  <p class="gbig">$6,489 <small>left</small></p>
+  <p class="gbig">$6,283 <small>left</small></p>
   <div class="gtiles">
     <div class="gtile"><small>In</small><b>$11,380</b></div>
-    <div class="gtile"><small>Spent</small><b>$4,391</b></div>
+    <div class="gtile"><small>Spent</small><b>$4,597</b></div>
     <div class="gtile"><small>Saved</small><b>$500</b></div>
     
   </div>
@@ -95,7 +100,7 @@
 
 <div class="mo-sum">
   <a class="card mo-link" href="money_part_spending.html"><span class="muted">Spending</span>
-    <b>$4,391</b>
+    <b>$4,597</b>
     <small class="muted">October so far · September $4,821</small></a>
   <a class="card mo-link" href="money_part_paid.html"><span class="muted">Bills paid</span>
     <b>$943.58</b>
@@ -109,7 +114,7 @@
 
 <section class="card fneeds"><h2>Needs a look</h2>
   <ul class="rlist">
-    <li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">Internet $70.00 was due Oct 19</span><span class="rl-go" aria-hidden="true">›</span></a></li>
+    <li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">Internet $70.00 was due Oct 23</span><span class="rl-go" aria-hidden="true">›</span></a></li>
   </ul>
 </section>
 

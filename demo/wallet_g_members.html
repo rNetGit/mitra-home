@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Wallet · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=wallet" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -123,7 +127,7 @@
   <label>Last 4 (any other card)<input name="number_last4" maxlength="4" value="3456" autocomplete="off"></label>
   <label>Where the number is (optional)<input name="where_hint" maxlength="120" value="" placeholder="back, under the barcode"></label>
   <label>Details (optional)<input name="details" maxlength="300" value="" placeholder="Wi-Fi name, trash day, filter size"></label>
-  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2026-11-30"></label>
+  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2026-12-04"></label>
           <button class="btn" type="submit">Save card</button>
         </form>
         <form class="nform" hx-post="/wallet/card" hx-vals='{"id": 2, "op": "drop"}'>
@@ -160,7 +164,7 @@
   <label>Last 4 (any other card)<input name="number_last4" maxlength="4" value="4417" autocomplete="off"></label>
   <label>Where the number is (optional)<input name="where_hint" maxlength="120" value="" placeholder="back, under the barcode"></label>
   <label>Details (optional)<input name="details" maxlength="300" value="" placeholder="Wi-Fi name, trash day, filter size"></label>
-  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2027-08-17"></label>
+  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2027-08-21"></label>
           <button class="btn" type="submit">Save card</button>
         </form>
         <form class="nform" hx-post="/wallet/card" hx-vals='{"id": 1, "op": "drop"}'>
@@ -177,7 +181,7 @@
 <details class="card sfold" id="wphoto">
   <summary><h2>Add a card from a photo</h2></summary>
   <div class="nform">
-    <label>Photo of the card (front or back)<input type="file" id="wallet-photo" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" capture="environment"></label>
+    <label>Photo of the card (front or back)<input type="file" id="wallet-photo" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp,.heic,image/heic" capture="environment"></label>
     <p class="muted small wide">The AI does not read photos here (turn it on in Settings > Connections > AI helper), so you fill in the card yourself.</p>
     <p class="muted small wide" id="wallet-photo-msg" role="status"></p>
   </div>

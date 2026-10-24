@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=records:papers:policies" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -96,21 +100,21 @@
   <ul class="rlist fl-phone">
     <li><a href="#" data-demo="1">
       <span class="rl-av t-ok" aria-hidden="true">P</span>
-      <span class="rl-main"><span class="rl-t">Prairie Shield</span><span class="rl-m">home · 0884 · Term start Apr 4 · $1,420.00</span></span>
-      <span class="rl-r"><b>Apr 4, 2027</b><span class="chip-s t-ok">active</span></span>
+      <span class="rl-main"><span class="rl-t">Prairie Shield</span><span class="rl-m">home · 0884 · Term start Apr 8 · $1,420.00</span></span>
+      <span class="rl-r"><b>Apr 8, 2027</b><span class="chip-s t-ok">active</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-ok" aria-hidden="true">L</span>
-      <span class="rl-main"><span class="rl-t">Lakeside Mutual</span><span class="rl-m">auto · 5521 · Term start May 24 · $1,344.00</span></span>
-      <span class="rl-r"><b>Nov 22</b><span class="chip-s t-ok">active</span></span>
+      <span class="rl-main"><span class="rl-t">Lakeside Mutual</span><span class="rl-m">auto · 5521 · Term start May 28 · $1,344.00</span></span>
+      <span class="rl-r"><b>Nov 26</b><span class="chip-s t-ok">active</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Carrier</th><th>Kind</th><th>Policy (last 4)</th><th>Term start</th><th>Term end</th><th>Premium total</th><th>Status</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Prairie Shield</a></td><td>home</td><td>0884</td><td>Apr 4</td><td>Apr 4, 2027</td><td>$1,420.00</td><td>active</td></tr><tr><td><a href="#" data-demo="1">Lakeside Mutual</a></td><td>auto</td><td>5521</td><td>May 24</td><td>Nov 22</td><td>$1,344.00</td><td>active</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Prairie Shield</a></td><td>home</td><td>0884</td><td>Apr 8</td><td>Apr 8, 2027</td><td>$1,420.00</td><td>active</td></tr><tr><td><a href="#" data-demo="1">Lakeside Mutual</a></td><td>auto</td><td>5521</td><td>May 28</td><td>Nov 26</td><td>$1,344.00</td><td>active</td></tr></tbody>
   </table></div>
   
 </section>

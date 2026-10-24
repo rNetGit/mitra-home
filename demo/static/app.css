@@ -342,6 +342,19 @@ progress.red::-webkit-progress-value{background:var(--danger)}progress.red::-moz
 /* Settings > Phones: the pairing code stays dark on white in every theme (scanners need it) */
 .pair .qr{display:block;width:264px;max-width:100%;height:auto;background:#fff;padding:8px;border-radius:var(--radius-sm,8px);margin:8px 0}
 .phone{border-top:1px solid var(--line);padding:10px 0}.phone:first-of-type{border-top:0}.phone h3{margin:0 0 6px;font-size:1rem}
+/* Settings > Phones: sub-tabs Phones / Walls / Connection, one row per device, the device's window */
+.devtabs{margin:0 0 14px}.devtabs~.alert{margin-bottom:12px}.devtabs a{color:var(--text);text-decoration:none;padding:8px 14px;min-height:40px;display:flex;align-items:center;gap:6px}
+.devtabs a.on{background:var(--accent);color:var(--on-accent);font-weight:600}.devn{font-size:.8rem;opacity:.8}
+.devhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}.devhead h2{margin:0}
+.devlist{list-style:none;margin:6px 0 10px;padding:0}.devlist li{border-top:1px solid var(--line)}.devlist li:first-child{border-top:0}
+.devrow{display:flex;width:100%;align-items:center;justify-content:space-between;gap:10px;padding:10px 4px;min-height:52px;border:0;background:none;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.devrow:hover,.devrow:focus-visible{background:var(--surface-2,rgba(0,0,0,.04))}
+.devmain{display:flex;flex-direction:column;gap:2px;min-width:0}.devmain b{overflow-wrap:anywhere}
+.devpill{flex:none;border-radius:999px;padding:2px 10px;font-size:.8rem;font-weight:600;white-space:nowrap}
+.devpill.p-ok{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok)}.devpill.p-warn{background:var(--warn-soft);color:var(--warn)}
+.devpill.p-bad{background:var(--danger-soft);color:var(--danger)}.devpill.p-info{background:var(--surface-2,rgba(0,0,0,.06));color:var(--text-2)}
+.devdlg .qr{display:block;margin:8px auto}.devdlg .devrm{border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
+.nform .ptabs{grid-column:1/-1;margin:0}.ppanel{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;align-items:end}.ppanel[hidden]{display:none}
 .fp{overflow-wrap:anywhere;font-family:ui-monospace,Consolas,monospace;font-size:.85em}
 /* Settings > Data > Runs on its own: one row per scheduled job with an on / off switch */
 .job{border-top:1px solid var(--line);padding:10px 0}.job:first-of-type{border-top:0}
@@ -1140,9 +1153,21 @@ table.ledger .c-edit{width:4.2rem;text-align:right}table.ledger .lded summary{wh
 .mo-groups{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));align-items:start}
 .mo-groups h2,.mo-pair h2{margin:0;font-size:1.05rem}.mo-groups .rl-m .bad,.mo-pair .rl-m.bad{color:var(--danger)}.mo-groups .rl-m .warn{color:var(--warn)}
 .mo-soon{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.mo-soon .chip-s{flex:0 1 auto;min-width:0;overflow-wrap:anywhere}
 .flane-box{display:flex;flex-direction:column;gap:8px;min-width:0}.flane-box .fchips{margin:0}
 .mo-all h3{margin:12px 0 6px;font-size:.95rem}
 .msum.solo{display:block}.fhome-top{display:grid;gap:14px;margin-bottom:14px;align-items:start}
 @media (min-width:1000px){.fhome-top{grid-template-columns:420px minmax(0,1fr)}}
 .mo-top .mo-soon b{font-size:inherit}
 @media (max-width:600px){.mo-top{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.mo-top .card{padding:10px}.mo-top b{font-size:1.1rem}.mo-top small{font-size:11px}}
+@media (max-width:600px){.mo-top.mo-reg{grid-template-columns:repeat(2,minmax(0,1fr))}.mo-top .mo-next{grid-column:1/-1}}
+/* Today > Keep up: what the house needs to stay current (data/keepup.py) */
+.keepup{list-style:none;margin:0 0 16px;padding:8px 12px}
+.keepup .kl{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--line)}
+.keepup .kl:first-child{border-top:0}
+.keepup .kdot{flex:none;width:9px;height:9px;border-radius:50%;background:var(--ok)}
+.keepup .warn .kdot{background:var(--warn)}
+.keepup .ktext{flex:1;font-size:.9rem;line-height:1.35}
+.keepup .kact{display:flex;gap:6px;flex:none}
+.keepup .kact .btn{min-height:36px;padding:4px 10px}
+.rail .rsep{height:1px;background:var(--line);margin:6px 10px;flex:none}

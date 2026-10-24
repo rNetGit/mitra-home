@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=records:vehicles:vehicles" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -110,21 +114,21 @@
   <ul class="rlist fl-phone">
     <li><a href="#" data-demo="1">
       <span class="rl-av t-warn" aria-hidden="true">H</span>
-      <span class="rl-main"><span class="rl-t">2021 Honda Pilot</span><span class="rl-m">Marcus · Inspection Mar 20, 2027</span></span>
-      <span class="rl-r"><b>Nov 14</b><span class="chip-s t-warn">in 24 days</span></span>
+      <span class="rl-main"><span class="rl-t">2021 Honda Pilot</span><span class="rl-m">Marcus · Inspection Mar 24, 2027</span></span>
+      <span class="rl-r"><b>Nov 18</b><span class="chip-s t-warn">in 24 days</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">T</span>
       <span class="rl-main"><span class="rl-t">2017 Toyota Corolla</span><span class="rl-m">Elena</span></span>
-      <span class="rl-r"><b>Apr 29, 2027</b></span>
+      <span class="rl-r"><b>May 3, 2027</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Vehicle</th><th>Owner</th><th>Registration</th><th>Inspection</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">2021 Honda Pilot</a> <span class="chip-s t-warn">in 24 days</span></td><td>Marcus</td><td>Nov 14</td><td>Mar 20, 2027</td></tr><tr><td><a href="#" data-demo="1">2017 Toyota Corolla</a></td><td>Elena</td><td>Apr 29, 2027</td><td></td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">2021 Honda Pilot</a> <span class="chip-s t-warn">in 24 days</span></td><td>Marcus</td><td>Nov 18</td><td>Mar 24, 2027</td></tr><tr><td><a href="#" data-demo="1">2017 Toyota Corolla</a></td><td>Elena</td><td>May 3, 2027</td><td></td></tr></tbody>
   </table></div>
   
 </section>
@@ -137,62 +141,62 @@
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">O</span>
       <span class="rl-main"><span class="rl-t">Oil change</span><span class="rl-m">2021 Honda Pilot · Odometer 36100 · Quick Lube &amp; Tire</span></span>
-      <span class="rl-r"><b>Aug 12</b></span>
+      <span class="rl-r"><b>Aug 16</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">R</span>
       <span class="rl-main"><span class="rl-t">Rotation</span><span class="rl-m">2021 Honda Pilot · Odometer 36100 · Quick Lube &amp; Tire</span></span>
-      <span class="rl-r"><b>Aug 12</b></span>
+      <span class="rl-r"><b>Aug 16</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">O</span>
       <span class="rl-main"><span class="rl-t">Oil change</span><span class="rl-m">2017 Toyota Corolla · Odometer 89300 · Quick Lube &amp; Tire</span></span>
-      <span class="rl-r"><b>Aug 12</b></span>
+      <span class="rl-r"><b>Aug 16</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">R</span>
       <span class="rl-main"><span class="rl-t">Rotation</span><span class="rl-m">2017 Toyota Corolla · Odometer 89300 · Quick Lube &amp; Tire</span></span>
-      <span class="rl-r"><b>Aug 12</b></span>
+      <span class="rl-r"><b>Aug 16</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">B</span>
       <span class="rl-main"><span class="rl-t">Brake fluid</span><span class="rl-m">2021 Honda Pilot · Odometer 29200 · Quick Lube &amp; Tire</span></span>
-      <span class="rl-r"><b>Dec 25, 2025</b></span>
+      <span class="rl-r"><b>Dec 29, 2025</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">B</span>
       <span class="rl-main"><span class="rl-t">Brake fluid</span><span class="rl-m">2017 Toyota Corolla · Odometer 82400 · Quick Lube &amp; Tire</span></span>
-      <span class="rl-r"><b>Dec 25, 2025</b></span>
+      <span class="rl-r"><b>Dec 29, 2025</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">B</span>
       <span class="rl-main"><span class="rl-t">Battery</span><span class="rl-m">2021 Honda Pilot · Odometer 23200 · Quick Lube &amp; Tire</span></span>
-      <span class="rl-r"><b>Jun 8, 2025</b></span>
+      <span class="rl-r"><b>Jun 12, 2025</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">B</span>
       <span class="rl-main"><span class="rl-t">Battery</span><span class="rl-m">2017 Toyota Corolla · Odometer 76400 · Quick Lube &amp; Tire</span></span>
-      <span class="rl-r"><b>Jun 8, 2025</b></span>
+      <span class="rl-r"><b>Jun 12, 2025</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Date</th><th>Vehicle</th><th>Service</th><th>Odometer</th><th>Cost</th><th>Vendor</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Aug 12</a></td><td>2021 Honda Pilot</td><td>oil change</td><td>36100</td><td></td><td>Quick Lube &amp; Tire</td></tr><tr><td><a href="#" data-demo="1">Aug 12</a></td><td>2021 Honda Pilot</td><td>rotation</td><td>36100</td><td></td><td>Quick Lube &amp; Tire</td></tr><tr><td><a href="#" data-demo="1">Aug 12</a></td><td>2017 Toyota Corolla</td><td>oil change</td><td>89300</td><td></td><td>Quick Lube &amp; Tire</td></tr><tr><td><a href="#" data-demo="1">Aug 12</a></td><td>2017 Toyota Corolla</td><td>rotation</td><td>89300</td><td></td><td>Quick Lube &amp; Tire</td></tr><tr><td><a href="#" data-demo="1">Dec 25, 2025</a></td><td>2021 Honda Pilot</td><td>brake fluid</td><td>29200</td><td></td><td>Quick Lube &amp; Tire</td></tr><tr><td><a href="#" data-demo="1">Dec 25, 2025</a></td><td>2017 Toyota Corolla</td><td>brake fluid</td><td>82400</td><td></td><td>Quick Lube &amp; Tire</td></tr><tr><td><a href="#" data-demo="1">Jun 8, 2025</a></td><td>2021 Honda Pilot</td><td>battery</td><td>23200</td><td></td><td>Quick Lube &amp; Tire</td></tr><tr><td><a href="#" data-demo="1">Jun 8, 2025</a></td><td>2017 Toyota Corolla</td><td>battery</td><td>76400</td><td></td><td>Quick Lube &amp; Tire</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Aug 16</a></td><td>2021 Honda Pilot</td><td>oil change</td><td>36100</td><td></td><td>Quick Lube &amp; Tire</td></tr><tr><td><a href="#" data-demo="1">Aug 16</a></td><td>2021 Honda Pilot</td><td>rotation</td><td>36100</td><td></td><td>Quick Lube &amp; Tire</td></tr><tr><td><a href="#" data-demo="1">Aug 16</a></td><td>2017 Toyota Corolla</td><td>oil change</td><td>89300</td><td></td><td>Quick Lube &amp; Tire</td></tr><tr><td><a href="#" data-demo="1">Aug 16</a></td><td>2017 Toyota Corolla</td><td>rotation</td><td>89300</td><td></td><td>Quick Lube &amp; Tire</td></tr><tr><td><a href="#" data-demo="1">Dec 29, 2025</a></td><td>2021 Honda Pilot</td><td>brake fluid</td><td>29200</td><td></td><td>Quick Lube &amp; Tire</td></tr><tr><td><a href="#" data-demo="1">Dec 29, 2025</a></td><td>2017 Toyota Corolla</td><td>brake fluid</td><td>82400</td><td></td><td>Quick Lube &amp; Tire</td></tr><tr><td><a href="#" data-demo="1">Jun 12, 2025</a></td><td>2021 Honda Pilot</td><td>battery</td><td>23200</td><td></td><td>Quick Lube &amp; Tire</td></tr><tr><td><a href="#" data-demo="1">Jun 12, 2025</a></td><td>2017 Toyota Corolla</td><td>battery</td><td>76400</td><td></td><td>Quick Lube &amp; Tire</td></tr></tbody>
   </table></div>
   
 </section>

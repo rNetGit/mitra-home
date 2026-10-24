@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Settings · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me on" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
+        <a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -84,7 +88,7 @@
   <details><summary>All checks (9)</summary>
   <div class="tablewrap"><table>
     <thead><tr><th></th><th>Check</th><th>What</th><th>Where to fix it</th></tr></thead>
-    <tbody><tr><td>OK</td><td>Database</td><td>integrity ok</td><td></td></tr><tr><td>OK</td><td>Database updates</td><td>all applied</td><td></td></tr><tr><td>Fix</td><td>Scheduled tasks</td><td>not registered, so nothing runs by itself</td><td>Settings &gt; Data &gt; Runs on its own</td></tr><tr><td>Fix</td><td>Backup (same-drive)</td><td>no backup yet</td><td>Settings &gt; Data &gt; Back up now</td></tr><tr><td>Note</td><td>Backup encryption</td><td>backups are not encrypted</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>Second backup place</td><td>none: backups sit next to the project folder</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>AI provider</td><td>none: files wait for you or Claude Code</td><td>Settings &gt; Connections &gt; AI provider</td></tr><tr><td>Note</td><td>Update token</td><td>not set: fine while the releases are public; a private project needs one to check for updates</td><td>set MITRAHOME_TOKEN to a read-only GitHub token</td></tr><tr><td>OK</td><td>Data check</td><td>nothing wrong on Oct 21, 2026</td><td></td></tr></tbody>
+    <tbody><tr><td>OK</td><td>Database</td><td>integrity ok</td><td></td></tr><tr><td>OK</td><td>Database updates</td><td>all applied</td><td></td></tr><tr><td>Fix</td><td>Scheduled tasks</td><td>not registered, so nothing runs by itself</td><td>Settings &gt; Data &gt; Runs on its own</td></tr><tr><td>Fix</td><td>Backup (same-drive)</td><td>no backup yet</td><td>Settings &gt; Data &gt; Back up now</td></tr><tr><td>Note</td><td>Backup encryption</td><td>backups are not encrypted</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>Second backup place</td><td>none: backups sit next to the project folder</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>AI provider</td><td>none: files wait for you or Claude Code</td><td>Settings &gt; Connections &gt; AI provider</td></tr><tr><td>Note</td><td>Update token</td><td>not set: fine while the releases are public; a private project needs one to check for updates</td><td>set MITRAHOME_TOKEN to a read-only GitHub token</td></tr><tr><td>OK</td><td>Data check</td><td>nothing wrong on Oct 25, 2026</td><td></td></tr></tbody>
   </table></div>
   </details>
   
@@ -219,7 +223,7 @@
 
 <details class="card sfold"><summary><h2>Updates</h2><span class="muted">Check for and install new versions</span></summary>
 <div id="data-update">
-  <p class="muted">This is Mitra Home 0.130.0.</p>
+  <p class="muted">This is Mitra Home 0.134.0.</p>
   <div class="optrow">
     <button type="button" class="btn alt" hx-post="/settings/update" hx-vals='{"op": "check"}' hx-disabled-elt="this">Check for updates</button>
     
@@ -247,7 +251,7 @@
 </details>
 
 
-<p class="muted small">Version 0.130.0 · stored on this PC.</p>
+<p class="muted small">Version 0.134.0 · stored on this PC.</p>
 
 </main>
 

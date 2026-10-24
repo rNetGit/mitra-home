@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=records:people:classes" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -120,34 +124,34 @@
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">P</span>
       <span class="rl-main"><span class="rl-t">Piano</span><span class="rl-m">Mateo · Wed · 16:00-16:30 · Ms. Lee&#39;s Studio</span></span>
-      <span class="rl-r"><b>Dec 20</b></span>
+      <span class="rl-r"><b>Dec 24</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">S</span>
       <span class="rl-main"><span class="rl-t">Swim lessons</span><span class="rl-m">Mateo · Sat · 10:00-10:45 · YMCA</span></span>
-      <span class="rl-r"><b>Dec 20</b></span>
+      <span class="rl-r"><b>Dec 24</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">A</span>
       <span class="rl-main"><span class="rl-t">Art club</span><span class="rl-m">Sofia · Mon · 15:15-16:15 · Lincoln Middle School</span></span>
-      <span class="rl-r"><b>Dec 20</b></span>
+      <span class="rl-r"><b>Dec 24</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">S</span>
       <span class="rl-main"><span class="rl-t">Soccer practice</span><span class="rl-m">Sofia · Tue Thu · 17:30-19:00 · Springfield Youth Soccer</span></span>
-      <span class="rl-r"><b>Dec 20</b></span>
+      <span class="rl-r"><b>Dec 24</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Title</th><th>Who</th><th>Days</th><th>Time</th><th>Place</th><th>Until</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Piano</a></td><td>Mateo</td><td>Wed</td><td>16:00-16:30</td><td>Ms. Lee&#39;s Studio</td><td>Dec 20</td></tr><tr><td><a href="#" data-demo="1">Swim lessons</a></td><td>Mateo</td><td>Sat</td><td>10:00-10:45</td><td>YMCA</td><td>Dec 20</td></tr><tr><td><a href="#" data-demo="1">Art club</a></td><td>Sofia</td><td>Mon</td><td>15:15-16:15</td><td>Lincoln Middle School</td><td>Dec 20</td></tr><tr><td><a href="#" data-demo="1">Soccer practice</a></td><td>Sofia</td><td>Tue Thu</td><td>17:30-19:00</td><td>Springfield Youth Soccer</td><td>Dec 20</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Piano</a></td><td>Mateo</td><td>Wed</td><td>16:00-16:30</td><td>Ms. Lee&#39;s Studio</td><td>Dec 24</td></tr><tr><td><a href="#" data-demo="1">Swim lessons</a></td><td>Mateo</td><td>Sat</td><td>10:00-10:45</td><td>YMCA</td><td>Dec 24</td></tr><tr><td><a href="#" data-demo="1">Art club</a></td><td>Sofia</td><td>Mon</td><td>15:15-16:15</td><td>Lincoln Middle School</td><td>Dec 24</td></tr><tr><td><a href="#" data-demo="1">Soccer practice</a></td><td>Sofia</td><td>Tue Thu</td><td>17:30-19:00</td><td>Springfield Youth Soccer</td><td>Dec 24</td></tr></tbody>
   </table></div>
   
 </section>

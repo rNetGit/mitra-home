@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:paid" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -115,11 +119,9 @@
   <section class="card" aria-label="Open on the bill list">
     <h2>Open on the bill list</h2>
     <ul class="rlist">
-      <li><div><span class="rl-main"><span class="rl-t">Brightwave</span><span class="rl-m bad">Was due Oct 19</span></span><span class="rl-r"><b>$70.00</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Brightwave</span><span class="rl-m bad">Was due Oct 23</span></span><span class="rl-r"><b>$70.00</b></span></div></li>
     
-      <li><div><span class="rl-main"><span class="rl-t">City Water &amp; Power</span><span class="rl-m">Due Oct 25</span></span><span class="rl-r"><b>$142.18</b></span></div></li>
-    
-      <li><div><span class="rl-main"><span class="rl-t">Northstar Mobile</span><span class="rl-m">Due Oct 30</span></span><span class="rl-r"><b>$118.40</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">City Water &amp; Power</span><span class="rl-m">Due Oct 29</span></span><span class="rl-r"><b>$142.18</b></span></div></li>
     </ul>
     <p class="muted small">Bills are utilities, phone, internet, insurance, rent or mortgage and loan payments, as in the Ledger's Bills paid. <a href="money_part_bills.html">Mark one paid on the bill list</a>.</p>
   </section>

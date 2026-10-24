@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:year_end" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -99,7 +103,7 @@
   </p>
 
 <section class="card doc"><h1>2026 year-end summary (year to date)</h1>
-<p><em>Generated 2026-10-21. Transactions in the data run to 2026-10-21. Source: family.db. Aggregates only; card/account numbers are last4.</em></p>
+<p><em>Generated 2026-10-25. Transactions in the data run to 2026-10-25. Source: family.db. Aggregates only; card/account numbers are last4.</em></p>
 <p>&gt; 2026 is not over: every figure is year to date, and months before the first loaded statement are missing.</p>
 <h2>Income vs spend vs invested</h2>
 <table>
@@ -165,22 +169,22 @@
 <tr>
 <td>2026-10</td>
 <td>$11,380</td>
-<td>$4,391</td>
+<td>$4,597</td>
 <td>$0</td>
 <td>$0</td>
-<td>$6,989</td>
+<td>$6,783</td>
 </tr>
 <tr>
 <td><strong>Total</strong></td>
 <td><strong>$79,734</strong></td>
-<td><strong>$32,189</strong></td>
+<td><strong>$32,395</strong></td>
 <td><strong>$0</strong></td>
 <td><strong>$0</strong></td>
-<td><strong>$47,546</strong></td>
+<td><strong>$47,339</strong></td>
 </tr>
 </tbody>
 </table>
-<p>Income $79,734; spend $32,189; net taxes $0; invested $0. Income minus spend and taxes: $47,546 (60% of income).
+<p>Income $79,734; spend $32,395; net taxes $0; invested $0. Income minus spend and taxes: $47,339 (59% of income).
 Spend includes insurance, utilities, loan payments and untyped checks. Card payments and account-to-account transfers are excluded (card purchases are counted once, on the card). One-off lumps (e.g. a life-insurance payment) are included; see the payee list.</p>
 <h2>Top spend categories</h2>
 <table>
@@ -199,8 +203,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 <tr>
 <td>groceries</td>
-<td>$5,483</td>
-<td>59</td>
+<td>$5,579</td>
+<td>60</td>
 </tr>
 <tr>
 <td>auto loan</td>
@@ -229,8 +233,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 <tr>
 <td>dining</td>
-<td>$936</td>
-<td>39</td>
+<td>$1,008</td>
+<td>41</td>
 </tr>
 <tr>
 <td>kids activities</td>
@@ -244,8 +248,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 <tr>
 <td>fitness</td>
-<td>$234</td>
-<td>6</td>
+<td>$273</td>
+<td>7</td>
 </tr>
 <tr>
 <td>subscriptions</td>
@@ -271,8 +275,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 <tr>
 <td>FRESHFIELD MARKET</td>
-<td>$4,117</td>
-<td>36</td>
+<td>$4,213</td>
+<td>37</td>
 </tr>
 <tr>
 <td>CRESTLINE AUTO LOAN</td>
@@ -310,19 +314,19 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <td>7</td>
 </tr>
 <tr>
+<td>PIZZA PALACE</td>
+<td>$532</td>
+<td>14</td>
+</tr>
+<tr>
 <td>BRIGHTWAVE INTERNET</td>
 <td>$490</td>
 <td>7</td>
 </tr>
 <tr>
-<td>PIZZA PALACE</td>
-<td>$487</td>
-<td>13</td>
-</tr>
-<tr>
 <td>CORNER CAFE</td>
-<td>$449</td>
-<td>26</td>
+<td>$476</td>
+<td>27</td>
 </tr>
 <tr>
 <td>YMCA SWIM PROGRAM</td>
@@ -356,9 +360,9 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <tr>
 <td>ELENA RIVERA</td>
 <td>Summit Rewards Card x3344</td>
-<td>$2,575</td>
+<td>$2,602</td>
 <td>$0</td>
-<td>$2,575</td>
+<td>$2,602</td>
 </tr>
 <tr>
 <td>Elena</td>
@@ -370,16 +374,16 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <tr>
 <td>MARCUS RIVERA</td>
 <td>Northway Visa x1209</td>
-<td>$5,959</td>
+<td>$6,100</td>
 <td>$0</td>
-<td>$5,959</td>
+<td>$6,100</td>
 </tr>
 <tr>
 <td>Marcus</td>
 <td>Northway Visa x1209</td>
-<td>$346</td>
+<td>$385</td>
 <td>$0</td>
-<td>$346</td>
+<td>$385</td>
 </tr>
 <tr>
 <td>SOFIA RIVERA</td>
@@ -390,9 +394,9 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 </tbody>
 </table>
-<p>By person: MARCUS RIVERA $5,959, ELENA RIVERA $2,575, SOFIA RIVERA $1,086, Elena $567, Marcus $346.</p>
+<p>By person: MARCUS RIVERA $6,100, ELENA RIVERA $2,602, SOFIA RIVERA $1,086, Elena $567, Marcus $385.</p>
 <h2>Subscriptions (annual cost)</h2>
-<p>Still charging: 3 tracked subscriptions, about $72/month, $864/year at current prices. Charged in 2026 so far: $465.</p>
+<p>Still charging: 3 tracked subscriptions, about $72/month, $864/year at current prices. Charged in 2026 so far: $504.</p>
 <table>
 <thead>
 <tr>
@@ -409,7 +413,7 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <td>keep</td>
 <td>active</td>
 <td>$468</td>
-<td>$234</td>
+<td>$273</td>
 </tr>
 <tr>
 <td>TuneWave Family</td>
@@ -441,13 +445,13 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <tbody>
 <tr>
 <td>Prairie Shield home x0884</td>
-<td>2026-04-04 to 2027-04-04</td>
+<td>2026-04-08 to 2027-04-08</td>
 <td>$1,420</td>
 <td>n/a</td>
 </tr>
 <tr>
 <td>Lakeside Mutual auto x5521</td>
-<td>2026-05-24 to 2026-11-22</td>
+<td>2026-05-28 to 2026-11-26</td>
 <td>$1,344</td>
 <td>n/a</td>
 </tr>

@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:spending" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -82,8 +86,8 @@
 
 
 <div class="mo-top">
-  <div class="card"><span class="muted">October so far</span><b>$4,391</b>
-    <small class="muted">Statements up to Oct 21 · day 21 of 31</small></div>
+  <div class="card"><span class="muted">October so far</span><b>$4,597</b>
+    <small class="muted">Statements up to Oct 25 · day 25 of 31</small></div>
   <div class="card"><span class="muted">September</span><b>$4,821</b>
     <small class="muted">The whole month.</small></div>
   <div class="card"><span class="muted">October 2025</span><b>—</b>
@@ -95,8 +99,8 @@
   <div class="mo-g"><div class="mo-cat"><b>Housing</b><svg class="mo-bar now" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="100" height="5" rx="2.5"/></svg><svg class="mo-bar prev" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="100" height="5" rx="2.5"/></svg></div>
     <span class="num now"><b>$2,150</b></span><span class="num">$2,150</span><span class="num">—</span></div>
   
-  <div class="mo-g"><div class="mo-cat"><b>Groceries</b><svg class="mo-bar now" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="33" height="5" rx="2.5"/></svg><svg class="mo-bar prev" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="45" height="5" rx="2.5"/></svg></div>
-    <span class="num now"><b>$714</b></span><span class="num">$975</span><span class="num">—</span></div>
+  <div class="mo-g"><div class="mo-cat"><b>Groceries</b><svg class="mo-bar now" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="38" height="5" rx="2.5"/></svg><svg class="mo-bar prev" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="45" height="5" rx="2.5"/></svg></div>
+    <span class="num now"><b>$810</b></span><span class="num">$975</span><span class="num">—</span></div>
   
   <div class="mo-g"><div class="mo-cat"><b>Auto loan</b><svg class="mo-bar now" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="18" height="5" rx="2.5"/></svg><svg class="mo-bar prev" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="18" height="5" rx="2.5"/></svg></div>
     <span class="num now"><b>$389</b></span><span class="num">$389</span><span class="num">—</span></div>
@@ -113,14 +117,17 @@
   <div class="mo-g"><div class="mo-cat"><b>General merchandise</b><svg class="mo-bar now" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="7" height="5" rx="2.5"/></svg><svg class="mo-bar prev" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="7" height="5" rx="2.5"/></svg></div>
     <span class="num now"><b>$144</b></span><span class="num">$157</span><span class="num">—</span></div>
   
+  <div class="mo-g"><div class="mo-cat"><b>Dining</b><svg class="mo-bar now" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="6" height="5" rx="2.5"/></svg><svg class="mo-bar prev" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="7" height="5" rx="2.5"/></svg></div>
+    <span class="num now"><b>$126</b></span><span class="num">$147</span><span class="num">—</span></div>
+  
   <div class="mo-g"><div class="mo-cat"><b>Kids activities</b><svg class="mo-bar now" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="3" height="5" rx="2.5"/></svg><svg class="mo-bar prev" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="3" height="5" rx="2.5"/></svg></div>
     <span class="num now"><b>$64</b></span><span class="num">$64</span><span class="num">—</span></div>
   
   <div class="mo-g"><div class="mo-cat"><b>Pets</b><svg class="mo-bar now" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="3" height="5" rx="2.5"/></svg><svg class="mo-bar prev" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="2" height="5" rx="2.5"/></svg></div>
     <span class="num now"><b>$60</b></span><span class="num">$37</span><span class="num">—</span></div>
   
-  <div class="mo-g"><div class="mo-cat"><b>Dining</b><svg class="mo-bar now" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="3" height="5" rx="2.5"/></svg><svg class="mo-bar prev" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="7" height="5" rx="2.5"/></svg></div>
-    <span class="num now"><b>$55</b></span><span class="num">$147</span><span class="num">—</span></div>
+  <div class="mo-g"><div class="mo-cat"><b>Fitness</b><svg class="mo-bar now" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="2" height="5" rx="2.5"/></svg><svg class="mo-bar prev" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="2" height="5" rx="2.5"/></svg></div>
+    <span class="num now"><b>$39</b></span><span class="num">$39</span><span class="num">—</span></div>
   
   <div class="mo-g"><div class="mo-cat"><b>Subscriptions</b><svg class="mo-bar now" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="2" height="5" rx="2.5"/></svg><svg class="mo-bar prev" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="2" height="5" rx="2.5"/></svg></div>
     <span class="num now"><b>$33</b></span><span class="num">$33</span><span class="num">—</span></div>
@@ -133,9 +140,6 @@
   
   <div class="mo-g"><div class="mo-cat"><b>Not sorted yet</b><svg class="mo-bar now" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="1" height="5" rx="2.5"/></svg><svg class="mo-bar prev" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="0.5" height="5" rx="2.5"/></svg></div>
     <span class="num now"><b>$18</b></span><span class="num">$0</span><span class="num">—</span></div>
-  
-  <div class="mo-g"><div class="mo-cat"><b>Fitness</b><svg class="mo-bar now" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="0.5" height="5" rx="2.5"/></svg><svg class="mo-bar prev" viewBox="0 0 100 5" preserveAspectRatio="none" aria-hidden="true"><rect class="bg" width="100" height="5" rx="2.5"/><rect class="fill" width="2" height="5" rx="2.5"/></svg></div>
-    <span class="num now"><b>$0</b></span><span class="num">$39</span><span class="num">—</span></div>
   
   <p class="muted small">Spending as in the Ledger: transfers, card payments, investing and tax are not counted, a refund comes off and a card charge counts once. <a href="money_part_ledger.html">Open the Ledger</a>.</p>
 </section>
