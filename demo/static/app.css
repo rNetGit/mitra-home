@@ -353,7 +353,7 @@ progress.red::-webkit-progress-value{background:var(--danger)}progress.red::-moz
 .devpill{flex:none;border-radius:999px;padding:2px 10px;font-size:.8rem;font-weight:600;white-space:nowrap}
 .devpill.p-ok{background:color-mix(in srgb,var(--ok) 16%,transparent);color:var(--ok)}.devpill.p-warn{background:var(--warn-soft);color:var(--warn)}
 .devpill.p-bad{background:var(--danger-soft);color:var(--danger)}.devpill.p-info{background:var(--surface-2,rgba(0,0,0,.06));color:var(--text-2)}
-.devdlg .qr{display:block;margin:8px auto}.devdlg .devrm{border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
+.devdlg .qr{display:block;margin:8px auto}.devdlg .wcodetext{margin-top:10px}.devdlg .wcodebox{width:100%;box-sizing:border-box;font:13px/1.4 ui-monospace,Consolas,monospace;word-break:break-all;resize:none}.devdlg .devrm{border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
 .nform .ptabs{grid-column:1/-1;margin:0}.ppanel{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;align-items:end}.ppanel[hidden]{display:none}
 .fp{overflow-wrap:anywhere;font-family:ui-monospace,Consolas,monospace;font-size:.85em}
 /* Settings > Data > Runs on its own: one row per scheduled job with an on / off switch */

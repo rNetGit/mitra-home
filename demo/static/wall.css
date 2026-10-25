@@ -301,21 +301,21 @@ svg.i { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-widt
 .alert { background: var(--late-soft); color: var(--late); border-radius: 12px; padding: 10px 14px; margin: 0; font-weight: 600; }
 
 /* ---- resting screen ---- */
-body.rest { background: #14201A; color: #F3F1EC; }
-.restv { height: 100vh; height: 100dvh; padding: 56px 72px; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: inherit; }
-.restv .top { display: flex; justify-content: space-between; align-items: center; font: 600 24px var(--serif); }
-.restv .top small { font: 400 16px var(--sans); color: #B9C9BF; }
-.restv .mid { display: flex; align-items: flex-end; gap: 60px; flex-wrap: wrap; }
-.restv .time { font: 300 clamp(120px, 18vw, 220px)/.85 var(--serif); letter-spacing: -0.03em; }
-.restv .day { font-size: 26px; font-weight: 500; color: #DCE6E0; margin-top: 10px; }
-.restv .next { flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 14px; padding-bottom: 8px; }
+body.rest { background: #000000; color: #F3F1EC; }
+.restv { height: 100vh; height: 100dvh; padding: clamp(16px, 7vh, 56px) clamp(20px, 7vw, 72px); overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none; color: inherit; }
+.restv .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; font: 600 clamp(16px, 4vh, 24px) var(--serif); }
+.restv .top small { font: 400 clamp(12px, 2.8vh, 16px) var(--sans); color: #B9C9BF; }
+.restv .mid { display: flex; align-items: flex-end; gap: clamp(20px, 6vw, 60px); flex-wrap: wrap; min-height: 0; }
+.restv .time { font: 300 clamp(64px, min(18vw, 32vh), 220px)/.85 var(--serif); letter-spacing: -0.03em; }
+.restv .day { font-size: clamp(16px, 4.4vh, 26px); font-weight: 500; color: #DCE6E0; margin-top: 10px; }
+.restv .next { flex: 1; min-width: min(300px, 40vw); display: flex; flex-direction: column; gap: clamp(6px, 2vh, 14px); padding-bottom: 8px; }
 .restv .next .k { font-size: 14px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #8FD4AC; }
-.restv .next .main { font: 600 34px var(--serif); }
+.restv .next .main { font: 600 clamp(18px, 5.6vh, 34px) var(--serif); }
 .restv .next .l { display: flex; gap: 14px; align-items: center; font-size: 19px; color: #DCE6E0; }
 .restv .next .l span:first-child { width: 90px; color: #B9C9BF; }
 .restv .next .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--pfill); flex: none; }
 .restv .bottom { display: flex; gap: 14px; flex-wrap: wrap; }
-.restv .bottom span { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 16px; background: rgba(243,241,236,.08); font-size: 17px; }
+.restv .bottom span { display: inline-flex; align-items: center; gap: 10px; padding: clamp(6px, 1.8vh, 12px) clamp(10px, 2.4vh, 18px); border-radius: 16px; background: rgba(243,241,236,.08); font-size: clamp(13px, 2.9vh, 17px); }
 
 /* ---- weather (data/weather.py; nothing shows when there is none) ---- */
 .wx { display: flex; align-items: center; gap: 10px; }
@@ -379,16 +379,16 @@ body.rest.night .restv .wxr { color: #AEBBB3; }
   text-align: center; text-transform: uppercase; user-select: text; -webkit-user-select: text; }
 
 /* the traditional clock (Settings > Phones > Mitra Wall > Wall screen: Traditional) */
-.face-analog .restv .mid { align-items: center; justify-content: center; gap: 6vw; }
-.aclock { height: min(68vh, 60vw); width: auto; flex: none; color: #F3F1EC; }
+.face-analog .restv .mid { align-items: center; justify-content: center; gap: 6vw; flex-wrap: nowrap; }
+.aclock { height: min(64vh, 50vw); width: auto; flex: none; color: #F3F1EC; }
 .aclock .face { fill: rgba(243,241,236,.05); stroke: currentColor; stroke-width: 2.5; }
 .aclock .tk { stroke: #8FA79A; stroke-width: 1.2; } .aclock .tk.major { stroke: currentColor; stroke-width: 3; }
 .aclock .num { fill: currentColor; font: 600 17px var(--serif); }
 .aclock .hand { stroke: currentColor; stroke-linecap: round; }
 .aclock .hh { stroke-width: 6; } .aclock .mh { stroke-width: 4; } .aclock .sh { stroke: #E08A5C; stroke-width: 1.6; }
 .aclock .pin { fill: #E08A5C; }
-.face-analog .aside { display: flex; flex-direction: column; gap: 18px; min-width: 300px; max-width: 40vw; }
-.face-analog .aside .day { font-size: 30px; margin: 0; }
+.face-analog .aside { display: flex; flex-direction: column; gap: clamp(8px, 2.6vh, 18px); min-width: min(300px, 36vw); max-width: 40vw; }
+.face-analog .aside .day { font-size: clamp(16px, 5vh, 30px); margin: 0; }
 .face-analog .aside .next { min-width: 0; }
 body.rest.night .aclock { color: #9AA8A0; } body.rest.night .aclock .sh, body.rest.night .aclock .pin { stroke: #7A5A48; fill: #7A5A48; }
 
@@ -428,7 +428,7 @@ body.rest.night .aclock { color: #9AA8A0; } body.rest.night .aclock .sh, body.re
 
 /* night: from 10 PM to 6 AM (wall.js) the screens a person is using stay as they are; the wall goes back to the clock
    after NIGHT_IDLE seconds and the clock itself is dimmer (a dark page with soft text, nothing bright in a dark room) */
-body.rest.night { background: #0B110E; }
+body.rest.night { background: #000000; }
 body.rest.night .restv { color: #9AA8A0; }
 body.rest.night .restv .time { color: #C9D2CC; }
 body.rest.night .restv .next .main, body.rest.night .restv .day { color: #AEBBB3; }
@@ -436,13 +436,13 @@ body.rest.night .restv .next .k { color: #5F9C78; }
 body.rest.night .restv .bottom span { background: rgba(243,241,236,.05); }
 
 /* the modular face (Settings > Phones > Mitra Wall > Wall screen: Modular): big time, cards, today's special days */
-body.rest.face-modular, body.rest.face-typograph { background: #08090B; }
-.face-modular .restv { padding: 44px 52px; gap: 24px; justify-content: flex-start; }
-.face-modular .restv .top .mdate { font: 600 22px var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #FF9F0A; }
+body.rest.face-modular, body.rest.face-typograph { background: #000000; }
+.face-modular .restv { padding: clamp(14px, 6vh, 44px) clamp(18px, 5vw, 52px); gap: clamp(10px, 3.4vh, 24px); justify-content: flex-start; }
+.face-modular .restv .top .mdate { font: 600 clamp(14px, 3.8vh, 22px) var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #FF9F0A; }
 .modgrid { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 28px; }
 .modtime { display: flex; flex-direction: column; justify-content: center; gap: 18px; min-width: 0; }
 .bigt { display: flex; align-items: flex-start; gap: 12px; line-height: .86; }
-.bigt .t { font: 300 clamp(140px, 22vw, 280px)/.86 var(--sans); letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.bigt .t { font: 300 clamp(72px, min(22vw, 42vh), 280px)/.86 var(--sans); letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
 .bigt .ap { font: 500 clamp(20px, 2.4vw, 30px) var(--sans); color: #9A9BA3; padding-top: 1.2vw; }
 .modtime .pills { display: flex; gap: 12px; flex-wrap: wrap; }
 .modtime .pill { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; background: #1A1C21; font-size: 20px; }
@@ -451,40 +451,42 @@ body.rest.face-modular, body.rest.face-typograph { background: #08090B; }
 .modcards.n-1, .modcards.n-2 { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-auto-rows: minmax(0, auto); align-content: center; }
 .modcards.n-3 > :last-child { grid-column: span 2; }
 .mcard .sub.more { font-size: 17px; color: #C9CAD0; }
-.mcard { background: #16181C; border-radius: 28px; padding: 20px 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; min-width: 0; overflow: hidden; }
-.mcard .k { font-size: 14px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #FF9F0A; }
+.mcard { background: #16181C; border-radius: clamp(14px, 4vh, 28px); padding: clamp(8px, 2.8vh, 20px) clamp(10px, 2.8vh, 22px); display: flex; flex-direction: column; justify-content: space-between; gap: 8px; min-width: 0; overflow: hidden; }
+.mcard .k { font-size: clamp(11px, 2.3vh, 14px); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #FF9F0A; }
 .mcard .k.wxk { color: #64D2FF; } .mcard .k.jobk { color: #30D158; } .mcard .k.dink { color: #FF6482; }
-.mcard .big { font: 600 clamp(22px, 2.6vw, 32px)/1.12 var(--sans); overflow-wrap: anywhere; }
-.mcard .sub { font-size: 18px; color: #9A9BA3; }
-.mcard .mwx { display: flex; align-items: center; gap: 12px; } .mcard .mwx b { font: 400 56px/1 var(--sans); }
-.mcard .mwx svg.i { width: 48px; height: 48px; stroke-width: 1.6; }
+.mcard .big { font: 600 clamp(15px, min(2.6vw, 4.6vh), 32px)/1.12 var(--sans); overflow-wrap: anywhere; }
+.mcard .sub { font-size: clamp(12px, 3vh, 18px); color: #9A9BA3; }
+.mcard .mwx { display: flex; align-items: center; gap: 12px; } .mcard .mwx b { font: 400 clamp(28px, 8vh, 56px)/1 var(--sans); }
+.mcard .mwx svg.i { width: clamp(26px, 7vh, 48px); height: clamp(26px, 7vh, 48px); stroke-width: 1.6; }
 .rings { display: flex; gap: 16px; flex-wrap: wrap; }
 .rings .ring { width: auto; height: auto; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 16px; color: #C9CAD0; }
-.ring svg { width: 72px; height: 72px; }
+.ring svg { width: clamp(40px, 11vh, 72px); height: clamp(40px, 11vh, 72px); }
 .ring .rt, .ring .rv { fill: none; stroke-width: 10; } .ring .rt { stroke: #2A2D33; }
 .ring .rv { stroke: #30D158; stroke-linecap: round; } .ring .rv.all { stroke: #64D2FF; }
 .ring text { fill: #F2F2F4; font: 600 19px var(--sans); }
-.modday { display: flex; align-items: center; gap: 14px; padding: 14px 22px; border-radius: 22px; background: #121317; font-size: 20px; }
+.modday { display: flex; align-items: center; gap: 14px; padding: clamp(6px, 2vh, 14px) clamp(12px, 3vh, 22px); border-radius: 22px; background: #121317; font-size: clamp(13px, 3.2vh, 20px); }
 .modday svg.i { width: 24px; height: 24px; flex: none; color: #FF9F0A; } .modday .soft { color: #9A9BA3; min-width: 0; }
 @media (orientation: portrait) {
   .modgrid { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto; align-content: center; gap: 40px; }
-  .bigt .t { font-size: min(34vw, 300px); }
-  .modcards { grid-template-rows: repeat(2, minmax(160px, auto)); }
+  .bigt .t { font-size: min(34vw, 22vh, 300px); }
+  .modcards { grid-template-rows: repeat(2, minmax(min(160px, 20vh), auto)); }
+  .modgrid { gap: clamp(14px, 4vh, 40px); }
+  .restv .time { font-size: clamp(64px, 26vw, 220px); }
 }
 
 /* the Roman face (Wall screen: Roman): quiet hands, serif numerals at the quarters */
 .face-typograph .restv { justify-content: center; padding: 48px 72px; }
 .typo { display: flex; align-items: center; justify-content: center; gap: 6vw; color: #EDE6D8; }
-.tclock { height: min(78vh, 56vw); width: auto; flex: none; }
+.tclock { height: min(74vh, 56vw); width: auto; flex: none; }
 .tclock .rim { fill: none; stroke: #24354B; stroke-width: 1; }
 .tclock .tk { stroke: #4A5D76; stroke-width: 1.4; stroke-linecap: round; }
 .tclock .rn { fill: #8C9BB0; font: 500 13px var(--serif); } .tclock .rn.q { fill: #EDE6D8; font-size: 23px; }
 .tclock .hand { stroke: #EDE6D8; stroke-linecap: round; } .tclock .hh { stroke-width: 3; } .tclock .mh { stroke-width: 2; }
 .tclock .sh { stroke: #D9B26F; stroke-width: .8; } .tclock .pin { fill: #D9B26F; }
-.tside { display: flex; flex-direction: column; gap: 24px; min-width: 280px; max-width: 36vw; }
+.tside { display: flex; flex-direction: column; gap: clamp(10px, 3.4vh, 24px); min-width: min(280px, 36vw); max-width: 36vw; }
 .tside hr { border: 0; height: 1px; background: #24354B; margin: 0; width: 100%; }
-.tday { font: 500 clamp(44px, 5.4vw, 72px)/1 var(--serif); } .tdate { font: 400 clamp(30px, 3.4vw, 44px)/1.2 var(--serif); color: #D9B26F; }
-.tlines { display: flex; flex-direction: column; gap: 10px; font-size: 21px; }
+.tday { font: 500 clamp(24px, min(5.4vw, 10vh), 72px)/1 var(--serif); } .tdate { font: 400 clamp(18px, min(3.4vw, 6.4vh), 44px)/1.2 var(--serif); color: #D9B26F; }
+.tlines { display: flex; flex-direction: column; gap: clamp(4px, 1.4vh, 10px); font-size: clamp(14px, 3.4vh, 21px); }
 .tlines .l { display: flex; gap: 14px; } .tlines .l span:first-child { flex: 0 0 140px; white-space: nowrap; color: #8C9BB0; }
 .twx { font-size: 20px; color: #B6C0CE; }
 @media (orientation: portrait) {
@@ -492,8 +494,8 @@ body.rest.face-modular, body.rest.face-typograph { background: #08090B; }
   .tclock { height: auto; width: min(80vw, 58vh); }
   .tside { max-width: 80vw; width: 80vw; }
 }
-body.rest.face-typograph { background: #0D1724; }
-body.rest.night.face-modular, body.rest.night.face-typograph { background: #050607; }
+body.rest.face-typograph { background: #000000; }
+body.rest.night.face-modular, body.rest.night.face-typograph { background: #000000; }
 body.rest.night.face-modular .restv, body.rest.night .typo { opacity: .6; }
 
 /* the bedroom night clock (Wall screen: Night clock red / amber): black, the time and the date only, nothing bright */
@@ -504,7 +506,7 @@ body.rest.night.tone-red .nightv, body.rest.night.tone-amber .nightv { height: 1
   align-items: center; justify-content: center; gap: 18px; text-decoration: none; color: #C8281C; }
 body.rest.night.tone-amber .nightv { color: #D98A1E; }
 .nightv .nt { display: flex; align-items: flex-start; gap: 16px; }
-.nightv .nt span:first-child { font: 200 clamp(160px, 30vw, 380px)/.85 var(--sans); letter-spacing: -0.05em; font-variant-numeric: tabular-nums; }
+.nightv .nt span:first-child { font: 200 clamp(96px, min(30vw, 52vh), 380px)/.85 var(--sans); letter-spacing: -0.05em; font-variant-numeric: tabular-nums; }
 .nightv .ap, .nightv .nd, .nightv .nn { color: #6E1A13; } body.rest.night.tone-amber .nightv :is(.ap, .nd, .nn) { color: #7A4E14; }
 .nightv .ap { font: 300 clamp(24px, 3vw, 40px) var(--sans); padding-top: 3vw; }
 .nightv .nd { font: 300 26px var(--sans); letter-spacing: .06em; }
@@ -538,20 +540,20 @@ body.rest.night .woff { background: #111; color: #6E6E68; box-shadow: none; }
 
 /* ---- more clock faces (S3): flip, word, two cities, kids' day; and the face picker on the resting screen ---- */
 .face-word .restv .mid, .face-kidsday .restv .mid { align-items: center; justify-content: center; gap: 6vw; }
-.face-word .aside, .face-kidsday .aside { display: flex; flex-direction: column; gap: 18px; min-width: 300px; max-width: 40vw; }
-.face-word .aside .day, .face-kidsday .aside .day { font-size: 30px; margin: 0; }
+.face-word .aside, .face-kidsday .aside { display: flex; flex-direction: column; gap: clamp(8px, 2.6vh, 18px); min-width: min(300px, 36vw); max-width: 40vw; }
+.face-word .aside .day, .face-kidsday .aside .day { font-size: clamp(16px, 5vh, 30px); margin: 0; }
 .face-word .aside .next, .face-kidsday .aside .next { min-width: 0; }
 .flip { display: flex; align-items: center; gap: 12px; perspective: 600px; }
 .flip .fd { position: relative; display: inline-flex; justify-content: center; min-width: .78em; padding: 0 .06em; border-radius: 14px;
-  background: #22302A; box-shadow: inset 0 -6px 0 rgba(0,0,0,.25); font: 300 clamp(110px, 15vw, 200px)/1.05 var(--serif); color: #F3F1EC; }
-.flip .fd::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 3px; background: #14201A; }
+  background: #22302A; box-shadow: inset 0 -6px 0 rgba(0,0,0,.25); font: 300 clamp(60px, min(15vw, 30vh), 200px)/1.05 var(--serif); color: #F3F1EC; }
+.flip .fd::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 3px; background: #000000; }
 .flip .fd.blank { display: none; }
 .flip .fd.flip { animation: fdturn .45s ease-out; }
 @keyframes fdturn { from { transform: rotateX(-80deg); opacity: .4; } to { transform: rotateX(0); opacity: 1; } }
-.flip .fcol { font: 300 clamp(80px, 10vw, 140px)/1 var(--serif); color: #8FA79A; }
-.flip .ap { align-self: flex-end; font: 600 28px var(--sans); color: #B9C9BF; margin-bottom: 16px; }
+.flip .fcol { font: 300 clamp(44px, min(10vw, 20vh), 140px)/1 var(--serif); color: #8FA79A; }
+.flip .ap { align-self: flex-end; font: 600 clamp(16px, 4.6vh, 28px) var(--sans); color: #B9C9BF; margin-bottom: 16px; }
 body.rest.night .flip .fd { background: #121A16; color: #AEBBB3; }
-.wordc { display: flex; flex-direction: column; gap: .35em; font: 700 clamp(26px, 3.6vw, 46px)/1.1 var(--sans); letter-spacing: .14em; }
+.wordc { display: flex; flex-direction: column; gap: .3em; font: 700 clamp(14px, min(3.6vw, 4.6vh), 46px)/1.1 var(--sans); letter-spacing: .14em; }
 .wordc .wr { display: flex; gap: .7em; flex-wrap: wrap; }
 .wordc span { color: rgba(243,241,236,.14); transition: color .6s ease; }
 .wordc span.on { color: #F3F1EC; text-shadow: 0 0 18px rgba(255,214,140,.35); }
@@ -563,9 +565,9 @@ body.rest.night .wordc span.on { color: #AEBBB3; text-shadow: none; } body.rest.
 .dual .dz { display: flex; flex-direction: column; gap: 6px; }
 .dual .dk { font-size: 15px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8FD4AC; }
 .dual .far .dk { color: #FFC857; }
-.dual .dt { display: flex; align-items: flex-start; gap: 10px; font: 300 clamp(84px, 11vw, 160px)/.9 var(--serif); letter-spacing: -0.02em; }
+.dual .dt { display: flex; align-items: flex-start; gap: 10px; font: 300 clamp(52px, min(11vw, 24vh), 160px)/.9 var(--serif); letter-spacing: -0.02em; }
 .dual .dt .ap { font: 600 24px var(--sans); color: #B9C9BF; margin-top: 12px; }
-.dual .dd { font-size: 22px; color: #DCE6E0; }
+.dual .dd { font-size: clamp(14px, 3.8vh, 22px); color: #DCE6E0; }
 .dayring { height: min(60vh, 42vw); width: auto; flex: none; overflow: visible; }
 .face-kidsday .restv .mid, .face-word .restv .mid { flex-wrap: nowrap; }
 body.rest .restv .top { padding-right: 64px; }
@@ -578,16 +580,76 @@ body.rest .restv .top { padding-right: 64px; }
 .dayring .now circle { fill: #FFFFFF; stroke: #14201A; stroke-width: 3; } .dayring .now.asleep { opacity: .3; }
 .dayring .ct { fill: #F3F1EC; font: 300 30px var(--serif); } .dayring .cp { fill: #B9C9BF; font: 600 12px var(--sans); letter-spacing: .12em; text-transform: uppercase; }
 body.rest.night .dayring { opacity: .6; }
-.facebtn { position: fixed; top: 18px; right: 18px; z-index: 3; width: 52px; height: 52px; border-radius: 50%; border: 0;
+.facebtn { position: fixed; top: clamp(8px, 3vh, 18px); right: clamp(8px, 3vh, 18px); z-index: 3; width: clamp(40px, 8vh, 52px); height: clamp(40px, 8vh, 52px); border-radius: 50%; border: 0;
   display: flex; align-items: center; justify-content: center; background: rgba(243,241,236,.10); color: #DCE6E0; cursor: pointer; }
 .facebtn svg.i { width: 26px; height: 26px; }
-body.rest.night .facebtn { display: none; }
-.wface { border: 0; border-radius: 22px; padding: 22px 24px; width: min(560px, calc(100vw - 32px)); background: #F3F1EC; color: #14201A; }
+body.rest.night .facebtn { opacity: .35; }
+body.rest.night.tone-red .facebtn, body.rest.night.tone-amber .facebtn { display: none; }
+.wface { border: 0; border-radius: 22px; padding: 22px 24px; width: min(560px, calc(100vw - 32px)); max-height: calc(100vh - 32px); overflow: auto; background: #F3F1EC; color: #14201A; }
 .wface::backdrop { background: rgba(0,0,0,.6); }
 .wface header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; }
 .wface h2 { margin: 0; font: 600 24px var(--serif); }
 .wface .fgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
-.wface .fopt { min-height: 64px; border-radius: 14px; border: 2px solid rgba(20,32,26,.15); background: #FFFFFF; font: 600 18px var(--sans); color: inherit; cursor: pointer; }
+.wface .fopt { min-height: clamp(44px, 9vh, 64px); border-radius: 14px; border: 2px solid rgba(20,32,26,.15); background: #FFFFFF; font: 600 18px var(--sans); color: inherit; cursor: pointer; }
 .wface .fopt.on { border-color: #2E7D57; background: #E3F2EA; }
 .wface .muted { color: #5C6660; font-size: 15px; margin: 14px 0 0; }
-@media (orientation: portrait) { .dual { flex-direction: column; align-items: flex-start; gap: 28px; } .dayring { height: auto; width: min(80vw, 60vh); } }
+@media (orientation: portrait) { .dual { flex-direction: column; align-items: flex-start; gap: 28px; } .dayring { height: auto; width: min(80vw, 46vh); } }
+@media (orientation: portrait) and (max-width: 900px) {
+  .face-word .restv .mid, .face-kidsday .restv .mid, .face-analog .restv .mid { flex-direction: column; align-items: flex-start; gap: 3vh; }
+  .face-word .aside, .face-kidsday .aside, .face-analog .aside { min-width: 0; max-width: none; }
+  .aclock { height: auto; width: min(80vw, 46vh); }
+  .ring svg { width: clamp(32px, 7vh, 72px); height: clamp(32px, 7vh, 72px); }
+  .modday .soft { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}
+
+/* ---- the week as a heat map (owner, 2026-10-24): one tile per day, wider (taller standing up) and darker the busier it
+   is (.h-0 free .. .h-4 seven things or more, wall_data.heat); everything on it in one list; a tap shows the day in full ---- */
+.heat { flex: 1; min-height: 0; display: flex; gap: clamp(6px, 1.4vw, 12px); }
+.hday { --hbg: var(--card); flex: 1 1 0; min-width: 0; min-height: 0; position: relative; display: flex; flex-direction: column;
+  gap: clamp(3px, .8vh, 6px); padding: clamp(6px, 1.6vh, 12px); border-radius: 16px; border: 1px solid var(--line);
+  background: var(--hbg); overflow: hidden; cursor: pointer; }
+.hday.h-1 { --hbg: #E3F1E8; flex-grow: 1.3; } .hday.h-2 { --hbg: #C8E6D3; flex-grow: 1.65; border-color: #B5DCC3; }
+.hday.h-3 { --hbg: #A6D6B8; flex-grow: 2.05; border-color: #8DC9A3; } .hday.h-4 { --hbg: #7FC39B; flex-grow: 2.5; border-color: #66B486; }
+.hday.today { outline: 3px solid var(--accent); outline-offset: -3px; }
+.hday::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 26px; pointer-events: none;
+  background: linear-gradient(rgba(255,255,255,0), var(--hbg)); }
+.hd-top { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; margin-bottom: 2px; }
+.hd-top b { font: 600 clamp(15px, 3vh, 20px) var(--serif); } .hd-top .num { font-weight: 700; color: var(--muted); }
+.hd-top .wxd { display: inline-flex; align-items: center; gap: 2px; font-size: 12px; font-style: normal; color: var(--muted); }
+.hd-top .wxd svg.i { width: 15px; height: 15px; }
+.hd-n { margin-left: auto; min-width: 24px; text-align: center; font-size: 12px; font-weight: 700; padding: 1px 7px;
+  border-radius: 999px; background: rgba(21,23,28,.10); }
+.hd-l { display: grid; grid-template-columns: 8px minmax(0, 1fr); column-gap: 6px; min-width: 0; font-size: clamp(12px, 2.4vh, 15px); line-height: 1.2; }
+.hd-l::before { content: ""; grid-row: 1 / span 2; width: 8px; height: 8px; margin-top: .3em; border-radius: 50%; background: var(--pc, var(--muted)); }
+.hd-l .t { grid-column: 2; font-size: .82em; font-weight: 700; color: var(--ink-2); }
+.hd-l .x { grid-column: 2; min-width: 0; overflow: hidden; overflow-wrap: anywhere; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.hd-l.late .x { color: var(--late); font-weight: 700; } .hd-l.dim { opacity: .35; }
+.hd-free { margin: 0; color: var(--muted); font-size: 13px; }
+@media (orientation: portrait) {
+  .heat { flex-direction: column; }
+  .hday { display: grid; grid-template-columns: 58px minmax(0, 1fr); grid-auto-rows: min-content; column-gap: 10px;
+    row-gap: 2px; align-content: start; }
+  .hd-top { grid-column: 1; grid-row: 1 / span 12; flex-direction: column; align-items: flex-start; gap: 0; margin: 0; }
+  .hd-n { margin: 4px 0 0; }
+  .hd-l, .hd-free { grid-column: 2; }
+  .hd-l { grid-template-columns: 8px auto minmax(0, 1fr); }
+  .hd-l::before { grid-row: 1; }
+  .hd-l .t { grid-column: 2; padding-right: 6px; }
+  .hd-l .x { grid-column: 3; grid-row: 1; -webkit-line-clamp: 1; }
+}
+
+/* a short screen (a small tablet lying down, e.g. Fire 7 at about 640x375): the header, chips and rail shrink so the page
+   itself (the week's tiles, the lists) keeps most of the height */
+@media (max-height: 520px) {
+  .wmain { padding: 8px 12px; gap: 8px; }
+  .whead { gap: 8px; flex-wrap: nowrap; }
+  .whead h1 { font-size: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .whead .clock { font-size: 16px; white-space: nowrap; } .whead .date { font-size: 13px; white-space: nowrap; }
+  .btn { min-height: 34px; padding: 0 10px; border-radius: 10px; } .btn.sq { width: 34px; }
+  .seg { padding: 2px; } .seg a { min-height: 30px; padding: 0 10px; font-size: 13px; }
+  .chiprow { flex-wrap: nowrap; overflow-x: auto; gap: 6px; }
+  .chip { min-height: 30px; font-size: 13px; white-space: nowrap; flex: none; }
+  .wrail { width: 64px; padding: 8px 0; gap: 2px; }
+  .wrail .mark, .wrail .mark img { width: 38px; height: 38px; margin-bottom: 2px; }
+  .wrail a.tab { width: 56px; min-height: 42px; font-size: 11px; }
+}

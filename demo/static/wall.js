@@ -242,13 +242,13 @@
       for (var i = order.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = order[i]; order[i] = order[j]; order[j] = t; }
       pos = 0;
     }
-    // the rail's Photos (?photos=1): this turn starts now, also outside the photo hours (never at night); the address
+    // the rail's Photos (?photos=1): this turn starts now, also outside the photo hours and at night; the address
     // loses ?photos=1 so the next reload is the plain clock again
     var manual = body.hasAttribute('data-start-photos');
     if (manual && window.history && history.replaceState) history.replaceState(null, '', location.pathname);
     function photosNow() {
       var d = new Date();
-      return !isNight(d) && (manual || within(d.getHours() * 60 + d.getMinutes(), pFrom, pTo));
+      return manual || (!isNight(d) && within(d.getHours() * 60 + d.getMinutes(), pFrom, pTo));
     }
     function nextUrl() {
       if (pos >= order.length) shuffle();
