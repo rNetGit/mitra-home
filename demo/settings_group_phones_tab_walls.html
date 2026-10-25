@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.134.0">
-  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.2">
+  <script src="static/vendor/htmx.min.js?v=0.134.2" defer></script>
   
-  <script src="static/app.js?v=0.134.0" defer></script>
+  <script src="static/app.js?v=0.134.2" defer></script>
   <title>Settings · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.134.0</small>
+    <small class="ver">v0.134.2</small>
   </nav>
 
   <main>
@@ -130,7 +130,7 @@
 
 <dialog class="txndlg devdlg" id="dev-w1" aria-labelledby="dev-w1-t"><div class="txm">
   <header class="txm-head"><h2 id="dev-w1-t">Kitchen wall</h2><button type="button" class="btn alt" data-dlg-close>Close</button></header>
-  <p class="muted small">browser · paired Sun, Oct 25 · last seen Sun, Oct 25 08:54</p>
+  <p class="muted small">browser · paired Sun, Oct 25 · last seen Sun, Oct 25 13:40</p>
   <form class="nform wscreen" hx-post="/settings/wall/own">
     <input type="hidden" name="id" value="1">
     <label class="check wide"><input type="checkbox" name="own" value="1" > Its own screen (unticked: the household's wall screen)</label>
@@ -231,17 +231,17 @@
 <section class="card">
   <h2>Wall photos <span class="muted small">· 4 of 300</span></h2>
   <div class="wphotos">
-    <figure><img src="wall_photo/100d0b3b30d43c07.jpg" alt="" loading="lazy" width="160" height="110">
-      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="100d0b3b30d43c07.jpg">
+    <figure><img src="wall_photo/66999e0a53970543.jpg" alt="" loading="lazy" width="160" height="110">
+      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="66999e0a53970543.jpg">
         <button class="btn alt" type="submit">Remove</button></form></figure>
-    <figure><img src="wall_photo/a043ef47e57d0088.jpg" alt="" loading="lazy" width="160" height="110">
-      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="a043ef47e57d0088.jpg">
+    <figure><img src="wall_photo/e69b930a605898dc.jpg" alt="" loading="lazy" width="160" height="110">
+      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="e69b930a605898dc.jpg">
         <button class="btn alt" type="submit">Remove</button></form></figure>
-    <figure><img src="wall_photo/817eb9fef632d5f7.jpg" alt="" loading="lazy" width="160" height="110">
-      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="817eb9fef632d5f7.jpg">
+    <figure><img src="wall_photo/7e1de1674020e279.jpg" alt="" loading="lazy" width="160" height="110">
+      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="7e1de1674020e279.jpg">
         <button class="btn alt" type="submit">Remove</button></form></figure>
-    <figure><img src="wall_photo/eeb8093f3a233e5c.jpg" alt="" loading="lazy" width="160" height="110">
-      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="eeb8093f3a233e5c.jpg">
+    <figure><img src="wall_photo/cc8aea889c46c2bf.jpg" alt="" loading="lazy" width="160" height="110">
+      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="cc8aea889c46c2bf.jpg">
         <button class="btn alt" type="submit">Remove</button></form></figure></div>
   
   <div class="optrow"><input type="file" id="wphoto" accept="image/jpeg,image/png,image/webp,.heic" multiple>
