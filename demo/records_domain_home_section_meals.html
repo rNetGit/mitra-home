@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=records:home:meals" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -97,7 +101,7 @@
 
 <form class="nform" hx-post="/records/add" hx-target="#radd-meal_plan" hx-swap="innerHTML" hx-vals='{"part": "home/meals", "table": "meal_plan"}'>
 
-  <label>Day<input name="day" type="date" min="2000-01-01" max="2100-12-31" required value="2026-10-21"></label>
+  <label>Day<input name="day" type="date" min="2000-01-01" max="2100-12-31" required value="2026-10-25"></label>
   <label>Meal<select name="slot"><option value="breakfast" >breakfast</option><option value="lunch" >lunch</option><option value="dinner" selected>dinner</option><option value="snack" >snack</option></select></label>
   <label>What (a recipe name or any text)<input name="what" maxlength="80" required value=""></label>
   <label>Note (optional)<input name="note" maxlength="200" value=""></label>
@@ -141,8 +145,8 @@
 
 <form class="nform" hx-post="/records/add" hx-target="#radd-meal_shop" hx-swap="innerHTML" hx-vals='{"part": "home/meals", "table": "meal_shop"}'>
 
-  <label>From<input name="start" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-21"></label>
-  <label>To<input name="end" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-27"></label>
+  <label>From<input name="start" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-25"></label>
+  <label>To<input name="end" type="date" min="2000-01-01" max="2100-12-31" value="2026-10-31"></label>
   <label>Shopping list<input name="list_name" maxlength="60" value="Groceries"></label>
   <p class="muted small">Ingredients of the planned recipes, staples left out; a meal is only added once.</p>
 
@@ -158,41 +162,41 @@
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">C</span>
       <span class="rl-main"><span class="rl-t">Chicken enchiladas</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Oct 21</b></span>
+      <span class="rl-r"><b>Oct 25</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">T</span>
       <span class="rl-main"><span class="rl-t">Tacos</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Oct 22</b></span>
+      <span class="rl-r"><b>Oct 26</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">V</span>
       <span class="rl-main"><span class="rl-t">Veggie stir-fry</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Oct 23</b></span>
+      <span class="rl-r"><b>Oct 27</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">L</span>
       <span class="rl-main"><span class="rl-t">Leftovers</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Oct 24</b></span>
+      <span class="rl-r"><b>Oct 28</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">P</span>
       <span class="rl-main"><span class="rl-t">Pizza night</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Oct 25</b></span>
+      <span class="rl-r"><b>Oct 29</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Day</th><th>Slot</th><th>Meal</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Oct 21</a></td><td>dinner</td><td>Chicken enchiladas</td></tr><tr><td><a href="#" data-demo="1">Oct 22</a></td><td>dinner</td><td>Tacos</td></tr><tr><td><a href="#" data-demo="1">Oct 23</a></td><td>dinner</td><td>Veggie stir-fry</td></tr><tr><td><a href="#" data-demo="1">Oct 24</a></td><td>dinner</td><td>Leftovers</td></tr><tr><td><a href="#" data-demo="1">Oct 25</a></td><td>dinner</td><td>Pizza night</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Oct 25</a></td><td>dinner</td><td>Chicken enchiladas</td></tr><tr><td><a href="#" data-demo="1">Oct 26</a></td><td>dinner</td><td>Tacos</td></tr><tr><td><a href="#" data-demo="1">Oct 27</a></td><td>dinner</td><td>Veggie stir-fry</td></tr><tr><td><a href="#" data-demo="1">Oct 28</a></td><td>dinner</td><td>Leftovers</td></tr><tr><td><a href="#" data-demo="1">Oct 29</a></td><td>dinner</td><td>Pizza night</td></tr></tbody>
   </table></div>
   
 </section>

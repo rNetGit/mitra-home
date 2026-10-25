@@ -580,6 +580,37 @@
     });
   })();
 
+  // Settings > Phones: a device row or an Add button opens its <dialog> (data-dlg = its id); Close or a click on the
+  // backdrop shuts it; a fresh pairing code (data-dlg-auto) opens by itself.
+  (function () {
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      if (!t || !t.closest) return;
+      var b = t.closest('[data-dlg]');
+      if (b) {
+        var d = document.getElementById(b.getAttribute('data-dlg'));
+        if (d && d.showModal && !d.open) d.showModal();
+        return;
+      }
+      var dd = t.closest('dialog.devdlg');
+      if (dd && (t === dd || t.closest('[data-dlg-close]'))) dd.close();
+    });
+    // the wall screen's Clock / Photos / Night tabs: [data-ptab] shows its panel, hides the others of the same form
+    document.addEventListener('click', function (e) {
+      var b = e.target && e.target.closest && e.target.closest('[data-ptab]');
+      if (!b) return;
+      var bar = b.parentNode, form = b.closest('form') || document;
+      bar.querySelectorAll('[data-ptab]').forEach(function (x) {
+        var on = x === b, p = form.querySelector('#' + x.getAttribute('data-ptab'));
+        x.classList.toggle('on', on);
+        x.setAttribute('aria-selected', on ? 'true' : 'false');
+        if (p) p.hidden = !on;
+      });
+    });
+    var auto = document.querySelector('dialog.devdlg[data-dlg-auto]');
+    if (auto && auto.showModal) auto.showModal();
+  })();
+
   // Installable app: the service worker only keeps the app's own files (never a signed-in page).
   if ('serviceWorker' in navigator && window.isSecureContext) {
     navigator.serviceWorker.register('/sw.js', {scope: '/'}).catch(function () {});

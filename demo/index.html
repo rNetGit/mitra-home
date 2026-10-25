@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Today · Mitra Home</title>
 </head>
 
@@ -54,23 +54,27 @@
       
       <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=home" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
 <header class="head today-head"><div><h1>Today</h1>
-  <p class="sub">Good afternoon · Wednesday, October 21 · 60°F, Partly cloudy · high 64° low 45° · Rain likely from 3 PM</p></div>
+  <p class="sub">Good morning · Sunday, October 25 · 50°F, Partly cloudy · high 64° low 45° · Rain likely from 3 PM</p></div>
   <div class="actions"><a class="btn" href="add.html">Add or scan</a> <a class="btn ghostbtn" href="chat.html">Chat</a></div>
 </header>
 
@@ -103,7 +107,7 @@
 <div class="story deck dayc" data-story tabindex="0" aria-roledescription="carousel" aria-label="Your day">
   
   
-<article class="slide g-over" aria-label="Your day"><p class="kick">Wednesday 21</p>
+<article class="slide g-over" aria-label="Your day"><p class="kick">Sunday 25</p>
     <h3 class="gbig">3<small> need you</small></h3>
     
     <div class="gtiles">
@@ -124,56 +128,55 @@
 <article class="slide g-cat" aria-label="On today and the week"><p class="kick">On today</p>
     <ul class="dline">
       <li><b>Pet</b><span>Flea and tick dose <small>Pancho</small></span></li>
-      <li><b>Class</b><span>Piano 16:00-16:30 <small>Mateo</small></span></li>
       
       
     </ul>
     <p class="kick sm">Coming up</p>
-    <ul class="dtop"><li><span class="av sm av0" aria-hidden="true">M</span><span>Knee follow-up</span><b class="dpill">Tomorrow</b></li><li><span class="av sm av3" aria-hidden="true">M</span><span>Field trip form and $12</span><b class="dpill">Tomorrow</b></li><li><span class="av sm av2" aria-hidden="true">S</span><span>Soccer practice 17:30-19:00</span><b class="dpill">Tomorrow</b></li></ul>
+    <ul class="dtop"><li><span class="av sm av0" aria-hidden="true">M</span><span>Knee follow-up</span><b class="dpill">Tomorrow</b></li><li><span class="av sm av2" aria-hidden="true">S</span><span>Art club 15:15-16:15</span><b class="dpill">Tomorrow</b></li><li><span class="av sm av3" aria-hidden="true">M</span><span>Field trip form and $12</span><b class="dpill">Tomorrow</b></li></ul>
     <p class="kick sm">Next 7 days</p>
     <svg class="dweek" viewBox="0 0 280 86" role="img" aria-label="Items per day, next 7 days">
       
-      <g class="on"><title>Wednesday 21: 3 items</title>
-        <rect x="8" y="28.0" width="24" height="30.0" rx="4"/>
-        <text class="n" x="20" y="23.0" text-anchor="middle">3</text>
-        <text x="20" y="73" text-anchor="middle">We</text>
-        <text x="20" y="85" text-anchor="middle">21</text></g>
+      <g class="on"><title>Sunday 25: 2 items</title>
+        <rect x="8" y="31.333333333333336" width="24" height="26.666666666666664" rx="4"/>
+        <text class="n" x="20" y="26.333333333333336" text-anchor="middle">2</text>
+        <text x="20" y="73" text-anchor="middle">Su</text>
+        <text x="20" y="85" text-anchor="middle">25</text></g>
       
-      <g class=""><title>Thursday 22: 4 items</title>
+      <g class=""><title>Monday 26: 3 items</title>
         <rect x="47" y="18.0" width="24" height="40.0" rx="4"/>
-        <text class="n" x="59" y="13.0" text-anchor="middle">4</text>
-        <text x="59" y="73" text-anchor="middle">Th</text>
-        <text x="59" y="85" text-anchor="middle">22</text></g>
-      
-      <g class=""><title>Friday 23: 1 item</title>
-        <rect x="86" y="48.0" width="24" height="10.0" rx="4"/>
-        <text class="n" x="98" y="43.0" text-anchor="middle">1</text>
-        <text x="98" y="73" text-anchor="middle">Fr</text>
-        <text x="98" y="85" text-anchor="middle">23</text></g>
-      
-      <g class=""><title>Saturday 24: 1 item</title>
-        <rect x="125" y="48.0" width="24" height="10.0" rx="4"/>
-        <text class="n" x="137" y="43.0" text-anchor="middle">1</text>
-        <text x="137" y="73" text-anchor="middle">Sa</text>
-        <text x="137" y="85" text-anchor="middle">24</text></g>
-      
-      <g class=""><title>Sunday 25: 2 items</title>
-        <rect x="164" y="38.0" width="24" height="20.0" rx="4"/>
-        <text class="n" x="176" y="33.0" text-anchor="middle">2</text>
-        <text x="176" y="73" text-anchor="middle">Su</text>
-        <text x="176" y="85" text-anchor="middle">25</text></g>
-      
-      <g class=""><title>Monday 26: 1 item</title>
-        <rect x="203" y="48.0" width="24" height="10.0" rx="4"/>
-        <text class="n" x="215" y="43.0" text-anchor="middle">1</text>
-        <text x="215" y="73" text-anchor="middle">Mo</text>
-        <text x="215" y="85" text-anchor="middle">26</text></g>
+        <text class="n" x="59" y="13.0" text-anchor="middle">3</text>
+        <text x="59" y="73" text-anchor="middle">Mo</text>
+        <text x="59" y="85" text-anchor="middle">26</text></g>
       
       <g class=""><title>Tuesday 27: 1 item</title>
-        <rect x="242" y="48.0" width="24" height="10.0" rx="4"/>
-        <text class="n" x="254" y="43.0" text-anchor="middle">1</text>
-        <text x="254" y="73" text-anchor="middle">Tu</text>
-        <text x="254" y="85" text-anchor="middle">27</text></g>
+        <rect x="86" y="44.66666666666667" width="24" height="13.333333333333332" rx="4"/>
+        <text class="n" x="98" y="39.66666666666667" text-anchor="middle">1</text>
+        <text x="98" y="73" text-anchor="middle">Tu</text>
+        <text x="98" y="85" text-anchor="middle">27</text></g>
+      
+      <g class=""><title>Wednesday 28: 1 item</title>
+        <rect x="125" y="44.66666666666667" width="24" height="13.333333333333332" rx="4"/>
+        <text class="n" x="137" y="39.66666666666667" text-anchor="middle">1</text>
+        <text x="137" y="73" text-anchor="middle">We</text>
+        <text x="137" y="85" text-anchor="middle">28</text></g>
+      
+      <g class=""><title>Thursday 29: 2 items</title>
+        <rect x="164" y="31.333333333333336" width="24" height="26.666666666666664" rx="4"/>
+        <text class="n" x="176" y="26.333333333333336" text-anchor="middle">2</text>
+        <text x="176" y="73" text-anchor="middle">Th</text>
+        <text x="176" y="85" text-anchor="middle">29</text></g>
+      
+      <g class=""><title>Friday 30: 1 item</title>
+        <rect x="203" y="44.66666666666667" width="24" height="13.333333333333332" rx="4"/>
+        <text class="n" x="215" y="39.66666666666667" text-anchor="middle">1</text>
+        <text x="215" y="73" text-anchor="middle">Fr</text>
+        <text x="215" y="85" text-anchor="middle">30</text></g>
+      
+      <g class=""><title>Saturday 31: 1 item</title>
+        <rect x="242" y="44.66666666666667" width="24" height="13.333333333333332" rx="4"/>
+        <text class="n" x="254" y="39.66666666666667" text-anchor="middle">1</text>
+        <text x="254" y="73" text-anchor="middle">Sa</text>
+        <text x="254" y="85" text-anchor="middle">31</text></g>
       
     </svg>
   </article>
@@ -188,30 +191,30 @@
         <p class="dim sm">6 bills · <b class="warn">1 overdue $70</b></p>
         <p class="sm">Next: <b>City Water &amp; Power</b> $142.18 · in 4d</p>
       </div>
-      <a class="ddonut" href="money_part_month.html" aria-label="This month: $4,391 spent so far">
+      <a class="ddonut" href="money_part_month.html" aria-label="This month: $4,597 spent so far">
         
 <svg viewBox="0 0 120 120" role="img" aria-label="Spending this month by category">
   <circle class="ring" cx="60" cy="60" r="46" fill="none" stroke-width="16"/>
   
   
   <circle class="dseg s0" cx="60" cy="60" r="46" fill="none" stroke-width="16" pathLength="100"
-          stroke-dasharray="48.4 51.6" stroke-dashoffset="0" transform="rotate(-90 60 60)"><title>Housing $2,150</title></circle>
+          stroke-dasharray="46.199999999999996 53.800000000000004" stroke-dashoffset="0" transform="rotate(-90 60 60)"><title>Housing $2,150</title></circle>
   
   <circle class="dseg s1" cx="60" cy="60" r="46" fill="none" stroke-width="16" pathLength="100"
-          stroke-dasharray="15.700000000000001 84.3" stroke-dashoffset="-49.0" transform="rotate(-90 60 60)"><title>Groceries $714</title></circle>
+          stroke-dasharray="17.0 83.0" stroke-dashoffset="-46.8" transform="rotate(-90 60 60)"><title>Groceries $810</title></circle>
   
   <circle class="dseg s2" cx="60" cy="60" r="46" fill="none" stroke-width="16" pathLength="100"
-          stroke-dasharray="8.3 91.7" stroke-dashoffset="-65.3" transform="rotate(-90 60 60)"><title>Auto loan $389</title></circle>
+          stroke-dasharray="7.9 92.1" stroke-dashoffset="-64.4" transform="rotate(-90 60 60)"><title>Auto loan $389</title></circle>
   
   <circle class="dseg s3" cx="60" cy="60" r="46" fill="none" stroke-width="16" pathLength="100"
-          stroke-dasharray="6.9 93.1" stroke-dashoffset="-74.2" transform="rotate(-90 60 60)"><title>Utilities $331</title></circle>
+          stroke-dasharray="6.6000000000000005 93.4" stroke-dashoffset="-72.9" transform="rotate(-90 60 60)"><title>Utilities $331</title></circle>
   
   <circle class="dseg s4" cx="60" cy="60" r="46" fill="none" stroke-width="16" pathLength="100"
-          stroke-dasharray="17.9 82.1" stroke-dashoffset="-81.7" transform="rotate(-90 60 60)"><title>Other $807</title></circle>
+          stroke-dasharray="19.299999999999997 80.7" stroke-dashoffset="-80.10000000000001" transform="rotate(-90 60 60)"><title>Other $917</title></circle>
   
 </svg>
 
-        <span class="mmid"><small>Spent</small><b>$4,391</b></span></a>
+        <span class="mmid"><small>Spent</small><b>$4,597</b></span></a>
     </div>
     <div class="gtiles">
       
@@ -221,7 +224,7 @@
 <div class="gtile "><small>Saved</small><b>$500</b></div>
 
       
-<div class="gtile "><small>Kept</small><b>61%</b></div>
+<div class="gtile "><small>Kept</small><b>60%</b></div>
 
     </div>
     <a class="glink" href="money_part_month.html">Open This month &rsaquo;</a>
@@ -234,6 +237,7 @@
 
 
 <p class="notice small" role="status">Mateo asked for a reward. <a href="family_routines.html#rewards">Answer on Family &gt; Routines</a>.</p>
+
 
 <div class="today">
   <section class="col" aria-labelledby="h-late">
@@ -251,27 +255,27 @@
     <small class="muted"><b class="pt danger">Overdue 2d</b> · Bill · $70.00</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:3:2026-10-19", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:3:2026-10-23", "op": "done", "who": ""}'
     aria-label="Paid: Brightwave">Paid</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Brightwave"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Brightwave</b><br><small class="muted">Bill · Mon Oct 19, 2026 · $70.00</small></p>
+      <p><b>Brightwave</b><br><small class="muted">Bill · Fri Oct 23, 2026 · $70.00</small></p>
       <p>Internet</p>
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "bills:3:2026-10-19", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "bills:3:2026-10-23", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "bills:3:2026-10-19", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "bills:3:2026-10-23", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "bills:3:2026-10-19", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "bills:3:2026-10-23", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:3:2026-10-19", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:3:2026-10-23", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -287,27 +291,27 @@
     <small class="muted"><b class="pt danger">Overdue 2d</b> · Chore</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:15:2026-10-19", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:15:2026-10-23", "op": "done", "who": ""}'
     aria-label="Done: Replace furnace filter">Done</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Replace furnace filter"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Replace furnace filter</b><br><small class="muted">Chore · Mon Oct 19, 2026</small></p>
+      <p><b>Replace furnace filter</b><br><small class="muted">Chore · Fri Oct 23, 2026</small></p>
       
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "life_items:15:2026-10-19", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "life_items:15:2026-10-23", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "life_items:15:2026-10-19", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "life_items:15:2026-10-23", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "life_items:15:2026-10-19", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "life_items:15:2026-10-23", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:15:2026-10-19", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:15:2026-10-23", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -334,7 +338,7 @@
   
   <details class="more"><summary aria-label="Details, snooze, hide: The same-drive backup is missing"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>The same-drive backup is missing</b><br><small class="muted">Backup · Wed Oct 21, 2026</small></p>
+      <p><b>The same-drive backup is missing</b><br><small class="muted">Backup · Sun Oct 25, 2026</small></p>
       <p>A copy of the family database is made every Sunday. Back up now makes one today.</p>
       
       
@@ -365,27 +369,63 @@
     <small class="muted"><b class="pt ">Tomorrow</b> · 8:15 AM · Appointment · Marcus</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:5:2026-10-22", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:5:2026-10-26", "op": "done", "who": ""}'
     aria-label="Done: Knee follow-up">Done</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Knee follow-up"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Knee follow-up (Marcus)</b><br><small class="muted">Appointment · Thu Oct 22, 2026</small></p>
+      <p><b>Knee follow-up (Marcus)</b><br><small class="muted">Appointment · Mon Oct 26, 2026</small></p>
       <p>Lakeside Physio 08:15</p>
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "appointments:5:2026-10-22", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "appointments:5:2026-10-26", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "appointments:5:2026-10-22", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "appointments:5:2026-10-26", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "appointments:5:2026-10-22", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "appointments:5:2026-10-26", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:5:2026-10-22", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:5:2026-10-26", "op": "hide", "who": ""}'>Hide</button>
+      
+    </div>
+  </details>
+  
+</div>
+
+
+
+<div class="trow act">
+  <span class="av av2" aria-hidden="true">S</span>
+  <div class="tmain">
+    <span class="ttl">Art club 15:15-16:15</span>
+    <small class="muted"><b class="pt ">Tomorrow</b> · Class · Sofia</small>
+  </div>
+  
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "activity_schedules:4:2026-10-26", "op": "done", "who": ""}'
+    aria-label="Done: Art club 15:15-16:15">Done</button>
+  
+  
+  <details class="more"><summary aria-label="Details, snooze, hide: Art club 15:15-16:15"><i class="ic ic-more" aria-hidden="true"></i></summary>
+    <div class="menu">
+      <p><b>Art club 15:15-16:15 (Sofia)</b><br><small class="muted">Class · Mon Oct 26, 2026</small></p>
+      <p>Lincoln Middle School</p>
+      <p><a href="#" data-demo="1">Open record</a></p>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "1", "key": "activity_schedules:4:2026-10-26", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "7", "key": "activity_schedules:4:2026-10-26", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "30", "key": "activity_schedules:4:2026-10-26", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+      
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "activity_schedules:4:2026-10-26", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -401,99 +441,27 @@
     <small class="muted"><b class="pt ">Tomorrow</b> · School · Mateo</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:11:2026-10-22", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:11:2026-10-26", "op": "done", "who": ""}'
     aria-label="Done: Field trip form and $12">Done</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Field trip form and $12"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Field trip form and $12 (Mateo)</b><br><small class="muted">School · Thu Oct 22, 2026</small></p>
+      <p><b>Field trip form and $12 (Mateo)</b><br><small class="muted">School · Mon Oct 26, 2026</small></p>
       <p>Washington Elementary</p>
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "life_items:11:2026-10-22", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "life_items:11:2026-10-26", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "life_items:11:2026-10-22", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "life_items:11:2026-10-26", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "life_items:11:2026-10-22", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "life_items:11:2026-10-26", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:11:2026-10-22", "op": "hide", "who": ""}'>Hide</button>
-      
-    </div>
-  </details>
-  
-</div>
-
-
-
-<div class="trow act">
-  <span class="av av2" aria-hidden="true">S</span>
-  <div class="tmain">
-    <span class="ttl">Soccer practice 17:30-19:00</span>
-    <small class="muted"><b class="pt ">Tomorrow</b> · Class · Sofia</small>
-  </div>
-  
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "activity_schedules:1:2026-10-22", "op": "done", "who": ""}'
-    aria-label="Done: Soccer practice 17:30-19:00">Done</button>
-  
-  
-  <details class="more"><summary aria-label="Details, snooze, hide: Soccer practice 17:30-19:00"><i class="ic ic-more" aria-hidden="true"></i></summary>
-    <div class="menu">
-      <p><b>Soccer practice 17:30-19:00 (Sofia)</b><br><small class="muted">Class · Thu Oct 22, 2026</small></p>
-      <p>Springfield Youth Soccer</p>
-      <p><a href="#" data-demo="1">Open record</a></p>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "activity_schedules:1:2026-10-22", "op": "snooze", "who": ""}'>Snooze 1 day</button>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "activity_schedules:1:2026-10-22", "op": "snooze", "who": ""}'>Snooze 7 days</button>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "activity_schedules:1:2026-10-22", "op": "snooze", "who": ""}'>Snooze 30 days</button>
-      
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "activity_schedules:1:2026-10-22", "op": "hide", "who": ""}'>Hide</button>
-      
-    </div>
-  </details>
-  
-</div>
-
-
-
-<div class="trow act">
-  <span class="av avn" aria-hidden="true"></span>
-  <div class="tmain">
-    <span class="ttl">Subscription: Springfield Gym</span>
-    <small class="muted"><b class="pt ">Tomorrow</b> · Renewal · $39.00</small>
-  </div>
-  
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "subscriptions:3:2026-10-22", "op": "done", "who": ""}'
-    aria-label="Done: Subscription: Springfield Gym">Done</button>
-  
-  
-  <details class="more"><summary aria-label="Details, snooze, hide: Subscription: Springfield Gym"><i class="ic ic-more" aria-hidden="true"></i></summary>
-    <div class="menu">
-      <p><b>Subscription: Springfield Gym</b><br><small class="muted">Renewal · Thu Oct 22, 2026 · $39.00</small></p>
-      <p>Northway Visa x1209</p>
-      <p><a href="#" data-demo="1">Open record</a></p>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "subscriptions:3:2026-10-22", "op": "snooze", "who": ""}'>Snooze 1 day</button>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "subscriptions:3:2026-10-22", "op": "snooze", "who": ""}'>Snooze 7 days</button>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "subscriptions:3:2026-10-22", "op": "snooze", "who": ""}'>Snooze 30 days</button>
-      
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "subscriptions:3:2026-10-22", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:11:2026-10-26", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -509,27 +477,27 @@
     <small class="muted"><b class="pt ">in 2d</b> · 3:30 PM · Appointment · Sofia</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:1:2026-10-23", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:1:2026-10-27", "op": "done", "who": ""}'
     aria-label="Done: Cleaning">Done</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Cleaning"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Cleaning (Sofia)</b><br><small class="muted">Appointment · Fri Oct 23, 2026</small></p>
+      <p><b>Cleaning (Sofia)</b><br><small class="muted">Appointment · Tue Oct 27, 2026</small></p>
       <p>Bright Smiles Dental 15:30</p>
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "appointments:1:2026-10-23", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "appointments:1:2026-10-27", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "appointments:1:2026-10-23", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "appointments:1:2026-10-27", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "appointments:1:2026-10-23", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "appointments:1:2026-10-27", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:1:2026-10-23", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:1:2026-10-27", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -545,27 +513,27 @@
     <small class="muted"><b class="pt ">in 3d</b> · School · Sofia</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:10:2026-10-24", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:10:2026-10-28", "op": "done", "who": ""}'
     aria-label="Done: Science fair project due">Done</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Science fair project due"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Science fair project due (Sofia)</b><br><small class="muted">School · Sat Oct 24, 2026</small></p>
+      <p><b>Science fair project due (Sofia)</b><br><small class="muted">School · Wed Oct 28, 2026</small></p>
       <p>Lincoln Middle School</p>
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "life_items:10:2026-10-24", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "life_items:10:2026-10-28", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "life_items:10:2026-10-24", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "life_items:10:2026-10-28", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "life_items:10:2026-10-24", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "life_items:10:2026-10-28", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:10:2026-10-24", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:10:2026-10-28", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -581,27 +549,27 @@
     <small class="muted"><b class="pt ">in 4d</b> · 7:00 PM · Event</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "events:1:2026-10-25", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "events:1:2026-10-29", "op": "done", "who": ""}'
     aria-label="Done: Family movie night">Done</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Family movie night"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Family movie night</b><br><small class="muted">Event · Sun Oct 25, 2026</small></p>
+      <p><b>Family movie night</b><br><small class="muted">Event · Thu Oct 29, 2026</small></p>
       <p>19:00-21:00</p>
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "events:1:2026-10-25", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "events:1:2026-10-29", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "events:1:2026-10-25", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "events:1:2026-10-29", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "events:1:2026-10-25", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "events:1:2026-10-29", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "events:1:2026-10-25", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "events:1:2026-10-29", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -617,27 +585,27 @@
     <small class="muted"><b class="pt ">in 4d</b> · Bill · $142.18</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:2:2026-10-25", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:2:2026-10-29", "op": "done", "who": ""}'
     aria-label="Paid: City Water &amp; Power">Paid</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: City Water &amp; Power"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>City Water &amp; Power</b><br><small class="muted">Bill · Sun Oct 25, 2026 · $142.18</small></p>
+      <p><b>City Water &amp; Power</b><br><small class="muted">Bill · Thu Oct 29, 2026 · $142.18</small></p>
       <p>Water and power</p>
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "bills:2:2026-10-25", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "bills:2:2026-10-29", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "bills:2:2026-10-25", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "bills:2:2026-10-29", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "bills:2:2026-10-25", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "bills:2:2026-10-29", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:2:2026-10-25", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:2:2026-10-29", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -653,27 +621,27 @@
     <small class="muted"><b class="pt ">in 5d</b> · 11:00 AM · Appointment · Pancho</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:4:2026-10-26", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:4:2026-10-30", "op": "done", "who": ""}'
     aria-label="Done: Vaccines">Done</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Vaccines"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Vaccines (Pancho)</b><br><small class="muted">Appointment · Mon Oct 26, 2026</small></p>
+      <p><b>Vaccines (Pancho)</b><br><small class="muted">Appointment · Fri Oct 30, 2026</small></p>
       <p>Oak Street Vet 11:00</p>
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "appointments:4:2026-10-26", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "appointments:4:2026-10-30", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "appointments:4:2026-10-26", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "appointments:4:2026-10-30", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "appointments:4:2026-10-26", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "appointments:4:2026-10-30", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:4:2026-10-26", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:4:2026-10-30", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -689,27 +657,27 @@
     <small class="muted"><b class="pt ">in 6d</b> · School · Mateo</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:12:2026-10-27", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:12:2026-10-31", "op": "done", "who": ""}'
     aria-label="Done: Picture day">Done</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Picture day"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Picture day (Mateo)</b><br><small class="muted">School · Tue Oct 27, 2026</small></p>
+      <p><b>Picture day (Mateo)</b><br><small class="muted">School · Sat Oct 31, 2026</small></p>
       <p>Washington Elementary</p>
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "life_items:12:2026-10-27", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "life_items:12:2026-10-31", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "life_items:12:2026-10-27", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "life_items:12:2026-10-31", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "life_items:12:2026-10-27", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "life_items:12:2026-10-31", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:12:2026-10-27", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:12:2026-10-31", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -725,30 +693,42 @@
     <small class="muted"><b class="pt ">in 7d</b> · Travel</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:18:2026-10-28", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:18:2026-11-01", "op": "done", "who": ""}'
     aria-label="Done: Book Thanksgiving flights">Done</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Book Thanksgiving flights"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Book Thanksgiving flights</b><br><small class="muted">Travel · Wed Oct 28, 2026</small></p>
+      <p><b>Book Thanksgiving flights</b><br><small class="muted">Travel · Sun Nov 01, 2026</small></p>
       
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "life_items:18:2026-10-28", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "life_items:18:2026-11-01", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "life_items:18:2026-10-28", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "life_items:18:2026-11-01", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "life_items:18:2026-10-28", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "life_items:18:2026-11-01", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:18:2026-10-28", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:18:2026-11-01", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
+  
+</div>
+
+
+
+<div class="trow">
+  <span class="av avn" aria-hidden="true"></span>
+  <div class="tmain">
+    <span class="ttl">Daylight saving time ends: clocks go back 1 hour</span>
+    <small class="muted">Clocks change</small>
+  </div>
+  <span class="pill ">in 7d</span>
   
 </div>
 
@@ -764,165 +744,33 @@
   <span class="av av3" aria-hidden="true">M</span>
   <div class="tmain">
     <span class="ttl">Annual checkup</span>
-    <small class="muted"><b class="pt ">Oct 29</b> · 9:00 AM · Appointment · Mateo</small>
+    <small class="muted"><b class="pt ">Nov 2</b> · 9:00 AM · Appointment · Mateo</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:2:2026-10-29", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:2:2026-11-02", "op": "done", "who": ""}'
     aria-label="Done: Annual checkup">Done</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Annual checkup"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Annual checkup (Mateo)</b><br><small class="muted">Appointment · Thu Oct 29, 2026</small></p>
+      <p><b>Annual checkup (Mateo)</b><br><small class="muted">Appointment · Mon Nov 02, 2026</small></p>
       <p>Dr. Okafor Pediatrics 09:00</p>
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "appointments:2:2026-10-29", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "appointments:2:2026-11-02", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "appointments:2:2026-10-29", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "appointments:2:2026-11-02", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "appointments:2:2026-10-29", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "appointments:2:2026-11-02", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:2:2026-10-29", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:2:2026-11-02", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
-  
-</div>
-
-
-
-<div class="trow act">
-  <span class="av avn" aria-hidden="true"></span>
-  <div class="tmain">
-    <span class="ttl">Northstar Mobile</span>
-    <small class="muted"><b class="pt ">Oct 30</b> · Bill · $118.40</small>
-  </div>
-  
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:4:2026-10-30", "op": "done", "who": ""}'
-    aria-label="Paid: Northstar Mobile">Paid</button>
-  
-  
-  <details class="more"><summary aria-label="Details, snooze, hide: Northstar Mobile"><i class="ic ic-more" aria-hidden="true"></i></summary>
-    <div class="menu">
-      <p><b>Northstar Mobile</b><br><small class="muted">Bill · Fri Oct 30, 2026 · $118.40</small></p>
-      <p>Mobile phones</p>
-      <p><a href="#" data-demo="1">Open record</a></p>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "bills:4:2026-10-30", "op": "snooze", "who": ""}'>Snooze 1 day</button>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "bills:4:2026-10-30", "op": "snooze", "who": ""}'>Snooze 7 days</button>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "bills:4:2026-10-30", "op": "snooze", "who": ""}'>Snooze 30 days</button>
-      
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:4:2026-10-30", "op": "hide", "who": ""}'>Hide</button>
-      
-    </div>
-  </details>
-  
-</div>
-
-
-
-<div class="trow act">
-  <span class="av av2" aria-hidden="true">S</span>
-  <div class="tmain">
-    <span class="ttl">Soccer team photos</span>
-    <small class="muted"><b class="pt ">Oct 30</b> · Activity · Sofia</small>
-  </div>
-  
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:13:2026-10-30", "op": "done", "who": ""}'
-    aria-label="Done: Soccer team photos">Done</button>
-  
-  
-  <details class="more"><summary aria-label="Details, snooze, hide: Soccer team photos"><i class="ic ic-more" aria-hidden="true"></i></summary>
-    <div class="menu">
-      <p><b>Soccer team photos (Sofia)</b><br><small class="muted">Activity · Fri Oct 30, 2026</small></p>
-      <p>Springfield Youth Soccer</p>
-      <p><a href="#" data-demo="1">Open record</a></p>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "life_items:13:2026-10-30", "op": "snooze", "who": ""}'>Snooze 1 day</button>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "life_items:13:2026-10-30", "op": "snooze", "who": ""}'>Snooze 7 days</button>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "life_items:13:2026-10-30", "op": "snooze", "who": ""}'>Snooze 30 days</button>
-      
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:13:2026-10-30", "op": "hide", "who": ""}'>Hide</button>
-      
-    </div>
-  </details>
-  
-</div>
-
-
-
-<div class="trow act">
-  <span class="av avn" aria-hidden="true"></span>
-  <div class="tmain">
-    <span class="ttl">Grandma Rosa visits</span>
-    <small class="muted"><b class="pt ">Oct 31</b> · 12:00 PM · Event</small>
-  </div>
-  
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "events:3:2026-10-31", "op": "done", "who": ""}'
-    aria-label="Done: Grandma Rosa visits">Done</button>
-  
-  
-  <details class="more"><summary aria-label="Details, snooze, hide: Grandma Rosa visits"><i class="ic ic-more" aria-hidden="true"></i></summary>
-    <div class="menu">
-      <p><b>Grandma Rosa visits</b><br><small class="muted">Event · Sat Oct 31, 2026</small></p>
-      <p>12:00-15:00</p>
-      <p><a href="#" data-demo="1">Open record</a></p>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "events:3:2026-10-31", "op": "snooze", "who": ""}'>Snooze 1 day</button>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "events:3:2026-10-31", "op": "snooze", "who": ""}'>Snooze 7 days</button>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "events:3:2026-10-31", "op": "snooze", "who": ""}'>Snooze 30 days</button>
-      
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "events:3:2026-10-31", "op": "hide", "who": ""}'>Hide</button>
-      
-    </div>
-  </details>
-  
-</div>
-
-
-
-<div class="trow">
-  <span class="av avn" aria-hidden="true"></span>
-  <div class="tmain">
-    <span class="ttl">Daylight saving time ends: clocks go back 1 hour</span>
-    <small class="muted">Clocks change</small>
-  </div>
-  <span class="pill ">Nov 1</span>
-  
-</div>
-
-
-
-<div class="trow">
-  <span class="av avn" aria-hidden="true"></span>
-  <div class="tmain">
-    <span class="ttl">Teacher institute day (no school)</span>
-    <small class="muted">No school</small>
-  </div>
-  <span class="pill ">Nov 1</span>
   
 </div>
 
@@ -967,31 +815,151 @@
 <div class="trow act">
   <span class="av avn" aria-hidden="true"></span>
   <div class="tmain">
-    <span class="ttl">Maple Home Lending</span>
-    <small class="muted"><b class="pt ">Nov 2</b> · Bill · $2,150.00</small>
+    <span class="ttl">Northstar Mobile</span>
+    <small class="muted"><b class="pt ">Nov 3</b> · Bill · $118.40</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:1:2026-11-02", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:4:2026-11-03", "op": "done", "who": ""}'
+    aria-label="Paid: Northstar Mobile">Paid</button>
+  
+  
+  <details class="more"><summary aria-label="Details, snooze, hide: Northstar Mobile"><i class="ic ic-more" aria-hidden="true"></i></summary>
+    <div class="menu">
+      <p><b>Northstar Mobile</b><br><small class="muted">Bill · Tue Nov 03, 2026 · $118.40</small></p>
+      <p>Mobile phones</p>
+      <p><a href="#" data-demo="1">Open record</a></p>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "1", "key": "bills:4:2026-11-03", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "7", "key": "bills:4:2026-11-03", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "30", "key": "bills:4:2026-11-03", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+      
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:4:2026-11-03", "op": "hide", "who": ""}'>Hide</button>
+      
+    </div>
+  </details>
+  
+</div>
+
+
+
+<div class="trow act">
+  <span class="av av2" aria-hidden="true">S</span>
+  <div class="tmain">
+    <span class="ttl">Soccer team photos</span>
+    <small class="muted"><b class="pt ">Nov 3</b> · Activity · Sofia</small>
+  </div>
+  
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:13:2026-11-03", "op": "done", "who": ""}'
+    aria-label="Done: Soccer team photos">Done</button>
+  
+  
+  <details class="more"><summary aria-label="Details, snooze, hide: Soccer team photos"><i class="ic ic-more" aria-hidden="true"></i></summary>
+    <div class="menu">
+      <p><b>Soccer team photos (Sofia)</b><br><small class="muted">Activity · Tue Nov 03, 2026</small></p>
+      <p>Springfield Youth Soccer</p>
+      <p><a href="#" data-demo="1">Open record</a></p>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "1", "key": "life_items:13:2026-11-03", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "7", "key": "life_items:13:2026-11-03", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "30", "key": "life_items:13:2026-11-03", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+      
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:13:2026-11-03", "op": "hide", "who": ""}'>Hide</button>
+      
+    </div>
+  </details>
+  
+</div>
+
+
+
+<div class="trow act">
+  <span class="av avn" aria-hidden="true"></span>
+  <div class="tmain">
+    <span class="ttl">Grandma Rosa visits</span>
+    <small class="muted"><b class="pt ">Nov 4</b> · 12:00 PM · Event</small>
+  </div>
+  
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "events:3:2026-11-04", "op": "done", "who": ""}'
+    aria-label="Done: Grandma Rosa visits">Done</button>
+  
+  
+  <details class="more"><summary aria-label="Details, snooze, hide: Grandma Rosa visits"><i class="ic ic-more" aria-hidden="true"></i></summary>
+    <div class="menu">
+      <p><b>Grandma Rosa visits</b><br><small class="muted">Event · Wed Nov 04, 2026</small></p>
+      <p>12:00-15:00</p>
+      <p><a href="#" data-demo="1">Open record</a></p>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "1", "key": "events:3:2026-11-04", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "7", "key": "events:3:2026-11-04", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "30", "key": "events:3:2026-11-04", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+      
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "events:3:2026-11-04", "op": "hide", "who": ""}'>Hide</button>
+      
+    </div>
+  </details>
+  
+</div>
+
+
+
+<div class="trow">
+  <span class="av avn" aria-hidden="true"></span>
+  <div class="tmain">
+    <span class="ttl">Teacher institute day (no school)</span>
+    <small class="muted">No school</small>
+  </div>
+  <span class="pill ">Nov 5</span>
+  
+</div>
+
+
+
+<div class="trow act">
+  <span class="av avn" aria-hidden="true"></span>
+  <div class="tmain">
+    <span class="ttl">Maple Home Lending</span>
+    <small class="muted"><b class="pt ">Nov 6</b> · Bill · $2,150.00</small>
+  </div>
+  
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:1:2026-11-06", "op": "done", "who": ""}'
     aria-label="Paid: Maple Home Lending">Paid</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Maple Home Lending"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Maple Home Lending</b><br><small class="muted">Bill · Mon Nov 02, 2026 · $2,150.00</small></p>
+      <p><b>Maple Home Lending</b><br><small class="muted">Bill · Fri Nov 06, 2026 · $2,150.00</small></p>
       <p>Mortgage</p>
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "bills:1:2026-11-02", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "bills:1:2026-11-06", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "bills:1:2026-11-02", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "bills:1:2026-11-06", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "bills:1:2026-11-02", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "bills:1:2026-11-06", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:1:2026-11-02", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:1:2026-11-06", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -1004,30 +972,30 @@
   <span class="av av1" aria-hidden="true">E</span>
   <div class="tmain">
     <span class="ttl">Eye exam</span>
-    <small class="muted"><b class="pt ">Nov 3</b> · 5:15 PM · Appointment · Elena</small>
+    <small class="muted"><b class="pt ">Nov 7</b> · 5:15 PM · Appointment · Elena</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:3:2026-11-03", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:3:2026-11-07", "op": "done", "who": ""}'
     aria-label="Done: Eye exam">Done</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Eye exam"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Eye exam (Elena)</b><br><small class="muted">Appointment · Tue Nov 03, 2026</small></p>
+      <p><b>Eye exam (Elena)</b><br><small class="muted">Appointment · Sat Nov 07, 2026</small></p>
       <p>Clearview Eye Care 17:15</p>
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "appointments:3:2026-11-03", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "appointments:3:2026-11-07", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "appointments:3:2026-11-03", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "appointments:3:2026-11-07", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "appointments:3:2026-11-03", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "appointments:3:2026-11-07", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:3:2026-11-03", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "appointments:3:2026-11-07", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -1040,30 +1008,30 @@
   <span class="av av1" aria-hidden="true">E</span>
   <div class="tmain">
     <span class="ttl">Birthday gift for Elena</span>
-    <small class="muted"><b class="pt ">Nov 3</b> · Gift · Elena</small>
+    <small class="muted"><b class="pt ">Nov 7</b> · Gift · Elena</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:16:2026-11-03", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:16:2026-11-07", "op": "done", "who": ""}'
     aria-label="Done: Birthday gift for Elena">Done</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Birthday gift for Elena"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Birthday gift for Elena (Elena)</b><br><small class="muted">Gift · Tue Nov 03, 2026</small></p>
+      <p><b>Birthday gift for Elena (Elena)</b><br><small class="muted">Gift · Sat Nov 07, 2026</small></p>
       
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "life_items:16:2026-11-03", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "life_items:16:2026-11-07", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "life_items:16:2026-11-03", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "life_items:16:2026-11-07", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "life_items:16:2026-11-03", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "life_items:16:2026-11-07", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:16:2026-11-03", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "life_items:16:2026-11-07", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -1076,30 +1044,30 @@
   <span class="av avn" aria-hidden="true"></span>
   <div class="tmain">
     <span class="ttl">Lakeside Mutual</span>
-    <small class="muted"><b class="pt ">Nov 5</b> · Bill · $224.00</small>
+    <small class="muted"><b class="pt ">Nov 9</b> · Bill · $224.00</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:5:2026-11-05", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:5:2026-11-09", "op": "done", "who": ""}'
     aria-label="Paid: Lakeside Mutual">Paid</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Lakeside Mutual"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Lakeside Mutual</b><br><small class="muted">Bill · Thu Nov 05, 2026 · $224.00</small></p>
+      <p><b>Lakeside Mutual</b><br><small class="muted">Bill · Mon Nov 09, 2026 · $224.00</small></p>
       <p>Auto insurance</p>
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "bills:5:2026-11-05", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "bills:5:2026-11-09", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "bills:5:2026-11-05", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "bills:5:2026-11-09", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "bills:5:2026-11-05", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "bills:5:2026-11-09", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:5:2026-11-05", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:5:2026-11-09", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -1114,43 +1082,7 @@
     <span class="ttl">Early dismissal 12:30</span>
     <small class="muted">Early dismissal</small>
   </div>
-  <span class="pill ">Nov 6</span>
-  
-</div>
-
-
-
-<div class="trow act">
-  <span class="av avn" aria-hidden="true"></span>
-  <div class="tmain">
-    <span class="ttl">Wedding anniversary</span>
-    <small class="muted"><b class="pt ">Nov 8</b> · Event</small>
-  </div>
-  
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "events:2:2026-11-08", "op": "done", "who": ""}'
-    aria-label="Done: Wedding anniversary">Done</button>
-  
-  
-  <details class="more"><summary aria-label="Details, snooze, hide: Wedding anniversary"><i class="ic ic-more" aria-hidden="true"></i></summary>
-    <div class="menu">
-      <p><b>Wedding anniversary</b><br><small class="muted">Event · Sun Nov 08, 2026</small></p>
-      
-      <p><a href="#" data-demo="1">Open record</a></p>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "events:2:2026-11-08", "op": "snooze", "who": ""}'>Snooze 1 day</button>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "events:2:2026-11-08", "op": "snooze", "who": ""}'>Snooze 7 days</button>
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "events:2:2026-11-08", "op": "snooze", "who": ""}'>Snooze 30 days</button>
-      
-      
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "events:2:2026-11-08", "op": "hide", "who": ""}'>Hide</button>
-      
-    </div>
-  </details>
+  <span class="pill ">Nov 10</span>
   
 </div>
 
@@ -1207,6 +1139,42 @@
 <div class="trow act">
   <span class="av avn" aria-hidden="true"></span>
   <div class="tmain">
+    <span class="ttl">Wedding anniversary</span>
+    <small class="muted"><b class="pt ">Nov 12</b> · Event</small>
+  </div>
+  
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "events:2:2026-11-12", "op": "done", "who": ""}'
+    aria-label="Done: Wedding anniversary">Done</button>
+  
+  
+  <details class="more"><summary aria-label="Details, snooze, hide: Wedding anniversary"><i class="ic ic-more" aria-hidden="true"></i></summary>
+    <div class="menu">
+      <p><b>Wedding anniversary</b><br><small class="muted">Event · Thu Nov 12, 2026</small></p>
+      
+      <p><a href="#" data-demo="1">Open record</a></p>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "1", "key": "events:2:2026-11-12", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "7", "key": "events:2:2026-11-12", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "30", "key": "events:2:2026-11-12", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+      
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "events:2:2026-11-12", "op": "hide", "who": ""}'>Hide</button>
+      
+    </div>
+  </details>
+  
+</div>
+
+
+
+<div class="trow act">
+  <span class="av avn" aria-hidden="true"></span>
+  <div class="tmain">
     <span class="ttl">Subscription: TuneWave Family</span>
     <small class="muted"><b class="pt ">Nov 13</b> · Renewal · $16.99</small>
   </div>
@@ -1244,30 +1212,30 @@
   <span class="av avh" aria-hidden="true">H</span>
   <div class="tmain">
     <span class="ttl">2021 Honda Pilot registration expires</span>
-    <small class="muted"><b class="pt ">Nov 14</b> · Renewal</small>
+    <small class="muted"><b class="pt ">Nov 18</b> · Renewal</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "vehicles:1:2026-11-14", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "vehicles:1:2026-11-18", "op": "done", "who": ""}'
     aria-label="Done: 2021 Honda Pilot registration expires">Done</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: 2021 Honda Pilot registration expires"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>2021 Honda Pilot registration expires</b><br><small class="muted">Renewal · Sat Nov 14, 2026</small></p>
+      <p><b>2021 Honda Pilot registration expires</b><br><small class="muted">Renewal · Wed Nov 18, 2026</small></p>
       
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "vehicles:1:2026-11-14", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "vehicles:1:2026-11-18", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "vehicles:1:2026-11-14", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "vehicles:1:2026-11-18", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "vehicles:1:2026-11-14", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "vehicles:1:2026-11-18", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "vehicles:1:2026-11-14", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "vehicles:1:2026-11-18", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -1280,30 +1248,66 @@
   <span class="av avn" aria-hidden="true"></span>
   <div class="tmain">
     <span class="ttl">Sangamon County</span>
-    <small class="muted"><b class="pt ">Nov 16</b> · Bill · $1,840.00</small>
+    <small class="muted"><b class="pt ">Nov 20</b> · Bill · $1,840.00</small>
   </div>
   
-  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:6:2026-11-16", "op": "done", "who": ""}'
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:6:2026-11-20", "op": "done", "who": ""}'
     aria-label="Paid: Sangamon County">Paid</button>
   
   
   <details class="more"><summary aria-label="Details, snooze, hide: Sangamon County"><i class="ic ic-more" aria-hidden="true"></i></summary>
     <div class="menu">
-      <p><b>Sangamon County</b><br><small class="muted">Bill · Mon Nov 16, 2026 · $1,840.00</small></p>
+      <p><b>Sangamon County</b><br><small class="muted">Bill · Fri Nov 20, 2026 · $1,840.00</small></p>
       <p>Property tax (2nd half)</p>
       <p><a href="#" data-demo="1">Open record</a></p>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "1", "key": "bills:6:2026-11-16", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+        hx-vals='{"days": "1", "key": "bills:6:2026-11-20", "op": "snooze", "who": ""}'>Snooze 1 day</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "7", "key": "bills:6:2026-11-16", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+        hx-vals='{"days": "7", "key": "bills:6:2026-11-20", "op": "snooze", "who": ""}'>Snooze 7 days</button>
       
       <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
-        hx-vals='{"days": "30", "key": "bills:6:2026-11-16", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+        hx-vals='{"days": "30", "key": "bills:6:2026-11-20", "op": "snooze", "who": ""}'>Snooze 30 days</button>
       
       
-      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:6:2026-11-16", "op": "hide", "who": ""}'>Hide</button>
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "bills:6:2026-11-20", "op": "hide", "who": ""}'>Hide</button>
+      
+    </div>
+  </details>
+  
+</div>
+
+
+
+<div class="trow act">
+  <span class="av avn" aria-hidden="true"></span>
+  <div class="tmain">
+    <span class="ttl">Subscription: Springfield Gym</span>
+    <small class="muted"><b class="pt ">Nov 21</b> · Renewal · $39.00</small>
+  </div>
+  
+  <button type="button" class="btn alt sm" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "subscriptions:3:2026-11-21", "op": "done", "who": ""}'
+    aria-label="Done: Subscription: Springfield Gym">Done</button>
+  
+  
+  <details class="more"><summary aria-label="Details, snooze, hide: Subscription: Springfield Gym"><i class="ic ic-more" aria-hidden="true"></i></summary>
+    <div class="menu">
+      <p><b>Subscription: Springfield Gym</b><br><small class="muted">Renewal · Sat Nov 21, 2026 · $39.00</small></p>
+      <p>Northway Visa x1209</p>
+      <p><a href="#" data-demo="1">Open record</a></p>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "1", "key": "subscriptions:3:2026-11-21", "op": "snooze", "who": ""}'>Snooze 1 day</button>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "7", "key": "subscriptions:3:2026-11-21", "op": "snooze", "who": ""}'>Snooze 7 days</button>
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none"
+        hx-vals='{"days": "30", "key": "subscriptions:3:2026-11-21", "op": "snooze", "who": ""}'>Snooze 30 days</button>
+      
+      
+      <button type="button" class="btn alt" hx-post="/today/act" hx-swap="none" hx-vals='{"key": "subscriptions:3:2026-11-21", "op": "hide", "who": ""}'>Hide</button>
       
     </div>
   </details>
@@ -1323,7 +1327,7 @@
     </details>
   </section>
   <section class="col" aria-labelledby="h-today">
-    <h2 class="sec" id="h-today">On today <span class="cnt">2</span></h2>
+    <h2 class="sec" id="h-today">On today <span class="cnt">1</span></h2>
     
 <div class="card rows">
   
@@ -1339,68 +1343,70 @@
   
 </div>
 
-
-
-<div class="trow">
-  <span class="av av3" aria-hidden="true">M</span>
-  <div class="tmain">
-    <span class="ttl">Piano 16:00-16:30</span>
-    <small class="muted">Class · Mateo</small>
-  </div>
-  <span class="pill warn">Today</span>
-  
-</div>
-
 </div>
 
     <h2 class="sec">Next 7 days</h2>
     <div class="strip" role="list">
       
       <a role="listitem" class="sday now" href="calendar_view_week.html"
-         aria-label="Wednesday 21: 3 items">
-        <small>Wed</small><b>21</b>
-        <span class="dots"><i class="dot av3"></i><i class="dot av4"></i></span>
-      </a>
-      
-      <a role="listitem" class="sday" href="calendar_view_week.html"
-         aria-label="Thursday 22: 4 items">
-        <small>Thu</small><b>22</b>
-        <span class="dots"><i class="dot av0"></i><i class="dot av2"></i><i class="dot av3"></i></span>
-      </a>
-      
-      <a role="listitem" class="sday" href="calendar_view_week.html"
-         aria-label="Friday 23: 1 item">
-        <small>Fri</small><b>23</b>
-        <span class="dots"><i class="dot av2"></i></span>
-      </a>
-      
-      <a role="listitem" class="sday" href="calendar_view_week.html"
-         aria-label="Saturday 24: 1 item">
-        <small>Sat</small><b>24</b>
-        <span class="dots"><i class="dot av2"></i></span>
-      </a>
-      
-      <a role="listitem" class="sday" href="calendar_view_week.html"
          aria-label="Sunday 25: 2 items">
         <small>Sun</small><b>25</b>
-        <span class="dots"></span>
+        <span class="dots"><i class="dot av4"></i></span>
       </a>
       
       <a role="listitem" class="sday" href="calendar_view_week.html"
-         aria-label="Monday 26: 1 item">
+         aria-label="Monday 26: 3 items">
         <small>Mon</small><b>26</b>
-        <span class="dots"><i class="dot av4"></i></span>
+        <span class="dots"><i class="dot av0"></i><i class="dot av2"></i><i class="dot av3"></i></span>
       </a>
       
       <a role="listitem" class="sday" href="calendar_view_week.html"
          aria-label="Tuesday 27: 1 item">
         <small>Tue</small><b>27</b>
+        <span class="dots"><i class="dot av2"></i></span>
+      </a>
+      
+      <a role="listitem" class="sday" href="calendar_view_week.html"
+         aria-label="Wednesday 28: 1 item">
+        <small>Wed</small><b>28</b>
+        <span class="dots"><i class="dot av2"></i></span>
+      </a>
+      
+      <a role="listitem" class="sday" href="calendar_view_week.html"
+         aria-label="Thursday 29: 2 items">
+        <small>Thu</small><b>29</b>
+        <span class="dots"></span>
+      </a>
+      
+      <a role="listitem" class="sday" href="calendar_view_week.html"
+         aria-label="Friday 30: 1 item">
+        <small>Fri</small><b>30</b>
+        <span class="dots"><i class="dot av4"></i></span>
+      </a>
+      
+      <a role="listitem" class="sday" href="calendar_view_week.html"
+         aria-label="Saturday 31: 1 item">
+        <small>Sat</small><b>31</b>
         <span class="dots"><i class="dot av3"></i></span>
       </a>
       
     </div>
   </section>
   <aside class="col" aria-label="Money, house and renewals">
+    
+    <h2 class="sec row-h" id="h-keep">Keep up <a href="settings_group_data.html">Settings</a></h2>
+    <ul class="card keepup" aria-labelledby="h-keep">
+      <li class="kl warn"><i class="kdot" aria-hidden="true"></i>
+        <span class="ktext">Nothing runs by itself yet: the daily brief, the inbox check and the weekly backup are off</span>
+        <span class="kact"><a class="btn alt sm" href="settings_group_data.html">Turn on</a>
+        </span></li>
+      <li class="kl warn"><i class="kdot" aria-hidden="true"></i>
+        <span class="ktext">18 Inbox cards wait for an answer</span>
+        <span class="kact"><a class="btn alt sm" href="add.html">Open</a>
+        </span></li>
+      
+    </ul>
+    
     
     <h2 class="sec row-h">Money <a href="money_part_month.html">This month</a></h2>
     <div class="card money">
@@ -1424,7 +1430,7 @@
     <span class="ttl">2021 Honda Pilot registration expires</span>
     <small class="muted">Renewal</small>
   </div>
-  <span class="pill ">Nov 14</span>
+  <span class="pill ">Nov 18</span>
   
 </div>
 

@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=records:people:health" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -103,41 +107,41 @@
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">E</span>
       <span class="rl-main"><span class="rl-t">Eye exam</span><span class="rl-m">Elena · Clearview Eye Care</span></span>
-      <span class="rl-r"><b>Nov 3 17:15</b></span>
+      <span class="rl-r"><b>Nov 7 17:15</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">A</span>
       <span class="rl-main"><span class="rl-t">Annual checkup</span><span class="rl-m">Mateo · Dr. Okafor Pediatrics</span></span>
-      <span class="rl-r"><b>Oct 29 09:00</b></span>
+      <span class="rl-r"><b>Nov 2 09:00</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">V</span>
       <span class="rl-main"><span class="rl-t">Vaccines</span><span class="rl-m">Pancho · Oak Street Vet</span></span>
-      <span class="rl-r"><b>Oct 26 11:00</b></span>
+      <span class="rl-r"><b>Oct 30 11:00</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">C</span>
       <span class="rl-main"><span class="rl-t">Cleaning</span><span class="rl-m">Sofia · Bright Smiles Dental</span></span>
-      <span class="rl-r"><b>Oct 23 15:30</b></span>
+      <span class="rl-r"><b>Oct 27 15:30</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">K</span>
       <span class="rl-main"><span class="rl-t">Knee follow-up</span><span class="rl-m">Marcus · Lakeside Physio</span></span>
-      <span class="rl-r"><b>Oct 22 08:15</b></span>
+      <span class="rl-r"><b>Oct 26 08:15</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Person</th><th>Purpose</th><th>Provider</th><th>When</th><th>Follow-up due</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Elena</a></td><td>Eye exam</td><td>Clearview Eye Care</td><td>Nov 3, 17:15</td><td></td></tr><tr><td><a href="#" data-demo="1">Mateo</a></td><td>Annual checkup</td><td>Dr. Okafor Pediatrics</td><td>Oct 29, 09:00</td><td></td></tr><tr><td><a href="#" data-demo="1">Pancho</a></td><td>Vaccines</td><td>Oak Street Vet</td><td>Oct 26, 11:00</td><td></td></tr><tr><td><a href="#" data-demo="1">Sofia</a></td><td>Cleaning</td><td>Bright Smiles Dental</td><td>Oct 23, 15:30</td><td></td></tr><tr><td><a href="#" data-demo="1">Marcus</a></td><td>Knee follow-up</td><td>Lakeside Physio</td><td>Oct 22, 08:15</td><td></td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Elena</a></td><td>Eye exam</td><td>Clearview Eye Care</td><td>Nov 7, 17:15</td><td></td></tr><tr><td><a href="#" data-demo="1">Mateo</a></td><td>Annual checkup</td><td>Dr. Okafor Pediatrics</td><td>Nov 2, 09:00</td><td></td></tr><tr><td><a href="#" data-demo="1">Pancho</a></td><td>Vaccines</td><td>Oak Street Vet</td><td>Oct 30, 11:00</td><td></td></tr><tr><td><a href="#" data-demo="1">Sofia</a></td><td>Cleaning</td><td>Bright Smiles Dental</td><td>Oct 27, 15:30</td><td></td></tr><tr><td><a href="#" data-demo="1">Marcus</a></td><td>Knee follow-up</td><td>Lakeside Physio</td><td>Oct 26, 08:15</td><td></td></tr></tbody>
   </table></div>
   
 </section>

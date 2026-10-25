@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:regular" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -81,41 +85,41 @@
 
 
 
-<div class="mo-top">
+<div class="mo-top mo-reg">
   <div class="card"><span class="muted">Every month</span><b>$3,321.39</b><small class="muted">11 regular bills and subscriptions · about $39,857 a year.</small></div>
   <div class="card"><span class="muted">Subscriptions</span><b>$74.48</b><small class="muted">4 running, a month.</small></div>
-  <div class="card"><span class="muted">Next 7 days</span><span class="mo-soon"><span class="chip-s t-n"><b>Oct 22</b> Springfield Gym</span><span class="chip-s t-n"><b>Oct 25</b> City Water &amp; Power</span></span></div>
+  <div class="card mo-next"><span class="muted">Next 7 days</span><span class="mo-soon"><span class="chip-s t-n"><b>Oct 29</b> City Water &amp; Power</span></span></div>
 </div>
 <div class="mo-groups">
   
   <section class="card" aria-label="Home and utilities">
     <h2>Home and utilities</h2><p class="muted small">$483.91 a month</p>
     <ul class="rlist">
-      <li><div><span class="rl-main"><span class="rl-t">Sangamon County</span><span class="rl-m"><span class="">Next Nov 16</span> · yearly</span></span><span class="rl-r"><b>$1,840.00</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Sangamon County</span><span class="rl-m"><span class="">Next Nov 20</span> · yearly</span></span><span class="rl-r"><b>$1,840.00</b></span></div></li>
     
-      <li><div><span class="rl-main"><span class="rl-t">City Water &amp; Power</span><span class="rl-m"><span class="">Next Oct 25</span></span></span><span class="rl-r"><b>$142.18</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">City Water &amp; Power</span><span class="rl-m"><span class="">Next Oct 29</span></span></span><span class="rl-r"><b>$142.18</b></span></div></li>
     
-      <li><div><span class="rl-main"><span class="rl-t">Northstar Mobile</span><span class="rl-m"><span class="">Next Oct 30</span></span></span><span class="rl-r"><b>$118.40</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Northstar Mobile</span><span class="rl-m"><span class="">Next Nov 3</span></span></span><span class="rl-r"><b>$118.40</b></span></div></li>
     
-      <li><div><span class="rl-main"><span class="rl-t">Brightwave</span><span class="rl-m"><span class="bad">Expected Oct 19</span></span></span><span class="rl-r"><b>$70.00</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Brightwave</span><span class="rl-m"><span class="bad">Expected Oct 23</span></span></span><span class="rl-r"><b>$70.00</b></span></div></li>
     </ul>
   </section>
   
   <section class="card" aria-label="Loans and insurance">
     <h2>Loans and insurance</h2><p class="muted small">$2,763.00 a month</p>
     <ul class="rlist">
-      <li><div><span class="rl-main"><span class="rl-t">Maple Home Lending</span><span class="rl-m"><span class="">Next Nov 2</span></span></span><span class="rl-r"><b>$2,150.00</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Maple Home Lending</span><span class="rl-m"><span class="">Next Nov 6</span></span></span><span class="rl-r"><b>$2,150.00</b></span></div></li>
     
       <li><div><span class="rl-main"><span class="rl-t">Crestline Auto Loan</span><span class="rl-m"><span class="">Next Nov 9</span></span></span><span class="rl-r"><b>$389.00</b></span></div></li>
     
-      <li><div><span class="rl-main"><span class="rl-t">Lakeside Mutual</span><span class="rl-m"><span class="">Next Nov 5</span></span></span><span class="rl-r"><b>$224.00</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Lakeside Mutual</span><span class="rl-m"><span class="">Next Nov 9</span></span></span><span class="rl-r"><b>$224.00</b></span></div></li>
     </ul>
   </section>
   
   <section class="card" aria-label="Subscriptions">
     <h2>Subscriptions</h2><p class="muted small">$74.48 a month</p>
     <ul class="rlist">
-      <li><div><span class="rl-main"><span class="rl-t">Springfield Gym</span><span class="rl-m"><span class="">Next Oct 22</span></span></span><span class="rl-r"><b>$39.00</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Springfield Gym</span><span class="rl-m"><span class="">Next Nov 21</span></span></span><span class="rl-r"><b>$39.00</b></span></div></li>
     
       <li><div><span class="rl-main"><span class="rl-t">TuneWave Family</span><span class="rl-m"><span class="">Next Nov 13</span></span></span><span class="rl-r"><b>$16.99</b></span></div></li>
     

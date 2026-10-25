@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=records:papers:ids" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -115,41 +119,41 @@
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">P</span>
       <span class="rl-main"><span class="rl-t">Passport</span><span class="rl-m">Marcus · 3381 · US Dept of State</span></span>
-      <span class="rl-r"><b>Dec 18</b></span>
+      <span class="rl-r"><b>Dec 22</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">D</span>
       <span class="rl-main"><span class="rl-t">Drivers license</span><span class="rl-m">Elena · 7720 · State DMV</span></span>
-      <span class="rl-r"><b>Nov 25, 2027</b></span>
+      <span class="rl-r"><b>Nov 29, 2027</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">D</span>
       <span class="rl-main"><span class="rl-t">Drivers license</span><span class="rl-m">Marcus · 2284 · State DMV</span></span>
-      <span class="rl-r"><b>Jun 22, 2028</b></span>
+      <span class="rl-r"><b>Jun 26, 2028</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">P</span>
       <span class="rl-main"><span class="rl-t">Passport</span><span class="rl-m">Sofia · 9902 · US Dept of State</span></span>
-      <span class="rl-r"><b>Apr 8, 2029</b></span>
+      <span class="rl-r"><b>Apr 12, 2029</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">P</span>
       <span class="rl-main"><span class="rl-t">Passport</span><span class="rl-m">Elena · 5106 · US Dept of State</span></span>
-      <span class="rl-r"><b>May 13, 2030</b></span>
+      <span class="rl-r"><b>May 17, 2030</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Person</th><th>Document</th><th>Expires</th><th>Last 4</th><th>Issuing authority</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Marcus</a></td><td>passport</td><td>Dec 18</td><td>3381</td><td>US Dept of State</td></tr><tr><td><a href="#" data-demo="1">Elena</a></td><td>drivers license</td><td>Nov 25, 2027</td><td>7720</td><td>State DMV</td></tr><tr><td><a href="#" data-demo="1">Marcus</a></td><td>drivers license</td><td>Jun 22, 2028</td><td>2284</td><td>State DMV</td></tr><tr><td><a href="#" data-demo="1">Sofia</a></td><td>passport</td><td>Apr 8, 2029</td><td>9902</td><td>US Dept of State</td></tr><tr><td><a href="#" data-demo="1">Elena</a></td><td>passport</td><td>May 13, 2030</td><td>5106</td><td>US Dept of State</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Marcus</a></td><td>passport</td><td>Dec 22</td><td>3381</td><td>US Dept of State</td></tr><tr><td><a href="#" data-demo="1">Elena</a></td><td>drivers license</td><td>Nov 29, 2027</td><td>7720</td><td>State DMV</td></tr><tr><td><a href="#" data-demo="1">Marcus</a></td><td>drivers license</td><td>Jun 26, 2028</td><td>2284</td><td>State DMV</td></tr><tr><td><a href="#" data-demo="1">Sofia</a></td><td>passport</td><td>Apr 12, 2029</td><td>9902</td><td>US Dept of State</td></tr><tr><td><a href="#" data-demo="1">Elena</a></td><td>passport</td><td>May 17, 2030</td><td>5106</td><td>US Dept of State</td></tr></tbody>
   </table></div>
   
 </section>

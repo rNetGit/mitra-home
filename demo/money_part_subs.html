@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:subs" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -158,7 +162,7 @@
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Subscription</th><th>Decision</th><th>Status</th><th class="num">Per month</th><th class="num">Per year</th><th>Category</th><th>Paid with</th><th>Last charge</th><th>Next est</th><th>Used by</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/subscriptions/3?part=subs" hx-target="#txn-body" hx-swap="innerHTML">Springfield Gym</a></td><td>keep</td><td><span class="chip-s t-ok">active</span></td><td class="num">$39.00</td><td class="num">$468.00</td><td>fitness</td><td>Northway Visa x1209</td><td>Sep 22</td><td>Oct 22</td><td></td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/subscriptions/1?part=subs" hx-target="#txn-body" hx-swap="innerHTML">StreamBox</a></td><td>keep</td><td><span class="chip-s t-ok">active</span></td><td class="num">$15.99</td><td class="num">$191.88</td><td>subscriptions</td><td>Northway Visa x1209</td><td>Oct 12</td><td>Nov 11</td><td></td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/subscriptions/4?part=subs" hx-target="#txn-body" hx-swap="innerHTML">CloudVault storage</a></td><td>unreviewed</td><td><span class="chip-s t-n">no charges found</span></td><td class="num">$0.00</td><td class="num">$0.00</td><td>subscriptions</td><td></td><td></td><td></td><td></td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/subscriptions/3?part=subs" hx-target="#txn-body" hx-swap="innerHTML">Springfield Gym</a></td><td>keep</td><td><span class="chip-s t-ok">active</span></td><td class="num">$39.00</td><td class="num">$468.00</td><td>fitness</td><td>Northway Visa x1209</td><td>Oct 22</td><td>Nov 21</td><td></td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/subscriptions/1?part=subs" hx-target="#txn-body" hx-swap="innerHTML">StreamBox</a></td><td>keep</td><td><span class="chip-s t-ok">active</span></td><td class="num">$15.99</td><td class="num">$191.88</td><td>subscriptions</td><td>Northway Visa x1209</td><td>Oct 12</td><td>Nov 11</td><td></td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/subscriptions/4?part=subs" hx-target="#txn-body" hx-swap="innerHTML">CloudVault storage</a></td><td>unreviewed</td><td><span class="chip-s t-n">no charges found</span></td><td class="num">$0.00</td><td class="num">$0.00</td><td>subscriptions</td><td></td><td></td><td></td><td></td></tr></tbody>
   </table></div>
   
 </section>

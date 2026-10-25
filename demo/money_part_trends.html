@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:trends" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -102,7 +106,7 @@
     <i>58% of income</i></div>
   <div class="kpi"><span>Typical month</span><b>$4,633</b><i>last 6 months</i></div>
 </div>
-<p class="hint">Oct 2026 is still running: $11,380 in and $4,391 out so far. It joins the charts when the month ends.</p>
+<p class="hint">Oct 2026 is still running: $11,380 in and $4,597 out so far. It joins the charts when the month ends.</p>
 
 <div class="tgrid">
 <section class="card tflow"><h2>Each month</h2><p class="muted small">Only months with statements · Apr 2026 to Sep 2026</p>
@@ -149,14 +153,14 @@
   <ul class="fbars">
     <li class="t-n">
       <div class="fb-top"><span class="fb-l">Housing</span>
-        <span class="fb-v"><b>$15,050</b> · 47%</span></div>
+        <span class="fb-v"><b>$15,050</b> · 46%</span></div>
       <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="100.0" height="6" rx="3"/></svg>
       
     </li>
     <li class="t-n">
       <div class="fb-top"><span class="fb-l">Groceries</span>
-        <span class="fb-v"><b>$5,483</b> · 17%</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="36.4" height="6" rx="3"/></svg>
+        <span class="fb-v"><b>$5,579</b> · 17%</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="37.1" height="6" rx="3"/></svg>
       
     </li>
     <li class="t-n">
@@ -191,8 +195,8 @@
     </li>
     <li class="t-n">
       <div class="fb-top"><span class="fb-l">Dining</span>
-        <span class="fb-v"><b>$936</b> · 3%</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="6.2" height="6" rx="3"/></svg>
+        <span class="fb-v"><b>$1,008</b> · 3%</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="6.7" height="6" rx="3"/></svg>
       
     </li></ul>
   <p class="muted small">What changed shows once there are statements from the 12 months before.</p>
@@ -204,7 +208,7 @@
 <section class="card"><h2>Month by month</h2>
   <ul class="rlist tmonths">
     <li><div><span class="rl-main"><span class="rl-t">Oct 2026 <span class="muted">(so far)</span></span>
-      <span class="rl-m">in $11,380 · out $4,391 · left $6,989</span></span>
+      <span class="rl-m">in $11,380 · out $4,597 · left $6,783</span></span>
       <span class="rl-r"></span></div></li>
   
     <li><div><span class="rl-main"><span class="rl-t">Sep 2026</span>

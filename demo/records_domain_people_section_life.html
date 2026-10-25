@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=records:people:life" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -117,63 +121,63 @@
     <li><a href="#" data-demo="1">
       <span class="rl-av t-bad" aria-hidden="true">R</span>
       <span class="rl-main"><span class="rl-t">Replace furnace filter</span><span class="rl-m">chore · every 3 months</span></span>
-      <span class="rl-r"><b>Oct 19</b><span class="chip-s t-bad">overdue</span></span>
+      <span class="rl-r"><b>Oct 23</b><span class="chip-s t-bad">overdue</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-warn" aria-hidden="true">F</span>
       <span class="rl-main"><span class="rl-t">Flea and tick dose</span><span class="rl-m">pet · Pancho · every month</span></span>
-      <span class="rl-r"><b>Oct 21</b><span class="chip-s t-warn">today</span></span>
+      <span class="rl-r"><b>Oct 25</b><span class="chip-s t-warn">today</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-warn" aria-hidden="true">F</span>
       <span class="rl-main"><span class="rl-t">Field trip form and $12</span><span class="rl-m">school · Mateo · Washington Elementary</span></span>
-      <span class="rl-r"><b>Oct 22</b><span class="chip-s t-warn">tomorrow</span></span>
+      <span class="rl-r"><b>Oct 26</b><span class="chip-s t-warn">tomorrow</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-warn" aria-hidden="true">S</span>
       <span class="rl-main"><span class="rl-t">Science fair project due</span><span class="rl-m">school · Sofia · Lincoln Middle School</span></span>
-      <span class="rl-r"><b>Oct 24</b><span class="chip-s t-warn">in 3 days</span></span>
+      <span class="rl-r"><b>Oct 28</b><span class="chip-s t-warn">in 3 days</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-warn" aria-hidden="true">P</span>
       <span class="rl-main"><span class="rl-t">Picture day</span><span class="rl-m">school · Mateo · Washington Elementary</span></span>
-      <span class="rl-r"><b>Oct 27</b><span class="chip-s t-warn">in 6 days</span></span>
+      <span class="rl-r"><b>Oct 31</b><span class="chip-s t-warn">in 6 days</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-warn" aria-hidden="true">B</span>
       <span class="rl-main"><span class="rl-t">Book Thanksgiving flights</span><span class="rl-m">travel</span></span>
-      <span class="rl-r"><b>Oct 28</b><span class="chip-s t-warn">in 7 days</span></span>
+      <span class="rl-r"><b>Nov 1</b><span class="chip-s t-warn">in 7 days</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-warn" aria-hidden="true">S</span>
       <span class="rl-main"><span class="rl-t">Soccer team photos</span><span class="rl-m">activity · Sofia · Springfield Youth Soccer</span></span>
-      <span class="rl-r"><b>Oct 30</b><span class="chip-s t-warn">in 9 days</span></span>
+      <span class="rl-r"><b>Nov 3</b><span class="chip-s t-warn">in 9 days</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-warn" aria-hidden="true">B</span>
       <span class="rl-main"><span class="rl-t">Birthday gift for Elena</span><span class="rl-m">gift · Elena</span></span>
-      <span class="rl-r"><b>Nov 3</b><span class="chip-s t-warn">in 13 days</span></span>
+      <span class="rl-r"><b>Nov 7</b><span class="chip-s t-warn">in 13 days</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">R</span>
       <span class="rl-main"><span class="rl-t">Review wills and beneficiaries</span><span class="rl-m">legal · every 36 months</span></span>
-      <span class="rl-r"><b>Dec 5</b></span>
+      <span class="rl-r"><b>Dec 9</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
@@ -242,7 +246,7 @@
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Title</th><th>Kind</th><th>Who</th><th>Due</th><th>Every (months)</th><th>Amount</th><th>Provider</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Replace furnace filter</a> <span class="chip-s t-bad">overdue</span></td><td>chore</td><td>household</td><td>Oct 19</td><td>3</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Flea and tick dose</a> <span class="chip-s t-warn">today</span></td><td>pet</td><td>Pancho</td><td>Oct 21</td><td>1</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Field trip form and $12</a> <span class="chip-s t-warn">tomorrow</span></td><td>school</td><td>Mateo</td><td>Oct 22</td><td></td><td></td><td>Washington Elementary</td></tr><tr><td><a href="#" data-demo="1">Science fair project due</a> <span class="chip-s t-warn">in 3 days</span></td><td>school</td><td>Sofia</td><td>Oct 24</td><td></td><td></td><td>Lincoln Middle School</td></tr><tr><td><a href="#" data-demo="1">Picture day</a> <span class="chip-s t-warn">in 6 days</span></td><td>school</td><td>Mateo</td><td>Oct 27</td><td></td><td></td><td>Washington Elementary</td></tr><tr><td><a href="#" data-demo="1">Book Thanksgiving flights</a> <span class="chip-s t-warn">in 7 days</span></td><td>travel</td><td>household</td><td>Oct 28</td><td></td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Soccer team photos</a> <span class="chip-s t-warn">in 9 days</span></td><td>activity</td><td>Sofia</td><td>Oct 30</td><td></td><td></td><td>Springfield Youth Soccer</td></tr><tr><td><a href="#" data-demo="1">Birthday gift for Elena</a> <span class="chip-s t-warn">in 13 days</span></td><td>gift</td><td>Elena</td><td>Nov 3</td><td></td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Review wills and beneficiaries</a></td><td>legal</td><td>household</td><td>Dec 5</td><td>36</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Review will, beneficiaries and power of attorney</a></td><td>legal</td><td>Marcus</td><td>needs a date</td><td>36</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Review will, beneficiaries and power of attorney</a></td><td>legal</td><td>Elena</td><td>needs a date</td><td>36</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Review emergency contacts and the emergency sheet</a></td><td>legal</td><td>household</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Vaccination record check</a></td><td>medical</td><td>Sofia</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Vaccination record check</a></td><td>medical</td><td>Mateo</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Vet checkup</a></td><td>pet</td><td>Pancho</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Flea / tick / heartworm prevention refill</a></td><td>pet</td><td>Pancho</td><td>needs a date</td><td>1</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">School registration / forms for the new year</a></td><td>school</td><td>Sofia</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">School registration / forms for the new year</a></td><td>school</td><td>Mateo</td><td>needs a date</td><td>12</td><td></td><td></td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Replace furnace filter</a> <span class="chip-s t-bad">overdue</span></td><td>chore</td><td>household</td><td>Oct 23</td><td>3</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Flea and tick dose</a> <span class="chip-s t-warn">today</span></td><td>pet</td><td>Pancho</td><td>Oct 25</td><td>1</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Field trip form and $12</a> <span class="chip-s t-warn">tomorrow</span></td><td>school</td><td>Mateo</td><td>Oct 26</td><td></td><td></td><td>Washington Elementary</td></tr><tr><td><a href="#" data-demo="1">Science fair project due</a> <span class="chip-s t-warn">in 3 days</span></td><td>school</td><td>Sofia</td><td>Oct 28</td><td></td><td></td><td>Lincoln Middle School</td></tr><tr><td><a href="#" data-demo="1">Picture day</a> <span class="chip-s t-warn">in 6 days</span></td><td>school</td><td>Mateo</td><td>Oct 31</td><td></td><td></td><td>Washington Elementary</td></tr><tr><td><a href="#" data-demo="1">Book Thanksgiving flights</a> <span class="chip-s t-warn">in 7 days</span></td><td>travel</td><td>household</td><td>Nov 1</td><td></td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Soccer team photos</a> <span class="chip-s t-warn">in 9 days</span></td><td>activity</td><td>Sofia</td><td>Nov 3</td><td></td><td></td><td>Springfield Youth Soccer</td></tr><tr><td><a href="#" data-demo="1">Birthday gift for Elena</a> <span class="chip-s t-warn">in 13 days</span></td><td>gift</td><td>Elena</td><td>Nov 7</td><td></td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Review wills and beneficiaries</a></td><td>legal</td><td>household</td><td>Dec 9</td><td>36</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Review will, beneficiaries and power of attorney</a></td><td>legal</td><td>Marcus</td><td>needs a date</td><td>36</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Review will, beneficiaries and power of attorney</a></td><td>legal</td><td>Elena</td><td>needs a date</td><td>36</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Review emergency contacts and the emergency sheet</a></td><td>legal</td><td>household</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Vaccination record check</a></td><td>medical</td><td>Sofia</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Vaccination record check</a></td><td>medical</td><td>Mateo</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Vet checkup</a></td><td>pet</td><td>Pancho</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">Flea / tick / heartworm prevention refill</a></td><td>pet</td><td>Pancho</td><td>needs a date</td><td>1</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">School registration / forms for the new year</a></td><td>school</td><td>Sofia</td><td>needs a date</td><td>12</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1">School registration / forms for the new year</a></td><td>school</td><td>Mateo</td><td>needs a date</td><td>12</td><td></td><td></td></tr></tbody>
   </table></div>
   
 </section>

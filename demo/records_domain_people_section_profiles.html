@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab on" aria-current="true"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=records:people:profiles" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -115,21 +119,21 @@
   <ul class="rlist fl-phone">
     <li><a href="#" data-demo="1">
       <span class="rl-av t-ok" aria-hidden="true">A</span>
-      <span class="rl-main"><span class="rl-t">Allergy</span><span class="rl-m">Mateo · medical · Peanuts: carries an EpiPen · Confirmed Sep 21</span></span>
+      <span class="rl-main"><span class="rl-t">Allergy</span><span class="rl-m">Mateo · medical · Peanuts: carries an EpiPen · Confirmed Sep 25</span></span>
       <span class="rl-r"><span class="chip-s t-ok">ok</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-ok" aria-hidden="true">S</span>
-      <span class="rl-main"><span class="rl-t">School nurse</span><span class="rl-m">Sofia · emergency · Lincoln Middle, ext. 214 · Confirmed Aug 22</span></span>
+      <span class="rl-main"><span class="rl-t">School nurse</span><span class="rl-m">Sofia · emergency · Lincoln Middle, ext. 214 · Confirmed Aug 26</span></span>
       <span class="rl-r"><span class="chip-s t-ok">ok</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Who</th><th>Category</th><th>Label</th><th>Value</th><th>Confirmed</th><th>Status</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Mateo</a></td><td>medical</td><td>Allergy</td><td>Peanuts: carries an EpiPen</td><td>Sep 21</td><td>ok</td></tr><tr><td><a href="#" data-demo="1">Sofia</a></td><td>emergency</td><td>School nurse</td><td>Lincoln Middle, ext. 214</td><td>Aug 22</td><td>ok</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Mateo</a></td><td>medical</td><td>Allergy</td><td>Peanuts: carries an EpiPen</td><td>Sep 25</td><td>ok</td></tr><tr><td><a href="#" data-demo="1">Sofia</a></td><td>emergency</td><td>School nurse</td><td>Lincoln Middle, ext. 214</td><td>Aug 26</td><td>ok</td></tr></tbody>
   </table></div>
   
 </section>

@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Calendar · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=calendar" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -75,8 +79,8 @@
     <a href="#" data-demo="1" hx-get="/calendar/body?view=year&amp;ref=2025-01-01"
    hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=year&amp;ref=2025-01-01"
    class="btn alt">‹ Prev</a>
-    <a href="#" data-demo="1" hx-get="/calendar/body?view=year&amp;ref=2026-10-21"
-   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=year&amp;ref=2026-10-21"
+    <a href="#" data-demo="1" hx-get="/calendar/body?view=year&amp;ref=2026-10-25"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=year&amp;ref=2026-10-25"
    class="btn alt">Today</a>
     <a href="#" data-demo="1" hx-get="/calendar/body?view=year&amp;ref=2027-01-01"
    hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=year&amp;ref=2027-01-01"
@@ -84,12 +88,12 @@
     <h2>2026</h2>
   </div>
   <div class="seg" role="group" aria-label="View">
-    <a href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-21"
-   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-21"
-   >Week</a><a href="#" data-demo="1" hx-get="/calendar/body?view=month&amp;ref=2026-10-21"
-   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=month&amp;ref=2026-10-21"
-   >Month</a><a href="#" data-demo="1" hx-get="/calendar/body?view=year&amp;ref=2026-10-21"
-   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=year&amp;ref=2026-10-21"
+    <a href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-25"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-25"
+   >Week</a><a href="#" data-demo="1" hx-get="/calendar/body?view=month&amp;ref=2026-10-25"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=month&amp;ref=2026-10-25"
+   >Month</a><a href="#" data-demo="1" hx-get="/calendar/body?view=year&amp;ref=2026-10-25"
+   hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=year&amp;ref=2026-10-25"
    class="on">Year</a>
   </div>
 </div>
@@ -857,23 +861,11 @@
         <span></span>
         
       
-        <a class="mday has k-class"
-            title="Soccer practice 17:30-19:00 (Sofia)"
-            href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-09-01"
-            hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-09-01">1</a>
-        
+        <span class="mday">1</span>
       
-        <a class="mday has k-class"
-            title="Piano 16:00-16:30 (Mateo)"
-            href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-09-02"
-            hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-09-02">2</a>
-        
+        <span class="mday">2</span>
       
-        <a class="mday has k-class"
-            title="Soccer practice 17:30-19:00 (Sofia)"
-            href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-09-03"
-            hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-09-03">3</a>
-        
+        <span class="mday">3</span>
       
         <span class="mday">4</span>
       
@@ -1076,8 +1068,8 @@
       
         <span class="mday">9</span>
       
-        <a class="mday has k-bill"
-            title="Crestline Auto Finance $389.00 ✓; Swim lessons 10:00-10:45 (Mateo)"
+        <a class="mday has k-class"
+            title="Swim lessons 10:00-10:45 (Mateo)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-10"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-10">10</a>
         
@@ -1096,8 +1088,8 @@
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-13">13</a>
         
       
-        <a class="mday has k-class"
-            title="Piano 16:00-16:30 (Mateo)"
+        <a class="mday has k-bill"
+            title="Crestline Auto Finance $389.00 ✓; Piano 16:00-16:30 (Mateo)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-14"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-14">14</a>
         
@@ -1118,80 +1110,80 @@
       
         <span class="mday">18</span>
       
-        <a class="mday has k-bill"
-            title="Brightwave $70.00; Replace furnace filter; Art club 15:15-16:15 (Sofia)"
+        <a class="mday has k-class"
+            title="Art club 15:15-16:15 (Sofia)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-19"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-19">19</a>
         
       
-        <a class="mday has k-event"
-            title="Neighborhood cleanup 9:00–11:00 AM; Soccer practice 17:30-19:00 (Sofia)"
+        <a class="mday has k-class"
+            title="Soccer practice 17:30-19:00 (Sofia)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-20"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-20">20</a>
         
       
-        <a class="mday has k-pet today"
-            title="Flea and tick dose (Pancho); Piano 16:00-16:30 (Mateo)"
+        <a class="mday has k-class"
+            title="Piano 16:00-16:30 (Mateo)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-21"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-21">21</a>
         
       
-        <a class="mday has k-appointment"
-            title="Knee follow-up – Lakeside Physio 08:15; Field trip form and $12 (Mateo); Soccer practice 17:30-19:00 (Sofia)"
+        <a class="mday has k-class"
+            title="Soccer practice 17:30-19:00 (Sofia)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-22"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-22">22</a>
         
       
-        <a class="mday has k-appointment"
-            title="Cleaning – Bright Smiles Dental 15:30; Springfield Gym $39.00"
+        <a class="mday has k-bill"
+            title="Brightwave $70.00; Replace furnace filter"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-23"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-23">23</a>
         
       
-        <a class="mday has k-school"
-            title="Science fair project due (Sofia); Swim lessons 10:00-10:45 (Mateo)"
+        <a class="mday has k-event"
+            title="Neighborhood cleanup 9:00–11:00 AM; Swim lessons 10:00-10:45 (Mateo)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-24"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-24">24</a>
         
       
-        <a class="mday has k-bill"
-            title="City Water &amp; Power $142.18; Family movie night 7:00–9:00 PM"
+        <a class="mday has k-pet today"
+            title="Flea and tick dose (Pancho)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-25"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-25">25</a>
         
       
         <a class="mday has k-appointment"
-            title="Vaccines – Oak Street Vet 11:00; Art club 15:15-16:15 (Sofia)"
+            title="Knee follow-up – Lakeside Physio 08:15; Field trip form and $12 (Mateo); Art club 15:15-16:15 (Sofia)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-26"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-26">26</a>
         
       
-        <a class="mday has k-school"
-            title="Picture day (Mateo); Soccer practice 17:30-19:00 (Sofia)"
+        <a class="mday has k-appointment"
+            title="Cleaning – Bright Smiles Dental 15:30; Springfield Gym $39.00; Soccer practice 17:30-19:00 (Sofia)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-27"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-27">27</a>
         
       
-        <a class="mday has k-travel"
-            title="Book Thanksgiving flights; Piano 16:00-16:30 (Mateo)"
+        <a class="mday has k-school"
+            title="Science fair project due (Sofia); Piano 16:00-16:30 (Mateo)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-28"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-28">28</a>
         
       
-        <a class="mday has k-appointment"
-            title="Annual checkup – Dr. Okafor Pediatrics 09:00; Soccer practice 17:30-19:00 (Sofia)"
+        <a class="mday has k-bill"
+            title="City Water &amp; Power $142.18; Family movie night 7:00–9:00 PM; Soccer practice 17:30-19:00 (Sofia)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-29"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-29">29</a>
         
       
-        <a class="mday has k-bill"
-            title="Northstar Mobile $118.40; Soccer team photos (Sofia)"
+        <a class="mday has k-appointment"
+            title="Vaccines – Oak Street Vet 11:00"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-30"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-30">30</a>
         
       
-        <a class="mday has k-event"
-            title="Grandma Rosa visits 12:00–3:00 PM; Swim lessons 10:00-10:45 (Mateo)"
+        <a class="mday has k-school"
+            title="Picture day (Mateo); Swim lessons 10:00-10:45 (Mateo)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-10-31"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-10-31">31</a>
         
@@ -1225,62 +1217,58 @@
         <span></span>
         
       
-        <a class="mday has k-noschool"
-            title="Teacher institute day (no school); Daylight saving time ends: clocks go back 1 hour"
+        <a class="mday has k-travel"
+            title="Book Thanksgiving flights; Daylight saving time ends: clocks go back 1 hour"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-01"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-01">1</a>
         
       
-        <a class="mday has k-bill"
-            title="Maple Home Lending $2,150.00; Elena&#39;s birthday (turns 42); Art club 15:15-16:15 (Sofia)"
+        <a class="mday has k-appointment"
+            title="Annual checkup – Dr. Okafor Pediatrics 09:00; Elena&#39;s birthday (turns 42); Art club 15:15-16:15 (Sofia)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-02"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-02">2</a>
         
       
-        <a class="mday has k-appointment"
-            title="Eye exam – Clearview Eye Care 17:15; Birthday gift for Elena (Elena); Soccer practice 17:30-19:00 (Sofia)"
+        <a class="mday has k-bill"
+            title="Northstar Mobile $118.40; Soccer team photos (Sofia); Soccer practice 17:30-19:00 (Sofia)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-03"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-03">3</a>
         
       
-        <a class="mday has k-class"
-            title="Piano 16:00-16:30 (Mateo)"
+        <a class="mday has k-event"
+            title="Grandma Rosa visits 12:00–3:00 PM; Piano 16:00-16:30 (Mateo)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-04"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-04">4</a>
         
       
-        <a class="mday has k-bill"
-            title="Lakeside Mutual $224.00; Soccer practice 17:30-19:00 (Sofia)"
+        <a class="mday has k-noschool"
+            title="Teacher institute day (no school)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-05"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-05">5</a>
         
       
-        <a class="mday has k-earlydismissal"
-            title="Early dismissal 12:30"
+        <a class="mday has k-bill"
+            title="Maple Home Lending $2,150.00"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-06"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-06">6</a>
         
       
-        <a class="mday has k-class"
-            title="Swim lessons 10:00-10:45 (Mateo)"
+        <a class="mday has k-appointment"
+            title="Eye exam – Clearview Eye Care 17:15; Birthday gift for Elena (Elena); Swim lessons 10:00-10:45 (Mateo)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-07"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-07">7</a>
         
       
-        <a class="mday has k-event"
-            title="Wedding anniversary"
-            href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-08"
-            hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-08">8</a>
-        
+        <span class="mday">8</span>
       
-        <a class="mday has k-class"
-            title="Art club 15:15-16:15 (Sofia)"
+        <a class="mday has k-bill"
+            title="Lakeside Mutual $224.00; Art club 15:15-16:15 (Sofia)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-09"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-09">9</a>
         
       
         <a class="mday has k-class"
-            title="Soccer practice 17:30-19:00 (Sofia)"
+            title="Soccer practice 17:30-19:00 (Sofia); Early dismissal 12:30"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-10"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-10">10</a>
         
@@ -1291,55 +1279,51 @@
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-11">11</a>
         
       
-        <a class="mday has k-class"
-            title="Soccer practice 17:30-19:00 (Sofia)"
+        <a class="mday has k-event"
+            title="Wedding anniversary; Soccer practice 17:30-19:00 (Sofia)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-12"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-12">12</a>
         
       
-        <a class="mday has k-subscription"
-            title="StreamBox $15.99"
-            href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-13"
-            hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-13">13</a>
-        
+        <span class="mday">13</span>
       
-        <a class="mday has k-vehicle"
-            title="Pilot registration expires; Swim lessons 10:00-10:45 (Mateo)"
+        <a class="mday has k-class"
+            title="Swim lessons 10:00-10:45 (Mateo)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-14"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-14">14</a>
         
       
-        <a class="mday has k-subscription"
-            title="TuneWave Family $16.99"
-            href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-15"
-            hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-15">15</a>
-        
+        <span class="mday">15</span>
       
-        <a class="mday has k-bill"
-            title="Sangamon County $1,840.00; Art club 15:15-16:15 (Sofia)"
+        <a class="mday has k-class"
+            title="Art club 15:15-16:15 (Sofia)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-16"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-16">16</a>
         
       
-        <a class="mday has k-class"
-            title="Soccer practice 17:30-19:00 (Sofia)"
+        <a class="mday has k-subscription"
+            title="StreamBox $15.99; Soccer practice 17:30-19:00 (Sofia)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-17"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-17">17</a>
         
       
-        <a class="mday has k-class"
-            title="Piano 16:00-16:30 (Mateo)"
+        <a class="mday has k-vehicle"
+            title="Pilot registration expires; Piano 16:00-16:30 (Mateo)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-18"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-18">18</a>
         
       
-        <a class="mday has k-class"
-            title="Soccer practice 17:30-19:00 (Sofia)"
+        <a class="mday has k-subscription"
+            title="TuneWave Family $16.99; Soccer practice 17:30-19:00 (Sofia)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-19"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-19">19</a>
         
       
-        <span class="mday">20</span>
+        <a class="mday has k-bill"
+            title="Sangamon County $1,840.00"
+            href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-20"
+            hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-20">20</a>
+        
       
         <a class="mday has k-class"
             title="Swim lessons 10:00-10:45 (Mateo)"
@@ -1347,11 +1331,7 @@
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-21">21</a>
         
       
-        <a class="mday has k-insurance"
-            title="Lakeside Mutual auto x5521 term ends"
-            href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-22"
-            hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-22">22</a>
-        
+        <span class="mday">22</span>
       
         <a class="mday has k-class"
             title="Art club 15:15-16:15 (Sofia)"
@@ -1371,8 +1351,8 @@
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-25">25</a>
         
       
-        <a class="mday has k-class"
-            title="Soccer practice 17:30-19:00 (Sofia); Thanksgiving"
+        <a class="mday has k-insurance"
+            title="Lakeside Mutual auto x5521 term ends; Soccer practice 17:30-19:00 (Sofia); Thanksgiving"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-11-26"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-11-26">26</a>
         
@@ -1426,8 +1406,8 @@
         <span></span>
         
       
-        <a class="mday has k-subscription"
-            title="CloudVault storage $29.99; Soccer practice 17:30-19:00 (Sofia)"
+        <a class="mday has k-class"
+            title="Soccer practice 17:30-19:00 (Sofia)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-12-01"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-12-01">1</a>
         
@@ -1446,8 +1426,8 @@
       
         <span class="mday">4</span>
       
-        <a class="mday has k-legal"
-            title="Review wills and beneficiaries; Swim lessons 10:00-10:45 (Mateo)"
+        <a class="mday has k-subscription"
+            title="CloudVault storage $29.99; Swim lessons 10:00-10:45 (Mateo)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-12-05"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-12-05">5</a>
         
@@ -1466,8 +1446,8 @@
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-12-08">8</a>
         
       
-        <a class="mday has k-class"
-            title="Piano 16:00-16:30 (Mateo)"
+        <a class="mday has k-legal"
+            title="Review wills and beneficiaries; Piano 16:00-16:30 (Mateo)"
             href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-12-09"
             hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-12-09">9</a>
         
@@ -1522,13 +1502,29 @@
       
         <span class="mday">20</span>
       
-        <span class="mday">21</span>
+        <a class="mday has k-class"
+            title="Art club 15:15-16:15 (Sofia)"
+            href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-12-21"
+            hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-12-21">21</a>
+        
       
-        <span class="mday">22</span>
+        <a class="mday has k-class"
+            title="Soccer practice 17:30-19:00 (Sofia)"
+            href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-12-22"
+            hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-12-22">22</a>
+        
       
-        <span class="mday">23</span>
+        <a class="mday has k-class"
+            title="Piano 16:00-16:30 (Mateo)"
+            href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-12-23"
+            hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-12-23">23</a>
+        
       
-        <span class="mday">24</span>
+        <a class="mday has k-class"
+            title="Soccer practice 17:30-19:00 (Sofia)"
+            href="#" data-demo="1" hx-get="/calendar/body?view=week&amp;ref=2026-12-24"
+            hx-target="#calendar" hx-swap="innerHTML" hx-push-url="/calendar?view=week&amp;ref=2026-12-24">24</a>
+        
       
         <a class="mday has k-holiday"
             title="Christmas Day"
@@ -1566,35 +1562,35 @@
 <h2 class="sec">Upcoming this year</h2>
 <div class="card rows">
   
-  <div class="brow"><div class="bmain"><b>Wed Oct 21</b> · Piano 16:00-16:30 (Mateo)<small class="muted">Class</small></div></div>
+  <div class="brow"><div class="bmain"><b>Sun Oct 25</b> · Flea and tick dose (Pancho)<small class="muted">Pet</small></div></div>
   
-  <div class="brow"><div class="bmain"><b>Wed Oct 21</b> · Flea and tick dose (Pancho)<small class="muted">Pet</small></div></div>
-  
-  <div class="brow"><div class="bmain"><b>Thu Oct 22</b> · Knee follow-up – Lakeside Physio 08:15<small class="muted">Appointment</small></div></div>
-  
-  <div class="brow"><div class="bmain"><b>Thu Oct 22</b> · Soccer practice 17:30-19:00 (Sofia)<small class="muted">Class</small></div></div>
-  
-  <div class="brow"><div class="bmain"><b>Thu Oct 22</b> · Field trip form and $12 (Mateo)<small class="muted">School</small></div></div>
-  
-  <div class="brow"><div class="bmain"><b>Fri Oct 23</b> · Cleaning – Bright Smiles Dental 15:30<small class="muted">Appointment</small></div></div>
-  
-  <div class="brow"><div class="bmain"><b>Fri Oct 23</b> · Springfield Gym $39.00<small class="muted">Subscription</small></div></div>
-  
-  <div class="brow"><div class="bmain"><b>Sat Oct 24</b> · Swim lessons 10:00-10:45 (Mateo)<small class="muted">Class</small></div></div>
-  
-  <div class="brow"><div class="bmain"><b>Sat Oct 24</b> · Science fair project due (Sofia)<small class="muted">School</small></div></div>
-  
-  <div class="brow"><div class="bmain"><b>Sun Oct 25</b> · City Water &amp; Power $142.18<small class="muted">Bill</small></div></div>
-  
-  <div class="brow"><div class="bmain"><b>Sun Oct 25</b> · Family movie night 7:00–9:00 PM<small class="muted">Event</small></div></div>
-  
-  <div class="brow"><div class="bmain"><b>Mon Oct 26</b> · Vaccines – Oak Street Vet 11:00<small class="muted">Appointment</small></div></div>
+  <div class="brow"><div class="bmain"><b>Mon Oct 26</b> · Knee follow-up – Lakeside Physio 08:15<small class="muted">Appointment</small></div></div>
   
   <div class="brow"><div class="bmain"><b>Mon Oct 26</b> · Art club 15:15-16:15 (Sofia)<small class="muted">Class</small></div></div>
   
+  <div class="brow"><div class="bmain"><b>Mon Oct 26</b> · Field trip form and $12 (Mateo)<small class="muted">School</small></div></div>
+  
+  <div class="brow"><div class="bmain"><b>Tue Oct 27</b> · Cleaning – Bright Smiles Dental 15:30<small class="muted">Appointment</small></div></div>
+  
   <div class="brow"><div class="bmain"><b>Tue Oct 27</b> · Soccer practice 17:30-19:00 (Sofia)<small class="muted">Class</small></div></div>
   
-  <div class="brow"><div class="bmain"><b>Tue Oct 27</b> · Picture day (Mateo)<small class="muted">School</small></div></div>
+  <div class="brow"><div class="bmain"><b>Tue Oct 27</b> · Springfield Gym $39.00<small class="muted">Subscription</small></div></div>
+  
+  <div class="brow"><div class="bmain"><b>Wed Oct 28</b> · Piano 16:00-16:30 (Mateo)<small class="muted">Class</small></div></div>
+  
+  <div class="brow"><div class="bmain"><b>Wed Oct 28</b> · Science fair project due (Sofia)<small class="muted">School</small></div></div>
+  
+  <div class="brow"><div class="bmain"><b>Thu Oct 29</b> · City Water &amp; Power $142.18<small class="muted">Bill</small></div></div>
+  
+  <div class="brow"><div class="bmain"><b>Thu Oct 29</b> · Soccer practice 17:30-19:00 (Sofia)<small class="muted">Class</small></div></div>
+  
+  <div class="brow"><div class="bmain"><b>Thu Oct 29</b> · Family movie night 7:00–9:00 PM<small class="muted">Event</small></div></div>
+  
+  <div class="brow"><div class="bmain"><b>Fri Oct 30</b> · Vaccines – Oak Street Vet 11:00<small class="muted">Appointment</small></div></div>
+  
+  <div class="brow"><div class="bmain"><b>Sat Oct 31</b> · Swim lessons 10:00-10:45 (Mateo)<small class="muted">Class</small></div></div>
+  
+  <div class="brow"><div class="bmain"><b>Sat Oct 31</b> · Picture day (Mateo)<small class="muted">School</small></div></div>
   
 </div>
 

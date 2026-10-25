@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.130.0">
-  <script src="static/vendor/htmx.min.js?v=0.130.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.134.0">
+  <script src="static/vendor/htmx.min.js?v=0.134.0" defer></script>
   
-  <script src="static/app.js?v=0.130.0" defer></script>
+  <script src="static/app.js?v=0.134.0" defer></script>
   <title>Help · Mitra Home</title>
 </head>
 
@@ -54,18 +54,22 @@
       
       <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
       
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
         <div class="rmenu" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+        <a role="menuitem" href="settings.html" >Settings</a>
         
         <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.130.0</small>
+    <small class="ver">v0.134.0</small>
   </nav>
 
   <main>
@@ -335,7 +339,7 @@
 </section>
 
 <section class="hp-sec"><h3>Phones</h3>
-  <ul><li>Pair a phone with the app&#39;s QR code (<kbd class="hk">Show the pairing code</kbd>); remove a lost phone.</li><li><b>Mitra Wall</b>: an old tablet or iPad on the wall. Name it, <kbd class="hk">Show the wall code</kbd>, then scan the code with the tablet&#39;s camera (or open the address on it and type the code within 15 minutes). Remove a wall to sign it out.</li><li><b>Wall screen</b>: after two minutes untouched the wall shows a big clock, digital or traditional, and in the day the family&#39;s photos in turn; at night a dark clock. Pick the clock, the photo and night hours and how long each shows, then <kbd class="hk">Save the wall screen</kbd>.</li><li><kbd class="hk">Add photos</kbd> (several at once, iPhone photos too): each is made again on this PC, upright and without its location or camera details. They stay on this PC; only a paired wall shows them.</li><li>Away from home: with Tailscale on the PC and the phone, Settings &gt; Phones shows an <b>Away from home</b> address to open in the phone&#39;s browser (docs/REMOTE_ACCESS.md). The PC is never open to the internet.</li><li>A phone that stops connecting after the PC renews its own certificate (about once a year): pair it again here. Phone app 0.14 and later stay paired.</li></ul>
+  <ul><li>Pair a phone with the app&#39;s QR code (<kbd class="hk">Show the pairing code</kbd>); remove a lost phone.</li><li><b>Mitra Wall</b>: an old tablet or iPad on the wall. Name it, <kbd class="hk">Show the wall code</kbd>, then scan the code with the tablet&#39;s camera (or open the address on it and type the code within 15 minutes). Remove a wall to sign it out.</li><li><b>Wall screen</b>: after two minutes untouched the wall shows a big clock (digital, traditional, modular = the time with the weather, what is next, the children&#39;s jobs and dinner, or Roman = hands with serif numerals) and in the day the family&#39;s photos in turn; at night a dark clock, or with <b>Night clock</b> red or amber a bedroom clock (black, only the time and the date). Pick the clock, the night clock, the photo and night hours and how long each shows, then <kbd class="hk">Save the wall screen</kbd>.</li><li><kbd class="hk">Add photos</kbd> (several at once, iPhone photos too): each is made again on this PC, upright and without its location or camera details. They stay on this PC; only a paired wall shows them.</li><li>Away from home: with Tailscale on the PC and the phone, Settings &gt; Phones shows an <b>Away from home</b> address to open in the phone&#39;s browser (docs/REMOTE_ACCESS.md). The PC is never open to the internet.</li><li>A phone that stops connecting after the PC renews its own certificate (about once a year): pair it again here. Phone app 0.14 and later stay paired.</li></ul>
 </section>
 
 <section class="hp-sec"><h3>Data</h3>
