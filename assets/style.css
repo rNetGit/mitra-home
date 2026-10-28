@@ -342,3 +342,10 @@ footer .wrap > div:not(.fgrid):not(.fine) { margin-bottom: 6px; }
 .feature-btns { margin-top: 18px; }
 .shot-link { display: block; color: inherit; }
 .shot-link:hover .browser { box-shadow: var(--shadow-lg); }
+
+/* Official store badges: the Google Play PNG has transparent padding, so it is drawn taller to match the 40 px App Store badge. */
+.store-badge { margin: 8px 0 0; }
+.store-badge a { display: inline-block; line-height: 0; }
+.store-badge img { height: 40px; width: auto; }
+.store-badge .gplay { margin: -9px 0 -9px -10px; }
+.store-badge .gplay img { height: 58px; }
