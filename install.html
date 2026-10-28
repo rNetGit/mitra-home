@@ -240,26 +240,59 @@
     <ol class="steps">
       <li>
         <h3>Give each adult a PIN</h3>
-        <p>The setup asks for this. Phones are refused until at least one PIN exists.</p>
-      </li>
-      <li>
-        <h3>Start the phone version</h3>
-        <p>Double-click <code>Start Mitra Home for phones.bat</code> (Mac: <code>.command</code>) instead of the normal starter.</p>
+        <p>The setup asks for this. Phones are refused until at least one PIN exists. Once one does, Mitra Home is open to your home Wi-Fi every time it starts, with nothing extra to run.</p>
       </li>
       <li>
         <h3>Pair the phone</h3>
-        <p>On the PC open <strong>Settings &gt; Phones &gt; Add a phone</strong>. A QR code appears for 5 minutes. Open the Mitra Home app on the phone (Android or iPhone) and scan it.</p>
-        <p class="small muted">Get the app from <a href="https://play.google.com/store/apps/details?id=app.mitrahome" rel="noopener">Google Play</a> or the <a href="https://apps.apple.com/us/app/mitra-home/id6826451251" rel="noopener">App Store</a>. Without the app: open the address the PC shows (like <code>https://192.168.1.20:8701</code>) in the phone's browser, check the fingerprint matches Settings &gt; Phones, sign in with your PIN and choose "Add to Home Screen".</p>
+        <p>On the PC open <strong>Settings &gt; Phones &gt; Add a phone</strong>. A QR code appears for 5 minutes. Get the app from <a href="https://play.google.com/store/apps/details?id=app.mitrahome" rel="noopener">Google Play</a> or the <a href="https://apps.apple.com/us/app/mitra-home/id6826451251" rel="noopener">App Store</a>, open it and scan the code.</p>
+        <p class="small muted">Without the app: open the address shown in Settings &gt; Phones (like <code>https://192.168.1.20:8701</code>) in the phone's browser, check the fingerprint matches, sign in with your PIN and choose "Add to Home Screen".</p>
       </li>
       <li>
         <h3>Phone cannot connect?</h3>
-        <p>Windows Firewall may block it the first time. The black window prints one line to allow it on your private home network only. Run that line once in PowerShell as administrator.</p>
+        <p>Open <strong>Settings &gt; Phones &gt; Connection</strong> on the PC. It shows whether Windows Firewall lets phones in and whether your Wi-Fi is set to Private. Press <strong>Allow phones through Windows Firewall</strong> (Windows asks you to confirm; it opens only the phone port, on private networks only). If you started the app "this PC only", press <strong>Restart for phones</strong>.</p>
       </li>
     </ol>
   </div>
 </section>
 
-<section class="alt" id="ai">
+<section class="alt" id="wall">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Set up a family wall</h2>
+      <p class="muted">An old tablet becomes the family's screen in the kitchen or hall: the week in each person's colour, what is on today, the children's jobs with stars, the family lists, the meals, and a big clock (or your photos) when nobody is using it. It works only on your home Wi-Fi, with an encrypted link, and the PC has to be on.</p>
+    </div>
+    <ol class="steps">
+      <li>
+        <h3>Choose the tablet</h3>
+        <p>An iPad, an Android tablet or a Fire tablet. An iPad uses the browser wall. On Android and Fire tablets you can use the browser too, or the Mitra Home app in wall mode (it keeps working from its own copy when the PC is off).</p>
+      </li>
+      <li>
+        <h3>Make a wall code</h3>
+        <p>On the PC open <strong>Settings &gt; Phones &gt; Mitra Wall</strong>, give the wall a name (for example <em>Kitchen wall</em>) and press <strong>Show the wall code</strong>. The code works once, for 15 minutes. Up to five walls can be paired.</p>
+      </li>
+      <li>
+        <h3>Pair it</h3>
+        <p><strong>Browser wall:</strong> point the tablet's camera at the code, or open the address under it and type the eight letters and digits. The first time the browser warns the connection is not private, because the certificate is your PC's own. Continue only when its fingerprint matches the one on the PC, then press <strong>Pair this wall</strong>.</p>
+        <p><strong>App wall (Android and Fire):</strong> install the app, then on the first screen scan the wall's QR code. If the tablet cannot scan (some Fire tablets have no scanner), use <strong>Can't scan?</strong>, paste the text from the PC's <strong>Copy the text</strong> button, or type <code>address:port CODE fingerprint</code>.</p>
+        <p class="small muted">A tablet is either a wall or a person's phone, not both. To change it, use <strong>Forget this phone</strong> in the app and pair again.</p>
+      </li>
+      <li>
+        <h3>Keep it on the wall</h3>
+        <p>Plug the tablet in. <strong>iPad:</strong> Auto-Lock to Never, then Guided Access with a passcode so it stays on the wall. <strong>Android:</strong> the longest screen timeout, and App pinning. <strong>Fire:</strong> the longest screen timeout, on its charger.</p>
+      </li>
+      <li>
+        <h3>Set it up (optional)</h3>
+        <p>On the PC, <strong>Family &gt; Routines</strong> adds the children's jobs, stars, goals and rewards. <strong>Settings &gt; Phones &gt; Mitra Wall &gt; Wall screen</strong> chooses the clock face, the photos (several at once; the PC strips their location first) and the night hours. Money opens on the wall only when an adult types their own PIN, and locks again after a minute.</p>
+      </li>
+      <li>
+        <h3>Tablet cannot connect?</h3>
+        <p>Same checks as for phones: <strong>Settings &gt; Phones &gt; Connection</strong>, then <strong>Allow phones through Windows Firewall</strong> or <strong>Restart for phones</strong>. The wall guide in the app's <code>docs/MITRA_WALL.md</code> lists every message and its fix.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="ai">
   <div class="wrap">
     <div class="section-head">
       <h2>Which AI helper should we use?</h2>
@@ -281,7 +314,7 @@
   </div>
 </section>
 
-<section id="updates">
+<section class="alt" id="updates">
   <div class="wrap">
     <div class="grid">
       <div class="card">
@@ -300,7 +333,7 @@
   </div>
 </section>
 
-<section class="alt" id="trouble">
+<section id="trouble">
   <div class="wrap">
     <h2>If something goes wrong</h2>
     <details>
