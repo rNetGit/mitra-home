@@ -8,13 +8,20 @@
   if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
 
   document.addEventListener("DOMContentLoaded", function () {
+    // The button says "Dark theme" and is pressed while the page is dark, whether chosen here or by the system.
     var btn = document.querySelector(".theme-btn");
+    var system = window.matchMedia("(prefers-color-scheme: dark)");
+    function isDark() {
+      return root.getAttribute("data-theme") === "dark" || (!root.getAttribute("data-theme") && system.matches);
+    }
+    function mark() { if (btn) btn.setAttribute("aria-pressed", isDark() ? "true" : "false"); }
+    mark();
+    if (system.addEventListener) system.addEventListener("change", mark);
     if (btn) btn.addEventListener("click", function () {
-      var dark = root.getAttribute("data-theme") === "dark" ||
-        (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
-      var next = dark ? "light" : "dark";
+      var next = isDark() ? "light" : "dark";
       root.setAttribute("data-theme", next);
       set("mitra-theme", next);
+      mark();
     });
 
     document.querySelectorAll("[role=tablist]").forEach(function (list) {

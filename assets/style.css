@@ -1,7 +1,7 @@
 /* Mitra Home website. Accent follows the app's green (data/look.py); everything else is a calm neutral scale. */
 :root {
   --canvas: #FAFAF8; --surface: #FFFFFF; --surface-2: #F4F4F1; --line: #E6E4DF; --line-2: #D6D3CC;
-  --text: #14181F; --text-2: #5E6672; --text-3: #8A919C;
+  --text: #14181F; --text-2: #5E6672; --text-3: #697079;
   --accent: #1F7A4D; --accent-2: #2E8B57; --accent-soft: #E8F3EC; --accent-ink: #0F3D2A; --link: #1F7A4D;
   --warn: #8A5A00; --warn-soft: #FBF1D9; --info: #1D5FA8; --info-soft: #E6EFF9;
   --danger: #A8261B; --danger-soft: #FBE9E7; --neutral-soft: #EFEEEA;
@@ -16,7 +16,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --canvas: #0F1113; --surface: #16191C; --surface-2: #1C2024; --line: #2A2E33; --line-2: #383D43;
-    --text: #ECEDEE; --text-2: #A3A9B3; --text-3: #7D838C;
+    --text: #ECEDEE; --text-2: #A3A9B3; --text-3: #8E949C;
     --accent: #4CAF78; --accent-2: #4CAF78; --accent-soft: #16291F; --accent-ink: #0B2419; --link: #6CC292;
     --warn: #E0B14A; --warn-soft: #2E2611; --info: #6AA8F0; --info-soft: #132538;
     --danger: #F0756A; --danger-soft: #331816; --neutral-soft: #22262A;
@@ -26,7 +26,7 @@
 }
 :root[data-theme="dark"] {
   --canvas: #0F1113; --surface: #16191C; --surface-2: #1C2024; --line: #2A2E33; --line-2: #383D43;
-  --text: #ECEDEE; --text-2: #A3A9B3; --text-3: #7D838C;
+  --text: #ECEDEE; --text-2: #A3A9B3; --text-3: #8E949C;
   --accent: #4CAF78; --accent-2: #4CAF78; --accent-soft: #16291F; --accent-ink: #0B2419; --link: #6CC292;
   --warn: #E0B14A; --warn-soft: #2E2611; --info: #6AA8F0; --info-soft: #132538;
   --danger: #F0756A; --danger-soft: #331816; --neutral-soft: #22262A;
@@ -35,7 +35,8 @@
 }
 
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html { -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 body {
   margin: 0; background: var(--canvas); color: var(--text);
   font: 17px/1.65 var(--font); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
@@ -54,6 +55,9 @@ code, kbd { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; fon
 .muted { color: var(--text-2); }
 .small { font-size: .9rem; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.skip { position: absolute; left: 12px; top: -60px; z-index: 50; padding: 8px 14px; border-radius: 8px;
+  background: var(--text); color: var(--canvas); font-weight: 600; text-decoration: none; }
+.skip:focus { top: 12px; }
 
 /* Header */
 .top { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--canvas) 82%, transparent);
@@ -131,6 +135,8 @@ section.tour { padding-top: 40px; }
 .tour .section-head { margin-bottom: 28px; }
 .tour-video { max-width: 1040px; margin: 0 auto; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow-lg); background: #FAFAF8; }
 .tour-video video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.tour-text { max-width: 1040px; margin: 16px auto 0; }
+.tour-text ol { margin: 0; padding-left: 1.3em; }
 section.alt { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .section-head { max-width: 40em; margin-bottom: 40px; }
 .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
