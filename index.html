@@ -12,6 +12,7 @@
 <script src="assets/site.js"></script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="top">
   <div class="wrap">
@@ -22,12 +23,14 @@
       <a href="demo/index.html">Demo</a>
       <a class="nav-cta" href="install.html">Get Mitra Home</a>
       <a href="faq.html">FAQ</a>
-      <button class="theme-btn" type="button" aria-label="Switch light or dark">
+      <button class="theme-btn" type="button" aria-label="Dark theme" aria-pressed="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
       </button>
     </nav>
   </div>
 </header>
+
+<main id="main">
 
 <div class="hero">
   <div class="wrap">
@@ -47,9 +50,9 @@
         <li>Phone apps: <a href="https://play.google.com/store/apps/details?id=app.mitrahome" rel="noopener">Google Play</a> &middot; <a href="https://apps.apple.com/us/app/mitra-home/id6826451251" rel="noopener">App Store</a></li>
       </ul>
     </div>
-    <div class="stage" aria-hidden="true">
-      <div class="browser"><div class="chrome"><i></i><i></i><i></i></div><img src="assets/shots/pc-today.jpg" alt="" width="1440" height="900" loading="eager"></div>
-      <div class="phone"><img src="assets/shots/phone-month.jpg" alt="" width="390" height="844" loading="eager"></div>
+    <div class="stage">
+      <div class="browser"><div class="chrome"><i></i><i></i><i></i></div><img src="assets/shots/pc-today.jpg" alt="Today on a computer: 3 things need you, the day's and the coming week's items for each person, and the month's money with a spending ring." width="1440" height="900" loading="eager"></div>
+      <div class="phone"><img src="assets/shots/phone-month.jpg" alt="Money on a phone: October's spending as a ring by category, then income, spent, saved and left." width="390" height="844" loading="eager"></div>
     </div>
   </div>
 </div>
@@ -62,9 +65,20 @@
     </div>
     <div class="tour-video">
       <video src="assets/video/mitra-home-tour.mp4" poster="assets/video/mitra-home-tour.jpg" width="1920" height="1080"
-        muted loop playsinline controls preload="none" data-autoplay
+        muted loop playsinline controls preload="none" data-autoplay aria-describedby="tour-text"
         aria-label="A 30 second tour of Mitra Home with the made-up Rivera family: Today, the calendar, Money and the wallet on a phone, and the Mitra Wall on a tablet."></video>
     </div>
+    <details class="tour-text" id="tour-text">
+      <summary>What the video shows (no sound)</summary>
+      <ol>
+        <li>Title: Your family's paperwork, handled at home.</li>
+        <li>Today, on a computer: open it, and you know what needs you. Bills due, appointments, chores and who they are for, on one page.</li>
+        <li>Calendar: everyone's dates, in one calendar. School, classes, doctors, birthdays and due dates, from your own records.</li>
+        <li>On your phone: Money and the family wallet, in your pocket. What to pay, what you keep, and where every card and plate number is.</li>
+        <li>Mitra Wall: an old tablet becomes the family's screen. The week, the weather and everyone's chores, on the kitchen wall.</li>
+        <li>End: runs on your own computer. Your papers stay at home, not in someone else's cloud.</li>
+      </ol>
+    </details>
   </div>
 </section>
 
@@ -436,6 +450,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="wrap">
