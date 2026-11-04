@@ -10,6 +10,8 @@
 //  * The resting screen: [data-hand] (the traditional and Roman clocks) turns every second; with body data-photos it shows the
 //    clock for data-clock-s seconds, then up to data-per-turn photos for data-photo-s seconds each, then the clock again,
 //    only between data-photos-from and -to and never at night. It reloads only while the clock shows.
+//  * The LED clock (.ledf): the time's segments [data-led="h0"] .. [data-led="m1"] are lit with .on every second.
+//  * A seasonal .sbackdrop is fitted whole (meet) on a portrait screen, sliced to fill on a wide one.
 //  * [data-unlock-left] counts the money view down and locks it at zero (offline: the figures are blanked on the spot).
 //  * Before every reload or page change (timers, and a tap on any /wall link) it asks /wall/ping (4 s). No answer = the PC is off, asleep or restarting: the
 //    wall stays on this screen (the clock keeps going), #woff says "PC offline since 9:42 · showing 9:40" (body
@@ -55,14 +57,13 @@
     var box = document.getElementById('woff');
     if (box) {
       box.textContent = 'PC offline since ' + hm(offlineSince) + (madeAt ? ' · showing ' + hm(madeAt) : '');
-      box.hidden = false;
     }
     if (!retryTimer) retryTimer = setInterval(function () { go(null); }, RETRY_S * 1000);
   }
   // go(url): load url (null = this page again) only when the PC answers; otherwise stay here, offline.
   var going = false;
   function go(url) {
-    if (going) return;
+    if (going || body.hasAttribute('data-preview')) return;  // the Settings preview never leaves its page
     going = true;
     ping().then(function (s) {
       going = false;
@@ -72,12 +73,13 @@
     });
   }
 
+  var SAY_MS = 12000, sayTimer = null;  // long enough to read (was 6 s)
   function say(text) {
     var box = document.getElementById('wmsg');
     if (!box) return;
-    box.textContent = text;
-    box.hidden = false;
-    setTimeout(function () { box.hidden = true; }, 6000);
+    box.textContent = text;  // the line is always in the page, so a screen reader reads it (empty = not shown)
+    clearTimeout(sayTimer);
+    sayTimer = setTimeout(function () { box.textContent = ''; }, SAY_MS);
   }
 
   document.addEventListener('submit', function (e) {
@@ -104,6 +106,8 @@
     var src = el.querySelector('.pop');
     if (!pop || !src || typeof pop.showModal !== 'function') return;
     pop.querySelector('.wpop-body').innerHTML = src.innerHTML;  // server-rendered, escaped by the template
+    var cls = src.getAttribute('data-cls') || '';  // the person's colour for the header band: c0..c5 or ch only
+    pop.className = 'wpop' + (/^(c[0-5]|ch)$/.test(cls) ? ' ' + cls : '');
     pop.showModal();
   }
   document.addEventListener('click', function (e) {
@@ -124,7 +128,7 @@
   ['pointerdown', 'keydown', 'touchstart'].forEach(function (ev) {
     document.addEventListener(ev, function () { lastTouch = Date.now(); }, { passive: true });
   });
-  if (resting) {
+  if (resting && !body.hasAttribute('data-clock-only')) {  // a clock-only (bedroom) wall stays on the clock
     document.addEventListener('pointerdown', function (e) {
       if (e.target && e.target.closest && e.target.closest('[data-keep-rest]')) return;  // the face picker
       go(home);
@@ -151,7 +155,25 @@
     for (var i = 1; i <= m % 5; i++) w.push('d' + i);
     return w;
   }
+  // the LED clock: = routes_wall.LED_SEGS and wall_screen.led_time (two hour digits; 24-hour from data-led-24)
+  var LED_SEGS = { 0: 'abcdef', 1: 'bc', 2: 'abdeg', 3: 'abcdg', 4: 'bcfg', 5: 'acdfg', 6: 'acdefg', 7: 'abc', 8: 'abcdefg', 9: 'abcdfg' };
+  function ledTime(now) {
+    var face = document.querySelector('.ledf');
+    if (!face) return;
+    var h = now.getHours(), h24 = face.getAttribute('data-led-24') === '1';
+    var hs = String(h24 ? h : (h % 12) || 12).padStart(2, '0'), ms = String(now.getMinutes()).padStart(2, '0');
+    var want = { h0: hs[0], h1: hs[1], m0: ms[0], m1: ms[1] };
+    face.querySelectorAll('[data-led]').forEach(function (g) {
+      var lit = LED_SEGS[want[g.getAttribute('data-led')]] || '';
+      g.querySelectorAll('[data-s]').forEach(function (sg) { sg.classList.toggle('on', lit.indexOf(sg.getAttribute('data-s')) >= 0); });
+    });
+    var ap = face.querySelector('[data-led-ap]'), apText = h < 12 ? 'AM' : 'PM';
+    if (ap) ap.textContent = apText;
+    var t = face.querySelector('[data-led-time]');
+    if (t) t.setAttribute('aria-label', 'Clock: ' + hs + ':' + ms + (h24 ? '' : ' ' + apText));
+  }
   function faces(now) {
+    ledTime(now);
     var h = now.getHours(), m = now.getMinutes();
     var cards = document.querySelectorAll('[data-fd]');
     if (cards.length) {
@@ -192,6 +214,14 @@
     }
   }
   if (resting) { faces(new Date()); setInterval(function () { faces(new Date()); }, 1000); }
+
+  // A seasonal scene on a tall screen: the whole scene fitted to the width at the bottom (meet), as on the companion,
+  // instead of a middle slice that loses the marks at the sides (wall.css hides the wide-only .swide marks).
+  var scene = document.querySelector('.sbackdrop');
+  function fitScene() {
+    scene.setAttribute('preserveAspectRatio', 'xMidYMax ' + (window.innerHeight > window.innerWidth ? 'meet' : 'slice'));
+  }
+  if (scene) { fitScene(); window.addEventListener('resize', fitScene); }
 
   function tick() {
     var now = new Date();
@@ -258,7 +288,7 @@
     // slow zoom picks one of four drifts lasting the photo's time, blurred fill puts the photo behind itself, frame adds
     // the month it was taken
     function showNext() {
-      var ly = layers[1 - front], im = ly.querySelectorAll('.ph'), n = style === 'collage' ? Math.min(3, urls.length) : 1;
+      var ly = layers[1 - front], im = ly.querySelectorAll('.ph'), n = (style === 'collage' || style === 'scrapbook') ? Math.min(3, urls.length) : 1;
       var list = [];
       for (var i = 0; i < n; i++) list.push(nextUrl());
       ly.classList.toggle('n2', n === 2);
@@ -278,7 +308,8 @@
       im[0].src = list[0];
       for (var j = 1; j < 3; j++) { if (list[j]) im[j].src = list[j]; else im[j].removeAttribute('src'); }
       if (style === 'blur') ly.querySelector('.bg').src = list[0];
-      ly.querySelector('.cap').textContent = style === 'frame' ? (taken[list[0]] || '') : '';
+      ly.querySelector('.cap').textContent = style === 'frame' ? (taken[list[0]] || '')
+        : style === 'scrapbook' ? list.map(function (u) { return taken[u] || ''; }).filter(function (t, i, a) { return t && a.indexOf(t) === i; }).join(' · ') : '';
       shownThisTurn += n;
       since = Date.now();
     }
@@ -321,6 +352,40 @@
       left.textContent = '0:' + String(n).padStart(2, '0');
     }, 1000);
   }
+
+  // A swipe left / right (a finger or a drag) moves to the next / previous page of the rail: Today, Calendar, Chores, Lists,
+  // Meals. Money is left out (it is unlocked on purpose); a swipe that starts on a field, a dialog or something that scrolls
+  // sideways is left alone.
+  (function () {
+    var tabs = [].slice.call(document.querySelectorAll('.wrail a.tab:not(.quick)')).filter(function (a) {
+      return a.getAttribute('href') !== '/wall/money';
+    });
+    var at = tabs.findIndex(function (a) { return a.getAttribute('aria-current') === 'page'; });
+    if (resting || at < 0 || tabs.length < 2) return;
+    // Timed rotation (data-rotate seconds per page, 0 = off): after that long without a touch the next page opens, round
+    // to the first; never at night (the wall goes to the clock then). A new page loads, so the rest timer starts over.
+    var rot = parseInt(body.getAttribute('data-rotate') || '0', 10);
+    if (rot > 0) {
+      setInterval(function () {
+        if (going || offlineSince || document.visibilityState !== 'visible' || isNight(new Date())) return;
+        if (Date.now() - lastTouch >= rot * 1000) go(tabs[(at + 1) % tabs.length].getAttribute('href'));
+      }, 1000);
+    }
+    var x0 = null, y0 = 0, t0 = 0;
+    document.addEventListener('pointerdown', function (e) {
+      var t = e.target;
+      var skip = t.closest && t.closest('input, textarea, select, dialog, [data-noswipe]');
+      x0 = skip ? null : e.clientX; y0 = e.clientY; t0 = Date.now();
+    });
+    document.addEventListener('pointerup', function (e) {
+      if (x0 === null) return;
+      var dx = e.clientX - x0, dy = e.clientY - y0;
+      x0 = null;
+      if (Date.now() - t0 > 800 || Math.abs(dx) < 90 || Math.abs(dy) > Math.abs(dx) / 2) return;
+      var to = tabs[at + (dx < 0 ? 1 : -1)];
+      if (to) go(to.getAttribute('href'));
+    });
+  })();
 
   var lock = null;
   function awake() {

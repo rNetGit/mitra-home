@@ -26,16 +26,19 @@
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="icon" href="static/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="static/icon-180.png">
-  <link rel="stylesheet" href="static/wall.css?v=0.134.2">
-  <script src="static/wall.js?v=0.134.2" defer></script>
+  <link rel="stylesheet" href="static/wall.css?v=0.142.0">
+  
+  <script src="static/wall.js?v=0.142.0" defer></script>
   <title>Lists · The Rivera Family</title>
 </head>
-<body data-rest-url="wall_rest.html" data-home-url="wall.html" class="wall " data-idle="120" data-refresh="60"
+<body data-rest-url="wall_rest.html" data-home-url="wall.html" class="wall theme-paper " data-idle="120" data-refresh="60"
   data-night-from="22:00" data-night-to="06:00"
-  data-made="2026-10-25T13:41:21"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
-#demo-bar a{color:#BFE3CD}
+  data-rotate="0"
+  data-made="2026-11-04T14:09:54"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#2A1F17;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#F6C9A8}
 .chart>div{width:100%!important;height:auto!important}
 .chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="index.html">Back to the app</a><a href="../phone-demo.html">Phone app demo</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
 
 <div class="shell">
   <nav class="wrail" aria-label="Wall">
@@ -44,17 +47,11 @@
     <a class="tab" href="wall.html">
       <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg><span>Today</span></a>
     
-    <a class="tab" href="wall_week.html">
-      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"></path></svg><span>Week</span></a>
-    
-    <a class="tab" href="wall_chores.html">
-      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.4 5.9.9-4.3 4.1 1 5.8L12 16.6 6.8 19.2l1-5.8L3.5 9.3l5.9-.9z"></path></svg><span>Chores</span></a>
+    <a class="tab" href="#" data-demo="1">
+      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v14H4zM4 10h16M8 3v4M16 3v4"></path></svg><span>Calendar</span></a>
     
     <a class="tab on" href="wall_lists.html" aria-current="page">
       <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"></path></svg><span>Lists</span></a>
-    
-    <a class="tab" href="wall_meals.html">
-      <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v8a2 2 0 0 0 4 0V3M9 11v10M16 3c-1.7 1-2.5 3-2.5 6s1 4 2.5 4v8"></path></svg><span>Meals</span></a>
     
     <a class="tab" href="wall_money.html">
       <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11V8a6 6 0 0 1 12 0v3M5 11h14v10H5z"></path></svg><span>Money</span></a>
@@ -67,6 +64,7 @@
     
   </nav>
   <main class="wmain">
+    
     
 <div class="whead">
   <h1>Lists</h1>
@@ -184,12 +182,13 @@
 </div>
 
 
-    <p class="alert" id="wmsg" role="status" hidden></p>
+    <p class="alert" id="wmsg" role="status"></p>
   </main>
-  <dialog id="wpop" class="wpop" aria-label="Details"><div class="wpop-body"></div>
-    <form method="dialog"><button class="btn" value="close">Close</button></form></dialog>
+  <dialog id="wpop" class="wpop" aria-label="Details">
+    <form method="dialog" class="wpx"><button class="x" value="close" aria-label="Close"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></form>
+    <div class="wpop-body"></div></dialog>
 </div>
 
-<p class="woff" id="woff" role="status" hidden></p>
+<p class="woff" id="woff" role="status"></p>
 </body>
 </html>

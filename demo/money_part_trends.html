@@ -20,22 +20,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
-  <meta name="theme-color" content="#2E8B57">
+  <meta name="theme-color" content="#F7F1E8">
   
   <link rel="icon" href="static/icon.svg" type="image/svg+xml">
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.134.2">
-  <script src="static/vendor/htmx.min.js?v=0.134.2" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.142.0">
+  <script src="static/vendor/htmx.min.js?v=0.142.0" defer></script>
   
-  <script src="static/app.js?v=0.134.2" defer></script>
+  <script src="static/app.js?v=0.142.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
 
-<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
-#demo-bar a{color:#BFE3CD}
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#2A1F17;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#F6C9A8}
 .chart>div{width:100%!important;height:auto!important}
 .chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../phone-demo.html">Phone app demo</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
@@ -61,18 +61,30 @@
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
-        <div class="rmenu" role="menu">
-        <a role="menuitem" href="settings.html" >Settings</a>
-        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:trends" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
-        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        <div class="rmenu">
+        <a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance:trends" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.134.2</small>
+    <small class="ver">v0.142.0</small>
   </nav>
 
   <main>
+
+  <form class="askbar" role="search" hx-post="/chat/ask" hx-swap="none" hx-disabled-elt="find button" aria-label="Ask Mitra">
+    <span class="mav" aria-hidden="true">M</span>
+    <label class="vh" for="askq">Ask Mitra, or tell it something</label>
+    <input id="askq" name="text" maxlength="1000" autocomplete="off" required
+      placeholder="Ask Mitra, or tell it something: &ldquo;Mateo has the dentist Friday at 4&rdquo;">
+    <kbd class="askkey" aria-hidden="true">Ctrl K</kbd>
+    <button class="btn" type="submit">Ask</button>
+    <span class="thinking muted" role="status">Thinking&hellip;</span>
+  </form>
+
+  
 
 <header class="head"><div><h1>Money</h1><p class="sub">Look back · Trends</p></div></header>
 <nav class="pchips mtabs" aria-label="Money">
@@ -99,53 +111,53 @@
 </nav>
 
 <div class="kpis">
-  <div class="kpi"><span>Income · Sep 2026</span><b>$11,391</b></div>
+  <div class="kpi"><span>Income · Oct 2026</span><b>$11,391</b></div>
   <div class="kpi"><span>Spent</span><b>$4,821</b>
     <i class="good">-3% vs last month</i></div>
   <div class="kpi"><span>Left</span><b>$6,571</b>
     <i>58% of income</i></div>
   <div class="kpi"><span>Typical month</span><b>$4,633</b><i>last 6 months</i></div>
 </div>
-<p class="hint">Oct 2026 is still running: $11,380 in and $4,597 out so far. It joins the charts when the month ends.</p>
+<p class="hint">Nov 2026 is still running: $5,690 in and $2,542 out so far. It joins the charts when the month ends.</p>
 
 <div class="tgrid">
-<section class="card tflow"><h2>Each month</h2><p class="muted small">Only months with statements · Apr 2026 to Sep 2026</p>
+<section class="card tflow"><h2>Each month</h2><p class="muted small">Only months with statements · May 2026 to Oct 2026</p>
   
   <svg class="tchart" viewBox="0 0 300 150" role="img" aria-label="Money in and out by month">
     <line class="tbase" x1="0" y1="128" x2="300" y2="128"/>
     
     <g>
-      <rect class="inc" x="9.0" y="18.0" width="15.0" height="110.0" rx="2"><title>Apr 2026: in $11,393</title></rect>
-      <rect class="spd" x="26.0" y="84.45744027243843" width="15.0" height="43.54255972756157" rx="2"><title>Apr 2026: out $4,510</title></rect>
-      <text x="25.0" y="143" text-anchor="middle">Apr</text>
+      <rect class="inc" x="9.0" y="18.0" width="15.0" height="110.0" rx="2"><title>May 2026: in $11,393</title></rect>
+      <rect class="spd" x="26.0" y="84.45744027243843" width="15.0" height="43.54255972756157" rx="2"><title>May 2026: out $4,510</title></rect>
+      <text x="25.0" y="143" text-anchor="middle">May</text>
     </g>
     <g>
-      <rect class="inc" x="59.0" y="18.003861884950936" width="15.0" height="109.99613811504906" rx="2"><title>May 2026: in $11,393</title></rect>
-      <rect class="spd" x="76.0" y="85.41711868274615" width="15.0" height="42.58288131725385" rx="2"><title>May 2026: out $4,411</title></rect>
-      <text x="75.0" y="143" text-anchor="middle">May</text>
+      <rect class="inc" x="59.0" y="18.003861884950936" width="15.0" height="109.99613811504906" rx="2"><title>Jun 2026: in $11,393</title></rect>
+      <rect class="spd" x="76.0" y="85.41711868274615" width="15.0" height="42.58288131725385" rx="2"><title>Jun 2026: out $4,411</title></rect>
+      <text x="75.0" y="143" text-anchor="middle">Jun</text>
     </g>
     <g>
-      <rect class="inc" x="109.0" y="18.007723769901872" width="15.0" height="109.99227623009813" rx="2"><title>Jun 2026: in $11,393</title></rect>
-      <rect class="spd" x="126.0" y="83.16032966454263" width="15.0" height="44.83967033545737" rx="2"><title>Jun 2026: out $4,644</title></rect>
-      <text x="125.0" y="143" text-anchor="middle">Jun</text>
+      <rect class="inc" x="109.0" y="18.007723769901872" width="15.0" height="109.99227623009813" rx="2"><title>Jul 2026: in $11,393</title></rect>
+      <rect class="spd" x="126.0" y="83.16032966454263" width="15.0" height="44.83967033545737" rx="2"><title>Jul 2026: out $4,644</title></rect>
+      <text x="125.0" y="143" text-anchor="middle">Jul</text>
     </g>
     <g>
-      <rect class="inc" x="159.0" y="18.011585654852794" width="15.0" height="109.9884143451472" rx="2"><title>Jul 2026: in $11,392</title></rect>
-      <rect class="spd" x="176.0" y="84.91159794266856" width="15.0" height="43.088402057331436" rx="2"><title>Jul 2026: out $4,463</title></rect>
-      <text x="175.0" y="143" text-anchor="middle">Jul</text>
+      <rect class="inc" x="159.0" y="18.011585654852794" width="15.0" height="109.9884143451472" rx="2"><title>Aug 2026: in $11,392</title></rect>
+      <rect class="spd" x="176.0" y="84.91159794266856" width="15.0" height="43.088402057331436" rx="2"><title>Aug 2026: out $4,463</title></rect>
+      <text x="175.0" y="143" text-anchor="middle">Aug</text>
     </g>
     <g>
-      <rect class="inc" x="209.0" y="18.01544753980376" width="15.0" height="109.98455246019624" rx="2"><title>Aug 2026: in $11,392</title></rect>
-      <rect class="spd" x="226.0" y="80.21496655958714" width="15.0" height="47.78503344041287" rx="2"><title>Aug 2026: out $4,949</title></rect>
-      <text x="225.0" y="143" text-anchor="middle">Aug</text>
+      <rect class="inc" x="209.0" y="18.01544753980376" width="15.0" height="109.98455246019624" rx="2"><title>Sep 2026: in $11,392</title></rect>
+      <rect class="spd" x="226.0" y="80.21496655958714" width="15.0" height="47.78503344041287" rx="2"><title>Sep 2026: out $4,949</title></rect>
+      <text x="225.0" y="143" text-anchor="middle">Sep</text>
     </g>
     <g>
-      <rect class="inc" x="259.0" y="18.01930942475468" width="15.0" height="109.98069057524532" rx="2"><title>Sep 2026: in $11,391</title></rect>
-      <rect class="spd" x="276.0" y="81.45781768392226" width="15.0" height="46.542182316077735" rx="2"><title>Sep 2026: out $4,821</title></rect>
-      <text x="275.0" y="143" text-anchor="middle">Sep</text>
+      <rect class="inc" x="259.0" y="18.01930942475468" width="15.0" height="109.98069057524532" rx="2"><title>Oct 2026: in $11,391</title></rect>
+      <rect class="spd" x="276.0" y="81.45781768392226" width="15.0" height="46.542182316077735" rx="2"><title>Oct 2026: out $4,821</title></rect>
+      <text x="275.0" y="143" text-anchor="middle">Oct</text>
     </g>
   </svg>
-  <p class="tkey"><i class="inc"></i>In <i class="spd"></i>Out · Sep out -3% vs the month before</p>
+  <p class="tkey"><i class="inc"></i>In <i class="spd"></i>Out · Oct out -3% vs the month before</p>
 </section>
 
 <section class="card tcats">
@@ -153,50 +165,50 @@
   <ul class="fbars">
     <li class="t-n">
       <div class="fb-top"><span class="fb-l">Housing</span>
-        <span class="fb-v"><b>$15,050</b> · 46%</span></div>
+        <span class="fb-v"><b>$15,050</b> · 50%</span></div>
       <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="100.0" height="6" rx="3"/></svg>
       
     </li>
     <li class="t-n">
       <div class="fb-top"><span class="fb-l">Groceries</span>
-        <span class="fb-v"><b>$5,579</b> · 17%</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="37.1" height="6" rx="3"/></svg>
+        <span class="fb-v"><b>$4,968</b> · 16%</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="33.0" height="6" rx="3"/></svg>
       
     </li>
     <li class="t-n">
       <div class="fb-top"><span class="fb-l">Auto loan</span>
-        <span class="fb-v"><b>$2,723</b> · 8%</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="18.1" height="6" rx="3"/></svg>
+        <span class="fb-v"><b>$2,334</b> · 8%</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="15.5" height="6" rx="3"/></svg>
       
     </li>
     <li class="t-n">
       <div class="fb-top"><span class="fb-l">Utilities</span>
-        <span class="fb-v"><b>$2,314</b> · 7%</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="15.4" height="6" rx="3"/></svg>
+        <span class="fb-v"><b>$2,126</b> · 7%</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="14.1" height="6" rx="3"/></svg>
       
     </li>
     <li class="t-n">
       <div class="fb-top"><span class="fb-l">Insurance</span>
-        <span class="fb-v"><b>$1,568</b> · 5%</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="10.4" height="6" rx="3"/></svg>
+        <span class="fb-v"><b>$1,344</b> · 4%</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="8.9" height="6" rx="3"/></svg>
       
     </li>
     <li class="t-n">
       <div class="fb-top"><span class="fb-l">General merchandise</span>
-        <span class="fb-v"><b>$1,086</b> · 3%</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="7.2" height="6" rx="3"/></svg>
+        <span class="fb-v"><b>$942</b> · 3%</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="6.3" height="6" rx="3"/></svg>
       
     </li>
     <li class="t-n">
       <div class="fb-top"><span class="fb-l">Fuel</span>
-        <span class="fb-v"><b>$1,045</b> · 3%</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="6.9" height="6" rx="3"/></svg>
+        <span class="fb-v"><b>$889</b> · 3%</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="5.9" height="6" rx="3"/></svg>
       
     </li>
     <li class="t-n">
       <div class="fb-top"><span class="fb-l">Dining</span>
-        <span class="fb-v"><b>$1,008</b> · 3%</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="6.7" height="6" rx="3"/></svg>
+        <span class="fb-v"><b>$881</b> · 3%</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="5.9" height="6" rx="3"/></svg>
       
     </li></ul>
   <p class="muted small">What changed shows once there are statements from the 12 months before.</p>
@@ -207,35 +219,35 @@
 
 <section class="card"><h2>Month by month</h2>
   <ul class="rlist tmonths">
-    <li><div><span class="rl-main"><span class="rl-t">Oct 2026 <span class="muted">(so far)</span></span>
-      <span class="rl-m">in $11,380 · out $4,597 · left $6,783</span></span>
+    <li><div><span class="rl-main"><span class="rl-t">Nov 2026 <span class="muted">(so far)</span></span>
+      <span class="rl-m">in $5,690 · out $2,542 · left $3,148</span></span>
       <span class="rl-r"></span></div></li>
   
-    <li><div><span class="rl-main"><span class="rl-t">Sep 2026</span>
+    <li><div><span class="rl-main"><span class="rl-t">Oct 2026</span>
       <span class="rl-m">in $11,391 · out $4,821 · left $6,571</span></span>
       <span class="rl-r"><span class="chip-s t-ok" title="spending against the month before">-3%</span></span></div></li>
   
-    <li><div><span class="rl-main"><span class="rl-t">Aug 2026</span>
+    <li><div><span class="rl-main"><span class="rl-t">Sep 2026</span>
       <span class="rl-m">in $11,392 · out $4,949 · left $6,442</span></span>
       <span class="rl-r"><span class="chip-s t-bad" title="spending against the month before">+11%</span></span></div></li>
   
-    <li><div><span class="rl-main"><span class="rl-t">Jul 2026</span>
+    <li><div><span class="rl-main"><span class="rl-t">Aug 2026</span>
       <span class="rl-m">in $11,392 · out $4,463 · left $6,929</span></span>
       <span class="rl-r"><span class="chip-s t-ok" title="spending against the month before">-4%</span></span></div></li>
   
-    <li><div><span class="rl-main"><span class="rl-t">Jun 2026</span>
+    <li><div><span class="rl-main"><span class="rl-t">Jul 2026</span>
       <span class="rl-m">in $11,393 · out $4,644 · left $6,748</span></span>
       <span class="rl-r"><span class="chip-s t-bad" title="spending against the month before">+5%</span></span></div></li>
   
-    <li><div><span class="rl-main"><span class="rl-t">May 2026</span>
+    <li><div><span class="rl-main"><span class="rl-t">Jun 2026</span>
       <span class="rl-m">in $11,393 · out $4,411 · left $6,982</span></span>
       <span class="rl-r"><span class="chip-s t-ok" title="spending against the month before">-2%</span></span></div></li>
   
-    <li><div><span class="rl-main"><span class="rl-t">Apr 2026</span>
+    <li><div><span class="rl-main"><span class="rl-t">May 2026</span>
       <span class="rl-m">in $11,393 · out $4,510 · left $6,883</span></span>
       <span class="rl-r"></span></div></li>
   
-    <li class="gap"><div><span class="rl-m">Nov 2025 to Mar 2026: no statements</span></div></li>
+    <li class="gap"><div><span class="rl-m">Dec 2025 to Apr 2026: no statements</span></div></li>
     
   </ul>
 </section>
@@ -251,10 +263,10 @@
 
   <details class="bmore pme">
     <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
-    <div class="sheet" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
-        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:trends" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
-        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+    <div class="sheet">
+        <a href="notes.html" >Notes</a><a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance:trends" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
   </details>
