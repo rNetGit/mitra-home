@@ -6,15 +6,16 @@
     <!-- Mitra Home tour, 30 s, 1920x1080. Pictures are the made-up Rivera family (tools/demo). -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=block" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
     <style>
-      /* Same tokens as the site (assets/style.css) */
+      /* Same tokens as the site (assets/style.css): the app's Hearth look */
       :root {
-        --canvas: #FAFAF8; --surface: #FFFFFF; --line: #E6E4DF;
-        --text: #14181F; --text-2: #5E6672;
-        --accent: #1F7A4D; --accent-soft: #E8F3EC; --accent-ink: #0F3D2A;
-        --shadow-lg: 0 2px 6px rgba(20,24,31,.06), 0 24px 60px rgba(20,24,31,.14);
+        --canvas: #F7F1E8; --surface: #FFFCF7; --surface-2: #FBF6EE; --line: #E8DDCC; --line-2: #D9CAB4;
+        --text: #2A1F17; --text-2: #6E5E4E;
+        --accent: #A3471F; --accent-soft: #F6E3D6;
+        --serif: "Source Serif 4", ui-serif, Georgia, serif;
+        --shadow-lg: 0 2px 6px rgba(80,50,20,.08), 0 24px 60px rgba(80,50,20,.16);
       }
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body {
@@ -28,7 +29,7 @@
       /* Caption block on the left of each screen scene */
       .copy { position: absolute; left: 120px; top: 50%; width: 560px; transform: translateY(-50%); }
       .eyebrow { font-size: 22px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
-      .copy h2 { font-size: 64px; line-height: 1.08; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 26px; }
+      .copy h2 { font-family: var(--serif); font-size: 66px; line-height: 1.1; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 26px; }
       .copy p { font-size: 28px; line-height: 1.4; color: var(--text-2); }
 
       /* Desktop window */
@@ -37,8 +38,8 @@
         background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
         box-shadow: var(--shadow-lg); overflow: hidden;
       }
-      .window .bar { height: 40px; display: flex; align-items: center; gap: 9px; padding: 0 18px; border-bottom: 1px solid var(--line); background: #F4F4F1; }
-      .window .bar i { width: 13px; height: 13px; border-radius: 50%; background: #D6D3CC; }
+      .window .bar { height: 40px; display: flex; align-items: center; gap: 9px; padding: 0 18px; border-bottom: 1px solid var(--line); background: var(--surface-2); }
+      .window .bar i { width: 13px; height: 13px; border-radius: 50%; background: var(--line-2); }
       .window .shot { width: 1080px; height: 675px; overflow: hidden; }
       .window img, .tablet img { display: block; width: 100%; transform-origin: 50% 0; }
 
@@ -52,15 +53,15 @@
       /* Phones */
       .phones { position: absolute; right: 150px; top: 50%; margin-top: -400px; display: flex; gap: 56px; }
       .phone { width: 360px; height: 800px; padding: 14px; background: #1B1E23; border-radius: 56px; box-shadow: var(--shadow-lg); }
-      .phone .shot { width: 332px; height: 772px; border-radius: 44px; overflow: hidden; background: #F4F4F1; }
+      .phone .shot { width: 332px; height: 772px; border-radius: 44px; overflow: hidden; background: var(--canvas); }
       .phone img { display: block; width: 100%; }
 
       /* Title and end cards */
       .card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
       .brand { display: flex; align-items: center; gap: 28px; margin-bottom: 40px; }
       .brand img { width: 120px; height: 120px; }
-      .brand span { font-size: 92px; font-weight: 700; letter-spacing: -0.03em; }
-      .card h1 { font-size: 64px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; max-width: 1300px; }
+      .brand span { font-family: var(--serif); font-size: 96px; font-weight: 600; letter-spacing: -0.01em; }
+      .card h1 { font-family: var(--serif); font-size: 66px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.18; max-width: 1300px; }
       .card .sub { margin-top: 28px; font-size: 32px; color: var(--text-2); }
       .card .url {
         margin-top: 56px; font-size: 30px; font-weight: 600; color: var(--accent);
