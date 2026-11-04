@@ -20,22 +20,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
-  <meta name="theme-color" content="#2E8B57">
+  <meta name="theme-color" content="#F7F1E8">
   
   <link rel="icon" href="static/icon.svg" type="image/svg+xml">
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.134.2">
-  <script src="static/vendor/htmx.min.js?v=0.134.2" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.142.0">
+  <script src="static/vendor/htmx.min.js?v=0.142.0" defer></script>
   
-  <script src="static/app.js?v=0.134.2" defer></script>
+  <script src="static/app.js?v=0.142.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
 
-<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
-#demo-bar a{color:#BFE3CD}
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#2A1F17;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#F6C9A8}
 .chart>div{width:100%!important;height:auto!important}
 .chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../phone-demo.html">Phone app demo</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
@@ -61,18 +61,30 @@
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
-        <div class="rmenu" role="menu">
-        <a role="menuitem" href="settings.html" >Settings</a>
-        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:year_end" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
-        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        <div class="rmenu">
+        <a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance:year_end" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.134.2</small>
+    <small class="ver">v0.142.0</small>
   </nav>
 
   <main>
+
+  <form class="askbar" role="search" hx-post="/chat/ask" hx-swap="none" hx-disabled-elt="find button" aria-label="Ask Mitra">
+    <span class="mav" aria-hidden="true">M</span>
+    <label class="vh" for="askq">Ask Mitra, or tell it something</label>
+    <input id="askq" name="text" maxlength="1000" autocomplete="off" required
+      placeholder="Ask Mitra, or tell it something: &ldquo;Mateo has the dentist Friday at 4&rdquo;">
+    <kbd class="askkey" aria-hidden="true">Ctrl K</kbd>
+    <button class="btn" type="submit">Ask</button>
+    <span class="thinking muted" role="status">Thinking&hellip;</span>
+  </form>
+
+  
 
 <header class="head"><div><h1>Money</h1><p class="sub">Look back · Year-end</p></div></header>
 <nav class="pchips mtabs" aria-label="Money">
@@ -83,6 +95,7 @@
 </nav>
 
 <nav class="fchips" aria-label="Look back"><a href="money_part_ledger.html" >Ledger</a><a href="money_part_deposits.html" >Deposit sources</a><a href="money_part_trends.html" >Trends</a><a href="money_part_watch.html" >Missing statements</a><a href="money_part_spikes.html" >Price rises</a><a href="money_part_tax.html" >Tax papers</a><a href="money_part_home-office.html" >Home office</a><a href="money_part_year-end.html" class="on" aria-current="true">Year-end</a></nav>
+
 
 
 
@@ -99,11 +112,18 @@
 
 
 
+
+
+
+
+
+
+
 <p class="optrow"><a class="btn alt" href="#" data-demo="1" download>Download it (.md)</a>
   </p>
 
 <section class="card doc"><h1>2026 year-end summary (year to date)</h1>
-<p><em>Generated 2026-10-25. Transactions in the data run to 2026-10-25. Source: family.db. Aggregates only; card/account numbers are last4.</em></p>
+<p><em>Generated 2026-11-04. Transactions in the data run to 2026-11-03. Source: family.db. Aggregates only; card/account numbers are last4.</em></p>
 <p>&gt; 2026 is not over: every figure is year to date, and months before the first loaded statement are missing.</p>
 <h2>Income vs spend vs invested</h2>
 <table>
@@ -119,7 +139,7 @@
 </thead>
 <tbody>
 <tr>
-<td>2026-04</td>
+<td>2026-05</td>
 <td>$11,393</td>
 <td>$4,510</td>
 <td>$0</td>
@@ -127,7 +147,7 @@
 <td>$6,883</td>
 </tr>
 <tr>
-<td>2026-05</td>
+<td>2026-06</td>
 <td>$11,393</td>
 <td>$4,411</td>
 <td>$0</td>
@@ -135,7 +155,7 @@
 <td>$6,982</td>
 </tr>
 <tr>
-<td>2026-06</td>
+<td>2026-07</td>
 <td>$11,393</td>
 <td>$4,644</td>
 <td>$0</td>
@@ -143,7 +163,7 @@
 <td>$6,748</td>
 </tr>
 <tr>
-<td>2026-07</td>
+<td>2026-08</td>
 <td>$11,392</td>
 <td>$4,463</td>
 <td>$0</td>
@@ -151,7 +171,7 @@
 <td>$6,929</td>
 </tr>
 <tr>
-<td>2026-08</td>
+<td>2026-09</td>
 <td>$11,392</td>
 <td>$4,949</td>
 <td>$0</td>
@@ -159,7 +179,7 @@
 <td>$6,442</td>
 </tr>
 <tr>
-<td>2026-09</td>
+<td>2026-10</td>
 <td>$11,391</td>
 <td>$4,821</td>
 <td>$0</td>
@@ -167,24 +187,24 @@
 <td>$6,571</td>
 </tr>
 <tr>
-<td>2026-10</td>
-<td>$11,380</td>
-<td>$4,597</td>
+<td>2026-11</td>
+<td>$5,690</td>
+<td>$2,542</td>
 <td>$0</td>
 <td>$0</td>
-<td>$6,783</td>
+<td>$3,148</td>
 </tr>
 <tr>
 <td><strong>Total</strong></td>
-<td><strong>$79,734</strong></td>
-<td><strong>$32,395</strong></td>
+<td><strong>$74,044</strong></td>
+<td><strong>$30,340</strong></td>
 <td><strong>$0</strong></td>
 <td><strong>$0</strong></td>
-<td><strong>$47,339</strong></td>
+<td><strong>$43,704</strong></td>
 </tr>
 </tbody>
 </table>
-<p>Income $79,734; spend $32,395; net taxes $0; invested $0. Income minus spend and taxes: $47,339 (59% of income).
+<p>Income $74,044; spend $30,340; net taxes $0; invested $0. Income minus spend and taxes: $43,704 (59% of income).
 Spend includes insurance, utilities, loan payments and untyped checks. Card payments and account-to-account transfers are excluded (card purchases are counted once, on the card). One-off lumps (e.g. a life-insurance payment) are included; see the payee list.</p>
 <h2>Top spend categories</h2>
 <table>
@@ -203,58 +223,58 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 <tr>
 <td>groceries</td>
-<td>$5,579</td>
-<td>60</td>
+<td>$4,968</td>
+<td>54</td>
 </tr>
 <tr>
 <td>auto loan</td>
-<td>$2,723</td>
-<td>7</td>
+<td>$2,334</td>
+<td>6</td>
 </tr>
 <tr>
 <td>utilities</td>
-<td>$2,314</td>
-<td>21</td>
+<td>$2,126</td>
+<td>19</td>
 </tr>
 <tr>
 <td>insurance</td>
-<td>$1,568</td>
-<td>7</td>
+<td>$1,344</td>
+<td>6</td>
 </tr>
 <tr>
 <td>general merchandise</td>
-<td>$1,086</td>
-<td>14</td>
+<td>$942</td>
+<td>12</td>
 </tr>
 <tr>
 <td>fuel</td>
-<td>$1,045</td>
-<td>21</td>
+<td>$889</td>
+<td>18</td>
 </tr>
 <tr>
 <td>dining</td>
-<td>$1,008</td>
-<td>41</td>
+<td>$881</td>
+<td>36</td>
 </tr>
 <tr>
 <td>kids activities</td>
-<td>$868</td>
-<td>8</td>
-</tr>
-<tr>
-<td>pets</td>
-<td>$291</td>
+<td>$804</td>
 <td>7</td>
 </tr>
 <tr>
 <td>fitness</td>
-<td>$273</td>
-<td>7</td>
+<td>$234</td>
+<td>6</td>
 </tr>
 <tr>
-<td>subscriptions</td>
+<td>pets</td>
 <td>$231</td>
-<td>14</td>
+<td>6</td>
+</tr>
+<tr>
+<td>healthcare</td>
+<td>$199</td>
+<td>8</td>
 </tr>
 </tbody>
 </table>
@@ -275,33 +295,23 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 <tr>
 <td>FRESHFIELD MARKET</td>
-<td>$4,213</td>
-<td>37</td>
+<td>$3,843</td>
+<td>34</td>
 </tr>
 <tr>
 <td>CRESTLINE AUTO LOAN</td>
-<td>$2,723</td>
-<td>7</td>
+<td>$2,334</td>
+<td>6</td>
 </tr>
 <tr>
 <td>LAKESIDE MUTUAL AUTO INS</td>
-<td>$1,568</td>
-<td>7</td>
+<td>$1,344</td>
+<td>6</td>
 </tr>
 <tr>
 <td>GREENLEAF GROCERS</td>
-<td>$1,366</td>
-<td>23</td>
-</tr>
-<tr>
-<td>BRIGHTMART</td>
-<td>$1,086</td>
-<td>14</td>
-</tr>
-<tr>
-<td>QUICKFUEL #221</td>
-<td>$1,045</td>
-<td>21</td>
+<td>$1,124</td>
+<td>20</td>
 </tr>
 <tr>
 <td>CITY WATER &amp; POWER</td>
@@ -309,29 +319,29 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <td>7</td>
 </tr>
 <tr>
+<td>BRIGHTMART</td>
+<td>$942</td>
+<td>12</td>
+</tr>
+<tr>
+<td>QUICKFUEL #221</td>
+<td>$889</td>
+<td>18</td>
+</tr>
+<tr>
 <td>NORTHSTAR MOBILE</td>
-<td>$829</td>
-<td>7</td>
+<td>$710</td>
+<td>6</td>
 </tr>
 <tr>
 <td>PIZZA PALACE</td>
-<td>$532</td>
-<td>14</td>
-</tr>
-<tr>
-<td>BRIGHTWAVE INTERNET</td>
-<td>$490</td>
-<td>7</td>
+<td>$461</td>
+<td>12</td>
 </tr>
 <tr>
 <td>CORNER CAFE</td>
-<td>$476</td>
-<td>27</td>
-</tr>
-<tr>
-<td>YMCA SWIM PROGRAM</td>
-<td>$448</td>
-<td>7</td>
+<td>$420</td>
+<td>24</td>
 </tr>
 <tr>
 <td>SUMMER CAMP REGISTRATION</td>
@@ -339,9 +349,19 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <td>1</td>
 </tr>
 <tr>
-<td>PAWS &amp; CLAWS PET</td>
-<td>$291</td>
-<td>7</td>
+<td>BRIGHTWAVE INTERNET</td>
+<td>$420</td>
+<td>6</td>
+</tr>
+<tr>
+<td>YMCA SWIM PROGRAM</td>
+<td>$384</td>
+<td>6</td>
+</tr>
+<tr>
+<td>SPRINGFIELD GYM</td>
+<td>$234</td>
+<td>6</td>
 </tr>
 </tbody>
 </table>
@@ -360,43 +380,43 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <tr>
 <td>ELENA RIVERA</td>
 <td>Summit Rewards Card x3344</td>
-<td>$2,602</td>
+<td>$2,286</td>
 <td>$0</td>
-<td>$2,602</td>
+<td>$2,286</td>
 </tr>
 <tr>
 <td>Elena</td>
 <td>Summit Rewards Card x3344</td>
-<td>$567</td>
+<td>$486</td>
 <td>$0</td>
-<td>$567</td>
+<td>$486</td>
 </tr>
 <tr>
 <td>MARCUS RIVERA</td>
 <td>Northway Visa x1209</td>
-<td>$6,100</td>
+<td>$5,443</td>
 <td>$0</td>
-<td>$6,100</td>
+<td>$5,443</td>
 </tr>
 <tr>
 <td>Marcus</td>
 <td>Northway Visa x1209</td>
-<td>$385</td>
+<td>$330</td>
 <td>$0</td>
-<td>$385</td>
+<td>$330</td>
 </tr>
 <tr>
 <td>SOFIA RIVERA</td>
 <td>Summit Rewards Card x3344</td>
-<td>$1,086</td>
+<td>$942</td>
 <td>$0</td>
-<td>$1,086</td>
+<td>$942</td>
 </tr>
 </tbody>
 </table>
-<p>By person: MARCUS RIVERA $6,100, ELENA RIVERA $2,602, SOFIA RIVERA $1,086, Elena $567, Marcus $385.</p>
+<p>By person: MARCUS RIVERA $5,443, ELENA RIVERA $2,286, SOFIA RIVERA $942, Elena $486, Marcus $330.</p>
 <h2>Subscriptions (annual cost)</h2>
-<p>Still charging: 3 tracked subscriptions, about $72/month, $864/year at current prices. Charged in 2026 so far: $504.</p>
+<p>Still charging: 3 tracked subscriptions, about $72/month, $864/year at current prices. Charged in 2026 so far: $432.</p>
 <table>
 <thead>
 <tr>
@@ -413,21 +433,21 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <td>keep</td>
 <td>active</td>
 <td>$468</td>
-<td>$273</td>
+<td>$234</td>
 </tr>
 <tr>
 <td>TuneWave Family</td>
 <td>unreviewed</td>
 <td>active</td>
 <td>$204</td>
-<td>$119</td>
+<td>$102</td>
 </tr>
 <tr>
 <td>StreamBox</td>
 <td>keep</td>
 <td>active</td>
 <td>$192</td>
-<td>$112</td>
+<td>$96</td>
 </tr>
 </tbody>
 </table>
@@ -445,13 +465,13 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <tbody>
 <tr>
 <td>Prairie Shield home x0884</td>
-<td>2026-04-08 to 2027-04-08</td>
+<td>2026-04-18 to 2027-04-18</td>
 <td>$1,420</td>
 <td>n/a</td>
 </tr>
 <tr>
 <td>Lakeside Mutual auto x5521</td>
-<td>2026-05-28 to 2026-11-26</td>
+<td>2026-06-07 to 2026-12-06</td>
 <td>$1,344</td>
 <td>n/a</td>
 </tr>
@@ -469,8 +489,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <tbody>
 <tr>
 <td>None</td>
-<td>$1,568</td>
-<td>7</td>
+<td>$1,344</td>
+<td>6</td>
 </tr>
 </tbody>
 </table>
@@ -528,7 +548,6 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 
 
 
-
 <p class="muted small">Looking up only here: open a row to see it in full. To change one of these, tell Chat.</p>
 
 <dialog id="txn-dialog" class="txndlg" aria-labelledby="txn-title"><div id="txn-body"></div></dialog>
@@ -542,10 +561,10 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 
   <details class="bmore pme">
     <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
-    <div class="sheet" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
-        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance:year_end" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
-        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+    <div class="sheet">
+        <a href="notes.html" >Notes</a><a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance:year_end" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
   </details>

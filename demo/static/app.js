@@ -20,6 +20,22 @@
     if (open && e.key === 'Escape') { open.removeAttribute('open'); open.querySelector('summary').focus(); }
   });
 
+  // Ask Mitra (base.html): Ctrl K or Cmd K jumps to the bar on every adult page; the Today brief's "Ask something" too.
+  document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey || e.metaKey) && !e.altKey && (e.key === 'k' || e.key === 'K')) {
+      var q = document.getElementById('askq');
+      if (q) { e.preventDefault(); q.focus(); q.select(); }
+    }
+  });
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('[data-ask-focus]');
+    var q = b && document.getElementById('askq');
+    if (q) { q.focus(); q.scrollIntoView({block: 'nearest'}); }
+  });
+  if (/Mac|iPhone|iPad/.test(navigator.platform || '')) {
+    document.querySelectorAll('.askkey').forEach(function (k) { k.textContent = '\u2318 K'; });
+  }
+
   // A link to a folded form (Add's tiles: /records?...#add-members, /notes#nadd, /wallet#wadd) opens it.
   (function () {
     var d = location.hash && document.getElementById(location.hash.slice(1));
@@ -291,10 +307,36 @@
       if (slides.length > 1) box.insertBefore(strip, box.firstChild);
       if (slides.length < 2) box.classList.add('one');
       var bars = strip.querySelectorAll('i');
+      // buttons and "2 of 5" for keyboard and screen reader users (taps and swipes need neither)
+      var nav = null, prev = null, next = null, pos = null;
+      if (slides.length > 1) {
+        nav = document.createElement('div');
+        nav.className = 'story-nav';
+        prev = document.createElement('button');
+        next = document.createElement('button');
+        pos = document.createElement('span');
+        prev.type = next.type = 'button';
+        prev.className = next.className = 'snav-b';
+        prev.setAttribute('aria-label', 'Previous card');
+        next.setAttribute('aria-label', 'Next card');
+        prev.textContent = '\u2039';
+        next.textContent = '\u203A';
+        pos.className = 'vh';
+        pos.setAttribute('aria-live', 'polite');
+        prev.addEventListener('click', function () { show(at - 1, true); });
+        next.addEventListener('click', function () { show(at + 1); });
+        nav.append(prev, pos, next);
+        box.appendChild(nav);
+      }
       function show(i, back) {
         at = Math.max(0, Math.min(slides.length - 1, i));
         slides.forEach(function (s, k) { s.classList.toggle('on', k === at); s.classList.toggle('back', !!back && k !== at); s.setAttribute('aria-hidden', k === at ? 'false' : 'true'); });
         bars.forEach(function (b, k) { b.classList.toggle('on', k <= at); });
+        if (nav) {
+          prev.disabled = at === 0;
+          next.disabled = at === slides.length - 1;
+          pos.textContent = 'Card ' + (at + 1) + ' of ' + slides.length;
+        }
       }
       function interactive(t) { return t.closest && t.closest('a,button,select,input,label,form'); }
       box.addEventListener('click', function (e) {
@@ -552,6 +594,18 @@
     }
   });
 
+  // Money summary panel (Ledger, Bills, Receipts, Subscriptions, Accounts): open on a wide screen (it is the right-hand
+  // column there), folded to its one line above the list on a tablet or phone; follows the window when it is resized
+  // across 1200 px.
+  (function () {
+    var side = document.querySelector('details[data-lside]');
+    if (!side || !window.matchMedia) return;
+    var wide = window.matchMedia('(min-width: 1200px)');
+    var fit = function () { side.open = wide.matches; };
+    fit();
+    if (wide.addEventListener) wide.addEventListener('change', fit);
+  })();
+
   // Money > Ledger quick view: a description opens the line in a window over the list (htmx fills #txn-body); Previous / Next
   // and the arrow keys walk the filtered list; closing after a save reloads the page so the list shows the change.
   (function () {
@@ -611,8 +665,37 @@
     if (auto && auto.showModal) auto.showModal();
   })();
 
+  // A wall's own screen: changing any choice in its window ticks "Its own screen", so Save is never a silent no-op.
+  function tickOwn(e) {
+    var f = e.target && e.target.closest ? e.target.closest('form[data-own-auto]') : null;
+    var own = f && f.querySelector('input[name="own"]');
+    if (own && e.target !== own && !own.checked) own.checked = true;
+  }
+  document.addEventListener('change', tickOwn);
+  document.addEventListener('input', tickOwn);
+
   // Installable app: the service worker only keeps the app's own files (never a signed-in page).
   if ('serviceWorker' in navigator && window.isSecureContext) {
     navigator.serviceWorker.register('/sw.js', {scope: '/'}).catch(function () {});
   }
+})();
+
+// Settings > Phones > Walls: Preview shows the resting screen with the form's choices (not saved) in a window.
+(function () {
+  document.addEventListener('click', function (e) {
+    var close = e.target.closest('[data-wprev-close]');
+    var dlg = document.getElementById('wprev');
+    if (close && dlg) { dlg.close(); return; }
+    var b = e.target.closest('[data-wall-preview]');
+    if (!b || !dlg || typeof dlg.showModal !== 'function') return;
+    var f = b.closest('form');
+    if (!f) return;
+    var q = new URLSearchParams();
+    new FormData(f).forEach(function (v, k) { if (typeof v === 'string') q.append(k, v); });
+    document.getElementById('wprev-frame').src = '/settings/wall/preview?' + q.toString();
+    dlg.showModal();
+  });
+  document.addEventListener('close', function (e) {
+    if (e.target && e.target.id === 'wprev' && !e.target.open) document.getElementById('wprev-frame').src = 'about:blank';
+  }, true);
 })();

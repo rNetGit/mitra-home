@@ -20,22 +20,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
-  <meta name="theme-color" content="#2E8B57">
+  <meta name="theme-color" content="#F7F1E8">
   
   <link rel="icon" href="static/icon.svg" type="image/svg+xml">
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.134.2">
-  <script src="static/vendor/htmx.min.js?v=0.134.2" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.142.0">
+  <script src="static/vendor/htmx.min.js?v=0.142.0" defer></script>
   
-  <script src="static/app.js?v=0.134.2" defer></script>
+  <script src="static/app.js?v=0.142.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
 
-<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
-#demo-bar a{color:#BFE3CD}
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#2A1F17;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#F6C9A8}
 .chart>div{width:100%!important;height:auto!important}
 .chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../phone-demo.html">Phone app demo</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
@@ -61,20 +61,32 @@
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
-        <div class="rmenu" role="menu">
-        <a role="menuitem" href="settings.html" >Settings</a>
-        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
-        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        <div class="rmenu">
+        <a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.134.2</small>
+    <small class="ver">v0.142.0</small>
   </nav>
 
   <main>
 
-<header class="head"><div><h1>Money</h1><p class="sub">October 2026: what came in, what went out, what is still to come.</p></div></header>
+  <form class="askbar" role="search" hx-post="/chat/ask" hx-swap="none" hx-disabled-elt="find button" aria-label="Ask Mitra">
+    <span class="mav" aria-hidden="true">M</span>
+    <label class="vh" for="askq">Ask Mitra, or tell it something</label>
+    <input id="askq" name="text" maxlength="1000" autocomplete="off" required
+      placeholder="Ask Mitra, or tell it something: &ldquo;Mateo has the dentist Friday at 4&rdquo;">
+    <kbd class="askkey" aria-hidden="true">Ctrl K</kbd>
+    <button class="btn" type="submit">Ask</button>
+    <span class="thinking muted" role="status">Thinking&hellip;</span>
+  </form>
+
+  
+
+<header class="head"><div><h1>Money</h1><p class="sub">November 2026: what came in, what went out, what is still to come.</p></div></header>
 <nav class="pchips mtabs" aria-label="Money">
   <a href="money.html" class="pchip on" aria-current="true">Overview</a>
   <a href="money_part_spending.html" class="pchip">Spending</a><a href="money_part_paid.html" class="pchip">Bills</a><a href="money_part_regular.html" class="pchip">Regular</a>
@@ -84,15 +96,15 @@
 
 
 
-<p class="muted asof">Data as of: Cards and checking as of Oct 25 · savings and loans as of Oct 5</p>
+<p class="muted asof">Data as of: Cards and checking as of Nov 3 · savings and loans as of Oct 28</p>
 
-<section class="fhero g-over" aria-label="October 2026">
-  <p class="kick">October 2026 · so far</p>
-  <p class="gbig">$6,283 <small>left</small></p>
+<section class="fhero g-over" aria-label="November 2026">
+  <p class="kick">November 2026 · so far</p>
+  <p class="gbig">$3,148 <small>left</small></p>
   <div class="gtiles">
-    <div class="gtile"><small>In</small><b>$11,380</b></div>
-    <div class="gtile"><small>Spent</small><b>$4,597</b></div>
-    <div class="gtile"><small>Saved</small><b>$500</b></div>
+    <div class="gtile"><small>In</small><b>$5,690</b></div>
+    <div class="gtile"><small>Spent</small><b>$2,542</b></div>
+    <div class="gtile"><small>Saved</small><b>$0</b></div>
     
   </div>
 </section>
@@ -100,11 +112,11 @@
 
 <div class="mo-sum">
   <a class="card mo-link" href="money_part_spending.html"><span class="muted">Spending</span>
-    <b>$4,597</b>
-    <small class="muted">October so far · September $4,821</small></a>
+    <b>$2,542</b>
+    <small class="muted">November so far · October $4,821</small></a>
   <a class="card mo-link" href="money_part_paid.html"><span class="muted">Bills paid</span>
-    <b>$943.58</b>
-    <small class="muted">Everything from last month is paid again</small></a>
+    <b>$142.18</b>
+    <small class="warn">4 still to come · $801.40</small></a>
   <a class="card mo-link" href="money_part_regular.html"><span class="muted">Regular, every month</span>
     <b>$3,321.39</b>
     <small class="muted">about $39,857 a year · 11 payees</small></a>
@@ -114,13 +126,13 @@
 
 <section class="card fneeds"><h2>Needs a look</h2>
   <ul class="rlist">
-    <li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">Internet $70.00 was due Oct 23</span><span class="rl-go" aria-hidden="true">›</span></a></li>
+    <li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">Internet $70.00 was due Nov 2</span><span class="rl-go" aria-hidden="true">›</span></a></li>
   </ul>
 </section>
 
 <details class="card fold mo-all">
   <summary><h2>All money pages</h2></summary>
-  <p class="muted small">Bill list, accounts, budget, the Ledger, trends, tax papers and more. Settings &gt; Household profile &gt; How much to show switches to Advanced, which puts them in the chips above.</p>
+  <p class="muted small">Bill list, accounts, budget, the Ledger, trends, tax papers and more. The Simple / Advanced switch at the top of Settings switches to Advanced, which puts them in the chips above.</p>
   
   <div class="fparts-g"><h3>Pay</h3>
     <nav class="fchips wrap" aria-label="Pay parts"><a href="money_part_bills.html">Bills</a><a href="money_part_receipts.html">Receipts</a><a href="money_part_mobile.html">Phone bills</a><a href="money_part_subs.html">Subscriptions</a><a href="money_part_amazon.html">Amazon orders</a></nav></div>
@@ -143,10 +155,10 @@
 
   <details class="bmore pme">
     <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
-    <div class="sheet" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
-        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
-        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+    <div class="sheet">
+        <a href="notes.html" >Notes</a><a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
   </details>

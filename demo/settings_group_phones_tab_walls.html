@@ -20,22 +20,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
-  <meta name="theme-color" content="#2E8B57">
+  <meta name="theme-color" content="#F7F1E8">
   
   <link rel="icon" href="static/icon.svg" type="image/svg+xml">
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.134.2">
-  <script src="static/vendor/htmx.min.js?v=0.134.2" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.142.0">
+  <script src="static/vendor/htmx.min.js?v=0.142.0" defer></script>
   
-  <script src="static/app.js?v=0.134.2" defer></script>
+  <script src="static/app.js?v=0.142.0" defer></script>
   <title>Settings · Mitra Home</title>
 </head>
 
 
-<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
-#demo-bar a{color:#BFE3CD}
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#2A1F17;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#F6C9A8}
 .chart>div{width:100%!important;height:auto!important}
 .chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../phone-demo.html">Phone app demo</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
@@ -61,26 +61,40 @@
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me on" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
-        <div class="rmenu" role="menu">
-        <a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
-        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
-        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        <div class="rmenu">
+        <a href="settings.html" class="on" aria-current="page">Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.134.2</small>
+    <small class="ver">v0.142.0</small>
   </nav>
 
   <main>
 
+  <form class="askbar" role="search" hx-post="/chat/ask" hx-swap="none" hx-disabled-elt="find button" aria-label="Ask Mitra">
+    <span class="mav" aria-hidden="true">M</span>
+    <label class="vh" for="askq">Ask Mitra, or tell it something</label>
+    <input id="askq" name="text" maxlength="1000" autocomplete="off" required
+      placeholder="Ask Mitra, or tell it something: &ldquo;Mateo has the dentist Friday at 4&rdquo;">
+    <kbd class="askkey" aria-hidden="true">Ctrl K</kbd>
+    <button class="btn" type="submit">Ask</button>
+    <span class="thinking muted" role="status">Thinking&hellip;</span>
+  </form>
 
-<header class="head fhead"><div><a class="fback" href="settings.html">Settings</a><h1>Phones</h1></div></header>
-<nav class="fchips" aria-label="Settings group"><a href="settings_group_household.html" >Household profile</a><a href="settings_group_agent.html" >Agent</a><a href="settings_group_phones.html" class="on" aria-current="true">Phones</a><a href="settings_group_data.html" >Data</a></nav>
+  
+
+
+<header class="head fhead"><div><a class="fback" href="settings.html">Settings</a><h1>Phones and walls</h1></div></header>
 
 
 
 
+
+
+<dialog id="wprev" class="wprev" aria-label="Wall screen preview"><div class="wprev-head"><b>Preview</b> <span class="muted small">as the wall will show it (nothing is saved)</span><button type="button" class="btn alt sm" data-wprev-close>Close</button></div><iframe title="Wall screen preview" id="wprev-frame"></iframe></dialog>
 
 
 <nav class="seg devtabs" aria-label="Devices">
@@ -93,7 +107,7 @@
   
 </nav>
 
-<p class="alert">Phones and tablets cannot reach Mitra Home right now: it was started for this PC only. <a href="settings_group_phones_tab_connection.html">How to open it to phones</a></p>
+<p class="alert"><b>Please set up a PIN before you connect a phone.</b> Phones and tablets cannot reach Mitra Home right now: it was started for this PC only. <a href="settings_group_phones_tab_connection.html">Finish phone setup</a></p>
 
 
 
@@ -106,7 +120,7 @@
   
   <ul class="devlist">
     <li><button type="button" class="devrow" data-dlg="dev-w1">
-      <span class="devmain"><b>Kitchen wall</b><span class="muted small">browser · digital clock · last seen Sun, Oct 25</span></span>
+      <span class="devmain"><b>Kitchen wall</b><span class="muted small">browser · digital clock · last seen Wed, Nov 4</span></span>
       <span class="devpill p-ok">OK</span></button></li>
   </ul>
   
@@ -117,8 +131,8 @@
   <form class="nform" hx-post="/settings/wall/add" autocomplete="off">
     <label>Wall name<input name="name" maxlength="40" required placeholder="Kitchen wall"></label>
     <fieldset class="wide"><legend>What runs on the tablet</legend>
-      <label class="check"><input type="radio" name="kind" value="browser" checked> Its web browser (any tablet or iPad)</label>
-      <label class="check"><input type="radio" name="kind" value="app" disabled> The Mitra Home app (Android): keeps working while this PC is off</label>
+      <label class="check"><input type="radio" name="kind" value="app" disabled> The Mitra Home app (Android, iPhone or iPad): keeps working while this PC is off</label>
+      <label class="check"><input type="radio" name="kind" value="browser" checked> Its web browser (any tablet or iPad): needs this PC on</label>
     </fieldset>
     <button class="btn" type="submit">Show the wall code</button>
   </form>
@@ -130,15 +144,22 @@
 
 <dialog class="txndlg devdlg" id="dev-w1" aria-labelledby="dev-w1-t"><div class="txm">
   <header class="txm-head"><h2 id="dev-w1-t">Kitchen wall</h2><button type="button" class="btn alt" data-dlg-close>Close</button></header>
-  <p class="muted small">browser · paired Sun, Oct 25 · last seen Sun, Oct 25 13:40</p>
-  <form class="nform wscreen" hx-post="/settings/wall/own">
+  <p class="muted small">browser · paired Wed, Nov 4 · last seen Wed, Nov 4 14:09</p>
+  <form class="nform wscreen" hx-post="/settings/wall/own" data-own-auto>
     <input type="hidden" name="id" value="1">
-    <label class="check wide"><input type="checkbox" name="own" value="1" > Its own screen (unticked: the household's wall screen)</label>
+    <label class="check wide"><input type="checkbox" name="own" value="1" > Its own screen (untick to follow the household's wall screen)</label>
+    <p class="muted small wide" data-own-hint>Changing anything below ticks this for you. Unticked, Kitchen wall ignores these choices and follows the household.</p>
     
 <div class="seg ptabs" role="tablist" aria-label="Wall screen parts">
   <button type="button" role="tab" class="on" aria-selected="true" data-ptab="w1-clock">Clock</button>
   <button type="button" role="tab" aria-selected="false" data-ptab="w1-photos">Photos</button>
   <button type="button" role="tab" aria-selected="false" data-ptab="w1-night">Night</button>
+  <button type="button" role="tab" aria-selected="false" data-ptab="w1-pages">Pages</button>
+  <button type="button" role="tab" aria-selected="false" data-ptab="w1-look">Look</button>
+</div>
+<div class="ppanel" id="w1-look" role="tabpanel" hidden>
+  <label>Look of the wall's pages<select name="theme"><option value="paper" selected>Paper (warm white)</option><option value="night" >Night (dark, high contrast)</option><option value="slate" >Slate (cool grey)</option><option value="bold" >Bold (large black type, for reading far away)</option><option value="photo" >Photo (a family photo behind frosted cards)</option></select></label>
+  <p class="muted small">The resting clock keeps its own black screen. Photo uses one of the wall photos, a new one each day.</p>
 </div>
 <div class="ppanel" id="w1-clock" role="tabpanel">
   <label>Clock<select name="clock"><option value="digital" selected>Digital</option>
@@ -148,7 +169,14 @@
     <option value="flip" >Flip (turning number cards)</option>
     <option value="word" >Words ("it is quarter past seven")</option>
     <option value="dual" >Two cities (home and the other place)</option>
-    <option value="kidsday" >Kids' day (morning, afternoon, evening as a ring)</option></select></label>
+    <option value="kidsday" >Kids' day (morning, afternoon, evening as a ring)</option>
+    <option value="led" >LED (a desk clock read from across the room)</option></select></label>
+  <label>LED layout<select name="led_style"><option value="time" selected>Time only</option><option value="wide" >Time, temperature, date and weekdays</option><option value="side" >Weekdays, time, rain and temperature</option></select></label>
+  <label>LED colour<select name="led_colour"><option value="white" selected>White</option><option value="blue" >Blue</option><option value="green" >Green</option><option value="red" >Red</option><option value="amber" >Amber</option></select></label>
+  <label>LED background<select name="led_bg"><option value="black" selected>Black</option>
+    <option value="wood" >Dark wood</option></select></label>
+  <label class="check"><input type="checkbox" name="led_weekdays" value="1" checked> LED: the weekdays down the side (the weekdays, rain and temperature layout)</label>
+  <label class="check"><input type="checkbox" name="hours24" value="1" > LED: 24-hour time (20:15; off = 08:15 PM)</label>
   <label>Other place (two cities)<select name="zone"><option value="America/Anchorage" >Alaska</option><option value="America/Phoenix" >Arizona</option><option value="Pacific/Auckland" >Auckland</option><option value="Asia/Dhaka" >Bangladesh</option><option value="Europe/Berlin" >Berlin</option><option value="Africa/Cairo" >Cairo</option><option value="Asia/Shanghai" >China</option><option value="Asia/Dubai" >Dubai</option><option value="Europe/Dublin" >Dublin</option><option value="Pacific/Honolulu" >Hawaii</option><option value="Asia/Kolkata" selected>India</option><option value="Europe/Istanbul" >Istanbul</option><option value="Asia/Tokyo" >Japan</option><option value="Africa/Johannesburg" >Johannesburg</option><option value="Asia/Seoul" >Korea</option><option value="Europe/Kyiv" >Kyiv</option><option value="Africa/Lagos" >Lagos</option><option value="Europe/London" >London</option><option value="Europe/Madrid" >Madrid</option><option value="Asia/Manila" >Manila</option><option value="America/Mexico_City" >Mexico City</option><option value="Africa/Nairobi" >Nairobi</option><option value="Asia/Kathmandu" >Nepal</option><option value="Asia/Karachi" >Pakistan</option><option value="Europe/Paris" >Paris</option><option value="Europe/Rome" >Rome</option><option value="America/Sao_Paulo" >Sao Paulo</option><option value="Asia/Singapore" >Singapore</option><option value="Asia/Colombo" >Sri Lanka</option><option value="Australia/Sydney" >Sydney</option><option value="America/Toronto" >Toronto</option><option value="America/Chicago" >US Central</option><option value="America/New_York" >US Eastern</option><option value="America/Denver" >US Mountain</option><option value="America/Los_Angeles" >US Pacific</option><option value="America/Vancouver" >Vancouver</option><option value="Europe/Warsaw" >Warsaw</option></select></label>
   <label>Clock shows (seconds)<input type="number" name="clock_seconds" min="10" max="3600" value="60" required></label>
 </div>
@@ -162,7 +190,8 @@
     <option value="kenburns" >Slow zoom (a gentle pan and zoom)</option>
     <option value="blur" >Blurred fill (no black bars beside upright photos)</option>
     <option value="collage" >Collage (three at a time)</option>
-    <option value="frame" >Frame and date (a print with the month it was taken)</option></select></label>
+    <option value="frame" >Frame and date (a print with the month it was taken)</option>
+    <option value="scrapbook" >Scrapbook page (framed, tilted prints, the months they were taken)</option></select></label>
 </div>
 <div class="ppanel" id="w1-night" role="tabpanel" hidden>
   <label>Night clock<select name="night_tone"><option value="dim" selected>Dim (the same clock, darker)</option>
@@ -171,8 +200,16 @@
   <label>Night from<input type="time" name="night_from" value="22:00" required></label>
   <label>Night until<input type="time" name="night_to" value="06:00" required></label>
 </div>
+<div class="ppanel" id="w1-pages" role="tabpanel" hidden>
+  <label>Turn the pages by themselves (seconds per page, 0 = off)<input type="number" name="rotate_seconds" min="0" max="110" value="0" required></label>
+  <label class="check"><input type="checkbox" name="clock_only" value="1" > Clock only (a bedroom wall: the clock and photos, no pages; the pages below are ignored)</label>
+  <p class="muted small">Today, Week, Lists and Money are always on the wall. Tick a page to add it.</p>
+  <label class="check"><input type="checkbox" name="tab_chores" value="1" > Chores (the children's jobs and stars)</label>
+  <label class="check"><input type="checkbox" name="tab_meals" value="1" > Meals (this week's meal plan)</label>
+</div>
 
     <button class="btn" type="submit">Save for Kitchen wall</button>
+    <button class="btn alt" type="button" data-wall-preview>Preview</button>
   </form>
   <form class="nform devrm" hx-post="/settings/wall/revoke">
     <input type="hidden" name="id" value="1">
@@ -181,6 +218,15 @@
   </form>
 </div></dialog>
 
+<section class="card">
+  <h2 id="wall-seasonal">Seasonal looks</h2>
+  <p class="muted small">On Halloween, Diwali, Christmas, Holi, Ganesh Chaturthi, Navratri, Dussehra, Makar Sankranti, Onam, Maha Shivaratri, Ugadi, New Year, Independence Day, Independence Day, Canada Day, Thanksgiving (and the three days before) the wall's resting clock shows a drawn
+    backdrop and decorations. It stays still at night. To see one today, add <code>?season=halloween</code>, <code>diwali</code> or
+    <code>christmas</code> to the clock's address.</p>
+  <form class="nform" hx-post="/settings/wall/seasonal" hx-trigger="change" hx-disabled-elt="find input">
+    <label class="switch"><input type="checkbox" role="switch" name="on" value="1" checked aria-label="Seasonal looks"><span aria-hidden="true"></span></label>
+  </form>
+</section>
 <section class="card">
   <h2 id="wall-screen">Wall screen <span class="muted small">· every wall without its own</span></h2>
   <p class="muted small">After two minutes untouched the wall shows a full-size clock, and in the day the family's photos
@@ -192,6 +238,12 @@
   <button type="button" role="tab" class="on" aria-selected="true" data-ptab="wd-clock">Clock</button>
   <button type="button" role="tab" aria-selected="false" data-ptab="wd-photos">Photos</button>
   <button type="button" role="tab" aria-selected="false" data-ptab="wd-night">Night</button>
+  <button type="button" role="tab" aria-selected="false" data-ptab="wd-pages">Pages</button>
+  <button type="button" role="tab" aria-selected="false" data-ptab="wd-look">Look</button>
+</div>
+<div class="ppanel" id="wd-look" role="tabpanel" hidden>
+  <label>Look of the wall's pages<select name="theme"><option value="paper" selected>Paper (warm white)</option><option value="night" >Night (dark, high contrast)</option><option value="slate" >Slate (cool grey)</option><option value="bold" >Bold (large black type, for reading far away)</option><option value="photo" >Photo (a family photo behind frosted cards)</option></select></label>
+  <p class="muted small">The resting clock keeps its own black screen. Photo uses one of the wall photos, a new one each day.</p>
 </div>
 <div class="ppanel" id="wd-clock" role="tabpanel">
   <label>Clock<select name="clock"><option value="digital" selected>Digital</option>
@@ -201,7 +253,14 @@
     <option value="flip" >Flip (turning number cards)</option>
     <option value="word" >Words ("it is quarter past seven")</option>
     <option value="dual" >Two cities (home and the other place)</option>
-    <option value="kidsday" >Kids' day (morning, afternoon, evening as a ring)</option></select></label>
+    <option value="kidsday" >Kids' day (morning, afternoon, evening as a ring)</option>
+    <option value="led" >LED (a desk clock read from across the room)</option></select></label>
+  <label>LED layout<select name="led_style"><option value="time" selected>Time only</option><option value="wide" >Time, temperature, date and weekdays</option><option value="side" >Weekdays, time, rain and temperature</option></select></label>
+  <label>LED colour<select name="led_colour"><option value="white" selected>White</option><option value="blue" >Blue</option><option value="green" >Green</option><option value="red" >Red</option><option value="amber" >Amber</option></select></label>
+  <label>LED background<select name="led_bg"><option value="black" selected>Black</option>
+    <option value="wood" >Dark wood</option></select></label>
+  <label class="check"><input type="checkbox" name="led_weekdays" value="1" checked> LED: the weekdays down the side (the weekdays, rain and temperature layout)</label>
+  <label class="check"><input type="checkbox" name="hours24" value="1" > LED: 24-hour time (20:15; off = 08:15 PM)</label>
   <label>Other place (two cities)<select name="zone"><option value="America/Anchorage" >Alaska</option><option value="America/Phoenix" >Arizona</option><option value="Pacific/Auckland" >Auckland</option><option value="Asia/Dhaka" >Bangladesh</option><option value="Europe/Berlin" >Berlin</option><option value="Africa/Cairo" >Cairo</option><option value="Asia/Shanghai" >China</option><option value="Asia/Dubai" >Dubai</option><option value="Europe/Dublin" >Dublin</option><option value="Pacific/Honolulu" >Hawaii</option><option value="Asia/Kolkata" selected>India</option><option value="Europe/Istanbul" >Istanbul</option><option value="Asia/Tokyo" >Japan</option><option value="Africa/Johannesburg" >Johannesburg</option><option value="Asia/Seoul" >Korea</option><option value="Europe/Kyiv" >Kyiv</option><option value="Africa/Lagos" >Lagos</option><option value="Europe/London" >London</option><option value="Europe/Madrid" >Madrid</option><option value="Asia/Manila" >Manila</option><option value="America/Mexico_City" >Mexico City</option><option value="Africa/Nairobi" >Nairobi</option><option value="Asia/Kathmandu" >Nepal</option><option value="Asia/Karachi" >Pakistan</option><option value="Europe/Paris" >Paris</option><option value="Europe/Rome" >Rome</option><option value="America/Sao_Paulo" >Sao Paulo</option><option value="Asia/Singapore" >Singapore</option><option value="Asia/Colombo" >Sri Lanka</option><option value="Australia/Sydney" >Sydney</option><option value="America/Toronto" >Toronto</option><option value="America/Chicago" >US Central</option><option value="America/New_York" >US Eastern</option><option value="America/Denver" >US Mountain</option><option value="America/Los_Angeles" >US Pacific</option><option value="America/Vancouver" >Vancouver</option><option value="Europe/Warsaw" >Warsaw</option></select></label>
   <label>Clock shows (seconds)<input type="number" name="clock_seconds" min="10" max="3600" value="60" required></label>
 </div>
@@ -215,7 +274,8 @@
     <option value="kenburns" >Slow zoom (a gentle pan and zoom)</option>
     <option value="blur" >Blurred fill (no black bars beside upright photos)</option>
     <option value="collage" >Collage (three at a time)</option>
-    <option value="frame" >Frame and date (a print with the month it was taken)</option></select></label>
+    <option value="frame" >Frame and date (a print with the month it was taken)</option>
+    <option value="scrapbook" >Scrapbook page (framed, tilted prints, the months they were taken)</option></select></label>
 </div>
 <div class="ppanel" id="wd-night" role="tabpanel" hidden>
   <label>Night clock<select name="night_tone"><option value="dim" selected>Dim (the same clock, darker)</option>
@@ -224,24 +284,32 @@
   <label>Night from<input type="time" name="night_from" value="22:00" required></label>
   <label>Night until<input type="time" name="night_to" value="06:00" required></label>
 </div>
+<div class="ppanel" id="wd-pages" role="tabpanel" hidden>
+  <label>Turn the pages by themselves (seconds per page, 0 = off)<input type="number" name="rotate_seconds" min="0" max="110" value="0" required></label>
+  <label class="check"><input type="checkbox" name="clock_only" value="1" > Clock only (a bedroom wall: the clock and photos, no pages; the pages below are ignored)</label>
+  <p class="muted small">Today, Week, Lists and Money are always on the wall. Tick a page to add it.</p>
+  <label class="check"><input type="checkbox" name="tab_chores" value="1" > Chores (the children's jobs and stars)</label>
+  <label class="check"><input type="checkbox" name="tab_meals" value="1" > Meals (this week's meal plan)</label>
+</div>
 
     <button class="btn" type="submit">Save the wall screen</button>
+    <button class="btn alt" type="button" data-wall-preview>Preview</button>
   </form>
 </section>
 <section class="card">
   <h2>Wall photos <span class="muted small">· 4 of 300</span></h2>
   <div class="wphotos">
-    <figure><img src="wall_photo/66999e0a53970543.jpg" alt="" loading="lazy" width="160" height="110">
-      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="66999e0a53970543.jpg">
+    <figure><img src="wall_photo/794ef4fda048b36d.jpg" alt="" loading="lazy" width="160" height="110">
+      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="794ef4fda048b36d.jpg">
         <button class="btn alt" type="submit">Remove</button></form></figure>
-    <figure><img src="wall_photo/e69b930a605898dc.jpg" alt="" loading="lazy" width="160" height="110">
-      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="e69b930a605898dc.jpg">
+    <figure><img src="wall_photo/127face1af3abdd0.jpg" alt="" loading="lazy" width="160" height="110">
+      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="127face1af3abdd0.jpg">
         <button class="btn alt" type="submit">Remove</button></form></figure>
-    <figure><img src="wall_photo/7e1de1674020e279.jpg" alt="" loading="lazy" width="160" height="110">
-      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="7e1de1674020e279.jpg">
+    <figure><img src="wall_photo/7ac610bf8039955f.jpg" alt="" loading="lazy" width="160" height="110">
+      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="7ac610bf8039955f.jpg">
         <button class="btn alt" type="submit">Remove</button></form></figure>
-    <figure><img src="wall_photo/cc8aea889c46c2bf.jpg" alt="" loading="lazy" width="160" height="110">
-      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="cc8aea889c46c2bf.jpg">
+    <figure><img src="wall_photo/4a459a1188e0b718.jpg" alt="" loading="lazy" width="160" height="110">
+      <form hx-post="/settings/wall/photo/remove"><input type="hidden" name="name" value="4a459a1188e0b718.jpg">
         <button class="btn alt" type="submit">Remove</button></form></figure></div>
   
   <div class="optrow"><input type="file" id="wphoto" accept="image/jpeg,image/png,image/webp,.heic" multiple>
@@ -264,10 +332,10 @@
 
   <details class="bmore pme">
     <summary aria-label="More" class="on"><span class="av avall" aria-hidden="true">⋯</span></summary>
-    <div class="sheet" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" class="on" aria-current="page">Settings</a>
-        <button type="button" class="ghost" role="menuitem" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
-        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+    <div class="sheet">
+        <a href="notes.html" >Notes</a><a href="settings.html" class="on" aria-current="page">Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=settings" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
   </details>

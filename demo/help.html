@@ -20,22 +20,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
-  <meta name="theme-color" content="#2E8B57">
+  <meta name="theme-color" content="#F7F1E8">
   
   <link rel="icon" href="static/icon.svg" type="image/svg+xml">
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.134.2">
-  <script src="static/vendor/htmx.min.js?v=0.134.2" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.142.0">
+  <script src="static/vendor/htmx.min.js?v=0.142.0" defer></script>
   
-  <script src="static/app.js?v=0.134.2" defer></script>
+  <script src="static/app.js?v=0.142.0" defer></script>
   <title>Help · Mitra Home</title>
 </head>
 
 
-<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#173826;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
-#demo-bar a{color:#BFE3CD}
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#2A1F17;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#F6C9A8}
 .chart>div{width:100%!important;height:auto!important}
 .chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../phone-demo.html">Phone app demo</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
 
@@ -61,18 +61,30 @@
       <span class="grow"></span>
       <details class="rmore">
         <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
-        <div class="rmenu" role="menu">
-        <a role="menuitem" href="settings.html" >Settings</a>
+        <div class="rmenu">
+        <a href="settings.html" >Settings</a>
         
-        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
       </details>
     
-    <small class="ver">v0.134.2</small>
+    <small class="ver">v0.142.0</small>
   </nav>
 
   <main>
+
+  <form class="askbar" role="search" hx-post="/chat/ask" hx-swap="none" hx-disabled-elt="find button" aria-label="Ask Mitra">
+    <span class="mav" aria-hidden="true">M</span>
+    <label class="vh" for="askq">Ask Mitra, or tell it something</label>
+    <input id="askq" name="text" maxlength="1000" autocomplete="off" required
+      placeholder="Ask Mitra, or tell it something: &ldquo;Mateo has the dentist Friday at 4&rdquo;">
+    <kbd class="askkey" aria-hidden="true">Ctrl K</kbd>
+    <button class="btn" type="submit">Ask</button>
+    <span class="thinking muted" role="status">Thinking&hellip;</span>
+  </form>
+
+  
 <header class="head"><div><h1>Help</h1><p class="sub">How to add and change things on each page. The <b>?</b> button on a page opens its part.</p></div></header>
 <form class="rsearch card" action="/help" method="get" role="search">
   <label class="vh" for="hq">Search the help</label>
@@ -92,7 +104,7 @@
 </section>
 
 <section class="hp-sec"><h3>Done, paid, snooze</h3>
-  <ul><li>Press <kbd class="hk">Done</kbd> or <kbd class="hk">Paid</kbd> on a row under <b>Late</b>, <b>Today</b> or <b>This week</b>. A paid bill shows <kbd class="hk">Undo</kbd> for a moment.</li><li>The <b>⋯</b> menu on a row: snooze it 1, 7 or 30 days, or hide it. Hidden items come back from Settings &gt; Agent &gt; Hidden from Today (<kbd class="hk">Restore</kbd>).</li></ul>
+  <ul><li>Press <kbd class="hk">Done</kbd> or <kbd class="hk">Paid</kbd> on a row under <b>Late</b>, <b>Today</b> or <b>This week</b>. A paid bill shows <kbd class="hk">Undo</kbd> for a moment.</li><li>The <b>⋯</b> menu on a row: snooze it 1, 7 or 30 days, or hide it. Hidden items come back from Settings &gt; Home Profile &gt; Hidden from Today (<kbd class="hk">Restore</kbd>).</li></ul>
 </section>
 
 <section class="hp-sec"><h3>Change or correct</h3>
@@ -171,7 +183,7 @@
 </section>
 
 <section class="hp-sec"><h3>Watch them being read</h3>
-  <ul><li>The panel under the drop box shows every file and its step: in line, checking, reading, sorting, filed.</li><li>With an AI helper set up, reading starts on its own. Otherwise press <kbd class="hk">File them now</kbd>: common bank statements, CSV exports and phone bills are read without AI. Anything it cannot read waits under <b>Files to look at</b>.</li><li>Each waiting file says why, and <b>Why?</b> shows every step that was tried. <b>Add the account ending ...</b> adds the account a statement names and reads it again; <b>Try again</b> reads a file again after you changed something (photo reading on, AI account topped up); <b>Try all again</b> does it for every file.</li></ul>
+  <ul><li>The panel under the drop box shows every file and its step: in line, checking, reading, sorting, filed.</li><li>With an AI helper set up, reading starts on its own. Otherwise press <kbd class="hk">File them now</kbd>: common bank statements, CSV exports and phone bills are read without AI. Anything it cannot read waits under <b>Files to look at</b>.</li><li>Each waiting file says why, and <b>Why?</b> shows every step that was tried. <b>Add the account ending ...</b> adds the account a statement names and reads it again; <b>Reprocess</b> reads a file again after you changed something (an AI connected, photo reading on, AI account topped up); <b>Reprocess all</b> does it for every file. <b>File it by hand</b> is different: you say what the file is and nothing is read from it.</li></ul>
 </section>
 
 <section class="hp-sec"><h3>Work through what is left</h3>
@@ -220,7 +232,7 @@
   <ul><li>Stars count Monday to Sunday. The week&#39;s allowance shows on the wall&#39;s Money screen, which opens only with an adult&#39;s PIN; nothing is paid automatically.</li><li>Pair the wall itself in Settings &gt; Phones &gt; Mitra Wall.</li></ul>
 </section>
 
-<p class="hp-links"><a href="settings_group_phones.html">Settings &gt; Phones</a><a href="family.html">Family</a></p>
+<p class="hp-links"><a href="settings_group_phones.html">Settings &gt; Phones and walls</a><a href="family.html">Family</a></p>
 </article><article class="card hp-card" id="help-wall">
 <h2 class="hp-title">Mitra Wall</h2>
 <p class="hp-purpose">An old tablet or iPad on the wall that shows the family&#39;s week, today&#39;s plan, the children&#39;s jobs, the lists and the meals.</p>
@@ -241,7 +253,7 @@
   <ul><li>With the ZIP code and <b>Look things up online</b> on (Family &gt; House) it shows the local weather; the PC fetches it, the tablet never goes online.</li><li>Adults-only lists, critical info and papers never show on the wall.</li></ul>
 </section>
 
-<p class="hp-links"><a href="settings_group_phones.html">Settings &gt; Phones</a><a href="family_routines.html">Family &gt; Routines</a></p>
+<p class="hp-links"><a href="settings_group_phones.html">Settings &gt; Phones and walls</a><a href="family_routines.html">Family &gt; Routines</a></p>
 </article><article class="card hp-card" id="help-wallet">
 <h2 class="hp-title">Wallet</h2>
 <p class="hp-purpose">Your cards in one place: IDs, cars and plates, insurance, memberships and home facts.</p>
@@ -303,21 +315,21 @@
 <p class="hp-links"><a href="settings_group_connections.html">Settings &gt; Connections</a></p>
 </article><article class="card hp-card" id="help-work">
 <h2 class="hp-title">Work</h2>
-<p class="hp-purpose">Contracts you bill by the hour: hours per timesheet period, invoices, the on / off-site schedule and the work calendar.</p>
+<p class="hp-purpose">The jobs and businesses of the adults in the family: timesheets, the on / off-site schedule, pay days and the work calendar. No pay amounts or invoices: money comes from the bank lines.</p>
 
 <section class="hp-sec"><h3>Add</h3>
-  <ul><li><kbd class="hk">Add a contract</kbd> at the top: client, rate, how often you invoice and the timesheet cycle.</li><li>Hours come from a timesheet you import, or are typed per day under <b>Hours</b>.</li></ul>
+  <ul><li><kbd class="hk">Add job</kbd> at the top: the name, the kind (employment, contract, own business, rental, side business), who, primary or secondary and whether it needs timesheets.</li><li>Hours come from a timesheet you import, or are typed per day under <b>Timesheets</b>.</li></ul>
 </section>
 
 <section class="hp-sec"><h3>Change</h3>
-  <ul><li>Pick the contract&#39;s part in the row of chips: Billing, Hours, Schedule, Profile, Work calendar.</li><li>Billing: <b>Record invoice for</b> the month makes the month&#39;s invoice; mark it sent or paid below and <kbd class="hk">Save</kbd>.</li></ul>
+  <ul><li>Pick the job&#39;s part in the row of chips: Timesheets, Schedule, Details, Work calendar.</li><li>Details: kind, primary or secondary, who can see it, the timesheet cycle and the work calendar name; then <kbd class="hk">Save profile</kbd>.</li></ul>
 </section>
 
 <section class="hp-sec"><h3>Tips</h3>
   <ul><li>Days on the schedule with no hours, and hours on a holiday, show in red above the weeks.</li><li>Off-site days feed the home-office figures in Money; whether a deduction applies is for your tax preparer.</li></ul>
 </section>
 
-<p class="hp-links"><a href="money.html">Money</a><a href="money_part_home-office.html">Money &gt; Home office</a></p>
+<p class="hp-links"><a href="family.html">Family</a><a href="money_part_home-office.html">Money &gt; Home office</a></p>
 </article><article class="card hp-card" id="help-settings">
 <h2 class="hp-title">Settings</h2>
 <p class="hp-purpose">Your household, the agent, connections, phones and your data.</p>
@@ -330,12 +342,12 @@
   <ul><li>How complete your profile is, Simple or Advanced view, names as printed on papers, traditions and holidays, optional features, tax papers and how early to remind.</li></ul>
 </section>
 
-<section class="hp-sec"><h3>Agent</h3>
+<section class="hp-sec"><h3>Home Profile</h3>
   <ul><li>The agent&#39;s name and tone, when the daily brief and weekly digest arrive, and what they watch; sign-in PINs (<kbd class="hk">Save PIN</kbd>); items hidden from Today (<kbd class="hk">Restore</kbd>).</li></ul>
 </section>
 
 <section class="hp-sec"><h3>Connections</h3>
-  <ul><li>An AI helper, Google Calendar and Gmail, and the phone bot. Keys can be typed only on this PC.</li><li><b>Mail folder</b>: a mailbox made only for this app (any provider) that you forward papers to; type its address and an app password on this PC, then <kbd class="hk">Save</kbd>. It is read with every inbox check, read-only (docs/MAIL_FOLDER.md).</li><li><b>Other calendars</b>: paste an iCloud, Outlook or other calendar&#39;s subscribe address (.ics or webcal://) and <kbd class="hk">Add the calendar</kbd>; it shows on the Calendar page, read-only, read about once an hour.</li><li>Pro: <b>Bank sync (SimpleFIN)</b> pulls balances and new transactions every morning. Paste the setup token on this PC, tick the accounts (<b>Select all</b> / <b>Unselect all</b>), save, then <b>Pull now</b>.</li></ul>
+  <ul><li>An AI helper, Google Calendar and Gmail, and the phone bot. Keys can be typed only on this PC.</li><li><b>Mail folder</b>: a mailbox made only for this app (any provider) that you forward papers to; type its address and an app password on this PC, then <kbd class="hk">Save</kbd>. It is read with every inbox check, read-only (docs/MAIL_FOLDER.md).</li><li><b>Other calendars</b>: paste an iCloud, Outlook or other calendar&#39;s subscribe address (.ics or webcal://) and <kbd class="hk">Add the calendar</kbd>; it shows on the Calendar page, read-only, read about once an hour.</li><li><b>Bank sync (SimpleFIN)</b> (optional) pulls balances and new transactions every morning. Paste the setup token on this PC, tick the accounts (<b>Select all</b> / <b>Unselect all</b>), save, then <b>Pull now</b>.</li></ul>
 </section>
 
 <section class="hp-sec"><h3>Phones</h3>
@@ -888,10 +900,10 @@
 
   <details class="bmore pme">
     <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
-    <div class="sheet" role="menu">
-        <a role="menuitem" href="notes.html" >Notes</a><a role="menuitem" href="settings.html" >Settings</a>
+    <div class="sheet">
+        <a href="notes.html" >Notes</a><a href="settings.html" >Settings</a>
         
-        <button type="button" class="ghost" role="menuitem" data-theme-toggle data-mode="light">Dark mode</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
         
 </div>
   </details>

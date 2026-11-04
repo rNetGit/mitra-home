@@ -338,7 +338,7 @@ progress.red::-webkit-progress-value{background:var(--danger)}progress.red::-moz
   .seg{max-width:100%;overflow-x:auto}
 }
 .hero{background:var(--hero);color:var(--hero-text);padding:18px 20px;border-radius:var(--radius);align-items:center}
-.hero .sub{color:inherit;opacity:.85}.hero .btn{background:var(--hero-text);color:var(--hero)}
+.hero .sub{color:inherit}.hero .btn{background:var(--hero-text);color:var(--hero)}
 /* Settings > Phones: the pairing code stays dark on white in every theme (scanners need it) */
 .pair .qr{display:block;width:264px;max-width:100%;height:auto;background:#fff;padding:8px;border-radius:var(--radius-sm,8px);margin:8px 0}
 .phone{border-top:1px solid var(--line);padding:10px 0}.phone:first-of-type{border-top:0}.phone h3{margin:0 0 6px;font-size:1rem}
@@ -404,6 +404,8 @@ progress.red::-webkit-progress-value{background:var(--danger)}progress.red::-moz
 input,select,textarea{background:var(--surface);border:1.5px solid var(--line);border-radius:10px;transition:border-color .15s,box-shadow .15s}
 input:hover,select:hover,textarea:hover{border-color:var(--text-2)}
 input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+/* keyboard focus: a solid accent ring (5:1 or more on the page in both themes); the soft ring alone was about 1:1 */
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 input:disabled,select:disabled,textarea:disabled{opacity:.6;cursor:not-allowed}
 input::placeholder,textarea::placeholder{color:var(--text-2);opacity:.8}
 input:user-invalid,select:user-invalid,textarea:user-invalid{border-color:var(--danger)}
@@ -422,7 +424,8 @@ fieldset{border:0;padding:0;margin:0;min-width:0}fieldset legend{font-size:.9rem
 .card.nform,.nform.card{padding:18px}
 .btn,.primary{transition:filter .15s,box-shadow .15s,transform .05s}
 .btn:hover,.primary:hover{filter:brightness(1.06)}.btn:active,.primary:active{transform:translateY(1px)}
-.btn:focus-visible,.primary:focus-visible,.ghost:focus-visible{outline:none;box-shadow:0 0 0 3px var(--accent-soft),0 0 0 1px var(--accent)}
+.btn:focus-visible,.primary:focus-visible,.ghost:focus-visible{outline:2px solid var(--accent);outline-offset:2px;box-shadow:none}
+.hero .btn:focus-visible{outline-color:var(--hero-text)}
 .btn:disabled,.primary:disabled{opacity:.55;cursor:not-allowed;filter:none;transform:none}
 .btn.alt:hover{border-color:var(--text-2);filter:none}
 
@@ -519,6 +522,12 @@ fieldset{border:0;padding:0;margin:0;min-width:0}fieldset legend{font-size:.9rem
 @media (max-width:900px){.msum{grid-template-columns:1fr}.story{max-width:460px;width:100%;margin:0 auto}}
 @media (max-width:760px){.story{border-radius:22px}.story.tall{min-height:0;max-height:calc(100svh - 150px)}}
 @media (prefers-reduced-motion:reduce){.slide,.slide.on{transition:none;transform:none}}
+.story:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+/* story card Previous / Next; not `.snav`, which the Money month links already use. Theme colours: the card is the page
+   surface (white in light), so the old white-on-grey was about 2.4:1 and its white focus ring did not show */
+.story-nav{position:absolute;right:12px;bottom:12px;z-index:3;display:flex;gap:8px}
+.snav-b{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--text-2);background:var(--surface-2);color:var(--text);font:600 1.6rem/1 inherit;cursor:pointer}
+.snav-b:disabled{opacity:.35;cursor:default}.snav-b:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .gbig{margin:0;font-size:2.2rem;line-height:1.05;font-variant-numeric:tabular-nums}.gbig small{font-size:.95rem;font-weight:500;opacity:.85}
 .gtile.warn b,.story b.warn{color:#fecaca}
 .glink{margin-top:auto;font-weight:700;font-size:.9rem;text-decoration:none}
@@ -528,8 +537,6 @@ fieldset{border:0;padding:0;margin:0;min-width:0}fieldset legend{font-size:.9rem
   .story.deck .sbars,.story.deck .shint{display:none}
 }
 /* Today: day card */
-.dayc{height:390px;margin:4px 0 16px}.dayc .slide{padding-bottom:36px}.dayc:not(.js){height:auto}
-@media (max-width:760px){.dayc.js{height:auto}}  /* phones: as tall as its tallest slide (U21) */
 .dtop{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
 .dtop li{display:flex;align-items:center;gap:8px;font-size:.92rem}.dtop li>span:nth-child(2){flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .dpill{font-size:12px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.18);white-space:nowrap}
@@ -664,6 +671,10 @@ body.dragging .dropveil{display:flex;position:fixed;inset:0;z-index:60;align-ite
 .fchips{display:flex;flex-wrap:nowrap;gap:6px;overflow-x:auto;margin:0 0 12px;padding-bottom:2px;scrollbar-width:none}
 .fchips::-webkit-scrollbar{display:none}
 .fchips.wrap{flex-wrap:wrap;overflow:visible}
+a.connphones{display:block;color:inherit;text-decoration:none;margin-bottom:12px}
+a.connphones h2{margin:0 0 4px}
+a.connphones p{margin:0;color:var(--text-2)}
+a.connphones:hover{border-color:var(--accent)}
 .fchips a,.fchips button{flex:0 0 auto;font:inherit;font-size:.9rem;text-decoration:none;color:var(--text);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;min-height:38px;display:inline-flex;align-items:center;cursor:pointer;white-space:nowrap}
 .fchips a.on,.fchips button.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
 .ffilter{margin-bottom:12px}
@@ -959,10 +970,15 @@ body:has(#helpp:not([hidden])) .helptip,.helpbtn[aria-expanded="true"]{display:n
 .ic-edit{--i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 20h4L19 9l-4-4L4 16z'/%3E%3Cpath d='M13.5 6.5l4 4'/%3E%3C/svg%3E")}
 .tile-edit .ic,summary .ic-more{width:18px;height:18px;display:inline-block;vertical-align:middle}
 /* AI form: only the fields that apply to the provider picked (no key for Claude Code or Ollama, nothing for "No AI",
-   the Gemini billing box for Gemini only); every field is still sent and checked by the server as before. */
+   the Gemini billing box for Gemini only, the photo box for providers that read photos, the CLI line and the
+   scheduled-runs box for a signed-in CLI); every field is still sent and checked by the server as before. */
 .nform:has(select[name=provider] option[value=none]:checked) .ai-field,
 .nform:not(:has(select[name=provider] option[data-keyed]:checked)) .ai-key,
-.nform:not(:has(select[name=provider] option[value=gemini]:checked)) .ai-gemini{display:none}
+.nform:not(:has(select[name=provider] option[value=gemini]:checked)) .ai-gemini,
+.nform:not(:has(select[name=provider] option[data-cli]:checked)) .ai-unattended,
+.nform:not(:has(select[name=provider] option[data-photos]:checked)) .ai-photos,
+.nform:not(:has(select[name=provider] option[value=claude_cli]:checked)) .ai-cli-claude_cli,
+.nform:not(:has(select[name=provider] option[value=codex_cli]:checked)) .ai-cli-codex_cli{display:none}
 /* Phones without the tab bar (a child's page): the rail is one row. The desktop footer rule above re-applied its box
    and top border here, squeezing the row into a short strip; the name, theme and log out now sit at the right. */
 @media (max-width:760px){.rail .railfoot{display:contents;border:0}.rail .me{margin-left:auto;flex:0 0 auto}}
@@ -970,12 +986,13 @@ body:has(#helpp:not([hidden])) .helptip,.helpbtn[aria-expanded="true"]{display:n
 @media (min-width:761px){.nform>button.btn{justify-self:start;min-width:120px}}
 /* ===== First run in five screens (October 2026) ===== */
 .wz-top{margin:0 0 14px}
-.wz-steps{list-style:none;margin:0 0 8px;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.wz-steps{list-style:none;margin:0 0 8px;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
 .wz-steps li{display:flex;flex-direction:column;gap:6px;min-width:0}
 .wz-seg{height:6px;border-radius:999px;background:var(--line)}
 .wz-steps li.done .wz-seg,.wz-steps li.now .wz-seg{background:var(--accent)}
 .wz-lbl{font-size:12px;color:var(--text-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .wz-steps li.now .wz-lbl{color:var(--text);font-weight:700}
+.wz-howto p{margin:0 0 6px}.wz-example{margin:0 0 6px;padding:8px 12px;border-radius:8px;background:var(--surface-2);font:14px/1.6 ui-monospace,Consolas,monospace;white-space:pre-wrap}
 .wz-q{margin:0 0 14px;font-size:1.7rem;line-height:1.2;letter-spacing:-.01em}
 .wz-welcome{padding:28px}.wz-welcome .wz-q{font-size:2.1rem}
 .wz-lead{margin:0 0 18px;font-size:1.08rem;color:var(--text-2);max-width:620px}
@@ -998,6 +1015,7 @@ body:has(#helpp:not([hidden])) .helptip,.helpbtn[aria-expanded="true"]{display:n
 .wz-more>summary{cursor:pointer;color:var(--text-2);min-height:44px;display:flex;align-items:center}
 .wz-ai{margin:0 0 14px}.wz-ai>summary{cursor:pointer;display:flex;justify-content:space-between;gap:10px;align-items:center;min-height:44px;list-style:none}
 .wz-ai>summary::-webkit-details-marker{display:none}
+.wz-aiscreen h3{margin:12px 0 4px;font-size:1rem}.wz-aiscreen ul{margin:0 0 8px;padding-left:20px}.wz-aiscreen li{margin:3px 0}
 .wz-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:0}
 .wz-summary>div{padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface-2)}
 .wz-summary dt{font-size:12px;color:var(--text-2);text-transform:uppercase;letter-spacing:.04em}.wz-summary dd{margin:2px 0 0;overflow-wrap:anywhere}
@@ -1171,3 +1189,87 @@ table.ledger .c-edit{width:4.2rem;text-align:right}table.ledger .lded summary{wh
 .keepup .kact{display:flex;gap:6px;flex:none}
 .keepup .kact .btn{min-height:36px;padding:4px 10px}
 .rail .rsep{height:1px;background:var(--line);margin:6px 10px;flex:none}
+
+/* Settings > Phones: the wall pairing code large enough to read across the room (wall.CODE_ALPHABET has no look-alikes) */
+.devdlg .wcode{margin:10px auto;padding:10px 16px;width:max-content;max-width:100%;box-sizing:border-box;border:2px solid var(--line);border-radius:12px;font:700 clamp(28px,7vw,44px)/1.1 ui-monospace,Consolas,monospace;letter-spacing:.14em;text-align:center;user-select:all}
+.devdlg .wtype{display:grid;gap:6px;margin:8px 0;font:600 17px/1.3 ui-monospace,Consolas,monospace;overflow-wrap:anywhere}
+.devdlg .wtype span{padding:6px 10px;border:1px solid var(--line);border-radius:8px;user-select:all}
+.devdlg.wfull{width:min(96vw,900px);max-width:96vw}
+.devdlg.wfull .qr{width:min(70vmin,420px);height:auto}
+.devdlg.wfull .wcode.big{font-size:clamp(44px,12vw,96px)}
+.devdlg.wfull .wtype.big{font-size:clamp(18px,3vw,28px)}
+.devdlg .wurl{text-align:center;font:600 clamp(16px,3vw,24px)/1.3 ui-monospace,Consolas,monospace;overflow-wrap:anywhere;margin:6px 0}
+.dotm.t-ok{background:var(--ok)}.dotm.t-info{background:var(--text-2)}
+/* Settings > Data > Where things are */
+.wherelist{list-style:none;margin:0;padding:0}
+.wherelist li{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:8px 0;border-top:1px solid var(--line)}
+.wherelist li:first-child{border-top:0}
+.wherelist .wpath{font-family:ui-monospace,Consolas,monospace;font-size:.88em;overflow-wrap:anywhere}
+.wherelist .btn{flex:none;min-height:34px;padding:4px 10px}
+/* Money > Ledger, Bills, Receipts, Subscriptions, Accounts: filters and the list on the left, the summary (tiles, notes;
+   on the Ledger also how they add up, by card member, download) in a panel on the right that stays in view; below
+   1200 px one summary line above the list that unfolds */
+main:has(.lgrid){max-width:1520px}
+.lgrid{display:grid;gap:16px;align-items:start}
+.lside{margin:0 0 4px}
+.lside>summary.lside-sum{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;padding:10px 14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow)}
+.lside>summary.lside-sum::-webkit-details-marker{display:none}
+.lside>summary.lside-sum::after{content:"\25B8";margin-left:auto;color:var(--text-2)}
+.lside[open]>summary.lside-sum{margin-bottom:12px}.lside[open]>summary.lside-sum::after{content:"\25BE"}
+.lside .lmini{color:var(--text-2);font-size:.92rem;white-space:nowrap}
+.lside .kpis.rk{margin-bottom:12px}
+.lside .calmlist{margin:0 0 12px}
+@media (min-width:1200px){
+  .lgrid{grid-template-columns:minmax(0,1fr) 300px}
+  .lmain{grid-column:1;grid-row:1;min-width:0}
+  .lside{grid-column:2;grid-row:1;position:sticky;top:12px;max-height:calc(100vh - 24px);overflow:auto;padding-right:2px}
+  .lside>summary.lside-sum{display:none}
+  .lside .kpis.rk{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .lside .kpis.rk .kpi{padding:9px 11px}
+  .lside .kpis.rk .kpi b{font-size:1.05rem}
+  .lside .calmlist li{font-size:.92rem}
+}
+.wprev{width:min(94vw,1040px);padding:0;border:1px solid var(--border,#ccc);border-radius:12px;background:var(--surface)}.wprev::backdrop{background:rgba(0,0,0,.5)}.wprev-head{display:flex;gap:10px;align-items:center;padding:10px 14px}.wprev-head .btn{margin-left:auto}.wprev iframe{display:block;width:100%;aspect-ratio:1024/600;border:0;background:#000}
+
+/* ===== Hearth + Mitra Desk (November 2026): the companion's look on the PC (colours in data/look.py), serif titles by
+   day, the Ask Mitra bar on every adult page (base.html) and Mitra's brief on Today (today_data.brief) ===== */
+h1,.sec,.card h2,.rail .bt b,.brief .btext{font-family:var(--title-font)}
+h1{font-weight:600;letter-spacing:-.01em}.sec{font-weight:600}
+.rail{background:var(--canvas);border-right:1px solid transparent}
+.rail a.on{background:var(--surface);box-shadow:var(--shadow)}
+.rail a.tab.add{border-radius:999px}
+.card,.kpi{border-color:transparent;box-shadow:var(--shadow)}
+.btn,.primary{border-radius:999px}
+.pchip.on{background:var(--text);color:var(--canvas);border-color:var(--text)}
+.askbar{display:flex;align-items:center;gap:10px;background:var(--surface);border:1.5px solid color-mix(in srgb,var(--accent) 30%,var(--line));
+  border-radius:var(--radius);padding:6px 6px 6px 12px;margin:0 0 18px;box-shadow:var(--shadow)}
+.askbar .mav,.brief .bav{flex:none;display:grid;place-items:center;border-radius:50%;font-weight:700;background:var(--accent);color:var(--on-accent)}
+.askbar .mav{width:32px;height:32px}
+.askbar input{flex:1;min-width:0;border:0;background:none;min-height:44px;padding:8px 4px;font-size:16px}
+.askbar input:focus-visible{outline:none}.askbar:focus-within{border-color:var(--accent)}
+.askbar .askkey{font:600 12px/1 ui-monospace,Menlo,Consolas,monospace;color:var(--text-2);border:1px solid var(--line);border-radius:6px;padding:5px 7px}
+.askbar .btn{min-height:40px;padding:8px 18px}
+.askbar .thinking{display:none}.askbar.htmx-request .thinking{display:inline}.askbar.htmx-request .askkey{display:none}
+.brief{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px;margin:0 0 18px}
+.brief .bsay{background:var(--hero);color:var(--hero-text);border-radius:var(--radius);padding:18px 22px;box-shadow:var(--shadow)}
+.brief .bwho{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-size:.87rem}
+.brief .bav{width:24px;height:24px;font-size:.8rem;background:var(--hero-text);color:var(--hero)}
+.brief .btext{font-size:1.3rem;line-height:1.5;margin:0 0 14px}
+.brief .btext b{font-weight:600;background:color-mix(in srgb,var(--hero-text) 16%,transparent);border-radius:6px;padding:0 4px}
+.brief .bacts{display:flex;flex-wrap:wrap;gap:8px}
+.brief .bact{display:inline-flex;align-items:center;min-height:40px;padding:6px 16px;border-radius:999px;border:0;font:inherit;font-weight:600;
+  font-size:.9rem;text-decoration:none;cursor:pointer;background:var(--hero-text);color:var(--hero)}
+.brief .bact.o{background:transparent;color:var(--hero-text);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--hero-text) 55%,transparent)}
+.brief .bact:focus-visible{outline:2px solid var(--hero-text);outline-offset:2px}
+.brief .bside{background:var(--surface);border-radius:var(--radius);padding:14px 16px;box-shadow:var(--shadow)}
+.brief .bside .kick{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 4px;font-size:.8rem;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--accent);font-family:inherit}
+.brief .bside .kick a{text-transform:none;letter-spacing:0;font-weight:500;font-size:.85rem;color:var(--link)}
+.brief .bside .keepup{padding:0;margin:0}
+.brief .bnote{margin:0;padding:8px 0;border-top:1px solid var(--line);font-size:.9rem;line-height:1.4}
+.brief .keepup+.bnote,.brief .bnote:first-of-type{border-top:1px solid var(--line)}
+.brief .kick+.bnote{border-top:0}
+@media (max-width:760px){
+  .askbar{margin:0 0 12px}.askbar .askkey{display:none}body.has-bnav .askbar{margin-right:52px}
+  .brief{grid-template-columns:1fr;gap:12px}.brief .btext{font-size:1.1rem}
+}
