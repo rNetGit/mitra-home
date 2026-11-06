@@ -20,16 +20,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
-  <meta name="theme-color" content="#F7F1E8">
+  <meta name="theme-color" content="#F3F4F6">
   
   <link rel="icon" href="static/icon.svg" type="image/svg+xml">
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.142.0">
-  <script src="static/vendor/htmx.min.js?v=0.142.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.144.0">
+  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
   
-  <script src="static/app.js?v=0.142.0" defer></script>
+  <script src="static/app.js?v=0.144.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.142.0</small>
+    <small class="ver">v0.144.0</small>
   </nav>
 
   <main>
@@ -96,15 +96,15 @@
 
 
 
-<p class="muted asof">Data as of: Cards and checking as of Nov 3 · savings and loans as of Oct 28</p>
+<p class="muted asof">Data as of: Cards and checking as of Nov 6 · savings and loans as of Nov 5</p>
 
 <section class="fhero g-over" aria-label="November 2026">
   <p class="kick">November 2026 · so far</p>
-  <p class="gbig">$3,148 <small>left</small></p>
+  <p class="gbig">$2,401 <small>left</small></p>
   <div class="gtiles">
     <div class="gtile"><small>In</small><b>$5,690</b></div>
-    <div class="gtile"><small>Spent</small><b>$2,542</b></div>
-    <div class="gtile"><small>Saved</small><b>$0</b></div>
+    <div class="gtile"><small>Spent</small><b>$2,789</b></div>
+    <div class="gtile"><small>Saved</small><b>$500</b></div>
     
   </div>
 </section>
@@ -112,7 +112,7 @@
 
 <div class="mo-sum">
   <a class="card mo-link" href="money_part_spending.html"><span class="muted">Spending</span>
-    <b>$2,542</b>
+    <b>$2,789</b>
     <small class="muted">November so far · October $4,821</small></a>
   <a class="card mo-link" href="money_part_paid.html"><span class="muted">Bills paid</span>
     <b>$142.18</b>
@@ -126,7 +126,7 @@
 
 <section class="card fneeds"><h2>Needs a look</h2>
   <ul class="rlist">
-    <li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">Internet $70.00 was due Nov 2</span><span class="rl-go" aria-hidden="true">›</span></a></li>
+    <li><a href="#" data-demo="1"><span class="dotm t-bad" aria-hidden="true"></span><span class="rl-t">Internet $70.00 was due Nov 4</span><span class="rl-go" aria-hidden="true">›</span></a></li>
   </ul>
 </section>
 
@@ -147,10 +147,7 @@
 
 </main>
 
-  <button type="button" class="helpbtn" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML"
-          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
   <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="finance" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
   <details class="bmore pme">

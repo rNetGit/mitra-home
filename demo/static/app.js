@@ -382,18 +382,17 @@
   document.addEventListener('DOMContentLoaded', function () { story(); });
   document.addEventListener('htmx:afterSettle', function () { story(); });
 
-  // Help panel: the "?" button loads the page's help into #helpp (htmx); close with the x, Esc or the button again.
+  // Help panel: "Help on this page" (profile menu) loads the page's help into #helpp (htmx); close with the x, Esc or the button again.
   function helpOpen(open) {
-    var p = document.getElementById('helpp'), b = document.querySelector('.helpbtn');
-    if (!p || !b) return;
+    var p = document.getElementById('helpp');
+    if (!p) return;
     p.hidden = !open;
     p.classList.toggle('open', open);
-    b.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (open) p.focus(); else b.focus();
+    if (open) p.focus();
   }
   document.addEventListener('htmx:beforeRequest', function (e) {
     var p = document.getElementById('helpp');
-    if (e.detail.elt && e.detail.elt.classList && e.detail.elt.classList.contains('helpbtn') && p && !p.hidden) {
+    if (e.detail.elt && e.detail.elt.classList && e.detail.elt.matches && e.detail.elt.matches('[hx-get^="/help/panel"]') && p && !p.hidden) {
       e.preventDefault();
       helpOpen(false);
     }
@@ -532,26 +531,6 @@
   document.addEventListener('keydown', function (e) {
     var p = document.getElementById('helpp');
     if (e.key === 'Escape' && p && !p.hidden) helpOpen(false);
-  });
-
-  // First visit: a one-line tip next to the "?" button, until "Got it" (every page) or that page's panel is opened.
-  function seenTips() { try { return JSON.parse(localStorage.getItem('help-tips') || '[]'); } catch (e) { return []; } }
-  function tipSeen(key) {
-    var seen = seenTips();
-    if (seen.indexOf(key) < 0) seen.push(key);
-    try { localStorage.setItem('help-tips', JSON.stringify(seen)); } catch (e) { /* private window: shows again */ }
-    var t = document.querySelector('.helptip');
-    if (t) t.hidden = true;
-  }
-  document.addEventListener('DOMContentLoaded', function () {
-    var t = document.querySelector('.helptip'), seen = seenTips();
-    if (t && seen.indexOf('*') < 0 && seen.indexOf(t.dataset.helpTip) < 0) t.hidden = false;
-  });
-  document.addEventListener('click', function (e) {
-    var t = document.querySelector('.helptip');
-    if (!t || !e.target.closest) return;
-    if (e.target.closest('[data-help-tip-close]')) tipSeen('*');  // "Got it": the tip has done its job everywhere
-    else if (e.target.closest('.helpbtn')) tipSeen(t.dataset.helpTip);
   });
 
   // Folded Settings cards: a link to #id inside one opens it, and the card a form was sent from stays open after the

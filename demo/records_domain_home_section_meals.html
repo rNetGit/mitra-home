@@ -20,16 +20,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
-  <meta name="theme-color" content="#F7F1E8">
+  <meta name="theme-color" content="#F3F4F6">
   
   <link rel="icon" href="static/icon.svg" type="image/svg+xml">
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.142.0">
-  <script src="static/vendor/htmx.min.js?v=0.142.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.144.0">
+  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
   
-  <script src="static/app.js?v=0.142.0" defer></script>
+  <script src="static/app.js?v=0.144.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.142.0</small>
+    <small class="ver">v0.144.0</small>
   </nav>
 
   <main>
@@ -113,7 +113,7 @@
 
 <form class="nform" hx-post="/records/add" hx-target="#radd-meal_plan" hx-swap="innerHTML" hx-vals='{"part": "home/meals", "table": "meal_plan"}'>
 
-  <label>Day<input name="day" type="date" min="2000-01-01" max="2100-12-31" required value="2026-11-04"></label>
+  <label>Day<input name="day" type="date" min="2000-01-01" max="2100-12-31" required value="2026-11-06"></label>
   <label>Meal<select name="slot"><option value="breakfast" >breakfast</option><option value="lunch" >lunch</option><option value="dinner" selected>dinner</option><option value="snack" >snack</option></select></label>
   <label>What (a recipe name or any text)<input name="what" maxlength="80" required value=""></label>
   <label>Note (optional)<input name="note" maxlength="200" value=""></label>
@@ -157,8 +157,8 @@
 
 <form class="nform" hx-post="/records/add" hx-target="#radd-meal_shop" hx-swap="innerHTML" hx-vals='{"part": "home/meals", "table": "meal_shop"}'>
 
-  <label>From<input name="start" type="date" min="2000-01-01" max="2100-12-31" value="2026-11-04"></label>
-  <label>To<input name="end" type="date" min="2000-01-01" max="2100-12-31" value="2026-11-10"></label>
+  <label>From<input name="start" type="date" min="2000-01-01" max="2100-12-31" value="2026-11-06"></label>
+  <label>To<input name="end" type="date" min="2000-01-01" max="2100-12-31" value="2026-11-12"></label>
   <label>Shopping list<input name="list_name" maxlength="60" value="Groceries"></label>
   <p class="muted small">Ingredients of the planned recipes, staples left out; a meal is only added once.</p>
 
@@ -174,41 +174,41 @@
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">C</span>
       <span class="rl-main"><span class="rl-t">Chicken enchiladas</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Nov 4</b></span>
+      <span class="rl-r"><b>Nov 6</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">T</span>
       <span class="rl-main"><span class="rl-t">Tacos</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Nov 5</b></span>
+      <span class="rl-r"><b>Nov 7</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">V</span>
       <span class="rl-main"><span class="rl-t">Veggie stir-fry</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Nov 6</b></span>
+      <span class="rl-r"><b>Nov 8</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">L</span>
       <span class="rl-main"><span class="rl-t">Leftovers</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Nov 7</b></span>
+      <span class="rl-r"><b>Nov 9</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">P</span>
       <span class="rl-main"><span class="rl-t">Pizza night</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Nov 8</b></span>
+      <span class="rl-r"><b>Nov 10</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Day</th><th>Slot</th><th>Meal</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Nov 4</a></td><td>dinner</td><td>Chicken enchiladas</td></tr><tr><td><a href="#" data-demo="1">Nov 5</a></td><td>dinner</td><td>Tacos</td></tr><tr><td><a href="#" data-demo="1">Nov 6</a></td><td>dinner</td><td>Veggie stir-fry</td></tr><tr><td><a href="#" data-demo="1">Nov 7</a></td><td>dinner</td><td>Leftovers</td></tr><tr><td><a href="#" data-demo="1">Nov 8</a></td><td>dinner</td><td>Pizza night</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Nov 6</a></td><td>dinner</td><td>Chicken enchiladas</td></tr><tr><td><a href="#" data-demo="1">Nov 7</a></td><td>dinner</td><td>Tacos</td></tr><tr><td><a href="#" data-demo="1">Nov 8</a></td><td>dinner</td><td>Veggie stir-fry</td></tr><tr><td><a href="#" data-demo="1">Nov 9</a></td><td>dinner</td><td>Leftovers</td></tr><tr><td><a href="#" data-demo="1">Nov 10</a></td><td>dinner</td><td>Pizza night</td></tr></tbody>
   </table></div>
   
 </section>
@@ -246,10 +246,7 @@
 
 </main>
 
-  <button type="button" class="helpbtn" hx-get="/help/panel?key=records:home:meals" hx-target="#helpp" hx-swap="innerHTML"
-          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
   <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="records" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
   <details class="bmore pme">

@@ -20,16 +20,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
-  <meta name="theme-color" content="#F7F1E8">
+  <meta name="theme-color" content="#F3F4F6">
   
   <link rel="icon" href="static/icon.svg" type="image/svg+xml">
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.142.0">
-  <script src="static/vendor/htmx.min.js?v=0.142.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.144.0">
+  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
   
-  <script src="static/app.js?v=0.142.0" defer></script>
+  <script src="static/app.js?v=0.144.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.142.0</small>
+    <small class="ver">v0.144.0</small>
   </nav>
 
   <main>
@@ -131,41 +131,41 @@
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">P</span>
       <span class="rl-main"><span class="rl-t">Passport</span><span class="rl-m">Marcus · 3381 · US Dept of State</span></span>
-      <span class="rl-r"><b>Jan 1, 2027</b></span>
+      <span class="rl-r"><b>Jan 3, 2027</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">D</span>
       <span class="rl-main"><span class="rl-t">Drivers license</span><span class="rl-m">Elena · 7720 · State DMV</span></span>
-      <span class="rl-r"><b>Dec 9, 2027</b></span>
+      <span class="rl-r"><b>Dec 11, 2027</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">D</span>
       <span class="rl-main"><span class="rl-t">Drivers license</span><span class="rl-m">Marcus · 2284 · State DMV</span></span>
-      <span class="rl-r"><b>Jul 6, 2028</b></span>
+      <span class="rl-r"><b>Jul 8, 2028</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">P</span>
       <span class="rl-main"><span class="rl-t">Passport</span><span class="rl-m">Sofia · 9902 · US Dept of State</span></span>
-      <span class="rl-r"><b>Apr 22, 2029</b></span>
+      <span class="rl-r"><b>Apr 24, 2029</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">P</span>
       <span class="rl-main"><span class="rl-t">Passport</span><span class="rl-m">Elena · 5106 · US Dept of State</span></span>
-      <span class="rl-r"><b>May 27, 2030</b></span>
+      <span class="rl-r"><b>May 29, 2030</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Person</th><th>Document</th><th>Expires</th><th>Last 4</th><th>Issuing authority</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Marcus</a></td><td>passport</td><td>Jan 1, 2027</td><td>3381</td><td>US Dept of State</td></tr><tr><td><a href="#" data-demo="1">Elena</a></td><td>drivers license</td><td>Dec 9, 2027</td><td>7720</td><td>State DMV</td></tr><tr><td><a href="#" data-demo="1">Marcus</a></td><td>drivers license</td><td>Jul 6, 2028</td><td>2284</td><td>State DMV</td></tr><tr><td><a href="#" data-demo="1">Sofia</a></td><td>passport</td><td>Apr 22, 2029</td><td>9902</td><td>US Dept of State</td></tr><tr><td><a href="#" data-demo="1">Elena</a></td><td>passport</td><td>May 27, 2030</td><td>5106</td><td>US Dept of State</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Marcus</a></td><td>passport</td><td>Jan 3, 2027</td><td>3381</td><td>US Dept of State</td></tr><tr><td><a href="#" data-demo="1">Elena</a></td><td>drivers license</td><td>Dec 11, 2027</td><td>7720</td><td>State DMV</td></tr><tr><td><a href="#" data-demo="1">Marcus</a></td><td>drivers license</td><td>Jul 8, 2028</td><td>2284</td><td>State DMV</td></tr><tr><td><a href="#" data-demo="1">Sofia</a></td><td>passport</td><td>Apr 24, 2029</td><td>9902</td><td>US Dept of State</td></tr><tr><td><a href="#" data-demo="1">Elena</a></td><td>passport</td><td>May 29, 2030</td><td>5106</td><td>US Dept of State</td></tr></tbody>
   </table></div>
   
 </section>
@@ -177,10 +177,7 @@
 
 </main>
 
-  <button type="button" class="helpbtn" hx-get="/help/panel?key=records:papers:ids" hx-target="#helpp" hx-swap="innerHTML"
-          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
   <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="records" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
   <details class="bmore pme">

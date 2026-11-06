@@ -20,16 +20,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
-  <meta name="theme-color" content="#F7F1E8">
+  <meta name="theme-color" content="#F3F4F6">
   
   <link rel="icon" href="static/icon.svg" type="image/svg+xml">
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.142.0">
-  <script src="static/vendor/htmx.min.js?v=0.142.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.144.0">
+  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
   
-  <script src="static/app.js?v=0.142.0" defer></script>
+  <script src="static/app.js?v=0.144.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.142.0</small>
+    <small class="ver">v0.144.0</small>
   </nav>
 
   <main>
@@ -118,7 +118,7 @@
     <i>58% of income</i></div>
   <div class="kpi"><span>Typical month</span><b>$4,633</b><i>last 6 months</i></div>
 </div>
-<p class="hint">Nov 2026 is still running: $5,690 in and $2,542 out so far. It joins the charts when the month ends.</p>
+<p class="hint">Nov 2026 is still running: $5,690 in and $2,789 out so far. It joins the charts when the month ends.</p>
 
 <div class="tgrid">
 <section class="card tflow"><h2>Each month</h2><p class="muted small">Only months with statements · May 2026 to Oct 2026</p>
@@ -165,14 +165,14 @@
   <ul class="fbars">
     <li class="t-n">
       <div class="fb-top"><span class="fb-l">Housing</span>
-        <span class="fb-v"><b>$15,050</b> · 50%</span></div>
+        <span class="fb-v"><b>$15,050</b> · 49%</span></div>
       <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="100.0" height="6" rx="3"/></svg>
       
     </li>
     <li class="t-n">
       <div class="fb-top"><span class="fb-l">Groceries</span>
-        <span class="fb-v"><b>$4,968</b> · 16%</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="33.0" height="6" rx="3"/></svg>
+        <span class="fb-v"><b>$5,185</b> · 17%</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="34.5" height="6" rx="3"/></svg>
       
     </li>
     <li class="t-n">
@@ -200,14 +200,14 @@
       
     </li>
     <li class="t-n">
-      <div class="fb-top"><span class="fb-l">Fuel</span>
-        <span class="fb-v"><b>$889</b> · 3%</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="5.9" height="6" rx="3"/></svg>
+      <div class="fb-top"><span class="fb-l">Dining</span>
+        <span class="fb-v"><b>$910</b> · 3%</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="6.0" height="6" rx="3"/></svg>
       
     </li>
     <li class="t-n">
-      <div class="fb-top"><span class="fb-l">Dining</span>
-        <span class="fb-v"><b>$881</b> · 3%</span></div>
+      <div class="fb-top"><span class="fb-l">Fuel</span>
+        <span class="fb-v"><b>$889</b> · 3%</span></div>
       <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="5.9" height="6" rx="3"/></svg>
       
     </li></ul>
@@ -220,7 +220,7 @@
 <section class="card"><h2>Month by month</h2>
   <ul class="rlist tmonths">
     <li><div><span class="rl-main"><span class="rl-t">Nov 2026 <span class="muted">(so far)</span></span>
-      <span class="rl-m">in $5,690 · out $2,542 · left $3,148</span></span>
+      <span class="rl-m">in $5,690 · out $2,789 · left $2,901</span></span>
       <span class="rl-r"></span></div></li>
   
     <li><div><span class="rl-main"><span class="rl-t">Oct 2026</span>
@@ -255,10 +255,7 @@
 
 </main>
 
-  <button type="button" class="helpbtn" hx-get="/help/panel?key=finance:trends" hx-target="#helpp" hx-swap="innerHTML"
-          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
   <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="finance" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
   <details class="bmore pme">
