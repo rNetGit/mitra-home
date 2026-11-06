@@ -20,16 +20,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
-  <meta name="theme-color" content="#F7F1E8">
+  <meta name="theme-color" content="#F3F4F6">
   
   <link rel="icon" href="static/icon.svg" type="image/svg+xml">
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.142.0">
-  <script src="static/vendor/htmx.min.js?v=0.142.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.144.0">
+  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
   
-  <script src="static/app.js?v=0.142.0" defer></script>
+  <script src="static/app.js?v=0.144.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.142.0</small>
+    <small class="ver">v0.144.0</small>
   </nav>
 
   <main>
@@ -131,17 +131,15 @@
   <section class="card" aria-label="Open on the bill list">
     <h2>Open on the bill list</h2>
     <ul class="rlist">
-      <li><div><span class="rl-main"><span class="rl-t">Brightwave</span><span class="rl-m bad">Was due Nov 2</span></span><span class="rl-r"><b>$70.00</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Brightwave</span><span class="rl-m bad">Was due Nov 4</span></span><span class="rl-r"><b>$70.00</b></span></div></li>
     
-      <li><div><span class="rl-main"><span class="rl-t">City Water &amp; Power</span><span class="rl-m">Due Nov 8</span></span><span class="rl-r"><b>$142.18</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">City Water &amp; Power</span><span class="rl-m">Due Nov 10</span></span><span class="rl-r"><b>$142.18</b></span></div></li>
     
-      <li><div><span class="rl-main"><span class="rl-t">Northstar Mobile</span><span class="rl-m">Due Nov 13</span></span><span class="rl-r"><b>$118.40</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Northstar Mobile</span><span class="rl-m">Due Nov 15</span></span><span class="rl-r"><b>$118.40</b></span></div></li>
     
-      <li><div><span class="rl-main"><span class="rl-t">Maple Home Lending</span><span class="rl-m">Due Nov 16</span></span><span class="rl-r"><b>$2,150.00</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Maple Home Lending</span><span class="rl-m">Due Nov 18</span></span><span class="rl-r"><b>$2,150.00</b></span></div></li>
     
-      <li><div><span class="rl-main"><span class="rl-t">Lakeside Mutual</span><span class="rl-m">Due Nov 19</span></span><span class="rl-r"><b>$224.00</b></span></div></li>
-    
-      <li><div><span class="rl-main"><span class="rl-t">Sangamon County</span><span class="rl-m">Due Nov 30</span></span><span class="rl-r"><b>$1,840.00</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Lakeside Mutual</span><span class="rl-m">Due Nov 21</span></span><span class="rl-r"><b>$224.00</b></span></div></li>
     </ul>
     <p class="muted small">Bills are utilities, phone, internet, insurance, rent or mortgage and loan payments, as in the Ledger's Bills paid. <a href="money_part_bills.html">Mark one paid on the bill list</a>.</p>
   </section>
@@ -150,10 +148,7 @@
 
 </main>
 
-  <button type="button" class="helpbtn" hx-get="/help/panel?key=finance:paid" hx-target="#helpp" hx-swap="innerHTML"
-          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
   <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="finance" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
   <details class="bmore pme">

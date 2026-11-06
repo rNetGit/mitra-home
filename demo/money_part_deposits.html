@@ -20,16 +20,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
-  <meta name="theme-color" content="#F7F1E8">
+  <meta name="theme-color" content="#F3F4F6">
   
   <link rel="icon" href="static/icon.svg" type="image/svg+xml">
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.142.0">
-  <script src="static/vendor/htmx.min.js?v=0.142.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.144.0">
+  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
   
-  <script src="static/app.js?v=0.142.0" defer></script>
+  <script src="static/app.js?v=0.144.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.142.0</small>
+    <small class="ver">v0.144.0</small>
   </nav>
 
   <main>
@@ -119,7 +119,7 @@
 
 
 <details class="card rblock merch fold" open>
-  <summary><h2>Where deposits come from <span class="muted">2</span></h2></summary>
+  <summary><h2>Where deposits come from <span class="muted">3</span></h2></summary>
   <p class="muted small">Only pay and interest count as income. Say once what a source is (money back from TreasuryDirect or a brokerage, your own money moved, a refund) and every deposit from it, now and later, follows. The text to match can be shortened.</p>
   <datalist id="merch-cats"><option value="auto loan"><option value="car care"><option value="card payment"><option value="cash withdrawal"><option value="debit card purchase"><option value="debit card recurring"><option value="dining"><option value="fitness"><option value="fuel"><option value="general merchandise"><option value="groceries"><option value="healthcare"><option value="home improvement"><option value="housing"><option value="insurance"><option value="interest"><option value="international transfers"><option value="investing"><option value="kids activities"><option value="medical"><option value="pets"><option value="pharmacy"><option value="restaurant"><option value="salary"><option value="shopping"><option value="subscriptions"><option value="tax"><option value="tax refund"><option value="taxis &amp; coach"><option value="tolls"><option value="transfer"><option value="transit"><option value="utilities"><option value="wholesale stores"></datalist>
   <ul class="merchlist">
@@ -138,6 +138,15 @@
       <label class="vh" for="dp2">Text to match</label><input id="dp2" name="pattern" maxlength="60" required value="SPRINGFIELD SCHOOLS PAYROLL">
       <label class="vh" for="dk2">What it is</label><select id="dk2" name="kind" required><option value="income" selected>Income (pay, salary)</option><option value="interest" >Interest</option><option value="transfer" >Own money moved between accounts</option><option value="investment_transfer" >Money back from investments (TreasuryDirect, brokerage)</option><option value="tax" >Tax refund</option><option value="spend" >Refund (lowers spending)</option></select>
       <label class="vh" for="dc2">Category (optional)</label><input id="dc2" name="category" maxlength="40" list="merch-cats" placeholder="Category (optional)" value="salary">
+      <button class="btn" type="submit">Remember</button>
+    </form></li>
+  
+    <li><form class="merchrow dep" hx-post="/money/rule" hx-disabled-elt="find button">
+      <input type="hidden" name="back" value="deposits"><input type="hidden" name="from" value="2026-11"><input type="hidden" name="to" value="2026-11"><input type="hidden" name="q" value="">
+      <span class="mr-info"><b>TRANSFER FROM CHECKING</b><span class="muted small">1 deposit · $500 · <span class="chip-s t-n">transfer</span></span></span>
+      <label class="vh" for="dp3">Text to match</label><input id="dp3" name="pattern" maxlength="60" required value="TRANSFER FROM CHECKING">
+      <label class="vh" for="dk3">What it is</label><select id="dk3" name="kind" required><option value="income" >Income (pay, salary)</option><option value="interest" >Interest</option><option value="transfer" selected>Own money moved between accounts</option><option value="investment_transfer" >Money back from investments (TreasuryDirect, brokerage)</option><option value="tax" >Tax refund</option><option value="spend" >Refund (lowers spending)</option></select>
+      <label class="vh" for="dc3">Category (optional)</label><input id="dc3" name="category" maxlength="40" list="merch-cats" placeholder="Category (optional)" value="transfer">
       <button class="btn" type="submit">Remember</button>
     </form></li>
   </ul>
@@ -160,10 +169,7 @@
 <dialog id="txn-dialog" class="txndlg" aria-labelledby="txn-title"><div id="txn-body"></div></dialog>
 </main>
 
-  <button type="button" class="helpbtn" hx-get="/help/panel?key=finance:deposits" hx-target="#helpp" hx-swap="innerHTML"
-          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
   <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="finance" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
   <details class="bmore pme">

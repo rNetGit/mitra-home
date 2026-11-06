@@ -20,16 +20,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
   <meta name="csrf-token" content="demo">
-  <meta name="theme-color" content="#F7F1E8">
+  <meta name="theme-color" content="#F3F4F6">
   
   <link rel="icon" href="static/icon.svg" type="image/svg+xml">
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.142.0">
-  <script src="static/vendor/htmx.min.js?v=0.142.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.144.0">
+  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
   
-  <script src="static/app.js?v=0.142.0" defer></script>
+  <script src="static/app.js?v=0.144.0" defer></script>
   <title>Wallet · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.142.0</small>
+    <small class="ver">v0.144.0</small>
   </nav>
 
   <main>
@@ -139,7 +139,7 @@
   <label>Last 4 (any other card)<input name="number_last4" maxlength="4" value="3456" autocomplete="off"></label>
   <label>Where the number is (optional)<input name="where_hint" maxlength="120" value="" placeholder="back, under the barcode"></label>
   <label>Details (optional)<input name="details" maxlength="300" value="" placeholder="Wi-Fi name, trash day, filter size"></label>
-  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2026-12-14"></label>
+  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2026-12-16"></label>
           <button class="btn" type="submit">Save card</button>
         </form>
         <form class="nform" hx-post="/wallet/card" hx-vals='{"id": 2, "op": "drop"}'>
@@ -157,7 +157,7 @@
           <span class="wtt"><b>Springfield Public Library</b><small>Sofia · Springfield Library</small></span>
           <span class="wnum">2991 1004 417</span>
           
-          <span class="wfoot"><span></span><span class="wpill w-ok">Aug 2027</span></span>
+          <span class="wfoot"><span></span><span class="wpill w-ok">Sep 2027</span></span>
         </summary>
         <div class="wback">
           <p class="whint"><b>Where's the number?</b> Card number: back of the card, under the barcode.</p>
@@ -176,7 +176,7 @@
   <label>Last 4 (any other card)<input name="number_last4" maxlength="4" value="4417" autocomplete="off"></label>
   <label>Where the number is (optional)<input name="where_hint" maxlength="120" value="" placeholder="back, under the barcode"></label>
   <label>Details (optional)<input name="details" maxlength="300" value="" placeholder="Wi-Fi name, trash day, filter size"></label>
-  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2027-08-31"></label>
+  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2027-09-02"></label>
           <button class="btn" type="submit">Save card</button>
         </form>
         <form class="nform" hx-post="/wallet/card" hx-vals='{"id": 1, "op": "drop"}'>
@@ -220,10 +220,7 @@
 <p class="muted small wref">Reference copies, not official IDs. Tap a card to see where its number is.</p>
 </main>
 
-  <button type="button" class="helpbtn" hx-get="/help/panel?key=wallet" hx-target="#helpp" hx-swap="innerHTML"
-          aria-controls="helpp" aria-expanded="false" title="How do I add or change things here?" aria-label="Help for this page">?</button>
   <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
-  <p class="helptip" data-help-tip="wallet" hidden role="status">New here? <span class="tip-wide">Press <b>?</b></span><span class="tip-narrow">Tap your picture (top right), then <b>Help on this page</b></span> to see how to add and change things on this page. <button type="button" class="linkbtn" data-help-tip-close>Got it</button></p>
 
 
   <details class="bmore pme">
