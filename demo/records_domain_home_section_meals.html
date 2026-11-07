@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.144.0">
-  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.146.1">
+  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
   
-  <script src="static/app.js?v=0.144.0" defer></script>
+  <script src="static/app.js?v=0.146.1" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.144.0</small>
+    <small class="ver">v0.146.1</small>
   </nav>
 
   <main>
@@ -111,9 +111,9 @@
 
 
 
-<form class="nform" hx-post="/records/add" hx-target="#radd-meal_plan" hx-swap="innerHTML" hx-vals='{"part": "home/meals", "table": "meal_plan"}'>
+<form class="nform" hx-post="/records/add" hx-target="#radd-meal_plan" hx-swap="innerHTML" hx-vals='{"back": null, "part": "home/meals", "table": "meal_plan"}'>
 
-  <label>Day<input name="day" type="date" min="2000-01-01" max="2100-12-31" required value="2026-11-06"></label>
+  <label>Day<input name="day" type="date" min="2000-01-01" max="2100-12-31" required value="2026-11-07"></label>
   <label>Meal<select name="slot"><option value="breakfast" >breakfast</option><option value="lunch" >lunch</option><option value="dinner" selected>dinner</option><option value="snack" >snack</option></select></label>
   <label>What (a recipe name or any text)<input name="what" maxlength="80" required value=""></label>
   <label>Note (optional)<input name="note" maxlength="200" value=""></label>
@@ -135,7 +135,7 @@
 <p class="muted small">Reads the recipe most recipe sites include in the page (no AI). Needs Look things up online on
   (Family &gt; House). Check what it filled in below, then Add.</p>
 
-<form class="nform" hx-post="/records/add" hx-target="#radd-recipes" hx-swap="innerHTML" hx-vals='{"part": "home/meals", "table": "recipes"}'>
+<form class="nform" hx-post="/records/add" hx-target="#radd-recipes" hx-swap="innerHTML" hx-vals='{"back": null, "part": "home/meals", "table": "recipes"}'>
 
   <label>Name<input name="name" maxlength="80" required value=""></label>
   <label>Ingredients, one per line<textarea name="ingredients" rows="6" maxlength="6000"></textarea></label>
@@ -155,16 +155,25 @@
 
 
 
-<form class="nform" hx-post="/records/add" hx-target="#radd-meal_shop" hx-swap="innerHTML" hx-vals='{"part": "home/meals", "table": "meal_shop"}'>
+<form class="nform" hx-post="/records/add" hx-target="#radd-meal_shop" hx-swap="innerHTML" hx-vals='{"back": null, "part": "home/meals", "table": "meal_shop"}'>
 
-  <label>From<input name="start" type="date" min="2000-01-01" max="2100-12-31" value="2026-11-06"></label>
-  <label>To<input name="end" type="date" min="2000-01-01" max="2100-12-31" value="2026-11-12"></label>
+  <label>From<input name="start" type="date" min="2000-01-01" max="2100-12-31" value="2026-11-07"></label>
+  <label>To<input name="end" type="date" min="2000-01-01" max="2100-12-31" value="2026-11-13"></label>
   <label>Shopping list<input name="list_name" maxlength="60" value="Groceries"></label>
   <p class="muted small">Ingredients of the planned recipes, staples left out; a meal is only added once.</p>
 
   <button class="btn" type="submit">Put them on the list</button>
 </form></div>
 </details>
+
+
+<form class="rsearch card" action="/records" method="get" role="search">
+  <input type="hidden" name="domain" value="home"><input type="hidden" name="section" value="meals">
+  <label class="vh" for="rf">Filter this list</label>
+  <input id="rf" type="search" name="f" value="" maxlength="80" placeholder="Filter this list: vendor, type, date, words in notes or file name">
+  <button class="btn" type="submit">Filter</button>
+</form>
+
 
 
 
@@ -174,41 +183,41 @@
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">C</span>
       <span class="rl-main"><span class="rl-t">Chicken enchiladas</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Nov 6</b></span>
+      <span class="rl-r"><b>Nov 7</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">T</span>
       <span class="rl-main"><span class="rl-t">Tacos</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Nov 7</b></span>
+      <span class="rl-r"><b>Nov 8</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">V</span>
       <span class="rl-main"><span class="rl-t">Veggie stir-fry</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Nov 8</b></span>
+      <span class="rl-r"><b>Nov 9</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">L</span>
       <span class="rl-main"><span class="rl-t">Leftovers</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Nov 9</b></span>
+      <span class="rl-r"><b>Nov 10</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">P</span>
       <span class="rl-main"><span class="rl-t">Pizza night</span><span class="rl-m">dinner</span></span>
-      <span class="rl-r"><b>Nov 10</b></span>
+      <span class="rl-r"><b>Nov 11</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Day</th><th>Slot</th><th>Meal</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Nov 6</a></td><td>dinner</td><td>Chicken enchiladas</td></tr><tr><td><a href="#" data-demo="1">Nov 7</a></td><td>dinner</td><td>Tacos</td></tr><tr><td><a href="#" data-demo="1">Nov 8</a></td><td>dinner</td><td>Veggie stir-fry</td></tr><tr><td><a href="#" data-demo="1">Nov 9</a></td><td>dinner</td><td>Leftovers</td></tr><tr><td><a href="#" data-demo="1">Nov 10</a></td><td>dinner</td><td>Pizza night</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Nov 7</a></td><td>dinner</td><td>Chicken enchiladas</td></tr><tr><td><a href="#" data-demo="1">Nov 8</a></td><td>dinner</td><td>Tacos</td></tr><tr><td><a href="#" data-demo="1">Nov 9</a></td><td>dinner</td><td>Veggie stir-fry</td></tr><tr><td><a href="#" data-demo="1">Nov 10</a></td><td>dinner</td><td>Leftovers</td></tr><tr><td><a href="#" data-demo="1">Nov 11</a></td><td>dinner</td><td>Pizza night</td></tr></tbody>
   </table></div>
   
 </section>
@@ -282,5 +291,6 @@
     
   </nav>
 
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
 </body>
 </html>

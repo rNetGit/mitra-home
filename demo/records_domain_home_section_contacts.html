@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.144.0">
-  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.146.1">
+  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
   
-  <script src="static/app.js?v=0.144.0" defer></script>
+  <script src="static/app.js?v=0.146.1" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.144.0</small>
+    <small class="ver">v0.146.1</small>
   </nav>
 
   <main>
@@ -111,7 +111,7 @@
 
 
 
-<form class="nform" hx-post="/records/add" hx-target="#radd-home_contacts" hx-swap="innerHTML" hx-vals='{"part": "home/contacts", "table": "home_contacts"}'>
+<form class="nform" hx-post="/records/add" hx-target="#radd-home_contacts" hx-swap="innerHTML" hx-vals='{"back": null, "part": "home/contacts", "table": "home_contacts"}'>
 
     <label>Name<input name="name" maxlength="80" required placeholder="Acme Plumbing" value=""></label>
   <label>Kind of work<select name="trade"><option value="plumbing" >Plumbing</option><option value="electrical" >Electrical</option><option value="heating_cooling" >Heating and cooling (furnace, AC)</option><option value="garage_door" >Garage door</option><option value="auto" >Car repair</option><option value="appliance" >Appliance repair</option><option value="roofing" >Roofing</option><option value="handyman" >Handyman</option><option value="landscaping" >Lawn and garden</option><option value="pest" >Pest control</option><option value="cleaning" >Cleaning</option><option value="painting" >Painting</option><option value="locksmith" >Locksmith</option><option value="pool" >Pool and spa</option><option value="other" >Other</option></select></label>
@@ -130,6 +130,7 @@
 
 
 
+
 <section class="card rblock"><h2>Plumbers, furnace, garage and other help <span class="muted rcount">2</span></h2>
   
   <ul class="rlist fl-phone">
@@ -142,14 +143,14 @@
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">A</span>
-      <span class="rl-main"><span class="rl-t">Ace Plumbing</span><span class="rl-m">plumbing · (217) 555-0142 · Last job Aug 8 · Rating 5</span></span>
+      <span class="rl-main"><span class="rl-t">Ace Plumbing</span><span class="rl-m">plumbing · (217) 555-0142 · Last job Aug 9 · Rating 5</span></span>
       <span class="rl-r"><span class="chip-s t-n">yes</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Name</th><th>Kind</th><th>Phone</th><th>Last job</th><th>Use again</th><th>Rating</th><th>Notes</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Prairie Heating &amp; Air</a></td><td>heating cooling</td><td>(217) 555-0199</td><td></td><td>yes</td><td>4</td><td></td></tr><tr><td><a href="#" data-demo="1">Ace Plumbing</a></td><td>plumbing</td><td>(217) 555-0142</td><td>Aug 8</td><td>yes</td><td>5</td><td></td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Prairie Heating &amp; Air</a></td><td>heating cooling</td><td>(217) 555-0199</td><td></td><td>yes</td><td>4</td><td></td></tr><tr><td><a href="#" data-demo="1">Ace Plumbing</a></td><td>plumbing</td><td>(217) 555-0142</td><td>Aug 9</td><td>yes</td><td>5</td><td></td></tr></tbody>
   </table></div>
   
 </section>
@@ -197,5 +198,6 @@
     
   </nav>
 
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
 </body>
 </html>

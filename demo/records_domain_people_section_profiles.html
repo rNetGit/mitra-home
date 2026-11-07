@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.144.0">
-  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.146.1">
+  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
   
-  <script src="static/app.js?v=0.144.0" defer></script>
+  <script src="static/app.js?v=0.146.1" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.144.0</small>
+    <small class="ver">v0.146.1</small>
   </nav>
 
   <main>
@@ -111,7 +111,7 @@
 
 
 
-<form class="nform" hx-post="/records/add" hx-target="#radd-member_info" hx-swap="innerHTML" hx-vals='{"part": "people/profiles", "table": "member_info"}'>
+<form class="nform" hx-post="/records/add" hx-target="#radd-member_info" hx-swap="innerHTML" hx-vals='{"back": null, "part": "people/profiles", "table": "member_info"}'>
 
   <label>For<select name="who" required><option value="">pick</option><option value="Marcus" >Marcus</option><option value="Elena" >Elena</option><option value="Sofia" >Sofia</option><option value="Mateo" >Mateo</option><option value="Pancho" >Pancho</option></select></label>
   <label>Kind<select name="category"><option value="emergency" >Emergency contacts</option><option value="medical" >Medical</option><option value="school" >School and care</option><option value="other" >Other</option></select></label>
@@ -126,26 +126,27 @@
 
 
 
+
 <section class="card rblock"><h2>Emergency, medical and school facts <span class="muted rcount">2</span></h2>
   
   <ul class="rlist fl-phone">
     <li><a href="#" data-demo="1">
       <span class="rl-av t-ok" aria-hidden="true">A</span>
-      <span class="rl-main"><span class="rl-t">Allergy</span><span class="rl-m">Mateo · medical · Peanuts: carries an EpiPen · Confirmed Oct 7</span></span>
+      <span class="rl-main"><span class="rl-t">Allergy</span><span class="rl-m">Mateo · medical · Peanuts: carries an EpiPen · Confirmed Oct 8</span></span>
       <span class="rl-r"><span class="chip-s t-ok">ok</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-ok" aria-hidden="true">S</span>
-      <span class="rl-main"><span class="rl-t">School nurse</span><span class="rl-m">Sofia · emergency · Lincoln Middle, ext. 214 · Confirmed Sep 7</span></span>
+      <span class="rl-main"><span class="rl-t">School nurse</span><span class="rl-m">Sofia · emergency · Lincoln Middle, ext. 214 · Confirmed Sep 8</span></span>
       <span class="rl-r"><span class="chip-s t-ok">ok</span></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Who</th><th>Category</th><th>Label</th><th>Value</th><th>Confirmed</th><th>Status</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Mateo</a></td><td>medical</td><td>Allergy</td><td>Peanuts: carries an EpiPen</td><td>Oct 7</td><td>ok</td></tr><tr><td><a href="#" data-demo="1">Sofia</a></td><td>emergency</td><td>School nurse</td><td>Lincoln Middle, ext. 214</td><td>Sep 7</td><td>ok</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Mateo</a></td><td>medical</td><td>Allergy</td><td>Peanuts: carries an EpiPen</td><td>Oct 8</td><td>ok</td></tr><tr><td><a href="#" data-demo="1">Sofia</a></td><td>emergency</td><td>School nurse</td><td>Lincoln Middle, ext. 214</td><td>Sep 8</td><td>ok</td></tr></tbody>
   </table></div>
   
 </section>
@@ -193,5 +194,6 @@
     
   </nav>
 
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
 </body>
 </html>

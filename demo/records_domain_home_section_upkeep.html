@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.144.0">
-  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.146.1">
+  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
   
-  <script src="static/app.js?v=0.144.0" defer></script>
+  <script src="static/app.js?v=0.146.1" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.144.0</small>
+    <small class="ver">v0.146.1</small>
   </nav>
 
   <main>
@@ -103,6 +103,15 @@
 
 <div class="kpis rk"><div class="kpi"><span>Upkeep jobs</span><b>7</b></div><div class="kpi"><span>Things at home</span><b>1</b></div><div class="kpi"><span>Service contacts</span><b>2</b></div><div class="kpi"><span>Recipes</span><b>2</b></div></div>
 
+
+
+
+<form class="rsearch card" action="/records" method="get" role="search">
+  <input type="hidden" name="domain" value="home"><input type="hidden" name="section" value="upkeep">
+  <label class="vh" for="rf">Filter this list</label>
+  <input id="rf" type="search" name="f" value="" maxlength="80" placeholder="Filter this list: vendor, type, date, words in notes or file name">
+  <button class="btn" type="submit">Filter</button>
+</form>
 
 
 
@@ -221,5 +230,6 @@
     
   </nav>
 
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
 </body>
 </html>

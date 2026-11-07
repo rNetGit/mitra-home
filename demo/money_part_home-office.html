@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.144.0">
-  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.146.1">
+  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
   
-  <script src="static/app.js?v=0.144.0" defer></script>
+  <script src="static/app.js?v=0.146.1" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.144.0</small>
+    <small class="ver">v0.146.1</small>
   </nav>
 
   <main>
@@ -118,7 +118,7 @@
 
 
 
-<form class="nform" hx-post="/records/add" hx-target="#radd-home_office_profile" hx-swap="innerHTML" hx-vals='{"part": "money/home_office", "table": "home_office_profile"}'>
+<form class="nform" hx-post="/records/add" hx-target="#radd-home_office_profile" hx-swap="innerHTML" hx-vals='{"back": "", "part": "money/home_office", "table": "home_office_profile"}'>
 
   
   <label>For<select name="who" required><option value="">pick</option><option value="Marcus" >Marcus</option><option value="Elena" >Elena</option><option value="Sofia" >Sofia</option><option value="Mateo" >Mateo</option><option value="Pancho" >Pancho</option></select></label>
@@ -196,5 +196,6 @@
     
   </nav>
 
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
 </body>
 </html>

@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.144.0">
-  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.146.1">
+  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
   
-  <script src="static/app.js?v=0.144.0" defer></script>
+  <script src="static/app.js?v=0.146.1" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.144.0</small>
+    <small class="ver">v0.146.1</small>
   </nav>
 
   <main>
@@ -100,7 +100,7 @@
 
 
 
-<form class="rsearch ffilter frange fledger" action="/money" method="get" role="search" data-ledger data-today="2026-11-06">
+<form class="rsearch ffilter frange fledger" action="/money" method="get" role="search" data-ledger data-today="2026-11-07">
   <input type="hidden" name="part" value="ledger">
   <label class="fsel"><span>Period</span><select name="period" data-period><option value="week" >This week</option><option value="month" selected>This month</option><option value="year" >This year</option><option value="custom" >Custom dates</option></select></label>
   <label class="fsel"><span>From</span><input type="date" name="from" value="2026-11-01" required></label>
@@ -130,9 +130,9 @@
 <div class="lgrid">
   
   <details class="lside" open data-lside aria-label="Summary">
-    <summary class="lside-sum"><b>Summary</b><span class="lmini">Income $5,690.00</span><span class="lmini">Spending $2,788.58</span><span class="lmini">Left over $2,901.42</span></summary>
+    <summary class="lside-sum"><b>Summary</b><span class="lmini">Income $5,690.00</span><span class="lmini">Spending $2,932.10</span><span class="lmini">Left over $2,757.90</span></summary>
     
-<div class="kpis rk"><div class="kpi"><span>Income</span><b >$5,690.00</b><i>pay and interest</i></div><div class="kpi"><span>Spending</span><b >$2,788.58</b><i>10 charges</i></div><div class="kpi"><span>Left over</span><b class="good">$2,901.42</b><i>income less spending</i></div><div class="kpi"><span>Bills paid</span><b >$142.18</b><i>part of spending</i></div><div class="kpi"><span>Invested</span><b >$0.00</b><i>set aside</i></div><div class="kpi"><span>Between your accounts</span><b >$500.00</b><i>matched, nets to $0</i></div><div class="kpi"><span>Card payments</span><b >$0.00</b><i>$0.00 matched</i></div><div class="kpi"><span>Lines</span><b >14</b></div></div>
+<div class="kpis rk"><div class="kpi"><span>Income</span><b >$5,690.00</b><i>pay and interest</i></div><div class="kpi"><span>Spending</span><b >$2,932.10</b><i>13 charges</i></div><div class="kpi"><span>Left over</span><b class="good">$2,757.90</b><i>income less spending</i></div><div class="kpi"><span>Bills paid</span><b >$142.18</b><i>part of spending</i></div><div class="kpi"><span>Invested</span><b >$0.00</b><i>set aside</i></div><div class="kpi"><span>Between your accounts</span><b >$500.00</b><i>matched, nets to $0</i></div><div class="kpi"><span>Card payments</span><b >$0.00</b><i>$0.00 matched</i></div><div class="kpi"><span>Lines</span><b >17</b></div></div>
 
     
 
@@ -146,12 +146,12 @@
     <details class="card rblock fold lsum">
       <summary><h2>How the tiles add up</h2></summary>
       <table class="lsumt"><thead><tr><th>Kind of line</th><th class="num">In</th><th class="num">Out</th></tr></thead>
-        <tbody><tr><td>Income</td><td class="num">$5,690.00</td><td class="num"></td></tr><tr><td>Spending</td><td class="num"></td><td class="num">-$2,788.58</td></tr><tr><td>Between your accounts</td><td class="num">$500.00</td><td class="num">-$500.00</td></tr></tbody>
-        <tfoot><tr><th>Every line</th><th class="num">$6,190.00</th><th class="num">-$3,288.58</th></tr></tfoot></table>
+        <tbody><tr><td>Income</td><td class="num">$5,690.00</td><td class="num"></td></tr><tr><td>Spending</td><td class="num"></td><td class="num">-$2,932.10</td></tr><tr><td>Between your accounts</td><td class="num">$500.00</td><td class="num">-$500.00</td></tr></tbody>
+        <tfoot><tr><th>Every line</th><th class="num">$6,190.00</th><th class="num">-$3,432.10</th></tr></tfoot></table>
     </details>
     
 
-<details class="card rblock fold"><summary><h2>By card member <span class="muted">3</span></h2></summary>
+<details class="card rblock fold"><summary><h2>By card member <span class="muted">4</span></h2></summary>
   
   <ul class="rlist fl-phone">
     <li><div>
@@ -163,7 +163,7 @@
     <li><div>
       <span class="rl-av t-n" aria-hidden="true">M</span>
       <span class="rl-main"><span class="rl-t">MARCUS RIVERA</span></span>
-      <span class="rl-r"><b>$365.14</b></span>
+      <span class="rl-r"><b>$460.78</b></span>
     </div></li>
   
     <li><div>
@@ -171,10 +171,16 @@
       <span class="rl-main"><span class="rl-t">ELENA RIVERA</span></span>
       <span class="rl-r"><b>$131.26</b></span>
     </div></li>
+  
+    <li><div>
+      <span class="rl-av t-n" aria-hidden="true">S</span>
+      <span class="rl-main"><span class="rl-t">SOFIA RIVERA</span></span>
+      <span class="rl-r"><b>$47.88</b></span>
+    </div></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Card member</th><th class="num">Spent</th></tr></thead>
-    <tbody><tr><td>Not named</td><td class="num">$2,292.18</td></tr><tr><td>MARCUS RIVERA</td><td class="num">$365.14</td></tr><tr><td>ELENA RIVERA</td><td class="num">$131.26</td></tr></tbody>
+    <tbody><tr><td>Not named</td><td class="num">$2,292.18</td></tr><tr><td>MARCUS RIVERA</td><td class="num">$460.78</td></tr><tr><td>ELENA RIVERA</td><td class="num">$131.26</td></tr><tr><td>SOFIA RIVERA</td><td class="num">$47.88</td></tr></tbody>
   </table></div>
   
 </details>
@@ -187,13 +193,64 @@
     
 
 
-<nav class="fchips wrap lchips" aria-label="Kind of line"><a href="#" data-demo="1" class="on" aria-current="true">All <span class="muted">14</span></a><a href="#" data-demo="1" >Spending <span class="muted">9 · -$2,646.40</span></a><a href="#" data-demo="1" >Income <span class="muted">2 · $5,690.00</span></a><a href="#" data-demo="1" >Transfers <span class="muted">2 · $0.00</span></a><a href="#" data-demo="1" >Utilities <span class="muted">1 · -$142.18</span></a></nav>
+<nav class="fchips wrap lchips" aria-label="Kind of line"><a href="#" data-demo="1" class="on" aria-current="true">All <span class="muted">17</span></a><a href="#" data-demo="1" >Spending <span class="muted">12 · -$2,789.92</span></a><a href="#" data-demo="1" >Income <span class="muted">2 · $5,690.00</span></a><a href="#" data-demo="1" >Transfers <span class="muted">2 · $0.00</span></a><a href="#" data-demo="1" >Utilities <span class="muted">1 · -$142.18</span></a></nav>
 <section class="card rblock">
-  <h2>Transactions <span class="muted">14</span></h2>
+  <h2>Transactions <span class="muted">17</span></h2>
   <p class="muted small">Negative = money out. Open a description to see the line in full; Edit changes only the category and type. A line you edit stays as you set it.</p>
   
   <datalist id="ledger-cats"><option value="auto loan"><option value="card payment"><option value="dining"><option value="fitness"><option value="fuel"><option value="general merchandise"><option value="groceries"><option value="healthcare"><option value="housing"><option value="insurance"><option value="interest"><option value="kids activities"><option value="pets"><option value="salary"><option value="shopping"><option value="subscriptions"><option value="transfer"><option value="utilities"></datalist>
   <ul class="rlist fl-phone">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/267?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-main"><span class="rl-t">BRIGHTMART</span><span class="rl-m">Nov 7 · Summit Rewards Card x3344 · SOFIA RIVERA · general merchandise · Spending</span></span>
+      <span class="rl-r"><b>-$47.88</b></span></a>
+      
+<details class="lded">
+  <summary>Edit</summary>
+  <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
+    <input type="hidden" name="id" value="267">
+    <input type="hidden" name="from" value="2026-11-01"><input type="hidden" name="to" value="2026-11-30"><input type="hidden" name="page" value="1">
+    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="general merchandise" placeholder="Uncategorized"></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
+    <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
+    <button class="btn" type="submit">Save</button>
+  </form>
+</details>
+</li>
+  
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/266?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-main"><span class="rl-t">QUICKFUEL #221</span><span class="rl-m">Nov 7 · Northway Visa x1209 · MARCUS RIVERA · fuel · Spending</span></span>
+      <span class="rl-r"><b>-$38.64</b></span></a>
+      
+<details class="lded">
+  <summary>Edit</summary>
+  <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
+    <input type="hidden" name="id" value="266">
+    <input type="hidden" name="from" value="2026-11-01"><input type="hidden" name="to" value="2026-11-30"><input type="hidden" name="page" value="1">
+    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="fuel" placeholder="Uncategorized"></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
+    <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
+    <button class="btn" type="submit">Save</button>
+  </form>
+</details>
+</li>
+  
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/265?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-main"><span class="rl-t">QUICKFUEL #221</span><span class="rl-m">Nov 7 · Northway Visa x1209 · MARCUS RIVERA · fuel · Spending</span></span>
+      <span class="rl-r"><b>-$57.00</b></span></a>
+      
+<details class="lded">
+  <summary>Edit</summary>
+  <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
+    <input type="hidden" name="id" value="265">
+    <input type="hidden" name="from" value="2026-11-01"><input type="hidden" name="to" value="2026-11-30"><input type="hidden" name="page" value="1">
+    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="fuel" placeholder="Uncategorized"></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
+    <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
+    <button class="btn" type="submit">Save</button>
+  </form>
+</details>
+</li>
+  
     <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/260?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">FRESHFIELD MARKET</span><span class="rl-m">Nov 6 · Northway Visa x1209 · MARCUS RIVERA · groceries · Spending</span></span>
       <span class="rl-r"><b>-$147.41</b></span></a>
@@ -296,14 +353,14 @@
 </details>
 </li>
   
-    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/266?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">
-      <span class="rl-main"><span class="rl-t">TST* HILLTOP BAKERY</span><span class="rl-m">Nov 3 · Northway Visa x1209 · MARCUS RIVERA · Uncategorized · Spending</span></span>
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/269?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-main"><span class="rl-t">TST* HILLTOP BAKERY</span><span class="rl-m">Nov 4 · Northway Visa x1209 · MARCUS RIVERA · Uncategorized · Spending</span></span>
       <span class="rl-r"><b>-$18.40</b></span></a>
       
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="266">
+    <input type="hidden" name="id" value="269">
     <input type="hidden" name="from" value="2026-11-01"><input type="hidden" name="to" value="2026-11-30"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="" placeholder="Uncategorized"></label>
     <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
@@ -347,14 +404,14 @@
 </details>
 </li>
   
-    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/265?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">
+    <li class="lrow lt-spend"><a href="#" data-demo="1" hx-get="/money/txn/268?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-main"><span class="rl-t">RIVERSIDE PHARMACY</span><span class="rl-m">Nov 2 · Summit Rewards Card x3344 · ELENA RIVERA · healthcare · Spending</span></span>
       <span class="rl-r"><b>-$32.57</b></span></a>
       
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="265">
+    <input type="hidden" name="id" value="268">
     <input type="hidden" name="from" value="2026-11-01"><input type="hidden" name="to" value="2026-11-30"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="healthcare" placeholder="Uncategorized"></label>
     <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
@@ -435,6 +492,54 @@
   <div class="tablewrap fl-wide"><table class="ledger has-member">
     <thead><tr><th class="c-date">Date</th><th class="c-acct">Account</th><th class="num c-amt">Amount</th><th class="c-cat">Category</th><th class="c-desc">Description</th><th class="c-mem">Card member</th><th class="c-type">Type</th><th class="c-edit"><span class="vh">Edit</span></th></tr></thead>
     <tbody><tr class="lt-spend">
+      <td class="c-date">Nov 7</td><td class="c-acct">Summit Rewards Card x3344</td><td class="num c-amt">-$47.88</td><td class="c-cat">general merchandise</td>
+      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/267?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">BRIGHTMART</a></td>
+      <td class="c-mem">SOFIA RIVERA</td><td class="c-type">Spending</td>
+      <td class="lded-cell c-edit">
+<details class="lded">
+  <summary>Edit</summary>
+  <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
+    <input type="hidden" name="id" value="267">
+    <input type="hidden" name="from" value="2026-11-01"><input type="hidden" name="to" value="2026-11-30"><input type="hidden" name="page" value="1">
+    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="general merchandise" placeholder="Uncategorized"></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
+    <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
+    <button class="btn" type="submit">Save</button>
+  </form>
+</details>
+</td></tr><tr class="lt-spend">
+      <td class="c-date">Nov 7</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$38.64</td><td class="c-cat">fuel</td>
+      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/266?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">QUICKFUEL #221</a></td>
+      <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
+      <td class="lded-cell c-edit">
+<details class="lded">
+  <summary>Edit</summary>
+  <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
+    <input type="hidden" name="id" value="266">
+    <input type="hidden" name="from" value="2026-11-01"><input type="hidden" name="to" value="2026-11-30"><input type="hidden" name="page" value="1">
+    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="fuel" placeholder="Uncategorized"></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
+    <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
+    <button class="btn" type="submit">Save</button>
+  </form>
+</details>
+</td></tr><tr class="lt-spend">
+      <td class="c-date">Nov 7</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$57.00</td><td class="c-cat">fuel</td>
+      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/265?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">QUICKFUEL #221</a></td>
+      <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
+      <td class="lded-cell c-edit">
+<details class="lded">
+  <summary>Edit</summary>
+  <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
+    <input type="hidden" name="id" value="265">
+    <input type="hidden" name="from" value="2026-11-01"><input type="hidden" name="to" value="2026-11-30"><input type="hidden" name="page" value="1">
+    <label>Category <input name="category" maxlength="40" list="ledger-cats" value="fuel" placeholder="Uncategorized"></label>
+    <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
+    <label class="chk"><input type="checkbox" name="similar" value="1"> Do the same for every line like this one, now and later</label>
+    <button class="btn" type="submit">Save</button>
+  </form>
+</details>
+</td></tr><tr class="lt-spend">
       <td class="c-date">Nov 6</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$147.41</td><td class="c-cat">groceries</td>
       <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/260?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">FRESHFIELD MARKET</a></td>
       <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
@@ -531,14 +636,14 @@
   </form>
 </details>
 </td></tr><tr class="lt-spend">
-      <td class="c-date">Nov 3</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$18.40</td><td class="c-cat">Uncategorized</td>
-      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/266?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">TST* HILLTOP BAKERY</a></td>
+      <td class="c-date">Nov 4</td><td class="c-acct">Northway Visa x1209</td><td class="num c-amt">-$18.40</td><td class="c-cat">Uncategorized</td>
+      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/269?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">TST* HILLTOP BAKERY</a></td>
       <td class="c-mem">MARCUS RIVERA</td><td class="c-type">Spending</td>
       <td class="lded-cell c-edit">
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="266">
+    <input type="hidden" name="id" value="269">
     <input type="hidden" name="from" value="2026-11-01"><input type="hidden" name="to" value="2026-11-30"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="" placeholder="Uncategorized"></label>
     <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
@@ -580,13 +685,13 @@
 </details>
 </td></tr><tr class="lt-spend">
       <td class="c-date">Nov 2</td><td class="c-acct">Summit Rewards Card x3344</td><td class="num c-amt">-$32.57</td><td class="c-cat">healthcare</td>
-      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/265?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">RIVERSIDE PHARMACY</a></td>
+      <td class="c-desc"><a href="#" data-demo="1" hx-get="/money/txn/268?from=2026-11-01&amp;to=2026-11-30" hx-target="#txn-body" hx-swap="innerHTML">RIVERSIDE PHARMACY</a></td>
       <td class="c-mem">ELENA RIVERA</td><td class="c-type">Spending</td>
       <td class="lded-cell c-edit">
 <details class="lded">
   <summary>Edit</summary>
   <form class="lded-form" hx-post="/money/txn" hx-disabled-elt="find button">
-    <input type="hidden" name="id" value="265">
+    <input type="hidden" name="id" value="268">
     <input type="hidden" name="from" value="2026-11-01"><input type="hidden" name="to" value="2026-11-30"><input type="hidden" name="page" value="1">
     <label>Category <input name="category" maxlength="40" list="ledger-cats" value="healthcare" placeholder="Uncategorized"></label>
     <label>Type <select name="txn_type"><option value="spend" selected>Spending</option><option value="income" >Income</option><option value="interest" >Interest</option><option value="transfer" >Transfers</option><option value="card_payment" >Card payments</option><option value="investment_transfer" >Investing</option><option value="tax" >Tax</option><option value="fee" >Fees</option><option value="utility" >Utilities</option><option value="insurance" >Insurance</option><option value="loan_payment" >Loan payments</option></select></label>
@@ -708,5 +813,6 @@
     
   </nav>
 
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
 </body>
 </html>

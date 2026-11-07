@@ -4,6 +4,26 @@
   function css(n) { return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
   function money(v) { return '$' + Math.round(v).toLocaleString('en-US'); }
 
+  // A start time picked on a form fills in the end one hour later (stopping at 23:59), unless the person set the end
+  // themselves: an end that was typed or already saved stays.
+  function endAfter(start) {
+    var m = /^([01]\d|2[0-3]):([0-5]\d)$/.exec(start || '');
+    if (!m) return '';
+    var mins = Math.min(Number(m[1]) * 60 + Number(m[2]) + 60, 23 * 60 + 59);
+    return ('0' + Math.floor(mins / 60)).slice(-2) + ':' + ('0' + (mins % 60)).slice(-2);
+  }
+  document.addEventListener('change', function (e) {
+    var s = e.target;
+    if (!s || s.name !== 'start_time' || !s.form) return;
+    var end = s.form.elements.end_time;
+    if (!end || (end.value && end.dataset.auto !== '1')) return;
+    end.value = endAfter(s.value);
+    end.dataset.auto = end.value ? '1' : '';
+  });
+  document.addEventListener('input', function (e) {
+    if (e.target && e.target.name === 'end_time' && e.target.dataset) e.target.dataset.auto = '';
+  });
+
   // Every HTMX request carries the session's CSRF token (the server checks it on anything that is not a read).
   document.addEventListener('htmx:configRequest', function (e) {
     var m = document.querySelector('meta[name="csrf-token"]');
@@ -657,6 +677,30 @@
   if ('serviceWorker' in navigator && window.isSecureContext) {
     navigator.serviceWorker.register('/sw.js', {scope: '/'}).catch(function () {});
   }
+})();
+
+// Records / Wallet: View (a [data-view-paper] button or link) shows a filed PDF or photo in a window; a PDF the browser
+// cannot show inline still has the Download button there. Without <dialog> support the link downloads as before.
+(function () {
+  document.addEventListener('click', function (e) {
+    var dlg = document.getElementById('pview');
+    if (!dlg) return;
+    if (e.target.closest('[data-pview-close]')) { dlg.close(); return; }
+    if (e.target === dlg) { dlg.close(); return; } // a click on the dimmed backdrop
+    var b = e.target.closest('[data-view-paper]');
+    if (!b || typeof dlg.showModal !== 'function') return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.button) return; // a modified click keeps the link's own meaning
+    e.preventDefault();
+    var id = String(parseInt(b.getAttribute('data-view-paper'), 10));
+    if (id === 'NaN') return;
+    document.getElementById('pview-frame').src = '/records/paper/' + id + '/view';
+    document.getElementById('pview-dl').href = '/records/paper/' + id;
+    document.getElementById('pview-title').textContent = b.getAttribute('data-view-title') || 'Filed paper';
+    dlg.showModal();
+  });
+  document.addEventListener('close', function (e) {
+    if (e.target && e.target.id === 'pview') document.getElementById('pview-frame').src = 'about:blank';
+  }, true);
 })();
 
 // Settings > Phones > Walls: Preview shows the resting screen with the form's choices (not saved) in a window.

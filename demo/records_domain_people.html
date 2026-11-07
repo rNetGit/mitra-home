@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.144.0">
-  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.146.1">
+  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
   
-  <script src="static/app.js?v=0.144.0" defer></script>
+  <script src="static/app.js?v=0.146.1" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.144.0</small>
+    <small class="ver">v0.146.1</small>
   </nav>
 
   <main>
@@ -111,7 +111,7 @@
 
 
 
-<form class="nform" hx-post="/records/add" hx-target="#radd-members" hx-swap="innerHTML" hx-vals='{"part": "people/people", "table": "members"}'>
+<form class="nform" hx-post="/records/add" hx-target="#radd-members" hx-swap="innerHTML" hx-vals='{"back": null, "part": "people/people", "table": "members"}'>
 
   <label>Name<input name="name" maxlength="40" required value=""></label>
   <label>Role<select name="role"><option value="adult" >adult</option><option value="child" >child</option><option value="pet" >pet</option></select></label>
@@ -121,6 +121,7 @@
   <button class="btn" type="submit">Add</button>
 </form></div>
 </details>
+
 
 
 
@@ -212,5 +213,6 @@
     
   </nav>
 
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
 </body>
 </html>
