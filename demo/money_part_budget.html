@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.144.0">
-  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.146.1">
+  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
   
-  <script src="static/app.js?v=0.144.0" defer></script>
+  <script src="static/app.js?v=0.146.1" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.144.0</small>
+    <small class="ver">v0.146.1</small>
   </nav>
 
   <main>
@@ -110,7 +110,7 @@
 
 
 
-<div class="kpis rk"><div class="kpi"><span>Over</span><b >0</b></div><div class="kpi"><span>On course to pass</span><b >1</b></div><div class="kpi"><span>On track</span><b >5</b></div></div>
+<div class="kpis rk"><div class="kpi"><span>Over</span><b >0</b></div><div class="kpi"><span>On course to pass</span><b >3</b></div><div class="kpi"><span>On track</span><b >3</b></div></div>
 
 
 
@@ -120,7 +120,7 @@
 
 
 
-<form class="nform" hx-post="/records/add" hx-target="#radd-budget" hx-swap="innerHTML" hx-vals='{"part": "money/budget", "table": "budget"}'>
+<form class="nform" hx-post="/records/add" hx-target="#radd-budget" hx-swap="innerHTML" hx-vals='{"back": "", "part": "money/budget", "table": "budget"}'>
 
   <label>Category<input name="category" maxlength="60" required list="budget-lines" value=""></label>
   <datalist id="budget-lines"><option value="allowance:Mateo"><option value="dining"><option value="fuel"><option value="general merchandise"><option value="groceries"><option value="kids activities"><option value="housing"><option value="auto loan"><option value="utilities"><option value="insurance"><option value="fitness"><option value="pets"><option value="subscriptions"><option value="healthcare"><option value="shopping"><option value="allowance:Sofia"></datalist>
@@ -138,7 +138,7 @@
 
 
 
-<form class="nform" hx-post="/records/add" hx-target="#radd-loans" hx-swap="innerHTML" hx-vals='{"part": "money/budget", "table": "loans"}'>
+<form class="nform" hx-post="/records/add" hx-target="#radd-loans" hx-swap="innerHTML" hx-vals='{"back": "", "part": "money/budget", "table": "loans"}'>
 
   <label>Name<input name="name" maxlength="80" required value=""></label>
   <label>Kind<select name="kind"><option value="mortgage" >mortgage</option><option value="auto" >auto</option><option value="student" >student</option><option value="personal" >personal</option><option value="heloc" >heloc</option><option value="other" selected>other</option></select></label>
@@ -158,7 +158,7 @@
 
 
 
-<form class="nform" hx-post="/records/add" hx-target="#radd-savings_goals" hx-swap="innerHTML" hx-vals='{"part": "money/budget", "table": "savings_goals"}'>
+<form class="nform" hx-post="/records/add" hx-target="#radd-savings_goals" hx-swap="innerHTML" hx-vals='{"back": "", "part": "money/budget", "table": "savings_goals"}'>
 
   <label>What it is for<input name="name" maxlength="60" required placeholder="Summer holiday" value=""></label>
   <label>Amount to save<input name="target" type="number" min="0.01" max="1000000000" step="0.01" required value=""></label>
@@ -180,31 +180,31 @@
 
 
 
-<section class="card rblock"><h2>This month so far, through Nov 06</h2>
+<section class="card rblock"><h2>This month so far, through Nov 07</h2>
   
   <ul class="fbars">
     <li class="t-warn"><div class="fb-top"><span class="fb-l">groceries</span><span class="fb-v"><b>$417</b> of $900</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="46" height="6" rx="3"/><rect class="fb-mark" x="20" y="0" width="1" height="6"/></svg>
-      <p class="muted fb-n">on course to pass, heading for $2,083</p></li>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="46" height="6" rx="3"/><rect class="fb-mark" x="23" y="0" width="1" height="6"/></svg>
+      <p class="muted fb-n">on course to pass, heading for $1,785</p></li>
+  
+    <li class="t-warn"><div class="fb-top"><span class="fb-l">fuel</span><span class="fb-v"><b>$96</b> of $200</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="48" height="6" rx="3"/><rect class="fb-mark" x="23" y="0" width="1" height="6"/></svg>
+      <p class="muted fb-n">on course to pass, heading for $410</p></li>
+  
+    <li class="t-warn"><div class="fb-top"><span class="fb-l">general merchandise</span><span class="fb-v"><b>$48</b> of $200</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="24" height="6" rx="3"/><rect class="fb-mark" x="23" y="0" width="1" height="6"/></svg>
+      <p class="muted fb-n">on course to pass, heading for $205</p></li>
   
     <li class="t-ok"><div class="fb-top"><span class="fb-l">dining</span><span class="fb-v"><b>$29</b> of $250</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="12" height="6" rx="3"/><rect class="fb-mark" x="20" y="0" width="1" height="6"/></svg>
-      <p class="muted fb-n">on track</p></li>
-  
-    <li class="t-ok"><div class="fb-top"><span class="fb-l">fuel</span><span class="fb-v"><b>$0</b> of $200</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="1" height="6" rx="3"/><rect class="fb-mark" x="20" y="0" width="1" height="6"/></svg>
-      <p class="muted fb-n">on track</p></li>
-  
-    <li class="t-ok"><div class="fb-top"><span class="fb-l">general merchandise</span><span class="fb-v"><b>$0</b> of $200</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="1" height="6" rx="3"/><rect class="fb-mark" x="20" y="0" width="1" height="6"/></svg>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="12" height="6" rx="3"/><rect class="fb-mark" x="23" y="0" width="1" height="6"/></svg>
       <p class="muted fb-n">on track</p></li>
   
     <li class="t-ok"><div class="fb-top"><span class="fb-l">kids activities</span><span class="fb-v"><b>$0</b> of $150</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="1" height="6" rx="3"/><rect class="fb-mark" x="20" y="0" width="1" height="6"/></svg>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="1" height="6" rx="3"/><rect class="fb-mark" x="23" y="0" width="1" height="6"/></svg>
       <p class="muted fb-n">on track</p></li>
   
     <li class="t-ok"><div class="fb-top"><span class="fb-l">Mateo&#39;s allowance</span><span class="fb-v"><b>$0</b> of $30</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="1" height="6" rx="3"/><rect class="fb-mark" x="20" y="0" width="1" height="6"/></svg>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="1" height="6" rx="3"/><rect class="fb-mark" x="23" y="0" width="1" height="6"/></svg>
       <p class="muted fb-n">on track</p></li>
   </ul>
   <p class="muted small">The thin line is where it would be by today at an even pace.</p>
@@ -373,7 +373,7 @@
   
     <li class="t-"><div class="fb-top"><span class="fb-l">Emergency fund</span><span class="fb-v"><b>$18,250</b> of $25,000</span></div>
       <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="73" height="6" rx="3"/></svg>
-      <p class="muted fb-n">$6,750 to go (balance on 2026-11-04)</p></li>
+      <p class="muted fb-n">$6,750 to go (balance on 2026-11-05)</p></li>
   </ul>
   
   
@@ -386,13 +386,13 @@
   <ul class="rlist fl-phone">
     <li><a href="#" data-demo="1" hx-get="/money/row/savings_goals/2?part=budget" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-n" aria-hidden="true">S</span>
-      <span class="rl-main"><span class="rl-t">Summer trip to the lake</span><span class="rl-m">Saved $1,450.00 · Target $3,200.00 · Jul 4, 2027 · A month to get there $218.75</span></span>
+      <span class="rl-main"><span class="rl-t">Summer trip to the lake</span><span class="rl-m">Saved $1,450.00 · Target $3,200.00 · Jul 5, 2027 · A month to get there $218.75</span></span>
       <span class="rl-r"></span>
     </a></li>
   
     <li><a href="#" data-demo="1" hx-get="/money/row/savings_goals/3?part=budget" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-n" aria-hidden="true">N</span>
-      <span class="rl-main"><span class="rl-t">New roof</span><span class="rl-m">Saved $2,600.00 · Target $12,000.00 · Apr 29, 2028 · A month to get there $552.94</span></span>
+      <span class="rl-main"><span class="rl-t">New roof</span><span class="rl-m">Saved $2,600.00 · Target $12,000.00 · Apr 30, 2028 · A month to get there $552.94</span></span>
       <span class="rl-r"></span>
     </a></li>
   
@@ -404,7 +404,7 @@
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Goal</th><th class="num">Saved</th><th class="num">Target</th><th>By</th><th class="num">A month to get there</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/2?part=budget" hx-target="#txn-body" hx-swap="innerHTML">Summer trip to the lake</a></td><td class="num">$1,450.00</td><td class="num">$3,200.00</td><td>Jul 4, 2027</td><td class="num">$218.75</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/3?part=budget" hx-target="#txn-body" hx-swap="innerHTML">New roof</a></td><td class="num">$2,600.00</td><td class="num">$12,000.00</td><td>Apr 29, 2028</td><td class="num">$552.94</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/1?part=budget" hx-target="#txn-body" hx-swap="innerHTML">Emergency fund</a></td><td class="num">$18,250.00</td><td class="num">$25,000.00</td><td></td><td class="num"></td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/2?part=budget" hx-target="#txn-body" hx-swap="innerHTML">Summer trip to the lake</a></td><td class="num">$1,450.00</td><td class="num">$3,200.00</td><td>Jul 5, 2027</td><td class="num">$218.75</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/3?part=budget" hx-target="#txn-body" hx-swap="innerHTML">New roof</a></td><td class="num">$2,600.00</td><td class="num">$12,000.00</td><td>Apr 30, 2028</td><td class="num">$552.94</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/1?part=budget" hx-target="#txn-body" hx-swap="innerHTML">Emergency fund</a></td><td class="num">$18,250.00</td><td class="num">$25,000.00</td><td></td><td class="num"></td></tr></tbody>
   </table></div>
   
 </details>
@@ -490,5 +490,6 @@
     
   </nav>
 
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
 </body>
 </html>

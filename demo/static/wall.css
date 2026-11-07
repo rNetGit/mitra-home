@@ -925,3 +925,17 @@ body.rest.seasonal.night { background: #000000; } body.rest.night .sbackdrop, bo
 @keyframes sdrift { 0% { transform: translateX(-30px); } 50% { transform: translateX(30px); } 100% { transform: translateX(-30px); } }
 @media (prefers-reduced-motion: reduce) { .mk { animation: none !important; } }
 .wmain { touch-action: pan-y; }
+
+/* Calendar day themes on the wall (data/calendar_themes.py, the same looks as the Calendar page): a tinted tile with a coloured
+   top edge; the week tiles of themes with art (static/themes/<key>.svg) show it along the bottom. */
+.th-festival { --th: #e67e22; } .th-holiday { --th: #2f55a4; } .th-medical { --th: #0f8b84; } .th-class { --th: #6a4fc9; } .th-bill { --th: #b7860b; }
+.th-birthday { --th: #e84393; } .th-diwali { --th: #e8751a; } .th-thanksgiving { --th: #c45a1a; } .th-christmas { --th: #1b6b45; } .th-patriot { --th: #2f55a4; }
+:is(.hday, .mday, .maday)[class*="th-"]:not(.today) { border-top: 4px solid var(--th, var(--accent)); border-color: color-mix(in srgb, var(--th, var(--accent)) 40%, var(--line)); }
+.hday[class*="th-"] { --hbg: color-mix(in srgb, var(--th, var(--accent)) 11%, var(--card)); }
+.mday[class*="th-"], .maday[class*="th-"] { background: color-mix(in srgb, var(--th, var(--accent)) 11%, var(--card)); }
+.hday.th-diwali, .hday.th-thanksgiving, .hday.th-christmas, .hday.th-patriot, .hday.th-birthday, .hday.th-medical {
+  background-repeat: no-repeat; background-position: 50% 100%; background-size: 100% auto; }
+.hday.th-diwali { background-image: url(/static/themes/diwali.svg); } .hday.th-thanksgiving { background-image: url(/static/themes/thanksgiving.svg); }
+.hday.th-christmas { background-image: url(/static/themes/christmas.svg); } .hday.th-patriot { background-image: url(/static/themes/patriot.svg); }
+.hday.th-birthday { background-image: url(/static/themes/birthday.svg); } .hday.th-medical { background-image: url(/static/themes/medical.svg); }
+body.wall.theme-night:not(.rest) .hday[class*="th-"] { background-image: none; --hbg: color-mix(in srgb, var(--th, var(--accent)) 16%, var(--card)); }

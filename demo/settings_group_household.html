@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.144.0">
-  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.146.1">
+  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
   
-  <script src="static/app.js?v=0.144.0" defer></script>
+  <script src="static/app.js?v=0.146.1" defer></script>
   <title>Settings · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.144.0</small>
+    <small class="ver">v0.146.1</small>
   </nav>
 
   <main>
@@ -133,7 +133,7 @@
 
 <details class="card sfold"><summary><h2>Traditions and holidays</h2><span class="muted">Festivals and holidays on the calendar</span></summary>
   <p class="muted small">Public holidays: US federal holidays + Illinois (switch them off under the Advanced view's Optional features).
-    Optional: the traditions your family keeps (religious, cultural or regional), one per line, so their festivals and holidays reach the calendar. They stay on this PC: never on phones, Drive or a chat bot.</p>
+    Optional: the traditions your family keeps (religious, cultural or regional), one per line, so their festivals and holidays reach the calendar. The list itself stays on this PC. The festival and holiday days it adds go to your paired phones and walls on the home Wi-Fi, so they show there too; never to Drive or a chat bot.</p>
   <form class="nform" hx-post="/settings/traditions">
     <label class="wide">Our traditions<textarea name="names" rows="3" maxlength="600" placeholder="Hindu (Telugu)&#10;Christian (Catholic)&#10;Lunar New Year"></textarea></label>
     <label class="check wide"><input type="checkbox" name="lookup" value="1" > <span>Once a year, look up their dates with our AI. It is sent only these names, the year and the country. The dates wait in the Inbox until you add them.</span></label>
@@ -184,5 +184,6 @@
     
   </nav>
 
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
 </body>
 </html>

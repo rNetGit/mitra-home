@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.144.0">
-  <script src="static/vendor/htmx.min.js?v=0.144.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.146.1">
+  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
   
-  <script src="static/app.js?v=0.144.0" defer></script>
+  <script src="static/app.js?v=0.146.1" defer></script>
   <title>Wallet · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.144.0</small>
+    <small class="ver">v0.146.1</small>
   </nav>
 
   <main>
@@ -87,7 +87,7 @@
   
 
 <header class="head"><div><h1>Family</h1><p class="sub">Wallet: where each number is, plates, policies and memberships.</p></div>
-  <a class="btn wparkbtn" href="wallet_park.html">Parking</a></header>
+</header>
 
 <nav class="pchips mtabs" aria-label="Family">
   <a href="family.html" class="pchip">Everyone</a><a href="records_domain_people.html" class="pchip">People</a><a href="records_domain_home.html" class="pchip">Home</a><a href="records_domain_vehicles.html" class="pchip">Cars</a><a href="records_domain_papers.html" class="pchip">Papers &amp; IDs</a><a href="wallet.html" class="pchip on" aria-current="true">Wallet</a><a href="family_routines.html" class="pchip">Routines</a><a href="family_house.html" class="pchip">House</a>
@@ -193,7 +193,7 @@
 <details class="card sfold" id="wphoto">
   <summary><h2>Add a card from a photo</h2></summary>
   <div class="nform">
-    <label>Photo of the card (front or back)<input type="file" id="wallet-photo" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp,.heic,image/heic" capture="environment"></label>
+    <label>Photo of the card (front or back)<input type="file" id="wallet-photo" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" capture="environment"></label>
     <p class="muted small wide">The AI does not read photos here (turn it on in Settings > Connections > AI helper), so you fill in the card yourself.</p>
     <p class="muted small wide" id="wallet-photo-msg" role="status"></p>
   </div>
@@ -256,5 +256,6 @@
     
   </nav>
 
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
 </body>
 </html>
