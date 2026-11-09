@@ -1,7 +1,7 @@
 #!/bin/sh
 # Make (or remake) a throwaway Mitra Home install seeded with the made-up Rivera family.
 #   tools/demo/make_install.sh APP_REPO INSTALL_DIR PYTHON
-# APP_REPO = a checkout of mitra-home-ai-agent; INSTALL_DIR is wiped first; PYTHON has requirements.txt installed.
+# APP_REPO = a checkout of mitra-home-app; INSTALL_DIR is wiped first; PYTHON has requirements.txt installed.
 set -e
 APP=$1; INST=$2; PY=$3
 HERE=$(cd "$(dirname "$0")" && pwd)

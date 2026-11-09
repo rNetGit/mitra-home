@@ -3,13 +3,13 @@
 The demo (`demo/`) and the pictures in `assets/shots/` come from a throwaway install of the app, seeded with the
 made-up Rivera family. Nothing real goes in. Run these after a release, from this folder's repository root.
 
-You need: a checkout of `mitra-home-ai-agent`, a Python 3.12+ environment with its `requirements.txt` installed, and
+You need: a checkout of `mitra-home-app`, a Python 3.12+ environment with its `requirements.txt` installed, and
 for the screenshots `pip install playwright && python -m playwright install chromium`.
 
 1. Make the install (wiped and made again each time; it must be fresh, because step 3 gives it PINs):
 
    ```
-   TZ=Asia/Tokyo tools/demo/make_install.sh ../mitra-home-ai-agent /tmp/mh-demo/inst /path/to/venv/bin/python
+   TZ=Asia/Tokyo tools/demo/make_install.sh ../mitra-home-app /tmp/mh-demo/inst /path/to/venv/bin/python
    cd /tmp/mh-demo/inst && TZ=Asia/Tokyo MITRAHOME_NO_SCHEDULER=1 sh -c \
      "python data/apply_rules.py; python data/proposals.py sync; python data/audit.py run"
    ```
