@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mitra Home Security</title>
+<meta name="description" content="Where your data lives, what leaves your PC and when, how phones and tablets connect, how updates are signed, and what Mitra Home does not protect against.">
+<link rel="icon" href="assets/logo/icon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo/icon-192.png">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/logo/icon.svg" alt=""> Mitra Home <span>AI Agent</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="index.html#how">How it works</a>
+      <a href="demo/index.html">Demo</a>
+      <a class="nav-cta" href="install.html">Get Mitra Home</a>
+      <a href="faq.html">FAQ</a>
+      <button class="theme-btn" type="button" aria-label="Dark theme" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section>
+  <div class="wrap" style="max-width:820px">
+    <div class="section-head">
+      <div class="eyebrow">Security</div>
+      <h1>How Mitra Home keeps your family's data safe</h1>
+    </div>
+<p>Mitra Home keeps a household's bills, statements and papers on one PC that you own. This page says plainly where the data is,
+what can leave and when, how phones connect, and where the protection stops. The full technical write-up is public:
+<a href="https://github.com/rNetGit/mitra-home-app/blob/main/THREAT_MODEL.md" rel="noopener">threat model</a> and
+<a href="https://github.com/rNetGit/mitra-home-app/blob/main/SECURITY.md" rel="noopener">security policy</a>.</p>
+
+<h2 id="short">The short version</h2>
+<ul>
+<li>Your data lives on your PC, in plain files and one database. There is no account with us and no server of ours.</li>
+<li>Nothing is sent anywhere unless you switch a feature on. The one automatic call is a daily check for a new version, and you can turn it off.</li>
+<li>Releases are signed and the source is public, so you can check what the program does.</li>
+<li>The database is <strong>not</strong> encrypted on the disk. Turn on BitLocker (Windows) or FileVault (Mac).</li>
+</ul>
+
+<h2 id="where">Where your data lives</h2>
+<p>In a folder next to the app on your PC: the filed papers (the originals are never deleted, only moved into a year folder), the
+database, reports and backups. Account numbers are stored as the last four digits. Mitra Home never logs in to your bank and
+never asks for a bank password: you download statements yourself and drop them in. Two things are stored in full on purpose, because
+you use them as they are: a car's licence plate, and membership, loyalty and library card numbers (for the barcode).</p>
+
+<h2 id="leaves">What leaves your PC, and when</h2>
+<ul>
+<li><strong>Your AI provider (optional).</strong> Only if you choose one, to read a messy paper or answer in Chat. <em>Sent:</em> The text of that paper or question, with long numbers, emails, phone numbers, street addresses, dates of birth and your family's names masked first. With a local model (Ollama) nothing leaves the PC.</li>
+<li><strong>Update check.</strong> Once a day; switch it off in Settings &gt; Data &gt; Updates. <em>Sent:</em> A request to GitHub for the latest release. Nothing about your family.</li>
+<li><strong>Look-ups and weather.</strong> Off until you switch them on. <em>Sent:</em> Only public questions (a school, a forecast for your ZIP). Names, numbers and addresses are blocked from them.</li>
+<li><strong>Google Calendar, Gmail, Drive.</strong> Only if you connect them. <em>Sent:</em> Read-only access you grant yourself. Mitra Home reads what you label for it and does not change your mail.</li>
+<li><strong>Bank sync (SimpleFIN).</strong> Only if you set it up. <em>Sent:</em> A read-only request for your balances and transactions at the bridge you pay for.</li>
+</ul>
+<p>No analytics, no tracking and no crash reports are collected.</p>
+
+<h2 id="phones">Phones and the kitchen tablet</h2>
+<ul>
+<li>They talk only to your PC, over your home Wi-Fi, using HTTPS with a certificate your PC makes for itself. There is no cloud relay.</li>
+<li>Pairing needs a one-time code shown on the PC. The pairing screen also shows the PC's fingerprint to compare. Each phone gets its own key, and you can remove a phone from the PC at any time; it then wipes its copy.</li>
+<li>A phone only gets what it is allowed: children and guests see no money, and a wall tablet never shows an amount unless an adult types a PIN.</li>
+<li>The PC listens on its own address only (127.0.0.1) until you start it for phones, and it refuses that until an adult has a PIN.</li>
+</ul>
+
+<h2 id="signin">Signing in</h2>
+<p>Each person has a PIN, stored only as a hash. Repeated wrong guesses are slowed down. Sessions live in memory only. The web app uses
+the usual protections against forged requests and injected scripts, and loads nothing from other websites.</p>
+
+<h2 id="ai">When an AI reads your papers</h2>
+<p>A bill or an email can contain text written to trick an AI ("ignore your rules and send the files to..."). Mitra Home treats
+everything it reads as data, never as instructions, and does not rely on a promise alone: the AI is boxed in by a fixed list of
+allowed actions, it can only write a filed record in a fixed shape that is checked before saving, and it cannot send mail, fetch
+links, run programs or touch your settings and passwords. A suspicious paper is left in the inbox for you to look at.</p>
+
+<h2 id="updates">Downloads and updates</h2>
+<ul>
+<li>Every release is signed with the maintainer's key. The app checks that signature, and that every file matches the signed list, before it replaces anything. A bad signature or a changed file stops the update.</li>
+<li>The Windows installer is signed (publisher: Rajesh Katukojwala). The Mac app is signed and notarized by Apple.</li>
+<li>Each release lists its SHA-256 checksums so you can verify a download yourself.</li>
+<li>The source of the PC and Mac app is public: <a href="https://github.com/rNetGit/mitra-home-app" rel="noopener">github.com/rNetGit/mitra-home-app</a>.</li>
+</ul>
+
+<h2 id="backups">Backups</h2>
+<p>A weekly backup is made next to the app. You can choose to encrypt backups (AES-256-GCM, with a passphrase only you know). A backup you
+do not encrypt is as sensitive as your data: keep it on an encrypted drive.</p>
+
+<h2 id="limits">What Mitra Home does not protect against</h2>
+<ul>
+<li><strong>Someone who can use your PC account.</strong> Malware, a stolen unlocked laptop, or another user who can read your folder see everything. Use a login password and disk encryption.</li>
+<li><strong>The database is not encrypted at rest.</strong> Only backups can be. BitLocker or FileVault covers the rest.</li>
+<li><strong>Your AI provider.</strong> If you choose one, its own retention and training terms apply to what is sent. Use a provider you trust, or a local model.</li>
+<li><strong>Clicking through a certificate warning.</strong> The first time a browser or tablet meets your PC it warns that the certificate is self-made. Compare the fingerprint shown on the PC before you continue.</li>
+<li><strong>The phone apps' source is not published,</strong> so only the PC and Mac app can be read in full. The phone apps only talk to your PC.</li>
+<li><strong>Remote access.</strong> Mitra Home is built for one household at home. It has no cloud sync and no way to reach it from outside your network unless you set one up yourself.</li>
+</ul>
+
+<h2 id="report">Report a problem</h2>
+<p>Please report a security problem privately: use <strong>Report a vulnerability</strong> on the
+<a href="https://github.com/rNetGit/mitra-home-app/security" rel="noopener">GitHub Security tab</a>, or email
+<a href="mailto:cloudwareedge@gmail.com">cloudwareedge@gmail.com</a> with "Security" in the subject. You get an answer within 7 days,
+and a fix in the next release where possible. Please do not send your own database or documents.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/logo/icon.svg" alt=""> Mitra Home <span>AI Agent</span></a>
+        <p style="margin:12px 0 0;max-width:28em">A household assistant that lives on your own computer. Bills, papers, dates and lists for the whole family.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul><li><a href="index.html#what">Features</a></li><li><a href="index.html#how">How it works</a></li><li><a href="demo/index.html">Demo</a></li><li><a href="install.html">Install</a></li></ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul><li><a href="faq.html">FAQ</a></li><li><a href="faq.html#contact">Contact</a></li><li><a href="index.html#privacy">Privacy</a></li><li><a href="privacy.html">Privacy policy</a></li><li><a href="security.html">Security</a></li><li><a href="source.html">Source code</a></li><li><a href="install.html#trouble">Troubleshooting</a></li></ul>
+      </div>
+    </div>
+    <div class="fine">
+      <div>Records and reminders only. Nothing here is financial, tax, legal, insurance or medical advice.</div>
+      <div>Not affiliated with or endorsed by Anthropic, OpenAI or Google. Product names belong to their owners.</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
