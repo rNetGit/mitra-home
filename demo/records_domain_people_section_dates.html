@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.146.1">
-  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.147.0">
+  <script src="static/vendor/htmx.min.js?v=0.147.0" defer></script>
   
-  <script src="static/app.js?v=0.146.1" defer></script>
+  <script src="static/app.js?v=0.147.0" defer></script>
   <title>Records · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.146.1</small>
+    <small class="ver">v0.147.0</small>
   </nav>
 
   <main>
@@ -133,7 +133,7 @@
 <form class="nform" hx-post="/records/add" hx-target="#radd-events" hx-swap="innerHTML" hx-vals='{"back": null, "part": "people/dates", "table": "events"}'>
 
   <label>What<input name="name" maxlength="80" required placeholder="Family dinner" value=""></label>
-  <label>Day<input name="date" type="date" min="2000-01-01" max="2100-12-31" required value="2026-11-07"></label>
+  <label>Day<input name="date" type="date" min="2000-01-01" max="2100-12-31" required value="2026-11-10"></label>
   <label>Starts (optional)<input name="start_time" type="time" value=""></label>
   <label>Ends (optional)<input name="end_time" type="time" value=""></label>
   <label>Repeats<select name="repeats"><option value="once">once</option><option value="yearly" >every year on this day</option></select></label>
@@ -160,20 +160,20 @@
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">T</span>
       <span class="rl-main"><span class="rl-t">Teacher institute day (no school)</span><span class="rl-m">no school · school</span></span>
-      <span class="rl-r"><b>Nov 18</b></span>
+      <span class="rl-r"><b>Nov 21</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">E</span>
       <span class="rl-main"><span class="rl-t">Early dismissal 12:30</span><span class="rl-m">early dismissal · school</span></span>
-      <span class="rl-r"><b>Nov 23</b></span>
+      <span class="rl-r"><b>Nov 26</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Date</th><th>Last day</th><th>Kind</th><th>Name</th><th>Who</th><th>Source</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Nov 18</a></td><td></td><td>no school</td><td>Teacher institute day (no school)</td><td>household</td><td>school</td></tr><tr><td><a href="#" data-demo="1">Nov 23</a></td><td></td><td>early dismissal</td><td>Early dismissal 12:30</td><td>household</td><td>school</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Nov 21</a></td><td></td><td>no school</td><td>Teacher institute day (no school)</td><td>household</td><td>school</td></tr><tr><td><a href="#" data-demo="1">Nov 26</a></td><td></td><td>early dismissal</td><td>Early dismissal 12:30</td><td>household</td><td>school</td></tr></tbody>
   </table></div>
   
 </section>
@@ -186,13 +186,13 @@
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">T</span>
       <span class="rl-main"><span class="rl-t">Thanksgiving break</span><span class="rl-m">school</span></span>
-      <span class="rl-r"><b>Dec 14</b></span>
+      <span class="rl-r"><b>Dec 17</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Date</th><th>Name</th><th>Source</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Dec 14</a></td><td>Thanksgiving break</td><td>school</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Dec 17</a></td><td>Thanksgiving break</td><td>school</td></tr></tbody>
   </table></div>
   
 </section>
@@ -205,34 +205,34 @@
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">N</span>
       <span class="rl-main"><span class="rl-t">Neighborhood cleanup</span><span class="rl-m">09:00-11:00 · once</span></span>
-      <span class="rl-r"><b>Nov 6</b></span>
+      <span class="rl-r"><b>Nov 9</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">F</span>
       <span class="rl-main"><span class="rl-t">Family movie night</span><span class="rl-m">19:00-21:00 · once</span></span>
-      <span class="rl-r"><b>Nov 11</b></span>
+      <span class="rl-r"><b>Nov 14</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">G</span>
       <span class="rl-main"><span class="rl-t">Grandma Rosa visits</span><span class="rl-m">12:00-15:00 · once</span></span>
-      <span class="rl-r"><b>Nov 17</b></span>
+      <span class="rl-r"><b>Nov 20</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   
     <li><a href="#" data-demo="1">
       <span class="rl-av t-n" aria-hidden="true">W</span>
       <span class="rl-main"><span class="rl-t">Wedding anniversary</span><span class="rl-m">every year</span></span>
-      <span class="rl-r"><b>Nov 25</b></span>
+      <span class="rl-r"><b>Nov 28</b></span>
       <span class="rl-go" aria-hidden="true">›</span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Name</th><th>Date</th><th>Time</th><th>Repeats</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1">Neighborhood cleanup</a></td><td>Nov 6</td><td>09:00-11:00</td><td>once</td></tr><tr><td><a href="#" data-demo="1">Family movie night</a></td><td>Nov 11</td><td>19:00-21:00</td><td>once</td></tr><tr><td><a href="#" data-demo="1">Grandma Rosa visits</a></td><td>Nov 17</td><td>12:00-15:00</td><td>once</td></tr><tr><td><a href="#" data-demo="1">Wedding anniversary</a></td><td>Nov 25</td><td></td><td>every year</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1">Neighborhood cleanup</a></td><td>Nov 9</td><td>09:00-11:00</td><td>once</td></tr><tr><td><a href="#" data-demo="1">Family movie night</a></td><td>Nov 14</td><td>19:00-21:00</td><td>once</td></tr><tr><td><a href="#" data-demo="1">Grandma Rosa visits</a></td><td>Nov 20</td><td>12:00-15:00</td><td>once</td></tr><tr><td><a href="#" data-demo="1">Wedding anniversary</a></td><td>Nov 28</td><td></td><td>every year</td></tr></tbody>
   </table></div>
   
 </section>

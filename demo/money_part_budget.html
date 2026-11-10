@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.146.1">
-  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.147.0">
+  <script src="static/vendor/htmx.min.js?v=0.147.0" defer></script>
   
-  <script src="static/app.js?v=0.146.1" defer></script>
+  <script src="static/app.js?v=0.147.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.146.1</small>
+    <small class="ver">v0.147.0</small>
   </nav>
 
   <main>
@@ -89,6 +89,8 @@
 <header class="head"><div><h1>Money</h1><p class="sub">Keep · Budget and loans</p></div></header>
 <nav class="pchips mtabs" aria-label="Money">
   <a href="money.html" class="pchip">Overview</a>
+  <a href="money_part_statement.html" class="pchip">Statement</a>
+  <a href="money_part_homecosts.html" class="pchip">Home costs</a>
   <a href="money_part_spending.html" class="pchip">Spending</a><a href="money_part_paid.html" class="pchip">Bills</a><a href="money_part_regular.html" class="pchip">Regular</a>
   
   <a href="money_part_accounts.html" class="pchip on" aria-current="true">Keep</a>
@@ -180,31 +182,31 @@
 
 
 
-<section class="card rblock"><h2>This month so far, through Nov 07</h2>
+<section class="card rblock"><h2>This month so far, through Nov 09</h2>
   
   <ul class="fbars">
     <li class="t-warn"><div class="fb-top"><span class="fb-l">groceries</span><span class="fb-v"><b>$417</b> of $900</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="46" height="6" rx="3"/><rect class="fb-mark" x="23" y="0" width="1" height="6"/></svg>
-      <p class="muted fb-n">on course to pass, heading for $1,785</p></li>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="46" height="6" rx="3"/><rect class="fb-mark" x="30" y="0" width="1" height="6"/></svg>
+      <p class="muted fb-n">on course to pass, heading for $1,389</p></li>
+  
+    <li class="t-warn"><div class="fb-top"><span class="fb-l">general merchandise</span><span class="fb-v"><b>$144</b> of $200</span></div>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="72" height="6" rx="3"/><rect class="fb-mark" x="30" y="0" width="1" height="6"/></svg>
+      <p class="muted fb-n">on course to pass, heading for $479</p></li>
   
     <li class="t-warn"><div class="fb-top"><span class="fb-l">fuel</span><span class="fb-v"><b>$96</b> of $200</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="48" height="6" rx="3"/><rect class="fb-mark" x="23" y="0" width="1" height="6"/></svg>
-      <p class="muted fb-n">on course to pass, heading for $410</p></li>
-  
-    <li class="t-warn"><div class="fb-top"><span class="fb-l">general merchandise</span><span class="fb-v"><b>$48</b> of $200</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="24" height="6" rx="3"/><rect class="fb-mark" x="23" y="0" width="1" height="6"/></svg>
-      <p class="muted fb-n">on course to pass, heading for $205</p></li>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="48" height="6" rx="3"/><rect class="fb-mark" x="30" y="0" width="1" height="6"/></svg>
+      <p class="muted fb-n">on course to pass, heading for $319</p></li>
   
     <li class="t-ok"><div class="fb-top"><span class="fb-l">dining</span><span class="fb-v"><b>$29</b> of $250</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="12" height="6" rx="3"/><rect class="fb-mark" x="23" y="0" width="1" height="6"/></svg>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="12" height="6" rx="3"/><rect class="fb-mark" x="30" y="0" width="1" height="6"/></svg>
       <p class="muted fb-n">on track</p></li>
   
     <li class="t-ok"><div class="fb-top"><span class="fb-l">kids activities</span><span class="fb-v"><b>$0</b> of $150</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="1" height="6" rx="3"/><rect class="fb-mark" x="23" y="0" width="1" height="6"/></svg>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="1" height="6" rx="3"/><rect class="fb-mark" x="30" y="0" width="1" height="6"/></svg>
       <p class="muted fb-n">on track</p></li>
   
     <li class="t-ok"><div class="fb-top"><span class="fb-l">Mateo&#39;s allowance</span><span class="fb-v"><b>$0</b> of $30</span></div>
-      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="1" height="6" rx="3"/><rect class="fb-mark" x="23" y="0" width="1" height="6"/></svg>
+      <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="1" height="6" rx="3"/><rect class="fb-mark" x="30" y="0" width="1" height="6"/></svg>
       <p class="muted fb-n">on track</p></li>
   </ul>
   <p class="muted small">The thin line is where it would be by today at an even pace.</p>
@@ -369,11 +371,11 @@
   
     <li class="t-"><div class="fb-top"><span class="fb-l">New roof</span><span class="fb-v"><b>$2,600</b> of $12,000</span></div>
       <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="22" height="6" rx="3"/></svg>
-      <p class="muted fb-n">$553 a month to reach it by Apr 2028</p></li>
+      <p class="muted fb-n">$522 a month to reach it by May 2028</p></li>
   
     <li class="t-"><div class="fb-top"><span class="fb-l">Emergency fund</span><span class="fb-v"><b>$18,250</b> of $25,000</span></div>
       <svg class="fb-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="73" height="6" rx="3"/></svg>
-      <p class="muted fb-n">$6,750 to go (balance on 2026-11-05)</p></li>
+      <p class="muted fb-n">$6,750 to go (balance on 2026-11-08)</p></li>
   </ul>
   
   
@@ -386,13 +388,13 @@
   <ul class="rlist fl-phone">
     <li><a href="#" data-demo="1" hx-get="/money/row/savings_goals/2?part=budget" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-n" aria-hidden="true">S</span>
-      <span class="rl-main"><span class="rl-t">Summer trip to the lake</span><span class="rl-m">Saved $1,450.00 · Target $3,200.00 · Jul 5, 2027 · A month to get there $218.75</span></span>
+      <span class="rl-main"><span class="rl-t">Summer trip to the lake</span><span class="rl-m">Saved $1,450.00 · Target $3,200.00 · Jul 8, 2027 · A month to get there $218.75</span></span>
       <span class="rl-r"></span>
     </a></li>
   
     <li><a href="#" data-demo="1" hx-get="/money/row/savings_goals/3?part=budget" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-n" aria-hidden="true">N</span>
-      <span class="rl-main"><span class="rl-t">New roof</span><span class="rl-m">Saved $2,600.00 · Target $12,000.00 · Apr 30, 2028 · A month to get there $552.94</span></span>
+      <span class="rl-main"><span class="rl-t">New roof</span><span class="rl-m">Saved $2,600.00 · Target $12,000.00 · May 3, 2028 · A month to get there $522.22</span></span>
       <span class="rl-r"></span>
     </a></li>
   
@@ -404,7 +406,7 @@
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Goal</th><th class="num">Saved</th><th class="num">Target</th><th>By</th><th class="num">A month to get there</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/2?part=budget" hx-target="#txn-body" hx-swap="innerHTML">Summer trip to the lake</a></td><td class="num">$1,450.00</td><td class="num">$3,200.00</td><td>Jul 5, 2027</td><td class="num">$218.75</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/3?part=budget" hx-target="#txn-body" hx-swap="innerHTML">New roof</a></td><td class="num">$2,600.00</td><td class="num">$12,000.00</td><td>Apr 30, 2028</td><td class="num">$552.94</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/1?part=budget" hx-target="#txn-body" hx-swap="innerHTML">Emergency fund</a></td><td class="num">$18,250.00</td><td class="num">$25,000.00</td><td></td><td class="num"></td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/2?part=budget" hx-target="#txn-body" hx-swap="innerHTML">Summer trip to the lake</a></td><td class="num">$1,450.00</td><td class="num">$3,200.00</td><td>Jul 8, 2027</td><td class="num">$218.75</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/3?part=budget" hx-target="#txn-body" hx-swap="innerHTML">New roof</a></td><td class="num">$2,600.00</td><td class="num">$12,000.00</td><td>May 3, 2028</td><td class="num">$522.22</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/savings_goals/1?part=budget" hx-target="#txn-body" hx-swap="innerHTML">Emergency fund</a></td><td class="num">$18,250.00</td><td class="num">$25,000.00</td><td></td><td class="num"></td></tr></tbody>
   </table></div>
   
 </details>

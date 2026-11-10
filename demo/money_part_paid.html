@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.146.1">
-  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.147.0">
+  <script src="static/vendor/htmx.min.js?v=0.147.0" defer></script>
   
-  <script src="static/app.js?v=0.146.1" defer></script>
+  <script src="static/app.js?v=0.147.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.146.1</small>
+    <small class="ver">v0.147.0</small>
   </nav>
 
   <main>
@@ -89,6 +89,8 @@
 <header class="head"><div><h1>Money</h1><p class="sub">Bills paid this month next to last month, per payee.</p></div></header>
 <nav class="pchips mtabs" aria-label="Money">
   <a href="money.html" class="pchip">Overview</a>
+  <a href="money_part_statement.html" class="pchip">Statement</a>
+  <a href="money_part_homecosts.html" class="pchip">Home costs</a>
   <a href="money_part_spending.html" class="pchip">Spending</a><a href="money_part_paid.html" class="pchip on" aria-current="true">Bills</a><a href="money_part_regular.html" class="pchip">Regular</a>
   
 </nav>
@@ -98,10 +100,10 @@
 
 
 <div class="mo-top">
-  <div class="card"><span class="muted">Paid in November</span><b>$142.18</b><small class="muted">1 bill so far.</small></div>
+  <div class="card"><span class="muted">Paid in November</span><b>$601.18</b><small class="muted">3 bills so far.</small></div>
   <div class="card"><span class="muted">Paid in October</span><b>$943.58</b><small class="muted">5 bills.</small></div>
-  <div class="card mo-warn"><span class="muted">Still to come</span><b>$801.40</b>
-    <small class="muted">4 paid in October, not seen yet this month.</small></div>
+  <div class="card mo-warn"><span class="muted">Still to come</span><b>$342.40</b>
+    <small class="muted">2 paid in October, not seen yet this month.</small></div>
 </div>
 <div class="mo-pair">
   <section class="card" aria-label="Bills, October and November">
@@ -111,13 +113,13 @@
       <span class="num">$142.18<small>Oct 3</small></span>
       <span class="num"><b>$142.18</b><small>Nov 3</small></span></div>
     
-    <div class="mo-b waiting"><div><b>Brightwave Internet</b><small class="mo-note">usually around Nov 8</small></div>
+    <div class="mo-b paid"><div><b>Brightwave Internet</b></div>
       <span class="num">$70.00<small>Oct 8</small></span>
-      <span class="num"><span class="chip-s t-warn">Not yet</span></span></div>
+      <span class="num"><b>$70.00</b><small>Nov 8</small></span></div>
     
-    <div class="mo-b waiting"><div><b>Crestline Auto Loan</b><small class="mo-note">usually around Nov 9</small></div>
+    <div class="mo-b paid"><div><b>Crestline Auto Loan</b></div>
       <span class="num">$389.00<small>Oct 9</small></span>
-      <span class="num"><span class="chip-s t-warn">Not yet</span></span></div>
+      <span class="num"><b>$389.00</b><small>Nov 9</small></span></div>
     
     <div class="mo-b waiting"><div><b>Lakeside Mutual Auto Ins</b><small class="mo-note">usually around Nov 15</small></div>
       <span class="num">$224.00<small>Oct 15</small></span>
@@ -131,15 +133,15 @@
   <section class="card" aria-label="Open on the bill list">
     <h2>Open on the bill list</h2>
     <ul class="rlist">
-      <li><div><span class="rl-main"><span class="rl-t">Brightwave</span><span class="rl-m bad">Was due Nov 5</span></span><span class="rl-r"><b>$70.00</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Brightwave</span><span class="rl-m bad">Was due Nov 8</span></span><span class="rl-r"><b>$70.00</b></span></div></li>
     
-      <li><div><span class="rl-main"><span class="rl-t">City Water &amp; Power</span><span class="rl-m">Due Nov 11</span></span><span class="rl-r"><b>$142.18</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">City Water &amp; Power</span><span class="rl-m">Due Nov 14</span></span><span class="rl-r"><b>$142.18</b></span></div></li>
     
-      <li><div><span class="rl-main"><span class="rl-t">Northstar Mobile</span><span class="rl-m">Due Nov 16</span></span><span class="rl-r"><b>$118.40</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Northstar Mobile</span><span class="rl-m">Due Nov 19</span></span><span class="rl-r"><b>$118.40</b></span></div></li>
     
-      <li><div><span class="rl-main"><span class="rl-t">Maple Home Lending</span><span class="rl-m">Due Nov 19</span></span><span class="rl-r"><b>$2,150.00</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Maple Home Lending</span><span class="rl-m">Due Nov 22</span></span><span class="rl-r"><b>$2,150.00</b></span></div></li>
     
-      <li><div><span class="rl-main"><span class="rl-t">Lakeside Mutual</span><span class="rl-m">Due Nov 22</span></span><span class="rl-r"><b>$224.00</b></span></div></li>
+      <li><div><span class="rl-main"><span class="rl-t">Lakeside Mutual</span><span class="rl-m">Due Nov 25</span></span><span class="rl-r"><b>$224.00</b></span></div></li>
     </ul>
     <p class="muted small">Bills are utilities, phone, internet, insurance, rent or mortgage and loan payments, as in the Ledger's Bills paid. <a href="money_part_bills.html">Mark one paid on the bill list</a>.</p>
   </section>

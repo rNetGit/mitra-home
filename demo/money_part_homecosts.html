@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#F3F4F6">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css?v=0.147.0">
+  <script src="static/vendor/htmx.min.js?v=0.147.0" defer></script>
+  
+  <script src="static/app.js?v=0.147.0" defer></script>
+  <title>Money · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#2A1F17;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#F6C9A8}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../phone-demo.html">Phone app demo</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu">
+        <a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
+    
+    <small class="ver">v0.147.0</small>
+  </nav>
+
+  <main>
+
+  <form class="askbar" role="search" hx-post="/chat/ask" hx-swap="none" hx-disabled-elt="find button" aria-label="Ask Mitra">
+    <span class="mav" aria-hidden="true">M</span>
+    <label class="vh" for="askq">Ask Mitra, or tell it something</label>
+    <input id="askq" name="text" maxlength="1000" autocomplete="off" required
+      placeholder="Ask Mitra, or tell it something: &ldquo;Mateo has the dentist Friday at 4&rdquo;">
+    <kbd class="askkey" aria-hidden="true">Ctrl K</kbd>
+    <button class="btn" type="submit">Ask</button>
+    <span class="thinking muted" role="status">Thinking&hellip;</span>
+  </form>
+
+  
+
+<header class="head"><div><h1>Money</h1><p class="sub">What the house costs to run: rent or mortgage, upkeep, utilities, home insurance.</p></div></header>
+<nav class="pchips mtabs" aria-label="Money">
+  <a href="money.html" class="pchip">Overview</a>
+  <a href="money_part_statement.html" class="pchip">Statement</a>
+  <a href="money_part_homecosts.html" class="pchip on" aria-current="true">Home costs</a>
+  <a href="money_part_spending.html" class="pchip">Spending</a><a href="money_part_paid.html" class="pchip">Bills</a><a href="money_part_regular.html" class="pchip">Regular</a>
+  
+</nav>
+
+
+
+
+<section class="mst" id="hcosts" aria-label="Home costs, 12 months to October 2026">
+  <header class="mst-head">
+    <a class="btn alt" href="#" data-demo="1" aria-label="Earlier">‹</a>
+    <form class="mpick" method="get" action="/money" hx-get="/money" hx-trigger="change" hx-target="main" hx-select="main" hx-swap="outerHTML"><input type="hidden" name="part" value="homecosts"><label for="hym" class="vh">Last month shown</label>
+      <select id="hym" name="ym"><option value="2026-11">Nov 2026</option><option value="2026-10" selected>Oct 2026</option><option value="2026-09">Sep 2026</option><option value="2026-08">Aug 2026</option><option value="2026-07">Jul 2026</option><option value="2026-06">Jun 2026</option><option value="2026-05">May 2026</option></select>
+      <noscript><button class="btn alt" type="submit">Show</button></noscript></form>
+    <a class="btn alt" href="#" data-demo="1" aria-label="Later">›</a>
+    <button type="button" class="btn alt mst-print" data-print-list>Print</button>
+  </header>
+  <div class="print-list">
+  <div class="mo-top">
+    <div class="card"><span class="muted">Oct 2026</span><b>$2,481</b>
+      <small class="muted">+0% against the average</small></div>
+    <div class="card"><span class="muted">Average a month</span><b>$2,481</b><small class="muted">over 6 months with statements</small></div>
+    <div class="card"><span class="muted">Last 12 months</span><b>$14,883</b><small class="muted">22% of income</small></div>
+  </div>
+  <div class="card">
+    <h2 class="row-h">Month by month</h2>
+    <svg class="hc-chart" viewBox="0 0 300 150" role="img" aria-label="Home costs per month, last 12 months">
+      
+      <g class="">
+        <rect class="off" x="8" y="126" width="16" height="2" rx="1"><title>Nov: no statements</title></rect>
+        <text x="16" y="144" text-anchor="middle">Nov</text>
+      </g>
+      <g class="">
+        <rect class="off" x="32" y="126" width="16" height="2" rx="1"><title>Dec: no statements</title></rect>
+        <text x="40" y="144" text-anchor="middle">Dec</text>
+      </g>
+      <g class="">
+        <rect class="off" x="56" y="126" width="16" height="2" rx="1"><title>Jan: no statements</title></rect>
+        <text x="64" y="144" text-anchor="middle">Jan</text>
+      </g>
+      <g class="">
+        <rect class="off" x="80" y="126" width="16" height="2" rx="1"><title>Feb: no statements</title></rect>
+        <text x="88" y="144" text-anchor="middle">Feb</text>
+      </g>
+      <g class="">
+        <rect class="off" x="104" y="126" width="16" height="2" rx="1"><title>Mar: no statements</title></rect>
+        <text x="112" y="144" text-anchor="middle">Mar</text>
+      </g>
+      <g class="">
+        <rect class="off" x="128" y="126" width="16" height="2" rx="1"><title>Apr: no statements</title></rect>
+        <text x="136" y="144" text-anchor="middle">Apr</text>
+      </g>
+      <g class="">
+        <rect class="bar" x="152" y="15.999999999999986" width="16" height="112.00000000000001" rx="3"><title>May $2,481</title></rect>
+        
+        <text x="160" y="144" text-anchor="middle">May</text>
+      </g>
+      <g class="">
+        <rect class="bar" x="176" y="15.999999999999986" width="16" height="112.00000000000001" rx="3"><title>Jun $2,481</title></rect>
+        
+        <text x="184" y="144" text-anchor="middle">Jun</text>
+      </g>
+      <g class="">
+        <rect class="bar" x="200" y="15.999999999999986" width="16" height="112.00000000000001" rx="3"><title>Jul $2,481</title></rect>
+        
+        <text x="208" y="144" text-anchor="middle">Jul</text>
+      </g>
+      <g class="">
+        <rect class="bar" x="224" y="15.999999999999986" width="16" height="112.00000000000001" rx="3"><title>Aug $2,481</title></rect>
+        
+        <text x="232" y="144" text-anchor="middle">Aug</text>
+      </g>
+      <g class="">
+        <rect class="bar" x="248" y="15.999999999999986" width="16" height="112.00000000000001" rx="3"><title>Sep $2,481</title></rect>
+        
+        <text x="256" y="144" text-anchor="middle">Sep</text>
+      </g>
+      <g class="on">
+        <rect class="bar now" x="272" y="15.999999999999986" width="16" height="112.00000000000001" rx="3"><title>Oct $2,481</title></rect>
+        
+        <text x="280" y="144" text-anchor="middle">Oct</text>
+      </g>
+    </svg>
+  </div>
+  <div class="card tablewrap">
+    <h2 class="row-h">Where it goes</h2>
+    
+    <table class="mst-t nocards hc-t">
+      <thead><tr><th>Cost</th><th class="num">Oct</th><th class="num">Avg / mo</th><th class="num">12 months</th><th class="num">Share</th></tr></thead>
+      <tbody>
+        <tr class="mst-grp"><th>Housing</th><td class="num">$2,150</td><td class="num">$2,150</td><td class="num">$12,900</td><td class="num"></td></tr>
+        
+      
+        <tr class="mst-grp"><th>Utilities</th><td class="num">$331</td><td class="num">$331</td><td class="num">$1,983</td><td class="num"></td></tr>
+        
+      </tbody>
+      <tfoot><tr class="mst-tot"><th>Total</th><td class="num">$2,481</td><td class="num">$2,481</td><td class="num">$14,883</td><td class="num">100%</td></tr></tfoot>
+    </table>
+    <p class="muted small">Housing (rent or mortgage, repairs, upkeep), Utilities, and insurance whose category names the home. Grouped by category name as on the Statement; a category named another way (a property tax under "tax", say) is not counted here. <a href="#" data-demo="1">Open the Statement</a>.</p>
+    
+  </div>
+  </div>
+</section>
+
+
+</main>
+
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+
+
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet">
+        <a href="notes.html" >Notes</a><a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
+  <nav class="bnav" aria-label="Main (phone)">
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" class="on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
+  </nav>
+
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
+</body>
+</html>

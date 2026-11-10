@@ -1273,3 +1273,26 @@ a.kchip{color:inherit;text-decoration:none}a.kchip:hover,a.kchip:focus-visible{f
   .cal.week .day.th-christmas{background-image:url(/static/themes/christmas.svg)}.cal.week .day.th-patriot{background-image:url(/static/themes/patriot.svg)}
   .cal.week .day.th-birthday{background-image:url(/static/themes/birthday.svg)}.cal.week .day.th-medical{background-image:url(/static/themes/medical.svg)}
 }
+
+/* Money > Statement (_mstatement.html) */
+.mst-head{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}.mst-head form{margin:0}.mst-print{margin-left:auto}
+.mst-head select{min-height:38px;border-radius:999px;padding:0 28px 0 12px}
+.mst .card{margin-bottom:14px}.mst-t{width:100%;border-collapse:collapse;font-size:.92rem}
+.mst-t th,.mst-t td{padding:6px 8px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.mst-t thead th{font-size:.8rem;color:var(--text-2);font-weight:600}.mst-t th.num,.mst-t td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mst-sec th{padding-top:14px;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-2);border-bottom:2px solid var(--line)}
+.mst-grp th,.mst-grp td{font-weight:700;background:var(--surface-2)}.mst-cat td:first-child{padding-left:22px}
+.mst-tot th,.mst-tot td{font-weight:700;border-top:2px solid var(--line)}.mst-tot.neg td{color:var(--danger)}
+.mst .up{color:var(--danger)}.mst .down{color:var(--ok)}
+@media (max-width:640px){.mst-t{font-size:.8rem}.mst-t th,.mst-t td{padding:5px 2px}.mst-t th:first-child,.mst-t td:first-child{min-width:5.5rem;white-space:normal}.mst .tablewrap{padding-left:8px;padding-right:8px}.mst-cat td:first-child{padding-left:10px}
+  .st-main th:nth-child(4),.st-main td:nth-child(4),.hc-t th:nth-child(5),.hc-t td:nth-child(5){display:none}.mst-print{display:none}.mst-head{flex-wrap:nowrap}.mst-head form{flex:1;min-width:0}.mst-head select{width:100%}
+  .mst .mo-top{grid-template-columns:1fr 1fr}.mst .mo-top .card:last-child{grid-column:1/-1}.mst .card{padding:12px}}
+
+/* Money > Home costs and the month check */
+.mck{margin-bottom:14px}.mck ul{list-style:none;margin:8px 0 0;padding:0}.mck li{display:flex;gap:10px;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--line)}
+.mck li:last-child{border-bottom:0}.mck .ck{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:.8rem;font-weight:700;background:var(--surface-2);color:var(--text-2)}
+.mck .ok .ck{background:var(--ok-soft,#e6f4ec);color:var(--ok)}.mck .todo .ck{background:var(--warn-soft);color:var(--danger)}
+.mck .ready{color:var(--ok);font-weight:700}.mck .notready{color:var(--danger);font-weight:700}.mck small{display:block}
+.hc-chart{width:100%;max-width:640px;height:auto}.hc-chart .bar{fill:var(--accent)}.hc-chart .bar.now{fill:var(--accent-2,var(--accent));opacity:.65}.hc-chart .off{fill:var(--line)}
+.hc-chart text{font-size:9px;fill:var(--text-2)}.hc-chart .on text{font-weight:700;fill:var(--text)}
+@media (max-width:400px){.st-main th:nth-child(5),.st-main td:nth-child(5){display:none}}

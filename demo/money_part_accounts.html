@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.146.1">
-  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.147.0">
+  <script src="static/vendor/htmx.min.js?v=0.147.0" defer></script>
   
-  <script src="static/app.js?v=0.146.1" defer></script>
+  <script src="static/app.js?v=0.147.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.146.1</small>
+    <small class="ver">v0.147.0</small>
   </nav>
 
   <main>
@@ -89,6 +89,8 @@
 <header class="head"><div><h1>Money</h1><p class="sub">Keep · Accounts</p></div></header>
 <nav class="pchips mtabs" aria-label="Money">
   <a href="money.html" class="pchip">Overview</a>
+  <a href="money_part_statement.html" class="pchip">Statement</a>
+  <a href="money_part_homecosts.html" class="pchip">Home costs</a>
   <a href="money_part_spending.html" class="pchip">Spending</a><a href="money_part_paid.html" class="pchip">Bills</a><a href="money_part_regular.html" class="pchip">Regular</a>
   
   <a href="money_part_accounts.html" class="pchip on" aria-current="true">Keep</a>
@@ -115,7 +117,7 @@
   <details class="lside" open data-lside aria-label="Summary">
     <summary class="lside-sum"><b>Summary</b><span class="lmini">Cash $26,557</span><span class="lmini">Investments $42,310</span><span class="lmini">Cards and loans owed $0</span></summary>
     
-<div class="kpis rk"><div class="kpi"><span>Cash</span><b >$26,557</b></div><div class="kpi"><span>Investments</span><b >$42,310</b></div><div class="kpi"><span>Cards and loans owed</span><b >$0</b></div><div class="kpi"><span>Net position · Nov 5</span><b >$68,867</b></div></div>
+<div class="kpis rk"><div class="kpi"><span>Cash</span><b >$26,557</b></div><div class="kpi"><span>Investments</span><b >$42,310</b></div><div class="kpi"><span>Cards and loans owed</span><b >$0</b></div><div class="kpi"><span>Net position · Nov 8</span><b >$68,867</b></div></div>
 
     
 
@@ -155,37 +157,37 @@
   <ul class="rlist fl-phone">
     <li><a href="#" data-demo="1" hx-get="/money/row/accounts/1?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-n" aria-hidden="true">L</span>
-      <span class="rl-main"><span class="rl-t">Lakeside Bank Checking x4821</span><span class="rl-m">checking · Marcus · Nov 5</span></span>
+      <span class="rl-main"><span class="rl-t">Lakeside Bank Checking x4821</span><span class="rl-m">checking · Marcus · Nov 8</span></span>
       <span class="rl-r"><b>$6,420.55</b></span>
     </a></li>
   
     <li><a href="#" data-demo="1" hx-get="/money/row/accounts/3?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-n" aria-hidden="true">N</span>
-      <span class="rl-main"><span class="rl-t">Northway Visa x1209</span><span class="rl-m">credit · Marcus · Nov 5</span></span>
+      <span class="rl-main"><span class="rl-t">Northway Visa x1209</span><span class="rl-m">credit · Marcus · Nov 8</span></span>
       <span class="rl-r"><b>-$1,184.20</b></span>
     </a></li>
   
     <li><a href="#" data-demo="1" hx-get="/money/row/accounts/4?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-n" aria-hidden="true">S</span>
-      <span class="rl-main"><span class="rl-t">Summit Rewards Card x3344</span><span class="rl-m">credit · Elena · Nov 5</span></span>
+      <span class="rl-main"><span class="rl-t">Summit Rewards Card x3344</span><span class="rl-m">credit · Elena · Nov 8</span></span>
       <span class="rl-r"><b>-$702.48</b></span>
     </a></li>
   
     <li><a href="#" data-demo="1" hx-get="/money/row/accounts/5?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-n" aria-hidden="true">H</span>
-      <span class="rl-main"><span class="rl-t">Harbor Brokerage x5502</span><span class="rl-m">investment · Marcus · Nov 5</span></span>
+      <span class="rl-main"><span class="rl-t">Harbor Brokerage x5502</span><span class="rl-m">investment · Marcus · Nov 8</span></span>
       <span class="rl-r"><b>$42,310.00</b></span>
     </a></li>
   
     <li><a href="#" data-demo="1" hx-get="/money/row/accounts/2?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-n" aria-hidden="true">L</span>
-      <span class="rl-main"><span class="rl-t">Lakeside Bank Savings x7310</span><span class="rl-m">savings · Elena · Nov 5</span></span>
+      <span class="rl-main"><span class="rl-t">Lakeside Bank Savings x7310</span><span class="rl-m">savings · Elena · Nov 8</span></span>
       <span class="rl-r"><b>$18,250.00</b></span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Account</th><th class="num">Reported</th><th>Type</th><th>Owner</th><th>As of</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/1?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Lakeside Bank Checking x4821</a></td><td class="num">$6,420.55</td><td>checking</td><td>Marcus</td><td>Nov 5</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/3?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Northway Visa x1209</a></td><td class="num">-$1,184.20</td><td>credit</td><td>Marcus</td><td>Nov 5</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/4?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Summit Rewards Card x3344</a></td><td class="num">-$702.48</td><td>credit</td><td>Elena</td><td>Nov 5</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/5?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Harbor Brokerage x5502</a></td><td class="num">$42,310.00</td><td>investment</td><td>Marcus</td><td>Nov 5</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/2?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Lakeside Bank Savings x7310</a></td><td class="num">$18,250.00</td><td>savings</td><td>Elena</td><td>Nov 5</td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/1?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Lakeside Bank Checking x4821</a></td><td class="num">$6,420.55</td><td>checking</td><td>Marcus</td><td>Nov 8</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/3?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Northway Visa x1209</a></td><td class="num">-$1,184.20</td><td>credit</td><td>Marcus</td><td>Nov 8</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/4?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Summit Rewards Card x3344</a></td><td class="num">-$702.48</td><td>credit</td><td>Elena</td><td>Nov 8</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/5?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Harbor Brokerage x5502</a></td><td class="num">$42,310.00</td><td>investment</td><td>Marcus</td><td>Nov 8</td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/2?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Lakeside Bank Savings x7310</a></td><td class="num">$18,250.00</td><td>savings</td><td>Elena</td><td>Nov 8</td></tr></tbody>
   </table></div>
   
 </section>
@@ -251,7 +253,7 @@
   <ul class="rlist fl-phone">
     <li><a href="#" data-demo="1" hx-get="/money/row/accounts/1?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-n" aria-hidden="true">L</span>
-      <span class="rl-main"><span class="rl-t">Lakeside Bank Checking</span><span class="rl-m">checking · 4821 · Marcus · Transactions 83</span></span>
+      <span class="rl-main"><span class="rl-t">Lakeside Bank Checking</span><span class="rl-m">checking · 4821 · Marcus · Transactions 85</span></span>
       <span class="rl-r"></span>
     </a></li>
   
@@ -263,7 +265,7 @@
   
     <li><a href="#" data-demo="1" hx-get="/money/row/accounts/4?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-n" aria-hidden="true">S</span>
-      <span class="rl-main"><span class="rl-t">Summit Rewards Card</span><span class="rl-m">credit · 3344 · Elena · Transactions 87</span></span>
+      <span class="rl-main"><span class="rl-t">Summit Rewards Card</span><span class="rl-m">credit · 3344 · Elena · Transactions 88</span></span>
       <span class="rl-r"></span>
     </a></li>
   
@@ -281,7 +283,7 @@
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Account</th><th>Type</th><th>Last 4</th><th>Owner</th><th>Transactions</th><th>Last txn</th><th>Latest statement</th><th>Note</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/1?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Lakeside Bank Checking</a></td><td>checking</td><td>4821</td><td>Marcus</td><td>83</td><td>Nov 5</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/3?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Northway Visa</a></td><td>credit</td><td>1209</td><td>Marcus</td><td>86</td><td>Nov 7</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/4?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Summit Rewards Card</a></td><td>credit</td><td>3344</td><td>Elena</td><td>87</td><td>Nov 7</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/5?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Harbor Brokerage</a></td><td>investment</td><td>5502</td><td>Marcus</td><td>0</td><td></td><td></td><td></td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/2?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Lakeside Bank Savings</a></td><td>savings</td><td>7310</td><td>Elena</td><td>13</td><td>Nov 5</td><td></td><td></td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/1?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Lakeside Bank Checking</a></td><td>checking</td><td>4821</td><td>Marcus</td><td>85</td><td>Nov 9</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/3?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Northway Visa</a></td><td>credit</td><td>1209</td><td>Marcus</td><td>86</td><td>Nov 7</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/4?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Summit Rewards Card</a></td><td>credit</td><td>3344</td><td>Elena</td><td>88</td><td>Nov 8</td><td></td><td></td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/5?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Harbor Brokerage</a></td><td>investment</td><td>5502</td><td>Marcus</td><td>0</td><td></td><td></td><td></td></tr><tr><td><a href="#" data-demo="1" hx-get="/money/row/accounts/2?part=accounts" hx-target="#txn-body" hx-swap="innerHTML">Lakeside Bank Savings</a></td><td>savings</td><td>7310</td><td>Elena</td><td>13</td><td>Nov 5</td><td></td><td></td></tr></tbody>
   </table></div>
   
 </section>

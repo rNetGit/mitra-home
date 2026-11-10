@@ -301,7 +301,7 @@
   function cardTables(root) {
     (root || document).querySelectorAll('.tablewrap > table').forEach(function (t) {
       var heads = t.querySelectorAll('thead th');
-      if (heads.length < 5 || t.classList.contains('cards')) return;
+      if (heads.length < 5 || t.classList.contains('cards') || t.classList.contains('nocards')) return;
       var names = Array.prototype.map.call(heads, function (h) { return h.textContent.trim(); });
       t.querySelectorAll('tbody tr').forEach(function (tr) {
         Array.prototype.forEach.call(tr.children, function (td, i) { if (names[i]) td.setAttribute('data-label', names[i]); });
