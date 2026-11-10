@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.146.1">
-  <script src="static/vendor/htmx.min.js?v=0.146.1" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.147.0">
+  <script src="static/vendor/htmx.min.js?v=0.147.0" defer></script>
   
-  <script src="static/app.js?v=0.146.1" defer></script>
+  <script src="static/app.js?v=0.147.0" defer></script>
   <title>Settings · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.146.1</small>
+    <small class="ver">v0.147.0</small>
   </nav>
 
   <main>
@@ -94,7 +94,7 @@
 
 
 
-<details class="card sfold" id="data-where"><summary><h2>Where things are</h2><span class="muted">Mitra Home 0.146.1: the app, your papers and the database on this PC</span></summary>
+<details class="card sfold" id="data-where"><summary><h2>Where things are</h2><span class="muted">Mitra Home 0.147.0: the app, your papers and the database on this PC</span></summary>
   <ul class="wherelist">
     <li><span><b>The app</b> <span class="muted small">(code; replaced by every update)</span><br>
       <span class="wpath">/Users/rivera/MitraHome</span></span>
@@ -135,7 +135,7 @@
   <details><summary>All checks (9)</summary>
   <div class="tablewrap"><table>
     <thead><tr><th></th><th>Check</th><th>What</th><th>Where to fix it</th></tr></thead>
-    <tbody><tr><td>OK</td><td>Database</td><td>integrity ok</td><td></td></tr><tr><td>OK</td><td>Database updates</td><td>all applied</td><td></td></tr><tr><td>Fix</td><td>Scheduled tasks</td><td>not registered, so nothing runs by itself</td><td>Settings &gt; Data &gt; Runs on its own</td></tr><tr><td>Fix</td><td>Backup (same-drive)</td><td>no backup yet</td><td>Settings &gt; Data &gt; Back up now</td></tr><tr><td>Note</td><td>Backup encryption</td><td>backups are not encrypted</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>Second backup place</td><td>none: backups sit next to the project folder</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>AI provider</td><td>none: files wait for you or Claude Code</td><td>Settings &gt; Connections &gt; AI provider</td></tr><tr><td>Note</td><td>Update token</td><td>not set: fine while the releases are public; a private project needs one to check for updates</td><td>set MITRAHOME_TOKEN to a read-only GitHub token</td></tr><tr><td>OK</td><td>Data check</td><td>nothing wrong on Nov 7, 2026</td><td></td></tr></tbody>
+    <tbody><tr><td>OK</td><td>Database</td><td>integrity ok</td><td></td></tr><tr><td>OK</td><td>Database updates</td><td>all applied</td><td></td></tr><tr><td>Fix</td><td>Scheduled tasks</td><td>not registered, so nothing runs by itself</td><td>Settings &gt; Data &gt; Runs on its own</td></tr><tr><td>Fix</td><td>Backup (same-drive)</td><td>no backup yet</td><td>Settings &gt; Data &gt; Back up now</td></tr><tr><td>Note</td><td>Backup encryption</td><td>backups are not encrypted</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>Second backup place</td><td>none: backups sit next to the project folder</td><td>Settings &gt; Data &gt; Advanced</td></tr><tr><td>Note</td><td>AI provider</td><td>none: files wait for you or Claude Code</td><td>Settings &gt; Connections &gt; AI provider</td></tr><tr><td>Note</td><td>Update token</td><td>not set: fine while the releases are public; a private project needs one to check for updates</td><td>set MITRAHOME_TOKEN to a read-only GitHub token</td></tr><tr><td>OK</td><td>Data check</td><td>nothing wrong on Nov 10, 2026</td><td></td></tr></tbody>
   </table></div>
   </details>
   
@@ -270,7 +270,7 @@
 
 <details class="card sfold"><summary><h2>About Mitra Home</h2><span class="muted">Version, website, source and licence</span></summary>
 <div id="data-about">
-  <p class="muted">Mitra Home 0.146.1. Free to use, no account, no subscription. Your records stay on this PC.</p>
+  <p class="muted">Mitra Home 0.147.0. Free to use, no account, no subscription. Your records stay on this PC.</p>
   <p class="optrow">
     <a class="btn alt" href="https://rnetgit.github.io/mitra-home/" target="_blank" rel="noopener noreferrer">Mitra Home website</a>
     <a class="btn alt" href="https://rnetgit.github.io/mitra-home/install.html" target="_blank" rel="noopener noreferrer">Download the latest version</a>
@@ -282,7 +282,7 @@
 
 <details class="card sfold"><summary><h2>Updates</h2><span class="muted">Check for and install new versions</span></summary>
 <div id="data-update">
-  <p class="muted">This is Mitra Home 0.146.1.</p>
+  <p class="muted">This is Mitra Home 0.147.0.</p>
   <div class="optrow">
     <button type="button" class="btn alt" hx-post="/settings/update" hx-vals='{"op": "check"}' hx-disabled-elt="this">Check for updates</button>
     
@@ -310,7 +310,7 @@
 </details>
 
 
-<p class="muted small">Version 0.146.1 · stored on this PC.</p>
+<p class="muted small">Version 0.147.0 · stored on this PC.</p>
 
 </main>
 

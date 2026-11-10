@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#F3F4F6">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css?v=0.147.0">
+  <script src="static/vendor/htmx.min.js?v=0.147.0" defer></script>
+  
+  <script src="static/app.js?v=0.147.0" defer></script>
+  <title>Money · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#2A1F17;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#F6C9A8}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../phone-demo.html">Phone app demo</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu">
+        <a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
+    
+    <small class="ver">v0.147.0</small>
+  </nav>
+
+  <main>
+
+  <form class="askbar" role="search" hx-post="/chat/ask" hx-swap="none" hx-disabled-elt="find button" aria-label="Ask Mitra">
+    <span class="mav" aria-hidden="true">M</span>
+    <label class="vh" for="askq">Ask Mitra, or tell it something</label>
+    <input id="askq" name="text" maxlength="1000" autocomplete="off" required
+      placeholder="Ask Mitra, or tell it something: &ldquo;Mateo has the dentist Friday at 4&rdquo;">
+    <kbd class="askkey" aria-hidden="true">Ctrl K</kbd>
+    <button class="btn" type="submit">Ask</button>
+    <span class="thinking muted" role="status">Thinking&hellip;</span>
+  </form>
+
+  
+
+<header class="head"><div><h1>Money</h1><p class="sub">One month as a home income statement: income, expenses by kind, and what moved.</p></div></header>
+<nav class="pchips mtabs" aria-label="Money">
+  <a href="money.html" class="pchip">Overview</a>
+  <a href="money_part_statement.html" class="pchip on" aria-current="true">Statement</a>
+  <a href="money_part_homecosts.html" class="pchip">Home costs</a>
+  <a href="money_part_spending.html" class="pchip">Spending</a><a href="money_part_paid.html" class="pchip">Bills</a><a href="money_part_regular.html" class="pchip">Regular</a>
+  
+</nav>
+
+
+
+
+
+
+<section class="mst" id="mst" aria-label="Month statement, October 2026">
+  <header class="mst-head">
+    <a class="btn alt" href="#" data-demo="1" aria-label="Older month">‹</a>
+    <form class="mpick" method="get" action="/money" hx-get="/money" hx-trigger="change" hx-target="main" hx-select="main" hx-swap="outerHTML"><input type="hidden" name="part" value="statement"><label for="sym" class="vh">Month</label>
+      <select id="sym" name="ym"><option value="2026-11">Nov 2026</option><option value="2026-10" selected>Oct 2026</option><option value="2026-09">Sep 2026</option><option value="2026-08">Aug 2026</option><option value="2026-07">Jul 2026</option><option value="2026-06">Jun 2026</option><option value="2026-05">May 2026</option></select>
+      <noscript><button class="btn alt" type="submit">Show</button></noscript></form>
+    <a class="btn alt" href="#" data-demo="1" aria-label="Newer month">›</a>
+    
+    <button type="button" class="btn alt mst-print" data-print-list>Print</button>
+  </header>
+
+  
+  <section class="card mck" aria-label="Month check">
+    <h2 class="row-h">Month check <span class="ready">Ready to count as final</span></h2>
+    <ul><li class="ok"><span class="ck" aria-hidden="true">✓</span>
+      <span>The month is over</span></li><li class="ok"><span class="ck" aria-hidden="true">✓</span>
+      <span>Every account has lines for the month</span></li><li class="ok"><span class="ck" aria-hidden="true">✓</span>
+      <span>Nothing left uncategorized</span></li><li class="ok"><span class="ck" aria-hidden="true">✓</span>
+      <span>Card spending comes from card statements</span></li><li class="ok"><span class="ck" aria-hidden="true">✓</span>
+      <span>Bills due in the month are settled</span></li></ul>
+  </section>
+
+  <div class="print-list">
+  <div class="card tablewrap">
+    <h2 class="row-h">October 2026</h2>
+    <table class="mst-t nocards st-main">
+      <thead><tr><th>Home income statement</th><th class="num">Oct 2026</th><th class="num">Sep 2026</th><th class="num">Oct 2025</th><th class="num">Change</th></tr></thead>
+      <tbody>
+        <tr class="mst-sec"><th colspan="5">Income</th></tr>
+        <tr><td>Other</td><td class="num">$11,391</td><td class="num"></td><td class="num"></td><td class="num"></td></tr>
+        
+        <tr class="mst-tot"><th>Total income</th><td class="num">$11,391</td><td class="num">$11,392</td><td class="num"><span class="muted">-</span></td><td class="num">$0</td></tr>
+
+        <tr class="mst-sec"><th colspan="5">Expenses</th></tr>
+        
+        <tr class="mst-grp"><th>Housing</th><td class="num">$2,150</td><td class="num">$2,150</td><td class="num"><span class="muted">-</span></td><td class="num">$0</td></tr>
+        
+        
+        <tr class="mst-grp"><th>Food</th><td class="num">$1,121</td><td class="num">$881</td><td class="num"><span class="muted">-</span></td><td class="num"><span class="up">▲$240</span></td></tr>
+        <tr class="mst-cat"><td>Groceries</td><td class="num">$975</td><td class="num">$728</td><td class="num"><span class="muted">-</span></td><td class="num"><span class="up">▲$247</span></td></tr><tr class="mst-cat"><td>Dining</td><td class="num">$147</td><td class="num">$153</td><td class="num"><span class="muted">-</span></td><td class="num"><span class="down">▼$6</span></td></tr>
+        
+        <tr class="mst-grp"><th>Loans</th><td class="num">$389</td><td class="num">$389</td><td class="num"><span class="muted">-</span></td><td class="num">$0</td></tr>
+        <tr class="mst-cat"><td>Auto loan</td><td class="num">$389</td><td class="num">$389</td><td class="num"><span class="muted">-</span></td><td class="num">$0</td></tr>
+        
+        <tr class="mst-grp"><th>Utilities</th><td class="num">$331</td><td class="num">$331</td><td class="num"><span class="muted">-</span></td><td class="num">$0</td></tr>
+        
+        
+        <tr class="mst-grp"><th>Insurance</th><td class="num">$224</td><td class="num">$224</td><td class="num"><span class="muted">-</span></td><td class="num">$0</td></tr>
+        
+        
+        <tr class="mst-grp"><th>Transport</th><td class="num">$173</td><td class="num">$143</td><td class="num"><span class="muted">-</span></td><td class="num"><span class="up">▲$30</span></td></tr>
+        <tr class="mst-cat"><td>Fuel</td><td class="num">$173</td><td class="num">$143</td><td class="num"><span class="muted">-</span></td><td class="num"><span class="up">▲$30</span></td></tr>
+        
+        <tr class="mst-grp"><th>Health</th><td class="num">$118</td><td class="num">$74</td><td class="num"><span class="muted">-</span></td><td class="num"><span class="up">▲$44</span></td></tr>
+        <tr class="mst-cat"><td>Healthcare</td><td class="num">$79</td><td class="num">$35</td><td class="num"><span class="muted">-</span></td><td class="num"><span class="up">▲$44</span></td></tr><tr class="mst-cat"><td>Fitness</td><td class="num">$39</td><td class="num">$39</td><td class="num"><span class="muted">-</span></td><td class="num">$0</td></tr>
+        
+        <tr class="mst-grp"><th>Kids and school</th><td class="num">$64</td><td class="num">$484</td><td class="num"><span class="muted">-</span></td><td class="num"><span class="down">▼$420</span></td></tr>
+        <tr class="mst-cat"><td>Kids activities</td><td class="num">$64</td><td class="num">$484</td><td class="num"><span class="muted">-</span></td><td class="num"><span class="down">▼$420</span></td></tr>
+        
+        <tr class="mst-grp"><th>Subscriptions</th><td class="num">$33</td><td class="num">$33</td><td class="num"><span class="muted">-</span></td><td class="num">$0</td></tr>
+        
+        
+        <tr class="mst-grp"><th>Shopping</th><td class="num">$24</td><td class="num">$21</td><td class="num"><span class="muted">-</span></td><td class="num"><span class="up">▲$3</span></td></tr>
+        
+        
+        <tr class="mst-grp"><th>Other</th><td class="num">$195</td><td class="num">$220</td><td class="num"><span class="muted">-</span></td><td class="num"><span class="down">▼$26</span></td></tr>
+        <tr class="mst-cat"><td>General merchandise</td><td class="num">$157</td><td class="num">$170</td><td class="num"><span class="muted">-</span></td><td class="num"><span class="down">▼$13</span></td></tr><tr class="mst-cat"><td>Pets</td><td class="num">$37</td><td class="num">$50</td><td class="num"><span class="muted">-</span></td><td class="num"><span class="down">▼$13</span></td></tr>
+        
+        
+        <tr class="mst-tot"><th>Total expenses</th><td class="num">$4,821</td><td class="num">$4,949</td><td class="num"><span class="muted">-</span></td><td class="num"><span class="down">▼$129</span></td></tr>
+
+        <tr class="mst-tot "><th>Income less expenses</th><td class="num">$6,571</td><td class="num">$6,442</td><td class="num"><span class="muted">-</span></td><td class="num"></td></tr>
+        
+        <tr><td>Saved or invested</td><td class="num">$500</td><td></td><td></td><td></td></tr>
+        <tr class="mst-tot "><th>Left over</th><td class="num">$6,071</td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+    <p class="muted small">Spending as in the Ledger: transfers, card payments, investing and tax are not counted in expenses, a refund comes off, a card charge counts once. ▲ costs more than Sep 2026, ▼ less. Groups are by category name. <a href="money_part_ledger.html">Open the Ledger</a>.</p>
+  </div>
+
+  <div class="card tablewrap">
+    <h2 class="row-h">Budget and what moved</h2>
+    
+    <table class="mst-t mst-v nocards">
+      <thead><tr><th>Category</th><th class="num">Budget</th><th class="num">Actual</th><th class="num">Over / under</th><th class="num">Sep</th></tr></thead>
+      <tbody>
+        <tr><td>Groceries<br><small class="muted">Up $246.81 on Sep. Over the $900 budget by $74.66. Biggest charge: FRESHFIELD MARKET $132.38.</small></td>
+          <td class="num">$900</td><td class="num">$975</td>
+          <td class="num"><span class="up">+$75</span></td>
+          <td class="num">$728</td></tr>
+        <tr><td>Fuel</td>
+          <td class="num">$200</td><td class="num">$173</td>
+          <td class="num"><span class="down">-$27</span></td>
+          <td class="num">$143</td></tr>
+        <tr><td>General merchandise</td>
+          <td class="num">$200</td><td class="num">$157</td>
+          <td class="num"><span class="down">-$43</span></td>
+          <td class="num">$170</td></tr>
+        <tr><td>Dining</td>
+          <td class="num">$250</td><td class="num">$147</td>
+          <td class="num"><span class="down">-$103</span></td>
+          <td class="num">$153</td></tr>
+        <tr><td>Kids activities<br><small class="muted">Down $420 on Sep. Biggest charge: YMCA SWIM PROGRAM $64.</small></td>
+          <td class="num">$150</td><td class="num">$64</td>
+          <td class="num"><span class="down">-$86</span></td>
+          <td class="num">$484</td></tr>
+      </tbody>
+      <tfoot><tr><th>Budgeted</th><td class="num">$1,700</td><td colspan="3"></td></tr></tfoot>
+    </table>
+    <p class="muted small">Listed: every category with a budget line, and any that moved by 25% and $50 or more against Sep 2026. Budget lines are set under Money &gt; Keep &gt; Budget and loans.</p>
+    
+  </div>
+  </div>
+</section>
+
+
+</main>
+
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+
+
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet">
+        <a href="notes.html" >Notes</a><a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
+  <nav class="bnav" aria-label="Main (phone)">
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" class="on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
+  </nav>
+
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
+</body>
+</html>
