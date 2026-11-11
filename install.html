@@ -37,10 +37,10 @@
     <div class="section-head">
       <div class="eyebrow">Install</div>
       <h1>Set up Mitra Home in about 15 minutes</h1>
-      <p class="muted">Mitra Home lives on one computer at home, the PC or the Mac. The phone apps connect to it over your home Wi-Fi. No typing commands.</p>
+      <p class="muted">Mitra Home lives on one computer at home, the PC or the Mac (or a Linux server with Docker). The phone apps connect to it over your home Wi-Fi. On Windows and Mac, no typing commands.</p>
     </div>
 
-    <p class="note">Mitra Home is in public beta (version 0.147.0 for Windows and Mac). The Windows installer is signed; the Mac app is signed and notarized by Apple. Downloads are in the steps below. The source code is available on request: <a href="source.html">Source code</a>.</p>
+    <p class="note">Mitra Home is in public beta (version 0.147.0 for Windows and Mac). The Windows installer is signed; the Mac app is signed and notarized by Apple. Downloads are in the steps below. A Docker image for a Linux server is new in 0.148.0. The source code is public: <a href="https://github.com/rNetGit/mitra-home-app" rel="noopener">rNetGit/mitra-home-app</a> (AGPL-3.0, <a href="source.html">details</a>).</p>
 
     <p class="btns" style="margin-top:20px">
       <a class="btn btn-accent" href="https://github.com/rNetGit/mitra-home/releases/download/mitra-home-0.147.0/MitraHome-Setup-0.147.0.exe" rel="noopener">Download for Windows</a>
@@ -62,6 +62,12 @@
         <strong>Mac</strong>
         <span>A Mac app (.dmg) you drag into Applications. No Python needed.</span>
       </a>
+      <a class="choice" href="#computer" data-os="tab-docker">
+        <span class="ctag beta">New</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/></svg>
+        <strong>Linux server / NAS</strong>
+        <span>Docker, for phones and wall tablets. Set up in a terminal.</span>
+      </a>
       <a class="choice" href="https://play.google.com/store/apps/details?id=app.mitrahome" rel="noopener">
         <span class="ctag beta">Google Play</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg>
@@ -80,7 +86,7 @@
     <div class="grid">
       <div class="card">
         <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>A home computer</h3>
-        <p>Windows 10 or 11, or a Mac. One that is usually switched on, because it is where reminders are made and phones connect.</p>
+        <p>Windows 10 or 11, a Mac, or a Linux server with Docker. One that is usually switched on, because it is where reminders are made and phones connect.</p>
       </div>
       <div class="card">
         <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg></span>Nothing else to install</h3>
@@ -100,6 +106,7 @@
     <div class="tabs" role="tablist" aria-label="Choose your computer">
       <button role="tab" id="tab-win" aria-controls="panel-win" aria-selected="true">Windows</button>
       <button role="tab" id="tab-mac" aria-controls="panel-mac" aria-selected="false">Mac</button>
+      <button role="tab" id="tab-docker" aria-controls="panel-docker" aria-selected="false">Linux server (Docker)</button>
     </div>
 
     <div role="tabpanel" id="panel-win" aria-labelledby="tab-win">
@@ -158,7 +165,7 @@
         </li>
         <li>
           <h3>Unzip Mitra Home into its own folder</h3>
-          <p>Save the zip you were sent, right-click it, choose <strong>Extract All</strong> and pick a simple place, for example <code>D:\MitraHome</code> or <code>Documents\MitraHome</code>.</p>
+          <p>Download the source zip of the newest release from <a href="https://github.com/rNetGit/mitra-home-app/releases/latest" rel="noopener">GitHub Releases</a>, right-click it, choose <strong>Extract All</strong> and pick a simple place, for example <code>D:\MitraHome</code> or <code>Documents\MitraHome</code>.</p>
           <p class="small muted">Your family's own files will live in a second folder next to it, called <code>Mitra-Home-Data</code>. Updates never touch that folder.</p>
         </li>
         <li>
@@ -216,7 +223,7 @@
         </li>
         <li>
           <h3>Unzip Mitra Home into its own folder</h3>
-          <p>Double-click the zip you were sent and move the folder somewhere simple, for example your home folder: <code>~/MitraHome</code>.</p>
+          <p>Download the source zip of the newest release from <a href="https://github.com/rNetGit/mitra-home-app/releases/latest" rel="noopener">GitHub Releases</a>, double-click it and move the folder somewhere simple, for example your home folder: <code>~/MitraHome</code>.</p>
         </li>
         <li>
           <h3>Open <code>Start Mitra Home.command</code></h3>
@@ -225,7 +232,37 @@
         </ol>
         <p class="small muted">Then continue with the setup chat above.</p>
       </details>
-      <p class="note small">The Mac app is newer than the Windows installer and tested less. Linux has no installer; a Docker image for a home server or NAS (phones and wall tablets only) is new and lightly tested: see the <a href="https://github.com/rNetGit/mitra-home-app/blob/main/docs/DOCKER.md" rel="noopener">Docker guide</a>.</p>
+      <p class="note small">The Mac app is newer than the Windows installer and tested less. Linux: see the <strong>Linux server (Docker)</strong> tab.</p>
+    </div>
+
+    <div role="tabpanel" id="panel-docker" aria-labelledby="tab-docker" hidden>
+      <p>For a Linux home server or NAS that is always on. The container serves <strong>phones and wall tablets only</strong>: HTTPS on port 8701, a PIN required, no PC browser screen. Setup is done in a terminal. New in 0.148.0 and lightly tested (x86 and Apple silicon; not yet a Raspberry Pi or a NAS). There is no published image yet: you build it from the release.</p>
+      <ol class="steps">
+        <li>
+          <h3>Get the release and build the image</h3>
+          <pre class="cmd"><code>git clone --branch v0.148.0 https://github.com/rNetGit/mitra-home-app.git mitra-home
+cd mitra-home
+docker compose build</code></pre>
+        </li>
+        <li>
+          <h3>Set up the household and a PIN</h3>
+          <pre class="cmd"><code>docker compose run --rm mitra setup           # family name, people, country
+docker compose run --rm mitra pin Anna adult  # one PIN per adult
+docker compose up -d</code></pre>
+          <p class="small muted">Set <code>TZ</code> in <code>docker-compose.yml</code> so reminders use your local time. Phone access starts only once an adult has a PIN.</p>
+        </li>
+        <li>
+          <h3>Pair a phone or a wall tablet</h3>
+          <pre class="cmd"><code>docker compose run --rm mitra pair phone Anna "Anna's phone" --host 192.168.1.20
+docker compose run --rm mitra pair wall "Kitchen wall" --host 192.168.1.20</code></pre>
+          <p>The QR code is drawn in the terminal; scan it with the Mitra Home app. Use your server's own address after <code>--host</code>. A phone's browser also works: open <code>https://&lt;server&gt;:8701</code>, check the certificate fingerprint against <code>docker compose logs mitra</code>, sign in with the PIN.</p>
+        </li>
+        <li>
+          <h3>Keep your data safe</h3>
+          <p>Everything lives in the <code>mitra-data</code> volume; weekly backups go to <code>mitra-backup</code>. Copy the backups off the server too. Never publish port 8701 to the internet; use Tailscale for access away from home.</p>
+        </li>
+      </ol>
+      <p class="small muted">Full guide, AI helper options and scheduled jobs: <a href="https://github.com/rNetGit/mitra-home-app/blob/v0.148.0/docs/DOCKER.md" rel="noopener">docs/DOCKER.md</a>.</p>
     </div>
   </div>
 </section>
@@ -323,6 +360,7 @@
       <div class="card">
         <h3>Updating</h3>
         <p>Open <strong>Settings &gt; Data</strong> and press <strong>Check for updates</strong>. Your database is backed up first, and your family's files are never replaced. Every release is signed and checked before it is installed.</p>
+        <p class="small muted">Docker: <code>git fetch --tags &amp;&amp; git checkout vX.Y.Z &amp;&amp; docker compose build &amp;&amp; docker compose up -d</code>; the data volume is kept and the database is brought up to date (backed up first).</p>
       </div>
       <div class="card">
         <h3>Health check</h3>
