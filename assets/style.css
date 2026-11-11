@@ -371,3 +371,8 @@ footer .wrap > div:not(.fgrid):not(.fine) { margin-bottom: 6px; }
 details summary { font-family: var(--font-display); font-size: 1.05rem; }
 footer h4 { font-family: var(--font-display); font-size: .95rem; }
 .qr-box { background: #FFFFFF; padding: 12px; border-radius: 12px; border: 1px solid var(--line); image-rendering: pixelated; }
+
+/* Command blocks (install page, Docker tab) */
+pre.cmd { margin: 8px 0 10px; padding: 12px 14px; border-radius: 10px; background: #0C0D0E; color: #CFD3D8;
+  font-family: ui-monospace, Consolas, monospace; font-size: .84rem; line-height: 1.5; overflow-x: auto; white-space: pre; }
+pre.cmd code { background: none; color: inherit; padding: 0; font-size: inherit; }
