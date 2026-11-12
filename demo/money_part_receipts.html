@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.147.0">
-  <script src="static/vendor/htmx.min.js?v=0.147.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.148.0">
+  <script src="static/vendor/htmx.min.js?v=0.148.0" defer></script>
   
-  <script src="static/app.js?v=0.147.0" defer></script>
+  <script src="static/app.js?v=0.148.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.147.0</small>
+    <small class="ver">v0.148.0</small>
   </nav>
 
   <main>
@@ -141,7 +141,7 @@
 <form class="nform" hx-post="/records/add" hx-target="#radd-receipts" hx-swap="innerHTML" hx-vals='{"back": "", "part": "money/receipts", "table": "receipts"}'>
 
   <label>Store<input name="merchant" maxlength="80" required value=""></label>
-  <label>Date<input name="date" type="date" min="2000-01-01" max="2100-12-31" required value="2026-11-10"></label>
+  <label>Date<input name="date" type="date" min="2000-01-01" max="2100-12-31" required value="2026-11-13"></label>
   <label>Total<input name="total" type="number" min="0" max="1000000" step="0.01" required value=""></label>
   <label>Card last 4 (optional)<input name="last4" maxlength="4" pattern="[0-9]{4}" inputmode="numeric" value=""></label>
 
@@ -156,13 +156,13 @@
   <ul class="rlist fl-phone">
     <li><a href="#" data-demo="1" hx-get="/money/row/receipts/1?part=receipts" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-n" aria-hidden="true">N</span>
-      <span class="rl-main"><span class="rl-t">Nov 6</span><span class="rl-m">Freshfield Market</span></span>
+      <span class="rl-main"><span class="rl-t">Nov 9</span><span class="rl-m">Freshfield Market</span></span>
       <span class="rl-r"><b>$87.35</b></span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Date</th><th>Store</th><th class="num">Total</th><th>Note</th></tr></thead>
-    <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/receipts/1?part=receipts" hx-target="#txn-body" hx-swap="innerHTML">Nov 6</a></td><td>Freshfield Market</td><td class="num">$87.35</td><td></td></tr></tbody>
+    <tbody><tr><td><a href="#" data-demo="1" hx-get="/money/row/receipts/1?part=receipts" hx-target="#txn-body" hx-swap="innerHTML">Nov 9</a></td><td>Freshfield Market</td><td class="num">$87.35</td><td></td></tr></tbody>
   </table></div>
   
 </section>

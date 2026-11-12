@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.147.0">
-  <script src="static/vendor/htmx.min.js?v=0.147.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.148.0">
+  <script src="static/vendor/htmx.min.js?v=0.148.0" defer></script>
   
-  <script src="static/app.js?v=0.147.0" defer></script>
+  <script src="static/app.js?v=0.148.0" defer></script>
   <title>Wallet · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.147.0</small>
+    <small class="ver">v0.148.0</small>
   </nav>
 
   <main>
@@ -273,7 +273,7 @@
           <span class="wtt"><b>Passport</b><small>Sofia · US Dept of State</small></span>
           <span class="wnum">•••• 9902</span>
           
-          <span class="wfoot"><span>Expires</span><span class="wpill w-ok">Apr 2029</span></span>
+          <span class="wfoot"><span>Expires</span><span class="wpill w-ok">May 2029</span></span>
         </summary>
         <div class="wback">
           <p class="whint"><b>Where's the number?</b> Passport number: photo page, top right.</p>
@@ -379,7 +379,7 @@
   <label>Last 4 (any other card)<input name="number_last4" maxlength="4" value="3456" autocomplete="off"></label>
   <label>Where the number is (optional)<input name="where_hint" maxlength="120" value="" placeholder="back, under the barcode"></label>
   <label>Details (optional)<input name="details" maxlength="300" value="" placeholder="Wi-Fi name, trash day, filter size"></label>
-  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2026-12-20"></label>
+  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2026-12-23"></label>
           <button class="btn" type="submit">Save card</button>
         </form>
         <form class="nform" hx-post="/wallet/card" hx-vals='{"id": 2, "op": "drop"}'>
@@ -416,7 +416,7 @@
   <label>Last 4 (any other card)<input name="number_last4" maxlength="4" value="4417" autocomplete="off"></label>
   <label>Where the number is (optional)<input name="where_hint" maxlength="120" value="" placeholder="back, under the barcode"></label>
   <label>Details (optional)<input name="details" maxlength="300" value="" placeholder="Wi-Fi name, trash day, filter size"></label>
-  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2027-09-06"></label>
+  <label>Expires (optional)<input name="expires" type="date" min="2000-01-01" max="2100-12-31" value="2027-09-09"></label>
           <button class="btn" type="submit">Save card</button>
         </form>
         <form class="nform" hx-post="/wallet/card" hx-vals='{"id": 1, "op": "drop"}'>

@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.147.0">
-  <script src="static/vendor/htmx.min.js?v=0.147.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.148.0">
+  <script src="static/vendor/htmx.min.js?v=0.148.0" defer></script>
   
-  <script src="static/app.js?v=0.147.0" defer></script>
+  <script src="static/app.js?v=0.148.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.147.0</small>
+    <small class="ver">v0.148.0</small>
   </nav>
 
   <main>
@@ -104,8 +104,8 @@
 
 <form class="rsearch ffilter frange" action="/money" method="get" role="search">
   <input type="hidden" name="part" value="bills">
-  <label class="fsel"><span>From</span><select name="from"><option value="2026-12" >2026-12</option><option value="2026-11" selected>2026-11</option><option value="2026-10" >2026-10</option></select></label>
-  <label class="fsel"><span>To</span><select name="to"><option value="2026-12" >2026-12</option><option value="2026-11" selected>2026-11</option><option value="2026-10" >2026-10</option></select></label>
+  <label class="fsel"><span>From</span><select name="from"><option value="2026-12" >2026-12</option><option value="2026-11" selected>2026-11</option></select></label>
+  <label class="fsel"><span>To</span><select name="to"><option value="2026-12" >2026-12</option><option value="2026-11" selected>2026-11</option></select></label>
   <label class="fsel"><span>Category</span><select name="cat"><option value="">All categories</option><option value="Insurance" >Insurance</option><option value="Loan" >Loan</option><option value="Utilities" >Utilities</option></select></label>
   <label class="vh" for="fq">Search name, vendor or category</label>
   <input id="fq" type="search" name="q" value="" maxlength="100" placeholder="Search name, vendor or category">
@@ -125,9 +125,9 @@
 <div class="lgrid">
   
   <details class="lside" open data-lside aria-label="Summary">
-    <summary class="lside-sum"><b>Summary</b><span class="lmini">Bills 5</span><span class="lmini">Unpaid $2,705</span><span class="lmini">Paid $0</span></summary>
+    <summary class="lside-sum"><b>Summary</b><span class="lmini">Bills 6</span><span class="lmini">Unpaid $2,705</span><span class="lmini">Paid $389</span></summary>
     
-<div class="kpis rk"><div class="kpi"><span>Bills</span><b >5</b></div><div class="kpi"><span>Unpaid</span><b >$2,705</b></div><div class="kpi"><span>Paid</span><b >$0</b></div></div>
+<div class="kpis rk"><div class="kpi"><span>Bills</span><b >6</b></div><div class="kpi"><span>Unpaid</span><b >$2,705</b></div><div class="kpi"><span>Paid</span><b >$389</b></div></div>
 
     
 
@@ -147,39 +147,45 @@
 <section class="card rblock"><h2>Bills due in November 2026</h2>
   
   <ul class="rlist fl-phone">
+    <li><a href="#" data-demo="1" hx-get="/money/row/bills/7?part=bills" hx-target="#txn-body" hx-swap="innerHTML">
+      <span class="rl-av t-ok" aria-hidden="true">A</span>
+      <span class="rl-main"><span class="rl-t">Auto loan</span><span class="rl-m">Nov 2 · Crestline Auto Finance · Loan</span></span>
+      <span class="rl-r"><b>$389.00</b><span class="chip-s t-ok">paid</span></span>
+    </a></li>
+  
     <li><a href="#" data-demo="1" hx-get="/money/row/bills/3?part=bills" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-bad" aria-hidden="true">I</span>
-      <span class="rl-main"><span class="rl-t">Internet</span><span class="rl-m">Nov 8 · Brightwave · Utilities</span></span>
+      <span class="rl-main"><span class="rl-t">Internet</span><span class="rl-m">Nov 11 · Brightwave · Utilities</span></span>
       <span class="rl-r"><b>$70.00</b><span class="chip-s t-bad">overdue</span></span>
     </a></li>
   
     <li><a href="#" data-demo="1" hx-get="/money/row/bills/2?part=bills" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-warn" aria-hidden="true">W</span>
-      <span class="rl-main"><span class="rl-t">Water and power</span><span class="rl-m">Nov 14 · City Water &amp; Power · Utilities</span></span>
+      <span class="rl-main"><span class="rl-t">Water and power</span><span class="rl-m">Nov 17 · City Water &amp; Power · Utilities</span></span>
       <span class="rl-r"><b>$142.18</b><span class="chip-s t-warn">due</span></span>
     </a></li>
   
     <li><a href="#" data-demo="1" hx-get="/money/row/bills/4?part=bills" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-warn" aria-hidden="true">M</span>
-      <span class="rl-main"><span class="rl-t">Mobile phones</span><span class="rl-m">Nov 19 · Northstar Mobile · Utilities</span></span>
+      <span class="rl-main"><span class="rl-t">Mobile phones</span><span class="rl-m">Nov 22 · Northstar Mobile · Utilities</span></span>
       <span class="rl-r"><b>$118.40</b><span class="chip-s t-warn">due</span></span>
     </a></li>
   
     <li><a href="#" data-demo="1" hx-get="/money/row/bills/1?part=bills" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-warn" aria-hidden="true">M</span>
-      <span class="rl-main"><span class="rl-t">Mortgage</span><span class="rl-m">Nov 22 · Maple Home Lending · Loan</span></span>
+      <span class="rl-main"><span class="rl-t">Mortgage</span><span class="rl-m">Nov 25 · Maple Home Lending · Loan</span></span>
       <span class="rl-r"><b>$2,150.00</b><span class="chip-s t-warn">due</span></span>
     </a></li>
   
     <li><a href="#" data-demo="1" hx-get="/money/row/bills/5?part=bills" hx-target="#txn-body" hx-swap="innerHTML">
       <span class="rl-av t-warn" aria-hidden="true">A</span>
-      <span class="rl-main"><span class="rl-t">Auto insurance</span><span class="rl-m">Nov 25 · Lakeside Mutual · Insurance</span></span>
+      <span class="rl-main"><span class="rl-t">Auto insurance</span><span class="rl-m">Nov 28 · Lakeside Mutual · Insurance</span></span>
       <span class="rl-r"><b>$224.00</b><span class="chip-s t-warn">due</span></span>
     </a></li>
   </ul>
   <div class="tablewrap fl-wide"><table>
     <thead><tr><th>Due</th><th>Status</th><th class="num">Amount</th><th>Name</th><th>Vendor</th><th>Category</th></tr></thead>
-    <tbody><tr><td>Nov 8</td><td><span class="chip-s t-bad">overdue</span></td><td class="num">$70.00</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/3?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Internet</a></td><td>Brightwave</td><td>Utilities</td></tr><tr><td>Nov 14</td><td><span class="chip-s t-warn">due</span></td><td class="num">$142.18</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/2?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Water and power</a></td><td>City Water &amp; Power</td><td>Utilities</td></tr><tr><td>Nov 19</td><td><span class="chip-s t-warn">due</span></td><td class="num">$118.40</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/4?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Mobile phones</a></td><td>Northstar Mobile</td><td>Utilities</td></tr><tr><td>Nov 22</td><td><span class="chip-s t-warn">due</span></td><td class="num">$2,150.00</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/1?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Mortgage</a></td><td>Maple Home Lending</td><td>Loan</td></tr><tr><td>Nov 25</td><td><span class="chip-s t-warn">due</span></td><td class="num">$224.00</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/5?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Auto insurance</a></td><td>Lakeside Mutual</td><td>Insurance</td></tr></tbody>
+    <tbody><tr><td>Nov 2</td><td><span class="chip-s t-ok">paid</span></td><td class="num">$389.00</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/7?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Auto loan</a></td><td>Crestline Auto Finance</td><td>Loan</td></tr><tr><td>Nov 11</td><td><span class="chip-s t-bad">overdue</span></td><td class="num">$70.00</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/3?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Internet</a></td><td>Brightwave</td><td>Utilities</td></tr><tr><td>Nov 17</td><td><span class="chip-s t-warn">due</span></td><td class="num">$142.18</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/2?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Water and power</a></td><td>City Water &amp; Power</td><td>Utilities</td></tr><tr><td>Nov 22</td><td><span class="chip-s t-warn">due</span></td><td class="num">$118.40</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/4?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Mobile phones</a></td><td>Northstar Mobile</td><td>Utilities</td></tr><tr><td>Nov 25</td><td><span class="chip-s t-warn">due</span></td><td class="num">$2,150.00</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/1?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Mortgage</a></td><td>Maple Home Lending</td><td>Loan</td></tr><tr><td>Nov 28</td><td><span class="chip-s t-warn">due</span></td><td class="num">$224.00</td><td><a href="#" data-demo="1" hx-get="/money/row/bills/5?part=bills" hx-target="#txn-body" hx-swap="innerHTML">Auto insurance</a></td><td>Lakeside Mutual</td><td>Insurance</td></tr></tbody>
   </table></div>
   
 </section>
