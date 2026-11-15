@@ -106,6 +106,7 @@ FIXED = [  # day, description, category, type, account, amount
     (20, "YMCA SWIM PROGRAM", "kids activities", "spend", summit, -64.00),
     (22, "SPRINGFIELD GYM", "fitness", "spend", visa, -39.00),
 ]
+charged = {}  # (card, months back) -> sum of that month's card lines (negative)
 for back in range(6, -1, -1):
     first = (T.replace(day=1) - dt.timedelta(days=1) * 0)
     y, m = T.year, T.month - back
@@ -121,15 +122,21 @@ for back in range(6, -1, -1):
             return
         ins("transactions", account_id=acct, txn_date=when.isoformat(), description=desc, amount=round(amt, 2),
             category=cat, txn_type=typ, cardholder=holder)
+        if acct in (visa, summit) and typ != "card_payment":
+            charged[(acct, back)] = charged.get((acct, back), 0) + amt
 
     for day in (1, 15):
         add(day, "ACME ENGINEERING PAYROLL", "salary", "income", chk, 3480.00)
         add(day + 1, "SPRINGFIELD SCHOOLS PAYROLL", "salary", "income", chk, 2210.00)
     add(28, "INTEREST PAYMENT", "interest", "interest", sav, 11.0 + back * 0.4)
-    add(5, "TRANSFER TO SAVINGS", "transfer", "transfer", chk, -500.00)
-    add(5, "TRANSFER FROM CHECKING", "transfer", "transfer", sav, 500.00)
-    add(25, "NORTHWAY VISA PAYMENT", "card payment", "card_payment", chk, -900.00 - back * 20)
-    add(26, "SUMMIT CARD AUTOPAY", "card payment", "card_payment", chk, -640.00 - back * 15)
+    add(5, "TRANSFER TO SAVINGS", "transfer", "transfer", chk, -1000.00)
+    add(5, "TRANSFER FROM CHECKING", "transfer", "transfer", sav, 1000.00)
+    add(16, "TRANSFER TO HARBOR BROKERAGE", "investing", "investment_transfer", chk, -5700.00)
+    # each card is paid in full for the month before (the first month: a typical bill), so what is owed stays steady
+    for card, day, desc, first in ((visa, 25, "NORTHWAY VISA PAYMENT", 900.00), (summit, 26, "SUMMIT CARD AUTOPAY", 640.00)):
+        owed = -charged[(card, back + 1)] if (card, back + 1) in charged else first
+        add(day, desc, "card payment", "card_payment", chk, -owed)
+        add(day, desc, "card payment", "card_payment", card, owed)
     for day, desc, cat, typ, acct, amt in FIXED:
         add(day, desc, cat, typ, acct, amt)
     for desc, cat, acct, lo, hi, n, holder in SPEND:
@@ -143,13 +150,26 @@ add_uncat = ins("transactions", account_id=visa, txn_date=d(-3), description="TS
                 category=None, txn_type="spend", cardholder="MARCUS RIVERA")
 
 # cards and loans are stored as what is owed (positive); home and car are the family's own estimates
-for aid, bal in ((chk, 6420.55), (sav, 18250.00), (visa, 1184.20), (summit, 702.48), (inv, 42310.00),
-                 (k401, 96840.00), (c529, 18420.00), (mort, 286400.00)):
-    ins("account_balances", account_id=aid, as_of=d(-2), balance=bal, kind="statement")
+# Accounts with lines get statement ends worked back from the newest one through the seeded lines, so Money >
+# Accounts shows "Matches bank" (books_data.reconcile: each pair of ends differs by exactly the lines between them).
+for aid, bal, owed in ((chk, 6420.55, False), (sav, 18250.00, False), (visa, 1184.20, True), (summit, 702.48, True)):
+    signed = -bal if owed else bal
+    newer = d(-2)
+    ins("account_balances", account_id=aid, as_of=newer, balance=bal, kind="statement_end")
     for back in range(1, 7):  # older statements, so Money shows net worth by month
-        grow = {sav: -420, inv: -610, chk: -95, k401: -880, c529: -250, mort: 760}.get(aid, 0)
+        older = d(-2 - 30 * back)
+        moved = con.execute("SELECT COALESCE(SUM(amount), 0) FROM transactions WHERE account_id=? AND txn_date>? "
+                            "AND txn_date<=?", (aid, older, newer)).fetchone()[0]
+        signed = round(signed - moved, 2)
+        ins("account_balances", account_id=aid, as_of=older, balance=-signed if owed else signed, kind="statement_end")
+        newer = older
+# Investments and the mortgage have no lines in the demo: bank-sync style balances ("From the bank"), still by month.
+for aid, bal in ((inv, 42310.00), (k401, 96840.00), (c529, 18420.00), (mort, 286400.00)):
+    ins("account_balances", account_id=aid, as_of=d(-2), balance=bal, kind="snapshot")
+    for back in range(1, 7):
+        grow = {inv: -610, k401: -880, c529: -250, mort: 760}[aid]
         ins("account_balances", account_id=aid, as_of=d(-2 - 30 * back), balance=round(bal + grow * back, 2),
-            kind="statement")
+            kind="snapshot")
 for aid, val in ((home, 465000.00), (suv, 24500.00)):
     ins("account_balances", account_id=aid, as_of=d(-20), balance=val, kind="estimate")
 
