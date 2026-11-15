@@ -7,19 +7,27 @@ real goes in.
 
 You need Node 22+ and FFmpeg (`brew install ffmpeg` on a Mac, `winget install Gyan.FFmpeg` on Windows).
 
-## tour/ - a 30 second 16:9 tour (1920x1080)
+## tour/ - an 86 second 16:9 tour with a voice-over (1920x1080)
 
-Title, Today, Calendar, Money and Wallet on the phone, the Mitra Wall, and an end card with the site's address.
-Everything is in `tour/index.html`: the scenes are `<section>`s with `data-start` / `data-duration` (seconds), the
-motion is one GSAP timeline at the bottom.
+Eleven chapters: title; the PC app (Today, Add, Calendar, Money accounts, Spending, Family and Wallet); the phone app;
+the Mitra Wall; Mitra Clock (five faces); an end card with the site's address. Everything is in `tour/index.html`: the
+scenes are `<section>`s with `data-start` / `data-duration` (seconds), the voice clips are `<audio>` lines, the motion
+is one GSAP timeline at the bottom. The words are in `tour/script.txt` (one line per clip) and, with times, in
+`assets/video/mitra-home-tour.vtt` (captions on the home page) and the home page's "What the video says" list.
 
-1. After `tools/demo/README.md` has refreshed `assets/shots/`, copy the pictures in (from this repository's root):
+1. Pictures (all in `tour/assets/`, made from a fresh demo install, see `tools/demo/README.md`):
+   - `pc-*.jpg` and `wall-today.jpg`, `wall-week.jpg` = `tools/demo/shots.py` output.
+   - `app-*.jpg` = the phone app's demo mode: serve the companion app's `www/` folder with `python -m http.server`,
+     open `index.html` in Chromium at 390x844 (scale 2), click "No PC? Try the demo", then each tab (hide
+     `#demo-note` by setting `hidden`; the app's CSP refuses injected styles).
+   - `clock-*.jpg` = `/wall/rest` of the running demo install (cookie `mh_wall` = `logs/demo_wall_token.txt`,
+     1280x800) with `wall.screen` in the install's `config/family.json` set per face: `led` (wide, blue, wood),
+     `analog`, `flip`, `kidsday`, and `digital` with `night_tone` red and night hours covering now (1024x600).
 
-   ```
-   cp assets/shots/{pc-today,pc-calendar,phone-money,phone-wallet,wall-week}.jpg assets/logo/mark.svg tools/video/tour/assets/
-   ```
+2. Voice: each line of `script.txt` through `hyperframes tts "<text>" -v af_heart -o assets/vo/sN.wav` (Kokoro, see
+   below), then set that clip's `<audio>` `data-duration` to its length and move later scenes if it grew.
 
-2. Check and render (in `tools/video/tour`; the version is pinned in `package.json` so renders stay the same):
+3. Check and render (in `tools/video/tour`; the version is pinned in `package.json` so renders stay the same):
 
    ```
    export HYPERFRAMES_NO_TELEMETRY=1 HYPERFRAMES_SKIP_SKILLS=1
@@ -27,11 +35,12 @@ motion is one GSAP timeline at the bottom.
    npx --yes hyperframes@0.8.181 render --crf 24 -o renders/mitra-home-tour.mp4
    ```
 
-   About 30 seconds on an M3; the file is about 6.5 MB. `npx --yes hyperframes@0.8.181 preview` opens a live preview.
+   `npx --yes hyperframes@0.8.181 preview` opens a live preview.
    `HYPERFRAMES_NO_TELEMETRY=1` turns off HyperFrames' anonymous render statistics; `HYPERFRAMES_SKIP_SKILLS=1` stops
    it installing its agent skills into this folder.
 
-3. Look at it, then copy `renders/mitra-home-tour.mp4` to `assets/video/` when the site should use it.
+4. Look at it, then copy `renders/mitra-home-tour.mp4` to `assets/video/` when the site should use it, with a poster
+   frame `assets/video/mitra-home-tour.jpg` (`ffmpeg -ss 2.5 -i renders/mitra-home-tour.mp4 -frames:v 1 -q:v 4 ...`).
 
 `AGENTS.md` and `CLAUDE.md` in `tour/` come from `hyperframes init` (notes for coding agents). The text uses Inter
 from Google Fonts, so the render needs the internet once and looks the same on the Mac and the PC.
