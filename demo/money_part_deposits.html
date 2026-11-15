@@ -145,7 +145,7 @@
   
     <li><form class="merchrow dep" hx-post="/money/rule" hx-disabled-elt="find button">
       <input type="hidden" name="back" value="deposits"><input type="hidden" name="from" value="2026-11"><input type="hidden" name="to" value="2026-11"><input type="hidden" name="q" value="">
-      <span class="mr-info"><b>TRANSFER FROM CHECKING</b><span class="muted small">1 deposit · $500 · <span class="chip-s t-n">transfer</span></span></span>
+      <span class="mr-info"><b>TRANSFER FROM CHECKING</b><span class="muted small">1 deposit · $1,000 · <span class="chip-s t-n">transfer</span></span></span>
       <label class="vh" for="dp3">Text to match</label><input id="dp3" name="pattern" maxlength="60" required value="TRANSFER FROM CHECKING">
       <label class="vh" for="dk3">What it is</label><select id="dk3" name="kind" required><option value="income" >Income (pay, salary)</option><option value="interest" >Interest</option><option value="transfer" selected>Own money moved between accounts</option><option value="investment_transfer" >Money back from investments (TreasuryDirect, brokerage)</option><option value="tax" >Tax refund</option><option value="spend" >Refund (lowers spending)</option></select>
       <label class="vh" for="dc3">Category (optional)</label><input id="dc3" name="category" maxlength="40" list="merch-cats" placeholder="Category (optional)" value="transfer">
