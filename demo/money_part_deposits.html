@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.148.0">
-  <script src="static/vendor/htmx.min.js?v=0.148.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.149.0">
+  <script src="static/vendor/htmx.min.js?v=0.149.0" defer></script>
   
-  <script src="static/app.js?v=0.148.0" defer></script>
+  <script src="static/app.js?v=0.149.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.148.0</small>
+    <small class="ver">v0.149.0</small>
   </nav>
 
   <main>
@@ -86,17 +86,17 @@
 
   
 
-<header class="head"><div><h1>Money</h1><p class="sub">Look back · Deposit sources</p></div></header>
+
+
+<header class="head"><div><h1>Money</h1><p class="sub">Spending &amp; income · Income sources</p></div></header>
 <nav class="pchips mtabs" aria-label="Money">
-  <a href="money.html" class="pchip">Overview</a>
-  <a href="money_part_statement.html" class="pchip">Statement</a>
-  <a href="money_part_homecosts.html" class="pchip">Home costs</a>
-  <a href="money_part_spending.html" class="pchip">Spending</a><a href="money_part_paid.html" class="pchip">Bills</a><a href="money_part_regular.html" class="pchip">Regular</a>
-  
-  <a href="money_part_ledger.html" class="pchip on" aria-current="true">Look back</a>
+  <a href="money_part_books.html" class="pchip">Accounts</a>
+  <a href="money_part_all.html" class="pchip">All accounts</a>
+  <a href="money_part_month.html" class="pchip on" aria-current="true">Spending &amp; income</a>
+  <a href="money_part_paid.html" class="pchip">Bills &amp; plan</a>
 </nav>
 
-<nav class="fchips" aria-label="Look back"><a href="money_part_ledger.html" >Ledger</a><a href="money_part_deposits.html" class="on" aria-current="true">Deposit sources</a><a href="money_part_trends.html" >Trends</a><a href="money_part_watch.html" >Missing statements</a><a href="money_part_spikes.html" >Price rises</a><a href="money_part_tax.html" >Tax papers</a><a href="money_part_home-office.html" >Home office</a><a href="money_part_year-end.html" >Year-end</a></nav>
+<nav class="fchips" aria-label="Spending &amp; income"><a href="money_part_month.html" >This month</a><a href="money_part_statement.html" >Statement</a><a href="money_part_spending.html" >Spending</a><a href="money_part_homecosts.html" >Home costs</a><a href="money_part_trends.html" >Trends</a><a href="money_part_deposits.html" class="on" aria-current="true">Income sources</a><a href="money_part_spikes.html" >Price spikes</a></nav>
 
 
 
@@ -127,7 +127,7 @@
   <ul class="merchlist">
     <li><form class="merchrow dep" hx-post="/money/rule" hx-disabled-elt="find button">
       <input type="hidden" name="back" value="deposits"><input type="hidden" name="from" value="2026-11"><input type="hidden" name="to" value="2026-11"><input type="hidden" name="q" value="">
-      <span class="mr-info"><b>ACME ENGINEERING PAYROLL</b><span class="muted small">1 deposit · $3,480 · <span class="chip-s t-n">income</span></span></span>
+      <span class="mr-info"><b>ACME ENGINEERING PAYROLL</b><span class="muted small">2 deposits · $6,960 · <span class="chip-s t-n">income</span></span></span>
       <label class="vh" for="dp1">Text to match</label><input id="dp1" name="pattern" maxlength="60" required value="ACME ENGINEERING PAYROLL">
       <label class="vh" for="dk1">What it is</label><select id="dk1" name="kind" required><option value="income" selected>Income (pay, salary)</option><option value="interest" >Interest</option><option value="transfer" >Own money moved between accounts</option><option value="investment_transfer" >Money back from investments (TreasuryDirect, brokerage)</option><option value="tax" >Tax refund</option><option value="spend" >Refund (lowers spending)</option></select>
       <label class="vh" for="dc1">Category (optional)</label><input id="dc1" name="category" maxlength="40" list="merch-cats" placeholder="Category (optional)" value="salary">

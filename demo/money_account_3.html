@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#F3F4F6">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css?v=0.149.0">
+  <script src="static/vendor/htmx.min.js?v=0.149.0" defer></script>
+  
+  <script src="static/app.js?v=0.149.0" defer></script>
+  <title>Northway Visa · Money · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#2A1F17;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#F6C9A8}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../phone-demo.html">Phone app demo</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu">
+        <a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
+    
+    <small class="ver">v0.149.0</small>
+  </nav>
+
+  <main>
+
+  <form class="askbar" role="search" hx-post="/chat/ask" hx-swap="none" hx-disabled-elt="find button" aria-label="Ask Mitra">
+    <span class="mav" aria-hidden="true">M</span>
+    <label class="vh" for="askq">Ask Mitra, or tell it something</label>
+    <input id="askq" name="text" maxlength="1000" autocomplete="off" required
+      placeholder="Ask Mitra, or tell it something: &ldquo;Mateo has the dentist Friday at 4&rdquo;">
+    <kbd class="askkey" aria-hidden="true">Ctrl K</kbd>
+    <button class="btn" type="submit">Ask</button>
+    <span class="thinking muted" role="status">Thinking&hellip;</span>
+  </form>
+
+  
+<p class="small"><a href="money_part_books.html">← Accounts</a></p>
+<section class="card bk-acct">
+  <div class="bk-ahead">
+    <div>
+      <p class="bk-meta">Northway Bank · Credit card · x1209 · Marcus</p>
+      <h1>Northway Visa</h1>
+      <p><span class="bk-badge bk-sync">From the bank · 2026-11-13</span></p>
+    </div>
+    <div class="bk-bal">
+      <span class="muted small">You owe · 2026-11-13</span>
+      <b class="bk-owed">$1,184.20</b>
+      <a class="btn alt" href="#" data-demo="1">Edit account</a>
+    </div>
+  </div>
+  <dl class="bk-facts"><div><dt>Credit limit</dt><dd>$8,000</dd></div><div><dt>Used</dt><dd>15%</dd></div><div><dt>Payment due</dt><dd>2026-11-21</dd></div><div><dt>Minimum payment</dt><dd>$35.00</dd></div><div><dt>APR</dt><dd>22.9%</dd></div></dl>
+</section>
+
+<section class="card bk-reg">
+  <h2>Register <span class="muted small">newest first · what you owe after each line</span></h2>
+  
+  <div class="tablewrap"><table class="bk-table nocards">
+    <thead><tr><th>Date</th><th>Description</th><th class="bk-wide">Category</th><th class="num">Amount</th><th class="num">Owed</th></tr></thead>
+    <tbody>
+      <tr class="bk-month"><td colspan="5">2026-11</td></tr>
+      <tr><td>11-14</td><td>PAWS &amp; CLAWS PET</td><td class="bk-wide">pets</td>
+        <td class="num">-$60.37</td><td class="num">$1,305.26</td></tr>
+    
+      
+      <tr><td>11-14</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$60.69</td><td class="num">$1,244.89</td></tr>
+    
+      
+      <tr><td>11-13</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$125.93</td><td class="num">$1,184.20</td></tr>
+    
+      
+      <tr><td>11-12</td><td>TST* HILLTOP BAKERY</td><td class="bk-wide"></td>
+        <td class="num">-$18.40</td><td class="num">$1,058.27</td></tr>
+    
+      
+      <tr><td>11-12</td><td>STREAMBOX</td><td class="bk-wide">subscriptions</td>
+        <td class="num">-$15.99</td><td class="num">$1,039.87</td></tr>
+    
+      
+      <tr><td>11-07</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$38.64</td><td class="num">$1,023.88</td></tr>
+    
+      
+      <tr><td>11-07</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$57.00</td><td class="num">$985.24</td></tr>
+    
+      
+      <tr><td>11-06</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$147.41</td><td class="num">$928.24</td></tr>
+    
+      
+      <tr><td>11-03</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$124.33</td><td class="num">$780.83</td></tr>
+    
+      
+      <tr><td>11-01</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$75.00</td><td class="num">$656.50</td></tr>
+    
+      <tr class="bk-month"><td colspan="5">2026-10</td></tr>
+      <tr><td>10-28</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$78.78</td><td class="num">$581.50</td></tr>
+    
+      
+      <tr><td>10-24</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$131.09</td><td class="num">$502.72</td></tr>
+    
+      
+      <tr><td>10-22</td><td>SPRINGFIELD GYM</td><td class="bk-wide">fitness</td>
+        <td class="num">-$39.00</td><td class="num">$371.63</td></tr>
+    
+      
+      <tr><td>10-21</td><td>PAWS &amp; CLAWS PET</td><td class="bk-wide">pets</td>
+        <td class="num">-$37.30</td><td class="num">$332.63</td></tr>
+    
+      
+      <tr><td>10-20</td><td>PIZZA PALACE</td><td class="bk-wide">dining</td>
+        <td class="num">-$42.49</td><td class="num">$295.33</td></tr>
+    
+      
+      <tr><td>10-16</td><td>PIZZA PALACE</td><td class="bk-wide">dining</td>
+        <td class="num">-$44.00</td><td class="num">$252.84</td></tr>
+    
+      
+      <tr><td>10-12</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$56.39</td><td class="num">$208.84</td></tr>
+    
+      
+      <tr><td>10-12</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$124.87</td><td class="num">$152.45</td></tr>
+    
+      
+      <tr><td>10-12</td><td>STREAMBOX</td><td class="bk-wide">subscriptions</td>
+        <td class="num">-$15.99</td><td class="num">$27.58</td></tr>
+    
+      
+      <tr><td>10-08</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$132.38</td><td class="num">$11.59</td></tr>
+    
+      
+      <tr><td>10-07</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$106.52</td><td class="num">-$120.79</td></tr>
+    
+      
+      <tr><td>10-04</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$58.92</td><td class="num">-$227.31</td></tr>
+    
+      
+      <tr><td>10-03</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$57.20</td><td class="num">-$286.23</td></tr>
+    
+      
+      <tr><td>10-01</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$129.95</td><td class="num">-$343.43</td></tr>
+    
+      <tr class="bk-month"><td colspan="5">2026-09</td></tr>
+      <tr><td>09-28</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$44.01</td><td class="num">-$473.38</td></tr>
+    
+      
+      <tr><td>09-28</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$40.09</td><td class="num">-$517.39</td></tr>
+    
+      
+      <tr><td>09-22</td><td>SPRINGFIELD GYM</td><td class="bk-wide">fitness</td>
+        <td class="num">-$39.00</td><td class="num">-$557.48</td></tr>
+    
+      
+      <tr><td>09-20</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$93.32</td><td class="num">-$596.48</td></tr>
+    
+      
+      <tr><td>09-16</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$147.41</td><td class="num">-$689.80</td></tr>
+    
+      
+      <tr><td>09-15</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$103.31</td><td class="num">-$837.21</td></tr>
+    
+      
+      <tr><td>09-12</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$58.89</td><td class="num">-$940.52</td></tr>
+    
+      
+      <tr><td>09-12</td><td>STREAMBOX</td><td class="bk-wide">subscriptions</td>
+        <td class="num">-$15.99</td><td class="num">-$999.41</td></tr>
+    
+      
+      <tr><td>09-10</td><td>PIZZA PALACE</td><td class="bk-wide">dining</td>
+        <td class="num">-$45.53</td><td class="num">-$1,015.40</td></tr>
+    
+      
+      <tr><td>09-09</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$144.17</td><td class="num">-$1,060.93</td></tr>
+    
+      
+      <tr><td>09-08</td><td>PAWS &amp; CLAWS PET</td><td class="bk-wide">pets</td>
+        <td class="num">-$50.21</td><td class="num">-$1,205.10</td></tr>
+    
+      
+      <tr><td>09-04</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$71.92</td><td class="num">-$1,255.31</td></tr>
+    
+      
+      <tr><td>09-01</td><td>PIZZA PALACE</td><td class="bk-wide">dining</td>
+        <td class="num">-$40.68</td><td class="num">-$1,327.23</td></tr>
+    
+      <tr class="bk-month"><td colspan="5">2026-08</td></tr>
+      <tr><td>08-28</td><td>PAWS &amp; CLAWS PET</td><td class="bk-wide">pets</td>
+        <td class="num">-$31.57</td><td class="num">-$1,367.91</td></tr>
+    
+      
+      <tr><td>08-27</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$112.66</td><td class="num">-$1,399.48</td></tr>
+    
+      
+      <tr><td>08-22</td><td>SPRINGFIELD GYM</td><td class="bk-wide">fitness</td>
+        <td class="num">-$39.00</td><td class="num">-$1,512.14</td></tr>
+    
+      
+      <tr><td>08-16</td><td>PIZZA PALACE</td><td class="bk-wide">dining</td>
+        <td class="num">-$37.95</td><td class="num">-$1,551.14</td></tr>
+    
+      
+      <tr><td>08-12</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$114.44</td><td class="num">-$1,589.09</td></tr>
+    
+      
+      <tr><td>08-12</td><td>STREAMBOX</td><td class="bk-wide">subscriptions</td>
+        <td class="num">-$15.99</td><td class="num">-$1,703.53</td></tr>
+    
+      
+      <tr><td>08-11</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$143.97</td><td class="num">-$1,719.52</td></tr>
+    
+      
+      <tr><td>08-09</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$86.25</td><td class="num">-$1,863.49</td></tr>
+    
+      
+      <tr><td>08-07</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$48.13</td><td class="num">-$1,949.74</td></tr>
+    
+      
+      <tr><td>08-05</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$98.03</td><td class="num">-$1,997.87</td></tr>
+    
+      
+      <tr><td>08-04</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$45.82</td><td class="num">-$2,095.90</td></tr>
+    
+      
+      <tr><td>08-02</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$40.35</td><td class="num">-$2,141.72</td></tr>
+    
+      
+      <tr><td>08-02</td><td>PIZZA PALACE</td><td class="bk-wide">dining</td>
+        <td class="num">-$28.19</td><td class="num">-$2,182.07</td></tr>
+    
+      <tr class="bk-month"><td colspan="5">2026-07</td></tr>
+      <tr><td>07-28</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$50.66</td><td class="num">-$2,210.26</td></tr>
+    
+      
+      <tr><td>07-27</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$100.33</td><td class="num">-$2,260.92</td></tr>
+    
+      
+      <tr><td>07-23</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$47.55</td><td class="num">-$2,361.25</td></tr>
+    
+      
+      <tr><td>07-23</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$88.63</td><td class="num">-$2,408.80</td></tr>
+    
+      
+      <tr><td>07-22</td><td>SPRINGFIELD GYM</td><td class="bk-wide">fitness</td>
+        <td class="num">-$39.00</td><td class="num">-$2,497.43</td></tr>
+    
+      
+      <tr><td>07-19</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$147.41</td><td class="num">-$2,536.43</td></tr>
+    
+      
+      <tr><td>07-18</td><td>PIZZA PALACE</td><td class="bk-wide">dining</td>
+        <td class="num">-$30.11</td><td class="num">-$2,683.84</td></tr>
+    
+      
+      <tr><td>07-16</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$121.95</td><td class="num">-$2,713.95</td></tr>
+    
+      
+      <tr><td>07-12</td><td>STREAMBOX</td><td class="bk-wide">subscriptions</td>
+        <td class="num">-$15.99</td><td class="num">-$2,835.90</td></tr>
+    
+      
+      <tr><td>07-06</td><td>PIZZA PALACE</td><td class="bk-wide">dining</td>
+        <td class="num">-$33.88</td><td class="num">-$2,851.89</td></tr>
+    
+      
+      <tr><td>07-05</td><td>PAWS &amp; CLAWS PET</td><td class="bk-wide">pets</td>
+        <td class="num">-$32.67</td><td class="num">-$2,885.77</td></tr>
+    
+      
+      <tr><td>07-05</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$56.84</td><td class="num">-$2,918.44</td></tr>
+    
+      
+      <tr><td>07-03</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$67.22</td><td class="num">-$2,975.28</td></tr>
+    
+      
+      <tr><td>07-03</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$143.24</td><td class="num">-$3,042.50</td></tr>
+    
+      <tr class="bk-month"><td colspan="5">2026-06</td></tr>
+      <tr><td>06-25</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$89.02</td><td class="num">-$3,185.74</td></tr>
+    
+      
+      <tr><td>06-22</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$39.79</td><td class="num">-$3,274.76</td></tr>
+    
+      
+      <tr><td>06-22</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$107.73</td><td class="num">-$3,314.55</td></tr>
+    
+      
+      <tr><td>06-22</td><td>SPRINGFIELD GYM</td><td class="bk-wide">fitness</td>
+        <td class="num">-$39.00</td><td class="num">-$3,422.28</td></tr>
+    
+      
+      <tr><td>06-20</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$79.71</td><td class="num">-$3,461.28</td></tr>
+    
+      
+      <tr><td>06-19</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$141.42</td><td class="num">-$3,540.99</td></tr>
+    
+      
+      <tr><td>06-16</td><td>PAWS &amp; CLAWS PET</td><td class="bk-wide">pets</td>
+        <td class="num">-$48.68</td><td class="num">-$3,682.41</td></tr>
+    
+      
+      <tr><td>06-14</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$38.90</td><td class="num">-$3,731.09</td></tr>
+    
+      
+      <tr><td>06-12</td><td>STREAMBOX</td><td class="bk-wide">subscriptions</td>
+        <td class="num">-$15.99</td><td class="num">-$3,769.99</td></tr>
+    
+      
+      <tr><td>06-06</td><td>PIZZA PALACE</td><td class="bk-wide">dining</td>
+        <td class="num">-$40.66</td><td class="num">-$3,785.98</td></tr>
+    
+      
+      <tr><td>06-05</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$59.47</td><td class="num">-$3,826.64</td></tr>
+    
+      
+      <tr><td>06-04</td><td>PIZZA PALACE</td><td class="bk-wide">dining</td>
+        <td class="num">-$35.26</td><td class="num">-$3,886.11</td></tr>
+    
+      
+      <tr><td>06-03</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$110.54</td><td class="num">-$3,921.37</td></tr>
+    
+      <tr class="bk-month"><td colspan="5">2026-05</td></tr>
+      <tr><td>05-22</td><td>SPRINGFIELD GYM</td><td class="bk-wide">fitness</td>
+        <td class="num">-$39.00</td><td class="num">-$4,031.91</td></tr>
+    
+      
+      <tr><td>05-21</td><td>PAWS &amp; CLAWS PET</td><td class="bk-wide">pets</td>
+        <td class="num">-$30.64</td><td class="num">-$4,070.91</td></tr>
+    
+      
+      <tr><td>05-19</td><td>PIZZA PALACE</td><td class="bk-wide">dining</td>
+        <td class="num">-$36.88</td><td class="num">-$4,101.55</td></tr>
+    
+      
+      <tr><td>05-13</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$117.98</td><td class="num">-$4,138.43</td></tr>
+    
+      
+      <tr><td>05-12</td><td>STREAMBOX</td><td class="bk-wide">subscriptions</td>
+        <td class="num">-$15.99</td><td class="num">-$4,256.41</td></tr>
+    
+      
+      <tr><td>05-11</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$143.52</td><td class="num">-$4,272.40</td></tr>
+    
+      
+      <tr><td>05-05</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$50.44</td><td class="num">-$4,415.92</td></tr>
+    
+      
+      <tr><td>05-05</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$44.66</td><td class="num">-$4,466.36</td></tr>
+    
+      
+      <tr><td>05-04</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$93.45</td><td class="num">-$4,511.02</td></tr>
+    
+      
+      <tr><td>05-03</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$132.63</td><td class="num">-$4,604.47</td></tr>
+    
+      
+      <tr><td>05-02</td><td>QUICKFUEL #221</td><td class="bk-wide">fuel</td>
+        <td class="num">-$50.80</td><td class="num">-$4,737.10</td></tr>
+    
+      
+      <tr><td>05-02</td><td>PIZZA PALACE</td><td class="bk-wide">dining</td>
+        <td class="num">-$45.48</td><td class="num">-$4,787.90</td></tr>
+    
+      
+      <tr><td>05-02</td><td>FRESHFIELD MARKET</td><td class="bk-wide">groceries</td>
+        <td class="num">-$140.23</td><td class="num">-$4,833.38</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted small">90 of 90 lines. · <a href="#" data-demo="1">Open in the Ledger</a></p>
+  
+</section>
+</main>
+
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+
+
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet">
+        <a href="notes.html" >Notes</a><a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
+  <nav class="bnav" aria-label="Main (phone)">
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" class="on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
+  </nav>
+
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
+</body>
+</html>

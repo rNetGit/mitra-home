@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.148.0">
-  <script src="static/vendor/htmx.min.js?v=0.148.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.149.0">
+  <script src="static/vendor/htmx.min.js?v=0.149.0" defer></script>
   
-  <script src="static/app.js?v=0.148.0" defer></script>
+  <script src="static/app.js?v=0.149.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.148.0</small>
+    <small class="ver">v0.149.0</small>
   </nav>
 
   <main>
@@ -86,17 +86,18 @@
 
   
 
-<header class="head"><div><h1>Money</h1><p class="sub">Look back · Year-end</p></div></header>
+
+
+<header class="head"><div><h1>Money</h1><p class="sub">Tax &amp; records · Year-end</p></div></header>
 <nav class="pchips mtabs" aria-label="Money">
-  <a href="money.html" class="pchip">Overview</a>
-  <a href="money_part_statement.html" class="pchip">Statement</a>
-  <a href="money_part_homecosts.html" class="pchip">Home costs</a>
-  <a href="money_part_spending.html" class="pchip">Spending</a><a href="money_part_paid.html" class="pchip">Bills</a><a href="money_part_regular.html" class="pchip">Regular</a>
-  
-  <a href="money_part_ledger.html" class="pchip on" aria-current="true">Look back</a>
+  <a href="money_part_books.html" class="pchip">Accounts</a>
+  <a href="money_part_all.html" class="pchip">All accounts</a>
+  <a href="money_part_month.html" class="pchip">Spending &amp; income</a>
+  <a href="money_part_paid.html" class="pchip">Bills &amp; plan</a>
+  <a href="money_part_tax.html" class="pchip on" aria-current="true">Tax &amp; records</a>
 </nav>
 
-<nav class="fchips" aria-label="Look back"><a href="money_part_ledger.html" >Ledger</a><a href="money_part_deposits.html" >Deposit sources</a><a href="money_part_trends.html" >Trends</a><a href="money_part_watch.html" >Missing statements</a><a href="money_part_spikes.html" >Price rises</a><a href="money_part_tax.html" >Tax papers</a><a href="money_part_home-office.html" >Home office</a><a href="money_part_year-end.html" class="on" aria-current="true">Year-end</a></nav>
+<nav class="fchips" aria-label="Tax &amp; records"><a href="money_part_tax.html" >Tax papers</a><a href="money_part_home-office.html" >Home office</a><a href="money_part_year-end.html" class="on" aria-current="true">Year-end</a><a href="money_part_receipts.html" >Receipts</a><a href="money_part_mobile.html" >Phone bills</a><a href="money_part_amazon.html" >Amazon orders</a><a href="money_part_watch.html" >Statement watch</a></nav>
 
 
 
@@ -125,7 +126,7 @@
   </p>
 
 <section class="card doc"><h1>2026 year-end summary (year to date)</h1>
-<p><em>Generated 2026-11-13. Transactions in the data run to 2026-11-13. Source: family.db. Aggregates only; card/account numbers are last4.</em></p>
+<p><em>Generated 2026-11-15. Transactions in the data run to 2026-11-15. Source: family.db. Aggregates only; card/account numbers are last4.</em></p>
 <p>&gt; 2026 is not over: every figure is year to date, and months before the first loaded statement are missing.</p>
 <h2>Income vs spend vs invested</h2>
 <table>
@@ -190,23 +191,23 @@
 </tr>
 <tr>
 <td>2026-11</td>
-<td>$5,690</td>
-<td>$3,648</td>
+<td>$9,170</td>
+<td>$4,091</td>
 <td>$0</td>
 <td>$0</td>
-<td>$2,042</td>
+<td>$5,079</td>
 </tr>
 <tr>
 <td><strong>Total</strong></td>
-<td><strong>$74,044</strong></td>
-<td><strong>$31,446</strong></td>
+<td><strong>$77,524</strong></td>
+<td><strong>$31,889</strong></td>
 <td><strong>$0</strong></td>
 <td><strong>$0</strong></td>
-<td><strong>$42,598</strong></td>
+<td><strong>$45,635</strong></td>
 </tr>
 </tbody>
 </table>
-<p>Income $74,044; spend $31,446; net taxes $0; invested $0. Income minus spend and taxes: $42,598 (58% of income).
+<p>Income $77,524; spend $31,889; net taxes $0; invested $0. Income minus spend and taxes: $45,635 (59% of income).
 Spend includes insurance, utilities, loan payments and untyped checks. Card payments and account-to-account transfers are excluded (card purchases are counted once, on the card). One-off lumps (e.g. a life-insurance payment) are included; see the payee list.</p>
 <h2>Top spend categories</h2>
 <table>
@@ -225,8 +226,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 <tr>
 <td>groceries</td>
-<td>$5,311</td>
-<td>57</td>
+<td>$5,392</td>
+<td>58</td>
 </tr>
 <tr>
 <td>auto loan</td>
@@ -240,8 +241,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 <tr>
 <td>insurance</td>
-<td>$1,344</td>
-<td>6</td>
+<td>$1,568</td>
+<td>7</td>
 </tr>
 <tr>
 <td>general merchandise</td>
@@ -250,8 +251,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 <tr>
 <td>fuel</td>
-<td>$985</td>
-<td>20</td>
+<td>$1,045</td>
+<td>21</td>
 </tr>
 <tr>
 <td>dining</td>
@@ -264,19 +265,19 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <td>7</td>
 </tr>
 <tr>
+<td>pets</td>
+<td>$291</td>
+<td>7</td>
+</tr>
+<tr>
 <td>fitness</td>
 <td>$234</td>
 <td>6</td>
 </tr>
 <tr>
-<td>pets</td>
-<td>$231</td>
-<td>6</td>
-</tr>
-<tr>
 <td>subscriptions</td>
-<td>$214</td>
-<td>13</td>
+<td>$231</td>
+<td>14</td>
 </tr>
 </tbody>
 </table>
@@ -307,13 +308,13 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 <tr>
 <td>LAKESIDE MUTUAL AUTO INS</td>
-<td>$1,344</td>
-<td>6</td>
+<td>$1,568</td>
+<td>7</td>
 </tr>
 <tr>
 <td>GREENLEAF GROCERS</td>
-<td>$1,194</td>
-<td>21</td>
+<td>$1,275</td>
+<td>22</td>
 </tr>
 <tr>
 <td>BRIGHTMART</td>
@@ -321,14 +322,14 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <td>14</td>
 </tr>
 <tr>
+<td>QUICKFUEL #221</td>
+<td>$1,045</td>
+<td>21</td>
+</tr>
+<tr>
 <td>CITY WATER &amp; POWER</td>
 <td>$995</td>
 <td>7</td>
-</tr>
-<tr>
-<td>QUICKFUEL #221</td>
-<td>$985</td>
-<td>20</td>
 </tr>
 <tr>
 <td>NORTHSTAR MOBILE</td>
@@ -361,9 +362,9 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <td>6</td>
 </tr>
 <tr>
-<td>SPRINGFIELD GYM</td>
-<td>$234</td>
-<td>6</td>
+<td>PAWS &amp; CLAWS PET</td>
+<td>$291</td>
+<td>7</td>
 </tr>
 </tbody>
 </table>
@@ -382,23 +383,23 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <tr>
 <td>ELENA RIVERA</td>
 <td>Summit Rewards Card x3344</td>
-<td>$2,404</td>
+<td>$2,485</td>
 <td>$0</td>
-<td>$2,404</td>
+<td>$2,485</td>
 </tr>
 <tr>
 <td>Elena</td>
 <td>Summit Rewards Card x3344</td>
-<td>$486</td>
+<td>$503</td>
 <td>$0</td>
-<td>$486</td>
+<td>$503</td>
 </tr>
 <tr>
 <td>MARCUS RIVERA</td>
 <td>Northway Visa x1209</td>
-<td>$5,812</td>
+<td>$5,933</td>
 <td>$0</td>
-<td>$5,812</td>
+<td>$5,933</td>
 </tr>
 <tr>
 <td>Marcus</td>
@@ -416,9 +417,9 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 </tr>
 </tbody>
 </table>
-<p>By person: MARCUS RIVERA $5,812, ELENA RIVERA $2,404, SOFIA RIVERA $1,086, Elena $486, Marcus $346.</p>
+<p>By person: MARCUS RIVERA $5,933, ELENA RIVERA $2,485, SOFIA RIVERA $1,086, Elena $503, Marcus $346.</p>
 <h2>Subscriptions (annual cost)</h2>
-<p>Still charging: 3 tracked subscriptions, about $72/month, $864/year at current prices. Charged in 2026 so far: $448.</p>
+<p>Still charging: 3 tracked subscriptions, about $72/month, $864/year at current prices. Charged in 2026 so far: $465.</p>
 <table>
 <thead>
 <tr>
@@ -442,7 +443,7 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <td>unreviewed</td>
 <td>active</td>
 <td>$204</td>
-<td>$102</td>
+<td>$119</td>
 </tr>
 <tr>
 <td>StreamBox</td>
@@ -467,13 +468,13 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <tbody>
 <tr>
 <td>Prairie Shield home x0884</td>
-<td>2026-04-27 to 2027-04-27</td>
+<td>2026-04-29 to 2027-04-29</td>
 <td>$1,420</td>
 <td>n/a</td>
 </tr>
 <tr>
 <td>Lakeside Mutual auto x5521</td>
-<td>2026-06-16 to 2026-12-15</td>
+<td>2026-06-18 to 2026-12-17</td>
 <td>$1,344</td>
 <td>n/a</td>
 </tr>
@@ -491,8 +492,8 @@ Spend includes insurance, utilities, loan payments and untyped checks. Card paym
 <tbody>
 <tr>
 <td>None</td>
-<td>$1,344</td>
-<td>6</td>
+<td>$1,568</td>
+<td>7</td>
 </tr>
 </tbody>
 </table>
