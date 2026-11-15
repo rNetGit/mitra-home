@@ -1,0 +1,11 @@
+s1	Meet Mitra Home. Your family's bills, papers, money and calendar, kept on your own computer.
+s2	Open it on your PC, and Today shows what needs you: what's late, what's due, and what's coming this week.
+s3	Drop in a bill, a statement or a school letter. Mitra files it, and pulls out the dates and amounts, with the AI you choose.
+s4	Everyone's appointments, classes, school days off and holidays, in one family calendar.
+s5	Money works like your bank: every account, card, investment and loan, with what you have, what you owe, and your net worth.
+s6	See where the money went each month, against last month and last year.
+s7	Family keeps each person's records, the cars, IDs and insurance, and a wallet for the numbers you always look for.
+s8	The free phone app, for Android and iPhone, pairs with your PC on home Wi-Fi. Check today, mark a bill paid, or add an event on the go.
+s9	Turn an old tablet into the Mitra Wall: the family's week at a glance, the kids' jobs and stars, and what's for dinner.
+s10	When no one is using it, it becomes Mitra Clock. Pick a face, add your photos, and at night it dims to a soft bedside clock.
+s11	No subscription, and your records never leave home. Mitra Home is free and open source. Try the demo on our website.

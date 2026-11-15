@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1920, height=1080" />
-    <!-- Mitra Home tour, 30 s, 1920x1080. Pictures are the made-up Rivera family (tools/demo). -->
+    <!-- Mitra Home tour with voice-over, about 86 s, 1920x1080 (app 0.149.0). Pictures are the made-up Rivera family
+         (tools/demo, the phone app's demo mode). Words: script.txt; clips: assets/vo/s1.wav .. s11.wav (Kokoro af_heart). -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=block" rel="stylesheet" />
@@ -27,106 +28,185 @@
       .scene { position: absolute; inset: 0; }
 
       /* Caption block on the left of each screen scene */
-      .copy { position: absolute; left: 120px; top: 50%; width: 560px; transform: translateY(-50%); }
+      .copy { position: absolute; left: 110px; top: 50%; width: 560px; transform: translateY(-50%); }
       .eyebrow { font-size: 22px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
-      .copy h2 { font-family: var(--serif); font-size: 66px; line-height: 1.1; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 26px; }
+      .copy h2 { font-family: var(--serif); font-size: 62px; line-height: 1.1; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 26px; }
       .copy p { font-size: 28px; line-height: 1.4; color: var(--text-2); }
 
       /* Desktop window */
       .window {
-        position: absolute; right: 100px; top: 50%; width: 1080px; margin-top: -360px;
+        position: absolute; right: 90px; top: 50%; width: 1080px; margin-top: -360px;
         background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
         box-shadow: var(--shadow-lg); overflow: hidden;
       }
       .window .bar { height: 40px; display: flex; align-items: center; gap: 9px; padding: 0 18px; border-bottom: 1px solid var(--line); background: var(--surface-2); }
       .window .bar i { width: 13px; height: 13px; border-radius: 50%; background: var(--line-2); }
-      .window .shot { width: 1080px; height: 675px; overflow: hidden; }
-      .window img, .tablet img { display: block; width: 100%; transform-origin: 50% 0; }
+      .window .shot { position: relative; width: 1080px; height: 675px; overflow: hidden; }
+      .shot img { display: block; width: 100%; transform-origin: 50% 0; }
+      .shot img.over { position: absolute; left: 0; top: 0; opacity: 0; }
 
-      /* Tablet (the Mitra Wall) */
+      /* Tablet (the Mitra Wall and Mitra Clock) */
       .tablet {
-        position: absolute; right: 100px; top: 50%; width: 1104px; margin-top: -357px;
+        position: absolute; right: 90px; top: 50%; width: 1104px; margin-top: -357px;
         padding: 26px; background: #1B1E23; border-radius: 40px; box-shadow: var(--shadow-lg);
       }
-      .tablet .shot { width: 1052px; height: 658px; border-radius: 14px; overflow: hidden; }
+      .tablet .shot { position: relative; width: 1052px; height: 658px; border-radius: 14px; overflow: hidden; background: #000; }
+      .tablet .shot img { height: 100%; object-fit: cover; }
 
       /* Phones */
-      .phones { position: absolute; right: 150px; top: 50%; margin-top: -400px; display: flex; gap: 56px; }
-      .phone { width: 360px; height: 800px; padding: 14px; background: #1B1E23; border-radius: 56px; box-shadow: var(--shadow-lg); }
-      .phone .shot { width: 332px; height: 772px; border-radius: 44px; overflow: hidden; background: var(--canvas); }
+      .phones { position: absolute; right: 90px; top: 50%; margin-top: -380px; display: flex; gap: 40px; }
+      .phone { width: 342px; height: 760px; padding: 13px; background: #1B1E23; border-radius: 54px; box-shadow: var(--shadow-lg); }
+      .phone .shot { width: 316px; height: 734px; border-radius: 42px; overflow: hidden; background: var(--canvas); }
       .phone img { display: block; width: 100%; }
+
+      /* Clock face names under the tablet */
+      .faces { position: absolute; right: 90px; width: 1104px; top: 912px; height: 40px; }
+      .faces span { position: absolute; left: 0; right: 0; text-align: center; font-size: 26px; font-weight: 600; color: var(--text-2); opacity: 0; }
 
       /* Title and end cards */
       .card { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
       .brand { display: flex; align-items: center; gap: 28px; margin-bottom: 40px; }
       .brand img { width: 120px; height: 120px; }
       .brand span { font-family: var(--serif); font-size: 96px; font-weight: 600; letter-spacing: -0.01em; }
-      .card h1 { font-family: var(--serif); font-size: 66px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.18; max-width: 1300px; }
+      .card h1 { font-family: var(--serif); font-size: 64px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.18; max-width: 1400px; }
       .card .sub { margin-top: 28px; font-size: 32px; color: var(--text-2); }
+      .chips { display: flex; gap: 18px; margin-top: 44px; }
+      .chips span { font-size: 26px; font-weight: 600; color: var(--text); background: var(--surface); border: 1px solid var(--line); padding: 12px 26px; border-radius: 999px; }
       .card .url {
-        margin-top: 56px; font-size: 30px; font-weight: 600; color: var(--accent);
+        margin-top: 48px; font-size: 30px; font-weight: 600; color: var(--accent);
         background: var(--accent-soft); padding: 18px 36px; border-radius: 999px;
       }
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="30" data-width="1920" data-height="1080">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="86.5" data-width="1920" data-height="1080">
+
+      <!-- Voice-over (Kokoro af_heart). data-duration = the clip's length; data-start = its scene start + 0.5 s -->
+      <audio id="vo1" src="assets/vo/s1.wav" data-start="0.8" data-duration="5.355" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo2" src="assets/vo/s2.wav" data-start="7.2" data-duration="5.867" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo3" src="assets/vo/s3.wav" data-start="14.1" data-duration="7.296" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo4" src="assets/vo/s4.wav" data-start="22.4" data-duration="5.312" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo5" src="assets/vo/s5.wav" data-start="28.7" data-duration="6.635" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo6" src="assets/vo/s6.wav" data-start="36.3" data-duration="3.52" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo7" src="assets/vo/s7.wav" data-start="41.1" data-duration="7.147" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo8" src="assets/vo/s8.wav" data-start="49.2" data-duration="8.917" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo9" src="assets/vo/s9.wav" data-start="59.2" data-duration="6.869" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo10" src="assets/vo/s10.wav" data-start="67.2" data-duration="7.467" data-track-index="10" data-volume="1"></audio>
+      <audio id="vo11" src="assets/vo/s11.wav" data-start="76.6" data-duration="7.275" data-track-index="10" data-volume="1"></audio>
 
       <!-- 1. Title -->
-      <section id="s1" class="scene card clip" data-start="0" data-duration="4.5" data-track-index="0">
+      <section id="s1" class="scene card clip" data-start="0" data-duration="7.2" data-track-index="0">
         <div class="brand"><img src="assets/mark.svg" alt="" /><span>Mitra Home</span></div>
-        <h1>Your family's paperwork, handled at home.</h1>
+        <h1>Bills, papers, money and the calendar, kept on your own computer.</h1>
       </section>
 
       <!-- 2. Today -->
-      <section id="s2" class="scene clip" data-start="4" data-duration="6.5" data-track-index="1">
+      <section id="s2" class="scene clip" data-start="6.7" data-duration="7.4" data-track-index="1">
         <div class="copy">
-          <div class="eyebrow">Today</div>
+          <div class="eyebrow">PC app · Today</div>
           <h2>Open it, and you know what needs you.</h2>
-          <p>Bills due, appointments, chores and who they are for, on one page.</p>
+          <p>What's late, what's due and what's coming this week, and who each one is for.</p>
         </div>
         <div class="window"><div class="bar"><i></i><i></i><i></i></div><div class="shot" data-layout-allow-overflow><img src="assets/pc-today.jpg" alt="" /></div></div>
       </section>
 
-      <!-- 3. Calendar -->
-      <section id="s3" class="scene clip" data-start="10" data-duration="6" data-track-index="0">
+      <!-- 3. Add / Inbox -->
+      <section id="s3" class="scene clip" data-start="13.6" data-duration="8.8" data-track-index="0">
         <div class="copy">
-          <div class="eyebrow">Calendar</div>
+          <div class="eyebrow">PC app · Add</div>
+          <h2>Drop in a paper. Mitra files it.</h2>
+          <p>Bills, statements and school letters, with dates and amounts pulled out by the AI you choose.</p>
+        </div>
+        <div class="window"><div class="bar"><i></i><i></i><i></i></div><div class="shot" data-layout-allow-overflow><img src="assets/pc-add.jpg" alt="" /></div></div>
+      </section>
+
+      <!-- 4. Calendar -->
+      <section id="s4" class="scene clip" data-start="21.9" data-duration="6.8" data-track-index="1">
+        <div class="copy">
+          <div class="eyebrow">PC app · Calendar</div>
           <h2>Everyone's dates, in one calendar.</h2>
-          <p>School, classes, doctors, birthdays and due dates, from your own records.</p>
+          <p>Appointments, classes, school days off and holidays.</p>
         </div>
         <div class="window"><div class="bar"><i></i><i></i><i></i></div><div class="shot" data-layout-allow-overflow><img src="assets/pc-calendar.jpg" alt="" /></div></div>
       </section>
 
-      <!-- 4. Phone: Money and Wallet -->
-      <section id="s4" class="scene clip" data-start="15.5" data-duration="6" data-track-index="1">
+      <!-- 5. Money: Accounts -->
+      <section id="s5" class="scene clip" data-start="28.2" data-duration="8.1" data-track-index="0">
         <div class="copy">
-          <div class="eyebrow">On your phone</div>
-          <h2>Money and the family wallet, in your pocket.</h2>
-          <p>What to pay, what you keep, and where every card and plate number is.</p>
+          <div class="eyebrow">PC app · Money</div>
+          <h2>Every account, same as the bank.</h2>
+          <p>Bank, cards, investments, home and loans: what you have, what you owe, your net worth.</p>
+        </div>
+        <div class="window"><div class="bar"><i></i><i></i><i></i></div><div class="shot" data-layout-allow-overflow><img src="assets/pc-money.jpg" alt="" /></div></div>
+      </section>
+
+      <!-- 6. Money: the month -->
+      <section id="s6" class="scene clip" data-start="35.8" data-duration="5.3" data-track-index="1">
+        <div class="copy">
+          <div class="eyebrow">PC app · Spending</div>
+          <h2>Where the money went.</h2>
+          <p>Each month against last month and last year.</p>
+        </div>
+        <div class="window"><div class="bar"><i></i><i></i><i></i></div><div class="shot" data-layout-allow-overflow><img src="assets/pc-month.jpg" alt="" /></div></div>
+      </section>
+
+      <!-- 7. Family and Wallet -->
+      <section id="s7" class="scene clip" data-start="40.6" data-duration="8.6" data-track-index="0">
+        <div class="copy">
+          <div class="eyebrow">PC app · Family</div>
+          <h2>Everyone's records, and the family wallet.</h2>
+          <p>Cars, IDs, insurance, and the numbers you always look for.</p>
+        </div>
+        <div class="window"><div class="bar"><i></i><i></i><i></i></div><div class="shot" data-layout-allow-overflow><img src="assets/pc-family.jpg" alt="" /><img class="over" src="assets/pc-wallet.jpg" alt="" /></div></div>
+      </section>
+
+      <!-- 8. Phone app -->
+      <section id="s8" class="scene clip" data-start="48.7" data-duration="10.5" data-track-index="1">
+        <div class="copy">
+          <div class="eyebrow">Phone app · Android and iPhone</div>
+          <h2>Free, and paired with your PC.</h2>
+          <p>Check today, mark a bill paid, add an event. Syncs on home Wi-Fi.</p>
         </div>
         <div class="phones">
-          <div class="phone"><div class="shot" data-layout-allow-overflow><img src="assets/phone-money.jpg" alt="" /></div></div>
-          <div class="phone"><div class="shot" data-layout-allow-overflow><img src="assets/phone-wallet.jpg" alt="" /></div></div>
+          <div class="phone"><div class="shot" data-layout-allow-overflow><img src="assets/app-today.jpg" alt="" /></div></div>
+          <div class="phone"><div class="shot" data-layout-allow-overflow><img src="assets/app-money.jpg" alt="" /></div></div>
+          <div class="phone"><div class="shot" data-layout-allow-overflow><img src="assets/app-calendar.jpg" alt="" /></div></div>
         </div>
       </section>
 
-      <!-- 5. Mitra Wall -->
-      <section id="s5" class="scene clip" data-start="21" data-duration="5.5" data-track-index="0">
+      <!-- 9. Mitra Wall -->
+      <section id="s9" class="scene clip" data-start="58.7" data-duration="8.5" data-track-index="0">
         <div class="copy">
           <div class="eyebrow">Mitra Wall</div>
           <h2>An old tablet becomes the family's screen.</h2>
-          <p>The week, the weather and everyone's chores, on the kitchen wall.</p>
+          <p>The week at a glance, the kids' jobs and stars, and what's for dinner.</p>
         </div>
-        <div class="tablet"><div class="shot" data-layout-allow-overflow><img src="assets/wall-week.jpg" alt="" /></div></div>
+        <div class="tablet"><div class="shot" data-layout-allow-overflow><img src="assets/wall-today.jpg" alt="" /><img class="over" src="assets/wall-week.jpg" alt="" /></div></div>
       </section>
 
-      <!-- 6. End card -->
-      <section id="s6" class="scene card clip" data-start="26" data-duration="4" data-track-index="1">
+      <!-- 10. Mitra Clock -->
+      <section id="s10" class="scene clip" data-start="66.7" data-duration="9.8" data-track-index="1">
+        <div class="copy">
+          <div class="eyebrow">Mitra Clock</div>
+          <h2>A clock when no one is using it.</h2>
+          <p>Pick a face, add your photos. At night it dims to a soft bedside clock.</p>
+        </div>
+        <div class="tablet"><div class="shot" data-layout-allow-overflow>
+          <img src="assets/clock-led-wide.jpg" alt="" />
+          <img class="over f2" src="assets/clock-analog.jpg" alt="" />
+          <img class="over f3" src="assets/clock-flip.jpg" alt="" />
+          <img class="over f4" src="assets/clock-kidsday.jpg" alt="" />
+          <img class="over f5" src="assets/clock-night-red.jpg" alt="" />
+        </div></div>
+        <div class="faces"><span class="n1">LED desk clock</span><span class="n2">Classic</span><span class="n3">Flip</span><span class="n4">Kids' day</span><span class="n5">Bedside, at night</span></div>
+      </section>
+
+      <!-- 11. End card -->
+      <section id="s11" class="scene card clip" data-start="76" data-duration="10.5" data-track-index="0">
         <div class="brand"><img src="assets/mark.svg" alt="" /><span>Mitra Home</span></div>
-        <h1>Runs on your own computer.</h1>
-        <div class="sub">Your papers stay at home, not in someone else's cloud.</div>
-        <div class="url">rnetgit.github.io/mitra-home</div>
+        <h1>Your records never leave home.</h1>
+        <div class="chips"><span>No subscription</span><span>Free and open source</span><span>Windows · Mac · Docker</span></div>
+        <div class="url">Try the demo: rnetgit.github.io/mitra-home</div>
       </section>
     </div>
 
@@ -135,44 +215,64 @@
       const tl = gsap.timeline({ paused: true });
       const ease = "power3.out";
 
-      // Each scene runs 0.5 s past the next one's start: it fades out quickly while the next fades in, a short cross-fade
-      function sceneIn(id, at, dur) {
+      // Each scene runs 0.5 s past the next one's start: it fades out quickly while the next fades in
+      function sceneIn(id, at, dur, hold) {
         tl.fromTo(`#${id}`, { opacity: 0 }, { opacity: 1, duration: 0.45, ease: "power1.in" }, at + 0.1);
-        tl.fromTo(`#${id}`, { opacity: 1 }, { opacity: 0, duration: 0.35, ease: "power1.out", immediateRender: false }, at + dur - 0.5);
+        if (!hold) tl.fromTo(`#${id}`, { opacity: 1 }, { opacity: 0, duration: 0.35, ease: "power1.out", immediateRender: false }, at + dur - 0.5);
       }
-
-      // 1. Title
-      sceneIn("s1", 0, 4.5);
-      tl.fromTo("#s1 .brand", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 0.2);
-      tl.fromTo("#s1 h1", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 0.8);
-
-      // 2, 3, 5: caption slides in, screen rises, then a slow push-in on the picture
-      function screenScene(id, at, dur, frame) {
-        sceneIn(id, at, dur);
+      function copyIn(id, at) {
         tl.fromTo(`#${id} .eyebrow`, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease }, at + 0.2);
         tl.fromTo(`#${id} h2`, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease }, at + 0.35);
         tl.fromTo(`#${id} p`, { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease }, at + 0.55);
+      }
+      // caption slides in, screen rises, then a slow push-in on the picture
+      function screenScene(id, at, dur, frame) {
+        sceneIn(id, at, dur);
+        copyIn(id, at);
         tl.fromTo(`#${id} ${frame}`, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, at + 0.1);
         tl.fromTo(`#${id} ${frame} img`, { scale: 1 }, { scale: 1.06, duration: dur - 1.5, ease: "sine.inOut" }, at + 0.8);
       }
-      screenScene("s2", 4, 6.5, ".window");
-      screenScene("s3", 10, 6, ".window");
-      screenScene("s5", 21, 5.5, ".tablet");
 
-      // 4. Two phones rise one after the other
-      sceneIn("s4", 15.5, 6);
-      tl.fromTo("#s4 .eyebrow", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease }, 15.7);
-      tl.fromTo("#s4 h2", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease }, 15.85);
-      tl.fromTo("#s4 p", { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.7, ease }, 16.05);
-      tl.fromTo("#s4 .phone", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease, stagger: 0.25 }, 15.6);
-      tl.fromTo("#s4 .phone img", { yPercent: 0 }, { yPercent: -18, duration: 3.6, ease: "sine.inOut" }, 16.6);
+      // 1. Title
+      sceneIn("s1", 0, 7.2);
+      tl.fromTo("#s1 .brand", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 0.2);
+      tl.fromTo("#s1 h1", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 0.8);
 
-      // 6. End card
-      sceneIn("s6", 26, 4.5); // fade-out would start at 30 s, so the end card holds
-      tl.fromTo("#s6 .brand", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 26.1);
-      tl.fromTo("#s6 h1", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 26.5);
-      tl.fromTo("#s6 .sub", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 26.8);
-      tl.fromTo("#s6 .url", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.6)" }, 27.3);
+      screenScene("s2", 6.7, 7.4, ".window");
+      screenScene("s3", 13.6, 8.8, ".window");
+      screenScene("s4", 21.9, 6.8, ".window");
+      screenScene("s5", 28.2, 8.1, ".window");
+      screenScene("s6", 35.8, 5.3, ".window");
+      screenScene("s7", 40.6, 8.6, ".window");
+      tl.to("#s7 img.over", { opacity: 1, duration: 0.6, ease: "power1.inOut" }, 45.0);   // Family, then the Wallet
+
+      // 8. Three phones rise one after the other, then scroll a little
+      sceneIn("s8", 48.7, 10.5);
+      copyIn("s8", 48.7);
+      tl.fromTo("#s8 .phone", { y: 120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease, stagger: 0.3 }, 48.8);
+      tl.fromTo("#s8 .phone img", { yPercent: 0 }, { yPercent: -14, duration: 6.5, ease: "sine.inOut" }, 51.0);
+
+      // 9. Wall: Today, then the week
+      screenScene("s9", 58.7, 8.5, ".tablet");
+      tl.to("#s9 img.over", { opacity: 1, duration: 0.6, ease: "power1.inOut" }, 62.8);
+
+      // 10. Clock faces, one after another, with their names
+      sceneIn("s10", 66.7, 9.8);
+      copyIn("s10", 66.7);
+      tl.fromTo("#s10 .tablet", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 66.8);
+      const faceAt = [67.0, 68.8, 70.6, 72.4, 74.2];
+      faceAt.forEach((t, i) => {
+        if (i) tl.to(`#s10 .f${i + 1}`, { opacity: 1, duration: 0.5, ease: "power1.inOut" }, t);
+        tl.fromTo(`#s10 .n${i + 1}`, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4, ease }, t + 0.2);
+        if (i < faceAt.length - 1) tl.to(`#s10 .n${i + 1}`, { opacity: 0, duration: 0.3 }, faceAt[i + 1]);
+      });
+
+      // 11. End card holds to the end
+      sceneIn("s11", 76, 10.5, true);
+      tl.fromTo("#s11 .brand", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 76.1);
+      tl.fromTo("#s11 h1", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease }, 76.5);
+      tl.fromTo("#s11 .chips span", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease, stagger: 0.5 }, 77.6);
+      tl.fromTo("#s11 .url", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.6)" }, 81.5);
 
       window.__timelines["main"] = tl;
       tl.seek(0);
