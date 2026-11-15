@@ -29,7 +29,7 @@ PHONE_DEMO = "../phone-demo.html"  # the page with the QR that opens the phone a
 ADULT_START = ["/", "/calendar?view=week", "/calendar?view=month", "/calendar?view=year", "/add", "/money", "/family",
                "/family/house", "/family/routines", "/wallet", "/notes", "/chat", "/settings", "/work", "/help",
                "/settings/audit", "/add/photo?kind=dates", "/add/photo?kind=recipe"]
-ALLOWED_PATHS = re.compile(r"^/($|calendar$|add$|add/photo$|money$|family$|family/house$|family/routines$|records$|"
+ALLOWED_PATHS = re.compile(r"^/($|calendar$|add$|add/photo$|money$|money/account/\d+$|family$|family/house$|family/routines$|records$|"
                            r"wallet$|wallet/park$|notes$|chat$|settings$|settings/audit$|work$|help$)")
 KEEP_KEYS = {"view", "part", "domain", "section", "group", "tab", "g", "kind", "car"}
 WALL_PAGES = ["/wall", "/wall/week", "/wall/month", "/wall/chores", "/wall/lists", "/wall/meals", "/wall/rest",

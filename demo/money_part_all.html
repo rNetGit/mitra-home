@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#F3F4F6">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css?v=0.149.0">
+  <script src="static/vendor/htmx.min.js?v=0.149.0" defer></script>
+  
+  <script src="static/app.js?v=0.149.0" defer></script>
+  <title>Money · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#2A1F17;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#F6C9A8}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../phone-demo.html">Phone app demo</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu">
+        <a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
+    
+    <small class="ver">v0.149.0</small>
+  </nav>
+
+  <main>
+
+  <form class="askbar" role="search" hx-post="/chat/ask" hx-swap="none" hx-disabled-elt="find button" aria-label="Ask Mitra">
+    <span class="mav" aria-hidden="true">M</span>
+    <label class="vh" for="askq">Ask Mitra, or tell it something</label>
+    <input id="askq" name="text" maxlength="1000" autocomplete="off" required
+      placeholder="Ask Mitra, or tell it something: &ldquo;Mateo has the dentist Friday at 4&rdquo;">
+    <kbd class="askkey" aria-hidden="true">Ctrl K</kbd>
+    <button class="btn" type="submit">Ask</button>
+    <span class="thinking muted" role="status">Thinking&hellip;</span>
+  </form>
+
+  
+
+
+
+<header class="head"><div><h1>Money</h1><p class="sub">All accounts as one: what happened by day, week or month.</p></div></header>
+<nav class="pchips mtabs" aria-label="Money">
+  <a href="money_part_books.html" class="pchip">Accounts</a>
+  <a href="money_part_all.html" class="pchip on" aria-current="true">All accounts</a>
+  <a href="money_part_month.html" class="pchip">Spending &amp; income</a>
+  <a href="money_part_paid.html" class="pchip">Bills &amp; plan</a>
+</nav>
+
+<nav class="fchips" aria-label="All accounts"><a href="money_part_all.html" class="on" aria-current="true">All accounts</a><a href="money_part_ledger.html" >Ledger</a></nav>
+
+
+
+
+<form class="aa-bar" action="/money" method="get">
+  <input type="hidden" name="part" value="all"><input type="hidden" name="g" value=""><input type="hidden" name="d" value="2026-11-09">
+  <div class="seg aa-seg" role="group" aria-label="Period"><button type="submit" name="period" value="day" class="">Day</button><button type="submit" name="period" value="week" class="on" aria-pressed="true">Week</button><button type="submit" name="period" value="month" class="">Month</button></div>
+  <span class="aa-step"><a class="btn alt" href="#" data-demo="1" aria-label="Earlier">‹</a>
+    <b>Nov 9 – 15, 2026</b>
+    <span class="btn alt aa-off" aria-hidden="true">›</span></span>
+</form>
+<nav class="fchips aa-filter" aria-label="Which accounts"><a href="#" data-demo="1" class="on" aria-current="true">Everything</a><a href="#" data-demo="1" >Bank</a><a href="#" data-demo="1" >Cards</a><a href="#" data-demo="1" >Investments</a><a href="#" data-demo="1" >Property</a><a href="#" data-demo="1" >Loans</a></nav>
+<div class="kpis rk bk-kpis">
+  <div class="kpi"><span>Money in</span><b class="bk-in">$3,480.00</b><i>pay, interest, dividends, refunds</i></div>
+  <div class="kpi"><span>Money out</span><b>$1,011.60</b><i>spending, bills, loan payments</i></div>
+  <div class="kpi"><span>Moved between your accounts</span><b class="muted">$0.00</b><i>not spending · counted once</i></div>
+  <div class="kpi"><span>Net worth</span><b>+$3,015</b><i>$380,439 → $383,454</i></div>
+</div>
+<section class="card aa-spark"><svg viewBox="0 0 700 60" preserveAspectRatio="none" class="aa-svg" aria-hidden="true"><polyline points="0.0,56.0 116.7,56.0 233.3,56.0 350.0,56.0 466.7,4.0 583.3,4.0 700.0,4.0"/></svg>
+  <p class="muted small">Net worth day by day, all accounts as one. Days between balances carry the last one forward.</p></section>
+
+<section class="card bk-reg">
+  <div class="tablewrap"><table class="bk-table nocards">
+    <thead><tr><th>What happened</th><th class="bk-wide">Account</th><th class="bk-wide">Category</th><th class="num">Amount</th></tr></thead>
+    <tbody>
+      <tr class="bk-month aa-day"><td colspan="3">Sun, Nov 15</td><td class="num">+$3,175.03</td></tr>
+      
+      <tr><td>ACME ENGINEERING PAYROLL</td><td class="bk-wide"><a class="aa-ac" href="money_account_1.html">Lakeside Bank Checking x4821</a></td><td class="bk-wide">salary</td><td class="num bk-in">+$3,480.00</td></tr>
+      
+      <tr><td>LAKESIDE MUTUAL AUTO INS</td><td class="bk-wide"><a class="aa-ac" href="money_account_1.html">Lakeside Bank Checking x4821</a></td><td class="bk-wide">insurance</td><td class="num">-$224.00</td></tr>
+      
+      <tr><td>GREENLEAF GROCERS</td><td class="bk-wide"><a class="aa-ac" href="money_account_4.html">Summit Rewards Card x3344</a></td><td class="bk-wide">groceries</td><td class="num">-$80.97</td></tr>
+      
+    
+      <tr class="bk-month aa-day"><td colspan="3">Sat, Nov 14</td><td class="num">-$138.05</td></tr>
+      
+      <tr><td>TUNEWAVE FAMILY</td><td class="bk-wide"><a class="aa-ac" href="money_account_4.html">Summit Rewards Card x3344</a></td><td class="bk-wide">subscriptions</td><td class="num">-$16.99</td></tr>
+      
+      <tr><td>QUICKFUEL #221</td><td class="bk-wide"><a class="aa-ac" href="money_account_3.html">Northway Visa x1209</a></td><td class="bk-wide">fuel</td><td class="num">-$60.69</td></tr>
+      
+      <tr><td>PAWS &amp; CLAWS PET</td><td class="bk-wide"><a class="aa-ac" href="money_account_3.html">Northway Visa x1209</a></td><td class="bk-wide">pets</td><td class="num">-$60.37</td></tr>
+      
+    
+      <tr class="bk-month aa-day"><td colspan="3">Fri, Nov 13</td><td class="num">-$125.93</td></tr>
+      
+      <tr><td>FRESHFIELD MARKET</td><td class="bk-wide"><a class="aa-ac" href="money_account_3.html">Northway Visa x1209</a></td><td class="bk-wide">groceries</td><td class="num">-$125.93</td></tr>
+      
+    
+      <tr class="bk-month aa-day"><td colspan="3">Thu, Nov 12</td><td class="num">-$34.39</td></tr>
+      
+      <tr><td>STREAMBOX</td><td class="bk-wide"><a class="aa-ac" href="money_account_3.html">Northway Visa x1209</a></td><td class="bk-wide">subscriptions</td><td class="num">-$15.99</td></tr>
+      
+      <tr><td>TST* HILLTOP BAKERY</td><td class="bk-wide"><a class="aa-ac" href="money_account_3.html">Northway Visa x1209</a></td><td class="bk-wide"></td><td class="num">-$18.40</td></tr>
+      
+    
+      <tr class="bk-month aa-day"><td colspan="3">Wed, Nov 11</td><td class="num">-$19.26</td></tr>
+      
+      <tr><td>PAGEBOOK STORE</td><td class="bk-wide"><a class="aa-ac" href="money_account_4.html">Summit Rewards Card x3344</a></td><td class="bk-wide">shopping</td><td class="num">-$19.26</td></tr>
+      
+    
+      <tr class="bk-month aa-day"><td colspan="3">Mon, Nov 9</td><td class="num">-$389.00</td></tr>
+      
+      <tr><td>CRESTLINE AUTO LOAN</td><td class="bk-wide"><a class="aa-ac" href="money_account_1.html">Lakeside Bank Checking x4821</a></td><td class="bk-wide">Loan payment</td><td class="num">-$389.00</td></tr>
+      
+    </tbody>
+  </table></div>
+  <p class="muted small bk-pad">11 lines. Lines marked ⇄ moved money between your own accounts: they are shown once and left out of Money in and Money out (a loan payment counts in Money out).</p>
+</section>
+
+
+</main>
+
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+
+
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet">
+        <a href="notes.html" >Notes</a><a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
+  <nav class="bnav" aria-label="Main (phone)">
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" class="on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
+  </nav>
+
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
+</body>
+</html>

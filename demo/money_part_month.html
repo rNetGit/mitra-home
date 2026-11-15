@@ -26,10 +26,10 @@
   <link rel="icon" href="static/icon-192.png" type="image/png">
   <link rel="apple-touch-icon" href="static/icon-180.png">
   <link rel="stylesheet" href="static/tokens.css">
-  <link rel="stylesheet" href="static/app.css?v=0.148.0">
-  <script src="static/vendor/htmx.min.js?v=0.148.0" defer></script>
+  <link rel="stylesheet" href="static/app.css?v=0.149.0">
+  <script src="static/vendor/htmx.min.js?v=0.149.0" defer></script>
   
-  <script src="static/app.js?v=0.148.0" defer></script>
+  <script src="static/app.js?v=0.149.0" defer></script>
   <title>Money · Mitra Home</title>
 </head>
 
@@ -69,7 +69,7 @@
 </div>
       </details>
     
-    <small class="ver">v0.148.0</small>
+    <small class="ver">v0.149.0</small>
   </nav>
 
   <main>
@@ -86,14 +86,17 @@
 
   
 
+
+
 <header class="head"><div><h1>Money</h1><p class="sub">November 2026: where the money went, category by category.</p></div></header>
 <nav class="pchips mtabs" aria-label="Money">
-  <a href="money.html" class="pchip">Overview</a>
-  <a href="money_part_statement.html" class="pchip">Statement</a>
-  <a href="money_part_homecosts.html" class="pchip">Home costs</a>
-  <a href="money_part_spending.html" class="pchip">Spending</a><a href="money_part_paid.html" class="pchip">Bills</a><a href="money_part_regular.html" class="pchip">Regular</a>
-  
+  <a href="money_part_books.html" class="pchip">Accounts</a>
+  <a href="money_part_all.html" class="pchip">All accounts</a>
+  <a href="money_part_month.html" class="pchip on" aria-current="true">Spending &amp; income</a>
+  <a href="money_part_paid.html" class="pchip">Bills &amp; plan</a>
 </nav>
+
+<nav class="fchips" aria-label="Spending &amp; income"><a href="money_part_month.html" class="on" aria-current="true">This month</a><a href="money_part_statement.html" >Statement</a><a href="money_part_spending.html" >Spending</a><a href="money_part_homecosts.html" >Home costs</a><a href="money_part_trends.html" >Trends</a><a href="money_part_deposits.html" >Income sources</a><a href="money_part_spikes.html" >Price spikes</a></nav>
 
 
 
@@ -123,55 +126,55 @@
   
   
   <circle class="dseg s0" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100"
-          stroke-dasharray="58.3 41.7" stroke-dashoffset="0" transform="rotate(-90 60 60)"><title>Housing $2,150</title></circle>
+          stroke-dasharray="52.0 48.0" stroke-dashoffset="0" transform="rotate(-90 60 60)"><title>Housing $2,150</title></circle>
   
   <circle class="dseg s1" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100"
-          stroke-dasharray="14.3 85.7" stroke-dashoffset="-58.9" transform="rotate(-90 60 60)"><title>Groceries $543</title></circle>
+          stroke-dasharray="14.6 85.4" stroke-dashoffset="-52.6" transform="rotate(-90 60 60)"><title>Groceries $624</title></circle>
   
   <circle class="dseg s2" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100"
-          stroke-dasharray="10.1 89.9" stroke-dashoffset="-73.8" transform="rotate(-90 60 60)"><title>Auto loan $389</title></circle>
+          stroke-dasharray="8.9 91.1" stroke-dashoffset="-67.8" transform="rotate(-90 60 60)"><title>Auto loan $389</title></circle>
   
   <circle class="dseg s3" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100"
-          stroke-dasharray="5.2 94.8" stroke-dashoffset="-84.5" transform="rotate(-90 60 60)"><title>Utilities $212</title></circle>
+          stroke-dasharray="4.9 95.1" stroke-dashoffset="-77.3" transform="rotate(-90 60 60)"><title>Insurance $224</title></circle>
   
   <circle class="dseg s4" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100"
-          stroke-dasharray="3.3 96.7" stroke-dashoffset="-90.3" transform="rotate(-90 60 60)"><title>General merchandise $144</title></circle>
+          stroke-dasharray="4.6000000000000005 95.4" stroke-dashoffset="-82.8" transform="rotate(-90 60 60)"><title>Utilities $212</title></circle>
   
   <circle class="dseg s5" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100"
-          stroke-dasharray="2.0 98.0" stroke-dashoffset="-94.2" transform="rotate(-90 60 60)"><title>Fuel $96</title></circle>
+          stroke-dasharray="3.1999999999999997 96.8" stroke-dashoffset="-88.0" transform="rotate(-90 60 60)"><title>Fuel $156</title></circle>
   
   <circle class="dseg s6" cx="60" cy="60" r="46" fill="none" stroke-width="14" pathLength="100"
-          stroke-dasharray="2.5 97.5" stroke-dashoffset="-96.8" transform="rotate(-90 60 60)"><title>Other $115</title></circle>
+          stroke-dasharray="7.6 92.4" stroke-dashoffset="-91.8" transform="rotate(-90 60 60)"><title>Other $336</title></circle>
   
 </svg>
 
-        <div class="mmid"><small>Spent</small><b>$3,648</b><small>36% of income kept</small></div>
+        <div class="mmid"><small>Spent</small><b>$4,091</b><small>55% of income kept</small></div>
       </div>
-      <ul class="mlegend"><li><i class="dot s0" aria-hidden="true"></i>Housing <b>59%</b></li><li><i class="dot s1" aria-hidden="true"></i>Groceries <b>15%</b></li><li><i class="dot s2" aria-hidden="true"></i>Auto loan <b>11%</b></li><li><i class="dot s3" aria-hidden="true"></i>Utilities <b>6%</b></li><li><i class="dot s4" aria-hidden="true"></i>General merchandise <b>4%</b></li><li><i class="dot s5" aria-hidden="true"></i>Fuel <b>3%</b></li><li><i class="dot s6" aria-hidden="true"></i>Other <b>3%</b></li></ul>
+      <ul class="mlegend"><li><i class="dot s0" aria-hidden="true"></i>Housing <b>53%</b></li><li><i class="dot s1" aria-hidden="true"></i>Groceries <b>15%</b></li><li><i class="dot s2" aria-hidden="true"></i>Auto loan <b>10%</b></li><li><i class="dot s3" aria-hidden="true"></i>Insurance <b>6%</b></li><li><i class="dot s4" aria-hidden="true"></i>Utilities <b>5%</b></li><li><i class="dot s5" aria-hidden="true"></i>Fuel <b>4%</b></li><li><i class="dot s6" aria-hidden="true"></i>Other <b>8%</b></li></ul>
       <dl class="mtiles">
-        <div><dt>Income</dt><dd>$5,690</dd></div>
-        <div><dt>Spent</dt><dd>$3,648</dd></div>
+        <div><dt>Income</dt><dd>$9,170</dd></div>
+        <div><dt>Spent</dt><dd>$4,091</dd></div>
         <div><dt>Saved</dt><dd>$500</dd></div>
-        <div class=""><dt>Left</dt><dd>$1,542</dd></div>
+        <div class=""><dt>Left</dt><dd>$4,579</dd></div>
       </dl>
     </article>
 
     <article class="slide g-flow" aria-label="Cash flow">
       <p class="kick">Cash flow</p>
       
-      <h3 class="mbig">36%<small> of income kept</small></h3>
+      <h3 class="mbig">55%<small> of income kept</small></h3>
       
-      <svg class="mflow" viewBox="0 0 100 10" preserveAspectRatio="none" role="img" aria-label="Income: fixed $2,767, everyday $881, saved $500, left $1,542">
-        <rect class="f1" x="0" y="0" width="48.63" height="10"/><rect class="f2" x="48.63" y="0" width="15.48" height="10"/><rect class="f3" x="64.12" y="0" width="8.79" height="10"/><rect class="f4" x="72.9" y="0" width="27.1" height="10"/>
+      <svg class="mflow" viewBox="0 0 100 10" preserveAspectRatio="none" role="img" aria-label="Income: fixed $3,008, everyday $1,083, saved $500, left $4,579">
+        <rect class="f1" x="0" y="0" width="32.8" height="10"/><rect class="f2" x="32.8" y="0" width="11.81" height="10"/><rect class="f3" x="44.62" y="0" width="5.45" height="10"/><rect class="f4" x="50.07" y="0" width="49.93" height="10"/>
       </svg>
       <ul class="mrows">
-        <li><i class="dot f1" aria-hidden="true"></i><span>Fixed costs <small>housing, loans, bills</small></span><b>$2,767</b></li>
-        <li><i class="dot f2" aria-hidden="true"></i><span>Everyday spending</span><b>$881</b></li>
+        <li><i class="dot f1" aria-hidden="true"></i><span>Fixed costs <small>housing, loans, bills</small></span><b>$3,008</b></li>
+        <li><i class="dot f2" aria-hidden="true"></i><span>Everyday spending</span><b>$1,083</b></li>
         <li><i class="dot f3" aria-hidden="true"></i><span>Saved <small>to savings $500</small></span><b>$500</b></li>
-        <li class=""><i class="dot f4" aria-hidden="true"></i><span>Left</span><b>$1,542</b></li>
+        <li class=""><i class="dot f4" aria-hidden="true"></i><span>Left</span><b>$4,579</b></li>
       </ul>
       <p class="kick sm">Income came from</p>
-      <ul class="mrows"><li><span>Other</span><b>$5,690</b></li>
+      <ul class="mrows"><li><span>Other</span><b>$9,170</b></li>
         </ul>
       
     </article>
@@ -185,43 +188,43 @@
           <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="s0" width="100.0" height="8"/></svg>
           <small>same</small></li>
         
-        <li><i class="dot s1" aria-hidden="true"></i><span>Groceries</span><b>$543</b>
+        <li><i class="dot s1" aria-hidden="true"></i><span>Groceries</span><b>$624</b>
           
-          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="s1" width="25.23" height="8"/><rect class="tick" x="41.06" width="1.6" height="8"><title>Budget $900</title></rect></svg>
-          <small><span class="down">▼44%</span></small></li>
+          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="s1" width="29.0" height="8"/><rect class="tick" x="41.06" width="1.6" height="8"><title>Budget $900</title></rect></svg>
+          <small><span class="down">▼36%</span></small></li>
         
         <li><i class="dot s2" aria-hidden="true"></i><span>Auto loan</span><b>$389</b>
           
           <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="s2" width="18.09" height="8"/></svg>
           <small>same</small></li>
         
-        <li><i class="dot s3" aria-hidden="true"></i><span>Utilities</span><b>$212</b>
+        <li><i class="dot s3" aria-hidden="true"></i><span>Insurance</span><b>$224</b>
           
-          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="s3" width="9.87" height="8"/></svg>
+          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="s3" width="10.42" height="8"/></svg>
+          <small>same</small></li>
+        
+        <li><i class="dot s4" aria-hidden="true"></i><span>Utilities</span><b>$212</b>
+          
+          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="s4" width="9.87" height="8"/></svg>
           <small><span class="down">▼36%</span></small></li>
         
-        <li><i class="dot s4" aria-hidden="true"></i><span>General merchandise</span><b>$144</b>
+        <li><i class="dot s5" aria-hidden="true"></i><span>Fuel</span><b>$156</b>
           
-          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="s4" width="6.69" height="8"/><rect class="tick" x="8.5" width="1.6" height="8"><title>Budget $200</title></rect></svg>
+          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="s5" width="7.27" height="8"/><rect class="tick" x="8.5" width="1.6" height="8"><title>Budget $200</title></rect></svg>
           <small><span class="down">▼9%</span></small></li>
         
-        <li><i class="dot s5" aria-hidden="true"></i><span>Fuel</span><b>$96</b>
+        <li><i class="dot s6" aria-hidden="true"></i><span>General merchandise</span><b>$144</b>
           
-          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="s5" width="4.45" height="8"/><rect class="tick" x="8.5" width="1.6" height="8"><title>Budget $200</title></rect></svg>
-          <small><span class="down">▼45%</span></small></li>
+          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="s6" width="6.69" height="8"/><rect class="tick" x="8.5" width="1.6" height="8"><title>Budget $200</title></rect></svg>
+          <small><span class="down">▼9%</span></small></li>
         
-        <li><i class="dot s6" aria-hidden="true"></i><span>Healthcare</span><b>$33</b>
+        <li><i class="dot s6" aria-hidden="true"></i><span>Pets</span><b>$60</b>
           
-          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="s6" width="1.51" height="8"/></svg>
-          <small><span class="down">▼58%</span></small></li>
-        
-        <li><i class="dot s6" aria-hidden="true"></i><span>Dining</span><b>$29</b>
-          
-          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="s6" width="1.34" height="8"/><rect class="tick" x="10.83" width="1.6" height="8"><title>Budget $250</title></rect></svg>
-          <small><span class="down">▼80%</span></small></li>
+          <svg class="mbar" viewBox="0 0 100 8" preserveAspectRatio="none" aria-hidden="true"><rect class="track" width="100" height="8"/><rect class="s6" width="2.81" height="8"/></svg>
+          <small><span class="up">▲62%</span></small></li>
         
       </ul>
-      <p class="dim">3 more below the card.</p>
+      <p class="dim">5 more below the card.</p>
       <p class="dim sm">▲▼ against Oct 2026 · tick = budget</p>
     </article>
 
@@ -256,18 +259,18 @@
           <text x="220" y="144" text-anchor="middle">Oct</text>
         </g>
         <g class="on">
-          <rect class="inc" x="252" y="72.06389888528044" width="15" height="55.93610111471956" rx="3"><title>Nov income $5,690</title></rect>
-          <rect class="spd" x="269" y="92.1362099534802" width="15" height="35.86379004651979" rx="3"><title>Nov spent $3,648</title></rect>
+          <rect class="inc" x="252" y="37.853418765908884" width="15" height="90.14658123409112" rx="3"><title>Nov income $9,170</title></rect>
+          <rect class="spd" x="269" y="87.78105854472045" width="15" height="40.218941455279555" rx="3"><title>Nov spent $4,091</title></rect>
           <text x="268" y="144" text-anchor="middle">Nov</text>
         </g>
       </svg>
       <p class="mkey"><i class="inc"></i>Income <i class="spd"></i>Spent</p>
       <ul class="mfacts">
-        <li><span>On pace for</span><b>$8,419</b></li>
-        <li><span>That pace against Oct</span><b class="up">+75%</b></li>
+        <li><span>On pace for</span><b>$8,182</b></li>
+        <li><span>That pace against Oct</span><b class="up">+70%</b></li>
         
         <li><span>Against Nov last year</span><b class="">n/a</b></li>
-        <li><span>Average a day</span><b>$281</b></li>
+        <li><span>Average a day</span><b>$273</b></li>
       </ul>
     </article>
 
@@ -278,7 +281,7 @@
         <div><small>Biggest buy</small><b>$147</b><span>FRESHFIELD MARKET</span></div>
         <div><small>Top place</small><b>FRESHFIELD MARKET</b><span>4× · $473</span></div>
         <div><small>Busiest day</small><b>11/6</b><span>$147</span></div>
-        <div><small>Charges</small><b>19</b><span>11 categories</span></div>
+        <div><small>Charges</small><b>24</b><span>13 categories</span></div>
         <div><small>Subscriptions</small><b>$72</b><span>a month, 3 tracked</span></div>
         <div><small>Bills ahead</small><b>6</b><span>in the next 30 days</span></div>
       </div>
@@ -288,11 +291,11 @@
 
   
   <div class="card mlist">
-    <h2 class="row-h">All categories, Nov 2026 <span class="mtot muted">$3,648 · 19 charges</span></h2>
+    <h2 class="row-h">All categories, Nov 2026 <span class="mtot muted">$4,091 · 24 charges</span></h2>
     <div class="msort" role="group" aria-label="Sort charges"><button type="button" class="on" data-sort="a">Biggest first</button><button type="button" data-sort="d">By date</button></div>
     
     <details class="mcat">
-      <summary><i class="dot s0" aria-hidden="true"></i><span>Housing</span><small class="muted">1 · 59%</small><b>$2,150</b></summary>
+      <summary><i class="dot s0" aria-hidden="true"></i><span>Housing</span><small class="muted">1 · 53%</small><b>$2,150</b></summary>
       <div class="mrowsx"><div class="mrow" data-d="2026-11-01" data-a="2150.0"><span class="muted">11-01</span><span>MAPLE HOME LENDING MORTGAGE</span><span class="n">$2,150.00</span></div></div>
       
       <p class="muted sm"><a href="#" data-demo="1">Search the records</a></p>
@@ -300,15 +303,15 @@
     </details>
     
     <details class="mcat">
-      <summary><i class="dot s1" aria-hidden="true"></i><span>Groceries</span><small class="muted">5 · 15%</small><b>$543</b></summary>
-      <div class="mrowsx"><div class="mrow" data-d="2026-11-06" data-a="147.41"><span class="muted">11-06</span><span>FRESHFIELD MARKET</span><span class="n">$147.41</span></div><div class="mrow" data-d="2026-11-13" data-a="125.93"><span class="muted">11-13</span><span>FRESHFIELD MARKET</span><span class="n">$125.93</span></div><div class="mrow" data-d="2026-11-03" data-a="124.33"><span class="muted">11-03</span><span>FRESHFIELD MARKET</span><span class="n">$124.33</span></div><div class="mrow" data-d="2026-11-01" data-a="75.0"><span class="muted">11-01</span><span>FRESHFIELD MARKET</span><span class="n">$75.00</span></div><div class="mrow" data-d="2026-11-05" data-a="69.86"><span class="muted">11-05</span><span>GREENLEAF GROCERS</span><span class="n">$69.86</span></div></div>
+      <summary><i class="dot s1" aria-hidden="true"></i><span>Groceries</span><small class="muted">6 · 15%</small><b>$624</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-11-06" data-a="147.41"><span class="muted">11-06</span><span>FRESHFIELD MARKET</span><span class="n">$147.41</span></div><div class="mrow" data-d="2026-11-13" data-a="125.93"><span class="muted">11-13</span><span>FRESHFIELD MARKET</span><span class="n">$125.93</span></div><div class="mrow" data-d="2026-11-03" data-a="124.33"><span class="muted">11-03</span><span>FRESHFIELD MARKET</span><span class="n">$124.33</span></div><div class="mrow" data-d="2026-11-15" data-a="80.97"><span class="muted">11-15</span><span>GREENLEAF GROCERS</span><span class="n">$80.97</span></div><div class="mrow" data-d="2026-11-01" data-a="75.0"><span class="muted">11-01</span><span>FRESHFIELD MARKET</span><span class="n">$75.00</span></div><div class="mrow" data-d="2026-11-05" data-a="69.86"><span class="muted">11-05</span><span>GREENLEAF GROCERS</span><span class="n">$69.86</span></div></div>
       
       <p class="muted sm"><a href="#" data-demo="1">Search the records</a></p>
       
     </details>
     
     <details class="mcat">
-      <summary><i class="dot s2" aria-hidden="true"></i><span>Auto loan</span><small class="muted">1 · 11%</small><b>$389</b></summary>
+      <summary><i class="dot s2" aria-hidden="true"></i><span>Auto loan</span><small class="muted">1 · 10%</small><b>$389</b></summary>
       <div class="mrowsx"><div class="mrow" data-d="2026-11-09" data-a="389.0"><span class="muted">11-09</span><span>CRESTLINE AUTO LOAN</span><span class="n">$389.00</span></div></div>
       
       <p class="muted sm"><a href="#" data-demo="1">Search the records</a></p>
@@ -316,7 +319,15 @@
     </details>
     
     <details class="mcat">
-      <summary><i class="dot s3" aria-hidden="true"></i><span>Utilities</span><small class="muted">2 · 6%</small><b>$212</b></summary>
+      <summary><i class="dot s3" aria-hidden="true"></i><span>Insurance</span><small class="muted">1 · 6%</small><b>$224</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-11-15" data-a="224.0"><span class="muted">11-15</span><span>LAKESIDE MUTUAL AUTO INS</span><span class="n">$224.00</span></div></div>
+      
+      <p class="muted sm"><a href="#" data-demo="1">Search the records</a></p>
+      
+    </details>
+    
+    <details class="mcat">
+      <summary><i class="dot s4" aria-hidden="true"></i><span>Utilities</span><small class="muted">2 · 5%</small><b>$212</b></summary>
       <div class="mrowsx"><div class="mrow" data-d="2026-11-03" data-a="142.18"><span class="muted">11-03</span><span>CITY WATER &amp; POWER</span><span class="n">$142.18</span></div><div class="mrow" data-d="2026-11-08" data-a="70.0"><span class="muted">11-08</span><span>BRIGHTWAVE INTERNET</span><span class="n">$70.00</span></div></div>
       
       <p class="muted sm"><a href="#" data-demo="1">Search the records</a></p>
@@ -324,7 +335,15 @@
     </details>
     
     <details class="mcat">
-      <summary><i class="dot s4" aria-hidden="true"></i><span>General merchandise</span><small class="muted">2 · 4%</small><b>$144</b></summary>
+      <summary><i class="dot s5" aria-hidden="true"></i><span>Fuel</span><small class="muted">3 · 4%</small><b>$156</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-11-14" data-a="60.69"><span class="muted">11-14</span><span>QUICKFUEL #221</span><span class="n">$60.69</span></div><div class="mrow" data-d="2026-11-07" data-a="57.0"><span class="muted">11-07</span><span>QUICKFUEL #221</span><span class="n">$57.00</span></div><div class="mrow" data-d="2026-11-07" data-a="38.64"><span class="muted">11-07</span><span>QUICKFUEL #221</span><span class="n">$38.64</span></div></div>
+      
+      <p class="muted sm"><a href="#" data-demo="1">Search the records</a></p>
+      
+    </details>
+    
+    <details class="mcat">
+      <summary><i class="dot s6" aria-hidden="true"></i><span>General merchandise</span><small class="muted">2 · 4%</small><b>$144</b></summary>
       <div class="mrowsx"><div class="mrow" data-d="2026-11-08" data-a="95.9"><span class="muted">11-08</span><span>BRIGHTMART</span><span class="n">$95.90</span></div><div class="mrow" data-d="2026-11-07" data-a="47.88"><span class="muted">11-07</span><span>BRIGHTMART</span><span class="n">$47.88</span></div></div>
       
       <p class="muted sm"><a href="#" data-demo="1">Search the records</a></p>
@@ -332,8 +351,16 @@
     </details>
     
     <details class="mcat">
-      <summary><i class="dot s5" aria-hidden="true"></i><span>Fuel</span><small class="muted">2 · 3%</small><b>$96</b></summary>
-      <div class="mrowsx"><div class="mrow" data-d="2026-11-07" data-a="57.0"><span class="muted">11-07</span><span>QUICKFUEL #221</span><span class="n">$57.00</span></div><div class="mrow" data-d="2026-11-07" data-a="38.64"><span class="muted">11-07</span><span>QUICKFUEL #221</span><span class="n">$38.64</span></div></div>
+      <summary><i class="dot s6" aria-hidden="true"></i><span>Pets</span><small class="muted">1 · 2%</small><b>$60</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-11-14" data-a="60.37"><span class="muted">11-14</span><span>PAWS &amp; CLAWS PET</span><span class="n">$60.37</span></div></div>
+      
+      <p class="muted sm"><a href="#" data-demo="1">Search the records</a></p>
+      
+    </details>
+    
+    <details class="mcat">
+      <summary><i class="dot s6" aria-hidden="true"></i><span>Subscriptions</span><small class="muted">2 · 1%</small><b>$33</b></summary>
+      <div class="mrowsx"><div class="mrow" data-d="2026-11-14" data-a="16.99"><span class="muted">11-14</span><span>TUNEWAVE FAMILY</span><span class="n">$16.99</span></div><div class="mrow" data-d="2026-11-12" data-a="15.99"><span class="muted">11-12</span><span>STREAMBOX</span><span class="n">$15.99</span></div></div>
       
       <p class="muted sm"><a href="#" data-demo="1">Search the records</a></p>
       
@@ -365,11 +392,11 @@
     
     <details class="mcat">
       <summary><i class="dot s6" aria-hidden="true"></i><span>Uncategorized</span><small class="muted">1 · 0%</small><b>$18</b></summary>
-      <div class="mrowsx"><div class="mrow" data-d="2026-11-10" data-a="18.4"><span class="muted">11-10</span><span>HILLTOP BAKERY</span><span class="n">$18.40</span></div></div>
+      <div class="mrowsx"><div class="mrow" data-d="2026-11-12" data-a="18.4"><span class="muted">11-12</span><span>HILLTOP BAKERY</span><span class="n">$18.40</span></div></div>
       
       
       <p class="muted sm">Name a category once and every charge from that merchant, now and later, gets it.</p>
-      <datalist id="mm-cats"><option value="auto loan"><option value="dining"><option value="fuel"><option value="general merchandise"><option value="groceries"><option value="healthcare"><option value="housing"><option value="shopping"><option value="subscriptions"><option value="utilities"><option value="transfer"></datalist>
+      <datalist id="mm-cats"><option value="auto loan"><option value="dining"><option value="fuel"><option value="general merchandise"><option value="groceries"><option value="healthcare"><option value="housing"><option value="insurance"><option value="pets"><option value="shopping"><option value="subscriptions"><option value="utilities"><option value="transfer"></datalist>
       <ul class="merchlist">
         <li><form class="merchrow" hx-post="/money/rule" hx-disabled-elt="find button">
           <input type="hidden" name="back" value="month"><input type="hidden" name="month" value="2026-11">
@@ -381,14 +408,6 @@
       </ul>
       <p class="muted sm">Money moved between your own accounts: choose <b>transfer</b> and it stops counting as spending.</p>
       
-      
-    </details>
-    
-    <details class="mcat">
-      <summary><i class="dot s6" aria-hidden="true"></i><span>Subscriptions</span><small class="muted">1 · 0%</small><b>$16</b></summary>
-      <div class="mrowsx"><div class="mrow" data-d="2026-11-12" data-a="15.99"><span class="muted">11-12</span><span>STREAMBOX</span><span class="n">$15.99</span></div></div>
-      
-      <p class="muted sm"><a href="#" data-demo="1">Search the records</a></p>
       
     </details>
     

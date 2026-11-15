@@ -53,11 +53,35 @@ cfg["agent"] = {**cfg.get("agent", {}), "name": "Mitra", "tone": "warm"}
 cfg_path.write_text(json.dumps(cfg, indent=2))
 
 # ---- money -------------------------------------------------------------------------------------------------------------
-chk = ins("accounts", name="Lakeside Bank Checking", type="checking", last4="4821", owner="Marcus")
-sav = ins("accounts", name="Lakeside Bank Savings", type="savings", last4="7310", owner="Elena")
-visa = ins("accounts", name="Northway Visa", type="credit", last4="1209", owner="Marcus")
-summit = ins("accounts", name="Summit Rewards Card", type="credit", last4="3344", owner="Elena")
-inv = ins("accounts", name="Harbor Brokerage", type="investment", last4="5502", owner="Marcus")
+def acct(**kw):  # account columns this app version has (subtype, institution ... came with migration 070)
+    have = {r[1] for r in con.execute("PRAGMA table_info(accounts)")}
+    return ins("accounts", **{k: v for k, v in kw.items() if k in have})
+
+
+chk = acct(name="Lakeside Bank Checking", type="checking", subtype="checking", last4="4821", owner="Marcus",
+           owners="Marcus, Elena", ownership="joint", institution="Lakeside Bank")
+sav = acct(name="Lakeside Bank Savings", type="savings", subtype="savings", last4="7310", owner="Elena",
+           owners="Marcus, Elena", ownership="joint", institution="Lakeside Bank")
+visa = acct(name="Northway Visa", type="credit", subtype="credit_card", last4="1209", owner="Marcus", owners="Marcus",
+            institution="Northway Bank", credit_limit=8000.00, apr_pct=22.9, due_day=21, min_payment=35.00)
+summit = acct(name="Summit Rewards Card", type="credit", subtype="credit_card", last4="3344", owner="Elena",
+              owners="Elena", institution="Summit Card Services", credit_limit=5000.00, apr_pct=19.9, due_day=24,
+              min_payment=25.00)
+inv = acct(name="Harbor Brokerage", type="investment", subtype="brokerage", last4="5502", owner="Marcus",
+           owners="Marcus", institution="Harbor Investments")
+k401 = acct(name="Marcus 401(k)", type="investment", subtype="401k", last4="7716", owner="Marcus", owners="Marcus",
+            institution="Harbor Investments")
+c529 = acct(name="Mateo 529 college plan", type="investment", subtype="529", last4="2290", owner="Elena",
+            owners="Elena", institution="Bright Futures 529")
+home = acct(name="Our house", type="property", subtype="home", owner="Marcus", owners="Marcus, Elena",
+            ownership="joint")
+suv = acct(name="Family SUV", type="property", subtype="vehicle", owner="Marcus", owners="Marcus, Elena",
+           ownership="joint")
+mort = acct(name="Maple Home Lending mortgage", type="loan", subtype="mortgage", last4="6630", owner="Marcus",
+            owners="Marcus, Elena", ownership="joint", institution="Maple Home Lending", apr_pct=5.25, due_day=1,
+            min_payment=2150.00)
+autoln = acct(name="Crestline auto loan", type="loan", subtype="auto", last4="8812", owner="Marcus", owners="Marcus",
+              institution="Crestline Auto Finance")
 
 SPEND = [  # description, category, account, low, high, per month, cardholder
     ("FRESHFIELD MARKET", "groceries", visa, 62, 148, 5, "MARCUS RIVERA"),
@@ -118,12 +142,16 @@ for back in range(6, -1, -1):
 add_uncat = ins("transactions", account_id=visa, txn_date=d(-3), description="TST* HILLTOP BAKERY", amount=-18.40,
                 category=None, txn_type="spend", cardholder="MARCUS RIVERA")
 
-for acct, bal in ((chk, 6420.55), (sav, 18250.00), (visa, -1184.20), (summit, -702.48), (inv, 42310.00)):
-    ins("account_balances", account_id=acct, as_of=d(-2), balance=bal, kind="statement")
+# cards and loans are stored as what is owed (positive); home and car are the family's own estimates
+for aid, bal in ((chk, 6420.55), (sav, 18250.00), (visa, 1184.20), (summit, 702.48), (inv, 42310.00),
+                 (k401, 96840.00), (c529, 18420.00), (mort, 286400.00)):
+    ins("account_balances", account_id=aid, as_of=d(-2), balance=bal, kind="statement")
     for back in range(1, 7):  # older statements, so Money shows net worth by month
-        grow = {sav: -420, inv: -610, chk: -95}.get(acct, 0)
-        ins("account_balances", account_id=acct, as_of=d(-2 - 30 * back), balance=round(bal + grow * back, 2),
+        grow = {sav: -420, inv: -610, chk: -95, k401: -880, c529: -250, mort: 760}.get(aid, 0)
+        ins("account_balances", account_id=aid, as_of=d(-2 - 30 * back), balance=round(bal + grow * back, 2),
             kind="statement")
+for aid, val in ((home, 465000.00), (suv, 24500.00)):
+    ins("account_balances", account_id=aid, as_of=d(-20), balance=val, kind="estimate")
 
 for name, vendor, freq, amt, due, status in (
         ("Mortgage", "Maple Home Lending", "monthly", 2150.00, 12, "due"),
@@ -146,7 +174,8 @@ for name, amt, freq, nxt, pat, cat, dec in (
 
 ins("loans", name="Family SUV loan", lender="Crestline Auto Finance", kind="auto", last4="8812", balance=14620.00,
     balance_date=d(-11), rate_pct=4.9, payment=389.00, payment_day=9, start_date="2024-06-09", payoff_date="2029-06-09",
-    status="active")
+    status="active", **({"account_id": autoln} if "account_id" in {r[1] for r in con.execute("PRAGMA table_info(loans)")}
+                        else {}))
 ins("savings_goals", name="Emergency fund", target=25000.00, account_id=sav, status="active")
 ins("savings_goals", name="Summer trip to the lake", target=3200.00, saved=1450.00, due_date=d(240), status="active")
 ins("savings_goals", name="New roof", target=12000.00, saved=2600.00, due_date=d(540), status="active")

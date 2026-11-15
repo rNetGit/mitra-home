@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8"><script>
+(function(){
+  function note(){var n=document.getElementById('demo-note');if(!n)return;n.hidden=false;clearTimeout(n._t);n._t=setTimeout(function(){n.hidden=true},2600);}
+  window.fetch=function(){note();return new Promise(function(){});};
+  var X=XMLHttpRequest.prototype;X.open=function(){};X.send=function(){note();};X.setRequestHeader=function(){};
+  document.addEventListener('DOMContentLoaded',function(){  // saved charts: scale with the page instead of a fixed width
+    document.querySelectorAll('.chart svg').forEach(function(s){
+      if(!s.getAttribute('viewBox')){var w=parseFloat(s.getAttribute('width')),h=parseFloat(s.getAttribute('height'));
+        if(w&&h){s.setAttribute('viewBox','0 0 '+w+' '+h);s.removeAttribute('width');s.removeAttribute('height');}}
+    });
+  });
+  if(navigator.serviceWorker){navigator.serviceWorker.register=function(){return Promise.resolve();};}
+  document.addEventListener('submit',function(e){e.preventDefault();note();},true);
+  document.addEventListener('click',function(e){var a=e.target.closest('[data-demo]');if(a){e.preventDefault();note();}},true);
+})();
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="htmx-config" content='{"includeIndicatorStyles":false}'>
+  <meta name="csrf-token" content="demo">
+  <meta name="theme-color" content="#F3F4F6">
+  
+  <link rel="icon" href="static/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="static/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="static/icon-180.png">
+  <link rel="stylesheet" href="static/tokens.css">
+  <link rel="stylesheet" href="static/app.css?v=0.149.0">
+  <script src="static/vendor/htmx.min.js?v=0.149.0" defer></script>
+  
+  <script src="static/app.js?v=0.149.0" defer></script>
+  <title>Money · Mitra Home</title>
+</head>
+
+
+<body class="has-bnav"><style>#demo-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:16px;z-index:9999;background:#2A1F17;color:#fff;font:13px/1.4 system-ui,Segoe UI,sans-serif;padding:8px 14px;border-radius:999px;display:flex;gap:12px;align-items:center;box-shadow:0 4px 18px rgba(0,0,0,.25);max-width:calc(100% - 24px);flex-wrap:wrap;justify-content:center}
+#demo-bar a{color:#F6C9A8}
+.chart>div{width:100%!important;height:auto!important}
+.chart svg{position:static!important;width:100%!important;height:auto!important;display:block}@media (max-width:760px){#demo-bar{bottom:84px;padding:6px 12px}#demo-bar span{display:none}.helptip{display:none!important}}</style><div id="demo-bar"><strong>Demo</strong><span>Made-up Rivera family. Nothing you click is saved.</span><a href="wall.html">See the Mitra Wall</a><a href="kid/index.html">See a child's view</a><a href="../phone-demo.html">Phone app demo</a><a href="../index.html">Website</a></div><div id="demo-note" hidden style="position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:10000;background:#1F2328;color:#fff;padding:10px 16px;border-radius:10px;font:14px system-ui,Segoe UI,sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.3)">Demo only: in your own copy this would save.</div>
+
+
+  <nav class="rail" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Mitra Home, Today"><img src="static/icon.svg" alt="" width="40" height="40"><span class="bt"><b>Mitra Home</b><small>AI Agent</small></span></a>
+    
+      
+      <a href="index.html" class="tab"><i class="ic ic-today" aria-hidden="true"></i><span class="tl">Today</span></a>
+      
+      <a href="calendar.html" class="tab"><i class="ic ic-calendar" aria-hidden="true"></i><span class="tl">Calendar</span></a>
+      
+      <a href="add.html" class="tab add" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="tl">Add</span><span class="badge" aria-hidden="true">18</span></a>
+      
+      <a href="money.html" class="tab on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i><span class="tl">Money</span></a>
+      
+      <a href="family.html" class="tab"><i class="ic ic-family" aria-hidden="true"></i><span class="tl">Family</span></a>
+      
+      <span class="rsep" aria-hidden="true"></span>
+      
+      <a href="notes.html" class="tab"><i class="ic ic-note" aria-hidden="true"></i><span class="tl">Notes</span></a>
+      
+      <span class="grow"></span>
+      <details class="rmore">
+        <summary class="me" title="More"><span class="av avall" aria-hidden="true">⋯</span><span class="mename"><small>More</small></span></summary>
+        <div class="rmenu">
+        <a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+      </details>
+    
+    <small class="ver">v0.149.0</small>
+  </nav>
+
+  <main>
+
+  <form class="askbar" role="search" hx-post="/chat/ask" hx-swap="none" hx-disabled-elt="find button" aria-label="Ask Mitra">
+    <span class="mav" aria-hidden="true">M</span>
+    <label class="vh" for="askq">Ask Mitra, or tell it something</label>
+    <input id="askq" name="text" maxlength="1000" autocomplete="off" required
+      placeholder="Ask Mitra, or tell it something: &ldquo;Mateo has the dentist Friday at 4&rdquo;">
+    <kbd class="askkey" aria-hidden="true">Ctrl K</kbd>
+    <button class="btn" type="submit">Ask</button>
+    <span class="thinking muted" role="status">Thinking&hellip;</span>
+  </form>
+
+  
+
+
+
+<header class="head"><div><h1>Money</h1><p class="sub">Every account, same as the bank.</p></div></header>
+<nav class="pchips mtabs" aria-label="Money">
+  <a href="money_part_books.html" class="pchip on" aria-current="true">Accounts</a>
+  <a href="money_part_all.html" class="pchip">All accounts</a>
+  <a href="money_part_month.html" class="pchip">Spending &amp; income</a>
+  <a href="money_part_paid.html" class="pchip">Bills &amp; plan</a>
+</nav>
+
+
+
+<p class="muted asof">Data as of: Cards and checking as of Nov 15 · savings and loans as of Nov 5</p>
+
+<div class="kpis rk bk-kpis">
+  <div class="kpi"><span>What you have</span><b>$671,741</b><i>bank, investments, home and property, life cash value</i></div>
+  <div class="kpi"><span>What you owe</span><b>$302,907</b><i>cards, mortgage, loans</i></div>
+  <div class="kpi"><span>Net worth</span><b>$368,834</b><i>+$3,015 since the 1st</i></div>
+  <div class="kpi"><span>Matches bank</span><b>0 of 11</b><i>0 off · 11 nothing to compare yet</i></div>
+</div>
+<p class="bk-look"><b>Needs a look:</b> <a class="pill warn" href="money_account_3.html">Northway Visa due 2026-11-21</a> <a class="pill warn" href="money_account_4.html">Summit Rewards Card due 2026-11-24</a></p>
+
+<details class="card bk-grp" open>
+  <summary class="bk-head"><b>Bank accounts</b> <span class="muted small">2 accounts</span><span class="bk-total">$24,670.55</span></summary>
+  <div class="tablewrap"><table class="bk-table nocards">
+    <thead><tr><th>Account</th><th class="bk-wide">Owners</th>
+      <th class="bk-wide">Type</th><th class="bk-wide">As of</th>
+      <th class="num">Balance</th></tr></thead>
+    <tbody><tr>
+      <td><span class="bk-dot bk-sync" title="From the bank, nothing to compare yet" aria-label="From the bank, nothing to compare yet"></span><a href="money_account_1.html" class="bk-name">Lakeside Bank Checking</a> <span class="chip-s t-good">Joint</span>
+        <span class="bk-meta">Lakeside Bank · Checking · x4821</span></td>
+      <td class="bk-wide">Marcus, Elena</td>
+      <td class="bk-wide">Checking</td><td class="bk-wide">2026-11-13</td>
+      <td class="num"><span class="">$6,420.55</span></td>
+    </tr><tr>
+      <td><span class="bk-dot bk-sync" title="From the bank, nothing to compare yet" aria-label="From the bank, nothing to compare yet"></span><a href="money_account_2.html" class="bk-name">Lakeside Bank Savings</a> <span class="chip-s t-good">Joint</span>
+        <span class="bk-meta">Lakeside Bank · Savings · x7310</span></td>
+      <td class="bk-wide">Marcus, Elena</td>
+      <td class="bk-wide">Savings</td><td class="bk-wide">2026-11-13</td>
+      <td class="num"><span class="">$18,250.00</span></td>
+    </tr></tbody>
+  </table></div>
+</details>
+
+<details class="card bk-grp" open>
+  <summary class="bk-head"><b>Credit cards</b> <span class="muted small">2 accounts</span><span class="bk-total bk-owed">owe $1,886.68</span></summary>
+  <div class="tablewrap"><table class="bk-table nocards">
+    <thead><tr><th>Account</th><th class="bk-wide">Owners</th>
+      <th class="bk-wide">Used</th><th class="bk-wide">Due</th>
+      
+      <th class="num">Owed</th></tr></thead>
+    <tbody><tr>
+      <td><span class="bk-dot bk-sync" title="From the bank, nothing to compare yet" aria-label="From the bank, nothing to compare yet"></span><a href="money_account_3.html" class="bk-name">Northway Visa</a>
+        <span class="bk-meta">Northway Bank · Credit card · x1209</span></td>
+      <td class="bk-wide">Marcus</td>
+      <td class="bk-wide"><svg class="bk-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="15" height="6" rx="3"/></svg> 15%</td><td class="bk-wide">2026-11-21</td>
+      
+      <td class="num"><span class="bk-owed">$1,184.20</span></td>
+    </tr><tr>
+      <td><span class="bk-dot bk-sync" title="From the bank, nothing to compare yet" aria-label="From the bank, nothing to compare yet"></span><a href="money_account_4.html" class="bk-name">Summit Rewards Card</a>
+        <span class="bk-meta">Summit Card Services · Credit card · x3344</span></td>
+      <td class="bk-wide">Elena</td>
+      <td class="bk-wide"><svg class="bk-bar" viewBox="0 0 100 6" preserveAspectRatio="none" aria-hidden="true"><rect class="fb-bg" x="0" y="0" width="100" height="6" rx="3"/><rect class="fb-fill" x="0" y="0" width="14" height="6" rx="3"/></svg> 14%</td><td class="bk-wide">2026-11-24</td>
+      
+      <td class="num"><span class="bk-owed">$702.48</span></td>
+    </tr></tbody>
+  </table></div>
+</details>
+
+<details class="card bk-grp" open>
+  <summary class="bk-head"><b>Investments</b> <span class="muted small">3 accounts</span><span class="bk-total">$157,570.00</span></summary>
+  <div class="tablewrap"><table class="bk-table nocards">
+    <thead><tr><th>Account</th><th class="bk-wide">Owners</th>
+      <th class="bk-wide">Type</th><th class="bk-wide">As of</th>
+      <th class="num">Balance</th></tr></thead>
+    <tbody><tr>
+      <td><span class="bk-dot bk-sync" title="From the bank, nothing to compare yet" aria-label="From the bank, nothing to compare yet"></span><a href="money_account_5.html" class="bk-name">Harbor Brokerage</a>
+        <span class="bk-meta">Harbor Investments · Brokerage · x5502</span></td>
+      <td class="bk-wide">Marcus</td>
+      <td class="bk-wide">Brokerage</td><td class="bk-wide">2026-11-13</td>
+      <td class="num"><span class="">$42,310.00</span></td>
+    </tr><tr>
+      <td><span class="bk-dot bk-sync" title="From the bank, nothing to compare yet" aria-label="From the bank, nothing to compare yet"></span><a href="money_account_6.html" class="bk-name">Marcus 401(k)</a>
+        <span class="bk-meta">Harbor Investments · 401(k) / 403(b) · x7716</span></td>
+      <td class="bk-wide">Marcus</td>
+      <td class="bk-wide">401(k) / 403(b)</td><td class="bk-wide">2026-11-13</td>
+      <td class="num"><span class="">$96,840.00</span></td>
+    </tr><tr>
+      <td><span class="bk-dot bk-sync" title="From the bank, nothing to compare yet" aria-label="From the bank, nothing to compare yet"></span><a href="money_account_7.html" class="bk-name">Mateo 529 college plan</a>
+        <span class="bk-meta">Bright Futures 529 · 529 college plan · x2290</span></td>
+      <td class="bk-wide">Elena</td>
+      <td class="bk-wide">529 college plan</td><td class="bk-wide">2026-11-13</td>
+      <td class="num"><span class="">$18,420.00</span></td>
+    </tr></tbody>
+  </table></div>
+</details>
+
+<details class="card bk-grp" open>
+  <summary class="bk-head"><b>Home and property</b> <span class="muted small">2 accounts</span><span class="bk-total">$489,500.00</span></summary>
+  <div class="tablewrap"><table class="bk-table nocards">
+    <thead><tr><th>Account</th><th class="bk-wide">Owners</th>
+      <th class="bk-wide">Type</th><th class="bk-wide">As of</th>
+      <th class="num">Value</th></tr></thead>
+    <tbody><tr>
+      <td><span class="bk-dot bk-sync" title="From the bank, nothing to compare yet" aria-label="From the bank, nothing to compare yet"></span><a href="money_account_9.html" class="bk-name">Family SUV</a> <span class="chip-s t-good">Joint</span>
+        <span class="bk-meta">Vehicle</span></td>
+      <td class="bk-wide">Marcus, Elena</td>
+      <td class="bk-wide">Vehicle</td><td class="bk-wide">2026-10-26</td>
+      <td class="num"><span class="">$24,500.00</span></td>
+    </tr><tr>
+      <td><span class="bk-dot bk-sync" title="From the bank, nothing to compare yet" aria-label="From the bank, nothing to compare yet"></span><a href="money_account_8.html" class="bk-name">Our house</a> <span class="chip-s t-good">Joint</span>
+        <span class="bk-meta">Home</span></td>
+      <td class="bk-wide">Marcus, Elena</td>
+      <td class="bk-wide">Home</td><td class="bk-wide">2026-10-26</td>
+      <td class="num"><span class="">$465,000.00</span></td>
+    </tr></tbody>
+  </table></div>
+</details>
+
+<details class="card bk-grp" open>
+  <summary class="bk-head"><b>Mortgage and loans</b> <span class="muted small">2 accounts</span><span class="bk-total bk-owed">owe $301,020.00</span></summary>
+  <div class="tablewrap"><table class="bk-table nocards">
+    <thead><tr><th>Account</th><th class="bk-wide">Owners</th>
+      <th class="bk-wide">Rate</th><th class="bk-wide">Next payment</th>
+      
+      <th class="num">Owed</th></tr></thead>
+    <tbody><tr>
+      <td><span class="bk-dot bk-sync" title="From the bank, nothing to compare yet" aria-label="From the bank, nothing to compare yet"></span><a href="money_account_11.html" class="bk-name">Crestline auto loan</a>
+        <span class="bk-meta">Crestline Auto Finance · Auto loan · x8812</span></td>
+      <td class="bk-wide">Marcus</td>
+      <td class="bk-wide">4.9%</td><td class="bk-wide">2026-12-09</td>
+      
+      <td class="num"><span class="bk-owed">$14,620.00</span></td>
+    </tr><tr>
+      <td><span class="bk-dot bk-sync" title="From the bank, nothing to compare yet" aria-label="From the bank, nothing to compare yet"></span><a href="money_account_10.html" class="bk-name">Maple Home Lending mortgage</a> <span class="chip-s t-good">Joint</span>
+        <span class="bk-meta">Maple Home Lending · Mortgage · x6630</span></td>
+      <td class="bk-wide">Marcus, Elena</td>
+      <td class="bk-wide">5.25%</td><td class="bk-wide">2026-12-01</td>
+      
+      <td class="num"><span class="bk-owed">$286,400.00</span></td>
+    </tr></tbody>
+  </table></div>
+</details>
+
+
+<p class="muted small"><span class="bk-dot bk-ok"></span> matches bank <span class="bk-dot bk-off"></span> off from the bank <span class="bk-dot bk-sync"></span> from the bank, nothing to compare yet <span class="bk-dot bk-none"></span> no bank balance yet
+
+ · <a href="#add-accounts">+ Add an account</a></p>
+
+<details class="card addnote" id="add-accounts">
+  <summary><h2>Add an account</h2></summary>
+  <div id="radd-accounts">
+
+
+
+<form class="nform" hx-post="/records/add" hx-target="#radd-accounts" hx-swap="innerHTML" hx-vals='{"back": "", "part": "money/accounts", "table": "accounts"}'>
+
+  <label>Name<input name="name" maxlength="60" required value=""></label>
+  <label>Type<select name="kind"><optgroup label="Bank accounts"><option value="checking" >Checking</option><option value="savings" >Savings</option><option value="money_market" >Money market</option></optgroup><optgroup label="Credit cards"><option value="credit_card" >Credit card</option><option value="store_card" >Store card</option></optgroup><optgroup label="Investments"><option value="brokerage" >Brokerage</option><option value="401k" >401(k) / 403(b)</option><option value="ira" >IRA</option><option value="roth_ira" >Roth IRA</option><option value="529" >529 college plan</option><option value="treasury_direct" >TreasuryDirect</option><option value="cd" >CD</option><option value="hsa" >HSA</option><option value="other_investment" >Other investment</option></optgroup><optgroup label="Home and property"><option value="home" >Home</option><option value="vehicle" >Vehicle</option><option value="other_property" >Other property</option></optgroup><optgroup label="Life insurance"><option value="life_whole" >Whole life</option><option value="life_universal" >Universal life</option><option value="life_term" >Term life</option></optgroup><optgroup label="Mortgage and loans"><option value="mortgage" >Mortgage</option><option value="heloc" >Home equity (HELOC)</option><option value="auto" >Auto loan</option><option value="furniture" >Furniture / store loan</option><option value="student" >Student loan</option><option value="personal" >Personal loan</option><option value="other_loan" >Other loan</option></optgroup></select></label>
+  <label>Bank (optional)<input name="institution" maxlength="60" value=""></label>
+  <label>Last 4 digits (optional)<input name="last4" maxlength="4" pattern="[0-9]{4}" inputmode="numeric" value=""></label>
+  <label>Owner (optional)<input name="owner" maxlength="40" value=""></label>
+  <label>Ownership<select name="ownership"><option value="individual" selected>Individual</option><option value="joint" >Joint</option></select></label>
+  <p class="muted small">Only the last four digits, never the whole account number.</p>
+
+  <button class="btn" type="submit">Add</button>
+</form></div>
+</details>
+
+
+</main>
+
+  <aside id="helpp" class="helpp" hidden tabindex="-1" aria-label="Help"></aside>
+
+
+  <details class="bmore pme">
+    <summary aria-label="More"><span class="av avall" aria-hidden="true">⋯</span></summary>
+    <div class="sheet">
+        <a href="notes.html" >Notes</a><a href="settings.html" >Settings</a>
+        <button type="button" class="ghost" hx-get="/help/panel?key=finance" hx-target="#helpp" hx-swap="innerHTML">Help on this page</button>
+        <button type="button" class="ghost" data-theme-toggle data-mode="light">Dark mode</button>
+        
+</div>
+  </details>
+  <nav class="bnav" aria-label="Main (phone)">
+    
+    
+    <a href="index.html" ><i class="ic ic-today" aria-hidden="true"></i>Today</a>
+    
+    
+    
+    <a href="calendar.html" ><i class="ic ic-calendar" aria-hidden="true"></i>Calendar</a>
+    
+    
+    
+    <a href="add.html" class="scan" aria-label="Add or scan, 18 waiting in the Inbox"><i class="ic ic-add" aria-hidden="true"></i><span class="badge" aria-hidden="true">18</span></a>
+    
+    
+    
+    <a href="money.html" class="on" aria-current="page"><i class="ic ic-money" aria-hidden="true"></i>Money</a>
+    
+    
+    
+    <a href="family.html" ><i class="ic ic-family" aria-hidden="true"></i>Family</a>
+    
+    
+  </nav>
+
+<dialog id="pview" class="pview" aria-label="Filed paper"><div class="pview-head"><b id="pview-title">Filed paper</b> <a class="btn alt sm" id="pview-dl" href="#">Download</a><button type="button" class="btn alt sm" data-pview-close>Close</button></div><iframe title="Filed paper" id="pview-frame"></iframe></dialog>
+</body>
+</html>
