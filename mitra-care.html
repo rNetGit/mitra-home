@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mitra Care</title>
+<meta name="description" content="Mitra Care is a free health check for your family's Windows PC, Wi-Fi and home network. It finds problems, explains them in plain English, fixes them with one click and checks again. Works offline.">
+<link rel="icon" href="assets/mitra-care/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="assets/logo/icon.svg" alt=""> Mitra Home <span>AI Agent</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="index.html#how">How it works</a>
+      <a href="demo/index.html">Demo</a>
+      <a class="nav-cta" href="install.html">Get Mitra Home</a>
+      <a href="faq.html">FAQ</a>
+      <button class="theme-btn" type="button" aria-label="Dark theme" aria-pressed="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section>
+  <div class="wrap" style="max-width:820px">
+    <div class="section-head">
+      <div class="eyebrow">Also from Mitra</div>
+      <h1><img src="assets/mitra-care/icon.svg" alt="" width="48" height="48" style="vertical-align:-10px;margin-right:10px">Mitra Care</h1>
+    </div>
+    <p class="lead">A free health check for your family's Windows PC, its Wi-Fi and your home network. It finds problems,
+    explains them in plain English, fixes them with one click and checks again. It works offline: no AI, no account.</p>
+    <div class="btns">
+      <a class="btn btn-accent" href="https://github.com/rNetGit/mitra-home/releases/download/mitra-care-0.1.0/MitraCare-0.1.0-win-x64.exe" rel="noopener">Download for Windows <span class="arr" aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-outline" href="https://github.com/rNetGit/mitra-home/releases/tag/mitra-care-0.1.0" rel="noopener">All files and checksums</a>
+    </div>
+    <p class="small muted" style="margin-top:12px">Version 0.1.0 (beta) &middot; Windows 10 and 11, 64-bit &middot; 62 MB &middot;
+    nothing to install, just run it &middot; signed by Rajesh Katukojwala. Because the signature is new, Windows may show
+    &ldquo;Windows protected your PC&rdquo; the first time: choose <strong>More info</strong>, then <strong>Run anyway</strong>.</p>
+
+    <div class="browser" style="margin:28px 0"><div class="chrome"><i></i><i></i><i></i></div><img src="assets/shots/mitra-care-pc.png" alt="Mitra Care after a scan: score 100 of 100, with PC health, Security, Internet and Wi-Fi each at 100." width="1085" height="845" loading="lazy"></div>
+
+    <h2 id="checks">What it checks</h2>
+    <ul>
+      <li><strong>PC health:</strong> free disk space, disk health, Windows updates, and whether a restart is waiting.</li>
+      <li><strong>Security:</strong> firewall, virus protection and its definitions, old file sharing (SMBv1), Remote Desktop,
+      the &ldquo;allow changes?&rdquo; prompt (UAC), the Guest account, accounts without a password and drive encryption.</li>
+      <li><strong>Internet:</strong> delay and dropped connections, download speed, and how fast website names are looked up (DNS).</li>
+      <li><strong>Wi-Fi:</strong> signal strength and Wi-Fi security, power saving that slows Wi-Fi, saved password-free networks
+      that join on their own, and how often the Wi-Fi drops.</li>
+    </ul>
+    <p>Each result gets a score out of 100, a short &ldquo;why it matters&rdquo; and steps to fix it yourself. Router settings
+    (channel, WPA3, firmware) get clear step-by-step guides, because every router is different.</p>
+
+    <h2 id="fixing">How fixing works</h2>
+    <ul>
+      <li><strong>You see the change first.</strong> Bigger changes show exactly what will change and ask before doing it.</li>
+      <li><strong>A safety net.</strong> The first fix makes a Windows restore point, and every fix saves the old setting before
+      changing anything.</li>
+      <li><strong>Checked again.</strong> After each fix the check runs again, so you know it worked.</li>
+      <li><strong>Undo.</strong> Fixes can be undone with one click, even after closing the app.</li>
+      <li><strong>Never the risky stuff.</strong> It never turns protection off, never deletes your files and never
+      &ldquo;cleans&rdquo; the registry.</li>
+    </ul>
+
+    <h2 id="report">A report to share</h2>
+    <p>Save a one-page report to send to the family member who helps with computers. Names, network names and addresses are
+    hidden by default.</p>
+
+    <h2 id="good-to-know">Good to know</h2>
+    <ul>
+      <li>It asks for administrator rights when it starts, because fixes change system settings.</li>
+      <li>Everything stays on your PC. The only thing that goes online is the optional speed test (Cloudflare), which you can
+      switch off.</li>
+      <li>This is a beta. Wi-Fi checks read English Windows; on other languages some may show &ldquo;Skipped&rdquo;.</li>
+      <li>Mitra Care is free. Its source code is not published yet.</li>
+      <li>A command-line version for helpers is on the <a href="https://github.com/rNetGit/mitra-home/releases/tag/mitra-care-0.1.0" rel="noopener">release page</a>.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="brand" href="index.html"><img src="assets/logo/icon.svg" alt=""> Mitra Home <span>AI Agent</span></a>
+        <p style="margin:12px 0 0;max-width:28em">A household assistant that lives on your own computer. Bills, papers, dates and lists for the whole family.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul><li><a href="index.html#what">Features</a></li><li><a href="index.html#how">How it works</a></li><li><a href="demo/index.html">Demo</a></li><li><a href="install.html">Install</a></li><li><a href="mitra-care.html">Mitra Care</a></li></ul>
+      </div>
+      <div>
+        <h4>Help</h4>
+        <ul><li><a href="faq.html">FAQ</a></li><li><a href="faq.html#contact">Contact</a></li><li><a href="index.html#privacy">Privacy</a></li><li><a href="privacy.html">Privacy policy</a></li><li><a href="security.html">Security</a></li><li><a href="source.html">Source code</a></li><li><a href="install.html#trouble">Troubleshooting</a></li></ul>
+      </div>
+    </div>
+    <div class="fine">
+      <div>Records and reminders only. Nothing here is financial, tax, legal, insurance or medical advice.</div>
+      <div>Not affiliated with or endorsed by Anthropic, OpenAI or Google. Product names belong to their owners.</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
