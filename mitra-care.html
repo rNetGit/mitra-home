@@ -64,13 +64,20 @@
     <ul>
       <li><strong>Every device, on a map.</strong> See what is connected: TVs, phones, printers, cameras, smart plugs, mesh
       points. Mitra Care works out what each one is and says why it thinks so. Give devices family names like &ldquo;Dad's phone&rdquo;.</li>
-      <li><strong>New and unknown devices stand out</strong>, so you notice when something joins that nobody recognises.</li>
-      <li><strong>Is it the Wi-Fi or the internet company?</strong> It measures both sides and tells you which one is slow.</li>
-      <li><strong>Warnings if someone tampers with your network:</strong> if the router is swapped or impersonated, or this
-      PC's internet address book (DNS) is changed, you get a clear warning with what to do.</li>
-      <li><strong>Weekly check (optional).</strong> Mitra Care can check every Sunday and show a Windows notification
-      about new devices or warnings. It runs without administrator rights and only looks at your own network.</li>
+      <li><strong>New and unknown devices stand out</strong>, so you notice when something joins that nobody recognises.
+      Devices with old, unsafe remote access open (Telnet or FTP) are flagged as a risk.</li>
+      <li><strong>Is it the Wi-Fi or the internet company?</strong> It measures both sides and tells you which one is slow.
+      It also spots two routers in a row (&ldquo;double NAT&rdquo;), a common cause of game and video-call trouble.</li>
+      <li><strong>Warnings if someone tampers with your network:</strong> if the router is swapped or impersonated, this
+      PC's internet address book (DNS) is changed, or network addresses are handed out by something other than your
+      router, you get a clear warning with what to do. A warning stays until you press &ldquo;This is expected&rdquo;.</li>
+      <li><strong>Weekly check (optional).</strong> Mitra Care can check every Sunday at 7 PM and show a Windows notification
+      about new devices or warnings. It runs without administrator rights and never changes anything.</li>
     </ul>
+    <p><strong>How it finds devices:</strong> only by looking at your own home network from this PC. It pings the addresses
+    in your network, reads the PC's list of nearby devices, listens for devices that announce themselves (UPnP and Bonjour)
+    and checks a few well-known ports. The device maker is looked up in a list built into the app, so nothing is sent
+    online.</p>
 
     <h2 id="fixing">How fixing works</h2>
     <ul>
