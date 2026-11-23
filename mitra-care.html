@@ -39,10 +39,10 @@
     <p class="lead">A free health check for your family's Windows PC, its Wi-Fi and your home network. It finds problems,
     explains them in plain English, fixes them with one click and checks again. It works offline: no AI, no account.</p>
     <div class="btns">
-      <a class="btn btn-accent" href="https://github.com/rNetGit/mitra-home/releases/download/mitra-care-0.1.0/MitraCare-0.1.0-win-x64.exe" rel="noopener">Download for Windows <span class="arr" aria-hidden="true">&rarr;</span></a>
-      <a class="btn btn-outline" href="https://github.com/rNetGit/mitra-home/releases/tag/mitra-care-0.1.0" rel="noopener">All files and checksums</a>
+      <a class="btn btn-accent" href="https://github.com/rNetGit/mitra-home/releases/download/mitra-care-0.2.0/MitraCare-0.2.0-win-x64.exe" rel="noopener">Download for Windows <span class="arr" aria-hidden="true">&rarr;</span></a>
+      <a class="btn btn-outline" href="https://github.com/rNetGit/mitra-home/releases/tag/mitra-care-0.2.0" rel="noopener">All files and checksums</a>
     </div>
-    <p class="small muted" style="margin-top:12px">Version 0.1.0 (beta) &middot; Windows 10 and 11, 64-bit &middot; 62 MB &middot;
+    <p class="small muted" style="margin-top:12px">Version 0.2.0 (beta) &middot; Windows 10 and 11, 64-bit &middot; 73 MB &middot;
     nothing to install, just run it &middot; signed by Rajesh Katukojwala. Because the signature is new, Windows may show
     &ldquo;Windows protected your PC&rdquo; the first time: choose <strong>More info</strong>, then <strong>Run anyway</strong>.</p>
 
@@ -60,6 +60,18 @@
     <p>Each result gets a score out of 100, a short &ldquo;why it matters&rdquo; and steps to fix it yourself. Router settings
     (channel, WPA3, firmware) get clear step-by-step guides, because every router is different.</p>
 
+    <h2 id="home-network">Your home network</h2>
+    <ul>
+      <li><strong>Every device, on a map.</strong> See what is connected: TVs, phones, printers, cameras, smart plugs, mesh
+      points. Mitra Care works out what each one is and says why it thinks so. Give devices family names like &ldquo;Dad's phone&rdquo;.</li>
+      <li><strong>New and unknown devices stand out</strong>, so you notice when something joins that nobody recognises.</li>
+      <li><strong>Is it the Wi-Fi or the internet company?</strong> It measures both sides and tells you which one is slow.</li>
+      <li><strong>Warnings if someone tampers with your network:</strong> if the router is swapped or impersonated, or this
+      PC's internet address book (DNS) is changed, you get a clear warning with what to do.</li>
+      <li><strong>Weekly check (optional).</strong> Mitra Care can check every Sunday and show a Windows notification
+      about new devices or warnings. It runs without administrator rights and only looks at your own network.</li>
+    </ul>
+
     <h2 id="fixing">How fixing works</h2>
     <ul>
       <li><strong>You see the change first.</strong> Bigger changes show exactly what will change and ask before doing it.</li>
@@ -72,17 +84,18 @@
     </ul>
 
     <h2 id="report">A report to share</h2>
-    <p>Save a one-page report to send to the family member who helps with computers. Names, network names and addresses are
-    hidden by default.</p>
+    <p>Save a one-page report to send to the family member who helps with computers, with the health check and the home
+    network map. Names, network names and addresses are hidden by default.</p>
 
     <h2 id="good-to-know">Good to know</h2>
     <ul>
-      <li>It asks for administrator rights when it starts, because fixes change system settings.</li>
-      <li>Everything stays on your PC. The only thing that goes online is the optional speed test (Cloudflare), which you can
-      switch off.</li>
+      <li>It asks for administrator rights when it starts, because fixes change system settings. You can say No and still
+      run the checks that don't need them.</li>
+      <li>Everything stays on your PC. The home network scan only talks to devices in your own home. The only things that go
+      online are the optional speed test (Cloudflare) and a few pings to measure the internet delay.</li>
       <li>This is a beta. Wi-Fi checks read English Windows; on other languages some may show &ldquo;Skipped&rdquo;.</li>
       <li>Mitra Care is free. Its source code is not published yet.</li>
-      <li>A command-line version for helpers is on the <a href="https://github.com/rNetGit/mitra-home/releases/tag/mitra-care-0.1.0" rel="noopener">release page</a>.</li>
+      <li>A command-line version for helpers is on the <a href="https://github.com/rNetGit/mitra-home/releases/tag/mitra-care-0.2.0" rel="noopener">release page</a>.</li>
     </ul>
   </div>
 </section>
